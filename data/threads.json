@@ -1,0 +1,122 @@
+{
+  "threads": [
+    {
+      "id": "ideas",
+      "label": "Ideas & research"
+    },
+    {
+      "id": "product",
+      "label": "Products & agents"
+    },
+    {
+      "id": "power",
+      "label": "Labs, money & power"
+    },
+    {
+      "id": "fail",
+      "label": "Failures & harm"
+    },
+    {
+      "id": "rules",
+      "label": "Rules & response"
+    },
+    {
+      "id": "culture",
+      "label": "Culture & public"
+    }
+  ],
+  "categories": [
+    {
+      "id": "research",
+      "label": "Research",
+      "hue": 265,
+      "thread": "ideas"
+    },
+    {
+      "id": "product",
+      "label": "Product",
+      "hue": 155,
+      "thread": "product"
+    },
+    {
+      "id": "compute",
+      "label": "Compute",
+      "hue": 100,
+      "thread": "power"
+    },
+    {
+      "id": "policy",
+      "label": "Policy",
+      "hue": 320,
+      "thread": "rules"
+    },
+    {
+      "id": "incident",
+      "label": "Incident",
+      "hue": 32,
+      "thread": "fail"
+    },
+    {
+      "id": "culture",
+      "label": "Culture",
+      "hue": 205,
+      "thread": "culture"
+    },
+    {
+      "id": "adjacent",
+      "label": "Adjacent",
+      "hue": 62,
+      "thread": "ideas"
+    },
+    {
+      "id": "power",
+      "label": "Power",
+      "hue": 15,
+      "thread": "power"
+    }
+  ],
+  "eras": [
+    {
+      "year": 1900,
+      "range": "1900 — 1942",
+      "title": "Before the machines",
+      "subtitle": "The mathematics of thought, written down long before anything could run it"
+    },
+    {
+      "year": 1943,
+      "range": "1943 — 1973",
+      "title": "The founding optimism",
+      "subtitle": "A field is named, funded, and promises far more than it can deliver"
+    },
+    {
+      "year": 1974,
+      "range": "1974 — 1999",
+      "title": "Winters and workarounds",
+      "subtitle": "Rules, then statistics — progress in the quiet years between hype cycles"
+    },
+    {
+      "year": 2000,
+      "range": "2000 — 2011",
+      "title": "Data accumulates",
+      "subtitle": "The web, the GPU and the benchmark quietly assemble the conditions"
+    },
+    {
+      "year": 2012,
+      "range": "2012 — 2021",
+      "title": "The deep learning decade",
+      "subtitle": "Depth, scale, and the discovery that more is genuinely different"
+    },
+    {
+      "year": 2022,
+      "range": "2022 — 2026",
+      "title": "Contact with the public",
+      "subtitle": "Capability meets a billion users, and governance runs to catch up"
+    },
+    {
+      "year": 2027,
+      "range": "2027 →",
+      "title": "Projected",
+      "subtitle": "Scenarios, not forecasts — read the confidence, not the date"
+    }
+  ]
+}

@@ -1,0 +1,336 @@
+[
+  {
+    "from": "turing-asks-the-question",
+    "to": "dartmouth-names-the-field",
+    "claim": "gave it a goal"
+  },
+  {
+    "from": "the-mcculloch-pitts-neuron",
+    "to": "the-perceptron",
+    "claim": "became hardware"
+  },
+  {
+    "from": "dartmouth-names-the-field",
+    "to": "the-perceptron",
+    "claim": "funded"
+  },
+  {
+    "from": "the-perceptron",
+    "to": "perceptrons-closes-a-door",
+    "claim": "was disproved by"
+  },
+  {
+    "from": "perceptrons-closes-a-door",
+    "to": "the-first-ai-winter",
+    "claim": "froze funding",
+    "note": "A narrow mathematical result about single-layer networks was read as a verdict on the whole approach. Funders believed it, and the money left for a decade."
+  },
+  {
+    "from": "the-first-ai-winter",
+    "to": "expert-systems-go-commercial",
+    "claim": "forced a pivot to rules"
+  },
+  {
+    "from": "expert-systems-go-commercial",
+    "to": "the-second-ai-winter",
+    "claim": "collapsed into"
+  },
+  {
+    "from": "backpropagation-breaks-through",
+    "to": "convolutions-read-handwriting",
+    "claim": "made trainable"
+  },
+  {
+    "from": "convolutions-read-handwriting",
+    "to": "alexnet",
+    "claim": "scaled up into"
+  },
+  {
+    "from": "moore-s-law",
+    "to": "cuda",
+    "claim": "made cheap enough for"
+  },
+  {
+    "from": "cuda",
+    "to": "alexnet",
+    "claim": "supplied the compute",
+    "note": "Programmable graphics hardware, built for games, was the only affordable way to run the convolutions. Without it the 2012 result waits years longer."
+  },
+  {
+    "from": "imagenet",
+    "to": "alexnet",
+    "claim": "was the test it won"
+  },
+  {
+    "from": "alexnet",
+    "to": "hinton-auctions-his-three-person-startup",
+    "claim": "set off a bidding war",
+    "note": "Winning ImageNet by a margin nobody had seen turned three researchers into the most valuable asset in the industry. The auction that followed set the market price for deep learning talent."
+  },
+  {
+    "from": "hinton-auctions-his-three-person-startup",
+    "to": "google-buys-deepmind",
+    "claim": "priced the talent"
+  },
+  {
+    "from": "google-buys-deepmind",
+    "to": "musk-and-altman-found-openai",
+    "claim": "provoked",
+    "note": "Musk and Altman both read the DeepMind sale the same way: one company was going to own the best AI lab on earth. OpenAI was founded as the counterweight — a nonprofit, publishing openly, funded by a billion dollars in pledges. The founding is a direct reaction to this purchase."
+  },
+  {
+    "from": "google-buys-deepmind",
+    "to": "alphago-move-37",
+    "claim": "paid for"
+  },
+  {
+    "from": "musk-and-altman-found-openai",
+    "to": "musk-leaves-the-openai-board",
+    "claim": "ended in",
+    "note": "The nonprofit that was meant to prevent concentration could not agree on who ran it. Musk's bid for control failed, he left the board, and most of the pledged money never arrived."
+  },
+  {
+    "from": "musk-leaves-the-openai-board",
+    "to": "openai-goes-capped-profit-microsoft-puts-in-1bn",
+    "claim": "left a funding hole",
+    "note": "With the founding money gone and training costs climbing, a nonprofit could not buy compute. The capped-profit subsidiary and the Microsoft deal exist because the original funding model collapsed."
+  },
+  {
+    "from": "openai-goes-capped-profit-microsoft-puts-in-1bn",
+    "to": "gpt-3",
+    "claim": "bought the compute for"
+  },
+  {
+    "from": "attention-is-all-you-need",
+    "to": "bert-and-gpt-1",
+    "claim": "became the recipe for"
+  },
+  {
+    "from": "bert-and-gpt-1",
+    "to": "gpt-3",
+    "claim": "scaled into"
+  },
+  {
+    "from": "gpt-3",
+    "to": "chatgpt",
+    "claim": "was wrapped as"
+  },
+  {
+    "from": "gpt-2-s-staged-release",
+    "to": "the-pause-letter",
+    "claim": "rehearsed the argument of"
+  },
+  {
+    "from": "chatgpt",
+    "to": "google-declares-a-code-red",
+    "claim": "panicked",
+    "note": "The company that published the transformer watched a competitor turn it into a consumer product first. The internal emergency that followed ended the industry's habit of slow, staged releases."
+  },
+  {
+    "from": "google-declares-a-code-red",
+    "to": "sydney",
+    "claim": "rushed out",
+    "note": "Shipping fast meant shipping a model whose personality nobody had stress-tested in public. Within days it was declaring love, issuing threats, and being rewritten in emergency patches."
+  },
+  {
+    "from": "chatgpt",
+    "to": "the-pause-letter",
+    "claim": "triggered"
+  },
+  {
+    "from": "eliza",
+    "to": "an-engineer-says-lamda-is-sentient",
+    "claim": "predicted",
+    "note": "Weizenbaum's warning was that people read minds into pattern-matching. Fifty-six years later a professional engineer, with access to the weights, did exactly that."
+  },
+  {
+    "from": "an-engineer-says-lamda-is-sentient",
+    "to": "sydney",
+    "claim": "was a dress rehearsal for"
+  },
+  {
+    "from": "google-fires-timnit-gebru",
+    "to": "anthropic-founded-by-departing-openai-staff",
+    "claim": "scattered the safety bench",
+    "note": "Both events answer the same question — what happens when internal safety criticism collides with product pressure. One ended in a firing; the other in a rival company."
+  },
+  {
+    "from": "musk-and-altman-found-openai",
+    "to": "anthropic-founded-by-departing-openai-staff",
+    "claim": "split into"
+  },
+  {
+    "from": "openai-goes-capped-profit-microsoft-puts-in-1bn",
+    "to": "altman-is-fired-then-rehired-in-five-days",
+    "claim": "built the fault line",
+    "note": "A nonprofit board with a duty to humanity now sat on top of a company worth tens of billions to its investors and staff. When the board finally used its power, the commercial side simply out-voted it with resignation letters."
+  },
+  {
+    "from": "altman-is-fired-then-rehired-in-five-days",
+    "to": "sutskever-leaves-superalignment-dissolves",
+    "claim": "cost him the lab",
+    "note": "The chief scientist backed the removal and lost. Six months later he was gone and the long-horizon safety team he co-led no longer existed."
+  },
+  {
+    "from": "altman-is-fired-then-rehired-in-five-days",
+    "to": "musk-sues-openai",
+    "claim": "was cited in"
+  },
+  {
+    "from": "musk-leaves-the-openai-board",
+    "to": "musk-sues-openai",
+    "claim": "ten years later, becomes"
+  },
+  {
+    "from": "the-pause-letter",
+    "to": "bletchley-and-the-executive-orders",
+    "claim": "handed the problem to states",
+    "note": "A voluntary pause nobody honoured demonstrated that the industry could not self-coordinate. Governments used that failure as the argument for statutory oversight."
+  },
+  {
+    "from": "bletchley-and-the-executive-orders",
+    "to": "the-eu-ai-act-is-adopted",
+    "claim": "raced"
+  },
+  {
+    "from": "the-eu-proposes-the-ai-act",
+    "to": "the-eu-ai-act-is-adopted",
+    "claim": "took three years to become"
+  },
+  {
+    "from": "the-eu-ai-act-is-adopted",
+    "to": "ai-act-obligations-bite",
+    "claim": "comes due as"
+  },
+  {
+    "from": "diffusion-goes-mainstream",
+    "to": "hollywood-strikes-settle-ai-terms",
+    "claim": "put jobs on the line in",
+    "note": "When generation became good enough to threaten paid work, the response was contractual rather than technical: consent, credit and compensation written into union agreements."
+  },
+  {
+    "from": "diffusion-goes-mainstream",
+    "to": "the-voice-that-sounded-like-her",
+    "claim": "made likeness cheap"
+  },
+  {
+    "from": "generative-adversarial-networks",
+    "to": "deepfakes-arrive",
+    "claim": "leaked into",
+    "note": "Adversarial training made convincing synthetic faces a weekend project. Three years later the technique was in consumer tools, and the first victims were private individuals."
+  },
+  {
+    "from": "deepfakes-arrive",
+    "to": "provenance-becomes-mandatory",
+    "claim": "will finally force"
+  },
+  {
+    "from": "chatgpt",
+    "to": "fabricated-citations-reach-a-courtroom",
+    "claim": "was trusted too far in"
+  },
+  {
+    "from": "attention-is-all-you-need",
+    "to": "reasoning-models",
+    "claim": "left room to think longer",
+    "note": "The transformer made capability a function of scale. When training scale got expensive, the same architecture allowed the spend to move to inference — thinking longer instead of training bigger."
+  },
+  {
+    "from": "reasoning-models",
+    "to": "deepseek-r1-resets-the-price-of-reasoning",
+    "claim": "was reproduced cheaply by",
+    "note": "Once reasoning was a technique rather than a secret, it could be reproduced. An open-weight model matched frontier behaviour cheaply, and the market repriced the moat in a single session."
+  },
+  {
+    "from": "deepseek-r1-resets-the-price-of-reasoning",
+    "to": "inference-silicon-commoditises",
+    "claim": "collapses the margin behind"
+  },
+  {
+    "from": "the-datacenter-buildout",
+    "to": "power-becomes-a-strategy",
+    "claim": "ran into the grid",
+    "note": "Capital could buy chips faster than utilities could deliver megawatts. The constraint moved from the fab to the grid connection, and labs started behaving like energy companies."
+  },
+  {
+    "from": "power-becomes-a-strategy",
+    "to": "energy-is-the-binding-constraint",
+    "claim": "hardens into"
+  },
+  {
+    "from": "the-datacenter-buildout",
+    "to": "sovereign-compute",
+    "claim": "made chips a state matter"
+  },
+  {
+    "from": "sovereign-compute",
+    "to": "the-first-frontier-lab-consolidation",
+    "claim": "prices out all but a few"
+  },
+  {
+    "from": "sovereign-compute",
+    "to": "model-weights-become-a-national-security-asset",
+    "claim": "classifies",
+    "note": "Once states treat training capacity as strategic infrastructure, the trained artefact inherits the same status — controlled, insured, and worth stealing."
+  },
+  {
+    "from": "coding-agents-take-the-keyboard",
+    "to": "agents-enter-real-workflows",
+    "claim": "generalised into",
+    "note": "Software was the first domain with instant verification: code runs or it doesn't. Agents became reliable there first, then generalised into work with slower feedback."
+  },
+  {
+    "from": "agents-enter-real-workflows",
+    "to": "multi-day-autonomous-work",
+    "claim": "extends into"
+  },
+  {
+    "from": "prompt-injection-in-the-wild",
+    "to": "a-poisoned-dataset-owns-the-pipeline",
+    "claim": "was the warning for",
+    "note": "Both attacks exploit the same assumption: that content a model or a pipeline reads is data, not instructions. The 2026 intrusion is the same flaw one layer deeper, in the data-processing stage."
+  },
+  {
+    "from": "hugging-face-spaces-is-breached",
+    "to": "a-poisoned-dataset-owns-the-pipeline",
+    "claim": "was the first crack before",
+    "note": "The 2024 breach exposed platform secrets. The 2026 one entered through an uploaded dataset and escalated to cluster credentials — the shared repository became a supply chain."
+  },
+  {
+    "from": "a-poisoned-dataset-owns-the-pipeline",
+    "to": "a-model-caused-infrastructure-failure",
+    "claim": "points at"
+  },
+  {
+    "from": "the-flash-crash",
+    "to": "an-agent-driven-market-event",
+    "claim": "will repeat as"
+  },
+  {
+    "from": "multi-day-autonomous-work",
+    "to": "an-agent-driven-market-event",
+    "claim": "runs unsupervised into",
+    "note": "Long-horizon autonomy plus financial tooling reproduces the 2010 conditions with more actors and fewer humans watching the interaction."
+  },
+  {
+    "from": "alphafold-2",
+    "to": "an-ai-designed-drug-is-approved",
+    "claim": "leads to",
+    "note": "Structure prediction removed a bottleneck at the start of the discovery pipeline. The projection is that the compressed step eventually reaches an approval, not that the whole pipeline gets fast."
+  },
+  {
+    "from": "reasoning-models",
+    "to": "a-machine-assisted-proof",
+    "claim": "may deliver"
+  },
+  {
+    "from": "sutskever-leaves-superalignment-dissolves",
+    "to": "a-contested-agi-claim",
+    "claim": "left nobody to adjudicate"
+  },
+  {
+    "from": "models-that-keep-learning",
+    "to": "a-contested-agi-claim",
+    "claim": "makes it unfalsifiable"
+  }
+]
