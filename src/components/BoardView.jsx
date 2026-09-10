@@ -318,6 +318,7 @@ export default function BoardView({ items, graph, media, route, navigate, board,
     >
       <div style={{ flex: 'none', paddingTop: 9 }}>
         <EditorBar
+          compact={box.w < 820}
           lead={<>
             <h1 style={{ margin: 0, font: '400 clamp(16px,1.7vw,21px)/1 ' + "'Instrument Serif', Georgia, serif", letterSpacing: '-0.02em', whiteSpace: 'nowrap' }}>The board</h1>
             <span style={{ ...micro(chain ? 0.75 : 0.42), color: chain ? RED_LIT : undefined }}>{hint}</span>
@@ -413,15 +414,6 @@ export default function BoardView({ items, graph, media, route, navigate, board,
               })}
             </svg>
 
-            {THREADS.map((thread, i) => (
-              <div key={'label-' + thread.id} style={{
-                position: 'absolute', left: 18, top: m.ruler + i * m.lane + 4, zIndex: 6, maxWidth: Math.min(150, m.cardW),
-                padding: '5px 8px', background: '#ddd6c4', color: '#17161a', transform: 'rotate(-1deg)',
-                boxShadow: '0 5px 12px rgba(0,0,0,0.5)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis',
-                font: '500 ' + (m.k < 0.6 ? 8 : 9) + 'px/1.3 ' + MONO, letterSpacing: '0.14em', textTransform: 'uppercase'
-              }}>{thread.label}</div>
-            ))}
-
             {strings.filter((s) => current
               ? (current.from === s.from && current.to === s.to) || (current.from === s.to && current.to === s.from)
               : active && (s.from === focusId || s.to === focusId)
@@ -503,6 +495,17 @@ export default function BoardView({ items, graph, media, route, navigate, board,
             })}
           </div>
         </div>
+
+        <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: 4, zIndex: 6, pointerEvents: 'none' }} />
+        {THREADS.map((thread, i) => (
+          <div key={'label-' + thread.id} style={{
+            position: 'absolute', left: 7, top: m.ruler + i * m.lane + 2, zIndex: 6, pointerEvents: 'none',
+            maxWidth: 'min(46vw,168px)', padding: '3px 7px', borderRadius: 2,
+            background: 'rgba(10,10,11,0.82)', border: '1px solid rgba(243,240,234,0.14)',
+            color: 'rgba(243,240,234,0.72)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis',
+            font: '500 ' + (m.k < 0.55 ? 7.5 : 8.5) + 'px/1.3 ' + MONO, letterSpacing: '0.13em', textTransform: 'uppercase'
+          }}>{thread.label}</div>
+        ))}
 
         {!items.length && (
           <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none', ...micro(0.4), letterSpacing: '0.14em' }}>

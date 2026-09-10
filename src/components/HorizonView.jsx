@@ -7,10 +7,10 @@ import { INK, MONO, RED, SANS, SERIF, button, micro } from '../lib/styles.js';
 /* A ledger row, not a sentence. Label left, value right, nothing implied between. */
 const Row = ({ label, children, dim }) => (
   <div style={{ display: 'flex', gap: 14, alignItems: 'baseline', padding: '4px 0' }}>
-    <span style={{ ...micro(0.34), flex: 'none', width: 92 }}>{label}</span>
+    <span style={{ ...micro(0.34), flex: 'none', width: 92, maxWidth: '34%' }}>{label}</span>
     <span style={{
       font: '400 11.5px/1.6 ' + MONO, color: 'rgba(243,240,234,' + (dim ? 0.4 : 0.72) + ')',
-      letterSpacing: '0.02em', textWrap: 'pretty'
+      letterSpacing: '0.02em', textWrap: 'pretty', minWidth: 0, flex: '1 1 auto', overflowWrap: 'anywhere'
     }}>{children}</span>
   </div>
 );
@@ -29,10 +29,10 @@ export default function HorizonView({ items, graph, navigate, onOpen }) {
   const openCard = (id) => onOpen(id);
 
   return (
-    <div data-year={NOW + 1} style={{ maxWidth: 1400, margin: '0 auto', padding: '30px 32px 80px' }}>
+    <div data-year={NOW + 1} style={{ maxWidth: 1400, margin: '0 auto', padding: '30px clamp(14px,4vw,32px) 80px' }}>
       <header style={{ borderBottom: '1px solid rgba(243,240,234,0.14)', paddingBottom: 26, marginBottom: 8 }}>
-        <div style={{ display: 'flex', gap: 44, flexWrap: 'wrap', alignItems: 'flex-start' }}>
-          <div style={{ flex: 1, minWidth: 320 }}>
+        <div style={{ display: 'flex', gap: 'clamp(18px,3vw,44px)', flexWrap: 'wrap', alignItems: 'flex-start' }}>
+          <div style={{ flex: '1 1 320px', minWidth: 0 }}>
             <h1 style={{ margin: '0 0 12px', font: '400 clamp(34px,6vw,72px)/0.94 ' + SERIF, letterSpacing: '-0.03em' }}>
               The horizon
             </h1>
@@ -40,7 +40,7 @@ export default function HorizonView({ items, graph, navigate, onOpen }) {
               {projected.subtitle}
             </p>
           </div>
-          <div style={{ flex: 'none', minWidth: 330 }}>
+          <div style={{ flex: '1 1 320px', minWidth: 0 }}>
             <Row label="Scenarios">{board.total} entries, {board.span} years past {NOW}</Row>
             <Row label="Strings">
               {board.landing} land on a scenario — {board.crossing} from the record,
@@ -78,7 +78,7 @@ export default function HorizonView({ items, graph, navigate, onOpen }) {
               position: 'relative', display: 'flex', gap: 44, flexWrap: 'wrap',
               borderTop: '1px dashed rgba(243,240,234,0.28)', paddingTop: 22, marginBottom: 30
             }}>
-              <div style={{ flex: 1, minWidth: 260 }}>
+              <div style={{ flex: '1 1 260px', minWidth: 0 }}>
                 <div style={{ ...micro(0.42), letterSpacing: '0.26em', marginBottom: 9 }}>
                   {h.from} — {h.to}
                 </div>
@@ -86,7 +86,7 @@ export default function HorizonView({ items, graph, navigate, onOpen }) {
                   {h.label} horizon
                 </h2>
               </div>
-              <div style={{ flex: 'none', minWidth: 340 }}>
+              <div style={{ flex: '1 1 320px', minWidth: 0 }}>
                 <Row label="Scenarios">
                   {led.total} — {led.confidence.map((c) => c[0] + ' ' + c[1]).join(' · ')}
                 </Row>
@@ -142,7 +142,7 @@ function Strand({ event, strand, graph, onOpen, navigate }) {
   return (
     <article
       style={{
-        display: 'grid', gridTemplateColumns: 'minmax(0,1.05fr) minmax(0,1.25fr) 200px', gap: 30,
+        display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(min(100%,250px),1fr))', gap: 'clamp(14px,2.4vw,30px)',
         alignItems: 'start', padding: '22px 0',
         borderTop: '1px dashed rgba(243,240,234,0.14)', animation: 'riseIn .45s cubic-bezier(.22,.7,.3,1) both'
       }}

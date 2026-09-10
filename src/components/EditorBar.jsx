@@ -8,7 +8,7 @@ const label = { display: 'flex', flexDirection: 'column', gap: 5, ...micro(0.42)
  * The local contribution layer. Edits live in localStorage; "Export patch" produces the
  * JSON that goes into data/*.json through a pull request.
  */
-export default function EditorBar({ editing, onToggle, onNewCard, onConnect, connecting, board, draft, setDraft, lead, trail }) {
+export default function EditorBar({ editing, onToggle, onNewCard, onConnect, connecting, board, draft, setDraft, lead, trail, compact }) {
   const [io, setIo] = useState('');
 
   const save = () => {
@@ -45,9 +45,14 @@ export default function EditorBar({ editing, onToggle, onNewCard, onConnect, con
           </>
         )}
         <span style={{ flex: 1 }} />
-        <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', alignItems: 'center' }}>
+        <div style={{
+          display: 'flex', gap: compact ? 10 : 14, alignItems: 'center', minWidth: 0,
+          ...(compact
+            ? { flexWrap: 'nowrap', overflowX: 'auto', overflowY: 'hidden', maxWidth: '100%', scrollbarWidth: 'none' }
+            : { flexWrap: 'wrap' })
+        }}>
           {CATEGORIES.map((c) => (
-            <span key={c.id} style={{ display: 'inline-flex', alignItems: 'center', gap: 6, ...micro(0.42), letterSpacing: '0.14em' }}>
+            <span key={c.id} style={{ display: 'inline-flex', alignItems: 'center', gap: 6, flex: 'none', ...micro(0.42), letterSpacing: '0.14em' }}>
               <span style={{ width: 7, height: 7, borderRadius: '50%', display: 'inline-block', background: 'oklch(0.8 0.14 ' + c.hue + ')' }} />
               {c.label}
             </span>

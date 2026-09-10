@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { accent, catLabel, fade } from '../lib/data.js';
 import { INK, SERIF, micro } from '../lib/styles.js';
 
 /** All photographs, no prose. Landmarks run double width. */
 export default function MosaicView({ items, media, onOpen }) {
+  // A landmark spans two columns — but only once there are two columns to span.
+  // Below that it overflows the grid, which is what it used to do on a phone.
+  const [wide, setWide] = useState(() => (typeof window !== 'undefined' ? window.innerWidth >= 560 : true));
+  useEffect(() => {
+    const onResize = () => setWide(window.innerWidth >= 560);
+    onResize();
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
+
   return (
-    <div style={{ maxWidth: 1400, margin: '0 auto', padding: '22px 32px 70px', display: 'grid', gridTemplateColumns: 'repeat(auto-fill,minmax(240px,1fr))', gap: 10 }}>
+    <div style={{ maxWidth: 1400, margin: '0 auto', padding: '22px clamp(14px,4vw,32px) 70px', display: 'grid', gridTemplateColumns: 'repeat(auto-fill,minmax(min(100%,240px),1fr))', gap: 10 }}>
       {items.map((e) => {
         const shot = media(e);
         const f = fade(e.year);
@@ -16,7 +26,7 @@ export default function MosaicView({ items, media, onOpen }) {
             onClick={() => onOpen(e.id)}
             style={{
               position: 'relative', overflow: 'hidden', borderRadius: 3, cursor: 'pointer', padding: 0, textAlign: 'left',
-              height: e.featured ? 330 : 230, gridColumn: e.featured ? 'span 2' : 'span 1', background: '#0e0e11',
+              height: e.featured ? (wide ? 330 : 250) : 230, gridColumn: e.featured && wide ? 'span 2' : 'span 1', background: '#0e0e11',
               border: e.future ? '1px dashed rgba(243,240,234,0.22)' : '1px solid rgba(243,240,234,0.1)',
               opacity: 1 - f * 0.2, animation: 'riseIn .45s both'
             }}
