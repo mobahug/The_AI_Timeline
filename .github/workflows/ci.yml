@@ -16,3 +16,7 @@ jobs:
       - run: npm ci
       - run: npm test
       - run: npm run build
+      # Source rot is a data-accuracy bug, but it is caused by the outside world,
+      # so it reports without failing the build.
+      - run: npm run check:links
+        continue-on-error: true

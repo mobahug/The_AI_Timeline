@@ -329,8 +329,8 @@
     "title": "The Stanford Cart crosses a room",
     "summary": "Five hours, one obstacle course: the first serious attempt at autonomous visual navigation.",
     "source": "Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/Stanford_Cart",
-    "wikiTitle": "Stanford Cart"
+    "url": "https://en.wikipedia.org/wiki/Hans_Moravec",
+    "wikiTitle": "Hans Moravec"
   },
   {
     "id": "expert-systems-go-commercial",
@@ -1160,9 +1160,9 @@
     "title": "Sovereign compute",
     "summary": "States treat chips, datacenters and grid connections as strategic assets, with export controls and national build programmes to match.",
     "source": "Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/Export_controls_on_semiconductors",
+    "url": "https://en.wikipedia.org/wiki/United_States_New_Export_Controls_on_Advanced_Computing_and_Semiconductors_to_China",
     "why": "AI policy stops being about models and becomes industrial policy about electricity and silicon.",
-    "wikiTitle": "Export controls on semiconductors"
+    "wikiTitle": "United States New Export Controls on Advanced Computing and Semiconductors to China"
   },
   {
     "id": "multi-day-autonomous-work",

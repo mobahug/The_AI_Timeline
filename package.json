@@ -11,7 +11,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "fetch:images": "node scripts/fetch-images.mjs",
-    "gen:og": "node scripts/gen-og.mjs"
+    "gen:og": "node scripts/gen-og.mjs",
+    "check:links": "node scripts/check-links.mjs"
   },
   "dependencies": {
     "react": "^18.3.1",
