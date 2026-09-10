@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { THREADS, TICKS, NOW, accent, buildChain, catLabel, catHue, fade, yearFraction, yearAtFraction } from '../lib/data.js';
+import { THREADS, TICKS, NOW, CATEGORIES, accent, buildChain, catLabel, catHue, fade, yearFraction, yearAtFraction } from '../lib/data.js';
 import { INK, MANILA, MONO, PAPER, RED, RED_LIT, CYAN, micro } from '../lib/styles.js';
 import CluePanel from './CluePanel.jsx';
 import EditorBar from './EditorBar.jsx';
@@ -142,9 +142,20 @@ export default function BoardView({ items, graph, media, route, navigate, board,
   const board3 = useMemo(() => layout(items, m), [items, m]);
   const positions = useMemo(() => Object.fromEntries(board3.nodes.map((n) => [n.event.id, n])), [board3]);
 
+  // A string is coloured by the category of the event it leaves — the kind of thing
+  // that did the causing — so the web reads as a mix of forces, not one red tangle.
   const strings = useMemo(() => graph.edges
     .filter((l) => positions[l.from] && positions[l.to])
-    .map((l) => ({ ...l, ...stringPath(positions[l.from], positions[l.to], m.gutter) })), [graph.edges, positions, m.gutter]);
+    .map((l) => {
+      const src = graph.index[l.from];
+      const cat = (src && src.category) || 'research';
+      return {
+        ...l, cat,
+        tone: accent(cat, 0),
+        lit: 'oklch(0.88 0.17 ' + catHue(cat) + ')',
+        ...stringPath(positions[l.from], positions[l.to], m.gutter)
+      };
+    }), [graph.edges, graph.index, positions, m.gutter]);
 
   const current = chain && chain.length ? chain[Math.min(step, chain.length - 1)] : null;
   const chainIds = chain ? [...new Set(chain.flatMap((s) => [s.from, s.to]))] : null;
@@ -290,6 +301,12 @@ export default function BoardView({ items, graph, media, route, navigate, board,
       : graph.edges.length + ' strings · click a card to walk the case';
 
   const panelOpen = !!(current || focusId);
+  // A hover preview must never steal the hover that produced it, and must never
+  // sit on top of the card being read. It docks to whichever half of the canvas
+  // the subject is NOT in, and lets the pointer straight through.
+  const preview = !current && !!focusId;
+  const subject = current ? positions[current.to] : (focusId ? positions[focusId] : null);
+  const dockTop = !!(subject && box.h && subject.y > box.h * 0.52);
 
   return (
     <div
@@ -364,9 +381,11 @@ export default function BoardView({ items, graph, media, route, navigate, board,
                 when it is the one being read (zIndex 12). */}
             <svg style={{ position: 'absolute', inset: 0, width: board3.width, height: board3.height, overflow: 'visible', pointerEvents: 'none', zIndex: 4 }}>
               <defs>
-                <marker id="tip" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6.5" markerHeight="6.5" orient="auto">
-                  <path d="M0 0 L8 4 L0 8 z" style={{ fill: RED_LIT }} />
-                </marker>
+                {CATEGORIES.map((c) => (
+                  <marker key={c.id} id={'tip-' + c.id} viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6.5" markerHeight="6.5" orient="auto">
+                    <path d="M0 0 L8 4 L0 8 z" style={{ fill: 'oklch(0.88 0.17 ' + c.hue + ')' }} />
+                  </marker>
+                ))}
               </defs>
               {strings.map((s) => {
                 const onChain = chain ? (chainIds.includes(s.from) && chainIds.includes(s.to)) : (active && (s.from === focusId || s.to === focusId));
@@ -376,15 +395,15 @@ export default function BoardView({ items, graph, media, route, navigate, board,
                 const opacity = active ? (strong ? 1 : onChain ? 0.6 : 0.2) : 0.92;
                 return (
                   <g key={s.id} style={{ opacity, transition: 'opacity .3s' }}>
-                    {strong && <path d={s.d} style={{ fill: 'none', stroke: RED_LIT, strokeWidth: width + 7, opacity: 0.22, filter: 'blur(4px)' }} />}
-                    {/* Casing: invisible on the dark ground, but it is what keeps the
-                        red readable where a string crosses a cream card. */}
+                    {strong && <path d={s.d} style={{ fill: 'none', stroke: s.lit, strokeWidth: width + 7, opacity: 0.22, filter: 'blur(4px)' }} />}
+                    {/* Casing: invisible on the dark ground, but it is what keeps a
+                        string readable where it crosses a cream card. */}
                     <path d={s.d} style={{ fill: 'none', stroke: '#0a0a0b', strokeWidth: width + 2.6, strokeLinecap: 'round', opacity: 0.62 }} />
                     <path
                       d={s.d}
-                      markerEnd={strong ? 'url(#tip)' : undefined}
+                      markerEnd={strong ? 'url(#tip-' + s.cat + ')' : undefined}
                       style={{
-                        fill: 'none', stroke: strong ? RED_LIT : RED, strokeWidth: width, strokeLinecap: 'round',
+                        fill: 'none', stroke: strong ? s.lit : s.tone, strokeWidth: width, strokeLinecap: 'round',
                         strokeDasharray: s.future ? '6 7' : undefined,
                         transition: 'stroke-width .3s, stroke .3s'
                       }}
@@ -411,6 +430,7 @@ export default function BoardView({ items, graph, media, route, navigate, board,
                 position: 'absolute', left: s.mx, top: s.my, transform: 'translate(-50%,-50%) rotate(-1.4deg)',
                 zIndex: 8, pointerEvents: 'none', background: '#efe9da', color: '#17161a',
                 border: '1px solid rgba(23,22,26,0.3)', boxShadow: '0 5px 12px rgba(0,0,0,0.5)', padding: '4px 7px',
+                borderLeft: '3px solid ' + s.tone,
                 font: '400 9px/1 ' + MONO, letterSpacing: '0.13em', textTransform: 'uppercase', whiteSpace: 'nowrap',
                 animation: 'fadeIn .25s both'
               }}>{s.claim}</div>
@@ -501,10 +521,14 @@ export default function BoardView({ items, graph, media, route, navigate, board,
 
         {panelOpen && (
           <div style={{
-            position: 'absolute', left: 0, right: 0, bottom: 0, zIndex: 22,
-            maxHeight: Math.max(150, Math.round(shellH * 0.46)), overflowY: 'auto',
+            position: 'absolute', left: 0, right: 0, zIndex: 22,
+            ...(dockTop ? { top: 0 } : { bottom: 0 }),
+            maxHeight: Math.max(150, Math.round(shellH * (preview ? 0.4 : 0.46))),
+            overflowY: preview ? 'hidden' : 'auto',
+            pointerEvents: preview ? 'none' : 'auto',
             background: 'rgba(10,10,11,0.93)', backdropFilter: 'blur(16px) saturate(1.3)',
-            borderTop: '1px solid rgba(243,240,234,0.16)', animation: 'fadeIn .2s both'
+            [dockTop ? 'borderBottom' : 'borderTop']: '1px solid rgba(243,240,234,0.16)',
+            animation: 'fadeIn .2s both'
           }}>
             <CluePanel
               graph={graph}
