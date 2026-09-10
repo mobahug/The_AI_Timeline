@@ -1,5 +1,5 @@
 import React from 'react';
-import { events, links } from '../lib/data.js';
+import { NOW, events, links, projections } from '../lib/data.js';
 import { INK, MONO, SERIF, RED, button, micro } from '../lib/styles.js';
 
 const notes = links.filter((l) => l.note).length;
@@ -43,7 +43,7 @@ export default function Landing({ navigate }) {
         {[
           ['The board', 'Photo cards, red string, and a walkthrough that follows a chain clue by clue.'],
           ['The argument', 'Not a list of dates. Each string states what one event did to another.'],
-          ['The projections', 'Twenty-one entries past 2026, labelled Likely, Uncertain or Speculative.'],
+          ['The projections', projections.length + ' entries past ' + NOW + ', labelled Likely, Uncertain or Speculative.'],
           ['Yours to edit', 'Add cards and strings locally, export the patch, open a pull request.']
         ].map(([title, body]) => (
           <div key={title}>

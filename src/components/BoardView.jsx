@@ -4,60 +4,98 @@ import { INK, MANILA, MONO, PAPER, RED, RED_LIT, CYAN, micro } from '../lib/styl
 import CluePanel from './CluePanel.jsx';
 import EditorBar from './EditorBar.jsx';
 
-const CARD_W = 210;
-const CARD_H = 158;
-const LANE_H = 216;
-const TOP = 74;
-const PAD = 240;
-const GAP = CARD_W + 34;
+const PAD = 200;
 
-/** Lay the cards out: one row per thread, chronological, never overlapping. */
-function layout(items, width) {
-  const boardWidth = Math.max(6400, Math.round(width * 8));
-  const xOf = (year) => PAD + yearFraction(year) * (boardWidth - PAD * 2);
+/**
+ * Every dimension on the board is solved from the height the window actually gives
+ * us, so all six threads fit on screen exactly once and the board never scrolls
+ * vertically. The gutter that falls out of that solve — the strip above each lane's
+ * cards — is not spare room: it is the channel the strings are drawn in.
+ */
+const MIN_LANE = 46;
+
+function metrics(height, width) {
+  const lanes = THREADS.length;
+  const ruler = height >= 520 ? 30 : 22;
+  // The lane height that would make all six fit exactly. If honouring the
+  // legibility floor overshoots it, the board genuinely cannot fit this window —
+  // so it says so by scrolling, rather than clipping a lane off the bottom.
+  const ideal = Math.floor((height - ruler) / lanes);
+  const lane = Math.max(MIN_LANE, ideal);
+  const fits = ideal >= MIN_LANE;
+  const cardH = Math.max(34, Math.round(lane * 0.72));
+  const gutter = lane - cardH;
+  const k = Math.min(1, lane / 216);
+  const cardW = Math.max(126, Math.round(210 * (0.58 + 0.42 * k)));
+  const gap = cardW + Math.max(14, Math.round(34 * k));
+  const photo = cardH >= 72;
+  return {
+    ruler, lane, cardH, gutter, cardW, gap, k, photo, fits,
+    showCat: cardH >= 120,
+    titleLines: cardH >= 104 ? 2 : (photo ? 1 : 3),
+    titlePx: Math.max(10.5, Math.min(14, 8 + 6 * k)),
+    boardW: Math.max(4200, Math.round(width * 7))
+  };
+}
+
+/** One row per thread, chronological, never overlapping. */
+function layout(items, m) {
+  const xOf = (year) => PAD + yearFraction(year) * (m.boardW - PAD * 2);
   const nodes = [];
   THREADS.forEach((thread, row) => {
     let lastX = -Infinity;
+    const laneTop = m.ruler + row * m.lane;
     items
       .filter((e) => e.thread === thread.id)
       .map((e) => ({ event: e, x: xOf(e.year) }))
       .sort((a, b) => a.x - b.x)
       .forEach((slot) => {
-        const gap = slot.event.featured ? GAP + 38 : GAP;
+        const gap = slot.event.featured ? m.gap + Math.round(m.gap * 0.16) : m.gap;
         const x = Math.max(slot.x, lastX + gap);
         lastX = x;
         nodes.push({
           event: slot.event,
           x,
-          y: TOP + row * LANE_H + LANE_H / 2,
-          tilt: (((slot.event.id.length * 37) % 5) - 2) * 0.7
+          top: laneTop + m.gutter,
+          y: laneTop + m.gutter + m.cardH / 2,
+          ty: laneTop + m.gutter,
+          tilt: (((slot.event.id.length * 37) % 5) - 2) * 0.5
         });
       });
   });
-  return {
-    nodes,
-    xOf,
-    width: boardWidth,
-    height: TOP + THREADS.length * LANE_H + 40
-  };
+  return { nodes, xOf, width: m.boardW, height: m.ruler + THREADS.length * m.lane };
 }
 
-/** Strings sag, like string does. */
-function stringPath(a, b) {
-  const sag = 30 + Math.min(90, Math.abs(b.x - a.x) * 0.05);
-  const cx = (a.x + b.x) / 2;
-  const cy = (a.y + b.y) / 2 + sag;
+/**
+ * Strings tie to the pin at the top edge of a card and arch UP into the gutter.
+ * The old geometry started at the card's centre — burying ~105px horizontally and
+ * ~79px vertically of every string inside its own two endpoint cards — and sagged
+ * downward into the row below. Arching up keeps same-lane strings, 61% of them,
+ * entirely in empty space.
+ */
+function stringPath(a, b, gutter) {
+  const dx = b.x - a.x;
+  const lift = Math.min(gutter * 0.86, 12 + Math.abs(dx) * 0.03);
+  const c1x = a.x + dx * 0.25;
+  const c1y = a.ty - lift;
+  const c2x = b.x - dx * 0.25;
+  const c2y = b.ty - lift;
   return {
-    d: 'M' + a.x.toFixed(1) + ' ' + a.y.toFixed(1) + ' Q' + cx.toFixed(1) + ' ' + cy.toFixed(1) + ',' + b.x.toFixed(1) + ' ' + b.y.toFixed(1),
-    mx: (a.x + 2 * cx + b.x) / 4,
-    my: (a.y + 2 * cy + b.y) / 4
+    d: 'M' + a.x.toFixed(1) + ' ' + a.ty.toFixed(1) +
+       ' C' + c1x.toFixed(1) + ' ' + c1y.toFixed(1) + ',' +
+       c2x.toFixed(1) + ' ' + c2y.toFixed(1) + ',' +
+       b.x.toFixed(1) + ' ' + b.ty.toFixed(1),
+    mx: (a.x + 3 * c1x + 3 * c2x + b.x) / 8,
+    my: (a.ty + 3 * c1y + 3 * c2y + b.ty) / 8
   };
 }
 
 export default function BoardView({ items, graph, media, route, navigate, board, onYear }) {
+  const root = useRef(null);
   const scroller = useRef(null);
   const dragged = useRef(false);
-  const [width, setWidth] = useState(1280);
+  const [shellH, setShellH] = useState(640);
+  const [box, setBox] = useState({ w: 1280, h: 560 });
   const [hover, setHover] = useState(null);
   const [chain, setChain] = useState(null);
   const [step, setStep] = useState(0);
@@ -67,21 +105,46 @@ export default function BoardView({ items, graph, media, route, navigate, board,
   const [draft, setDraft] = useState(null);
   const [connectFrom, setConnectFrom] = useState(null);
 
+  // The shell fills whatever the header leaves. The header is measured, never
+  // assumed, so wrapping at narrow widths just makes the lanes shorter.
+  useEffect(() => {
+    const measure = () => {
+      const header = document.querySelector('[data-chrome="header"]');
+      const vh = (window.visualViewport && window.visualViewport.height) || window.innerHeight;
+      setShellH(Math.max(300, Math.floor(vh - (header ? header.offsetHeight : 0))));
+    };
+    measure();
+    window.addEventListener('resize', measure);
+    if (window.visualViewport) window.visualViewport.addEventListener('resize', measure);
+    const header = document.querySelector('[data-chrome="header"]');
+    let ro;
+    if (header && window.ResizeObserver) { ro = new ResizeObserver(measure); ro.observe(header); }
+    return () => {
+      window.removeEventListener('resize', measure);
+      if (window.visualViewport) window.visualViewport.removeEventListener('resize', measure);
+      if (ro) ro.disconnect();
+    };
+  }, []);
+
+  // The canvas measures itself, so anything else in the column (the editor opening,
+  // for instance) simply takes room from the lanes instead of overflowing.
   useEffect(() => {
     const el = scroller.current;
     if (!el || !window.ResizeObserver) return;
-    const ro = new ResizeObserver(() => setWidth(el.clientWidth || 1280));
+    const read = () => setBox({ w: el.clientWidth || 1280, h: el.clientHeight || 560 });
+    const ro = new ResizeObserver(read);
     ro.observe(el);
-    setWidth(el.clientWidth || 1280);
+    read();
     return () => ro.disconnect();
   }, []);
 
-  const board3 = useMemo(() => layout(items, width), [items, width]);
+  const m = useMemo(() => metrics(box.h, box.w), [box.h, box.w]);
+  const board3 = useMemo(() => layout(items, m), [items, m]);
   const positions = useMemo(() => Object.fromEntries(board3.nodes.map((n) => [n.event.id, n])), [board3]);
 
   const strings = useMemo(() => graph.edges
     .filter((l) => positions[l.from] && positions[l.to])
-    .map((l) => ({ ...l, ...stringPath(positions[l.from], positions[l.to]) })), [graph.edges, positions]);
+    .map((l) => ({ ...l, ...stringPath(positions[l.from], positions[l.to], m.gutter) })), [graph.edges, positions, m.gutter]);
 
   const current = chain && chain.length ? chain[Math.min(step, chain.length - 1)] : null;
   const chainIds = chain ? [...new Set(chain.flatMap((s) => [s.from, s.to]))] : null;
@@ -116,7 +179,7 @@ export default function BoardView({ items, graph, media, route, navigate, board,
     if (!key || key === applied.current || !board3.nodes.length) return;
     applied.current = key;
     if (route.clue) {
-      const built = buildChain(graph, route.clue.to);
+      const built = buildChain(graph, route.clue.to, route.clue.from);
       const index = built.steps.findIndex((s) => s.from === route.clue.from && s.to === route.clue.to);
       if (index >= 0) { setChain(built.steps); setStep(index); requestAnimationFrame(() => centre(built.steps[index])); return; }
     }
@@ -153,6 +216,8 @@ export default function BoardView({ items, graph, media, route, navigate, board,
     setThumb({ left: el.scrollLeft / el.scrollWidth, width: el.clientWidth / el.scrollWidth });
     if (onYear) onYear(String(yearAtFraction(fr(el.scrollLeft + Math.min(el.clientWidth * 0.4, 380)))), max > 0 ? el.scrollLeft / max : 0);
   }, [board3.width, onYear]);
+
+  useEffect(() => { onScroll(); }, [onScroll]);
 
   const onPointerDown = (e) => {
     if (e.button !== 0) return;
@@ -224,75 +289,82 @@ export default function BoardView({ items, graph, media, route, navigate, board,
       ? 'Card selected · ' + ((graph.adjacency[focusId] || []).length) + ' strings attached'
       : graph.edges.length + ' strings · click a card to walk the case';
 
+  const panelOpen = !!(current || focusId);
+
   return (
-    <div style={{ maxWidth: 1400, margin: '0 auto', padding: '22px 32px 70px' }}>
-      <div style={{ display: 'flex', alignItems: 'baseline', gap: 16, flexWrap: 'wrap', marginBottom: 12 }}>
-        <h1 style={{ margin: 0, font: '400 clamp(24px,3vw,34px)/1.2 ' + "'Instrument Serif', Georgia, serif", letterSpacing: '-0.025em', whiteSpace: 'nowrap' }}>The board</h1>
-        <span style={micro(0.42)}>{hint}</span>
+    <div
+      ref={root}
+      style={{
+        height: shellH, display: 'flex', flexDirection: 'column', overflow: 'hidden',
+        padding: '0 clamp(10px,1.6vw,20px) 6px', boxSizing: 'border-box'
+      }}
+    >
+      <div style={{ flex: 'none', paddingTop: 9 }}>
+        <EditorBar
+          lead={<>
+            <h1 style={{ margin: 0, font: '400 clamp(16px,1.7vw,21px)/1 ' + "'Instrument Serif', Georgia, serif", letterSpacing: '-0.02em', whiteSpace: 'nowrap' }}>The board</h1>
+            <span style={{ ...micro(chain ? 0.75 : 0.42), color: chain ? RED_LIT : undefined }}>{hint}</span>
+          </>}
+          trail={<span style={{ ...micro(0.5), letterSpacing: '0.18em', display: 'inline-flex', alignItems: 'center', gap: 7, whiteSpace: 'nowrap' }}>
+            <span style={{ width: 6, height: 6, borderRadius: '50%', background: CYAN, animation: 'hudPulse 2.4s ease-in-out infinite' }} />
+            {viewport[0]} — {viewport[1]}
+          </span>}
+          editing={editing}
+          onToggle={() => { setEditing((v) => !v); setDraft(null); setConnectFrom(null); setChain(null); }}
+          onNewCard={() => { setEditing(true); setDraft({ id: null, year: NOW + 1, category: 'research', title: '', note: '', isNew: true }); }}
+          onConnect={() => setConnectFrom(draft ? draft.id : focusId)}
+          connecting={!!connectFrom}
+          board={board}
+          draft={draft}
+          setDraft={setDraft}
+        />
       </div>
 
-      <EditorBar
-        editing={editing}
-        onToggle={() => { setEditing((v) => !v); setDraft(null); setConnectFrom(null); setChain(null); }}
-        onNewCard={() => { setEditing(true); setDraft({ id: null, year: NOW + 1, category: 'research', title: '', note: '', isNew: true }); }}
-        onConnect={() => setConnectFrom(draft ? draft.id : focusId)}
-        connecting={!!connectFrom}
-        board={board}
-        draft={draft}
-        setDraft={setDraft}
-      />
-
-      <div style={{ position: 'relative' }}>
+      <div style={{ position: 'relative', flex: 1, minHeight: 0 }}>
         <div
           ref={scroller}
           onScroll={onScroll}
           onPointerDown={onPointerDown}
           onWheel={onWheel}
+          id="board-canvas"
           style={{
-            position: 'relative', overflowX: 'auto', overflowY: 'auto', maxHeight: 'min(72vh,760px)',
-            border: '1px solid rgba(243,240,234,0.12)', borderRadius: 3, cursor: 'grab', touchAction: 'pan-y',
+            position: 'absolute', inset: 0, overflowX: 'auto', overflowY: m.fits ? 'hidden' : 'auto',
+            border: '1px solid rgba(243,240,234,0.12)', borderRadius: 3, cursor: 'grab', touchAction: m.fits ? 'pan-x' : 'auto',
             background: 'radial-gradient(120% 90% at 20% 0%,#171310,#08080a 70%)'
           }}
         >
           <div style={{ position: 'relative', width: board3.width, height: board3.height, minWidth: '100%' }}>
             {THREADS.map((thread, i) => (
               <div key={thread.id} style={{
-                position: 'absolute', left: 0, top: TOP + i * LANE_H, width: board3.width, height: LANE_H,
+                position: 'absolute', left: 0, top: m.ruler + i * m.lane, width: board3.width, height: m.lane,
                 borderTop: '1px solid rgba(243,240,234,0.07)',
                 background: i % 2 ? 'rgba(243,240,234,0.012)' : 'transparent'
               }} />
             ))}
 
-            {THREADS.map((thread, i) => (
-              <div key={'label-' + thread.id} style={{
-                position: 'absolute', left: 26, top: TOP + i * LANE_H + 16, zIndex: 6, width: 146,
-                padding: '7px 9px', background: '#ddd6c4', color: '#17161a', transform: 'rotate(-1.2deg)',
-                boxShadow: '0 6px 14px rgba(0,0,0,0.5)',
-                font: '500 9.5px/1.4 ' + MONO, letterSpacing: '0.16em', textTransform: 'uppercase'
-              }}>{thread.label}</div>
-            ))}
-
             {TICKS.map((year) => (
               <div key={year}>
                 <div style={{
-                  position: 'absolute', left: board3.xOf(year), top: 62, width: 1, height: board3.height - 100,
+                  position: 'absolute', left: board3.xOf(year), top: m.ruler - 6, width: 1, height: board3.height - m.ruler + 6,
                   background: year > NOW
                     ? 'repeating-linear-gradient(180deg,rgba(243,240,234,0.14) 0 3px,transparent 3px 8px)'
-                    : 'rgba(243,240,234,0.07)'
+                    : 'rgba(243,240,234,0.06)'
                 }} />
-                <div style={{ position: 'absolute', left: board3.xOf(year) + 7, top: 38, ...micro(0.36), letterSpacing: '0.1em', fontVariantNumeric: 'tabular-nums' }}>{year}</div>
+                <div style={{ position: 'absolute', left: board3.xOf(year) + 6, top: Math.max(2, m.ruler - 20), ...micro(0.34), letterSpacing: '0.1em', fontVariantNumeric: 'tabular-nums' }}>{year}</div>
               </div>
             ))}
 
             <div style={{
-              position: 'absolute', left: board3.xOf(NOW), top: 62, width: Math.max(0, board3.width - board3.xOf(NOW)),
-              height: board3.height - 100, borderLeft: '1px dashed rgba(243,240,234,0.35)',
+              position: 'absolute', left: board3.xOf(NOW), top: m.ruler - 6, width: Math.max(0, board3.width - board3.xOf(NOW)),
+              height: board3.height - m.ruler + 6, borderLeft: '1px dashed rgba(243,240,234,0.35)',
               background: 'linear-gradient(90deg,rgba(243,240,234,0.035),transparent 60%)', pointerEvents: 'none'
             }} />
 
-            <svg style={{ position: 'absolute', inset: 0, width: board3.width, height: board3.height, overflow: 'visible', pointerEvents: 'none', zIndex: 1 }}>
+            {/* The strings sit ABOVE the resting cards. A card only rises over them
+                when it is the one being read (zIndex 12). */}
+            <svg style={{ position: 'absolute', inset: 0, width: board3.width, height: board3.height, overflow: 'visible', pointerEvents: 'none', zIndex: 4 }}>
               <defs>
-                <marker id="tip" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+                <marker id="tip" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6.5" markerHeight="6.5" orient="auto">
                   <path d="M0 0 L8 4 L0 8 z" style={{ fill: RED_LIT }} />
                 </marker>
               </defs>
@@ -300,17 +372,21 @@ export default function BoardView({ items, graph, media, route, navigate, board,
                 const onChain = chain ? (chainIds.includes(s.from) && chainIds.includes(s.to)) : (active && (s.from === focusId || s.to === focusId));
                 const isStep = current && ((current.from === s.from && current.to === s.to) || (current.from === s.to && current.to === s.from));
                 const strong = isStep || (!chain && onChain);
+                const width = strong ? 2.6 : 1.7;
+                const opacity = active ? (strong ? 1 : onChain ? 0.6 : 0.2) : 0.92;
                 return (
-                  <g key={s.id}>
-                    {strong && <path d={s.d} style={{ fill: 'none', stroke: RED_LIT, strokeWidth: 9, opacity: 0.22, filter: 'blur(4px)' }} />}
+                  <g key={s.id} style={{ opacity, transition: 'opacity .3s' }}>
+                    {strong && <path d={s.d} style={{ fill: 'none', stroke: RED_LIT, strokeWidth: width + 7, opacity: 0.22, filter: 'blur(4px)' }} />}
+                    {/* Casing: invisible on the dark ground, but it is what keeps the
+                        red readable where a string crosses a cream card. */}
+                    <path d={s.d} style={{ fill: 'none', stroke: '#0a0a0b', strokeWidth: width + 2.6, strokeLinecap: 'round', opacity: 0.62 }} />
                     <path
                       d={s.d}
                       markerEnd={strong ? 'url(#tip)' : undefined}
                       style={{
-                        fill: 'none', stroke: strong ? RED_LIT : RED, strokeWidth: strong ? 2.4 : 1.4, strokeLinecap: 'round',
+                        fill: 'none', stroke: strong ? RED_LIT : RED, strokeWidth: width, strokeLinecap: 'round',
                         strokeDasharray: s.future ? '6 7' : undefined,
-                        opacity: active ? (strong ? 1 : onChain ? 0.45 : 0.07) : 0.5,
-                        transition: 'opacity .3s, stroke-width .3s, stroke .3s'
+                        transition: 'stroke-width .3s, stroke .3s'
                       }}
                     />
                   </g>
@@ -318,15 +394,24 @@ export default function BoardView({ items, graph, media, route, navigate, board,
               })}
             </svg>
 
+            {THREADS.map((thread, i) => (
+              <div key={'label-' + thread.id} style={{
+                position: 'absolute', left: 18, top: m.ruler + i * m.lane + 4, zIndex: 6, maxWidth: Math.min(150, m.cardW),
+                padding: '5px 8px', background: '#ddd6c4', color: '#17161a', transform: 'rotate(-1deg)',
+                boxShadow: '0 5px 12px rgba(0,0,0,0.5)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis',
+                font: '500 ' + (m.k < 0.6 ? 8 : 9) + 'px/1.3 ' + MONO, letterSpacing: '0.14em', textTransform: 'uppercase'
+              }}>{thread.label}</div>
+            ))}
+
             {strings.filter((s) => current
               ? (current.from === s.from && current.to === s.to) || (current.from === s.to && current.to === s.from)
               : active && (s.from === focusId || s.to === focusId)
             ).map((s) => (
               <div key={'tag-' + s.id} style={{
-                position: 'absolute', left: s.mx, top: s.my, transform: 'translate(-50%,-50%) rotate(-1.6deg)',
+                position: 'absolute', left: s.mx, top: s.my, transform: 'translate(-50%,-50%) rotate(-1.4deg)',
                 zIndex: 8, pointerEvents: 'none', background: '#efe9da', color: '#17161a',
-                border: '1px solid rgba(23,22,26,0.3)', boxShadow: '0 6px 14px rgba(0,0,0,0.5)', padding: '5px 8px',
-                font: '400 9.5px/1 ' + MONO, letterSpacing: '0.14em', textTransform: 'uppercase', whiteSpace: 'nowrap',
+                border: '1px solid rgba(23,22,26,0.3)', boxShadow: '0 5px 12px rgba(0,0,0,0.5)', padding: '4px 7px',
+                font: '400 9px/1 ' + MONO, letterSpacing: '0.13em', textTransform: 'uppercase', whiteSpace: 'nowrap',
                 animation: 'fadeIn .25s both'
               }}>{s.claim}</div>
             ))}
@@ -337,6 +422,7 @@ export default function BoardView({ items, graph, media, route, navigate, board,
               const lit = !active || active.includes(e.id);
               const inStep = current && (current.from === e.id || current.to === e.id);
               const subject = current ? current.to === e.id : focusId === e.id;
+              const raised = inStep || focusId === e.id;
               const shot = media(e);
               return (
                 <button
@@ -349,39 +435,48 @@ export default function BoardView({ items, graph, media, route, navigate, board,
                   onMouseEnter={() => !chain && setHover(e.id)}
                   onMouseLeave={() => !chain && setHover(null)}
                   style={{
-                    position: 'absolute', left: node.x - CARD_W / 2, top: node.y - CARD_H / 2, width: CARD_W,
-                    padding: 0, border: 'none', background: 'transparent', textAlign: 'left',
+                    position: 'absolute', left: node.x - m.cardW / 2, top: node.top, width: m.cardW, height: m.cardH,
+                    padding: 0, border: 'none', background: 'transparent', textAlign: 'left', boxSizing: 'border-box',
                     cursor: editing ? 'text' : 'pointer',
-                    transform: 'rotate(' + node.tilt + 'deg) scale(' + (inStep || focusId === e.id ? 1.04 : 1) + ')',
+                    transform: 'rotate(' + node.tilt + 'deg) scale(' + (raised ? 1.05 : 1) + ')',
                     transformOrigin: '50% 0%', transition: 'transform .3s cubic-bezier(.22,.7,.3,1), opacity .3s',
-                    opacity: lit ? 1 : 0.16, zIndex: inStep || focusId === e.id ? 12 : 3
+                    opacity: lit ? 1 : 0.2, zIndex: raised ? 12 : 2
                   }}
                 >
                   <span style={{
-                    display: 'block', position: 'relative', background: e.future ? MANILA : PAPER, borderRadius: 1,
-                    padding: '8px 8px 10px', border: e.future ? '1px dashed rgba(23,22,26,0.4)' : '1px solid rgba(23,22,26,0.16)',
-                    boxShadow: (subject ? '0 0 0 2px ' + RED + ', ' : '') + '0 14px 26px rgba(0,0,0,0.55), 0 2px 4px rgba(0,0,0,0.4)'
+                    display: 'flex', flexDirection: 'column', position: 'relative', boxSizing: 'border-box',
+                    width: '100%', height: '100%', overflow: 'hidden',
+                    background: e.future ? MANILA : PAPER, borderRadius: 1,
+                    padding: m.k < 0.6 ? '5px 6px 6px' : '7px 7px 8px',
+                    border: e.future ? '1px dashed rgba(23,22,26,0.4)' : '1px solid rgba(23,22,26,0.16)',
+                    boxShadow: (subject ? '0 0 0 2px ' + RED + ', ' : '') + '0 10px 20px rgba(0,0,0,0.5)'
                   }}>
                     <span style={{
-                      position: 'absolute', left: '50%', top: -7, marginLeft: -6, width: 12, height: 12, borderRadius: '50%',
+                      position: 'absolute', left: '50%', top: 2, marginLeft: -5, width: 10, height: 10, borderRadius: '50%',
                       background: 'radial-gradient(circle at 35% 30%, oklch(0.9 0.05 ' + catHue(e.category) + '), ' + accent(e.category, f) + ')',
-                      border: '1px solid rgba(0,0,0,0.3)', boxShadow: '0 3px 5px rgba(0,0,0,0.6)', zIndex: 2
+                      border: '1px solid rgba(0,0,0,0.35)', boxShadow: '0 2px 4px rgba(0,0,0,0.6)', zIndex: 2
                     }} />
-                    {shot.img ? (
-                      <img src={shot.img} alt="" loading="lazy" style={{ width: '100%', height: 94, objectFit: 'cover', display: 'block', border: '1px solid rgba(23,22,26,0.22)', filter: 'grayscale(0.35) sepia(0.16) contrast(1.05)' }} />
+                    {m.photo && (shot.img ? (
+                      <img src={shot.img} alt="" loading="lazy" style={{ flex: '1 1 auto', minHeight: 0, width: '100%', objectFit: 'cover', display: 'block', border: '1px solid rgba(23,22,26,0.22)', filter: 'grayscale(0.35) sepia(0.16) contrast(1.05)' }} />
                     ) : (
                       <span style={{
-                        display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', height: 94, padding: '0 10px',
+                        flex: '1 1 auto', minHeight: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%',
                         border: '1px solid rgba(23,22,26,0.22)', textAlign: 'center',
                         background: 'repeating-linear-gradient(135deg,rgba(23,22,26,0.07) 0 5px,transparent 5px 10px)',
-                        font: '400 8.5px/1 ' + MONO, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(23,22,26,0.45)'
-                      }}>no photo on file</span>
+                        font: '400 8px/1 ' + MONO, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'rgba(23,22,26,0.45)'
+                      }}>no photo</span>
+                    ))}
+                    <span style={{ flex: 'none', display: 'block', marginTop: m.photo ? 5 : 8, font: '500 8.5px/1 ' + MONO, letterSpacing: '0.14em', color: 'rgba(23,22,26,0.6)', fontVariantNumeric: 'tabular-nums' }}>{e.year}</span>
+                    <span style={{
+                      flex: m.photo ? 'none' : '1 1 auto', display: '-webkit-box', WebkitBoxOrient: 'vertical',
+                      WebkitLineClamp: m.titleLines, overflow: 'hidden', marginTop: 3,
+                      font: '400 ' + m.titlePx + 'px/1.14 ' + "'Instrument Serif', Georgia, serif", color: '#17161a'
+                    }}>{e.title}</span>
+                    {m.showCat && (
+                      <span style={{ flex: 'none', display: 'block', marginTop: 4, font: '400 7.5px/1 ' + MONO, letterSpacing: '0.18em', textTransform: 'uppercase', color: e.future ? 'oklch(0.45 0.16 25)' : 'rgba(23,22,26,0.42)' }}>
+                        {e.future ? 'Projection · ' + (e.confidence || 'Uncertain') : e.local ? 'Added by you' : catLabel(e.category)}
+                      </span>
                     )}
-                    <span style={{ display: 'block', marginTop: 7, font: '500 9.5px/1 ' + MONO, letterSpacing: '0.16em', color: 'rgba(23,22,26,0.62)', fontVariantNumeric: 'tabular-nums' }}>{e.year}</span>
-                    <span style={{ display: 'block', marginTop: 5, font: '400 14px/1.15 ' + "'Instrument Serif', Georgia, serif", color: '#17161a', maxHeight: 34, overflow: 'hidden' }}>{e.title}</span>
-                    <span style={{ display: 'block', marginTop: 6, font: '400 8px/1 ' + MONO, letterSpacing: '0.2em', textTransform: 'uppercase', color: e.future ? 'oklch(0.45 0.16 25)' : 'rgba(23,22,26,0.42)' }}>
-                      {e.future ? 'Projection · ' + (e.confidence || 'Uncertain') : e.local ? 'Added by you' : catLabel(e.category)}
-                    </span>
                   </span>
                 </button>
               );
@@ -389,38 +484,49 @@ export default function BoardView({ items, graph, media, route, navigate, board,
           </div>
         </div>
 
-        <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: 70, zIndex: 5, pointerEvents: 'none', background: 'linear-gradient(270deg,rgba(10,10,11,0.9),transparent)' }} />
+        {!items.length && (
+          <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none', ...micro(0.4), letterSpacing: '0.14em' }}>
+            No entries match
+          </div>
+        )}
+
+        <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: 56, zIndex: 5, pointerEvents: 'none', background: 'linear-gradient(270deg,rgba(10,10,11,0.85),transparent)' }} />
         {[['left', 'top'], ['right', 'top'], ['left', 'bottom'], ['right', 'bottom']].map(([x, y]) => (
           <div key={x + y} style={{
-            position: 'absolute', [x]: 8, [y]: 8, width: 26, height: 26, pointerEvents: 'none', zIndex: 7,
-            ['border' + (x === 'left' ? 'Left' : 'Right')]: '1px solid rgba(243,240,234,0.4)',
-            ['border' + (y === 'top' ? 'Top' : 'Bottom')]: '1px solid rgba(243,240,234,0.4)'
+            position: 'absolute', [x]: 7, [y]: 7, width: 22, height: 22, pointerEvents: 'none', zIndex: 7,
+            ['border' + (x === 'left' ? 'Left' : 'Right')]: '1px solid rgba(243,240,234,0.35)',
+            ['border' + (y === 'top' ? 'Top' : 'Bottom')]: '1px solid rgba(243,240,234,0.35)'
           }} />
         ))}
-        <div style={{ position: 'absolute', right: 14, top: 14, zIndex: 8, pointerEvents: 'none', display: 'flex', alignItems: 'center', gap: 8, ...micro(0.5), letterSpacing: '0.18em', whiteSpace: 'nowrap' }}>
-          <span style={{ width: 6, height: 6, borderRadius: '50%', background: CYAN, animation: 'hudPulse 2.4s ease-in-out infinite' }} />
-          {viewport[0]} — {viewport[1]}
-        </div>
+
+        {panelOpen && (
+          <div style={{
+            position: 'absolute', left: 0, right: 0, bottom: 0, zIndex: 22,
+            maxHeight: Math.max(150, Math.round(shellH * 0.46)), overflowY: 'auto',
+            background: 'rgba(10,10,11,0.93)', backdropFilter: 'blur(16px) saturate(1.3)',
+            borderTop: '1px solid rgba(243,240,234,0.16)', animation: 'fadeIn .2s both'
+          }}>
+            <CluePanel
+              graph={graph}
+              chain={chain}
+              step={step}
+              current={current}
+              focus={focusId ? graph.index[focusId] : null}
+              media={media}
+              onStep={move}
+              onJump={(index) => { setStep(index); centre(chain[index]); }}
+              onExit={() => { setChain(null); setHover(null); navigate({ clue: null, id: null }, true); }}
+              onOpenChain={openChain}
+            />
+          </div>
+        )}
       </div>
 
       <div onPointerDown={onScrub} role="scrollbar" aria-label="Pan the board" aria-controls="board-canvas" aria-valuenow={Math.round(thumb.left * 100)}
-        style={{ marginTop: 8, height: 22, position: 'relative', cursor: 'pointer', display: 'flex', alignItems: 'center' }}>
+        style={{ marginTop: 4, height: 12, position: 'relative', cursor: 'pointer', display: 'flex', alignItems: 'center', flex: 'none' }}>
         <div style={{ position: 'absolute', left: 0, right: 0, height: 3, background: 'rgba(243,240,234,0.1)', borderRadius: 2 }} />
-        <div style={{ position: 'absolute', left: (thumb.left * 100).toFixed(2) + '%', width: Math.max(4, thumb.width * 100).toFixed(2) + '%', height: 9, background: CYAN, opacity: 0.7, borderRadius: 2 }} />
+        <div style={{ position: 'absolute', left: (thumb.left * 100).toFixed(2) + '%', width: Math.max(4, thumb.width * 100).toFixed(2) + '%', height: 8, background: CYAN, opacity: 0.7, borderRadius: 2 }} />
       </div>
-
-      <CluePanel
-        graph={graph}
-        chain={chain}
-        step={step}
-        current={current}
-        focus={focusId ? graph.index[focusId] : null}
-        media={media}
-        onStep={move}
-        onJump={(index) => { setStep(index); centre(chain[index]); }}
-        onExit={() => { setChain(null); setHover(null); navigate({ clue: null, id: null }, true); }}
-        onOpenChain={openChain}
-      />
     </div>
   );
 }

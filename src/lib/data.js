@@ -97,16 +97,21 @@ export function buildGraph(board) {
   return { all, index, edges, adjacency };
 }
 
-/** Walk backwards then forwards from an event to assemble one causal chain. */
-export function buildChain(graph, id) {
+/** Walk backwards then forwards from an event to assemble one causal chain.
+ *  `via` names a preferred first parent. Without it the walk takes whichever
+ *  string was authored first, so a shared ?clue=a>b link naming any other
+ *  parent of `id` would build a chain that does not contain the requested
+ *  string at all — and open nothing. */
+export function buildChain(graph, id, via) {
   const steps = [];
   const seen = [id];
   let cur = id;
   for (let i = 0; i < 10; i++) {
     const incoming = (graph.adjacency[cur] || []).filter((a) => !a.out && !seen.includes(a.id));
     if (!incoming.length) break;
-    steps.unshift({ from: incoming[0].id, to: cur, claim: incoming[0].claim, note: incoming[0].note });
-    cur = incoming[0].id;
+    const pick = (i === 0 && via && incoming.find((a) => a.id === via)) || incoming[0];
+    steps.unshift({ from: pick.id, to: cur, claim: pick.claim, note: pick.note });
+    cur = pick.id;
     seen.push(cur);
   }
   const startIndex = steps.length;
@@ -119,4 +124,198 @@ export function buildChain(graph, id) {
     seen.push(cur);
   }
   return { steps, start: Math.min(startIndex, Math.max(0, steps.length - 1)) };
+}
+
+/* ─── The forward horizons ────────────────────────────────────────────────────
+   Three bands derived from NOW, so they move when NOW does. Everything below is
+   a fact about the strings that have been drawn, never a judgement about the
+   world: how many parents a scenario has, how far back they reach, and the two
+   states worth naming out loud — a chain that passes through an uncited entry,
+   and a chain that rests on another scenario.                                  */
+
+export const HORIZONS = [
+  { id: 'near', label: 'Near', from: NOW + 1, to: NOW + 4 },
+  { id: 'mid', label: 'Mid', from: NOW + 5, to: NOW + 9 },
+  { id: 'far', label: 'Far', from: NOW + 10, to: LAST }
+];
+
+export const CONFIDENCE = ['Likely', 'Uncertain', 'Speculative'];
+
+export const projections = events.filter((e) => e.future);
+
+const parentsOf = (graph, id) => (graph.adjacency[id] || []).filter((a) => !a.out);
+
+/** Every string behind one projection — all of them, not one path. */
+export function strandOf(graph, id) {
+  const self = graph.index[id];
+  const parents = parentsOf(graph, id)
+    .map((a) => ({ event: graph.index[a.id], claim: a.claim, note: a.note }))
+    .sort((a, b) => a.event.year - b.event.year);
+
+  const depth = { [id]: 0 };
+  const queue = [id];
+  let hops = 0;
+  while (queue.length) {
+    const cur = queue.shift();
+    parentsOf(graph, cur).forEach((p) => {
+      if (depth[p.id] !== undefined) return;
+      depth[p.id] = depth[cur] + 1;
+      hops = Math.max(hops, depth[p.id]);
+      queue.push(p.id);
+    });
+  }
+
+  const memo = {};
+  const countPaths = (node, guard) => {
+    if (memo[node] !== undefined) return memo[node];
+    if (guard.has(node)) return 0;
+    guard.add(node);
+    const up = parentsOf(graph, node);
+    const n = up.length ? up.reduce((sum, p) => sum + countPaths(p.id, guard), 0) : 1;
+    guard.delete(node);
+    memo[node] = n;
+    return n;
+  };
+
+  const ancestors = Object.keys(depth).filter((k) => k !== id).map((k) => graph.index[k]);
+  const record = ancestors.filter((a) => !a.future).sort((a, b) => a.year - b.year);
+  const newest = parents.filter((p) => !p.event.future).map((p) => p.event.year).sort((a, b) => b - a)[0];
+
+  return {
+    parents,
+    hops,
+    paths: parents.length ? countPaths(id, new Set()) : 0,
+    record,
+    restsOn: ancestors.filter((a) => a.future).sort((a, b) => a.year - b.year),
+    uncited: record.filter((a) => !a.url),
+    roots: ancestors.filter((a) => !parentsOf(graph, a.id).length).sort((a, b) => a.year - b.year),
+    notes: parents.filter((p) => p.note).length,
+    jump: newest ? self.year - newest : null
+  };
+}
+
+/** What one horizon is made of. Counts only — no score, no ranking. */
+export function horizonLedger(graph, horizon) {
+  const set = graph.all.filter((e) => e.future && e.year >= horizon.from && e.year <= horizon.to);
+  const strands = set.map((e) => ({ event: e, strand: strandOf(graph, e.id) }));
+  const argued = strands.filter((s) => s.strand.parents.length);
+  const jumps = argued.map((s) => s.strand.jump).filter((j) => j !== null).sort((a, b) => a - b);
+  const reach = argued.flatMap((s) => s.strand.record).map((r) => r.year);
+  const live = new Set(set.map((e) => e.thread));
+  return {
+    strands,
+    total: set.length,
+    argued: argued.length,
+    confidence: CONFIDENCE.map((c) => [c, set.filter((e) => e.confidence === c).length]).filter((p) => p[1]),
+    medianJump: jumps.length ? jumps[Math.floor(jumps.length / 2)] : null,
+    reachesBackTo: reach.length ? Math.min(...reach) : null,
+    silentThreads: THREADS.filter((t) => !live.has(t.id))
+  };
+}
+
+/** Board-wide facts the horizon view opens with, both halves of each. */
+export function forwardLedger(graph) {
+  const future = graph.all.filter((e) => e.future);
+  const record = graph.all.filter((e) => !e.future);
+  const touched = new Set();
+  graph.edges.forEach((l) => { touched.add(l.from); touched.add(l.to); });
+  const landing = graph.edges.filter((l) => graph.index[l.to].future);
+  return {
+    total: future.length,
+    span: future.length ? future[future.length - 1].year - NOW : 0,
+    argued: future.filter((e) => parentsOf(graph, e.id).length).length,
+    landing: landing.length,
+    crossing: landing.filter((l) => !graph.index[l.from].future).length,
+    internal: landing.filter((l) => graph.index[l.from].future).length,
+    recordTotal: record.length,
+    recordUnstrung: record.filter((e) => !touched.has(e.id)).length
+  };
+}
+
+/* ─── The case as it stands ───────────────────────────────────────────────────
+   The forward view above asks what is coming. This asks the other half: why the
+   present looks the way it does, and which parts of the record are actually
+   load-bearing. Same rule as everything else here — these are facts about the
+   strings that were drawn, never judgements about the world.                   */
+
+/** Record entries that carry at least one string across NOW. The present as the
+ *  board argues it, rather than whatever happens to be dated most recently. */
+export function standingNow(graph) {
+  return graph.all
+    .filter((e) => !e.future)
+    .map((e) => ({
+      event: e,
+      into: (graph.adjacency[e.id] || [])
+        .filter((a) => a.out && graph.index[a.id] && graph.index[a.id].future)
+        .map((a) => ({ event: graph.index[a.id], claim: a.claim, note: a.note }))
+        .sort((a, b) => a.event.year - b.event.year)
+    }))
+    .filter((s) => s.into.length)
+    .sort((a, b) => b.event.year - a.event.year || b.into.length - a.into.length);
+}
+
+/** Every backward path from an event to a root, oldest hop first, so the road
+ *  can be typeset in the author's own claim verbs. Capped, and it says so. */
+export function roadsTo(graph, id, limit = 6, maxDepth = 12) {
+  const roads = [];
+  let truncated = false;
+
+  const walk = (node, hops, seen) => {
+    if (roads.length >= limit) { truncated = true; return; }
+    const ups = parentsOf(graph, node);
+    if (!ups.length || hops.length >= maxDepth) {
+      if (hops.length) roads.push(hops.slice().reverse());
+      if (ups.length && hops.length >= maxDepth) truncated = true;
+      return;
+    }
+    ups.forEach((p) => {
+      if (seen.has(p.id)) return;
+      seen.add(p.id);
+      walk(p.id, hops.concat({ from: graph.index[p.id], claim: p.claim, note: p.note, to: graph.index[node] }), seen);
+      seen.delete(p.id);
+    });
+  };
+
+  walk(id, [], new Set([id]));
+  roads.sort((a, b) => b.length - a.length || a[0].from.year - b[0].from.year);
+  return { roads, truncated, longest: roads.length ? roads[0].length : 0 };
+}
+
+/** One row per thread: what the board projects onto that front, and whether it
+ *  argued for any of it. A thread that projects but never strings is the point. */
+export function threadLedger(graph) {
+  return THREADS.map((thread) => {
+    const scenarios = graph.all.filter((e) => e.future && e.thread === thread.id).sort((a, b) => a.year - b.year);
+    const record = graph.all.filter((e) => !e.future && e.thread === thread.id);
+    return {
+      thread,
+      scenarios,
+      argued: scenarios.filter((e) => parentsOf(graph, e.id).length).length,
+      recordCount: record.length,
+      recordEndsAt: record.length ? Math.max(...record.map((e) => e.year)) : null
+    };
+  }).filter((row) => row.scenarios.length || row.recordCount);
+}
+
+/** The load-bearing record: entries the most futures depend on, by descendants. */
+export function loadBearing(graph, top = 6) {
+  const reach = (id) => {
+    const seen = new Set();
+    const queue = [id];
+    while (queue.length) {
+      const cur = queue.shift();
+      (graph.adjacency[cur] || []).filter((a) => a.out).forEach((a) => {
+        if (seen.has(a.id)) return;
+        seen.add(a.id);
+        queue.push(a.id);
+      });
+    }
+    return [...seen].map((k) => graph.index[k]).filter(Boolean);
+  };
+  return graph.all
+    .filter((e) => !e.future)
+    .map((e) => { const d = reach(e.id); return { event: e, futures: d.filter((x) => x.future).length, all: d.length }; })
+    .filter((r) => r.futures > 0)
+    .sort((a, b) => b.futures - a.futures || b.all - a.all || a.event.year - b.event.year)
+    .slice(0, top);
 }

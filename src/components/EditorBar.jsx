@@ -8,7 +8,7 @@ const label = { display: 'flex', flexDirection: 'column', gap: 5, ...micro(0.42)
  * The local contribution layer. Edits live in localStorage; "Export patch" produces the
  * JSON that goes into data/*.json through a pull request.
  */
-export default function EditorBar({ editing, onToggle, onNewCard, onConnect, connecting, board, draft, setDraft }) {
+export default function EditorBar({ editing, onToggle, onNewCard, onConnect, connecting, board, draft, setDraft, lead, trail }) {
   const [io, setIo] = useState('');
 
   const save = () => {
@@ -28,7 +28,8 @@ export default function EditorBar({ editing, onToggle, onNewCard, onConnect, con
 
   return (
     <>
-      <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap', marginBottom: 12 }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap', marginBottom: 10 }}>
+        {lead}
         <button onClick={onToggle} style={{ ...button(editing ? 'loud' : 'quiet'), padding: '6px 11px', font: '400 9.5px/1 ' + MONO }}>
           {editing ? 'Close editor' : 'Edit board'}
         </button>
@@ -52,6 +53,7 @@ export default function EditorBar({ editing, onToggle, onNewCard, onConnect, con
             </span>
           ))}
         </div>
+        {trail}
       </div>
 
       {draft && (

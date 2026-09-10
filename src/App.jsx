@@ -6,7 +6,9 @@ import BoardView from './components/BoardView.jsx';
 import PlatesView from './components/PlatesView.jsx';
 import MosaicView from './components/MosaicView.jsx';
 import IndexView from './components/IndexView.jsx';
-import { buildGraph, events as canonEvents } from './lib/data.js';
+import HorizonView from './components/HorizonView.jsx';
+import CaseView from './components/CaseView.jsx';
+import { buildGraph, events as canonEvents, forwardLedger, NOW } from './lib/data.js';
 import { useBoard } from './lib/board.js';
 import { useMedia } from './lib/wiki.js';
 import { useRoute } from './lib/url.js';
@@ -46,12 +48,34 @@ export default function App() {
     return () => window.removeEventListener('scroll', onScroll);
   }, [route.view, items]);
 
-  const openOnBoard = useCallback((id) => navigate({ view: 'board', id, clue: null }), [navigate]);
+  // The board is an application surface, not a document. While it is up the page
+  // itself must not scroll — the canvas owns every axis of movement.
+  useEffect(() => {
+    if (route.view !== 'board') return;
+    const html = document.documentElement;
+    const prev = { html: html.style.overflow, body: document.body.style.overflow, over: html.style.overscrollBehavior };
+    html.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
+    html.style.overscrollBehavior = 'none';
+    window.scrollTo(0, 0);
+    return () => {
+      html.style.overflow = prev.html;
+      document.body.style.overflow = prev.body;
+      html.style.overscrollBehavior = prev.over;
+    };
+  }, [route.view]);
+
+  const openOnBoard = useCallback((id) => navigate({ view: 'board', id, clue: null, category: 'all', query: '' }), [navigate]);
   const onBoardPosition = useCallback((y, p) => { setYear(y); setProgress(p); }, []);
 
+  const fwd = useMemo(() => forwardLedger(graph), [graph]);
   const status = route.view === 'board'
     ? items.length + '/' + canonEvents.length + ' cards · ' + graph.edges.length + ' strings'
-    : items.length + '/' + canonEvents.length + ' entries';
+    : route.view === 'horizon'
+      ? fwd.argued + '/' + fwd.total + ' scenarios carry a string · ' + fwd.crossing + ' cross ' + NOW
+      : route.view === 'case'
+        ? fwd.crossing + ' strings cross ' + NOW + ' · ' + fwd.argued + '/' + fwd.total + ' scenarios argued'
+        : items.length + '/' + canonEvents.length + ' entries';
 
   return (
     <>
@@ -74,12 +98,14 @@ export default function App() {
       {route.view === 'plates' && <PlatesView items={items} media={media} onOpen={openOnBoard} />}
       {route.view === 'mosaic' && <MosaicView items={items} media={media} onOpen={openOnBoard} />}
       {route.view === 'index' && <IndexView items={items} onOpen={openOnBoard} />}
+      {route.view === 'horizon' && <HorizonView items={items} graph={graph} navigate={navigate} onOpen={openOnBoard} />}
+      {route.view === 'case' && <CaseView graph={graph} onOpen={openOnBoard} />}
 
-      {!items.length && route.view !== 'landing' && route.view !== 'about' && (
+      {!items.length && !['landing', 'about', 'horizon', 'case', 'board'].includes(route.view) && (
         <div style={{ padding: '140px 0', textAlign: 'center', ...micro(0.4), letterSpacing: '0.14em' }}>No entries match</div>
       )}
 
-      {route.view !== 'landing' && (
+      {route.view !== 'landing' && route.view !== 'board' && (
         <footer style={{ maxWidth: 1400, margin: '0 auto', padding: '26px 32px 90px', borderTop: '1px solid rgba(243,240,234,0.12)', display: 'flex', gap: 34, flexWrap: 'wrap' }}>
           <p style={{ margin: 0, font: '400 11px/1.85 ' + MONO, color: 'rgba(243,240,234,0.34)', maxWidth: '46ch', textWrap: 'pretty' }}>
             Photographs and summaries come from Wikipedia/Wikimedia Commons and remain under their own licences.

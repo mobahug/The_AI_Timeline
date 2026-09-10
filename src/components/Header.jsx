@@ -7,12 +7,14 @@ const VIEWS = [
   ['plates', 'Plates'],
   ['mosaic', 'Mosaic'],
   ['index', 'Index'],
+  ['case', 'The case'],
+  ['horizon', 'Horizon'],
   ['about', 'About']
 ];
 
 export default function Header({ route, navigate, year, progress, status }) {
   return (
-    <div style={{
+    <div data-chrome="header" style={{
       position: 'sticky', top: 0, zIndex: 40, background: 'rgba(10,10,11,0.9)',
       backdropFilter: 'blur(18px) saturate(1.4)', borderBottom: '1px solid rgba(243,240,234,0.1)'
     }}>

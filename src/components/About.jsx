@@ -1,5 +1,5 @@
 import React from 'react';
-import { events, links } from '../lib/data.js';
+import { NOW, events, links, projections } from '../lib/data.js';
 import { INK, MONO, SERIF, SANS, micro } from '../lib/styles.js';
 
 const Section = ({ title, children }) => (
@@ -10,7 +10,6 @@ const Section = ({ title, children }) => (
 );
 
 export default function About() {
-  const projections = events.filter((e) => e.year > 2026);
   return (
     <div style={{ maxWidth: 1400, margin: '0 auto', padding: '64px 32px 120px' }}>
       <div style={{ ...micro(0.42), letterSpacing: '0.24em', marginBottom: 24 }}>How this board works</div>
@@ -24,10 +23,11 @@ export default function About() {
       </Section>
 
       <Section title="Record and projection are different things">
-        {events.length - projections.length} entries are record: each links to a public
-        source. {projections.length} are projections, drawn on manila stock with a dashed
-        edge and a confidence label — Likely, Uncertain or Speculative — and reasoning
-        instead of a citation. They are scenarios about mechanisms, not predictions about
+        {events.length - projections.length} entries are record, {events.filter((e) => !e.future && e.url).length} of
+        them linking to a public source. {projections.length} are projections, drawn on manila
+        stock with a dashed edge and a confidence label — Likely, Uncertain or Speculative.
+        {' '}{projections.filter((e) => e.why).length} carry the board's reasoning and{' '}
+        {projections.filter((e) => e.url).length} carry a citation. They are scenarios about mechanisms, not predictions about
         dates. Where a projection names a year, treat the year as a placeholder and the
         mechanism as the claim.
       </Section>
