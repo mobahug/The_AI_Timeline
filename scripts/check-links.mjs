@@ -35,8 +35,19 @@ const events = JSON.parse(await readFile(new URL('../data/events.json', import.m
 const NOW = 2026;
 
 const record = events.filter((e) => e.year <= NOW);
-const sourced = record.filter((e) => e.url);
-const unsourced = record.filter((e) => !e.url);
+const unsourced = record.filter((e) => !e.url && !(Array.isArray(e.sources) && e.sources.length));
+
+// Every citation, including each entry of a sources[] array. A dead source in the
+// array is exactly as much of an accuracy bug as a dead primary url, and used to
+// be invisible here.
+const sourced = [];
+for (const e of record) {
+  const seen = new Set();
+  for (const s of (Array.isArray(e.sources) ? e.sources : [])) {
+    if (s.url && !seen.has(s.url)) { seen.add(s.url); sourced.push({ ...e, url: s.url, _via: s.publisher || s.kind }); }
+  }
+  if (e.url && !seen.has(e.url)) sourced.push({ ...e, url: e.url, _via: 'primary' });
+}
 
 // Group by host so one slow or rate-limited host cannot stall the others.
 const byHost = new Map();
@@ -47,7 +58,7 @@ for (const e of sourced) {
   byHost.get(host).push(e);
 }
 
-console.log(`Checking ${sourced.length} source URLs across ${byHost.size} hosts…\n`);
+console.log(`Checking ${sourced.length} citations across ${byHost.size} hosts (including sources[] entries)…\n`);
 
 const broken = [];
 await Promise.all([...byHost.entries()].map(async ([host, list]) => {
@@ -66,7 +77,7 @@ console.log(`broken          : ${broken.length}`);
 if (broken.length) {
   console.log('\nBROKEN SOURCES');
   for (const { e, status } of broken.sort((a, b) => a.e.year - b.e.year)) {
-    console.log(`  ${status}  ${e.year}  ${e.title}`);
+    console.log(`  ${status}  ${e.year}  ${e.title}  [${e._via || 'primary'}]`);
     console.log(`         ${e.url}`);
   }
 }

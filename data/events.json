@@ -1013,7 +1013,28 @@
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/2024_in_artificial_intelligence",
     "why": "Eighty years from a paper abstraction to the discipline's highest honour, in two categories at once.",
-    "wikiTitle": "Geoffrey Hinton"
+    "wikiTitle": "Geoffrey Hinton",
+    "sources": [
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "2024 in artificial intelligence",
+        "url": "https://en.wikipedia.org/wiki/2024_in_artificial_intelligence",
+        "date": "2026-09-11",
+        "quote": "The Nobel Prize in Chemistry is awarded half to David Baker for computational protein design and half jointly to Demis Hassabis and John Jumper",
+        "supports": "claim"
+      },
+      {
+        "kind": "interview",
+        "publisher": "Nobel Prize Outreach",
+        "title": "Geoffrey Hinton, official Nobel Prize interview",
+        "url": "https://www.nobelprize.org/prizes/physics/2024/hinton/interview/",
+        "date": "2024-12-06",
+        "at": "3:13",
+        "quote": "Anybody who says it's all going to be fine, it's crazy.",
+        "supports": "context"
+      }
+    ]
   },
   {
     "id": "the-datacenter-buildout",
@@ -1066,7 +1087,27 @@
     "summary": "Unauthorised access to Spaces secrets exposes a subset of API keys and tokens; the platform revokes credentials and calls in law enforcement.",
     "source": "TechCrunch",
     "url": "https://techcrunch.com/2024/05/31/hugging-face-says-it-detected-unauthorized-access-to-its-ai-model-hosting-platform/",
-    "why": "The industry's shared model repository is critical infrastructure with startup-grade security. This is the first public proof."
+    "why": "The industry's shared model repository is critical infrastructure with startup-grade security. This is the first public proof.",
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Hugging Face",
+        "title": "Space secrets security update",
+        "url": "https://huggingface.co/blog/space-secrets-disclosure",
+        "date": "2024-05-31",
+        "quote": "a subset of Spaces' secrets could have been accessed without authorization",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "TechCrunch",
+        "title": "Hugging Face says it detected unauthorized access to its AI model hosting platform",
+        "url": "https://techcrunch.com/2024/05/31/hugging-face-says-it-detected-unauthorized-access-to-its-ai-model-hosting-platform/",
+        "date": "2024-05-31",
+        "quote": "It wasn't immediately clear how many users or apps were impacted",
+        "supports": "claim"
+      }
+    ]
   },
   {
     "id": "reasoning-models",
@@ -1188,6 +1229,15 @@
         "url": "https://simonwillison.net/2026/Jul/22/openai-cyberattack/",
         "date": "2026-07-22",
         "quote": "OpenAI's Accidental Cyberattack Against Hugging Face",
+        "supports": "context"
+      },
+      {
+        "kind": "article",
+        "publisher": "Help Net Security",
+        "title": "Hugging Face breached by autonomous AI agent",
+        "url": "https://www.helpnetsecurity.com/2026/07/20/hugging-face-breached-by-autonomous-ai-agent/",
+        "date": "2026-07-20",
+        "quote": "the attack was executed by an autonomous agent framework using a still unknown LLM",
         "supports": "context"
       }
     ]
