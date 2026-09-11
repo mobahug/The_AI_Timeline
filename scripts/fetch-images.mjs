@@ -27,11 +27,18 @@ export const citedTitle = (url) => {
 
 const wanted = new Set();
 for (const e of events) {
-  if (e.year > 2026) continue;
+  // A projection carries no citation and needs no page — but one that does cite
+  // something still needs it fetched. "The date on the poster" (2045) cites
+  // Technological singularity and was silently skipped by a bare year test.
+  if (e.year > 2026 && !e.url) continue;
   if (e.wikiTitle) wanted.add(e.wikiTitle);
   if (fallbacks[e.id]) wanted.add(fallbacks[e.id]);
   const cited = citedTitle(e.url);
   if (cited) wanted.add(cited);
+  for (const s of (Array.isArray(e.sources) ? e.sources : [])) {
+    const t = citedTitle(s.url);
+    if (t) wanted.add(t);
+  }
 }
 
 const summary = async (title) => {
@@ -44,7 +51,9 @@ const summary = async (title) => {
 
 let fetched = 0, failed = 0;
 for (const title of wanted) {
-  if (cache[title]) continue;
+  // Presence alone must not short-circuit, or no cached row can ever gain a field
+  // a later version adds. Refetch anything missing the current shape.
+  if (cache[title] && cache[title].extract !== undefined) continue;
   try {
     cache[title] = await summary(title);
     fetched++;

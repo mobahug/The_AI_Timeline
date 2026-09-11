@@ -37,32 +37,54 @@ export function citedTitle(url) {
   }
 }
 
-/** Does this lead paragraph actually speak to this entry, or is it a topic page
- *  that happens to be cited? Returns the sentences that mention the entry, so the
- *  caller can lead with them and be honest when there are none. */
+/**
+ * Split prose into sentences without breaking on abbreviations. Boundaries are
+ * computed on a masked copy — every non-terminal period is swapped for a
+ * placeholder of the same width — and each sentence is then sliced from the
+ * ORIGINAL by offset, so a quote taken from here is byte-exact. A naive
+ * /(?<=[.!?])\s+/ turns "Mata v. Avianca, Inc. was a case" into four fragments.
+ */
+export function splitSentences(text) {
+  if (!text) return [];
+  let masked = text;
+  const mask = (re) => { masked = masked.replace(re, (m) => m.replace(/\./g, '\u0001')); };
+  mask(/\{\\displaystyle[^}]*\}/g);                       // LaTeX in maths articles
+  mask(/\b(?:[A-Za-z]\.){2,}/g);                           // R.U.R., U.S., e.g., i.e.
+  mask(/\b(?:Mr|Mrs|Ms|Dr|Prof|Sr|Jr|St|Inc|Ltd|Co|Corp|No|vs|v|al|Fig|Rev|Gen|Sen|Rep|approx|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)\./gi);
+  mask(/\d\.\d/g);                                        // 3.57
+  mask(/\b[A-Z]\.(?=\s)/g);                               // middle initials
+
+  const out = [];
+  let start = 0;
+  const re = /[.!?]+(?=\s|$)/g;
+  let m;
+  while ((m = re.exec(masked)) !== null) {
+    const end = m.index + m[0].length;
+    const slice = text.slice(start, end).trim();
+    if (slice) out.push(slice);
+    start = end;
+  }
+  const tail = text.slice(start).trim();
+  if (tail) out.push(tail);
+  return out;
+}
+
+/** Does this lead actually speak to this entry, or is it a topic page that merely
+ *  happens to be cited? Returns the sentences that mention the entry so a caller
+ *  can lead with them — and be honest when there are none. */
 export function bearingOn(event, extract) {
-  if (!extract || !event) return { sentences: [], mentions: false };
+  if (!extract || !event) return { sentences: [], hits: [], mentions: false };
   const stop = new Set(['the', 'a', 'an', 'of', 'and', 'or', 'in', 'on', 'to', 'is', 'are', 'it', 'its',
     'for', 'with', 'by', 'at', 'as', 'that', 'this', 'first', 'into', 'from', 'gets', 'goes', 'his', 'her', 'their']);
   const terms = String(event.title).toLowerCase().replace(/[^a-z0-9 ]/g, ' ').split(/\s+/)
     .filter((w) => w.length > 2 && !stop.has(w));
   const year = String(event.year);
-  const sentences = extract.split(/(?<=[.!?])\s+/).map((s) => s.trim()).filter(Boolean);
+  const sentences = splitSentences(extract);
   const hits = sentences.filter((s) => {
     const low = s.toLowerCase();
     return s.includes(year) || terms.some((w) => low.includes(w));
   });
   return { sentences, hits, mentions: hits.length > 0 };
-}
-
-async function fetchTitle(title) {
-  const res = await fetch(REST + encodeURIComponent(title.replace(/ /g, '_')));
-  if (!res.ok) throw new Error(String(res.status));
-  const page = await res.json();
-  return {
-    img: (page.thumbnail && page.thumbnail.source) || (page.originalimage && page.originalimage.source) || '',
-    extract: page.extract || ''
-  };
 }
 
 /**

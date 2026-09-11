@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
-import { citedTitle, bearingOn } from '../src/lib/wiki.js';
+import { citedTitle, bearingOn, splitSentences } from '../src/lib/wiki.js';
 import { buildGraph } from '../src/lib/data.js';
 
 const graph = buildGraph(null);
@@ -78,5 +78,41 @@ describe('bearingOn separates a source that speaks to the entry from one that do
     // than letting the paragraph imply support it does not give.
     expect(withExtract.length).toBeGreaterThan(90);
     expect(silent.length).toBeLessThan(withExtract.length / 2);
+  });
+});
+
+describe('splitSentences does not break on abbreviations', () => {
+  it('keeps a case name whole', () => {
+    const s = splitSentences('Mata v. Avianca, Inc. was a case in the US District Court. It became famous in 2023.');
+    expect(s.length).toBe(2);
+    expect(s[0]).toBe('Mata v. Avianca, Inc. was a case in the US District Court.');
+  });
+
+  it('keeps initialisms, initials and decimals whole', () => {
+    expect(splitSentences('R.U.R. gave us the word robot.').length).toBe(1);
+    expect(splitSentences('John A. Smith wrote it.').length).toBe(1);
+    expect(splitSentences('It reached 3.57 per cent error.').length).toBe(1);
+    expect(splitSentences('The U.S. Department of Commerce acted.').length).toBe(1);
+  });
+
+  it('keeps LaTeX markup whole', () => {
+    const s = splitSentences('TD-Gammon used {\\displaystyle \\lambda =0.7} in training. It worked.');
+    expect(s.length).toBe(2);
+  });
+
+  it('returns byte-exact slices of the original', () => {
+    const text = 'Dr. Hinton left Google in May 2023. He warned about risk. Prof. Bengio agreed.';
+    splitSentences(text).forEach((s) => expect(text).toContain(s));
+  });
+
+  it('still splits ordinary prose', () => {
+    expect(splitSentences('One. Two. Three.').length).toBe(3);
+    expect(splitSentences('')).toEqual([]);
+  });
+
+  it('every real cached extract splits into slices that exist verbatim in it', () => {
+    Object.values(cache).filter((v) => v.extract).forEach((v) => {
+      splitSentences(v.extract).forEach((s) => expect(v.extract.includes(s)).toBe(true));
+    });
   });
 });

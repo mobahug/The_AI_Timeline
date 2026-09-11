@@ -1021,6 +1021,15 @@
         "title": "2024 in artificial intelligence",
         "url": "https://en.wikipedia.org/wiki/2024_in_artificial_intelligence",
         "date": "2026-09-11",
+        "quote": "The Nobel Prize in Physics is awarded to John Hopfield and Geoffrey Hinton \"for foundational discoveries and inventions that enable machine learning with artificial neural networks\"",
+        "supports": "claim"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "2024 in artificial intelligence",
+        "url": "https://en.wikipedia.org/wiki/2024_in_artificial_intelligence#Chemistry",
+        "date": "2026-09-11",
         "quote": "The Nobel Prize in Chemistry is awarded half to David Baker for computational protein design and half jointly to Demis Hassabis and John Jumper",
         "supports": "claim"
       },
