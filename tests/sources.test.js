@@ -96,13 +96,20 @@ describe('sourcesOf gives one shape for migrated and unmigrated entries alike', 
 
 describe('sourceStrength reports what is actually there', () => {
   it('calls an entry quoted only when a source carries a verbatim quote', () => {
-    const migrated = record.find((e) => Array.isArray(e.sources) && e.sources.some((s) => s.quote));
+    const migrated = record.find((e) => Array.isArray(e.sources) && e.sources.some((s) => s.quote && s.supports === 'claim'));
     expect(sourceStrength(migrated).state).toBe('quoted');
     expect(sourceStrength(migrated).supporting).toBeGreaterThan(0);
 
     const legacy = record.find((e) => !Array.isArray(e.sources) && e.url);
     expect(sourceStrength(legacy).state).toBe('cited');
     expect(sourceStrength(legacy).supporting).toBe(0);
+
+    // An entry whose only quotes sit on context sources is honestly 'cited',
+    // not 'quoted' — quoting something nearby is not the same as quoting support.
+    const contextOnly = { sources: [
+      { kind: 'video', publisher: 'P', title: 'T', url: 'https://x.test/v', date: '2025-01-01', quote: 'a real line', supports: 'context' }
+    ] };
+    expect(sourceStrength(contextOnly).state).toBe('cited');
   });
 
   it('counts media separately, since video was the point of the migration', () => {

@@ -978,9 +978,30 @@
     "title": "The pause letter",
     "summary": "Thousands sign a call for a six-month halt on training runs beyond GPT-4. Nobody pauses.",
     "source": "Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/Existential_risk_from_artificial_general_intelligence",
+    "url": "https://en.wikipedia.org/wiki/Pause_Giant_AI_Experiments:_An_Open_Letter",
     "why": "It proved the field could not coordinate voluntarily, which is the argument regulators used next.",
-    "wikiTitle": "Existential risk from artificial general intelligence"
+    "wikiTitle": "Pause Giant AI Experiments: An Open Letter",
+    "sources": [
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Pause Giant AI Experiments: An Open Letter",
+        "url": "https://en.wikipedia.org/wiki/Pause_Giant_AI_Experiments:_An_Open_Letter",
+        "date": "2026-09-11",
+        "quote": "The letter calls \"all AI labs to immediately pause for at least 6 months the training of AI systems more powerful than GPT-4\"",
+        "supports": "claim"
+      },
+      {
+        "kind": "video",
+        "publisher": "TED",
+        "title": "Yoshua Bengio: The catastrophic risks of AI and a safer path",
+        "url": "https://www.ted.com/talks/yoshua_bengio_the_catastrophic_risks_of_ai_and_a_safer_path",
+        "date": "2025-04-01",
+        "at": "01:32",
+        "quote": "people call me a godfather of AI",
+        "supports": "context"
+      }
+    ]
   },
   {
     "id": "altman-is-fired-then-rehired-in-five-days",
@@ -993,6 +1014,54 @@
     "why": "The most consequential five days in AI corporate history: it settled who actually controls a frontier lab, and it was not the safety board.",
     "featured": true,
     "wikiTitle": "Removal of Sam Altman from OpenAI"
+  },
+  {
+    "id": "hinton-leaves-google",
+    "year": 2023,
+    "category": "power",
+    "title": "Hinton leaves Google",
+    "summary": "After ten years inside Google, the man who made backpropagation work resigns so he can say what he thinks about AI without weighing what it costs his employer.",
+    "source": "MIT Technology Review",
+    "url": "https://www.technologyreview.com/2023/05/02/1072528/geoffrey-hinton-google-why-scared-ai/",
+    "why": "The field's most senior insider becomes its most quoted critic. Every warning that follows carries his name on the work being warned about.",
+    "wikiTitle": "Geoffrey Hinton",
+    "sources": [
+      {
+        "kind": "interview",
+        "publisher": "MIT Technology Review",
+        "title": "Geoffrey Hinton tells us why he is now scared of the tech he helped build",
+        "url": "https://www.technologyreview.com/2023/05/02/1072528/geoffrey-hinton-google-why-scared-ai/",
+        "date": "2023-05-02",
+        "quote": "I'm mildly depressed. Which is why I'm scared.",
+        "supports": "claim"
+      },
+      {
+        "kind": "interview",
+        "publisher": "CBS News",
+        "title": "Godfather of AI Geoffrey Hinton on the dangers of AI — 60 Minutes transcript",
+        "url": "https://www.cbsnews.com/news/geoffrey-hinton-ai-dangers-60-minutes-transcript/",
+        "date": "2023-10-08",
+        "quote": "I can't see a path that guarantees safety.",
+        "supports": "context"
+      },
+      {
+        "kind": "podcast",
+        "publisher": "The Diary Of A CEO",
+        "title": "Godfather of AI: I Tried to Warn Them, But We've Already Lost Control! Geoffrey Hinton",
+        "url": "https://podcasts.apple.com/us/podcast/godfather-of-ai-i-tried-to-warn-them-but-weve/id1291423644?i=1000713048391",
+        "date": "2025-06-16",
+        "supports": "context"
+      },
+      {
+        "kind": "podcast",
+        "publisher": "Big Technology",
+        "title": "Nobel Prize winner Geoffrey Hinton on machine consciousness",
+        "url": "https://www.bigtechnology.com/p/nobel-prize-winner-geoffrey-hinton",
+        "date": "2026-06-05",
+        "quote": "I believe they're already conscious.",
+        "supports": "context"
+      }
+    ]
   },
   {
     "id": "the-eu-ai-act-is-adopted",
