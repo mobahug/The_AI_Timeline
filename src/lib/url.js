@@ -1,13 +1,17 @@
 import { useCallback, useEffect, useState } from 'react';
 
-const VIEWS = new Set(['landing', 'board', 'plates', 'mosaic', 'index', 'case', 'horizon', 'line', 'finding', 'card', 'about']);
+const VIEWS = new Set(['landing', 'board', 'archive', 'plates', 'mosaic', 'case', 'horizon', 'line', 'finding', 'card', 'about']);
+
+/** Retired view names keep working: every link ever shared still lands somewhere sensible. */
+const RETIRED = { index: 'archive' };
 
 const read = () => {
   const q = new URLSearchParams(window.location.search);
   const clue = q.get('clue');
-  const view = q.get('view') || 'landing';
+  const raw = q.get('view') || 'landing';
+  const view = RETIRED[raw] || raw;
   return {
-    // A mistyped or retired view name lands on the front page, not a blank one.
+    // A mistyped view name lands on the front page, not a blank one.
     view: VIEWS.has(view) ? view : 'landing',
     id: q.get('id') || null,
     category: q.get('cat') || 'all',
@@ -22,6 +26,13 @@ export function useRoute() {
   const [route, setRoute] = useState(read);
 
   useEffect(() => {
+    // A retired name in the address bar is rewritten to its current one, quietly.
+    const q = new URLSearchParams(window.location.search);
+    const raw = q.get('view');
+    if (raw && RETIRED[raw]) {
+      q.set('view', RETIRED[raw]);
+      window.history.replaceState({}, '', window.location.pathname + '?' + q.toString());
+    }
     const onPop = () => setRoute(read());
     window.addEventListener('popstate', onPop);
     return () => window.removeEventListener('popstate', onPop);

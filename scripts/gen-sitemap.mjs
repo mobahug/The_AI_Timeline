@@ -8,7 +8,7 @@ const spine = JSON.parse(await readFile(new URL('../data/spine.json', import.met
 
 const urls = [
   { loc: ORIGIN, priority: '1.0' },
-  ...['line', 'board', 'case', 'horizon', 'plates', 'mosaic', 'index', 'about'].map((v) => ({ loc: ORIGIN + '?view=' + v, priority: '0.8' })),
+  ...['line', 'board', 'archive', 'case', 'horizon', 'plates', 'mosaic', 'about'].map((v) => ({ loc: ORIGIN + '?view=' + v, priority: '0.8' })),
   ...spine.findings.map((f) => ({ loc: ORIGIN + '?view=finding&f=' + f.n, priority: '0.7' })),
   ...events.map((e) => ({ loc: ORIGIN + '?view=card&id=' + encodeURIComponent(e.id), priority: e.featured ? '0.6' : '0.5' }))
 ];

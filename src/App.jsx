@@ -4,9 +4,7 @@ import ErrorBoundary from './components/ErrorBoundary.jsx';
 import Landing from './components/Landing.jsx';
 import About from './components/About.jsx';
 import BoardView from './components/BoardView.jsx';
-import PlatesView from './components/PlatesView.jsx';
-import MosaicView from './components/MosaicView.jsx';
-import IndexView from './components/IndexView.jsx';
+import ArchiveView from './components/ArchiveView.jsx';
 import HorizonView from './components/HorizonView.jsx';
 import CaseView from './components/CaseView.jsx';
 import LineView from './components/LineView.jsx';
@@ -120,11 +118,11 @@ export default function App() {
             onYear={onBoardPosition}
           />
         )}
-        {route.view === 'plates' && <PlatesView items={items} media={media} onOpen={openOnBoard} />}
-        {route.view === 'mosaic' && <MosaicView items={items} media={media} onOpen={openOnBoard} />}
-        {route.view === 'index' && <IndexView items={items} onOpen={openOnBoard} />}
+        {(route.view === 'archive' || route.view === 'plates' || route.view === 'mosaic') && (
+          <ArchiveView mode={route.view} items={items} media={media} navigate={navigate} onOpen={openOnBoard} />
+        )}
         {route.view === 'horizon' && <HorizonView items={items} graph={graph} navigate={navigate} onOpen={openOnBoard} />}
-        {route.view === 'case' && <CaseView graph={graph} onOpen={openOnBoard} />}
+        {route.view === 'case' && <CaseView graph={graph} navigate={navigate} onOpen={openOnBoard} />}
         {route.view === 'line' && <LineView graph={graph} navigate={navigate} onOpen={openOnBoard} />}
         {route.view === 'finding' && <FindingView graph={graph} route={route} navigate={navigate} onOpen={openOnBoard} media={media} />}
         {route.view === 'card' && <CardView graph={graph} route={route} navigate={navigate} onOpen={openOnBoard} media={media} />}

@@ -2,7 +2,7 @@ import React from 'react';
 import {
   ERAS, NOW, accent, catLabel, standingNow, roadsTo, threadLedger, loadBearing, strandOf
 } from '../lib/data.js';
-import { INK, MONO, RED, RED_LIT, SANS, SERIF, micro, tag } from '../lib/styles.js';
+import { INK, MONO, RED, RED_LIT, SANS, SERIF, button, micro, tag } from '../lib/styles.js';
 
 /* The case as it stands.
    Every connective word on this page is either verbatim from data/*.json or a fixed
@@ -57,7 +57,7 @@ const Road = ({ road }) => (
   </div>
 );
 
-export default function CaseView({ graph, onOpen }) {
+export default function CaseView({ graph, navigate, onOpen }) {
   const standing = standingNow(graph);
   const threads = threadLedger(graph);
   const bearing = loadBearing(graph, 6);
@@ -76,9 +76,14 @@ export default function CaseView({ graph, onOpen }) {
 
   return (
     <div style={SHELL}>
-      <div data-year={NOW} style={{ padding: '52px 0 0' }}>
+      <div data-year={NOW} style={{ padding: '30px 0 0' }}>
+        <div style={{ display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap', marginBottom: 34 }}>
+          <button onClick={() => navigate({ view: 'line', finding: null, id: null, clue: null })} style={button()}>← The route</button>
+          <span style={{ flex: 1 }} />
+          <button onClick={() => navigate({ view: 'horizon', finding: null, id: null, clue: null })} style={button('loud')}>The horizon →</button>
+        </div>
         <div style={{ ...micro(0.4), letterSpacing: '0.24em', marginBottom: 16 }}>
-          Assessment · derived from data/events.json and data/links.json
+          The open file · where it stands · derived from data/events.json and data/links.json
         </div>
         <h1 style={{ margin: 0, font: '400 clamp(38px,7.6vw,96px)/0.96 ' + SERIF, letterSpacing: '-0.04em', textWrap: 'balance' }}>
           The case as it stands

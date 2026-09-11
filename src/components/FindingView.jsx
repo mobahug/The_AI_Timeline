@@ -1,8 +1,9 @@
 import React from 'react';
-import { accent, catLabel, fade } from '../lib/data.js';
+import { NOW, accent, catLabel, fade } from '../lib/data.js';
 import { buildLine, readingOf, findingByNumber } from '../lib/spine.js';
 import { INK, MONO, SANS, SERIF, button, micro, tag } from '../lib/styles.js';
 import EvidenceStrip from './EvidenceStrip.jsx';
+import OpenFile from './OpenFile.jsx';
 
 /* One stretch of the route, in full. The lead card with its reasoning, every other
    entry from those years, and the strings that leave for later. */
@@ -36,6 +37,8 @@ export default function FindingView({ graph, route, navigate, onOpen, media }) {
   const next = line.rows.find((r) => r.finding.n === n + 1);
   const rest = row.cards.filter((e) => !row.lead || e.id !== row.lead.id);
   const shot = row.lead ? media(row.lead) : null;
+  // The last stretch has no lead and lies past the present: it is the open file.
+  const openFile = !row.lead && row.span.from > NOW;
 
   const nav = (
     <div style={{ display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap' }}>
@@ -78,6 +81,8 @@ export default function FindingView({ graph, route, navigate, onOpen, media }) {
           {readingOf(row)}
         </p>
       </div>
+
+      {openFile && <OpenFile graph={graph} navigate={navigate} />}
 
       {row.lead && (
         <div style={{ marginTop: 40, paddingTop: 26, borderTop: RULE, display: 'flex', gap: 'clamp(16px,3vw,32px)', flexWrap: 'wrap' }}>

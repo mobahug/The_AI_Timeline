@@ -3,22 +3,21 @@ import { createPortal } from 'react-dom';
 import { CATEGORIES, accent } from '../lib/data.js';
 import { INK, MONO, SERIF, SANS, button, micro } from '../lib/styles.js';
 
+/* Three doors. The line is the argument in order; the board is the wall with the
+   strings; the archive is everything, dated. Each stretch of the line, the open
+   file (the case, the horizon), a card's dossier and the archive's costumes are
+   pages under those three, not tabs of their own. */
 const VIEWS = [
   ['line', 'The line'],
   ['board', 'Board'],
-  ['plates', 'Plates'],
-  ['mosaic', 'Mosaic'],
-  ['index', 'Index'],
-  ['case', 'The case'],
-  ['horizon', 'Horizon'],
-  ['about', 'About']
+  ['archive', 'Archive']
 ];
 
 /** Below this the chrome would eat the screen, so it folds into one row + a sheet. */
 const NARROW = 820;
 
 /** Child routes that belong under a nav tab, so the tab stays lit inside them. */
-const PARENT_OF = { finding: 'line', card: 'board' };
+const PARENT_OF = { finding: 'line', case: 'line', horizon: 'line', card: 'board', plates: 'archive', mosaic: 'archive' };
 
 export default function Header({ route, navigate, year, progress, status }) {
   const activeView = PARENT_OF[route.view] || route.view;
@@ -144,6 +143,11 @@ export default function Header({ route, navigate, year, progress, status }) {
             {filters}
             <span style={{ flex: 1 }} />
             {search}
+            <button
+              onClick={() => go({ view: 'about', id: null, clue: null, finding: null })}
+              aria-current={activeView === 'about'}
+              style={{ ...micro(activeView === 'about' ? 1 : 0.5), border: 'none', background: 'transparent', padding: '7px 4px', cursor: 'pointer', letterSpacing: '0.12em' }}
+            >About</button>
             <a href="https://github.com/mobahug/The_AI_Timeline" target="_blank" rel="noopener" style={button()}>Contribute ↗</a>
           </div>
         )}
@@ -168,7 +172,7 @@ export default function Header({ route, navigate, year, progress, status }) {
 
             <div style={{ ...micro(0.34), letterSpacing: '0.22em', margin: '26px 0 6px' }}>Go to</div>
             <div role="list" style={{ display: 'flex', flexDirection: 'column' }}>
-              {VIEWS.map(([id, label]) => {
+              {[...VIEWS, ['about', 'About']].map(([id, label]) => {
                 const on = activeView === id;
                 return (
                   <button

@@ -30,11 +30,11 @@ export default function Landing({ navigate }) {
           <button onClick={() => navigate({ view: 'board' })} style={{ ...button('loud'), padding: '13px 20px', borderColor: RED }}>
             Open the board →
           </button>
-          <button onClick={() => navigate({ view: 'plates' })} style={{ ...button(), padding: '13px 20px' }}>
-            Read it as a timeline
+          <button onClick={() => navigate({ view: 'line' })} style={{ ...button(), padding: '13px 20px' }}>
+            Read the line
           </button>
-          <button onClick={() => navigate({ view: 'about' })} style={{ ...button(), padding: '13px 20px', color: 'rgba(243,240,234,0.5)' }}>
-            How it works
+          <button onClick={() => navigate({ view: 'archive' })} style={{ ...button(), padding: '13px 20px', color: 'rgba(243,240,234,0.5)' }}>
+            Browse the archive
           </button>
         </div>
       </header>

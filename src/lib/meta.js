@@ -9,9 +9,9 @@ const VIEW_TITLES = {
   line: ['The line', 'How a machine that could not add became something governments argue about — the order it happened in, and where the trail goes cold.'],
   case: ['The case as it stands', 'Where the board stands, the road here, what follows, and what the case does not do — derived from the data.'],
   horizon: ['The horizon', 'The forward half of the board as three horizons: scenarios, not forecasts.'],
-  plates: ['Plates', 'The chronological reading view, image-led.'],
-  mosaic: ['Mosaic', 'Every photograph on the board.'],
-  index: ['Index', 'The full archive, dense and searchable.'],
+  archive: ['The archive', 'Every entry on the board in date order — dense, filterable, searchable.'],
+  plates: ['The archive · plates', 'The archive as image-led plates, in date order.'],
+  mosaic: ['The archive · mosaic', 'Every photograph on the board.'],
   about: ['About', 'How this board works, what a string means, and what it does not claim.']
 };
 

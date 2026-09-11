@@ -30,6 +30,11 @@ export default function HorizonView({ items, graph, navigate, onOpen }) {
 
   return (
     <div data-year={NOW + 1} style={{ maxWidth: 1400, margin: '0 auto', padding: '30px clamp(14px,4vw,32px) 80px' }}>
+      <div style={{ display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap', marginBottom: 34 }}>
+        <button onClick={() => navigate({ view: 'line', finding: null, id: null, clue: null })} style={button()}>← The route</button>
+        <span style={{ flex: 1 }} />
+        <button onClick={() => navigate({ view: 'case', finding: null, id: null, clue: null })} style={button()}>← The case as it stands</button>
+      </div>
       <header style={{ borderBottom: '1px solid rgba(243,240,234,0.14)', paddingBottom: 26, marginBottom: 8 }}>
         <div style={{ display: 'flex', gap: 'clamp(18px,3vw,44px)', flexWrap: 'wrap', alignItems: 'flex-start' }}>
           <div style={{ flex: '1 1 320px', minWidth: 0 }}>

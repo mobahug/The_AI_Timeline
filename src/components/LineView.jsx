@@ -2,6 +2,7 @@ import React from 'react';
 import { NOW, accent, catLabel } from '../lib/data.js';
 import { buildLine, readingOf } from '../lib/spine.js';
 import { INK, MONO, RED, RED_LIT, SANS, SERIF, micro } from '../lib/styles.js';
+import OpenFile from './OpenFile.jsx';
 
 /* The route. One numbered pass through the case, oldest first, with every entry
    filed underneath by date. Nothing about a finding's contents is written down —
@@ -174,6 +175,8 @@ export default function LineView({ graph, navigate, onOpen }) {
           );
         })}
       </ol>
+
+      <OpenFile graph={graph} navigate={navigate} />
 
       <div style={{ borderTop: RULE, marginTop: 30, paddingTop: 22, ...micro(0.34), letterSpacing: '0.1em', textTransform: 'none', font: '400 11.5px/1.8 ' + MONO, maxWidth: '72ch' }}>
         Everything after {NOW} is a scenario rather than a record. Where a boundary carries no
