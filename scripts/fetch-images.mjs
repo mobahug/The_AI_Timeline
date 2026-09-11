@@ -9,11 +9,29 @@ const fallbacks = JSON.parse(await readFile(new URL('../data/image-fallbacks.jso
 let cache = {};
 try { cache = JSON.parse(await readFile(OUT, 'utf8')); } catch {}
 
+/** The article a citation URL actually points at. This is NOT always wikiTitle:
+ *  wikiTitle picks the illustration, the URL is the claim's evidence, and after
+ *  the source audit repointed several citations the two deliberately differ. The
+ *  text shown to a reader must come from the page we cite, never from the page we
+ *  borrowed a photograph from. */
+export const citedTitle = (url) => {
+  try {
+    const u = new URL(url);
+    if (!/(^|\.)wikipedia\.org$/.test(u.hostname)) return null;
+    if (!u.pathname.startsWith('/wiki/')) return null;
+    return decodeURIComponent(u.pathname.slice('/wiki/'.length)).replace(/_/g, ' ');
+  } catch {
+    return null;
+  }
+};
+
 const wanted = new Set();
 for (const e of events) {
   if (e.year > 2026) continue;
   if (e.wikiTitle) wanted.add(e.wikiTitle);
   if (fallbacks[e.id]) wanted.add(fallbacks[e.id]);
+  const cited = citedTitle(e.url);
+  if (cited) wanted.add(cited);
 }
 
 const summary = async (title) => {
