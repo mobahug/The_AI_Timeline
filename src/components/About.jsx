@@ -22,6 +22,16 @@ export default function About() {
         connection cannot be argued in a sentence, it does not get a string.
       </Section>
 
+      <Section title="Where the quoted sentences come from">
+        Under a card, one sentence from the page it cites is shown in place, so a claim can be
+        checked without leaving. For Wikipedia sources that sentence is the article's own text,
+        reproduced under the Creative Commons Attribution-ShareAlike 4.0 licence, with the article
+        named and linked beneath it. Where a contributor has read the source and chosen the line,
+        the strip says so; where the match was made automatically, it says that instead. And
+        where the cited page does not mention the entry at all, the strip says exactly that
+        rather than letting a nearby paragraph imply support it does not give.
+      </Section>
+
       <Section title="Record and projection are different things">
         {events.length - projections.length} entries are record, {events.filter((e) => !e.future && e.url).length} of
         them linking to a public source. {projections.length} are projections, drawn on manila

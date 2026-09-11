@@ -2,6 +2,7 @@ import React from 'react';
 import { accent, catLabel, fade } from '../lib/data.js';
 import { buildLine, readingOf, findingByNumber } from '../lib/spine.js';
 import { INK, MONO, SANS, SERIF, button, micro, tag } from '../lib/styles.js';
+import EvidenceStrip from './EvidenceStrip.jsx';
 
 /* One stretch of the route, in full. The lead card with its reasoning, every other
    entry from those years, and the strings that leave for later. */
@@ -101,6 +102,7 @@ export default function FindingView({ graph, route, navigate, onOpen, media }) {
                 {row.lead.why}
               </p>
             )}
+            <EvidenceStrip event={row.lead} media={media} />
             <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', alignItems: 'center' }}>
               <button onClick={() => onOpen(row.lead.id)} style={button('loud')}>Open on the board →</button>
               {row.lead.url

@@ -1,6 +1,7 @@
 import React from 'react';
 import { accent, catLabel } from '../lib/data.js';
 import { INK, MONO, RED, RED_LIT, SANS, SERIF, button, micro, tag } from '../lib/styles.js';
+import EvidenceStrip from './EvidenceStrip.jsx';
 
 /* These rows carry the actual argument, so they wrap. They used to be nowrap with
    an ellipsis, which cut every claim off mid-sentence. */
@@ -99,6 +100,7 @@ export default function CluePanel({ graph, chain, step, current, focus, media, o
                   borderLeft: '2px solid ' + accent(focus.category, 0), paddingLeft: 13, marginTop: 2
                 }}>{focus.why}</div>
               )}
+              <EvidenceStrip event={focus} media={media} compact />
               <div style={{ display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap', marginTop: 2 }}>
                 {(graph.adjacency[focus.id] || []).length > 0 &&
                   <button onClick={() => onOpenChain(focus.id)} style={button('loud')}>Follow the strings →</button>}
