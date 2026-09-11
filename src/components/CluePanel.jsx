@@ -2,12 +2,14 @@ import React from 'react';
 import { accent, catLabel } from '../lib/data.js';
 import { INK, MONO, RED, RED_LIT, SANS, SERIF, button, micro, tag } from '../lib/styles.js';
 
+/* These rows carry the actual argument, so they wrap. They used to be nowrap with
+   an ellipsis, which cut every claim off mid-sentence. */
 const chip = (activeRow) => ({
   display: 'block', textAlign: 'left', width: '100%', borderRadius: 2, padding: '7px 9px', cursor: 'pointer',
   border: '1px solid ' + (activeRow ? RED_LIT : 'rgba(243,240,234,0.16)'),
   background: activeRow ? 'rgba(255,80,60,0.08)' : 'transparent',
   color: activeRow ? INK : 'rgba(243,240,234,0.75)',
-  font: '400 10.5px/1.3 ' + MONO, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis'
+  font: '400 10.5px/1.45 ' + MONO, whiteSpace: 'normal', overflowWrap: 'anywhere', textWrap: 'pretty'
 });
 
 const Side = ({ event, role, accentBorder }) => (
@@ -58,7 +60,7 @@ export default function CluePanel({ graph, chain, step, current, focus, media, o
 
           <div style={{ display: 'flex', gap: 22, flexWrap: 'wrap' }}>
             <p style={{ margin: 0, flex: 1, minWidth: 300, maxWidth: '78ch', font: '400 13.5px/1.62 ' + SANS, color: 'rgba(243,240,234,0.68)', textWrap: 'pretty' }}>{note}</p>
-            <div style={{ width: 260, display: 'flex', flexDirection: 'column', gap: 5, maxHeight: 150, overflowY: 'auto' }}>
+            <div style={{ flex: '1 1 260px', minWidth: 0, display: 'flex', flexDirection: 'column', gap: 5, maxHeight: 190, overflowY: 'auto' }}>
               <div style={micro(0.34)}>The whole thread</div>
               {chain.map((s, i) => (
                 <button key={i} onClick={() => onJump(i)} style={chip(i === step)}>
@@ -96,7 +98,7 @@ export default function CluePanel({ graph, chain, step, current, focus, media, o
                 {focus.url && <a href={focus.url} target="_blank" rel="noopener" style={{ ...micro(1), letterSpacing: '0.14em' }}>{focus.source || 'Source'} ↗</a>}
               </div>
             </div>
-            <div style={{ width: 270, display: 'flex', flexDirection: 'column', gap: 6, minWidth: 0 }}>
+            <div style={{ flex: '1 1 270px', minWidth: 0, display: 'flex', flexDirection: 'column', gap: 6, maxHeight: 200, overflowY: 'auto' }}>
               <div style={micro(0.36)}>Connections</div>
               {(graph.adjacency[focus.id] || []).map((a, i) => (
                 <button key={i} onClick={() => onOpenChain(a.id)} style={chip(false)}>

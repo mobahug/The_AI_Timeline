@@ -62,7 +62,16 @@ export default function Header({ route, navigate, year, progress, status }) {
               background: on ? (c.id === 'all' ? INK : accent(c.id, 0)) : 'transparent',
               color: on ? '#0a0a0b' : 'rgba(243,240,234,0.6)'
             }}
-          >{c.label}</button>
+          >
+            {c.id !== 'all' && (
+              <span style={{
+                display: 'inline-block', width: 7, height: 7, borderRadius: '50%', marginRight: 6,
+                verticalAlign: 'middle', background: accent(c.id, 0),
+                border: on ? '1px solid rgba(0,0,0,0.35)' : 'none'
+              }} />
+            )}
+            {c.label}
+          </button>
         );
       })}
     </div>
@@ -98,7 +107,8 @@ export default function Header({ route, navigate, year, progress, status }) {
           <span style={{ flex: 1 }} />
           {!narrow && <span style={micro(0.34)}>{status}</span>}
           <span style={{
-            font: '500 ' + (narrow ? 20 : 26) + 'px/0.9 ' + "'Instrument Serif', Georgia, serif", letterSpacing: '-0.02em',
+            fontFamily: "'Instrument Serif', Georgia, serif", fontWeight: 500,
+            fontSize: (narrow ? 20 : 26) + 'px', lineHeight: 0.9, letterSpacing: '-0.02em',
             fontVariantNumeric: 'tabular-nums', minWidth: narrow ? 52 : 96, textAlign: 'right',
             color: Number(year) > 2026 ? 'rgba(243,240,234,0.6)' : INK
           }}>{year}</span>

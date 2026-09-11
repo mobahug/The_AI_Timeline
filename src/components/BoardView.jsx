@@ -162,15 +162,29 @@ export default function BoardView({ items, graph, media, route, navigate, board,
   const focusId = chain ? null : hover;
   const active = chain ? chainIds : (focusId ? [focusId, ...(graph.adjacency[focusId] || []).map((a) => a.id)] : null);
 
+  /** Smooth where the browser honours it, guaranteed to arrive where it does not.
+   *  A backgrounded or throttled tab drops the animation frames that smooth
+   *  scrolling runs on, which would otherwise leave the board never moving. */
+  const panTo = useCallback((left) => {
+    const el = scroller.current;
+    if (!el) return;
+    const target = Math.max(0, Math.min(left, el.scrollWidth - el.clientWidth));
+    el.scrollTo({ left: target, behavior: 'smooth' });
+    window.setTimeout(() => {
+      const now = scroller.current;
+      if (now && Math.abs(now.scrollLeft - target) > 4) now.scrollLeft = target;
+    }, 600);
+  }, []);
+
   const centre = useCallback((stepData) => {
     const el = scroller.current;
     if (!el || !stepData) return;
     const a = positions[stepData.from];
     const b = positions[stepData.to];
     if (!a || !b) return;
-    el.scrollTo({ left: Math.max(0, (a.x + b.x) / 2 - el.clientWidth / 2), behavior: 'smooth' });
+    panTo((a.x + b.x) / 2 - el.clientWidth / 2);
     if (el.scrollHeight > el.clientHeight) el.scrollTop = Math.max(0, (a.y + b.y) / 2 - el.clientHeight / 2);
-  }, [positions]);
+  }, [positions, panTo]);
 
   const openChain = useCallback((id, atStep) => {
     const built = buildChain(graph, id);
@@ -197,9 +211,23 @@ export default function BoardView({ items, graph, media, route, navigate, board,
     if (route.id && positions[route.id]) {
       setHover(route.id);
       const el = scroller.current;
-      if (el) el.scrollTo({ left: Math.max(0, positions[route.id].x - el.clientWidth / 2), behavior: 'smooth' });
+      if (el) panTo(positions[route.id].x - el.clientWidth / 2);
     }
-  }, [route.id, route.clue, graph, positions, board3.nodes.length, centre]);
+  }, [route.id, route.clue, graph, positions, board3.nodes.length, centre, panTo]);
+
+  // Filtering a 4200px board to five cards used to leave you staring at empty
+  // cork, with the results somewhere off-screen. Changing a filter now pans to
+  // the first surviving card.
+  const filterKey = route.category + '|' + route.query;
+  const lastFilter = useRef(filterKey);
+  useEffect(() => {
+    if (filterKey === lastFilter.current) return;
+    lastFilter.current = filterKey;
+    const el = scroller.current;
+    if (!el || !board3.nodes.length) return;
+    const first = board3.nodes.reduce((a, n) => (n.x < a.x ? n : a), board3.nodes[0]);
+    panTo(first.x - el.clientWidth * 0.28);
+  }, [filterKey, board3.nodes, panTo]);
 
   const move = useCallback((delta) => {
     if (!chain) return;
