@@ -198,6 +198,21 @@ export default function BoardView({ items, graph, media, route, navigate, board,
     if (el && positions[id]) panTo(positions[id].x - el.clientWidth / 2);
   }, [navigate, positions, panTo]);
 
+  /** Open one specific string as a walked clue. buildChain only ever follows the
+   *  first-authored link at each hop, so without naming the parent, three of the
+   *  62 strings could not be reached from any click at all. */
+  const openClue = useCallback((from, to) => {
+    const built = buildChain(graph, to, from);
+    const index = built.steps.findIndex((s) => s.from === from && s.to === to);
+    if (index < 0) return;
+    setPinned(null);
+    setHover(null);
+    setChain(built.steps);
+    setStep(index);
+    navigate({ clue: { from, to }, id: null }, true);
+    requestAnimationFrame(() => centre(built.steps[index]));
+  }, [graph, navigate, centre]);
+
   const openChain = useCallback((id, atStep) => {
     const built = buildChain(graph, id);
     if (!built.steps.length) { focusCard(id); return; }
@@ -586,6 +601,7 @@ export default function BoardView({ items, graph, media, route, navigate, board,
               onExit={() => { setChain(null); setHover(null); setPinned(null); navigate({ clue: null, id: null }, true); }}
               onOpenChain={openChain}
               onOpenCard={focusCard}
+              onOpenClue={openClue}
             />
           </div>
         )}

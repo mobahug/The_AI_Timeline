@@ -26,7 +26,7 @@ const Side = ({ event, role, accentBorder }) => (
   </div>
 );
 
-export default function CluePanel({ graph, chain, step, current, focus, media, onStep, onJump, onExit, onOpenChain, onOpenCard }) {
+export default function CluePanel({ graph, chain, step, current, focus, media, onStep, onJump, onExit, onOpenChain, onOpenCard, onOpenClue }) {
   const shell = {
     marginTop: 12, border: '1px solid rgba(243,240,234,0.14)', borderRadius: 3, background: '#101013',
     minHeight: 206, display: 'flex', flexDirection: 'column'
@@ -111,7 +111,18 @@ export default function CluePanel({ graph, chain, step, current, focus, media, o
                   <React.Fragment key={label}>
                     <div style={{ ...micro(0.36), marginTop: 2 }}>{label}</div>
                     {list.map((a, i) => (
-                      <button key={label + i} onClick={() => (onOpenCard ? onOpenCard(a.id) : onOpenChain(a.id))} style={chip(false)}>
+                      <button
+                        key={label + i}
+                        onClick={() => {
+                          // a.out means focus caused a.id; otherwise a.id caused focus
+                          const from = a.out ? focus.id : a.id;
+                          const to = a.out ? a.id : focus.id;
+                          if (onOpenClue) onOpenClue(from, to);
+                          else if (onOpenCard) onOpenCard(a.id);
+                          else onOpenChain(a.id);
+                        }}
+                        style={chip(false)}
+                      >
                         <span style={{ color: 'oklch(0.78 0.16 25)' }}>{a.claim}</span>{'  '}
                         {graph.index[a.id].year} {graph.index[a.id].title}
                       </button>
