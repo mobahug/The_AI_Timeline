@@ -178,6 +178,7 @@ export default function BoardView({ items, graph, media, route, navigate, board,
    * Honours prefers-reduced-motion by jumping straight there.
    */
   const panAnim = useRef(null);
+  const railInset = useRef(0);
   const cancelPan = useCallback(() => {
     if (panAnim.current !== null) { cancelAnimationFrame(panAnim.current); panAnim.current = null; }
   }, []);
@@ -212,7 +213,7 @@ export default function BoardView({ items, graph, media, route, navigate, board,
     const a = positions[stepData.from];
     const b = positions[stepData.to];
     if (!a || !b) return;
-    panTo((a.x + b.x) / 2 - el.clientWidth / 2);
+    panTo((a.x + b.x) / 2 - (el.clientWidth - railInset.current) / 2);
     if (el.scrollHeight > el.clientHeight) el.scrollTop = Math.max(0, (a.y + b.y) / 2 - el.clientHeight / 2);
   }, [positions, panTo]);
 
@@ -222,7 +223,7 @@ export default function BoardView({ items, graph, media, route, navigate, board,
     setPinned(id);
     navigate({ id, clue: null }, true);
     const el = scroller.current;
-    if (el && positions[id]) panTo(positions[id].x - el.clientWidth / 2);
+    if (el && positions[id]) panTo(positions[id].x - (el.clientWidth - railInset.current) / 2);
   }, [navigate, positions, panTo]);
 
   /** Open one specific string as a walked clue. buildChain only ever follows the
@@ -266,7 +267,7 @@ export default function BoardView({ items, graph, media, route, navigate, board,
     if (route.id && positions[route.id]) {
       setPinned(route.id);
       const el = scroller.current;
-      if (el) panTo(positions[route.id].x - el.clientWidth / 2);
+      if (el) panTo(positions[route.id].x - (el.clientWidth - railInset.current) / 2);
     }
   }, [route.id, route.clue, graph, positions, board3.nodes.length, centre, panTo]);
 
@@ -387,12 +388,21 @@ export default function BoardView({ items, graph, media, route, navigate, board,
       : graph.edges.length + ' strings · click a card to walk the case';
 
   const panelOpen = !!(current || focusId);
-  // A hover preview must never steal the hover that produced it, and must never
-  // sit on top of the card being read. It docks to whichever half of the canvas
-  // the subject is NOT in, and lets the pointer straight through.
+  // A hover preview must never steal the hover that produced it, so it lets the
+  // pointer straight through.
   const preview = !current && !pinned && !!hover;
+
+  // The context panel is one fixed size, always in one place, whatever card is
+  // selected and whether it was hovered or clicked. On a wide screen that is a
+  // rail down the right edge, which never covers a lane and never has to flip.
+  // On a narrow one it is a sheet of fixed height, which still docks away from
+  // the subject because there is nowhere else for it to go.
+  const railMode = box.w >= 1100;
+  const RAIL_W = railMode ? Math.min(440, Math.round(box.w * 0.34)) : 0;
+  const SHEET_H = railMode ? 0 : Math.max(180, Math.round(shellH * 0.46));
   const subject = current ? positions[current.to] : (focusId ? positions[focusId] : null);
-  const dockTop = !!(subject && box.h && subject.y > box.h * 0.52);
+  const dockTop = !railMode && !!(subject && box.h && subject.y > box.h * 0.52);
+  railInset.current = RAIL_W;
 
   return (
     <div
@@ -599,7 +609,7 @@ export default function BoardView({ items, graph, media, route, navigate, board,
           </div>
         )}
 
-        <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: 56, zIndex: 5, pointerEvents: 'none', background: 'linear-gradient(270deg,rgba(10,10,11,0.85),transparent)' }} />
+        {!(panelOpen && railMode) && <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: 56, zIndex: 5, pointerEvents: 'none', background: 'linear-gradient(270deg,rgba(10,10,11,0.85),transparent)' }} />}
         {[['left', 'top'], ['right', 'top'], ['left', 'bottom'], ['right', 'bottom']].map(([x, y]) => (
           <div key={x + y} style={{
             position: 'absolute', [x]: 7, [y]: 7, width: 22, height: 22, pointerEvents: 'none', zIndex: 7,
@@ -609,16 +619,21 @@ export default function BoardView({ items, graph, media, route, navigate, board,
         ))}
 
         {panelOpen && (
-          <div style={{
-            position: 'absolute', left: 0, right: 0, zIndex: 22,
-            ...(dockTop ? { top: 0 } : { bottom: 0 }),
-            maxHeight: Math.max(150, Math.round(shellH * (preview ? 0.4 : 0.46))),
-            overflowY: preview ? 'hidden' : 'auto',
-            pointerEvents: preview ? 'none' : 'auto',
-            background: 'rgba(10,10,11,0.93)', backdropFilter: 'blur(16px) saturate(1.3)',
-            [dockTop ? 'borderBottom' : 'borderTop']: '1px solid rgba(243,240,234,0.16)',
-            animation: 'fadeIn .2s both'
-          }}>
+          <div
+            role="complementary"
+            aria-label="Card context"
+            style={{
+              position: 'absolute', zIndex: 22,
+              ...(railMode
+                ? { top: 0, right: 0, bottom: 0, width: RAIL_W, borderLeft: '1px solid rgba(243,240,234,0.16)', animation: 'slideInRight .24s cubic-bezier(.22,.7,.3,1) both' }
+                : { left: 0, right: 0, height: SHEET_H, ...(dockTop ? { top: 0 } : { bottom: 0 }),
+                    [dockTop ? 'borderBottom' : 'borderTop']: '1px solid rgba(243,240,234,0.16)',
+                    animation: (dockTop ? 'slideInDown' : 'slideInUp') + ' .24s cubic-bezier(.22,.7,.3,1) both' }),
+              overflowY: 'auto', overscrollBehavior: 'contain',
+              pointerEvents: preview ? 'none' : 'auto',
+              background: 'rgba(10,10,11,0.94)', backdropFilter: 'blur(16px) saturate(1.3)'
+            }}
+          >
             <CluePanel
               graph={graph}
               chain={chain}

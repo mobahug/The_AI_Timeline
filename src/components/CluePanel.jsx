@@ -80,7 +80,7 @@ export default function CluePanel({ graph, chain, step, current, focus, media, o
       <div style={shell}>
         <div style={{ display: 'flex', flexWrap: 'wrap', width: '100%', animation: 'fadeIn .25s both' }}>
           <div style={{
-            flex: '1 1 186px', minWidth: 0, maxWidth: 260, minHeight: 104, alignSelf: 'stretch', border: '1px solid rgba(243,240,234,0.12)', borderRadius: 2,
+            flex: '1 1 186px', minWidth: 0, maxWidth: 320, minHeight: 120, alignSelf: 'stretch', border: '1px solid rgba(243,240,234,0.12)', borderRadius: 2,
             backgroundColor: '#0e0e11', backgroundSize: shot.img ? 'cover' : undefined, backgroundPosition: 'center',
             backgroundImage: shot.img ? 'url(' + shot.img + ')' : 'repeating-linear-gradient(135deg,rgba(243,240,234,0.06) 0 6px,transparent 6px 12px)'
           }} />
@@ -93,6 +93,12 @@ export default function CluePanel({ graph, chain, step, current, focus, media, o
               </div>
               <div style={{ font: '400 23px/1.14 ' + SERIF, letterSpacing: '-0.022em', textWrap: 'balance' }}>{focus.title}</div>
               <div style={{ font: '400 13.5px/1.6 ' + SANS, color: 'rgba(243,240,234,0.62)', maxWidth: '64ch', textWrap: 'pretty' }}>{focus.summary}</div>
+              {focus.why && (
+                <div style={{
+                  font: '400 15px/1.5 ' + SERIF, color: 'rgba(243,240,234,0.8)', maxWidth: '52ch', textWrap: 'pretty',
+                  borderLeft: '2px solid ' + accent(focus.category, 0), paddingLeft: 13, marginTop: 2
+                }}>{focus.why}</div>
+              )}
               <div style={{ display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap', marginTop: 2 }}>
                 {(graph.adjacency[focus.id] || []).length > 0 &&
                   <button onClick={() => onOpenChain(focus.id)} style={button('loud')}>Follow the strings →</button>}
