@@ -332,5 +332,287 @@
     "from": "models-that-keep-learning",
     "to": "a-contested-agi-claim",
     "claim": "makes it unfalsifiable"
+  },
+  {
+    "from": "deep-networks-become-trainable",
+    "to": "the-netflix-prize",
+    "claim": "was road-tested in",
+    "note": "Hinton's Toronto group entered the Netflix Prize in its first months and published restricted Boltzmann machines for collaborative filtering; the eventual winners folded that method into their blend. (Kaggle Merck interview, 2012: 'In the Netflix competition, the Toronto group publicized their novel use of restricted Boltzmann machines for collaborative filtering, and the winners used this method to create several of the models that were averaged to produce the winning solution.')"
+  },
+  {
+    "from": "the-netflix-prize",
+    "to": "imagenet",
+    "claim": "wrote the template for",
+    "note": "Public data, a fixed metric, a live leaderboard and a target score. ImageNet's own challenge (from 2010) ran on exactly this format, and so has every benchmark race since."
+  },
+  {
+    "from": "imagenet",
+    "to": "kaggle",
+    "claim": "eventually handed its challenge to",
+    "note": "ImageNet's last independent challenge ran in 2017. On 26 July 2017 image-net.org announced it was passing the baton: all three ILSVRC tracks would be hosted on Kaggle from then on."
+  },
+  {
+    "from": "kaggle",
+    "to": "hinton-auctions-his-three-person-startup",
+    "claim": "gave the bidders a second data point before",
+    "note": "The same autumn AlexNet won ImageNet, Hinton's students won Merck's molecular-activity competition on Kaggle with the same tools — multi-layer nets, dropout, GPUs. Vision and drug discovery in one season is what the bidders were paying for."
+  },
+  {
+    "from": "convolutions-read-handwriting",
+    "to": "zuckerberg-hires-lecun",
+    "claim": "made its author the hire",
+    "note": "The convolutional network that read zip codes in 1989 was, by 2013, the architecture that had just won ImageNet. Its inventor was the obvious second founding father to recruit once Google had the first."
+  },
+  {
+    "from": "zuckerberg-hires-lecun",
+    "to": "google-buys-deepmind",
+    "claim": "was in the bidding for",
+    "note": "Facebook was in talks to buy DeepMind in late 2013 (The Information, via TechCrunch); Google closed the deal in January 2014. The lab Facebook had just opened became its alternative to buying one."
+  },
+  {
+    "from": "zuckerberg-hires-lecun",
+    "to": "generative-adversarial-networks",
+    "claim": "made practical",
+    "note": "By Meta's own account (FAIR's fifth-anniversary post, 2018), GANs had been shown only on toy problems until FAIR's 2015 papers, DCGAN among them, 'were instrumental in convincing the research community that GANs really worked'. Self-assessment, but widely accepted."
+  },
+  {
+    "from": "cuda",
+    "to": "pytorch",
+    "claim": "is wrapped in Python by",
+    "note": "PyTorch's tensors run on Nvidia GPUs through CUDA bindings. The framework made CUDA hardware usable from a few lines of Python, which is how most researchers have touched CUDA since."
+  },
+  {
+    "from": "pytorch",
+    "to": "chatgpt",
+    "claim": "was adopted by OpenAI before",
+    "note": "OpenAI standardised its research on PyTorch in January 2020, two years before ChatGPT. The framework Meta gave away sits under the lab that made OpenAI a household name."
+  },
+  {
+    "from": "attention-is-all-you-need",
+    "to": "scaling-laws",
+    "claim": "was measured by",
+    "note": "The transformer made scale the lever. Three years later the same lever was measured: loss falls predictably with parameters, data and compute, with no wall in sight across seven orders of magnitude."
+  },
+  {
+    "from": "scaling-laws",
+    "to": "gpt-3",
+    "claim": "justified the bet on",
+    "note": "Same lab, four months apart, overlapping authors. The 175-billion-parameter model was the first training run whose cost was defended by a curve rather than a hunch."
+  },
+  {
+    "from": "scaling-laws",
+    "to": "the-datacenter-buildout",
+    "claim": "wrote the cheque for",
+    "note": "Capital expenditure at national-infrastructure scale only makes sense if performance is a predictable function of compute. The 2020 paper is that argument in equations."
+  },
+  {
+    "from": "scaling-laws",
+    "to": "reasoning-models",
+    "claim": "ran out of cheap data before",
+    "note": "Chinchilla showed data mattered as much as parameters; the usable web is finite. When pretraining scale got expensive, the spend moved to inference — thinking longer instead of training bigger."
+  },
+  {
+    "from": "gpt-3",
+    "to": "instructgpt",
+    "claim": "was tamed by",
+    "note": "GPT-3 could do almost anything and would do almost nothing you asked. Fine-tuning on human rankings of its own outputs turned a completion engine into something that follows instructions."
+  },
+  {
+    "from": "instructgpt",
+    "to": "chatgpt",
+    "claim": "was the sibling behind",
+    "note": "OpenAI's launch post calls ChatGPT 'a sibling model to InstructGPT', trained with the same methods. The board's ChatGPT card says the interface was the breakthrough; this is the technique that made the interface possible."
+  },
+  {
+    "from": "cuda",
+    "to": "washington-restricts-the-chips",
+    "claim": "made the GPU strategic",
+    "note": "A platform built for games became the only affordable way to train frontier models. Fifteen years later the same chips needed an export licence."
+  },
+  {
+    "from": "japan-s-fifth-generation-project",
+    "to": "washington-restricts-the-chips",
+    "claim": "was the last state AI race before",
+    "note": "The 1982 race was over software and ended in quiet disappointment. The 2022 one is over silicon, and is fought with customs law rather than research grants."
+  },
+  {
+    "from": "washington-restricts-the-chips",
+    "to": "deepseek-r1-resets-the-price-of-reasoning",
+    "claim": "was worked around by",
+    "note": "DeepSeek's V3 technical report gives the training cost in H800 GPU hours — the chip Nvidia designed to fit under the 2022 thresholds. The controls shaped the model that then shook the market."
+  },
+  {
+    "from": "washington-restricts-the-chips",
+    "to": "sovereign-compute",
+    "claim": "escalated into",
+    "note": "A licence requirement for two Nvidia products in 2022 became, by 2026, a doctrine: chips, datacenters and grid connections as strategic assets. The board's 2026 card is the mature form of this decision."
+  },
+  {
+    "from": "diffusion-goes-mainstream",
+    "to": "llama-leaks",
+    "claim": "repeated for text as",
+    "note": "Both the leaked Google memo and Simon Willison called it the \"Stable Diffusion moment\" for language models: an open base model, then a flood of community fine-tunes, quantisation and local inference within weeks. The difference is that Stability chose to release and Meta did not."
+  },
+  {
+    "from": "gpt-2-s-staged-release",
+    "to": "llama-leaks",
+    "claim": "was overtaken by",
+    "note": "Meta tried the gated release OpenAI had pioneered — case-by-case access, research-only licence. The gate held for a week. After this, withholding weights is a choice a lab can make only about its own models, and only until someone with access decides otherwise."
+  },
+  {
+    "from": "chatgpt",
+    "to": "llama-leaks",
+    "claim": "created the appetite for",
+    "note": "Three months after a hundred million people met a chat model behind an API, a comparable base model appeared that anyone could download. Interpretive: the leak mattered because the audience already existed."
+  },
+  {
+    "from": "llama-leaks",
+    "to": "hugging-face-spaces-is-breached",
+    "claim": "routed the weights through",
+    "note": "Mirrors of the torrent appeared on Hugging Face within a day; Meta sent takedown requests to the same platform that would host Llama 2 officially four months later. The repository became the industry's registry by being where the weights ended up."
+  },
+  {
+    "from": "llama-leaks",
+    "to": "llama-2-is-free-for-commercial-use",
+    "claim": "was ratified as policy by",
+    "note": "(Target is a proposed card.) Meta's response to losing control of the weights was to make giving them away official."
+  },
+  {
+    "from": "openai-goes-capped-profit-microsoft-puts-in-1bn",
+    "to": "llama-2-is-free-for-commercial-use",
+    "claim": "was hedged by",
+    "note": "Microsoft, OpenAI's exclusive cloud, becomes Meta's 'preferred partner' for a free rival — announced by Satya Nadella on stage at Microsoft Inspire. The same company funds the closed frontier and distributes the open one."
+  },
+  {
+    "from": "llama-2-is-free-for-commercial-use",
+    "to": "hugging-face-spaces-is-breached",
+    "claim": "made the repository critical infrastructure before",
+    "note": "Llama 2 shipped on Hugging Face on day one; Mistral 7B did the same ten weeks later. By 2024 the weights everyone builds on are hosted by a startup — which is what the breach card assumes without saying."
+  },
+  {
+    "from": "llama-2-is-free-for-commercial-use",
+    "to": "deepseek-r1-resets-the-price-of-reasoning",
+    "claim": "made open weights the challenger's move before",
+    "note": "Once the largest social network had shown that giving away weights builds an ecosystem and drains rivals' margins, every lab that could not win on the API had the same option. DeepSeek took it at the frontier."
+  },
+  {
+    "from": "llama-2-is-free-for-commercial-use",
+    "to": "a-magnet-link-from-paris",
+    "claim": "was undercut in ten weeks by",
+    "note": "(Source is a proposed card.) Mistral's announcement is a comparison table against Llama 2 plus a licence with no carve-outs. Meta's 'open source' had a 700-million-user clause; Apache 2.0 has none."
+  },
+  {
+    "from": "a-magnet-link-from-paris",
+    "to": "the-eu-ai-act-is-adopted",
+    "claim": "lobbied to soften",
+    "note": "In the November 2023 trilogue Mistral was reported to be leading the push against the Parliament's tiered obligations on foundation-model makers. I verified the lobbying, not its effect on the final text — the claim verb should stay at 'lobbied', not 'watered down'."
+  },
+  {
+    "from": "a-magnet-link-from-paris",
+    "to": "deepseek-r1-resets-the-price-of-reasoning",
+    "claim": "rehearsed",
+    "note": "A small, well-funded lab, a benchmark table against the incumbent, weights on a torrent, no product. Sixteen months later DeepSeek runs the same play at the frontier and the market notices."
+  },
+  {
+    "from": "diffusion-goes-mainstream",
+    "to": "a-magnet-link-from-paris",
+    "claim": "set the release style for",
+    "note": "Stable Diffusion had shown that shipping weights with no gate builds a community faster than any API. Mistral took the lesson literally: no gate, no form, a torrent."
+  },
+  {
+    "from": "llama-2-is-free-for-commercial-use",
+    "to": "meta-claims-the-frontier-for-open-weights",
+    "claim": "scaled into",
+    "note": "(Source is a proposed card.) Zuckerberg's letter concedes Llama 2 was behind the frontier. The 405B is the first time Meta claims parity — and the claim is Meta's own, not an independent evaluation."
+  },
+  {
+    "from": "meta-claims-the-frontier-for-open-weights",
+    "to": "deepseek-r1-resets-the-price-of-reasoning",
+    "claim": "was overtaken by",
+    "note": "The letter says 'Starting next year, we expect future Llama models to become the most advanced in the industry.' The open model that actually matched the closed frontier six months later came from Hangzhou, not Menlo Park."
+  },
+  {
+    "from": "kaggle",
+    "to": "the-arc-prize",
+    "claim": "hosted",
+    "note": "The 2024 ARC Prize ran as a Kaggle competition — 1,430 teams, 17,789 entries — with the open-source requirement enforced through the contest rules."
+  },
+  {
+    "from": "the-arc-prize",
+    "to": "reasoning-models",
+    "claim": "was overrun, at a price, by",
+    "note": "Two weeks after the 2024 prize closed unclaimed, o3 scored 75.7% within the $10k budget and 87.5% at 172 times the compute. The benchmark fell; the prize — an efficient, open-source solution — did not."
+  },
+  {
+    "from": "the-arc-prize",
+    "to": "a-contested-agi-claim",
+    "claim": "tried to write the exam for",
+    "note": "Chollet's test: you know AGI is here when it becomes impossible to make tasks that are easy for ordinary humans and hard for machines. The 2040 dispute is what happens when nobody has agreed on the exam."
+  },
+  {
+    "from": "cuda",
+    "to": "nvidia-is-the-most-valuable-company-on-earth",
+    "claim": "paid out as",
+    "note": "Making graphics hardware programmable in 2007 looked like an expensive indulgence for years. It was the moat: every frontier model trained on it, and the market priced that in at three trillion dollars."
+  },
+  {
+    "from": "chatgpt",
+    "to": "nvidia-is-the-most-valuable-company-on-earth",
+    "claim": "set off the run on",
+    "note": "The consumer product created the demand; the demand went to one supplier. Nineteen months after ChatGPT the chipmaker was worth more than the company that funded it."
+  },
+  {
+    "from": "nvidia-is-the-most-valuable-company-on-earth",
+    "to": "deepseek-r1-resets-the-price-of-reasoning",
+    "claim": "had the most to lose in",
+    "note": "When a Chinese lab matched frontier performance on restricted chips, the stock that had priced in unlimited demand for unrestricted ones had its worst day in history."
+  },
+  {
+    "from": "the-datacenter-buildout",
+    "to": "nvidia-is-the-most-valuable-company-on-earth",
+    "claim": "flowed to",
+    "note": "Capital expenditure at national-infrastructure scale, and most of it spent on one company's accelerators. The buildout card is the spending; this card is who received it."
+  },
+  {
+    "from": "reasoning-models",
+    "to": "gold-at-the-imo",
+    "claim": "sat the exam as",
+    "note": "Neither lab used a maths-specific system. OpenAI credited 'general-purpose reinforcement learning and test-time compute scaling'; DeepMind ran an advanced Gemini Deep Think end-to-end in natural language. The olympiad was the first public test of thinking-for-longer on a problem experts take hours to grade."
+  },
+  {
+    "from": "deep-blue-beats-kasparov",
+    "to": "gold-at-the-imo",
+    "claim": "repeats as",
+    "note": "The same shape twenty-eight years on: a benchmark that stood for 'real intelligence' falls, the winners announce it themselves, and the task is promptly reclassified as not the interesting one. Buzzard: 'now everyone knows that “AI has got a gold in the IMO” and the question is probably no longer of interest.'"
+  },
+  {
+    "from": "gold-at-the-imo",
+    "to": "a-machine-assisted-proof",
+    "claim": "is the school exam before",
+    "note": "Olympiad problems are solvable with high-school methods and have known answers. Buzzard: 'these IMO problems are a million miles away from the kind of questions which most research mathematicians are working on.' The 2031 card is the one that would actually settle the argument."
+  },
+  {
+    "from": "openai-goes-capped-profit-microsoft-puts-in-1bn",
+    "to": "openai-converts-the-nonprofit-keeps-a-stake",
+    "claim": "is unwound by",
+    "note": "The capped-profit structure was built to let a nonprofit raise capital without losing control. Six years later the cap is gone, the for-profit is a conventional benefit corporation, and the foundation keeps control through board-appointment rights while holding 26% of the equity."
+  },
+  {
+    "from": "altman-is-fired-then-rehired-in-five-days",
+    "to": "openai-converts-the-nonprofit-keeps-a-stake",
+    "claim": "made inevitable",
+    "note": "The weekend showed the board could not use its power without the company walking out. A structure that cannot be exercised gets rewritten; this is the rewrite."
+  },
+  {
+    "from": "musk-sues-openai",
+    "to": "openai-converts-the-nonprofit-keeps-a-stake",
+    "claim": "failed to stop",
+    "note": "The suit sought to block exactly this conversion. The conversion closed in October 2025; in May 2026 a jury found the claim was filed too late and never reached the question of whether the mission had been abandoned."
+  },
+  {
+    "from": "openai-converts-the-nonprofit-keeps-a-stake",
+    "to": "the-first-frontier-lab-consolidation",
+    "claim": "opens the door to",
+    "note": "A public benefit corporation with conventional equity can list, merge or be bought. The structural obstacle to consolidation at the largest lab is gone."
   }
 ]

@@ -60,27 +60,35 @@ for (const e of sourced) {
 
 console.log(`Checking ${sourced.length} citations across ${byHost.size} hosts (including sources[] entries)…\n`);
 
+// A 403 is a bouncer, not a missing page: openai.com and sec.gov turn away
+// scripted fetches while serving the same page to a browser. Listed separately so
+// a real 404 is never buried among them — and never counted as broken in CI.
 const broken = [];
+const blocked = [];
 await Promise.all([...byHost.entries()].map(async ([host, list]) => {
   for (const e of list) {
     if (host === 'INVALID') { broken.push({ e, status: 'INVALID URL' }); continue; }
     const status = await head(e.url);
-    if (status !== 200) broken.push({ e, status });
+    if (status === 403) blocked.push({ e, status });
+    else if (status !== 200) broken.push({ e, status });
     await sleep(DELAY_MS);
   }
 }));
 
 console.log(`sources checked : ${sourced.length}`);
-console.log(`resolved 200    : ${sourced.length - broken.length}`);
+console.log(`resolved 200    : ${sourced.length - broken.length - blocked.length}`);
+console.log(`blocked (403)   : ${blocked.length}   — served to browsers, refused to scripts; check by hand`);
 console.log(`broken          : ${broken.length}`);
 
-if (broken.length) {
-  console.log('\nBROKEN SOURCES');
-  for (const { e, status } of broken.sort((a, b) => a.e.year - b.e.year)) {
+const list = (label, rows) => {
+  console.log(`\n${label}`);
+  for (const { e, status } of rows.sort((a, b) => a.e.year - b.e.year)) {
     console.log(`  ${status}  ${e.year}  ${e.title}  [${e._via || 'primary'}]`);
     console.log(`         ${e.url}`);
   }
-}
+};
+if (broken.length) list('BROKEN SOURCES', broken);
+if (blocked.length) list('BLOCKED TO SCRIPTS (verified by hand 2026-09-11: openai.com ×3, sec.gov ×1)', blocked);
 
 if (unsourced.length) {
   console.log(`\nRECORD ENTRIES WITH NO SOURCE (${unsourced.length})`);

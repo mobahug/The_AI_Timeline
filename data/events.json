@@ -534,6 +534,73 @@
     "wikiTitle": "Deep learning"
   },
   {
+    "id": "the-netflix-prize",
+    "year": 2006,
+    "category": "research",
+    "title": "The Netflix Prize",
+    "summary": "Netflix posts 100 million anonymised ratings and offers $1M to beat its recommender by ten percent. Thousands of teams enter; the bar takes nearly three years to clear, and the winning blend never ships.",
+    "source": "Netflix (netflixprize.com, Wayback Machine capture)",
+    "url": "https://web.archive.org/web/20100106185508/http://www.netflixprize.com//rules",
+    "why": "The first proof at scale that a public dataset, a fixed metric, a live leaderboard and a cheque can mobilise a field. Every benchmark race since runs on this template. It also showed the template's limit: the entry that wins the leaderboard is rarely the one you can ship.",
+    "wikiTitle": "Netflix Prize",
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Netflix (netflixprize.com, Wayback Machine capture)",
+        "title": "Netflix Prize: Rules",
+        "url": "https://web.archive.org/web/20100106185508/http://www.netflixprize.com//rules",
+        "date": "2006-10-02",
+        "quote": "We provide you with a lot of anonymous rating data, and a prediction accuracy bar that is 10% better than what Cinematch can do on the same training data set.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Netflix (netflixprize.com, Wayback Machine capture)",
+        "title": "Netflix Prize home page after the award",
+        "url": "https://web.archive.org/web/20091003084139/http://www.netflixprize.com/",
+        "date": "2009-10-03",
+        "quote": "On September 21, 2009 we awarded the $1M Grand Prize to team “BellKor’s Pragmatic Chaos”.",
+        "supports": "context"
+      },
+      {
+        "kind": "article",
+        "publisher": "IEEE Spectrum",
+        "title": "The Million Dollar Programming Prize (Bell, Bennett, Koren, Volinsky)",
+        "url": "https://spectrum.ieee.org/the-million-dollar-programming-prize",
+        "date": "2009-05-01",
+        "quote": "On 2 October 2006, Netflix launched the competition, and within days thousands of teams from hundreds of countries signed up.",
+        "supports": "context"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Netflix Tech Blog (Wayback Machine capture)",
+        "title": "Netflix Recommendations: Beyond the 5 stars (Part 1)",
+        "url": "https://web.archive.org/web/20140104170414/http://techblog.netflix.com/2012/04/netflix-recommendations-beyond-5-stars.html",
+        "date": "2012-04-06",
+        "quote": "the additional accuracy gains that we measured did not seem to justify the engineering effort needed to bring them into a production environment",
+        "supports": "context"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv",
+        "title": "How To Break Anonymity of the Netflix Prize Dataset (Narayanan, Shmatikov)",
+        "url": "https://arxiv.org/abs/cs/0610105",
+        "date": "2006-10-18",
+        "quote": "Using the Internet Movie Database as the source of background knowledge, we successfully identified the Netflix records of known users, uncovering their apparent political preferences and other potentially sensitive information.",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Netflix Prize",
+        "url": "https://en.wikipedia.org/wiki/Netflix_Prize",
+        "date": "2026-09-11",
+        "quote": "On September 21, 2009, the grand prize of US$1,000,000 was given to the BellKor's Pragmatic Chaos team which bested Netflix's own algorithm for predicting ratings by 10.06%.",
+        "supports": "context"
+      }
+    ]
+  },
+  {
     "id": "cuda",
     "year": 2007,
     "category": "compute",
@@ -565,6 +632,64 @@
     "url": "https://en.wikipedia.org/wiki/2010_flash_crash",
     "why": "The first mass demonstration that fast autonomous systems fail in ways no single operator can foresee.",
     "wikiTitle": "2010 flash crash"
+  },
+  {
+    "id": "kaggle",
+    "year": 2010,
+    "category": "product",
+    "title": "Kaggle",
+    "summary": "A self-taught coder in a Melbourne bedroom turns the competition format into a platform: post a dataset, fix a metric, let the world compete. The leaderboard becomes the field's proving ground; Google buys it in 2017.",
+    "source": "Kaggle (kaggle.com, Wayback Machine capture)",
+    "url": "https://web.archive.org/web/20100526025526/http://kaggle.com/",
+    "why": "Competitions stop being one-off events and become infrastructure. Hinton's students won a drug-discovery contest here the same autumn as AlexNet, ImageNet handed its own challenge to Kaggle in 2017, and the ARC Prize and the $10M AI Maths Olympiad run on it now.",
+    "wikiTitle": "Kaggle",
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Kaggle (kaggle.com, Wayback Machine capture)",
+        "title": "Data mining, bioinformatics and forecasting competitions on Kaggle (home page, May 2010)",
+        "url": "https://web.archive.org/web/20100526025526/http://kaggle.com/",
+        "date": "2010-05-26",
+        "quote": "Kaggle facilitates better predictions by providing a platform for data mining, bioinformatics and forecasting competitions.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Google Cloud Blog",
+        "title": "Welcome Kaggle to Google Cloud (Fei-Fei Li)",
+        "url": "https://cloud.google.com/blog/products/gcp/welcome-kaggle-to-google-cloud",
+        "date": "2017-03-09",
+        "quote": "Today, I’m excited to announce that Kaggle will be joining Google Cloud. Founded in 2010, Kaggle is home to the world's largest community of data scientists and machine learning enthusiasts. More than 800,000 data experts use Kaggle",
+        "supports": "context"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Kaggle blog 'No Free Hunch' (Wayback Machine capture)",
+        "title": "Deep Learning How I Did It: Merck 1st place interview",
+        "url": "https://web.archive.org/web/20140109001821/http://blog.kaggle.com/2012/11/01/deep-learning-how-i-did-it-merck-1st-place-interview/",
+        "date": "2012-11-01",
+        "quote": "We wanted to show the Kaggle community the effectiveness of neural networks that use the latest techniques from the academic machine learning community, even when used on problems with relatively scarce data, such as the one from this competition.",
+        "supports": "context"
+      },
+      {
+        "kind": "primary",
+        "publisher": "ImageNet (image-net.org)",
+        "title": "ImageNet Large Scale Visual Recognition Challenge 2017 (ILSVRC2017)",
+        "url": "https://image-net.org/challenges/LSVRC/2017/",
+        "date": "2017-07-26",
+        "quote": "From now on, all three challenges(LOC-CLS, DET, VID) will be hosted on Kaggle!",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Kaggle",
+        "url": "https://en.wikipedia.org/wiki/Kaggle",
+        "date": "2026-09-11",
+        "quote": "Kaggle was founded by Anthony Goldbloom in April 2010.",
+        "supports": "context"
+      }
+    ]
   },
   {
     "id": "watson-wins-jeopardy",
@@ -621,6 +746,92 @@
     "why": "The moment deep learning talent became a scarce commodity. The auction set the price of a researcher for a decade.",
     "featured": true,
     "wikiTitle": "Geoffrey Hinton"
+  },
+  {
+    "id": "zuckerberg-hires-lecun",
+    "year": 2013,
+    "category": "power",
+    "title": "Zuckerberg hires LeCun",
+    "summary": "Facebook's CEO turns up at NIPS to recruit in person; the inventor of the convnet signs on to run a new lab, Facebook AI Research, split between Menlo Park, London and an office a block from NYU.",
+    "source": "Meta",
+    "url": "https://ai.meta.com/blog/fair-10-year-anniversary-open-science-meta/",
+    "why": "Google has Hinton and is about to get DeepMind. Facebook's answer is the other father of deep learning and a lab built to publish — the posture that ends, ten years on, in Llama.",
+    "wikiTitle": "Meta AI",
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Meta",
+        "title": "Celebrating 10 years of FAIR: A decade of advancing the state-of-the-art through open research",
+        "url": "https://ai.meta.com/blog/fair-10-year-anniversary-open-science-meta/",
+        "date": "2023-11-30",
+        "quote": "The launch of FAIR dates back to late 2013. In those days, as today, the competition for AI talent was fierce. And Mark Zuckerberg himself made the trip to the NeurIPS conference to convince researchers to join this new research organization.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "WIRED",
+        "title": "Facebook Taps 'Deep Learning' Giant for New AI Lab",
+        "url": "https://www.wired.com/2013/12/facebook-yann-lecun/",
+        "date": "2013-12-09",
+        "quote": "\"Facebook has created a new research laboratory with the ambitious, long-term goal of bringing about major advances in Artificial Intelligence,\" LeCun wrote",
+        "supports": "context"
+      },
+      {
+        "kind": "article",
+        "publisher": "TechCrunch",
+        "title": "NYU \"Deep Learning\" Professor LeCun Will Head Facebook's New Artificial Intelligence Lab",
+        "url": "https://techcrunch.com/2013/12/09/facebook-artificial-intelligence-lab-lecun/",
+        "date": "2013-12-09",
+        "quote": "Facebook's AI research will be split across its Menlo Park headquarters, London office, and a new AI lab built just a block from NYU's campus in Manhattan.",
+        "supports": "context"
+      },
+      {
+        "kind": "article",
+        "publisher": "MIT Technology Review",
+        "title": "Facebook Launches Advanced AI Effort to Find Meaning in Your Posts",
+        "url": "https://www.technologyreview.com/2013/09/20/112989/facebook-launches-advanced-ai-effort-to-find-meaning-in-your-posts/",
+        "date": "2013-09-20",
+        "quote": "The eight-person group, known internally as the AI team, only recently started work, and details of its experiments are still secret.",
+        "supports": "context"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Meta (Engineering at Meta)",
+        "title": "FAIR turns five: What we've accomplished and where we're headed",
+        "url": "https://engineering.fb.com/2018/12/05/ai-research/fair-fifth-anniversary/",
+        "date": "2018-12-05",
+        "quote": "Five years ago, we created the Facebook AI Research (FAIR) group to advance the state of the art of AI through open research for the benefit of all",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Yann LeCun",
+        "url": "https://en.wikipedia.org/wiki/Yann_LeCun",
+        "date": "2026-09-11",
+        "quote": "On 9 December 2013, LeCun became the first director of Meta AI Research in New York City",
+        "supports": "context"
+      },
+      {
+        "kind": "article",
+        "publisher": "TechCrunch",
+        "title": "Google Acquires Artificial Intelligence Startup DeepMind For More Than $500M",
+        "url": "https://techcrunch.com/2014/01/26/google-deepmind/",
+        "date": "2014-01-26",
+        "quote": "The Information reports that the acquisition price was more than $500 million, and that Facebook was also in talks to buy the startup late last year.",
+        "supports": "context"
+      },
+      {
+        "kind": "podcast",
+        "publisher": "Lex Fridman Podcast",
+        "title": "#416 – Yann LeCun: Meta AI, Open Source, Limits of LLMs, AGI & the Future of AI (transcript)",
+        "url": "https://lexfridman.com/yann-lecun-3-transcript/",
+        "date": "2024-03-07",
+        "at": "01:44:36",
+        "quote": "if you have a big enough potential customer base and you need to build that system anyway for them, it doesn't hurt you to actually distribute it to the open source.",
+        "supports": "context"
+      }
+    ]
   },
   {
     "id": "generative-adversarial-networks",
@@ -743,6 +954,91 @@
     "wikiTitle": "Deepfake"
   },
   {
+    "id": "pytorch",
+    "year": 2017,
+    "category": "compute",
+    "title": "PyTorch",
+    "summary": "Facebook releases a Python-native successor to Torch. Within three years a majority of papers at the big vision and language conferences use it, and OpenAI standardises on it.",
+    "source": "Facebook (engineering.fb.com)",
+    "url": "https://engineering.fb.com/2018/12/05/ai-research/fair-fifth-anniversary/",
+    "why": "Whoever writes the framework sets the defaults. Researchers standardised on Meta's, not Google's — the quiet win that gave Meta's later open weights a ready-made audience.",
+    "wikiTitle": "PyTorch",
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Facebook (engineering.fb.com)",
+        "title": "FAIR turns five: What we've accomplished and where we're headed",
+        "url": "https://engineering.fb.com/2018/12/05/ai-research/fair-fifth-anniversary/",
+        "date": "2018-12-05",
+        "quote": "We announced PyTorch at the beginning of 2017 — less than two years ago! It's now the second-fastest-growing open source project on GitHub and the framework of choice for AI developers around the globe.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "PyTorch (GitHub releases)",
+        "title": "PyTorch v0.1.6 — Beta is here.",
+        "url": "https://github.com/pytorch/pytorch/releases/tag/v0.1.6",
+        "date": "2017-02-02",
+        "quote": "We finished, froze and released (v0.1.6) on Jan 21st, 2017.",
+        "supports": "context"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Meta (Engineering at Meta)",
+        "title": "Announcing PyTorch 1.0 for both research and production",
+        "url": "https://engineering.fb.com/2018/05/02/ai-research/announcing-pytorch-1-0-for-both-research-and-production/",
+        "date": "2018-05-02",
+        "quote": "The first version of PyTorch launched a little over a year ago, and its speed, productivity, and ability to support cutting-edge AI models such as dynamic graphs quickly made it a popular and important development tool for AI researchers.",
+        "supports": "context"
+      },
+      {
+        "kind": "article",
+        "publisher": "The Gradient",
+        "title": "The State of Machine Learning Frameworks in 2019",
+        "url": "https://thegradient.pub/state-of-ml-frameworks-2019-pytorch-dominates-research-tensorflow-dominates-industry/",
+        "date": "2019-10-10",
+        "quote": "In 2018, PyTorch was a minority. Now, it is an overwhelming majority, with 69% of CVPR using PyTorch, 75+% of both NAACL and ACL, and 50+% of ICLR and ICML.",
+        "supports": "context"
+      },
+      {
+        "kind": "primary",
+        "publisher": "OpenAI (Wayback Machine copy)",
+        "title": "OpenAI Standardizes on PyTorch",
+        "url": "https://web.archive.org/web/20201111004001/https://openai.com/blog/openai-pytorch/",
+        "date": "2020-01-30",
+        "quote": "We are standardizing OpenAI's deep learning framework on PyTorch.",
+        "supports": "context"
+      },
+      {
+        "kind": "primary",
+        "publisher": "PyTorch",
+        "title": "PyTorch strengthens its governance by joining the Linux Foundation",
+        "url": "https://pytorch.org/blog/PyTorchfoundation/",
+        "date": "2022-09-12",
+        "quote": "When we started PyTorch development in 2016, it was a collective effort by a band of people from the [Lua]Torch community with a big chunk of people and funding from Meta and individuals contributing from NVIDIA, Twitter and other entities.",
+        "supports": "context"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv (NeurIPS 2019)",
+        "title": "PyTorch: An Imperative Style, High-Performance Deep Learning Library",
+        "url": "https://arxiv.org/abs/1912.01703",
+        "date": "2019-12-03",
+        "quote": "PyTorch is a machine learning library that shows that these two goals are in fact compatible: it provides an imperative and Pythonic programming style that supports code as a model, makes debugging easy and is consistent with other popular scientific computing libraries, while remaining efficient and supporting hardware accelerators such as GPUs.",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "PyTorch",
+        "url": "https://en.wikipedia.org/wiki/PyTorch",
+        "date": "2026-09-11",
+        "quote": "A number of commercial deep learning systems are built on top of PyTorch, including ChatGPT, Tesla Autopilot, Uber's Pyro, and Hugging Face's Transformers.",
+        "supports": "context"
+      }
+    ]
+  },
+  {
     "id": "a-self-driving-car-kills-a-pedestrian",
     "year": 2018,
     "category": "incident",
@@ -842,6 +1138,55 @@
     "wikiTitle": "Timnit Gebru"
   },
   {
+    "id": "scaling-laws",
+    "year": 2020,
+    "category": "research",
+    "title": "Scaling laws",
+    "summary": "OpenAI shows loss falls as a clean power law in parameters, data and compute, some trends spanning seven orders of magnitude. Bigger stops being a hunch and becomes a budget line.",
+    "source": "arXiv",
+    "url": "https://arxiv.org/abs/2001.08361",
+    "why": "The paper that turned a research field into a capital-expenditure race. Every datacenter since is a bet that the curve keeps going.",
+    "wikiTitle": "Neural scaling law",
+    "sources": [
+      {
+        "kind": "paper",
+        "publisher": "arXiv",
+        "title": "Scaling Laws for Neural Language Models",
+        "url": "https://arxiv.org/abs/2001.08361",
+        "date": "2020-01-23",
+        "quote": "The loss scales as a power-law with model size, dataset size, and the amount of compute used for training, with some trends spanning more than seven orders of magnitude.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv",
+        "title": "Training Compute-Optimal Large Language Models",
+        "url": "https://arxiv.org/abs/2203.15556",
+        "date": "2022-03-29",
+        "quote": "We find that current large language models are significantly undertrained, a consequence of the recent focus on scaling language models whilst keeping the amount of training data constant.",
+        "supports": "context"
+      },
+      {
+        "kind": "article",
+        "publisher": "Gwern Branwen",
+        "title": "The Scaling Hypothesis",
+        "url": "https://gwern.net/scaling-hypothesis",
+        "date": "2020-05-28",
+        "quote": "To the surprise of most (including myself), this vast increase in size did not run into diminishing or negative returns, as many expected, but the benefits of scale continued to happen as forecasted by OpenAI.",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Neural scaling law",
+        "url": "https://en.wikipedia.org/wiki/Neural_scaling_law",
+        "date": "2026-09-11",
+        "quote": "In machine learning, a neural scaling law is an empirical scaling law that describes how neural network performance changes as key factors are scaled up or down.",
+        "supports": "context"
+      }
+    ]
+  },
+  {
     "id": "copilot",
     "year": 2021,
     "category": "product",
@@ -916,6 +1261,122 @@
     "url": "https://9to5google.com/2022/12/21/google-code-red-chatgpt/",
     "why": "Competitive pressure, not capability, is what ends the era of cautious staged releases.",
     "wikiTitle": "Google"
+  },
+  {
+    "id": "instructgpt",
+    "year": 2022,
+    "category": "research",
+    "title": "InstructGPT",
+    "summary": "GPT-3 is fine-tuned on human rankings of its own answers; a version a hundred times smaller is preferred to the original, and the recipe ships as the API default ten months before ChatGPT.",
+    "source": "OpenAI",
+    "url": "https://openai.com/index/instruction-following/",
+    "why": "Scale made the models capable. Human feedback made them usable. ChatGPT was this recipe with a text box on top — OpenAI's own word for it was 'sibling'.",
+    "wikiTitle": "Reinforcement learning from human feedback",
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "OpenAI",
+        "title": "Aligning language models to follow instructions",
+        "url": "https://openai.com/index/instruction-following/",
+        "date": "2022-01-27",
+        "quote": "These InstructGPT models, which are trained with humans in the loop, are now deployed as the default language models on our API.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv",
+        "title": "Training language models to follow instructions with human feedback",
+        "url": "https://arxiv.org/abs/2203.02155",
+        "date": "2022-03-04",
+        "quote": "In human evaluations on our prompt distribution, outputs from the 1.3B parameter InstructGPT model are preferred to outputs from the 175B GPT-3, despite having 100x fewer parameters.",
+        "supports": "context"
+      },
+      {
+        "kind": "primary",
+        "publisher": "OpenAI",
+        "title": "Introducing ChatGPT",
+        "url": "https://openai.com/index/chatgpt/",
+        "date": "2022-11-30",
+        "quote": "ChatGPT is a sibling model to InstructGPT",
+        "supports": "context"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv",
+        "title": "Deep reinforcement learning from human preferences",
+        "url": "https://arxiv.org/abs/1706.03741",
+        "date": "2017-06-12",
+        "quote": "we explore goals defined in terms of (non-expert) human preferences between pairs of trajectory segments.",
+        "supports": "context"
+      },
+      {
+        "kind": "article",
+        "publisher": "Hugging Face",
+        "title": "Illustrating Reinforcement Learning from Human Feedback (RLHF)",
+        "url": "https://huggingface.co/blog/rlhf",
+        "date": "2022-12-09",
+        "quote": "Writing a loss function to capture these attributes seems intractable and most language models are still trained with a simple next token prediction loss (e.g. cross entropy).",
+        "supports": "context"
+      }
+    ]
+  },
+  {
+    "id": "washington-restricts-the-chips",
+    "year": 2022,
+    "category": "policy",
+    "title": "Washington restricts the chips",
+    "summary": "The US requires a licence to sell Nvidia's A100 and H100 to China, then extends the controls to the tools that make advanced chips. A GPU becomes a controlled export.",
+    "source": "Federal Register (Bureau of Industry and Security)",
+    "url": "https://www.federalregister.gov/documents/2022/10/13/2022-21658/implementation-of-additional-export-controls-certain-advanced-computing-and-semiconductor",
+    "why": "The first time a state treated AI training hardware as a strategic export. Everything later called sovereign compute begins the day a chip needed an export licence.",
+    "wikiTitle": "United States New Export Controls on Advanced Computing and Semiconductors to China",
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Federal Register (Bureau of Industry and Security)",
+        "title": "Implementation of Additional Export Controls: Certain Advanced Computing and Semiconductor Manufacturing Items; Supercomputer and Semiconductor End Use; Entity List Modification",
+        "url": "https://www.federalregister.gov/documents/2022/10/13/2022-21658/implementation-of-additional-export-controls-certain-advanced-computing-and-semiconductor",
+        "date": "2022-10-13",
+        "quote": "In this rule, the Bureau of Industry and Security (BIS) is amending the Export Administration Regulations (EAR) to implement necessary controls on advanced computing integrated circuits (ICs), computer commodities that contain such ICs, and certain semiconductor manufacturing items.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "NVIDIA Corporation (SEC Form 8-K)",
+        "title": "NVIDIA 8-K, Item 8.01 Other Events, filed 31 August 2022",
+        "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581022000146/nvda-20220826.htm",
+        "date": "2022-08-31",
+        "quote": "On August 26, 2022, the U.S. government, or USG, informed NVIDIA Corporation, or the Company, that the USG has imposed a new license requirement, effective immediately, for any future export to China (including Hong Kong) and Russia of the Company’s A100 and forthcoming H100 integrated circuits.",
+        "supports": "context"
+      },
+      {
+        "kind": "article",
+        "publisher": "Center for Strategic and International Studies",
+        "title": "Choking off China's Access to the Future of AI",
+        "url": "https://www.csis.org/analysis/choking-chinas-access-future-ai",
+        "date": "2022-10-11",
+        "quote": "In recent decades, U.S. semiconductor policy has been primarily market driven and laissez faire.",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "United States New Export Controls on Advanced Computing and Semiconductors to China",
+        "url": "https://en.wikipedia.org/wiki/United_States_New_Export_Controls_on_Advanced_Computing_and_Semiconductors_to_China",
+        "date": "2026-09-11",
+        "quote": "targeting the People's Republic of China's (PRC) ability to access and develop advanced computing and semiconductor manufacturing items",
+        "supports": "context"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv",
+        "title": "DeepSeek-V3 Technical Report",
+        "url": "https://arxiv.org/abs/2412.19437",
+        "date": "2024-12-27",
+        "quote": "DeepSeek-V3 requires only 2.788M H800 GPU hours for its full training.",
+        "supports": "context"
+      }
+    ]
   },
   {
     "id": "multimodal-models",
@@ -1064,6 +1525,189 @@
     ]
   },
   {
+    "id": "llama-leaks",
+    "year": 2023,
+    "category": "power",
+    "title": "LLaMA leaks",
+    "summary": "Meta hands a GPT-3-class model to approved researchers under a research-only licence. Within a week the weights are on a torrent; within weeks they run on a laptop.",
+    "source": "Meta AI",
+    "url": "https://ai.meta.com/blog/large-language-model-llama-meta-ai/",
+    "why": "The Stable Diffusion moment for language. Once a capable base model is loose, whether to release stops being a decision any lab gets to make — and a $600 fine-tune shows the frontier is closer than the price of admission suggested.",
+    "wikiTitle": "Llama (language model)",
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Meta AI",
+        "title": "Introducing LLaMA: A foundational, 65-billion-parameter large language model",
+        "url": "https://ai.meta.com/blog/large-language-model-llama-meta-ai/",
+        "date": "2023-02-24",
+        "quote": "To maintain integrity and prevent misuse, we are releasing our model under a noncommercial license focused on research use cases.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Vice (Motherboard)",
+        "title": "Facebook’s Powerful Large Language Model Leaks Online",
+        "url": "https://www.vice.com/en/article/facebooks-powerful-large-language-model-leaks-online-4chan-llama/",
+        "date": "2023-03-07",
+        "quote": "This marks the first time a major tech firm’s proprietary AI model has leaked to the public.",
+        "supports": "context"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv",
+        "title": "LLaMA: Open and Efficient Foundation Language Models",
+        "url": "https://arxiv.org/abs/2302.13971",
+        "date": "2023-02-27",
+        "quote": "LLaMA-13B outperforms GPT-3 (175B) on most benchmarks",
+        "supports": "context"
+      },
+      {
+        "kind": "article",
+        "publisher": "Simon Willison",
+        "title": "Large language models are having their Stable Diffusion moment",
+        "url": "https://simonwillison.net/2023/Mar/11/llama/",
+        "date": "2023-03-11",
+        "quote": "This morning I ran a GPT-3 class language model on my own personal laptop for the first time!",
+        "supports": "context"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Stanford CRFM",
+        "title": "Alpaca: A Strong, Replicable Instruction-Following Model",
+        "url": "https://crfm.stanford.edu/2023/03/13/alpaca.html",
+        "date": "2023-03-13",
+        "quote": "Alpaca behaves qualitatively similarly to OpenAI’s text-davinci-003, while being surprisingly small and easy/cheap to reproduce (<600$)",
+        "supports": "context"
+      },
+      {
+        "kind": "article",
+        "publisher": "SemiAnalysis",
+        "title": "Google \"We Have No Moat, And Neither Does OpenAI\"",
+        "url": "https://newsletter.semianalysis.com/p/google-we-have-no-moat-and-neither",
+        "date": "2023-05-04",
+        "quote": "At the beginning of March the open source community got their hands on their first really capable foundation model, as Meta’s LLaMA was leaked to the public.",
+        "supports": "context"
+      },
+      {
+        "kind": "primary",
+        "publisher": "GitHub (ggml-org)",
+        "title": "llama.cpp",
+        "url": "https://github.com/ggml-org/llama.cpp",
+        "date": "2023-03-10",
+        "quote": "LLM inference in C/C++",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Llama (language model)",
+        "url": "https://en.wikipedia.org/wiki/Llama_(language_model)",
+        "date": "2026-09-11",
+        "quote": "On March 3, 2023, a torrent containing Llama's weights was uploaded, with a link to the torrent shared on the 4chan imageboard and subsequently spread through online AI communities.",
+        "supports": "context"
+      }
+    ]
+  },
+  {
+    "id": "llama-2-is-free-for-commercial-use",
+    "year": 2023,
+    "category": "power",
+    "title": "Llama 2 is free for commercial use",
+    "summary": "Five months after the first Llama, Meta ships the next version with a commercial licence, chat fine-tunes and Microsoft as preferred partner. The largest social network on earth gives away what its rivals sell.",
+    "source": "Meta Newsroom",
+    "url": "https://about.fb.com/news/2023/07/llama-2/",
+    "why": "The leak ratified as strategy. Meta cannot win on the API, so it commoditises the layer everyone else is charging for — and calls a licence with a 700-million-user carve-out \"open source\". The word has been contested ever since.",
+    "wikiTitle": "Llama (language model)",
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Meta Newsroom",
+        "title": "Meta and Microsoft Introduce the Next Generation of Llama",
+        "url": "https://about.fb.com/news/2023/07/llama-2/",
+        "date": "2023-07-18",
+        "quote": "Llama 2 is free for research and commercial use.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Meta (GitHub, meta-llama/llama)",
+        "title": "LLAMA 2 COMMUNITY LICENSE AGREEMENT",
+        "url": "https://raw.githubusercontent.com/meta-llama/llama/main/LICENSE",
+        "date": "2023-07-18",
+        "quote": "greater than 700 million monthly active users in the preceding calendar month, you must request a license from Meta",
+        "supports": "context"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv",
+        "title": "Llama 2: Open Foundation and Fine-Tuned Chat Models",
+        "url": "https://arxiv.org/abs/2307.09288",
+        "date": "2023-07-18",
+        "quote": "may be a suitable substitute for closed-source models",
+        "supports": "context"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Open Source Initiative",
+        "title": "The Open Source Initiative Announces the Release of the Industry’s First Open Source AI Definition (the quoted line is Ayah Bdeir, Mozilla)",
+        "url": "https://opensource.org/blog/the-open-source-initiative-announces-the-release-of-the-industrys-first-open-source-ai-definition",
+        "date": "2024-10-28",
+        "quote": "The new definition requires Open Source models to provide enough information about their training data so that a ‘skilled person can recreate a substantially equivalent system using the same or similar data,’ which goes further than what many proprietary or ostensibly Open Source models do today",
+        "supports": "context"
+      }
+    ]
+  },
+  {
+    "id": "a-magnet-link-from-paris",
+    "year": 2023,
+    "category": "power",
+    "title": "A magnet link from Paris",
+    "summary": "A months-old French startup tweets a torrent link and nothing else. Seven billion parameters under Apache 2.0, no usage restrictions, and it beats Llama 2 13B.",
+    "source": "Mistral AI",
+    "url": "https://mistral.ai/news/announcing-mistral-7b/",
+    "why": "Open weights stop being one company's policy and become a challenger's business model. Europe's bid for a frontier lab arrives as a torrent, not a product — and within weeks the same lab is in Brussels arguing the AI Act should not regulate model makers.",
+    "wikiTitle": "Mistral AI",
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Mistral AI",
+        "title": "Mistral 7B",
+        "url": "https://mistral.ai/news/announcing-mistral-7b/",
+        "date": "2023-09-27",
+        "quote": "We're releasing Mistral 7B under the Apache 2.0 license, it can be used without restrictions.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv",
+        "title": "Mistral 7B",
+        "url": "https://arxiv.org/abs/2310.06825",
+        "date": "2023-10-10",
+        "quote": "Mistral 7B outperforms Llama 2 13B across all evaluated benchmarks",
+        "supports": "context"
+      },
+      {
+        "kind": "article",
+        "publisher": "404 Media",
+        "title": "$260 Million AI Company Releases Undeletable Chatbot That Gives Detailed Instructions on Murder, Ethnic Cleansing",
+        "url": "https://www.404media.co/260-million-ai-company-releases-chatbot-that-gives-detailed-instructions-on-murder-ethnic-cleansing/",
+        "date": "2023-09-29",
+        "quote": "It was a magnet link to a torrent file containing the company’s first publicly released, free, and open sourced large language model named Mistral-7B-v0.1.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "TechCrunch",
+        "title": "France’s Mistral dials up call for EU AI Act to fix rules for apps, not model makers",
+        "url": "https://techcrunch.com/2023/11/16/mistral-eu-ai-act/",
+        "date": "2023-11-16",
+        "quote": "French startup Mistral AI has found itself at the center of this debate after it was reported to be leading a lobbying charge to row back on a European Parliament’s proposal pushing for a tiered approach to regulating generative AI.",
+        "supports": "context"
+      }
+    ]
+  },
+  {
     "id": "the-eu-ai-act-is-adopted",
     "year": 2024,
     "category": "policy",
@@ -1188,6 +1832,153 @@
     ]
   },
   {
+    "id": "meta-claims-the-frontier-for-open-weights",
+    "year": 2024,
+    "category": "power",
+    "title": "Meta claims the frontier for open weights",
+    "summary": "Llama 3.1 405B ships with a letter from Zuckerberg arguing AI will go the way of Linux. Trained on more than sixteen thousand H100s, given away; three hundred million Llama downloads to date.",
+    "source": "Meta Newsroom (Mark Zuckerberg)",
+    "url": "https://about.fb.com/news/2024/07/open-source-ai-is-the-path-forward/",
+    "why": "The question changes from whether weights should be released to who can afford to train what they give away. An advertising company subsidises the commons its rivals sell into — because a commons it controls beats a platform it rents.",
+    "wikiTitle": "Llama (language model)",
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Meta Newsroom (Mark Zuckerberg)",
+        "title": "Open Source AI Is the Path Forward",
+        "url": "https://about.fb.com/news/2024/07/open-source-ai-is-the-path-forward/",
+        "date": "2024-07-23",
+        "quote": "We’re releasing Llama 3.1 405B, the first frontier-level open source AI model",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Meta AI",
+        "title": "Introducing Llama 3.1: Our most capable models to date",
+        "url": "https://ai.meta.com/blog/meta-llama-3-1/",
+        "date": "2024-07-23",
+        "quote": "pushed our model training to over 16 thousand H100 GPUs, making the 405B the first Llama model trained at this scale",
+        "supports": "context"
+      }
+    ]
+  },
+  {
+    "id": "the-arc-prize",
+    "year": 2024,
+    "category": "research",
+    "title": "The ARC Prize",
+    "summary": "Chollet and Knoop stake a $1M prize pool on a five-year-old puzzle benchmark frontier models still fail. The grand prize goes unclaimed; six months in, OpenAI's o3 posts 87.5% at 172 times the compute of a budget run.",
+    "source": "ARC Prize",
+    "url": "https://arcprize.org/blog/launch",
+    "why": "A benchmark built to resist memorisation was overrun within months, but only by spending compute nobody could afford — so the prize's actual question, cheap generalisation, stayed open. ARC-AGI-2 followed in 2025 and the grand prize was still unclaimed at the end of that year.",
+    "wikiTitle": "François Chollet",
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "ARC Prize",
+        "title": "Announcing ARC Prize",
+        "url": "https://arcprize.org/blog/launch",
+        "date": "2024-06-11",
+        "quote": "Announcing ARC Prize, a $1,000,000+ prize pool competition to beat and open-source a solution to the ARC-AGI eval.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "ARC Prize",
+        "title": "ARC Prize 2024 Winners & Technical Report Published",
+        "url": "https://arcprize.org/blog/arc-prize-2024-winners-technical-report",
+        "date": "2024-12-06",
+        "quote": "In total, 1,430 teams submitted 17,789 entries for ARC Prize 2024.",
+        "supports": "context"
+      },
+      {
+        "kind": "primary",
+        "publisher": "ARC Prize",
+        "title": "OpenAI o3 Breakthrough High Score on ARC-AGI-Pub",
+        "url": "https://arcprize.org/blog/oai-o3-pub-breakthrough",
+        "date": "2024-12-20",
+        "quote": "The high-efficiency score of 75.7% is within the budget rules of ARC-AGI-Pub (costs <$10k) and therefore qualifies as 1st place on the public leaderboard!",
+        "supports": "context"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv",
+        "title": "ARC Prize 2024: Technical Report (Chollet, Knoop, Kamradt, Landers)",
+        "url": "https://arxiv.org/abs/2412.04604",
+        "date": "2024-12-05",
+        "quote": "As of December 2024, the ARC-AGI benchmark is five years old and remains unbeaten.",
+        "supports": "context"
+      },
+      {
+        "kind": "primary",
+        "publisher": "ARC Prize",
+        "title": "ARC Prize 2025 Competition Details",
+        "url": "https://arcprize.org/competitions/2025",
+        "date": "2025-12-05",
+        "quote": "ARC-AGI-2 remains undefeated and continues to teach us important things about the gap between artificial and human intelligence.",
+        "supports": "context"
+      }
+    ]
+  },
+  {
+    "id": "nvidia-is-the-most-valuable-company-on-earth",
+    "year": 2024,
+    "category": "power",
+    "title": "Nvidia is the most valuable company on earth",
+    "summary": "The graphics-card maker passes Microsoft at $3.3 trillion, with datacenter revenue up 427% in a year and about 80% of the market for AI datacenter chips.",
+    "source": "CNBC",
+    "url": "https://www.cnbc.com/2024/06/18/nvidia-passes-microsoft-in-market-cap-is-most-valuable-public-company.html",
+    "why": "Whoever sells the shovels. A platform decision made for video games in 2007 pays out, seventeen years later, as the most valuable company in the world.",
+    "wikiTitle": "Nvidia",
+    "sources": [
+      {
+        "kind": "article",
+        "publisher": "CNBC",
+        "title": "Nvidia passes Microsoft in market cap to become most valuable public company",
+        "url": "https://www.cnbc.com/2024/06/18/nvidia-passes-microsoft-in-market-cap-is-most-valuable-public-company.html",
+        "date": "2024-06-18",
+        "quote": "lifting the company's market cap to $3.34 trillion",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "NVIDIA Corporation",
+        "title": "NVIDIA Announces Financial Results for First Quarter Fiscal 2025",
+        "url": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-first-quarter-fiscal-2025",
+        "date": "2024-05-22",
+        "quote": "Record quarterly Data Center revenue of $22.6 billion, up 23% from Q4 and up 427% from a year ago",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Nvidia",
+        "url": "https://en.wikipedia.org/wiki/Nvidia",
+        "date": "2026-09-11",
+        "quote": "On June 18, 2024, The company became the world's most valuable, surpassing Microsoft and Apple, after its market capitalization exceeded $3.3 trillion.",
+        "supports": "context"
+      },
+      {
+        "kind": "article",
+        "publisher": "The New Yorker",
+        "title": "How Jensen Huang's Nvidia Is Powering the A.I. Revolution",
+        "url": "https://www.newyorker.com/magazine/2023/12/04/how-jensen-huangs-nvidia-is-powering-the-ai-revolution",
+        "date": "2023-11-27",
+        "quote": "The revelation that ChatGPT, the astonishing artificial-intelligence chatbot, had been trained on an Nvidia supercomputer spurred one of the largest single-day gains in stock-market history.",
+        "supports": "context"
+      },
+      {
+        "kind": "podcast",
+        "publisher": "Acquired",
+        "title": "Nvidia Part III: The Dawn of the AI Era (2022–2023)",
+        "url": "https://www.acquired.fm/episodes/nvidia-the-dawn-of-the-ai-era",
+        "date": "2023-09-06",
+        "quote": "In our April 2022 episodes, we never once said the word generative. That is how fast things have changed.",
+        "supports": "context"
+      }
+    ]
+  },
+  {
     "id": "reasoning-models",
     "year": 2025,
     "category": "research",
@@ -1242,6 +2033,158 @@
     "url": "https://en.wikipedia.org/wiki/Vibe_coding",
     "why": "The first job where agentic AI became normal infrastructure rather than a demo. Everything else is following this template.",
     "wikiTitle": "Vibe coding"
+  },
+  {
+    "id": "gold-at-the-imo",
+    "year": 2025,
+    "category": "research",
+    "title": "Gold at the maths olympiad",
+    "summary": "Two general-purpose reasoning models score 35 of 42 on the 2025 papers — five of six problems, in plain language, in time. DeepMind's proofs are graded by IMO coordinators; OpenAI's by three ex-medallists it chose.",
+    "source": "Google DeepMind",
+    "url": "https://deepmind.google/blog/advanced-version-of-gemini-with-deep-think-officially-achieves-gold-medal-standard-at-the-international-mathematical-olympiad/",
+    "why": "The organisers certified the answers and disowned the process: correct proofs, unverifiable methods. Twelve months later two Chinese labs reported perfect scores and said the IMO itself had graded them, and the olympiad joined chess and Go in the column of solved games.",
+    "wikiTitle": "International Mathematical Olympiad",
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Google DeepMind",
+        "title": "Advanced version of Gemini with Deep Think officially achieves gold-medal standard at the International Mathematical Olympiad",
+        "url": "https://deepmind.google/blog/advanced-version-of-gemini-with-deep-think-officially-achieves-gold-medal-standard-at-the-international-mathematical-olympiad/",
+        "date": "2025-07-21",
+        "quote": "This year, we were amongst an inaugural cohort to have our model results officially graded and certified by IMO coordinators using the same criteria as for student solutions.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "IMO 2025 (organising committee, Australia)",
+        "title": "The 66th International Mathematical Olympiad draws to a close today",
+        "url": "https://imo2025.au/news/the-66th-international-mathematical-olympiad-draws-to-a-close-today/",
+        "date": "2025-07-19",
+        "quote": "It is very exciting to see progress in the mathematical capabilities of AI models, but we would like to be clear that the IMO cannot validate the methods, including the amount of compute used or whether there was any human involvement, or whether the results can be reproduced.",
+        "supports": "context"
+      },
+      {
+        "kind": "article",
+        "publisher": "Simon Willison's Weblog",
+        "title": "OpenAI's gold medal performance on the International Math Olympiad",
+        "url": "https://simonwillison.net/2025/Jul/19/openai-gold-medal-math-olympiad/",
+        "date": "2025-07-19",
+        "quote": "For each problem, three former IMO medalists independently graded the model’s submitted proof, with scores finalized after unanimous consensus. The model earned 35/42 points in total, enough for gold!",
+        "supports": "context"
+      },
+      {
+        "kind": "article",
+        "publisher": "Cyprus Mail (Reuters syndication)",
+        "title": "First-ever AI gold medals at International Math Olympiad claimed by Google and OpenAI",
+        "url": "https://cyprus-mail.com/2025/07/26/first-ever-ai-gold-medals-at-international-math-olympiad-claimed-by-google-and-openai",
+        "date": "2025-07-26",
+        "quote": "While Google DeepMind worked with the IMO to have their models graded and certified by the committee, OpenAI did not officially enter the competition.",
+        "supports": "context"
+      },
+      {
+        "kind": "article",
+        "publisher": "Xena Project (Kevin Buzzard, Imperial College)",
+        "title": "AI at IMO 2025: a round-up",
+        "url": "https://xenaproject.wordpress.com/2025/08/03/ai-at-imo-2025-a-round-up/",
+        "date": "2025-08-03",
+        "quote": "In short, it enabled the tech companies to both set and mark their own homework.",
+        "supports": "context"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Terence Tao (Mathstodon)",
+        "title": "Post on AI results at IMO 2025 (3/3)",
+        "url": "https://mathstodon.xyz/@tao/114881420636881657",
+        "date": "2025-07-19",
+        "quote": "one should be wary of making overly simplistic apples-to-apples comparisons between the performance of various AI models on competitions such as the IMO, or between such models and the human contestants.",
+        "supports": "context"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Google DeepMind",
+        "title": "AI achieves silver-medal standard solving International Mathematical Olympiad problems",
+        "url": "https://deepmind.google/blog/ai-solves-imo-problems-at-silver-medal-level/",
+        "date": "2024-07-25",
+        "quote": "Our systems solved one problem within minutes and took up to three days to solve the others.",
+        "supports": "context"
+      },
+      {
+        "kind": "article",
+        "publisher": "TechXplore (AFP)",
+        "title": "AI catches up with humans to score 100% at top math contest",
+        "url": "https://techxplore.com/news/2026-07-ai-humans-score-math-contest.html",
+        "date": "2026-07-23",
+        "quote": "Two Chinese tech companies, Huawei and Xiaohongshu, said their AI models had each achieved 100% on the questions given to human competitors at this month's International Mathematical Olympiad (IMO).",
+        "supports": "context"
+      }
+    ]
+  },
+  {
+    "id": "openai-converts-the-nonprofit-keeps-a-stake",
+    "year": 2025,
+    "category": "power",
+    "title": "OpenAI converts; the nonprofit keeps 26%",
+    "summary": "The for-profit becomes a public benefit corporation. The nonprofit, renamed the OpenAI Foundation, holds equity worth about $130bn; Microsoft holds roughly 27%.",
+    "source": "OpenAI",
+    "url": "https://openai.com/index/built-to-benefit-everyone/",
+    "why": "The 2019 experiment ends the way the 2023 weekend predicted: the capital gets the company and the mission gets a foundation. The court never ruled on whether that was a betrayal — only that it was too late to ask.",
+    "wikiTitle": "OpenAI",
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "OpenAI",
+        "title": "Built to benefit everyone",
+        "url": "https://openai.com/index/built-to-benefit-everyone/",
+        "date": "2025-10-28",
+        "quote": "OpenAI has completed its recapitalization, simplifying its corporate structure. The nonprofit remains in control of the for-profit, and now has a direct path to major resources before AGI arrives.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "CNBC",
+        "title": "OpenAI completes restructure, solidifying Microsoft as a major shareholder",
+        "url": "https://www.cnbc.com/2025/10/28/open-ai-for-profit-microsoft.html",
+        "date": "2025-10-28",
+        "quote": "Under the new structure, the OpenAI Foundation will hold a 26% stake in the for-profit, with 47% held by current and former employees and investors.",
+        "supports": "context"
+      },
+      {
+        "kind": "primary",
+        "publisher": "California Department of Justice",
+        "title": "Attorney General Bonta Issues Statement on OpenAI's Recapitalization Plan",
+        "url": "https://oag.ca.gov/news/press-releases/attorney-general-bonta-issues-statement-openai%E2%80%99s-recapitalization-plan",
+        "date": "2025-10-28",
+        "quote": "With these important concessions in place, we will not be in court opposing OpenAI’s recapitalization plan.",
+        "supports": "context"
+      },
+      {
+        "kind": "article",
+        "publisher": "NPR",
+        "title": "Jury dismisses all claims in Elon Musk's lawsuit against OpenAI CEO Sam Altman",
+        "url": "https://www.npr.org/2026/05/18/nx-s1-5822366/musk-altman-openai-jury-verdict-claims-dismissed",
+        "date": "2026-05-18",
+        "quote": "In a unanimous decision, the nine-member advisory jury said Musk was beyond the statute of limitations when he launched his case in 2024.",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Musk v. Altman",
+        "url": "https://en.wikipedia.org/wiki/Musk_v._Altman",
+        "date": "2026-09-11",
+        "quote": "On May 18, 2026, the jury decided in favor of OpenAI and its executives, finding that Musk's claims were barred by the statute of limitations.",
+        "supports": "context"
+      },
+      {
+        "kind": "primary",
+        "publisher": "OpenAI",
+        "title": "Our structure",
+        "url": "https://openai.com/our-structure/",
+        "date": "2025-10-28",
+        "quote": "As of the closing of the recapitalization, the OpenAI Foundation holds a 26% equity stake in OpenAI Group, worth approximately $130B based on OpenAI Group's current valuation.",
+        "supports": "claim"
+      }
+    ]
   },
   {
     "id": "agents-enter-real-workflows",
