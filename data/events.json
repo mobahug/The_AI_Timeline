@@ -17,9 +17,9 @@
     "title": "Markov chains",
     "summary": "Andrey Markov models sequences where the next state depends only on the present one, using the letters of a Pushkin poem.",
     "source": "Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/Markov_chain",
+    "url": "https://en.wikipedia.org/wiki/Andrey_Markov",
     "why": "Every language model is, at bottom, a very large next-token probability. The framing starts here.",
-    "wikiTitle": "Markov chain"
+    "wikiTitle": "Andrey Markov"
   },
   {
     "id": "r-u-r-gives-us-the-word-robot",
@@ -84,7 +84,7 @@
     "summary": "A brain cell is modelled as a logical threshold unit: the first claim that thinking might be computable.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/Artificial_neuron",
-    "why": "Everything called a neural network descends from this two-page abstraction.",
+    "why": "Everything called a neural network descends from this abstraction.",
     "wikiTitle": "Artificial neuron"
   },
   {
@@ -329,8 +329,8 @@
     "title": "The Stanford Cart crosses a room",
     "summary": "Five hours, one obstacle course: the first serious attempt at autonomous visual navigation.",
     "source": "Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/Hans_Moravec",
-    "wikiTitle": "Hans Moravec"
+    "url": "https://en.wikipedia.org/wiki/Vehicular_automation",
+    "wikiTitle": "Vehicular automation"
   },
   {
     "id": "expert-systems-go-commercial",
@@ -391,8 +391,8 @@
     "category": "research",
     "title": "Backpropagation breaks through",
     "summary": "Rumelhart, Hinton and Williams show multi-layer networks can be trained end to end.",
-    "source": "Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/Backpropagation",
+    "source": "Nature",
+    "url": "https://www.nature.com/articles/323533a0",
     "why": "The algorithm was ready in 1986. It waited twenty-five years for data and GPUs.",
     "wikiTitle": "Backpropagation"
   },
@@ -411,7 +411,7 @@
     "year": 1988,
     "category": "research",
     "title": "Statistical machine translation",
-    "summary": "IBM's Candide learns translation from bilingual corpora instead of hand-written grammar.",
+    "summary": "IBM's statistical models learn translation from bilingual corpora instead of hand-written grammar.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/IBM_alignment_models",
     "why": "Data beats rules — the lesson the field relearns every fifteen years.",
@@ -422,7 +422,7 @@
     "year": 1989,
     "category": "research",
     "title": "Convolutions read handwriting",
-    "summary": "LeCun's network learns digits from raw pixels and is deployed on bank cheques.",
+    "summary": "LeCun's network learns digits from raw pixels and reads handwritten US Postal Service zip codes.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/LeNet",
     "why": "The first deep learning system in production, running at national scale before the term existed.",
@@ -464,7 +464,7 @@
     "year": 1997,
     "category": "product",
     "title": "Deep Blue beats Kasparov",
-    "summary": "Brute-force search takes the world chess title. Critics say it isn't intelligence; the public disagrees.",
+    "summary": "Brute-force search defeats the reigning world chess champion. Critics say it isn't intelligence; the public disagrees.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/Deep_Blue_versus_Garry_Kasparov",
     "why": "Every time AI succeeds at a task, the task stops counting as intelligence. The AI effect, in one match.",
@@ -659,8 +659,8 @@
     "category": "research",
     "title": "ResNet passes human error rates",
     "summary": "Residual connections let networks go 152 layers deep and beat human accuracy on ImageNet.",
-    "source": "Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/Residual_neural_network",
+    "source": "arXiv",
+    "url": "https://arxiv.org/abs/1512.03385",
     "wikiTitle": "Residual neural network"
   },
   {
@@ -758,7 +758,7 @@
     "year": 2018,
     "category": "incident",
     "title": "Amazon scraps a biased hiring tool",
-    "summary": "A résumé screener trained on a decade of hires learns to penalise women and is abandoned.",
+    "summary": "A résumé screener trained on a decade of applications learns to penalise women and is abandoned.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/Algorithmic_bias",
     "why": "Models inherit the history in their data. Fairness is a data problem before it is a model problem.",
@@ -835,7 +835,7 @@
     "year": 2020,
     "category": "incident",
     "title": "Google fires Timnit Gebru",
-    "summary": "Her co-authored paper on the risks of large language models is pulled; the AI ethics team implodes in public.",
+    "summary": "Google demands she withdraw a co-authored paper on the risks of large language models; the AI ethics team implodes in public.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/Timnit_Gebru",
     "why": "The industry learns that internal criticism is a career risk. Half the field's safety talent moves to labs of their own.",
@@ -846,7 +846,7 @@
     "year": 2021,
     "category": "product",
     "title": "Copilot",
-    "summary": "Code completion trained on public repositories ships to millions of developers, and the licensing fight begins.",
+    "summary": "Code completion trained on public repositories ships as a technical preview, and the licensing fight begins.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/GitHub_Copilot",
     "wikiTitle": "GitHub Copilot"
