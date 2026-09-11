@@ -75,15 +75,28 @@ export default function App() {
   useEffect(() => {
     if (route.view !== 'board') return;
     const html = document.documentElement;
-    const prev = { html: html.style.overflow, body: document.body.style.overflow, over: html.style.overscrollBehavior };
+    const body = document.body;
+    const prev = {
+      html: html.style.overflow, over: html.style.overscrollBehavior,
+      body: body.style.overflow, position: body.style.position, inset: body.style.inset, width: body.style.width
+    };
     html.style.overflow = 'hidden';
-    document.body.style.overflow = 'hidden';
     html.style.overscrollBehavior = 'none';
+    body.style.overflow = 'hidden';
+    // iOS Safari lets a finger scroll and bounce the page straight through
+    // overflow: hidden. Fixing the body is the one lock it honours; the board
+    // fills the viewport, so there is no page offset to lose.
+    body.style.position = 'fixed';
+    body.style.inset = '0';
+    body.style.width = '100%';
     window.scrollTo(0, 0);
     return () => {
       html.style.overflow = prev.html;
-      document.body.style.overflow = prev.body;
       html.style.overscrollBehavior = prev.over;
+      body.style.overflow = prev.body;
+      body.style.position = prev.position;
+      body.style.inset = prev.inset;
+      body.style.width = prev.width;
     };
   }, [route.view]);
 

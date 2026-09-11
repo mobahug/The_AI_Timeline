@@ -701,6 +701,11 @@ export default function BoardView({ items, graph, media, route, navigate, board,
           <div
             role="complementary"
             aria-label="Card context"
+            // Whatever the reader does inside the panel stays inside it. A wheel
+            // or a finger that reaches the end of the panel's text must not carry
+            // on into the canvas behind it, on any device.
+            onWheel={(e) => e.stopPropagation()}
+            onTouchMove={(e) => e.stopPropagation()}
             style={{
               position: 'absolute', zIndex: 22, height: panelContentH ? panelH : 'auto', maxHeight: PANEL_CAP,
               transition: panelContentH ? 'height .24s cubic-bezier(.22,.7,.3,1)' : 'none',
@@ -710,6 +715,7 @@ export default function BoardView({ items, graph, media, route, navigate, board,
                     [dockTop ? 'borderBottom' : 'borderTop']: '1px solid rgba(243,240,234,0.16)',
                     animation: (dockTop ? 'slideInDown' : 'slideInUp') + ' .24s cubic-bezier(.22,.7,.3,1) both' }),
               overflowY: panelContentH > PANEL_CAP ? 'auto' : 'hidden', overscrollBehavior: 'contain',
+              touchAction: 'pan-y', WebkitOverflowScrolling: 'touch',
               pointerEvents: preview ? 'none' : 'auto',
               background: 'rgba(10,10,11,0.94)', backdropFilter: 'blur(16px) saturate(1.3)'
             }}
