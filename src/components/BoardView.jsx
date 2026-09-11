@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { THREADS, TICKS, NOW, CATEGORIES, accent, buildChain, catLabel, catHue, fade, yearFraction, yearAtFraction } from '../lib/data.js';
 import { INK, MANILA, MONO, PAPER, RED, RED_LIT, CYAN, micro } from '../lib/styles.js';
+import { panDuration, panPosition } from '../lib/motion.js';
 import CluePanel from './CluePanel.jsx';
 import EditorBar from './EditorBar.jsx';
 
@@ -165,19 +166,45 @@ export default function BoardView({ items, graph, media, route, navigate, board,
   const focusId = chain ? null : (pinned || hover);
   const active = chain ? chainIds : (focusId ? [focusId, ...(graph.adjacency[focusId] || []).map((a) => a.id)] : null);
 
-  /** Smooth where the browser honours it, guaranteed to arrive where it does not.
-   *  A backgrounded or throttled tab drops the animation frames that smooth
-   *  scrolling runs on, which would otherwise leave the board never moving. */
+  /**
+   * Pan the board to a position along an eased curve driven by requestAnimationFrame.
+   *
+   * The browser's own smooth scrolling was not good enough here: its speed is not
+   * ours to choose, it is silently dropped in a throttled tab, and the fallback
+   * that guaranteed arrival snapped the board to the target 600ms in — which on a
+   * long pan meant yanking it mid-flight. This is time-based, so a tab that
+   * comes back from the background simply lands at the end instead of stalling,
+   * and it is cancelled the moment the reader takes over with a drag or a wheel.
+   * Honours prefers-reduced-motion by jumping straight there.
+   */
+  const panAnim = useRef(null);
+  const cancelPan = useCallback(() => {
+    if (panAnim.current !== null) { cancelAnimationFrame(panAnim.current); panAnim.current = null; }
+  }, []);
+
   const panTo = useCallback((left) => {
     const el = scroller.current;
     if (!el) return;
+    cancelPan();
     const target = Math.max(0, Math.min(left, el.scrollWidth - el.clientWidth));
-    el.scrollTo({ left: target, behavior: 'smooth' });
-    window.setTimeout(() => {
-      const now = scroller.current;
-      if (now && Math.abs(now.scrollLeft - target) > 4) now.scrollLeft = target;
-    }, 600);
-  }, []);
+    const from = el.scrollLeft;
+    const dist = target - from;
+    const reduce = typeof window.matchMedia === 'function' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || Math.abs(dist) < 2) { el.scrollLeft = target; return; }
+
+    const duration = panDuration(dist);
+    const t0 = performance.now();
+    const step = (now) => {
+      const el2 = scroller.current;
+      if (!el2) { panAnim.current = null; return; }
+      const elapsed = now - t0;
+      el2.scrollLeft = panPosition(from, target, elapsed);
+      panAnim.current = elapsed < duration ? requestAnimationFrame(step) : null;
+    };
+    panAnim.current = requestAnimationFrame(step);
+  }, [cancelPan]);
+
+  useEffect(() => cancelPan, [cancelPan]);
 
   const centre = useCallback((stepData) => {
     const el = scroller.current;
@@ -290,6 +317,7 @@ export default function BoardView({ items, graph, media, route, navigate, board,
     if (e.button !== 0) return;
     const el = scroller.current;
     if (!el) return;
+    cancelPan();
     const startX = e.clientX;
     const startLeft = el.scrollLeft;
     dragged.current = false;
@@ -311,6 +339,7 @@ export default function BoardView({ items, graph, media, route, navigate, board,
   const onWheel = (e) => {
     const el = scroller.current;
     if (!el) return;
+    cancelPan();
     const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
     const max = el.scrollWidth - el.clientWidth;
     if ((delta < 0 && el.scrollLeft > 0) || (delta > 0 && el.scrollLeft < max)) {
@@ -321,6 +350,7 @@ export default function BoardView({ items, graph, media, route, navigate, board,
   };
 
   const onScrub = (e) => {
+    cancelPan();
     const track = e.currentTarget;
     const pan = (ev) => {
       const rect = track.getBoundingClientRect();
