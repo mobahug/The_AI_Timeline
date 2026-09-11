@@ -13,7 +13,7 @@ const chip = (activeRow) => ({
 });
 
 const Side = ({ event, role, accentBorder }) => (
-  <div style={{ flex: 1, minWidth: 200, borderLeft: '2px solid ' + (accentBorder || 'rgba(243,240,234,0.18)'), paddingLeft: 14 }}>
+  <div style={{ flex: '1 1 200px', minWidth: 0, borderLeft: '2px solid ' + (accentBorder || 'rgba(243,240,234,0.18)'), paddingLeft: 14 }}>
     <div style={{ display: 'flex', alignItems: 'baseline', gap: 9, flexWrap: 'wrap', marginBottom: 6 }}>
       <span style={{ font: '400 24px/1 ' + SERIF, fontVariantNumeric: 'tabular-nums' }}>{event.year}</span>
       <span style={tag(event.category, accent)}>{role}</span>
@@ -26,7 +26,7 @@ const Side = ({ event, role, accentBorder }) => (
   </div>
 );
 
-export default function CluePanel({ graph, chain, step, current, focus, media, onStep, onJump, onExit, onOpenChain }) {
+export default function CluePanel({ graph, chain, step, current, focus, media, onStep, onJump, onExit, onOpenChain, onOpenCard }) {
   const shell = {
     marginTop: 12, border: '1px solid rgba(243,240,234,0.14)', borderRadius: 3, background: '#101013',
     minHeight: 206, display: 'flex', flexDirection: 'column'
@@ -38,7 +38,7 @@ export default function CluePanel({ graph, chain, step, current, focus, media, o
     const note = current.note || [from.summary, to.summary].filter(Boolean).join(' ');
     return (
       <div style={shell}>
-        <div style={{ padding: '18px 22px', display: 'flex', flexDirection: 'column', gap: 14, animation: 'fadeIn .25s both' }}>
+        <div style={{ padding: 'clamp(13px,3vw,18px) clamp(14px,3vw,22px)', display: 'flex', flexDirection: 'column', gap: 14, animation: 'fadeIn .25s both' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
             <span style={{ ...micro(1), color: RED_LIT, letterSpacing: '0.22em' }}>Clue {step + 1} / {chain.length}</span>
             <span style={{ flex: 1 }} />
@@ -59,7 +59,7 @@ export default function CluePanel({ graph, chain, step, current, focus, media, o
           </div>
 
           <div style={{ display: 'flex', gap: 22, flexWrap: 'wrap' }}>
-            <p style={{ margin: 0, flex: 1, minWidth: 300, maxWidth: '78ch', font: '400 13.5px/1.62 ' + SANS, color: 'rgba(243,240,234,0.68)', textWrap: 'pretty' }}>{note}</p>
+            <p style={{ margin: 0, flex: '1 1 300px', minWidth: 0, maxWidth: '78ch', font: '400 13.5px/1.62 ' + SANS, color: 'rgba(243,240,234,0.68)', textWrap: 'pretty' }}>{note}</p>
             <div style={{ flex: '1 1 260px', minWidth: 0, display: 'flex', flexDirection: 'column', gap: 5, maxHeight: 190, overflowY: 'auto' }}>
               <div style={micro(0.34)}>The whole thread</div>
               {chain.map((s, i) => (
@@ -78,14 +78,14 @@ export default function CluePanel({ graph, chain, step, current, focus, media, o
     const shot = media(focus);
     return (
       <div style={shell}>
-        <div style={{ display: 'flex', width: '100%', animation: 'fadeIn .25s both' }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', width: '100%', animation: 'fadeIn .25s both' }}>
           <div style={{
-            flex: 'none', width: 186, alignSelf: 'stretch', border: '1px solid rgba(243,240,234,0.12)', borderRadius: 2,
+            flex: '1 1 186px', minWidth: 0, maxWidth: 260, minHeight: 104, alignSelf: 'stretch', border: '1px solid rgba(243,240,234,0.12)', borderRadius: 2,
             backgroundColor: '#0e0e11', backgroundSize: shot.img ? 'cover' : undefined, backgroundPosition: 'center',
             backgroundImage: shot.img ? 'url(' + shot.img + ')' : 'repeating-linear-gradient(135deg,rgba(243,240,234,0.06) 0 6px,transparent 6px 12px)'
           }} />
-          <div style={{ flex: 1, minWidth: 0, padding: '18px 22px', display: 'flex', gap: 26, flexWrap: 'wrap' }}>
-            <div style={{ flex: 1, minWidth: 280, display: 'flex', flexDirection: 'column', gap: 10 }}>
+          <div style={{ flex: '1 1 280px', minWidth: 0, padding: 'clamp(13px,3vw,18px) clamp(14px,3vw,22px)', display: 'flex', gap: 'clamp(14px,3vw,26px)', flexWrap: 'wrap' }}>
+            <div style={{ flex: '1 1 260px', minWidth: 0, display: 'flex', flexDirection: 'column', gap: 10 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
                 <span style={{ font: '400 30px/1 ' + SERIF, letterSpacing: '-0.03em', fontVariantNumeric: 'tabular-nums' }}>{focus.year}</span>
                 <span style={tag(focus.category, accent)}>{catLabel(focus.category)}</span>
@@ -94,17 +94,33 @@ export default function CluePanel({ graph, chain, step, current, focus, media, o
               <div style={{ font: '400 23px/1.14 ' + SERIF, letterSpacing: '-0.022em', textWrap: 'balance' }}>{focus.title}</div>
               <div style={{ font: '400 13.5px/1.6 ' + SANS, color: 'rgba(243,240,234,0.62)', maxWidth: '64ch', textWrap: 'pretty' }}>{focus.summary}</div>
               <div style={{ display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap', marginTop: 2 }}>
-                <button onClick={() => onOpenChain(focus.id)} style={button('loud')}>Follow the strings →</button>
+                {(graph.adjacency[focus.id] || []).length > 0 &&
+                  <button onClick={() => onOpenChain(focus.id)} style={button('loud')}>Follow the strings →</button>}
                 {focus.url && <a href={focus.url} target="_blank" rel="noopener" style={{ ...micro(1), letterSpacing: '0.14em' }}>{focus.source || 'Source'} ↗</a>}
+                <span style={{ flex: 1 }} />
+                <button onClick={onExit} style={{ ...button(), color: 'rgba(243,240,234,0.6)' }}>Close</button>
               </div>
             </div>
-            <div style={{ flex: '1 1 270px', minWidth: 0, display: 'flex', flexDirection: 'column', gap: 6, maxHeight: 200, overflowY: 'auto' }}>
-              <div style={micro(0.36)}>Connections</div>
-              {(graph.adjacency[focus.id] || []).map((a, i) => (
-                <button key={i} onClick={() => onOpenChain(a.id)} style={chip(false)}>
-                  {a.out ? '→ ' : '← '}{graph.index[a.id].year}  {graph.index[a.id].title}
-                </button>
-              ))}
+            <div style={{ flex: '1 1 270px', minWidth: 0, display: 'flex', flexDirection: 'column', gap: 6, maxHeight: 220, overflowY: 'auto' }}>
+              {(() => {
+                const links = graph.adjacency[focus.id] || [];
+                const byYear = (a, b) => graph.index[a.id].year - graph.index[b.id].year;
+                const into = links.filter((a) => !a.out).sort(byYear);
+                const outOf = links.filter((a) => a.out).sort(byYear);
+                const group = (label, list) => list.length > 0 && (
+                  <React.Fragment key={label}>
+                    <div style={{ ...micro(0.36), marginTop: 2 }}>{label}</div>
+                    {list.map((a, i) => (
+                      <button key={label + i} onClick={() => (onOpenCard ? onOpenCard(a.id) : onOpenChain(a.id))} style={chip(false)}>
+                        <span style={{ color: 'oklch(0.78 0.16 25)' }}>{a.claim}</span>{'  '}
+                        {graph.index[a.id].year} {graph.index[a.id].title}
+                      </button>
+                    ))}
+                  </React.Fragment>
+                );
+                if (!links.length) return <div style={micro(0.34)}>No strings attached to this card yet</div>;
+                return <>{group('What led to this', into)}{group('What this led to', outOf)}</>;
+              })()}
             </div>
           </div>
         </div>

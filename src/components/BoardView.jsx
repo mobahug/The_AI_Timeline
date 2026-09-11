@@ -97,6 +97,9 @@ export default function BoardView({ items, graph, media, route, navigate, board,
   const [shellH, setShellH] = useState(640);
   const [box, setBox] = useState({ w: 1280, h: 560 });
   const [hover, setHover] = useState(null);
+  // A click pins a card open. Hover is only ever a transient preview, so without
+  // this the context you deliberately clicked for vanished on mouseleave.
+  const [pinned, setPinned] = useState(null);
   const [chain, setChain] = useState(null);
   const [step, setStep] = useState(0);
   const [viewport, setViewport] = useState([1900, 1950]);
@@ -159,7 +162,7 @@ export default function BoardView({ items, graph, media, route, navigate, board,
 
   const current = chain && chain.length ? chain[Math.min(step, chain.length - 1)] : null;
   const chainIds = chain ? [...new Set(chain.flatMap((s) => [s.from, s.to]))] : null;
-  const focusId = chain ? null : hover;
+  const focusId = chain ? null : (pinned || hover);
   const active = chain ? chainIds : (focusId ? [focusId, ...(graph.adjacency[focusId] || []).map((a) => a.id)] : null);
 
   /** Smooth where the browser honours it, guaranteed to arrive where it does not.
@@ -186,16 +189,26 @@ export default function BoardView({ items, graph, media, route, navigate, board,
     if (el.scrollHeight > el.clientHeight) el.scrollTop = Math.max(0, (a.y + b.y) / 2 - el.clientHeight / 2);
   }, [positions, panTo]);
 
+  const focusCard = useCallback((id) => {
+    setChain(null);
+    setHover(null);
+    setPinned(id);
+    navigate({ id, clue: null }, true);
+    const el = scroller.current;
+    if (el && positions[id]) panTo(positions[id].x - el.clientWidth / 2);
+  }, [navigate, positions, panTo]);
+
   const openChain = useCallback((id, atStep) => {
     const built = buildChain(graph, id);
-    if (!built.steps.length) { setChain(null); setHover(id); navigate({ id, clue: null }, true); return; }
+    if (!built.steps.length) { focusCard(id); return; }
     const index = typeof atStep === 'number' ? atStep : built.start;
     setChain(built.steps);
     setStep(index);
     setHover(null);
+    setPinned(null);
     navigate({ clue: { from: built.steps[index].from, to: built.steps[index].to }, id: null }, true);
     requestAnimationFrame(() => centre(built.steps[index]));
-  }, [graph, navigate, centre]);
+  }, [graph, navigate, centre, focusCard]);
 
   // Deep links: ?id=… opens a card, ?clue=a>b opens the walkthrough at that string.
   const applied = useRef('');
@@ -209,7 +222,7 @@ export default function BoardView({ items, graph, media, route, navigate, board,
       if (index >= 0) { setChain(built.steps); setStep(index); requestAnimationFrame(() => centre(built.steps[index])); return; }
     }
     if (route.id && positions[route.id]) {
-      setHover(route.id);
+      setPinned(route.id);
       const el = scroller.current;
       if (el) panTo(positions[route.id].x - el.clientWidth / 2);
     }
@@ -239,7 +252,7 @@ export default function BoardView({ items, graph, media, route, navigate, board,
 
   useEffect(() => {
     const onKey = (e) => {
-      if (e.key === 'Escape') { setChain(null); setDraft(null); setConnectFrom(null); }
+      if (e.key === 'Escape') { setChain(null); setPinned(null); setDraft(null); setConnectFrom(null); }
       if (chain && (e.key === 'ArrowRight' || e.key === 'ArrowLeft')) { e.preventDefault(); move(e.key === 'ArrowRight' ? 1 : -1); }
     };
     window.addEventListener('keydown', onKey);
@@ -319,7 +332,7 @@ export default function BoardView({ items, graph, media, route, navigate, board,
       setConnectFrom(null);
       return;
     }
-    openChain(event.id);
+    focusCard(event.id);
   };
 
   const hint = chain
@@ -332,7 +345,7 @@ export default function BoardView({ items, graph, media, route, navigate, board,
   // A hover preview must never steal the hover that produced it, and must never
   // sit on top of the card being read. It docks to whichever half of the canvas
   // the subject is NOT in, and lets the pointer straight through.
-  const preview = !current && !!focusId;
+  const preview = !current && !pinned && !!hover;
   const subject = current ? positions[current.to] : (focusId ? positions[focusId] : null);
   const dockTop = !!(subject && box.h && subject.y > box.h * 0.52);
 
@@ -356,7 +369,7 @@ export default function BoardView({ items, graph, media, route, navigate, board,
             {viewport[0]} — {viewport[1]}
           </span>}
           editing={editing}
-          onToggle={() => { setEditing((v) => !v); setDraft(null); setConnectFrom(null); setChain(null); }}
+          onToggle={() => { setEditing((v) => !v); setDraft(null); setConnectFrom(null); setChain(null); setPinned(null); }}
           onNewCard={() => { setEditing(true); setDraft({ id: null, year: NOW + 1, category: 'research', title: '', note: '', isNew: true }); }}
           onConnect={() => setConnectFrom(draft ? draft.id : focusId)}
           connecting={!!connectFrom}
@@ -470,10 +483,10 @@ export default function BoardView({ items, graph, media, route, navigate, board,
                   type="button"
                   aria-label={e.year + ', ' + catLabel(e.category) + ', ' + e.title}
                   onClick={() => clickCard(e)}
-                  onFocus={() => !chain && setHover(e.id)}
-                  onBlur={() => !chain && setHover(null)}
-                  onMouseEnter={() => !chain && setHover(e.id)}
-                  onMouseLeave={() => !chain && setHover(null)}
+                  onFocus={() => !chain && !pinned && setHover(e.id)}
+                  onBlur={() => !chain && !pinned && setHover(null)}
+                  onMouseEnter={() => !chain && !pinned && setHover(e.id)}
+                  onMouseLeave={() => !chain && !pinned && setHover(null)}
                   style={{
                     position: 'absolute', left: node.x - m.cardW / 2, top: node.top, width: m.cardW, height: m.cardH,
                     padding: 0, border: 'none', background: 'transparent', textAlign: 'left', boxSizing: 'border-box',
@@ -570,8 +583,9 @@ export default function BoardView({ items, graph, media, route, navigate, board,
               media={media}
               onStep={move}
               onJump={(index) => { setStep(index); centre(chain[index]); }}
-              onExit={() => { setChain(null); setHover(null); navigate({ clue: null, id: null }, true); }}
+              onExit={() => { setChain(null); setHover(null); setPinned(null); navigate({ clue: null, id: null }, true); }}
               onOpenChain={openChain}
+              onOpenCard={focusCard}
             />
           </div>
         )}
