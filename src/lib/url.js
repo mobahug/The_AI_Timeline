@@ -1,10 +1,14 @@
 import { useCallback, useEffect, useState } from 'react';
 
+const VIEWS = new Set(['landing', 'board', 'plates', 'mosaic', 'index', 'case', 'horizon', 'line', 'finding', 'about']);
+
 const read = () => {
   const q = new URLSearchParams(window.location.search);
   const clue = q.get('clue');
+  const view = q.get('view') || 'landing';
   return {
-    view: q.get('view') || 'landing',
+    // A mistyped or retired view name lands on the front page, not a blank one.
+    view: VIEWS.has(view) ? view : 'landing',
     id: q.get('id') || null,
     category: q.get('cat') || 'all',
     query: q.get('q') || '',

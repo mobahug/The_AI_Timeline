@@ -395,18 +395,24 @@ export default function BoardView({ items, graph, media, route, navigate, board,
     window.addEventListener('pointerup', onUp);
   };
 
-  const onWheel = (e) => {
+  // Wheel turns vertical scrolling into horizontal panning. React registers
+  // onWheel as a passive listener, inside which preventDefault is a no-op that
+  // logs an error on every tick — so this is attached natively, non-passive.
+  useEffect(() => {
     const el = scroller.current;
     if (!el) return;
-    cancelPan();
-    const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
-    const max = el.scrollWidth - el.clientWidth;
-    if ((delta < 0 && el.scrollLeft > 0) || (delta > 0 && el.scrollLeft < max)) {
-      e.preventDefault();
-      el.scrollLeft = Math.min(max, Math.max(0, el.scrollLeft + delta));
-      onScroll();
-    }
-  };
+    const onWheel = (e) => {
+      cancelPan();
+      const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+      const max = el.scrollWidth - el.clientWidth;
+      if ((delta < 0 && el.scrollLeft > 0) || (delta > 0 && el.scrollLeft < max)) {
+        e.preventDefault();
+        el.scrollLeft = Math.min(max, Math.max(0, el.scrollLeft + delta));
+      }
+    };
+    el.addEventListener('wheel', onWheel, { passive: false });
+    return () => el.removeEventListener('wheel', onWheel);
+  }, [cancelPan]);
 
   const onScrub = (e) => {
     cancelPan();
@@ -513,7 +519,6 @@ export default function BoardView({ items, graph, media, route, navigate, board,
           ref={scroller}
           onScroll={onScroll}
           onPointerDown={onPointerDown}
-          onWheel={onWheel}
           id="board-canvas"
           style={{
             position: 'absolute', inset: 0, overflowX: 'auto', overflowY: m.fits ? 'hidden' : 'auto',

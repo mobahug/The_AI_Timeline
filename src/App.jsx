@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import Header from './components/Header.jsx';
+import ErrorBoundary from './components/ErrorBoundary.jsx';
 import Landing from './components/Landing.jsx';
 import About from './components/About.jsx';
 import BoardView from './components/BoardView.jsx';
@@ -104,26 +105,28 @@ export default function App() {
       <div style={{ position: 'fixed', inset: 0, zIndex: 60, pointerEvents: 'none', mixBlendMode: 'overlay', backgroundImage: 'repeating-linear-gradient(0deg,rgba(255,255,255,0.028) 0 1px,transparent 1px 3px)' }} />
       <Header route={route} navigate={navigate} year={year} progress={progress} status={status} />
 
-      {route.view === 'landing' && <Landing navigate={navigate} />}
-      {route.view === 'about' && <About />}
-      {route.view === 'board' && (
-        <BoardView
-          items={items}
-          graph={graph}
-          media={media}
-          route={route}
-          navigate={navigate}
-          board={board}
-          onYear={onBoardPosition}
-        />
-      )}
-      {route.view === 'plates' && <PlatesView items={items} media={media} onOpen={openOnBoard} />}
-      {route.view === 'mosaic' && <MosaicView items={items} media={media} onOpen={openOnBoard} />}
-      {route.view === 'index' && <IndexView items={items} onOpen={openOnBoard} />}
-      {route.view === 'horizon' && <HorizonView items={items} graph={graph} navigate={navigate} onOpen={openOnBoard} />}
-      {route.view === 'case' && <CaseView graph={graph} onOpen={openOnBoard} />}
-      {route.view === 'line' && <LineView graph={graph} navigate={navigate} onOpen={openOnBoard} />}
-      {route.view === 'finding' && <FindingView graph={graph} route={route} navigate={navigate} onOpen={openOnBoard} media={media} />}
+      <ErrorBoundary resetKey={route.view + '|' + (route.finding || '') + '|' + (route.id || '')}>
+        {route.view === 'landing' && <Landing navigate={navigate} />}
+        {route.view === 'about' && <About />}
+        {route.view === 'board' && (
+          <BoardView
+            items={items}
+            graph={graph}
+            media={media}
+            route={route}
+            navigate={navigate}
+            board={board}
+            onYear={onBoardPosition}
+          />
+        )}
+        {route.view === 'plates' && <PlatesView items={items} media={media} onOpen={openOnBoard} />}
+        {route.view === 'mosaic' && <MosaicView items={items} media={media} onOpen={openOnBoard} />}
+        {route.view === 'index' && <IndexView items={items} onOpen={openOnBoard} />}
+        {route.view === 'horizon' && <HorizonView items={items} graph={graph} navigate={navigate} onOpen={openOnBoard} />}
+        {route.view === 'case' && <CaseView graph={graph} onOpen={openOnBoard} />}
+        {route.view === 'line' && <LineView graph={graph} navigate={navigate} onOpen={openOnBoard} />}
+        {route.view === 'finding' && <FindingView graph={graph} route={route} navigate={navigate} onOpen={openOnBoard} media={media} />}
+      </ErrorBoundary>
 
       {!items.length && !['landing', 'about', 'horizon', 'case', 'board', 'line', 'finding'].includes(route.view) && (
         <div style={{ padding: '140px 0', textAlign: 'center', ...micro(0.4), letterSpacing: '0.14em' }}>No entries match</div>
