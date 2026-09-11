@@ -18,7 +18,7 @@ export default function Landing({ navigate }) {
           <p style={{ margin: 0, font: '400 16px/1.62 ' + "'Helvetica Neue', Helvetica, Arial, sans-serif", color: 'rgba(243,240,234,0.66)', maxWidth: '46ch', textWrap: 'pretty' }}>
             Breakthroughs, boardroom coups, lawsuits, breaches and fiction — pinned to a wall
             with the strings between them. Every string is a claim that one event made another
-            possible, and most of them carry a written case note.
+            possible, and {notes} of the {links.length} carry a written case note.
           </p>
           <p style={{ margin: 0, font: '400 11.5px/1.85 ' + MONO, color: 'rgba(243,240,234,0.4)', maxWidth: '34ch', textWrap: 'pretty' }}>
             Six threads run at once: ideas, products, power, failures, rules, culture.
