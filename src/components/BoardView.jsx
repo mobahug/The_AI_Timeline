@@ -3,7 +3,6 @@ import { THREADS, TICKS, NOW, CATEGORIES, accent, buildChain, catLabel, catHue, 
 import { INK, MANILA, MONO, PAPER, RED, RED_LIT, CYAN, micro } from '../lib/styles.js';
 import { panDuration, panPosition } from '../lib/motion.js';
 import CluePanel from './CluePanel.jsx';
-import BoardList from './BoardList.jsx';
 import EditorBar from './EditorBar.jsx';
 
 const PAD = 200;
@@ -125,14 +124,7 @@ export default function BoardView({ items, graph, media, route, navigate, board,
   const scroller = useRef(null);
   const dragged = useRef(false);
   const [shellH, setShellH] = useState(640);
-  // Below this the corkboard is 28 screens of sideways panning. The board is
-  // rendered as a list instead: same cards, same strings, same panel, no canvas.
-  const [phone, setPhone] = useState(() => (typeof window !== 'undefined' ? window.innerWidth < 720 : false));
-  useEffect(() => {
-    const onResize = () => setPhone(window.innerWidth < 720);
-    window.addEventListener('resize', onResize);
-    return () => window.removeEventListener('resize', onResize);
-  }, []);
+
   const [box, setBox] = useState({ w: 1280, h: 560 });
   const [hover, setHover] = useState(null);
   // Hover is a mouse concept. A phone fires mouseover before click, which opened
@@ -463,7 +455,7 @@ export default function BoardView({ items, graph, media, route, navigate, board,
   // rail down the right edge, which never covers a lane and never has to flip.
   // On a narrow one it is a sheet of fixed height, which still docks away from
   // the subject because there is nowhere else for it to go.
-  const railMode = !phone && box.w >= 900;
+  const railMode = box.w >= 900;
   const RAIL_W = railMode ? Math.min(440, Math.round(box.w * 0.36)) : 0;
   // The panel is exactly as tall as what it holds, up to a cap, and scrolls past
   // it. Never a fixed block with dead space under short content, and never a
@@ -483,7 +475,7 @@ export default function BoardView({ items, graph, media, route, navigate, board,
     return () => ro.disconnect();
   }, [panelOpen]);
   const subject = current ? positions[current.to] : (focusId ? positions[focusId] : null);
-  const dockTop = !phone && !railMode && !!(subject && box.h && subject.y > box.h * 0.52);
+  const dockTop = !railMode && !!(subject && box.h && subject.y > box.h * 0.52);
   railInset.current = RAIL_W;
 
   return (
@@ -501,7 +493,7 @@ export default function BoardView({ items, graph, media, route, navigate, board,
             <h1 style={{ margin: 0, font: '400 clamp(16px,1.7vw,21px)/1 ' + "'Instrument Serif', Georgia, serif", letterSpacing: '-0.02em', whiteSpace: 'nowrap' }}>The board</h1>
             <span style={{ ...micro(chain ? 0.75 : 0.42), color: chain ? RED_LIT : undefined }}>{hint}</span>
           </>}
-          trail={phone ? null : <span style={{ ...micro(0.5), letterSpacing: '0.18em', display: 'inline-flex', alignItems: 'center', gap: 7, whiteSpace: 'nowrap' }}>
+          trail={<span style={{ ...micro(0.5), letterSpacing: '0.18em', display: 'inline-flex', alignItems: 'center', gap: 7, whiteSpace: 'nowrap' }}>
             <span style={{ width: 6, height: 6, borderRadius: '50%', background: CYAN, animation: 'hudPulse 2.4s ease-in-out infinite' }} />
             {viewport[0]} — {viewport[1]}
           </span>}
@@ -517,17 +509,7 @@ export default function BoardView({ items, graph, media, route, navigate, board,
       </div>
 
       <div ref={frameRef} style={{ position: 'relative', flex: 1, minHeight: 0 }}>
-        {phone && (
-          <BoardList
-            items={items}
-            graph={graph}
-            subjectId={current ? current.to : focusId}
-            activeIds={active}
-            onOpen={focusCard}
-            onOpenClue={openClue}
-          />
-        )}
-        {!phone && <div
+        <div
           ref={scroller}
           onScroll={onScroll}
           onPointerDown={onPointerDown}
@@ -682,10 +664,10 @@ export default function BoardView({ items, graph, media, route, navigate, board,
               );
             })}
           </div>
-        </div>}
+        </div>
 
-        {!phone && <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: 4, zIndex: 6, pointerEvents: 'none' }} />}
-        {!phone && THREADS.map((thread, i) => (
+        <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: 4, zIndex: 6, pointerEvents: 'none' }} />
+        {THREADS.map((thread, i) => (
           <div key={'label-' + thread.id} style={{
             position: 'absolute', left: 7, top: m.ruler + i * m.lane + 2, zIndex: 6, pointerEvents: 'none',
             maxWidth: 'min(46vw,168px)', padding: '3px 7px', borderRadius: 2,
@@ -701,8 +683,8 @@ export default function BoardView({ items, graph, media, route, navigate, board,
           </div>
         )}
 
-        {!phone && !(panelOpen && railMode) && <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: 56, zIndex: 5, pointerEvents: 'none', background: 'linear-gradient(270deg,rgba(10,10,11,0.85),transparent)' }} />}
-        {!phone && [['left', 'top'], ['right', 'top'], ['left', 'bottom'], ['right', 'bottom']].map(([x, y]) => (
+        {!(panelOpen && railMode) && <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: 56, zIndex: 5, pointerEvents: 'none', background: 'linear-gradient(270deg,rgba(10,10,11,0.85),transparent)' }} />}
+        {[['left', 'top'], ['right', 'top'], ['left', 'bottom'], ['right', 'bottom']].map(([x, y]) => (
           <div key={x + y} style={{
             position: 'absolute', [x]: 7, [y]: 7, width: 22, height: 22, pointerEvents: 'none', zIndex: 7,
             ['border' + (x === 'left' ? 'Left' : 'Right')]: '1px solid rgba(243,240,234,0.35)',
@@ -747,11 +729,11 @@ export default function BoardView({ items, graph, media, route, navigate, board,
         )}
       </div>
 
-      {!phone && <div onPointerDown={onScrub} role="scrollbar" aria-label="Pan the board" aria-controls="board-canvas" aria-valuenow={Math.round(thumb.left * 100)}
+      <div onPointerDown={onScrub} role="scrollbar" aria-label="Pan the board" aria-controls="board-canvas" aria-valuenow={Math.round(thumb.left * 100)}
         style={{ marginTop: 4, height: 12, position: 'relative', cursor: 'pointer', display: 'flex', alignItems: 'center', flex: 'none' }}>
         <div style={{ position: 'absolute', left: 0, right: 0, height: 3, background: 'rgba(243,240,234,0.1)', borderRadius: 2 }} />
         <div style={{ position: 'absolute', left: (thumb.left * 100).toFixed(2) + '%', width: Math.max(4, thumb.width * 100).toFixed(2) + '%', height: 8, background: CYAN, opacity: 0.7, borderRadius: 2 }} />
-      </div>}
+      </div>
     </div>
   );
 }
