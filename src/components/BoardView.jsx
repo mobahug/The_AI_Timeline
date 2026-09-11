@@ -39,32 +39,59 @@ function metrics(height, width) {
   };
 }
 
-/** One row per thread, chronological, never overlapping. */
+/** One row per thread, chronological, never overlapping — and never far from
+ *  its true year. Collision avoidance pushes crowded cards right, and a lane
+ *  that is pushed a long way stops lining up with the lanes beside it: one lane
+ *  shows 1969 where another shows 2025. That breaks the one thing a timeline
+ *  board promises, so the board widens until the worst push is under a card. */
 function layout(items, m) {
-  const xOf = (year) => PAD + yearFraction(year) * (m.boardW - PAD * 2);
-  const nodes = [];
-  THREADS.forEach((thread, row) => {
-    let lastX = -Infinity;
-    const laneTop = m.ruler + row * m.lane;
-    items
-      .filter((e) => e.thread === thread.id)
-      .map((e) => ({ event: e, x: xOf(e.year) }))
-      .sort((a, b) => a.x - b.x)
-      .forEach((slot) => {
-        const gap = slot.event.featured ? m.gap + Math.round(m.gap * 0.16) : m.gap;
-        const x = Math.max(slot.x, lastX + gap);
-        lastX = x;
-        nodes.push({
-          event: slot.event,
-          x,
-          top: laneTop + m.gutter,
-          y: laneTop + m.gutter + m.cardH / 2,
-          ty: laneTop + m.gutter,
-          tilt: (((slot.event.id.length * 37) % 5) - 2) * 0.5
+  const place = (boardW) => {
+    const xOf = (year) => PAD + yearFraction(year) * (boardW - PAD * 2);
+    const nodes = [];
+    let worstPush = 0;
+    THREADS.forEach((thread, row) => {
+      let lastX = -Infinity;
+      const laneTop = m.ruler + row * m.lane;
+      items
+        .filter((e) => e.thread === thread.id)
+        .map((e) => ({ event: e, x: xOf(e.year) }))
+        .sort((a, b) => a.x - b.x)
+        .forEach((slot) => {
+          const gap = slot.event.featured ? m.gap + Math.round(m.gap * 0.16) : m.gap;
+          const x = Math.max(slot.x, lastX + gap);
+          worstPush = Math.max(worstPush, x - slot.x);
+          lastX = x;
+          nodes.push({
+            event: slot.event,
+            x,
+            top: laneTop + m.gutter,
+            y: laneTop + m.gutter + m.cardH / 2,
+            ty: laneTop + m.gutter,
+            tilt: (((slot.event.id.length * 37) % 5) - 2) * 0.5
+          });
         });
-      });
-  });
-  return { nodes, xOf, width: m.boardW, height: m.ruler + THREADS.length * m.lane };
+    });
+    return { nodes, xOf, worstPush, boardW };
+  };
+
+  // Give the densest lane room for its cards. Eight entries in one year will
+  // always be pushed a card apart whatever the width — that is not misalignment —
+  // so this sizes to the lane's total need rather than chasing a push that a
+  // same-year cluster can never eliminate. On a desktop this is close to the
+  // nominal width; on a phone, where cards are large relative to the board, it
+  // is what stops one lane drifting decades away from the lane beside it.
+  const densest = THREADS.reduce((mx, th) => Math.max(mx, items.filter((e) => e.thread === th.id).length), 0);
+  const boardW = Math.max(m.boardW, Math.ceil(densest * m.gap * 1.35) + PAD * 2);
+  const result = place(boardW);
+
+  const reach = result.nodes.reduce((mx, n) => Math.max(mx, n.x + m.cardW / 2), 0);
+  return {
+    nodes: result.nodes,
+    xOf: result.xOf,
+    worstPush: result.worstPush,
+    width: Math.max(result.boardW, Math.ceil(reach + PAD)),
+    height: m.ruler + THREADS.length * m.lane
+  };
 }
 
 /**
@@ -98,6 +125,11 @@ export default function BoardView({ items, graph, media, route, navigate, board,
   const [shellH, setShellH] = useState(640);
   const [box, setBox] = useState({ w: 1280, h: 560 });
   const [hover, setHover] = useState(null);
+  // Hover is a mouse concept. A phone fires mouseover before click, which opened
+  // the preview pointer-transparent for the gap between the two — a finger went
+  // straight through it and panned the board underneath. No hover on touch.
+  const [canHover] = useState(() => typeof window === 'undefined' || !window.matchMedia
+    || !window.matchMedia('(hover: none), (pointer: coarse)').matches);
   // A click pins a card open. Hover is only ever a transient preview, so without
   // this the context you deliberately clicked for vanished on mouseleave.
   const [pinned, setPinned] = useState(null);
@@ -308,11 +340,30 @@ export default function BoardView({ items, graph, media, route, navigate, board,
     const el = scroller.current;
     if (!el) return;
     const max = el.scrollWidth - el.clientWidth;
+    const left = el.scrollLeft;
+    const right = left + el.clientWidth;
     const fr = (x) => Math.min(1, Math.max(0, (x - PAD) / (board3.width - PAD * 2)));
-    setViewport([yearAtFraction(fr(el.scrollLeft)), yearAtFraction(fr(el.scrollLeft + el.clientWidth))]);
-    setThumb({ left: el.scrollLeft / el.scrollWidth, width: el.clientWidth / el.scrollWidth });
-    if (onYear) onYear(String(yearAtFraction(fr(el.scrollLeft + Math.min(el.clientWidth * 0.4, 380)))), max > 0 ? el.scrollLeft / max : 0);
-  }, [board3.width, onYear]);
+
+    // Read the years off the cards in view. Where a lane has been pushed past its
+    // year positions, the x->year map lies; the cards themselves do not.
+    const seen = board3.nodes.filter((n) => n.x + m.cardW / 2 > left && n.x - m.cardW / 2 < right);
+    if (seen.length) {
+      let lo = Infinity, hi = -Infinity;
+      seen.forEach((n) => { if (n.event.year < lo) lo = n.event.year; if (n.event.year > hi) hi = n.event.year; });
+      setViewport([lo, hi]);
+    } else {
+      setViewport([yearAtFraction(fr(left)), yearAtFraction(fr(right))]);
+    }
+
+    setThumb({ left: left / el.scrollWidth, width: el.clientWidth / el.scrollWidth });
+
+    if (onYear) {
+      const head = left + Math.min(el.clientWidth * 0.4, 380);
+      let nearest = null;
+      board3.nodes.forEach((n) => { if (!nearest || Math.abs(n.x - head) < Math.abs(nearest.x - head)) nearest = n; });
+      onYear(String(nearest ? nearest.event.year : yearAtFraction(fr(head))), max > 0 ? left / max : 0);
+    }
+  }, [board3.width, board3.nodes, m.cardW, onYear]);
 
   useEffect(() => { onScroll(); }, [onScroll]);
 
@@ -556,10 +607,10 @@ export default function BoardView({ items, graph, media, route, navigate, board,
                   type="button"
                   aria-label={e.year + ', ' + catLabel(e.category) + ', ' + e.title}
                   onClick={() => clickCard(e)}
-                  onFocus={() => !chain && !pinned && setHover(e.id)}
-                  onBlur={() => !chain && !pinned && setHover(null)}
-                  onMouseEnter={() => !chain && !pinned && setHover(e.id)}
-                  onMouseLeave={() => !chain && !pinned && setHover(null)}
+                  onFocus={() => canHover && !chain && !pinned && setHover(e.id)}
+                  onBlur={() => canHover && !chain && !pinned && setHover(null)}
+                  onMouseEnter={() => canHover && !chain && !pinned && setHover(e.id)}
+                  onMouseLeave={() => canHover && !chain && !pinned && setHover(null)}
                   style={{
                     position: 'absolute', left: node.x - m.cardW / 2, top: node.top, width: m.cardW, height: m.cardH,
                     padding: 0, border: 'none', background: 'transparent', textAlign: 'left', boxSizing: 'border-box',

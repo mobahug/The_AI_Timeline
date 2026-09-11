@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { CATEGORIES, accent } from '../lib/data.js';
-import { INK, MONO, button, micro } from '../lib/styles.js';
+import { INK, MONO, SERIF, SANS, button, micro } from '../lib/styles.js';
 
 const VIEWS = [
   ['line', 'The line'],
@@ -34,6 +35,15 @@ export default function Header({ route, navigate, year, progress, status }) {
   // Choosing anything closes the sheet, so the board is never left behind it.
   const go = (patch) => { navigate(patch); setOpen(false); };
 
+  useEffect(() => {
+    if (!open) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const onKey = (e) => { if (e.key === 'Escape') setOpen(false); };
+    window.addEventListener('keydown', onKey);
+    return () => { document.body.style.overflow = prev; window.removeEventListener('keydown', onKey); };
+  }, [open]);
+
   const views = (
     <div style={{ display: 'flex', gap: 2, padding: 2, background: 'rgba(243,240,234,0.07)', borderRadius: 2, flexWrap: 'wrap' }}>
       {VIEWS.map(([id, label]) => (
@@ -61,7 +71,7 @@ export default function Header({ route, navigate, year, progress, status }) {
             key={c.id}
             onClick={() => go({ category: c.id })}
             style={{
-              ...micro(on ? 1 : 0.6), padding: '6px 10px', borderRadius: 2, cursor: 'pointer',
+              ...micro(on ? 1 : 0.6), padding: narrow ? '10px 13px' : '6px 10px', borderRadius: 2, cursor: 'pointer',
               letterSpacing: '0.12em', whiteSpace: 'nowrap',
               border: '1px solid ' + (on ? 'transparent' : 'rgba(243,240,234,0.18)'),
               background: on ? (c.id === 'all' ? INK : accent(c.id, 0)) : 'transparent',
@@ -90,7 +100,7 @@ export default function Header({ route, navigate, year, progress, status }) {
       aria-label="Search entries"
       style={{
         border: 'none', borderBottom: '1px solid rgba(243,240,234,0.2)', background: 'transparent',
-        padding: '5px 2px', width: narrow ? '100%' : 150, outline: 'none', color: INK, font: '400 12px/1.2 ' + MONO
+        padding: narrow ? '10px 2px' : '5px 2px', width: narrow ? '100%' : 150, outline: 'none', color: INK, font: '400 ' + (narrow ? 15 : 12) + 'px/1.2 ' + MONO
       }}
     />
   );
@@ -138,17 +148,58 @@ export default function Header({ route, navigate, year, progress, status }) {
           </div>
         )}
 
-        {narrow && open && (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 11, paddingBottom: 4, animation: 'fadeIn .18s both' }}>
-            {views}
-            {filters}
-            {search}
-            <div style={{ display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap' }}>
-              <span style={micro(0.34)}>{status}</span>
+        {narrow && open && createPortal(
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-label="Menu"
+            style={{
+              position: 'fixed', inset: 0, zIndex: 80, background: 'rgba(10,10,11,0.97)',
+              backdropFilter: 'blur(18px)', overflowY: 'auto', overscrollBehavior: 'contain',
+              padding: '10px 14px calc(24px + env(safe-area-inset-bottom))', display: 'flex', flexDirection: 'column',
+              animation: 'fadeIn .18s both'
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: 10, minHeight: 40 }}>
+              <span style={{ ...micro(1), letterSpacing: '0.16em' }}>The AI Timeline</span>
               <span style={{ flex: 1 }} />
-              <a href="https://github.com/mobahug/The_AI_Timeline" target="_blank" rel="noopener" style={button()}>Contribute ↗</a>
+              <button onClick={() => setOpen(false)} aria-label="Close menu" style={{ ...button(), padding: '9px 12px', letterSpacing: '0.1em' }}>Close</button>
             </div>
-          </div>
+
+            <div style={{ ...micro(0.34), letterSpacing: '0.22em', margin: '26px 0 6px' }}>Go to</div>
+            <div role="list" style={{ display: 'flex', flexDirection: 'column' }}>
+              {VIEWS.map(([id, label]) => {
+                const on = activeView === id;
+                return (
+                  <button
+                    key={id}
+                    role="listitem"
+                    onClick={() => go({ view: id, id: null, clue: null, finding: null })}
+                    aria-current={on}
+                    style={{
+                      display: 'flex', alignItems: 'center', gap: 12, width: '100%', minHeight: 50, textAlign: 'left',
+                      background: 'transparent', border: 'none', borderBottom: '1px solid rgba(243,240,234,0.08)',
+                      borderLeft: '2px solid ' + (on ? INK : 'transparent'), paddingLeft: 12, cursor: 'pointer',
+                      font: '400 20px/1.2 ' + SERIF, letterSpacing: '-0.015em', color: on ? INK : 'rgba(243,240,234,0.7)'
+                    }}
+                  >{label}{on && <span style={{ ...micro(0.4), marginLeft: 'auto' }}>here</span>}</button>
+                );
+              })}
+            </div>
+
+            <div style={{ ...micro(0.34), letterSpacing: '0.22em', margin: '28px 0 10px' }}>Show only</div>
+            {filters}
+
+            <div style={{ ...micro(0.34), letterSpacing: '0.22em', margin: '28px 0 8px' }}>Search</div>
+            {search}
+
+            <div style={{ marginTop: 'auto', paddingTop: 30, display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap' }}>
+              <span style={{ font: '400 11px/1.6 ' + MONO, color: 'rgba(243,240,234,0.36)' }}>{status}</span>
+              <span style={{ flex: 1 }} />
+              <a href="https://github.com/mobahug/The_AI_Timeline" target="_blank" rel="noopener" style={{ ...button(), padding: '9px 12px' }}>Contribute ↗</a>
+            </div>
+          </div>,
+          document.body
         )}
       </div>
       <div style={{ height: 1, background: 'rgba(243,240,234,0.1)' }}>
