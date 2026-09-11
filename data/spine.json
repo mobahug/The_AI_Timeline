@@ -1,0 +1,138 @@
+{
+  "note": "The route through the case. A finding is a titled stretch of years with one lead card; every entry is filed under the last finding whose `from` year is not after it. Assignment is arithmetic, so nothing is orphaned and a new entry files itself. Add a finding by adding a row here — never by tagging entries.",
+  "findings": [
+    {
+      "n": 1,
+      "from": 1900,
+      "title": "Before the machines",
+      "lead": "on-computable-numbers",
+      "blurb": "The mathematics of thinking gets written down decades before anything exists that could run it."
+    },
+    {
+      "n": 2,
+      "from": 1943,
+      "title": "The brain as a circuit",
+      "lead": "turing-asks-the-question",
+      "blurb": "A nerve cell is modelled as a logic gate, information is given a unit, and the question stops being whether machines can think and becomes how you would tell."
+    },
+    {
+      "n": 3,
+      "from": 1956,
+      "title": "The field is named",
+      "lead": "dartmouth-names-the-field",
+      "blurb": "A summer workshop gives the work a name and a goal, and the money follows the promise."
+    },
+    {
+      "n": 4,
+      "from": 1966,
+      "title": "The first doubts",
+      "lead": "eliza",
+      "blurb": "A pattern-matching script convinces people it understands them, and a government report asks what any of it has actually delivered."
+    },
+    {
+      "n": 5,
+      "from": 1969,
+      "title": "The book that closed the door",
+      "lead": "perceptrons-closes-a-door",
+      "blurb": "One mathematical result about what a single-layer network cannot do is read as a verdict on the whole approach."
+    },
+    {
+      "n": 6,
+      "from": 1974,
+      "title": "The first winter",
+      "lead": "the-first-ai-winter",
+      "blurb": "Funding stops. The work that continues is narrow, useful and careful not to call itself artificial intelligence."
+    },
+    {
+      "n": 7,
+      "from": 1980,
+      "title": "Rules for hire, then the second winter",
+      "lead": "expert-systems-go-commercial",
+      "blurb": "Hand-written rules are sold as products, the market discovers what they cost to maintain, and the funding goes away again."
+    },
+    {
+      "n": 8,
+      "from": 1988,
+      "title": "Statistics quietly wins",
+      "lead": "deep-blue-beats-kasparov",
+      "blurb": "While the field is out of fashion, learning from data beats writing down rules — in translation, in handwriting, at backgammon, and eventually in public. The unglamorous years are when the conditions assemble."
+    },
+    {
+      "n": 9,
+      "from": 2007,
+      "title": "Data, silicon and a benchmark",
+      "lead": "imagenet",
+      "blurb": "Graphics hardware becomes programmable, someone labels fourteen million images, and the three missing pieces are finally in the same room."
+    },
+    {
+      "n": 10,
+      "from": 2012,
+      "title": "The field is bought",
+      "lead": "alexnet",
+      "blurb": "One result on one benchmark starts a bidding war. After this the story stops being about ideas and becomes about who owns them."
+    },
+    {
+      "n": 11,
+      "from": 2015,
+      "title": "The counterweight",
+      "lead": "musk-and-altman-found-openai",
+      "blurb": "A lab is founded to stop one company owning the outcome, and a program wins a game everyone said was a decade away."
+    },
+    {
+      "n": 12,
+      "from": 2017,
+      "title": "Attention, and the first harms",
+      "lead": "attention-is-all-you-need",
+      "blurb": "Eight pages make scale the only lever that matters — and in the same stretch the failures stop being hypothetical."
+    },
+    {
+      "n": 13,
+      "from": 2019,
+      "title": "Scale becomes a business",
+      "lead": "gpt-3",
+      "blurb": "The nonprofit takes the investment, the models get an order of magnitude larger, and the people who write down the risks start leaving."
+    },
+    {
+      "n": 14,
+      "from": 2022,
+      "title": "Contact with the public",
+      "lead": "chatgpt",
+      "blurb": "Capability meets a hundred million people in two months, and every lab's release calendar is rewritten by competition rather than readiness."
+    },
+    {
+      "n": 15,
+      "from": 2023,
+      "title": "The scramble",
+      "lead": "altman-is-fired-then-rehired-in-five-days",
+      "blurb": "Governments convene, courts meet their first fabricated citations, and a five-day boardroom fight settles who actually controls a frontier lab."
+    },
+    {
+      "n": 16,
+      "from": 2024,
+      "title": "Rules, money and the first breaches",
+      "lead": "the-eu-ai-act-is-adopted",
+      "blurb": "The first comprehensive law is adopted, the buildout reaches industrial scale, and the shared infrastructure everyone depends on is attacked."
+    },
+    {
+      "n": 17,
+      "from": 2025,
+      "title": "Reasoning gets cheap",
+      "lead": "deepseek-r1-resets-the-price-of-reasoning",
+      "blurb": "Thinking longer at answer time becomes a technique rather than a secret, and the price of the frontier collapses in a single session."
+    },
+    {
+      "n": 18,
+      "from": 2026,
+      "title": "Agents, and the supply chain",
+      "lead": "a-poisoned-dataset-owns-the-pipeline",
+      "blurb": "Models start holding jobs rather than answering questions, and the repository everyone trains from becomes the way in."
+    },
+    {
+      "n": 19,
+      "from": 2027,
+      "title": "Still open",
+      "lead": null,
+      "blurb": "Everything past here is a scenario, not a forecast. Read the confidence, not the date — and check whether anything on the board argues for it at all."
+    }
+  ]
+}
