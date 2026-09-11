@@ -8,6 +8,8 @@ import MosaicView from './components/MosaicView.jsx';
 import IndexView from './components/IndexView.jsx';
 import HorizonView from './components/HorizonView.jsx';
 import CaseView from './components/CaseView.jsx';
+import LineView from './components/LineView.jsx';
+import FindingView from './components/FindingView.jsx';
 import { buildGraph, events as canonEvents, forwardLedger, NOW } from './lib/data.js';
 import { useBoard } from './lib/board.js';
 import { useMedia } from './lib/wiki.js';
@@ -100,8 +102,10 @@ export default function App() {
       {route.view === 'index' && <IndexView items={items} onOpen={openOnBoard} />}
       {route.view === 'horizon' && <HorizonView items={items} graph={graph} navigate={navigate} onOpen={openOnBoard} />}
       {route.view === 'case' && <CaseView graph={graph} onOpen={openOnBoard} />}
+      {route.view === 'line' && <LineView graph={graph} navigate={navigate} onOpen={openOnBoard} />}
+      {route.view === 'finding' && <FindingView graph={graph} route={route} navigate={navigate} onOpen={openOnBoard} media={media} />}
 
-      {!items.length && !['landing', 'about', 'horizon', 'case', 'board'].includes(route.view) && (
+      {!items.length && !['landing', 'about', 'horizon', 'case', 'board', 'line', 'finding'].includes(route.view) && (
         <div style={{ padding: '140px 0', textAlign: 'center', ...micro(0.4), letterSpacing: '0.14em' }}>No entries match</div>
       )}
 

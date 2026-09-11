@@ -8,6 +8,7 @@ const read = () => {
     id: q.get('id') || null,
     category: q.get('cat') || 'all',
     query: q.get('q') || '',
+    finding: q.get('f') || null,
     clue: clue && clue.includes('>') ? { from: clue.split('>')[0], to: clue.split('>')[1] } : null
   };
 };
@@ -29,6 +30,7 @@ export function useRoute() {
       if (next.view && next.view !== 'landing') q.set('view', next.view);
       if (next.category && next.category !== 'all') q.set('cat', next.category);
       if (next.query) q.set('q', next.query);
+      if (next.view === 'finding' && next.finding) q.set('f', next.finding);
       if (next.clue) q.set('clue', next.clue.from + '>' + next.clue.to);
       else if (next.id) q.set('id', next.id);
       const url = window.location.pathname + (q.toString() ? '?' + q.toString() : '');

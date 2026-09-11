@@ -3,6 +3,7 @@ import { CATEGORIES, accent } from '../lib/data.js';
 import { INK, MONO, button, micro } from '../lib/styles.js';
 
 const VIEWS = [
+  ['line', 'The line'],
   ['board', 'Board'],
   ['plates', 'Plates'],
   ['mosaic', 'Mosaic'],
