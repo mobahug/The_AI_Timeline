@@ -11,6 +11,7 @@ import HorizonView from './components/HorizonView.jsx';
 import CaseView from './components/CaseView.jsx';
 import LineView from './components/LineView.jsx';
 import FindingView from './components/FindingView.jsx';
+import CardView from './components/CardView.jsx';
 import { buildGraph, events as canonEvents, forwardLedger, NOW } from './lib/data.js';
 import { useBoard } from './lib/board.js';
 import { useMedia } from './lib/wiki.js';
@@ -64,7 +65,7 @@ export default function App() {
   // excluded — those scroll themselves to the card.
   useEffect(() => {
     if (route.view === 'board') return;
-    if (route.id || route.clue) return;
+    if (route.view !== 'card' && (route.id || route.clue)) return;
     // base.css sets scroll-behavior: smooth, which is right for in-page jumps and
     // wrong here — a page transition would visibly glide up from the old offset
     // instead of simply starting at the top.
@@ -126,9 +127,10 @@ export default function App() {
         {route.view === 'case' && <CaseView graph={graph} onOpen={openOnBoard} />}
         {route.view === 'line' && <LineView graph={graph} navigate={navigate} onOpen={openOnBoard} />}
         {route.view === 'finding' && <FindingView graph={graph} route={route} navigate={navigate} onOpen={openOnBoard} media={media} />}
+        {route.view === 'card' && <CardView graph={graph} route={route} navigate={navigate} onOpen={openOnBoard} media={media} />}
       </ErrorBoundary>
 
-      {!items.length && !['landing', 'about', 'horizon', 'case', 'board', 'line', 'finding'].includes(route.view) && (
+      {!items.length && !['landing', 'about', 'horizon', 'case', 'board', 'line', 'finding', 'card'].includes(route.view) && (
         <div style={{ padding: '140px 0', textAlign: 'center', ...micro(0.4), letterSpacing: '0.14em' }}>No entries match</div>
       )}
 

@@ -18,7 +18,7 @@ const VIEWS = [
 const NARROW = 820;
 
 /** Child routes that belong under a nav tab, so the tab stays lit inside them. */
-const PARENT_OF = { finding: 'line' };
+const PARENT_OF = { finding: 'line', card: 'board' };
 
 export default function Header({ route, navigate, year, progress, status }) {
   const activeView = PARENT_OF[route.view] || route.view;

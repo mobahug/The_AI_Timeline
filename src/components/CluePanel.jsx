@@ -27,7 +27,7 @@ const Side = ({ event, role, accentBorder }) => (
   </div>
 );
 
-export default function CluePanel({ graph, chain, step, current, focus, media, onStep, onJump, onExit, onOpenChain, onOpenCard, onOpenClue }) {
+export default function CluePanel({ graph, chain, step, current, focus, media, onStep, onJump, onExit, onOpenChain, onOpenCard, onOpenClue, onOpenDossier }) {
   // No outer margin or minimum height: the panel that hosts this measures it and
   // sizes itself to fit exactly, so both would only manufacture dead space —
   // and a top margin collapses outside the measured box and clips the bottom.
@@ -82,11 +82,14 @@ export default function CluePanel({ graph, chain, step, current, focus, media, o
         <div style={{ display: 'flex', flexWrap: 'wrap', width: '100%', animation: 'fadeIn .25s both' }}>
           {/* A photograph earns its space; a placeholder for a missing one is a
               block of nothing, and the card on the board already says "no photo". */}
+          {/* A square, always the same size: a photograph that varies in shape from
+              card to card made the panel a different shape every time. */}
           {shot.img && (
-            <div style={{
-              flex: '1 1 186px', minWidth: 0, maxWidth: 320, minHeight: 120, alignSelf: 'stretch', border: '1px solid rgba(243,240,234,0.12)', borderRadius: 2,
-              backgroundColor: '#0e0e11', backgroundSize: 'cover', backgroundPosition: 'center',
-              backgroundImage: 'url(' + shot.img + ')'
+            <div aria-hidden="true" style={{
+              flex: 'none', width: 112, height: 112, margin: '16px 0 0 16px', borderRadius: 3,
+              border: '1px solid rgba(243,240,234,0.14)', backgroundColor: '#0e0e11',
+              backgroundSize: 'cover', backgroundPosition: 'center', backgroundImage: 'url(' + shot.img + ')',
+              filter: 'saturate(0.9) contrast(1.03)'
             }} />
           )}
           <div style={{ flex: '1 1 280px', minWidth: 0, padding: 'clamp(13px,3vw,18px) clamp(14px,3vw,22px)', display: 'flex', gap: 'clamp(14px,3vw,26px)', flexWrap: 'wrap' }}>
@@ -106,8 +109,9 @@ export default function CluePanel({ graph, chain, step, current, focus, media, o
               )}
               <EvidenceStrip event={focus} media={media} compact />
               <div style={{ display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap', marginTop: 2 }}>
+                {onOpenDossier && <button onClick={() => onOpenDossier(focus.id)} style={button('loud')}>Read the dossier →</button>}
                 {(graph.adjacency[focus.id] || []).length > 0 &&
-                  <button onClick={() => onOpenChain(focus.id)} style={button('loud')}>Follow the strings →</button>}
+                  <button onClick={() => onOpenChain(focus.id)} style={button()}>Follow the strings →</button>}
                 {focus.url && <a href={focus.url} target="_blank" rel="noopener" style={{ ...micro(1), letterSpacing: '0.14em' }}>{focus.source || 'Source'} ↗</a>}
                 <span style={{ flex: 1 }} />
                 <button onClick={onExit} style={{ ...button(), color: 'rgba(243,240,234,0.6)' }}>Close</button>

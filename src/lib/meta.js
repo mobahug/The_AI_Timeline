@@ -28,7 +28,7 @@ export function metaFor(route, graph) {
       };
     }
   }
-  if (route.view === 'board' && route.id && graph) {
+  if ((route.view === 'card' || route.view === 'board') && route.id && graph) {
     const e = graph.index[route.id];
     if (e) return { title: e.year + ' · ' + e.title + ' · ' + SITE, description: e.summary + (e.why ? ' ' + e.why : '') };
   }

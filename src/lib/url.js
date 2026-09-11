@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 
-const VIEWS = new Set(['landing', 'board', 'plates', 'mosaic', 'index', 'case', 'horizon', 'line', 'finding', 'about']);
+const VIEWS = new Set(['landing', 'board', 'plates', 'mosaic', 'index', 'case', 'horizon', 'line', 'finding', 'card', 'about']);
 
 const read = () => {
   const q = new URLSearchParams(window.location.search);

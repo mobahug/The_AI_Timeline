@@ -728,6 +728,7 @@ export default function BoardView({ items, graph, media, route, navigate, board,
               onOpenChain={openChain}
               onOpenCard={focusCard}
               onOpenClue={openClue}
+              onOpenDossier={(id) => navigate({ view: 'card', id, clue: null, finding: null })}
             />
            </div>
           </div>

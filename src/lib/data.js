@@ -351,7 +351,8 @@ export function sourcesOf(event) {
   }
   if (!event.url) return [];
   return [{
-    kind: 'article', publisher: event.source || '', title: event.wikiTitle || event.source || '',
+    kind: /wikipedia\.org/.test(event.url) ? 'encyclopedia' : 'article',
+    publisher: event.source || '', title: event.wikiTitle || event.source || '',
     url: event.url, date: '', at: '', quote: '', supports: 'context', legacy: true
   }];
 }
