@@ -179,6 +179,8 @@ export default function BoardView({ items, graph, media, route, navigate, board,
    */
   const panAnim = useRef(null);
   const railInset = useRef(0);
+  const panelInner = useRef(null);
+  const [panelContentH, setPanelContentH] = useState(0);
   const cancelPan = useCallback(() => {
     if (panAnim.current !== null) { cancelAnimationFrame(panAnim.current); panAnim.current = null; }
   }, []);
@@ -397,9 +399,25 @@ export default function BoardView({ items, graph, media, route, navigate, board,
   // rail down the right edge, which never covers a lane and never has to flip.
   // On a narrow one it is a sheet of fixed height, which still docks away from
   // the subject because there is nowhere else for it to go.
-  const railMode = box.w >= 1100;
-  const RAIL_W = railMode ? Math.min(440, Math.round(box.w * 0.34)) : 0;
-  const SHEET_H = railMode ? 0 : Math.max(180, Math.round(shellH * 0.46));
+  const railMode = box.w >= 900;
+  const RAIL_W = railMode ? Math.min(440, Math.round(box.w * 0.36)) : 0;
+  // The panel is exactly as tall as what it holds, up to a cap, and scrolls past
+  // it. Never a fixed block with dead space under short content, and never a
+  // snap between sizes: the height is measured and the change is animated.
+  const PANEL_CAP = railMode ? box.h : Math.max(180, Math.round(shellH * 0.46));
+  const panelH = Math.min(PANEL_CAP, panelContentH || PANEL_CAP);
+  useEffect(() => { if (!panelOpen) setPanelContentH(0); }, [panelOpen]);
+
+  // Measure the panel's content so the panel can be exactly as tall as it.
+  useEffect(() => {
+    const el = panelInner.current;
+    if (!el || !window.ResizeObserver) return;
+    const read = () => setPanelContentH(Math.ceil(el.getBoundingClientRect().height));
+    const ro = new ResizeObserver(read);
+    ro.observe(el);
+    read();
+    return () => ro.disconnect();
+  }, [panelOpen]);
   const subject = current ? positions[current.to] : (focusId ? positions[focusId] : null);
   const dockTop = !railMode && !!(subject && box.h && subject.y > box.h * 0.52);
   railInset.current = RAIL_W;
@@ -623,17 +641,19 @@ export default function BoardView({ items, graph, media, route, navigate, board,
             role="complementary"
             aria-label="Card context"
             style={{
-              position: 'absolute', zIndex: 22,
+              position: 'absolute', zIndex: 22, height: panelContentH ? panelH : 'auto', maxHeight: PANEL_CAP,
+              transition: panelContentH ? 'height .24s cubic-bezier(.22,.7,.3,1)' : 'none',
               ...(railMode
-                ? { top: 0, right: 0, bottom: 0, width: RAIL_W, borderLeft: '1px solid rgba(243,240,234,0.16)', animation: 'slideInRight .24s cubic-bezier(.22,.7,.3,1) both' }
-                : { left: 0, right: 0, height: SHEET_H, ...(dockTop ? { top: 0 } : { bottom: 0 }),
+                ? { top: 0, right: 0, width: RAIL_W, border: '1px solid rgba(243,240,234,0.14)', borderTop: 'none', borderRight: 'none', borderBottomLeftRadius: 3, animation: 'slideInRight .24s cubic-bezier(.22,.7,.3,1) both' }
+                : { left: 0, right: 0, ...(dockTop ? { top: 0 } : { bottom: 0 }),
                     [dockTop ? 'borderBottom' : 'borderTop']: '1px solid rgba(243,240,234,0.16)',
                     animation: (dockTop ? 'slideInDown' : 'slideInUp') + ' .24s cubic-bezier(.22,.7,.3,1) both' }),
-              overflowY: 'auto', overscrollBehavior: 'contain',
+              overflowY: panelContentH > PANEL_CAP ? 'auto' : 'hidden', overscrollBehavior: 'contain',
               pointerEvents: preview ? 'none' : 'auto',
               background: 'rgba(10,10,11,0.94)', backdropFilter: 'blur(16px) saturate(1.3)'
             }}
           >
+           <div ref={panelInner}>
             <CluePanel
               graph={graph}
               chain={chain}
@@ -648,6 +668,7 @@ export default function BoardView({ items, graph, media, route, navigate, board,
               onOpenCard={focusCard}
               onOpenClue={openClue}
             />
+           </div>
           </div>
         )}
       </div>

@@ -28,10 +28,10 @@ const Side = ({ event, role, accentBorder }) => (
 );
 
 export default function CluePanel({ graph, chain, step, current, focus, media, onStep, onJump, onExit, onOpenChain, onOpenCard, onOpenClue }) {
-  const shell = {
-    marginTop: 12, border: '1px solid rgba(243,240,234,0.14)', borderRadius: 3, background: '#101013',
-    minHeight: 206, display: 'flex', flexDirection: 'column'
-  };
+  // No outer margin or minimum height: the panel that hosts this measures it and
+  // sizes itself to fit exactly, so both would only manufacture dead space —
+  // and a top margin collapses outside the measured box and clips the bottom.
+  const shell = { display: 'flex', flexDirection: 'column' };
 
   if (current) {
     const from = graph.index[current.from];
@@ -80,11 +80,15 @@ export default function CluePanel({ graph, chain, step, current, focus, media, o
     return (
       <div style={shell}>
         <div style={{ display: 'flex', flexWrap: 'wrap', width: '100%', animation: 'fadeIn .25s both' }}>
-          <div style={{
-            flex: '1 1 186px', minWidth: 0, maxWidth: 320, minHeight: 120, alignSelf: 'stretch', border: '1px solid rgba(243,240,234,0.12)', borderRadius: 2,
-            backgroundColor: '#0e0e11', backgroundSize: shot.img ? 'cover' : undefined, backgroundPosition: 'center',
-            backgroundImage: shot.img ? 'url(' + shot.img + ')' : 'repeating-linear-gradient(135deg,rgba(243,240,234,0.06) 0 6px,transparent 6px 12px)'
-          }} />
+          {/* A photograph earns its space; a placeholder for a missing one is a
+              block of nothing, and the card on the board already says "no photo". */}
+          {shot.img && (
+            <div style={{
+              flex: '1 1 186px', minWidth: 0, maxWidth: 320, minHeight: 120, alignSelf: 'stretch', border: '1px solid rgba(243,240,234,0.12)', borderRadius: 2,
+              backgroundColor: '#0e0e11', backgroundSize: 'cover', backgroundPosition: 'center',
+              backgroundImage: 'url(' + shot.img + ')'
+            }} />
+          )}
           <div style={{ flex: '1 1 280px', minWidth: 0, padding: 'clamp(13px,3vw,18px) clamp(14px,3vw,22px)', display: 'flex', gap: 'clamp(14px,3vw,26px)', flexWrap: 'wrap' }}>
             <div style={{ flex: '1 1 260px', minWidth: 0, display: 'flex', flexDirection: 'column', gap: 10 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
