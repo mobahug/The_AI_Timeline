@@ -50,6 +50,19 @@ export default function App() {
     return () => window.removeEventListener('scroll', onScroll);
   }, [route.view, items]);
 
+  // Moving to a different page should start it at the top. Without this the
+  // browser keeps the previous page's offset, so opening a finding from halfway
+  // down the Line drops you halfway down the finding. Deep links to a card are
+  // excluded — those scroll themselves to the card.
+  useEffect(() => {
+    if (route.view === 'board') return;
+    if (route.id || route.clue) return;
+    // base.css sets scroll-behavior: smooth, which is right for in-page jumps and
+    // wrong here — a page transition would visibly glide up from the old offset
+    // instead of simply starting at the top.
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, [route.view, route.finding, route.id, route.clue]);
+
   // The board is an application surface, not a document. While it is up the page
   // itself must not scroll — the canvas owns every axis of movement.
   useEffect(() => {

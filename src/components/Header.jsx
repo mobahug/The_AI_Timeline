@@ -16,7 +16,11 @@ const VIEWS = [
 /** Below this the chrome would eat the screen, so it folds into one row + a sheet. */
 const NARROW = 820;
 
+/** Child routes that belong under a nav tab, so the tab stays lit inside them. */
+const PARENT_OF = { finding: 'line' };
+
 export default function Header({ route, navigate, year, progress, status }) {
+  const activeView = PARENT_OF[route.view] || route.view;
   const [narrow, setNarrow] = useState(() => (typeof window !== 'undefined' ? window.innerWidth < NARROW : false));
   const [open, setOpen] = useState(false);
 
@@ -36,12 +40,12 @@ export default function Header({ route, navigate, year, progress, status }) {
         <button
           key={id}
           onClick={() => go({ view: id, id: null, clue: null })}
-          aria-current={route.view === id}
+          aria-current={activeView === id}
           style={{
-            ...micro(route.view === id ? 1 : 0.5), border: 'none', cursor: 'pointer', padding: '7px 11px',
+            ...micro(activeView === id ? 1 : 0.5), border: 'none', cursor: 'pointer', padding: '7px 11px',
             borderRadius: 2, letterSpacing: '0.12em', whiteSpace: 'nowrap',
-            background: route.view === id ? INK : 'transparent',
-            color: route.view === id ? '#0a0a0b' : 'rgba(243,240,234,0.5)'
+            background: activeView === id ? INK : 'transparent',
+            color: activeView === id ? '#0a0a0b' : 'rgba(243,240,234,0.5)'
           }}
         >{label}</button>
       ))}
