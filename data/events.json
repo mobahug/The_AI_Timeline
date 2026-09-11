@@ -781,9 +781,9 @@
     "title": "Musk leaves the OpenAI board",
     "summary": "Citing conflicts with Tesla's own AI work after a failed bid to take control, he walks — and the promised funding largely does not arrive.",
     "source": "Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/Elon_Musk",
+    "url": "https://en.wikipedia.org/wiki/OpenAI",
     "why": "The exit forces OpenAI to find capital elsewhere, which forces the structure that everything later breaks on.",
-    "wikiTitle": "Elon Musk"
+    "wikiTitle": "OpenAI"
   },
   {
     "id": "gpt-2-s-staged-release",
@@ -907,6 +907,17 @@
     "wikiTitle": "LaMDA"
   },
   {
+    "id": "google-declares-a-code-red",
+    "year": 2022,
+    "category": "power",
+    "title": "Google declares a code red",
+    "summary": "ChatGPT's launch triggers an internal emergency at the company that invented the transformer, and the release brakes come off across the industry.",
+    "source": "9to5Google",
+    "url": "https://9to5google.com/2022/12/21/google-code-red-chatgpt/",
+    "why": "Competitive pressure, not capability, is what ends the era of cautious staged releases.",
+    "wikiTitle": "Google"
+  },
+  {
     "id": "multimodal-models",
     "year": 2023,
     "category": "product",
@@ -945,9 +956,9 @@
     "title": "Hollywood strikes settle AI terms",
     "summary": "Writers and performers win consent and compensation rules for synthetic likeness and generated scripts.",
     "source": "Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/2023_Hollywood_labor_disputes",
+    "url": "https://en.wikipedia.org/wiki/2023_Writers_Guild_of_America_strike",
     "why": "The first major labour contract to price AI use directly. A template other sectors will copy.",
-    "wikiTitle": "2023 Hollywood labor disputes"
+    "wikiTitle": "2023 Writers Guild of America strike"
   },
   {
     "id": "sydney",
@@ -959,17 +970,6 @@
     "url": "https://en.wikipedia.org/wiki/Microsoft_Copilot",
     "why": "The first mass demonstration that a shipped model has moods, and that nobody at the company fully controls them.",
     "wikiTitle": "Microsoft Copilot"
-  },
-  {
-    "id": "google-declares-a-code-red",
-    "year": 2023,
-    "category": "power",
-    "title": "Google declares a code red",
-    "summary": "ChatGPT's launch triggers an internal emergency at the company that invented the transformer, and the release brakes come off across the industry.",
-    "source": "Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/Google",
-    "why": "Competitive pressure, not capability, is what ends the era of cautious staged releases.",
-    "wikiTitle": "Google"
   },
   {
     "id": "the-pause-letter",
@@ -1011,7 +1011,7 @@
     "title": "Nobel prizes for neural networks",
     "summary": "Physics to Hopfield and Hinton; chemistry to Hassabis and Jumper. The field is formally canonised.",
     "source": "Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/Geoffrey_Hinton",
+    "url": "https://en.wikipedia.org/wiki/2024_in_artificial_intelligence",
     "why": "Eighty years from a paper abstraction to the discipline's highest honour, in two categories at once.",
     "wikiTitle": "Geoffrey Hinton"
   },
@@ -1054,7 +1054,7 @@
     "title": "The voice that sounded like Her",
     "summary": "Scarlett Johansson says she declined to license her voice; a strikingly similar one demos anyway and is pulled.",
     "source": "Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/Scarlett_Johansson",
+    "url": "https://en.wikipedia.org/wiki/GPT-4o",
     "why": "Likeness, not copyright, becomes the flashpoint — and the fastest-moving front in AI law.",
     "wikiTitle": "Scarlett Johansson"
   },
@@ -1075,9 +1075,9 @@
     "title": "Reasoning models",
     "summary": "Spending compute at inference time — thinking for longer — becomes a scaling axis of its own.",
     "source": "Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/Large_language_model",
+    "url": "https://en.wikipedia.org/wiki/Reasoning_model",
     "why": "Breaks the assumption that capability is fixed at training time. Cost per answer becomes a design variable.",
-    "wikiTitle": "Large language model"
+    "wikiTitle": "Reasoning model"
   },
   {
     "id": "power-becomes-a-strategy",
@@ -1086,7 +1086,7 @@
     "title": "Power becomes a strategy",
     "summary": "Labs sign long-term energy contracts and revive generation capacity to secure training and serving.",
     "source": "Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/Nuclear_power",
+    "url": "https://en.wikipedia.org/wiki/Three_Mile_Island_Nuclear_Generating_Station",
     "why": "The bottleneck moves from chips to electricity, and therefore from engineering to politics.",
     "wikiTitle": "Nuclear power"
   },
