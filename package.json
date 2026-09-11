@@ -6,13 +6,14 @@
   "description": "An investigation board of artificial intelligence: 1900 to 2050, with the strings between the events.",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "node scripts/gen-sitemap.mjs && vite build",
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
     "fetch:images": "node scripts/fetch-images.mjs",
     "gen:og": "node scripts/gen-og.mjs",
-    "check:links": "node scripts/check-links.mjs"
+    "check:links": "node scripts/check-links.mjs",
+    "gen:sitemap": "node scripts/gen-sitemap.mjs"
   },
   "dependencies": {
     "react": "^18.3.1",

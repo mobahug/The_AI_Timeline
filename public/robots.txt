@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mobahug.github.io/The_AI_Timeline/sitemap.xml

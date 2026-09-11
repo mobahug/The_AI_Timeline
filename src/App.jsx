@@ -14,6 +14,7 @@ import { buildGraph, events as canonEvents, forwardLedger, NOW } from './lib/dat
 import { useBoard } from './lib/board.js';
 import { useMedia } from './lib/wiki.js';
 import { useRoute } from './lib/url.js';
+import { metaFor, applyMeta } from './lib/meta.js';
 import { MONO, SANS, micro } from './lib/styles.js';
 
 export default function App() {
@@ -49,6 +50,12 @@ export default function App() {
     onScroll();
     return () => window.removeEventListener('scroll', onScroll);
   }, [route.view, items]);
+
+  // Every route carries its own title, description and canonical URL, so a
+  // shared card or finding is not just "The AI Timeline" to a crawler or a
+  // browser tab. Social scrapers do not run JavaScript, so this alone does not
+  // fix link previews — that needs prerendering — but it fixes everything else.
+  useEffect(() => { applyMeta(metaFor(route, graph)); }, [route, graph]);
 
   // Moving to a different page should start it at the top. Without this the
   // browser keeps the previous page's offset, so opening a finding from halfway
