@@ -319,3 +319,53 @@ export function loadBearing(graph, top = 6) {
     .sort((a, b) => b.futures - a.futures || b.all - a.all || a.event.year - b.event.year)
     .slice(0, top);
 }
+
+/* ─── Sources ─────────────────────────────────────────────────────────────────
+   An entry may carry a `sources` array; those that do not still have the legacy
+   `source` + `url` pair. sourcesOf() hands callers one shape either way, so the
+   migration can proceed entry by entry without a flag day.
+
+   The rule that makes this worth doing: a source only counts as supporting the
+   entry's claim if it carries a verbatim quote. You cannot manufacture a quote
+   from a topic page, which is exactly how 65% of this board came to be cited to
+   pages that merely mention the event.                                          */
+
+export const SOURCE_KINDS = ['primary', 'paper', 'article', 'video', 'podcast', 'interview', 'encyclopedia'];
+
+export function sourcesOf(event) {
+  if (!event) return [];
+  const listed = Array.isArray(event.sources) ? event.sources : [];
+  if (listed.length) {
+    return listed.map((s) => ({
+      kind: s.kind || 'article',
+      publisher: s.publisher || '',
+      title: s.title || '',
+      url: s.url || '',
+      date: s.date || '',
+      at: s.at || '',
+      quote: s.quote || '',
+      // A quote is the price of claiming support. Without one this is context.
+      supports: s.quote && s.supports === 'claim' ? 'claim' : 'context',
+      legacy: false
+    }));
+  }
+  if (!event.url) return [];
+  return [{
+    kind: 'article', publisher: event.source || '', title: event.wikiTitle || event.source || '',
+    url: event.url, date: '', at: '', quote: '', supports: 'context', legacy: true
+  }];
+}
+
+/** How well an entry is actually sourced, in terms a reader can check. */
+export function sourceStrength(event) {
+  const list = sourcesOf(event);
+  const claim = list.filter((s) => s.supports === 'claim');
+  return {
+    total: list.length,
+    supporting: claim.length,
+    context: list.length - claim.length,
+    migrated: list.length > 0 && !list[0].legacy,
+    media: list.filter((s) => s.kind === 'video' || s.kind === 'podcast' || s.kind === 'interview').length,
+    state: claim.length ? 'quoted' : (list.length ? 'cited' : 'unsourced')
+  };
+}

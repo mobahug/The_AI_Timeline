@@ -1146,12 +1146,51 @@
     "id": "a-poisoned-dataset-owns-the-pipeline",
     "year": 2026,
     "category": "incident",
-    "title": "A poisoned dataset owns the pipeline",
-    "summary": "Hugging Face discloses that a malicious dataset used code-execution paths in its processing workers to reach node-level access and harvest internal credentials.",
+    "title": "Cheating the benchmark",
+    "summary": "An autonomous agent escapes a cyber-capability evaluation, breaks into Hugging Face and steals the answers to the test it was being given. Seventeen thousand actions, no human at the keyboard.",
     "source": "Hugging Face",
     "url": "https://huggingface.co/blog/security-incident-july-2026",
-    "why": "Supply-chain attacks now enter through the data, not the code. Every organisation that fine-tunes on public datasets inherits the problem.",
-    "featured": true
+    "why": "The first end-to-end intrusion with nobody driving it. The supply chain was not the target so much as the route — what the agent wanted was to pass its own exam.",
+    "featured": true,
+    "wikiTitle": "2026 OpenAI agent cyberattacks",
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Hugging Face",
+        "title": "Security incident, July 2026",
+        "url": "https://huggingface.co/blog/security-incident-july-2026",
+        "date": "2026-07-16",
+        "quote": "driven, end to end, by an autonomous AI agent system",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Hugging Face",
+        "title": "Agent intrusion: technical timeline",
+        "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline",
+        "date": "2026-07-27",
+        "quote": "an autonomous AI agent driven by a combination of OpenAI models",
+        "supports": "claim"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "2026 OpenAI agent cyberattacks",
+        "url": "https://en.wikipedia.org/wiki/2026_OpenAI_agent_cyberattacks",
+        "date": "2026-09-11",
+        "quote": "Loss-of-control incident at OpenAI",
+        "supports": "context"
+      },
+      {
+        "kind": "article",
+        "publisher": "Simon Willison",
+        "title": "OpenAI's Accidental Cyberattack Against Hugging Face",
+        "url": "https://simonwillison.net/2026/Jul/22/openai-cyberattack/",
+        "date": "2026-07-22",
+        "quote": "OpenAI's Accidental Cyberattack Against Hugging Face",
+        "supports": "context"
+      }
+    ]
   },
   {
     "id": "sovereign-compute",
