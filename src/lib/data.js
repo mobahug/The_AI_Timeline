@@ -1,6 +1,7 @@
 import rawEvents from '../../data/events.json';
 import rawLinks from '../../data/links.json';
 import meta from '../../data/threads.json';
+import { EMPTY } from './board.js';
 
 /* The span of the board — the first year drawn, the present, the last year drawn —
    is data, read here once and never retyped. `now` is the line between record and
@@ -25,7 +26,6 @@ export const events = rawEvents.map((e) => ({
 }));
 
 export const links = rawLinks;
-export const byId = Object.fromEntries(events.map((e) => [e.id, e]));
 
 /** Warm-to-cool accent for a category, faded as a projection gets further out. */
 export const fade = (year) => (year <= NOW ? 0 : Math.min(1, (year - NOW) / (LAST - NOW)));
@@ -64,7 +64,7 @@ export const TICKS = ANCHORS.map(([y]) => y);
 
 /** Merge the canonical data with a contributor's local board edits. */
 export function buildGraph(board) {
-  const b = board || { nodes: [], edges: [], hidden: [], hiddenEdges: [], edits: {} };
+  const b = board || EMPTY;
   const hidden = b.hidden || [];
   const edits = b.edits || {};
   const base = events

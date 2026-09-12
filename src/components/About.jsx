@@ -1,5 +1,5 @@
 import React from 'react';
-import { NOW, events, links, projections } from '../lib/data.js';
+import { events, links, projections } from '../lib/data.js';
 import { INK, MONO, SERIF, SANS, micro } from '../lib/styles.js';
 
 const Section = ({ title, children }) => (
@@ -51,7 +51,7 @@ export default function About() {
       </Section>
 
       <Section title="How to change it">
-        The board is three JSON files. Add a card or a string in the editor, export the
+        The board is the JSON in data/ — the entries, the strings, the threads and the findings. Add a card or a string in the editor, export the
         patch, and open a pull request against{' '}
         <a href="https://github.com/mobahug/The_AI_Timeline" target="_blank" rel="noopener">the repository</a>.
         A test suite checks ids, years, sources, link targets and that every projection is

@@ -1,7 +1,7 @@
 import React from 'react';
 import { FIRST, NOW, accent, catLabel } from '../lib/data.js';
 import { buildLine, readingOf } from '../lib/spine.js';
-import { INK, MONO, RED, RED_LIT, SANS, SERIF, micro } from '../lib/styles.js';
+import { INK, MONO, RED_LIT, SANS, SERIF, micro } from '../lib/styles.js';
 import OpenFile from './OpenFile.jsx';
 
 /* The route. One numbered pass through the case, oldest first, with every entry

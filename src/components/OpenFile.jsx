@@ -9,7 +9,7 @@ import { INK, MONO, SANS, SERIF, micro } from '../lib/styles.js';
 
 const RULE = '1px solid rgba(243,240,234,0.12)';
 
-export default function OpenFile({ graph, navigate, compact }) {
+export default function OpenFile({ graph, navigate }) {
   const fwd = forwardLedger(graph);
   const doors = [
     {
@@ -29,7 +29,7 @@ export default function OpenFile({ graph, navigate, compact }) {
   ];
 
   return (
-    <div style={{ marginTop: compact ? 26 : 40, borderTop: RULE, paddingTop: compact ? 18 : 24 }}>
+    <div style={{ marginTop: 44, borderTop: RULE, paddingTop: 22 }}>
       <div style={{ ...micro(0.36), letterSpacing: '0.2em', marginBottom: 14 }}>The open file · two pages</div>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(min(100%,280px),1fr))', gap: 'clamp(12px,2vw,20px)' }}>
         {doors.map((d) => (

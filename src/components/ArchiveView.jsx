@@ -3,6 +3,7 @@ import { INK, MONO, SERIF, micro } from '../lib/styles.js';
 import IndexView from './IndexView.jsx';
 import PlatesView from './PlatesView.jsx';
 import MosaicView from './MosaicView.jsx';
+import { Empty } from './kit.jsx';
 
 /* Everything on the board, in date order, under one tab. The three ways of showing
    it — a dense list, image-led plates, the photographs alone — are one dataset in
@@ -15,7 +16,7 @@ const MODES = [
   ['mosaic', 'Mosaic']
 ];
 
-export default function ArchiveView({ mode, items, media, navigate, onOpen }) {
+export default function ArchiveView({ mode, items, media, route, navigate, onOpen }) {
   return (
     <>
       <div style={{ maxWidth: 1400, margin: '0 auto', padding: '30px clamp(14px,4vw,32px) 0' }}>
@@ -53,9 +54,10 @@ export default function ArchiveView({ mode, items, media, navigate, onOpen }) {
           the dossier is one step further.
         </p>
       </div>
-      {mode === 'plates' && <PlatesView items={items} media={media} onOpen={onOpen} />}
-      {mode === 'mosaic' && <MosaicView items={items} media={media} onOpen={onOpen} />}
-      {mode === 'archive' && <IndexView items={items} onOpen={onOpen} />}
+      {!items.length && <Empty noun="entry" route={route} navigate={navigate} />}
+      {items.length > 0 && mode === 'plates' && <PlatesView items={items} media={media} onOpen={onOpen} />}
+      {items.length > 0 && mode === 'mosaic' && <MosaicView items={items} media={media} onOpen={onOpen} />}
+      {items.length > 0 && mode === 'archive' && <IndexView items={items} onOpen={onOpen} />}
     </>
   );
 }

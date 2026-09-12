@@ -155,19 +155,6 @@ export default function CluePanel({ graph, chain, step, current, focus, media, o
     );
   }
 
-  return (
-    <div style={shell}>
-      <div style={{ padding: '26px 28px', display: 'flex', flexDirection: 'column', gap: 12, justifyContent: 'center' }}>
-        <div style={{ font: '400 21px/1.25 ' + SERIF, color: 'rgba(243,240,234,0.8)', maxWidth: '52ch' }}>
-          Hover a card to light its strings. Click one to walk the case — clue by clue, in order.
-        </div>
-        <div style={{ font: '400 11px/1.8 ' + MONO, letterSpacing: '0.06em', color: 'rgba(243,240,234,0.38)', maxWidth: '78ch', textWrap: 'pretty' }}>
-          Every string is a claim that the earlier card made the later one possible. The paper tag is the
-          claim; the case note is the reasoning, with both sources linked. Manila cards past 2026 are
-          projections and carry a confidence, never a citation. Drag to pan · scroll to move sideways ·
-          Tab to step through cards · arrow keys to follow a chain.
-        </div>
-      </div>
-    </div>
-  );
+  // The board only mounts this with a card or a clue in hand, so there is no idle state.
+  return null;
 }

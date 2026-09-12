@@ -1,7 +1,31 @@
 import { useCallback, useState } from 'react';
 
 const KEY = 'aiTimeline.board.v2';
-const EMPTY = { nodes: [], edges: [], hidden: [], hiddenEdges: [], edits: {} };
+export const EMPTY = { nodes: [], edges: [], hidden: [], hiddenEdges: [], edits: {} };
+
+/** A contributor's local layer as the JSON that lands in a pull request. Every
+ *  kind of change survives the round trip — new cards and strings, hidden ones,
+ *  and edits to canonical cards — or the reviewer never sees it. Pure, so the
+ *  round trip is tested. */
+export function toPatch(board) {
+  const events = (board.nodes || []).map(({ local, thread, future, ...rest }) => rest);
+  const out = { events, links: board.edges || [] };
+  if ((board.hidden || []).length) out.removed = board.hidden;
+  if ((board.hiddenEdges || []).length) out.removedLinks = board.hiddenEdges;
+  if (Object.keys(board.edits || {}).length) out.edits = board.edits;
+  return out;
+}
+
+export function fromPatch(parsed) {
+  return {
+    ...EMPTY,
+    nodes: parsed.events || parsed.nodes || [],
+    edges: parsed.links || parsed.edges || [],
+    hidden: parsed.removed || [],
+    hiddenEdges: parsed.removedLinks || [],
+    edits: parsed.edits || {}
+  };
+}
 
 const load = () => {
   try {
@@ -58,18 +82,7 @@ export function useBoard() {
     },
     restore() { commit(EMPTY); },
     /** Contributions leave here as JSON and land in data/*.json via a pull request. */
-    exportPatch() {
-      const nodes = board.nodes.map(({ local, thread, future, ...rest }) => rest);
-      return JSON.stringify({ events: nodes, links: board.edges, removed: board.hidden }, null, 2);
-    },
-    importPatch(text) {
-      const parsed = JSON.parse(text);
-      commit({
-        ...EMPTY,
-        nodes: parsed.events || parsed.nodes || [],
-        edges: parsed.links || parsed.edges || [],
-        hidden: parsed.removed || []
-      });
-    }
+    exportPatch() { return JSON.stringify(toPatch(board), null, 2); },
+    importPatch(text) { commit(fromPatch(JSON.parse(text))); }
   };
 }

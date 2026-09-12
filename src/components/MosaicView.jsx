@@ -23,6 +23,7 @@ export default function MosaicView({ items, media, onOpen }) {
           <button
             key={e.id}
             type="button"
+            data-year={e.year}
             onClick={() => onOpen(e.id)}
             style={{
               position: 'relative', overflow: 'hidden', borderRadius: 3, cursor: 'pointer', padding: 0, textAlign: 'left',

@@ -16,7 +16,7 @@ import { useBoard } from './lib/board.js';
 import { useMedia } from './lib/wiki.js';
 import { useRoute } from './lib/url.js';
 import { metaFor, applyMeta } from './lib/meta.js';
-import { MONO, SANS, micro } from './lib/styles.js';
+import { MONO, SANS } from './lib/styles.js';
 
 export default function App() {
   const [route, navigate] = useRoute();
@@ -133,7 +133,7 @@ export default function App() {
           />
         )}
         {(route.view === 'archive' || route.view === 'plates' || route.view === 'mosaic') && (
-          <ArchiveView mode={route.view} items={items} media={media} navigate={navigate} onOpen={openOnBoard} />
+          <ArchiveView mode={route.view} items={items} media={media} route={route} navigate={navigate} onOpen={openOnBoard} />
         )}
         {route.view === 'horizon' && <HorizonView items={items} graph={graph} navigate={navigate} onOpen={openOnBoard} />}
         {route.view === 'case' && <CaseView graph={graph} navigate={navigate} onOpen={openOnBoard} />}
@@ -141,10 +141,6 @@ export default function App() {
         {route.view === 'finding' && <FindingView graph={graph} route={route} navigate={navigate} onOpen={openOnBoard} media={media} />}
         {route.view === 'card' && <CardView graph={graph} route={route} navigate={navigate} onOpen={openOnBoard} media={media} />}
       </ErrorBoundary>
-
-      {!items.length && !['landing', 'about', 'horizon', 'case', 'board', 'line', 'finding', 'card'].includes(route.view) && (
-        <div style={{ padding: '140px 0', textAlign: 'center', ...micro(0.4), letterSpacing: '0.14em' }}>No entries match</div>
-      )}
 
       {route.view !== 'landing' && route.view !== 'board' && (
         <footer style={{ maxWidth: 1400, margin: '0 auto', padding: '26px 32px 90px', borderTop: '1px solid rgba(243,240,234,0.12)', display: 'flex', gap: 34, flexWrap: 'wrap' }}>

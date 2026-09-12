@@ -1,6 +1,6 @@
 # Contributing
 
-The board is community-maintained. Everything you see is generated from three JSON files,
+The board is community-maintained. Everything you see is generated from the JSON in `data/`,
 so a contribution is a pull request that edits data — no React required.
 
 ## Add an entry

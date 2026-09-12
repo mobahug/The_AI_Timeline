@@ -8,6 +8,15 @@ let prebuilt = null;
 let live = {};
 try { live = JSON.parse(localStorage.getItem(LIVE_KEY) || '{}'); } catch { live = {}; }
 
+/** One page from Wikipedia's summary endpoint, in the cache's own shape. Only a
+ *  title the build did not cache — an editor-added card, say — ever gets here. */
+async function fetchTitle(title) {
+  const res = await fetch(REST + encodeURIComponent(title.replace(/ /g, '_')));
+  if (!res.ok) throw new Error(title + ': ' + res.status);
+  const p = await res.json();
+  return { img: (p.thumbnail && p.thumbnail.source) || (p.originalimage && p.originalimage.source) || '', extract: p.extract || '' };
+}
+
 async function loadPrebuilt() {
   if (prebuilt) return prebuilt;
   try {

@@ -31,6 +31,7 @@ export default function IndexView({ items, onOpen }) {
             <button
               key={e.id}
               type="button"
+              data-year={e.year}
               onClick={() => onOpen(e.id)}
               style={{
                 display: 'grid', width: '100%', textAlign: 'left', cursor: 'pointer', background: 'transparent',

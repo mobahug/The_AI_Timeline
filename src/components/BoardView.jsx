@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { THREADS, TICKS, FIRST, NOW, CATEGORIES, accent, buildChain, catLabel, catHue, fade, yearFraction, yearAtFraction } from '../lib/data.js';
-import { INK, MANILA, MONO, PAPER, RED, RED_LIT, CYAN, micro } from '../lib/styles.js';
+import { MANILA, MONO, PAPER, RED, RED_LIT, CYAN, micro } from '../lib/styles.js';
 import { panDuration, panPosition } from '../lib/motion.js';
 import CluePanel from './CluePanel.jsx';
 import EditorBar from './EditorBar.jsx';
@@ -43,12 +43,12 @@ function metrics(height, width) {
  *  its true year. Collision avoidance pushes crowded cards right, and a lane
  *  that is pushed a long way stops lining up with the lanes beside it: one lane
  *  shows 1969 where another shows 2025. That breaks the one thing a timeline
- *  board promises, so the board widens until the worst push is under a card. */
+ *  board promises, so the board is sized to the densest lane's whole need
+ *  before anything is placed. */
 function layout(items, m) {
   const place = (boardW) => {
     const xOf = (year) => PAD + yearFraction(year) * (boardW - PAD * 2);
     const nodes = [];
-    let worstPush = 0;
     THREADS.forEach((thread, row) => {
       let lastX = -Infinity;
       const laneTop = m.ruler + row * m.lane;
@@ -59,7 +59,6 @@ function layout(items, m) {
         .forEach((slot) => {
           const gap = slot.event.featured ? m.gap + Math.round(m.gap * 0.16) : m.gap;
           const x = Math.max(slot.x, lastX + gap);
-          worstPush = Math.max(worstPush, x - slot.x);
           lastX = x;
           nodes.push({
             event: slot.event,
@@ -71,7 +70,7 @@ function layout(items, m) {
           });
         });
     });
-    return { nodes, xOf, worstPush, boardW };
+    return { nodes, xOf, boardW };
   };
 
   // Give the densest lane room for its cards. Eight entries in one year will
@@ -88,7 +87,6 @@ function layout(items, m) {
   return {
     nodes: result.nodes,
     xOf: result.xOf,
-    worstPush: result.worstPush,
     width: Math.max(result.boardW, Math.ceil(reach + PAD)),
     height: m.ruler + THREADS.length * m.lane
   };
@@ -98,7 +96,7 @@ function layout(items, m) {
  * Strings tie to the pin at the top edge of a card and arch UP into the gutter.
  * The old geometry started at the card's centre — burying ~105px horizontally and
  * ~79px vertically of every string inside its own two endpoint cards — and sagged
- * downward into the row below. Arching up keeps same-lane strings, 61% of them,
+ * downward into the row below. Arching up keeps same-lane strings — the majority —
  * entirely in empty space.
  */
 function stringPath(a, b, gutter) {
@@ -189,9 +187,13 @@ export default function BoardView({ items, graph, media, route, navigate, board,
     .filter((l) => positions[l.from] && positions[l.to])
     .map((l) => {
       const src = graph.index[l.from];
+      const dst = graph.index[l.to];
       const cat = (src && src.category) || 'research';
       return {
         ...l, cat,
+        // A string into a scenario is drawn dashed, like every manila element:
+        // it argues for something that has not happened.
+        future: !!(dst && dst.future),
         tone: accent(cat, 0),
         lit: 'oklch(0.88 0.17 ' + catHue(cat) + ')',
         ...stringPath(positions[l.from], positions[l.to], m.gutter)
@@ -256,41 +258,44 @@ export default function BoardView({ items, graph, media, route, navigate, board,
     if (el.scrollHeight > el.clientHeight) el.scrollTop = Math.max(0, (a.y + b.y) / 2 - el.clientHeight / 2);
   }, [positions, panTo]);
 
+  /** Bring one card to the middle of what the panel leaves visible. */
+  const panToCard = useCallback((id) => {
+    const el = scroller.current;
+    if (el && positions[id]) panTo(positions[id].x - (el.clientWidth - railInset.current) / 2);
+  }, [positions, panTo]);
+
   const focusCard = useCallback((id) => {
     setChain(null);
     setHover(null);
     setPinned(id);
     navigate({ id, clue: null }, true);
-    const el = scroller.current;
-    if (el && positions[id]) panTo(positions[id].x - (el.clientWidth - railInset.current) / 2);
-  }, [navigate, positions, panTo]);
+    panToCard(id);
+  }, [navigate, panToCard]);
+
+  /** Put a walked chain on the board at one of its steps, and pan to it. */
+  const showChain = useCallback((steps, index, replaceUrl) => {
+    setPinned(null);
+    setHover(null);
+    setChain(steps);
+    setStep(index);
+    if (replaceUrl) navigate({ clue: { from: steps[index].from, to: steps[index].to }, id: null }, true);
+    requestAnimationFrame(() => centre(steps[index]));
+  }, [navigate, centre]);
 
   /** Open one specific string as a walked clue. buildChain only ever follows the
-   *  first-authored link at each hop, so without naming the parent, three of the
-   *  62 strings could not be reached from any click at all. */
+   *  first-authored link at each hop, so without naming the parent, a share of
+   *  the strings could not be reached from any click at all. */
   const openClue = useCallback((from, to) => {
     const built = buildChain(graph, to, from);
     const index = built.steps.findIndex((s) => s.from === from && s.to === to);
-    if (index < 0) return;
-    setPinned(null);
-    setHover(null);
-    setChain(built.steps);
-    setStep(index);
-    navigate({ clue: { from, to }, id: null }, true);
-    requestAnimationFrame(() => centre(built.steps[index]));
-  }, [graph, navigate, centre]);
+    if (index >= 0) showChain(built.steps, index, true);
+  }, [graph, showChain]);
 
   const openChain = useCallback((id, atStep) => {
     const built = buildChain(graph, id);
     if (!built.steps.length) { focusCard(id); return; }
-    const index = typeof atStep === 'number' ? atStep : built.start;
-    setChain(built.steps);
-    setStep(index);
-    setHover(null);
-    setPinned(null);
-    navigate({ clue: { from: built.steps[index].from, to: built.steps[index].to }, id: null }, true);
-    requestAnimationFrame(() => centre(built.steps[index]));
-  }, [graph, navigate, centre, focusCard]);
+    showChain(built.steps, typeof atStep === 'number' ? atStep : built.start, true);
+  }, [graph, showChain, focusCard]);
 
   // Deep links: ?id=… opens a card, ?clue=a>b opens the walkthrough at that string.
   const applied = useRef('');
@@ -301,14 +306,21 @@ export default function BoardView({ items, graph, media, route, navigate, board,
     if (route.clue) {
       const built = buildChain(graph, route.clue.to, route.clue.from);
       const index = built.steps.findIndex((s) => s.from === route.clue.from && s.to === route.clue.to);
-      if (index >= 0) { setChain(built.steps); setStep(index); requestAnimationFrame(() => centre(built.steps[index])); return; }
+      if (index >= 0) { showChain(built.steps, index, false); return; }
+      // A clue that names no string on the board still names a card: land there
+      // rather than on empty cork, and let the address say what was found.
+      if (positions[route.clue.to]) {
+        setPinned(route.clue.to);
+        panToCard(route.clue.to);
+        navigate({ id: route.clue.to, clue: null }, true);
+      }
+      return;
     }
     if (route.id && positions[route.id]) {
       setPinned(route.id);
-      const el = scroller.current;
-      if (el) panTo(positions[route.id].x - (el.clientWidth - railInset.current) / 2);
+      panToCard(route.id);
     }
-  }, [route.id, route.clue, graph, positions, board3.nodes.length, centre, panTo]);
+  }, [route.id, route.clue, graph, positions, board3.nodes.length, showChain, panToCard, navigate]);
 
   // Filtering a 4200px board to five cards used to leave you staring at empty
   // cork, with the results somewhere off-screen. Changing a filter now pans to
@@ -445,11 +457,14 @@ export default function BoardView({ items, graph, media, route, navigate, board,
     focusCard(event.id);
   };
 
+  // The one first-time hint the board gives. Keys are only offered where a
+  // keyboard is likely — a phone reader would only wonder where the arrows are.
+  const keys = canHover ? ' · ← → to step · Esc to close' : '';
   const hint = chain
-    ? 'Walking the case · clue ' + (step + 1) + ' of ' + chain.length
+    ? 'Walking a chain' + keys
     : focusId
       ? 'Card selected · ' + ((graph.adjacency[focusId] || []).length) + ' strings attached'
-      : graph.edges.length + ' strings · click a card to walk the case';
+      : graph.edges.length + ' strings · click a card to see what led to it and what it led to' + (canHover ? ' · Tab steps cards' : '');
 
   const panelOpen = !!(current || focusId);
   // A hover preview must never steal the hover that produced it, so it lets the
@@ -574,7 +589,7 @@ export default function BoardView({ items, graph, media, route, navigate, board,
                     {strong && <path d={s.d} style={{ fill: 'none', stroke: s.lit, strokeWidth: width + 7, opacity: 0.22, filter: 'blur(4px)' }} />}
                     {/* Casing: invisible on the dark ground, but it is what keeps a
                         string readable where it crosses a cream card. */}
-                    <path d={s.d} style={{ fill: 'none', stroke: '#0a0a0b', strokeWidth: width + 2.6, strokeLinecap: 'round', opacity: 0.62 }} />
+                    <path d={s.d} style={{ fill: 'none', stroke: '#0a0a0b', strokeWidth: width + 2.6, strokeLinecap: 'round', opacity: 0.62, strokeDasharray: s.future ? '6 7' : undefined }} />
                     <path
                       d={s.d}
                       markerEnd={strong ? 'url(#tip-' + s.cat + ')' : undefined}

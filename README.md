@@ -1,7 +1,7 @@
 # The AI Timeline
 
 An investigation board for the history of artificial intelligence — 1900 to 2050.
-126 entries pinned to a wall, 62 strings between them, and a written case note for
+Entries pinned to a board, strings between them, and a written case note for
 every connection that carries one.
 
 **Live site:** https://mobahug.github.io/The_AI_Timeline/
@@ -54,11 +54,13 @@ npm run build      # static output in dist/
 
 ## Data
 
-All content lives in three JSON files. Nothing is hard-coded in components.
+All content lives in `data/*.json`. Nothing is hard-coded in components — not a
+count, not a year.
 
-- `data/events.json` — the cards
+- `data/events.json` — the cards, each with its sources
 - `data/links.json` — the strings, with the claim and the case note
-- `data/threads.json` — threads (board rows), categories and era headings
+- `data/threads.json` — the span of the board, threads (board rows), categories and era headings
+- `data/spine.json` — the findings: the numbered stretches of years that make the line
 
 See [docs/SCHEMA.md](docs/SCHEMA.md) for the field reference and
 [CONTRIBUTING.md](CONTRIBUTING.md) for how to propose a change.

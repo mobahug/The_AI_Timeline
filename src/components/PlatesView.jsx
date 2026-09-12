@@ -1,6 +1,6 @@
 import React from 'react';
 import { ERAS, NOW, accent, catLabel, fade } from '../lib/data.js';
-import { INK, MONO, SANS, SERIF, micro } from '../lib/styles.js';
+import { INK, SANS, SERIF, micro } from '../lib/styles.js';
 
 /** Chronological, image-led. The reading view. */
 export default function PlatesView({ items, media, onOpen }) {
@@ -18,7 +18,7 @@ export default function PlatesView({ items, media, onOpen }) {
       {rows.map((row, i) => {
         if (row.era) {
           return (
-            <div key={'era' + i} data-screen-label={row.era.title} style={{
+            <div key={'era' + i} data-year={row.era.year} style={{
               position: 'relative', padding: '96px 0 30px', marginTop: 26, overflow: 'hidden',
               borderTop: row.era.year > NOW ? '1px dashed rgba(243,240,234,0.28)' : '1px solid rgba(243,240,234,0.16)'
             }}>
@@ -43,6 +43,7 @@ export default function PlatesView({ items, media, onOpen }) {
           <button
             key={e.id}
             type="button"
+            data-year={e.year}
             onClick={() => onOpen(e.id)}
             style={{
               display: 'grid', width: '100%', textAlign: 'left', background: 'transparent', cursor: 'pointer',

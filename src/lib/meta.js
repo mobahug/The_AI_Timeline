@@ -1,4 +1,4 @@
-import { FIRST, LAST, NOW } from './data.js';
+import { FIRST, LAST } from './data.js';
 import { findingByNumber, spanOf } from './spine.js';
 import { viewById } from './views.js';
 

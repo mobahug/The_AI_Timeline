@@ -26,7 +26,6 @@ export default function HorizonView({ items, graph, navigate, onOpen }) {
   const board = forwardLedger(graph);
   const filtered = visible.length !== board.total;
 
-  const openCard = (id) => onOpen(id);
 
   return (
     <div data-year={NOW + 1} style={{ maxWidth: 1400, margin: '0 auto', padding: '30px clamp(14px,4vw,32px) 80px' }}>
@@ -121,7 +120,7 @@ export default function HorizonView({ items, graph, navigate, onOpen }) {
                 <div key={thread.id} style={{ marginBottom: 4 }}>
                   <div style={{ ...micro(0.4), letterSpacing: '0.22em', padding: '26px 0 6px' }}>{thread.label}</div>
                   {group.map(({ event, strand }) => (
-                    <Strand key={event.id} event={event} strand={strand} graph={graph} onOpen={openCard} navigate={navigate} />
+                    <Strand key={event.id} event={event} strand={strand} graph={graph} onOpen={onOpen} />
                   ))}
                 </div>
               );
@@ -140,7 +139,7 @@ export default function HorizonView({ items, graph, navigate, onOpen }) {
 }
 
 /* One scenario: what was drawn behind it, the card itself, and the arithmetic. */
-function Strand({ event, strand, graph, onOpen, navigate }) {
+function Strand({ event, strand, graph, onOpen }) {
   const f = fade(event.year);
   const why = event.why;
 

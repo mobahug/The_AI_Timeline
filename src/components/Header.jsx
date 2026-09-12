@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { CATEGORIES, FIRST, LAST, NOW, accent } from '../lib/data.js';
 import { TABS, tabOf } from '../lib/views.js';
-import { INK, MONO, SERIF, SANS, button, micro } from '../lib/styles.js';
+import { INK, MONO, SERIF, button, micro } from '../lib/styles.js';
 
 /* Three doors. The line is the argument in order; the board is the wall with the
    strings; the archive is everything, dated. Each stretch of the line, the open
