@@ -1,6 +1,7 @@
 // Writes public/sitemap.xml from the data: every view, every card, every finding.
 // Runs before build so the sitemap can never drift from what the site contains.
 import { readFile, writeFile } from 'node:fs/promises';
+import { SITEMAP_VIEWS } from '../src/lib/views.js';
 
 const ORIGIN = 'https://mobahug.github.io/The_AI_Timeline/';
 const events = JSON.parse(await readFile(new URL('../data/events.json', import.meta.url), 'utf8'));
@@ -8,7 +9,7 @@ const spine = JSON.parse(await readFile(new URL('../data/spine.json', import.met
 
 const urls = [
   { loc: ORIGIN, priority: '1.0' },
-  ...['line', 'board', 'archive', 'case', 'horizon', 'plates', 'mosaic', 'about'].map((v) => ({ loc: ORIGIN + '?view=' + v, priority: '0.8' })),
+  ...SITEMAP_VIEWS.map((v) => ({ loc: ORIGIN + '?view=' + v, priority: '0.8' })),
   ...spine.findings.map((f) => ({ loc: ORIGIN + '?view=finding&f=' + f.n, priority: '0.7' })),
   ...events.map((e) => ({ loc: ORIGIN + '?view=card&id=' + encodeURIComponent(e.id), priority: e.featured ? '0.6' : '0.5' }))
 ];

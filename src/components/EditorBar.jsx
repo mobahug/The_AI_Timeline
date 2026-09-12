@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CATEGORIES } from '../lib/data.js';
+import { CATEGORIES, NOW } from '../lib/data.js';
 import { MONO, RED, button, field, micro } from '../lib/styles.js';
 
 const label = { display: 'flex', flexDirection: 'column', gap: 5, ...micro(0.42), letterSpacing: '0.18em' };
@@ -14,7 +14,7 @@ export default function EditorBar({ editing, onToggle, onNewCard, onConnect, con
   const save = () => {
     if (!draft || !draft.title.trim()) return;
     const patch = {
-      year: Number(draft.year) || 2026,
+      year: Number(draft.year) || NOW,
       category: draft.category,
       title: draft.title.trim(),
       summary: draft.note,

@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import Header from './components/Header.jsx';
+import { RouteProvider } from './components/kit.jsx';
 import ErrorBoundary from './components/ErrorBoundary.jsx';
 import Landing from './components/Landing.jsx';
 import About from './components/About.jsx';
@@ -10,7 +11,7 @@ import CaseView from './components/CaseView.jsx';
 import LineView from './components/LineView.jsx';
 import FindingView from './components/FindingView.jsx';
 import CardView from './components/CardView.jsx';
-import { buildGraph, events as canonEvents, forwardLedger, NOW } from './lib/data.js';
+import { buildGraph, events as canonEvents, forwardLedger, FIRST, NOW } from './lib/data.js';
 import { useBoard } from './lib/board.js';
 import { useMedia } from './lib/wiki.js';
 import { useRoute } from './lib/url.js';
@@ -22,7 +23,7 @@ export default function App() {
   const board = useBoard();
   const graph = useMemo(() => buildGraph(board.board), [board.board]);
   const media = useMedia(graph.all);
-  const [year, setYear] = useState('1900');
+  const [year, setYear] = useState(String(FIRST));
   const [progress, setProgress] = useState(0);
 
   const items = useMemo(() => {
@@ -44,7 +45,7 @@ export default function App() {
       const nodes = document.querySelectorAll('[data-year]');
       let found = null;
       nodes.forEach((n) => { if (n.getBoundingClientRect().top < 180) found = n.getAttribute('data-year'); });
-      setYear(found || String(items[0] ? items[0].year : 1900));
+      setYear(found || String(items[0] ? items[0].year : FIRST));
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
@@ -113,7 +114,7 @@ export default function App() {
         : items.length + '/' + canonEvents.length + ' entries';
 
   return (
-    <>
+    <RouteProvider value={{ route, navigate }}>
       <div style={{ position: 'fixed', inset: 0, zIndex: 60, pointerEvents: 'none', mixBlendMode: 'overlay', backgroundImage: 'repeating-linear-gradient(0deg,rgba(255,255,255,0.028) 0 1px,transparent 1px 3px)' }} />
       <Header route={route} navigate={navigate} year={year} progress={progress} status={status} />
 
@@ -152,7 +153,7 @@ export default function App() {
             Entry text is CC BY-SA 4.0.
           </p>
           <p style={{ margin: 0, font: '400 11px/1.85 ' + MONO, color: 'rgba(243,240,234,0.34)', maxWidth: '40ch', textWrap: 'pretty' }}>
-            Entries after 2026 are editorial projections, not forecasts. The confidence label is the point;
+            Entries after {NOW} are scenarios, not forecasts. The confidence label is the point;
             the date is a placeholder.
           </p>
           <p style={{ margin: 0, font: '400 11px/1.85 ' + SANS, color: 'rgba(243,240,234,0.34)' }}>
@@ -160,6 +161,6 @@ export default function App() {
           </p>
         </footer>
       )}
-    </>
+    </RouteProvider>
   );
 }

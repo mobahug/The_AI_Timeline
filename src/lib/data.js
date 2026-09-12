@@ -2,8 +2,12 @@ import rawEvents from '../../data/events.json';
 import rawLinks from '../../data/links.json';
 import meta from '../../data/threads.json';
 
-export const NOW = 2026;
-export const LAST = 2050;
+/* The span of the board — the first year drawn, the present, the last year drawn —
+   is data, read here once and never retyped. `now` is the line between record and
+   scenario: everything after it carries a confidence instead of a citation. */
+export const FIRST = meta.span.first;
+export const NOW = meta.span.now;
+export const LAST = meta.span.last;
 export const THREADS = meta.threads;
 export const ERAS = meta.eras;
 export const CATEGORIES = meta.categories;
@@ -29,9 +33,9 @@ export const accent = (cat, f = 0) =>
   'oklch(' + (0.8 - f * 0.16).toFixed(2) + ' ' + (0.14 - f * 0.1).toFixed(3) + ' ' + catHue(cat) + ')';
 
 /** Non-linear time axis: the last fifteen years get as much room as the first ninety. */
-const ANCHORS = [[1900, 0], [1950, 0.05], [1980, 0.11], [2000, 0.19], [2010, 0.29], [2015, 0.4],
+const ANCHORS = [[FIRST, 0], [1950, 0.05], [1980, 0.11], [2000, 0.19], [2010, 0.29], [2015, 0.4],
   [2018, 0.48], [2020, 0.55], [2022, 0.62], [2023, 0.69], [2024, 0.755], [2025, 0.815],
-  [2026, 0.865], [2030, 0.915], [2040, 0.96], [2050, 1]];
+  [NOW, 0.865], [2030, 0.915], [2040, 0.96], [LAST, 1]];
 
 export const yearFraction = (year) => {
   if (year <= ANCHORS[0][0]) return 0;

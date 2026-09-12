@@ -1,26 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { CATEGORIES, accent } from '../lib/data.js';
+import { CATEGORIES, FIRST, LAST, NOW, accent } from '../lib/data.js';
+import { TABS, tabOf } from '../lib/views.js';
 import { INK, MONO, SERIF, SANS, button, micro } from '../lib/styles.js';
 
 /* Three doors. The line is the argument in order; the board is the wall with the
    strings; the archive is everything, dated. Each stretch of the line, the open
    file (the case, the horizon), a card's dossier and the archive's costumes are
-   pages under those three, not tabs of their own. */
-const VIEWS = [
-  ['line', 'The line'],
-  ['board', 'Board'],
-  ['archive', 'Archive']
-];
+   pages under those three, not tabs of their own — the registry says which. */
+const VIEWS = TABS.map((v) => [v.id, v.label]);
 
 /** Below this the chrome would eat the screen, so it folds into one row + a sheet. */
 const NARROW = 820;
 
-/** Child routes that belong under a nav tab, so the tab stays lit inside them. */
-const PARENT_OF = { finding: 'line', case: 'line', horizon: 'line', card: 'board', plates: 'archive', mosaic: 'archive' };
-
 export default function Header({ route, navigate, year, progress, status }) {
-  const activeView = PARENT_OF[route.view] || route.view;
+  const activeView = tabOf(route.view);
   const [narrow, setNarrow] = useState(() => (typeof window !== 'undefined' ? window.innerWidth < NARROW : false));
   const [open, setOpen] = useState(false);
 
@@ -99,7 +93,7 @@ export default function Header({ route, navigate, year, progress, status }) {
       aria-label="Search entries"
       style={{
         border: 'none', borderBottom: '1px solid rgba(243,240,234,0.2)', background: 'transparent',
-        padding: narrow ? '10px 2px' : '5px 2px', width: narrow ? '100%' : 150, outline: 'none', color: INK, font: '400 ' + (narrow ? 15 : 12) + 'px/1.2 ' + MONO
+        padding: narrow ? '10px 2px' : '5px 2px', width: narrow ? '100%' : 150, color: INK, font: '400 ' + (narrow ? 15 : 12) + 'px/1.2 ' + MONO
       }}
     />
   );
@@ -117,14 +111,14 @@ export default function Header({ route, navigate, year, progress, status }) {
           >
             The AI Timeline
           </button>
-          {!narrow && <span style={micro(0.4)}>An investigation board · 1900 — 2050</span>}
+          {!narrow && <span style={micro(0.4)}>An investigation board · {FIRST} — {LAST}</span>}
           <span style={{ flex: 1 }} />
           {!narrow && <span style={micro(0.34)}>{status}</span>}
           <span style={{
             fontFamily: "'Instrument Serif', Georgia, serif", fontWeight: 500,
             fontSize: (narrow ? 20 : 26) + 'px', lineHeight: 0.9, letterSpacing: '-0.02em',
             fontVariantNumeric: 'tabular-nums', minWidth: narrow ? 52 : 96, textAlign: 'right',
-            color: Number(year) > 2026 ? 'rgba(243,240,234,0.6)' : INK
+            color: Number(year) > NOW ? 'rgba(243,240,234,0.6)' : INK
           }}>{year}</span>
           {narrow && (
             <button

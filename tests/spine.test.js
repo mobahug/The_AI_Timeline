@@ -48,7 +48,7 @@ describe('the spine is well formed', () => {
 });
 
 describe('assignment is total — nothing is orphaned', () => {
-  it('files all 126 entries, each exactly once', () => {
+  it('files every entry, each exactly once', () => {
     const filed = line.rows.flatMap((r) => r.cards.map((e) => e.id));
     expect(filed.length).toBe(graph.all.length);
     expect(new Set(filed).size).toBe(graph.all.length);

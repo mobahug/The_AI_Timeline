@@ -10,7 +10,8 @@ a:hover { color: oklch(0.9 0.14 85); text-decoration: underline; }
 ::selection { background: oklch(0.82 0.13 85); color: #0a0a0b; }
 input::placeholder { color: rgba(243, 240, 234, 0.32); }
 button { font: inherit; }
-button:focus-visible, a:focus-visible, [tabindex]:focus-visible {
+button:focus-visible, a:focus-visible, [tabindex]:focus-visible,
+input:focus-visible, select:focus-visible, textarea:focus-visible {
   outline: 2px solid oklch(0.85 0.12 200); outline-offset: 3px; border-radius: 2px;
 }
 ::-webkit-scrollbar { width: 9px; height: 9px; }
@@ -23,5 +24,6 @@ button:focus-visible, a:focus-visible, [tabindex]:focus-visible {
 @keyframes slideInUp    { from { opacity: 0; transform: translateY(14px) } to { opacity: 1; transform: none } }
 @keyframes slideInDown  { from { opacity: 0; transform: translateY(-14px) } to { opacity: 1; transform: none } }
 @media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
   * { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
 }

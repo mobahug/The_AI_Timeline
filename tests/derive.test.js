@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import {
-  NOW, THREADS, buildGraph, buildChain, standingNow, roadsTo, threadLedger, loadBearing, strandOf
+  NOW, THREADS, buildGraph, buildChain, forwardLedger, standingNow, roadsTo, threadLedger, loadBearing, strandOf
 } from '../src/lib/data.js';
 
 const graph = buildGraph(null);
@@ -60,16 +60,19 @@ describe('strandOf — honesty flags', () => {
     expect(s.restsOn.map((e) => e.id)).toContain('models-that-keep-learning');
   });
 
-  it('reports no parents for the seven asserted projections', () => {
+  it('reports no parents for exactly the scenarios forwardLedger calls unargued', () => {
     const asserted = graph.all.filter((e) => e.future && !strandOf(graph, e.id).parents.length);
-    expect(asserted.length).toBe(7);
+    const fwd = forwardLedger(graph);
+    expect(asserted.length).toBe(fwd.total - fwd.argued);
   });
 
   it('separates record ancestors from projection ancestors', () => {
     const s = strandOf(graph, 'a-contested-agi-claim');
     expect(s.record.every((e) => !e.future)).toBe(true);
     expect(s.restsOn.every((e) => e.future)).toBe(true);
-    expect(s.record.length + s.restsOn.length).toBe(s.record.length + s.restsOn.length);
+    // Every ancestor is filed on exactly one side.
+    const ids = [...s.record, ...s.restsOn].map((e) => e.id);
+    expect(new Set(ids).size).toBe(ids.length);
   });
 });
 
@@ -118,7 +121,7 @@ describe('the derivation is genuinely data-driven', () => {
 });
 
 describe('buildChain — every shared ?clue=a>b link must open', () => {
-  it('builds a chain containing the requested string, for all 62 strings', () => {
+  it('builds a chain containing the requested string, for every string', () => {
     const dead = graph.edges.filter((l) => {
       const built = buildChain(graph, l.to, l.from);
       return built.steps.findIndex((s) => s.from === l.from && s.to === l.to) < 0;

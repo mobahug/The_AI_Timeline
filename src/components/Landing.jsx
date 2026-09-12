@@ -22,7 +22,7 @@ export default function Landing({ navigate }) {
           </p>
           <p style={{ margin: 0, font: '400 11.5px/1.85 ' + MONO, color: 'rgba(243,240,234,0.4)', maxWidth: '34ch', textWrap: 'pretty' }}>
             Six threads run at once: ideas, products, power, failures, rules, culture.
-            Everything past 2026 is a projection on manila stock — it carries a confidence,
+            Everything past {NOW} is a scenario on manila stock — it carries a confidence,
             never a citation.
           </p>
         </div>

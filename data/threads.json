@@ -1,4 +1,9 @@
 {
+  "span": {
+    "first": 1900,
+    "now": 2026,
+    "last": 2050
+  },
   "threads": [
     {
       "id": "ideas",

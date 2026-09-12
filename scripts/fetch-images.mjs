@@ -5,6 +5,7 @@ import { readFile, writeFile, mkdir } from 'node:fs/promises';
 const OUT = new URL('../public/wiki-cache.json', import.meta.url);
 const events = JSON.parse(await readFile(new URL('../data/events.json', import.meta.url), 'utf8'));
 const fallbacks = JSON.parse(await readFile(new URL('../data/image-fallbacks.json', import.meta.url), 'utf8'));
+const { span: { now: NOW } } = JSON.parse(await readFile(new URL('../data/threads.json', import.meta.url), 'utf8'));
 
 let cache = {};
 try { cache = JSON.parse(await readFile(OUT, 'utf8')); } catch {}
@@ -30,7 +31,7 @@ for (const e of events) {
   // A projection carries no citation and needs no page — but one that does cite
   // something still needs it fetched. "The date on the poster" (2045) cites
   // Technological singularity and was silently skipped by a bare year test.
-  if (e.year > 2026 && !e.url) continue;
+  if (e.year > NOW && !e.url) continue;
   if (e.wikiTitle) wanted.add(e.wikiTitle);
   if (fallbacks[e.id]) wanted.add(fallbacks[e.id]);
   const cited = citedTitle(e.url);

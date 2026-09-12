@@ -1,5 +1,5 @@
 import React from 'react';
-import { NOW, accent, catLabel } from '../lib/data.js';
+import { FIRST, NOW, accent, catLabel } from '../lib/data.js';
 import { buildLine, readingOf } from '../lib/spine.js';
 import { INK, MONO, RED, RED_LIT, SANS, SERIF, micro } from '../lib/styles.js';
 import OpenFile from './OpenFile.jsx';
@@ -61,7 +61,7 @@ export default function LineView({ graph, navigate, onOpen }) {
 
   return (
     <div style={SHELL}>
-      <div data-year={1900} style={{ padding: '56px 0 0' }}>
+      <div data-year={FIRST} style={{ padding: '56px 0 0' }}>
         <div style={{ ...micro(0.4), letterSpacing: '0.24em', marginBottom: 18 }}>
           The route · {line.rows.length} findings · derived from the board
         </div>

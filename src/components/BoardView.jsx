@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { THREADS, TICKS, NOW, CATEGORIES, accent, buildChain, catLabel, catHue, fade, yearFraction, yearAtFraction } from '../lib/data.js';
+import { THREADS, TICKS, FIRST, NOW, CATEGORIES, accent, buildChain, catLabel, catHue, fade, yearFraction, yearAtFraction } from '../lib/data.js';
 import { INK, MANILA, MONO, PAPER, RED, RED_LIT, CYAN, micro } from '../lib/styles.js';
 import { panDuration, panPosition } from '../lib/motion.js';
 import CluePanel from './CluePanel.jsx';
@@ -137,7 +137,7 @@ export default function BoardView({ items, graph, media, route, navigate, board,
   const [pinned, setPinned] = useState(null);
   const [chain, setChain] = useState(null);
   const [step, setStep] = useState(0);
-  const [viewport, setViewport] = useState([1900, 1950]);
+  const [viewport, setViewport] = useState([FIRST, FIRST + 50]);
   const [thumb, setThumb] = useState({ left: 0, width: 0.2 });
   const [editing, setEditing] = useState(false);
   const [draft, setDraft] = useState(null);

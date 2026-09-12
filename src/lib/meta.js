@@ -1,19 +1,11 @@
-import { NOW } from './data.js';
+import { FIRST, LAST, NOW } from './data.js';
 import { findingByNumber, spanOf } from './spine.js';
+import { viewById } from './views.js';
 
 const SITE = 'The AI Timeline';
-const TAGLINE = 'An investigation board of artificial intelligence, 1900 to 2050 — every breakthrough, boardroom coup, lawsuit and breach, with the strings between them.';
+const TAGLINE = 'An investigation board of artificial intelligence, ' + FIRST + ' to ' + LAST + ' — every breakthrough, boardroom coup, lawsuit and breach, with the strings between them.';
 
-const VIEW_TITLES = {
-  board: ['The board', 'Photo cards, string connections, and a walkthrough that follows each causal chain clue by clue.'],
-  line: ['The line', 'How a machine that could not add became something governments argue about — the order it happened in, and where the trail goes cold.'],
-  case: ['The case as it stands', 'Where the board stands, the road here, what follows, and what the case does not do — derived from the data.'],
-  horizon: ['The horizon', 'The forward half of the board as three horizons: scenarios, not forecasts.'],
-  archive: ['The archive', 'Every entry on the board in date order — dense, filterable, searchable.'],
-  plates: ['The archive · plates', 'The archive as image-led plates, in date order.'],
-  mosaic: ['The archive · mosaic', 'Every photograph on the board.'],
-  about: ['About', 'How this board works, what a string means, and what it does not claim.']
-};
+// Titles and descriptions live in the view registry.
 
 /** The title and description a page should carry, derived from the route. */
 export function metaFor(route, graph) {
@@ -35,14 +27,14 @@ export function metaFor(route, graph) {
   if (route.view === 'finding' && route.finding) {
     const f = findingByNumber(route.finding);
     if (f) {
-      const span = spanOf(f, 2050);
+      const span = spanOf(f, graph && graph.all.length ? graph.all[graph.all.length - 1].year : LAST);
       const years = span.from === span.to ? String(span.from) : span.from + '–' + span.to;
       return { title: String(f.n).padStart(2, '0') + ' ' + f.title + ' (' + years + ') · ' + SITE, description: f.blurb };
     }
   }
-  const v = VIEW_TITLES[route.view];
-  if (v) return { title: v[0] + ' · ' + SITE, description: v[1] };
-  return { title: SITE + ' — an investigation board, 1900–' + 2050, description: TAGLINE };
+  const v = viewById[route.view];
+  if (v && v.title) return { title: v.title + ' · ' + SITE, description: v.description };
+  return { title: SITE + ' — an investigation board, ' + FIRST + '–' + LAST, description: TAGLINE };
 }
 
 /** Write the meta into the document. Idempotent; safe to call on every route change. */

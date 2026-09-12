@@ -32,7 +32,7 @@ async function head(url) {
 }
 
 const events = JSON.parse(await readFile(new URL('../data/events.json', import.meta.url), 'utf8'));
-const NOW = 2026;
+const { span: { now: NOW } } = JSON.parse(await readFile(new URL('../data/threads.json', import.meta.url), 'utf8'));
 
 const record = events.filter((e) => e.year <= NOW);
 const unsourced = record.filter((e) => !e.url && !(Array.isArray(e.sources) && e.sources.length));
