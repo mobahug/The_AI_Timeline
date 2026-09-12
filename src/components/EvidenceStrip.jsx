@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { sourcesOf } from '../lib/data.js';
 import { bearingOn } from '../lib/wiki.js';
-import { MONO, SANS, SERIF, micro } from '../lib/styles.js';
+import { MONO, SERIF, ink } from '../lib/styles.js';
+import { Eyebrow, Quote, Credit, Disclosure, Gap } from './kit.jsx';
 
 /*
    What the cited page actually says, shown in place so a reader can check a claim
@@ -16,45 +17,16 @@ import { MONO, SANS, SERIF, micro } from '../lib/styles.js';
 
    A hand-written quote on sources[] outranks an automatic match, and an
    automatic match never counts toward the entry's sourcing strength — a matcher
-   must not be able to certify its own work.
+   must not be able to certify its own work. The Quote tone says which is which:
+   'claim' is string-inked, 'auto' is not.
 
-   Wikipedia text is CC BY-SA 4.0. The credit line under a quote is the
-   attribution that licence requires: the word Wikipedia, the article title linked
-   to the article, and the licence linked. It is always visible and never inside
-   the disclosure.
+   Wikipedia text is CC BY-SA 4.0. The credit line under a quote (the kit's
+   Credit) is the attribution that licence requires: the word Wikipedia, the
+   article title linked to the article, and the licence linked. It is always
+   visible and never inside the disclosure.
 */
 
-const CC = 'https://creativecommons.org/licenses/by-sa/4.0/';
-
-const Eyebrow = ({ children, dim }) => (
-  <div style={{ ...micro(dim ? 0.3 : 0.42), letterSpacing: '0.2em', marginBottom: 7 }}>{children}</div>
-);
-
-const Credit = ({ cited, publisher, auto }) => (
-  <div style={{ font: '400 10px/1.7 ' + MONO, color: 'rgba(243,240,234,0.36)', letterSpacing: '0.04em', marginTop: 7, overflowWrap: 'anywhere' }}>
-    {cited && cited.wikipedia ? (
-      <>
-        Wikipedia, <a href={cited.url} target="_blank" rel="noopener" style={{ color: 'rgba(243,240,234,0.55)' }}><em>{cited.title}</em></a>
-        {' · '}<a href={CC} target="_blank" rel="noopener" style={{ color: 'rgba(243,240,234,0.55)' }}>CC BY-SA 4.0</a>
-        {auto ? ' · matched automatically' : ''}
-      </>
-    ) : (
-      <>{publisher || 'Source'}{cited && cited.url ? <> · <a href={cited.url} target="_blank" rel="noopener" style={{ color: 'rgba(243,240,234,0.55)' }}>read at source ↗</a></> : null}</>
-    )}
-  </div>
-);
-
-const Quote = ({ children }) => (
-  <blockquote style={{
-    margin: 0, font: '400 14px/1.55 ' + SANS, color: 'rgba(243,240,234,0.86)', textWrap: 'pretty',
-    paddingLeft: 12, borderLeft: '2px solid rgba(243,240,234,0.22)'
-  }}>
-    <span style={{ color: 'oklch(0.78 0.16 25)' }}>“</span>{children}<span style={{ color: 'oklch(0.78 0.16 25)' }}>”</span>
-  </blockquote>
-);
-
 export default function EvidenceStrip({ event, media, compact }) {
-  const [open, setOpen] = useState(false);
   if (!event || event.future) return null;
 
   const shot = media ? media(event) : null;
@@ -70,8 +42,8 @@ export default function EvidenceStrip({ event, media, compact }) {
   if (handQuote) {
     return (
       <div style={box}>
-        <Eyebrow>From the cited source</Eyebrow>
-        <Quote>{handQuote.quote}</Quote>
+        <Eyebrow tier="section" style={{ marginBottom: 7 }}>From the cited source</Eyebrow>
+        <Quote tone="claim">{handQuote.quote}</Quote>
         <Credit cited={cited && cited.url === handQuote.url ? cited : { url: handQuote.url, title: handQuote.title, wikipedia: /wikipedia\.org/.test(handQuote.url) }} publisher={handQuote.publisher} auto={false} />
       </div>
     );
@@ -85,9 +57,9 @@ export default function EvidenceStrip({ event, media, compact }) {
   if (!cited.wikipedia || !cited.extract) {
     return (
       <div style={box}>
-        <div style={{ font: '400 11px/1.7 ' + MONO, color: 'rgba(243,240,234,0.5)', overflowWrap: 'anywhere' }}>
+        <div style={{ font: '400 11px/1.7 ' + MONO, color: ink(4), overflowWrap: 'anywhere' }}>
           {event.source || cited.title || 'Source'}
-          {' · '}<a href={cited.url} target="_blank" rel="noopener" style={{ color: 'rgba(243,240,234,0.7)' }}>read at source ↗</a>
+          {' · '}<a href={cited.url} target="_blank" rel="noopener" style={{ color: ink(3) }}>read at source ↗</a>
         </div>
       </div>
     );
@@ -99,8 +71,8 @@ export default function EvidenceStrip({ event, media, compact }) {
   if (bearing.mentions) {
     return (
       <div style={box}>
-        <Eyebrow>One sentence from the cited page</Eyebrow>
-        <Quote>{bearing.hits[0]}</Quote>
+        <Eyebrow tier="section" style={{ marginBottom: 7 }}>One sentence from the cited page</Eyebrow>
+        <Quote tone="auto">{bearing.hits[0]}</Quote>
         <Credit cited={cited} auto />
       </div>
     );
@@ -110,25 +82,13 @@ export default function EvidenceStrip({ event, media, compact }) {
   //     page's opening anyway. Proximity must not be allowed to imply support.
   return (
     <div style={box}>
-      <Eyebrow dim>Not on the cited page</Eyebrow>
-      <p style={{ margin: 0, font: '400 12.5px/1.55 ' + SANS, color: 'rgba(243,240,234,0.55)', textWrap: 'pretty' }}>
-        No sentence in <em>{cited.title}</em> names this entry or its year. The page is cited for
-        background, not as evidence for the claim.
-      </p>
-      <button
-        type="button"
-        aria-expanded={open}
-        onClick={() => setOpen((v) => !v)}
-        style={{ ...micro(0.5), background: 'transparent', border: 'none', padding: '8px 0 0', cursor: 'pointer', letterSpacing: '0.16em' }}
-      >
-        {open ? 'Hide the article’s opening ▴' : 'Read the article’s opening ▾'}
-      </button>
-      {open && (
-        <p style={{ margin: '8px 0 0', font: '400 13px/1.55 ' + SERIF, color: 'rgba(243,240,234,0.6)', textWrap: 'pretty' }}>
+      <Gap title={cited.title} />
+      <Disclosure>
+        <p style={{ margin: '8px 0 0', font: '400 13px/1.55 ' + SERIF, color: ink(3), textWrap: 'pretty' }}>
           {cited.extract}
         </p>
-      )}
-      <Credit cited={cited} auto />
+      </Disclosure>
+      <Credit cited={cited} auto={false} />
     </div>
   );
 }

@@ -16,7 +16,10 @@ import { useBoard } from './lib/board.js';
 import { useMedia } from './lib/wiki.js';
 import { useRoute } from './lib/url.js';
 import { metaFor, applyMeta } from './lib/meta.js';
-import { MONO, SANS } from './lib/styles.js';
+import { MONO, SANS, GUTTER, RULE, button, ink, shell } from './lib/styles.js';
+
+/** The footer takes the column of the page above it; the board and the landing have none. */
+const FOOT_KIND = { card: 'read', about: 'read', line: 'route', finding: 'route', case: 'route', horizon: 'route' };
 
 export default function App() {
   const [route, navigate] = useRoute();
@@ -115,45 +118,54 @@ export default function App() {
 
   return (
     <RouteProvider value={{ route, navigate }}>
+      {/* Off-screen until it takes focus: the first Tab press offers a way past the chrome. */}
+      <a
+        href="#main"
+        style={{ position: 'absolute', left: -9999, top: 8, zIndex: 100, ...button('loud') }}
+        onFocus={(e) => { e.currentTarget.style.left = '8px'; }}
+        onBlur={(e) => { e.currentTarget.style.left = '-9999px'; }}
+      >Skip to content</a>
       <div style={{ position: 'fixed', inset: 0, zIndex: 60, pointerEvents: 'none', mixBlendMode: 'overlay', backgroundImage: 'repeating-linear-gradient(0deg,rgba(255,255,255,0.028) 0 1px,transparent 1px 3px)' }} />
       <Header route={route} navigate={navigate} year={year} progress={progress} status={status} />
 
       <ErrorBoundary resetKey={route.view + '|' + (route.finding || '') + '|' + (route.id || '')}>
-        {route.view === 'landing' && <Landing navigate={navigate} />}
-        {route.view === 'about' && <About />}
-        {route.view === 'board' && (
-          <BoardView
-            items={items}
-            graph={graph}
-            media={media}
-            route={route}
-            navigate={navigate}
-            board={board}
-            onYear={onBoardPosition}
-          />
-        )}
-        {(route.view === 'archive' || route.view === 'plates' || route.view === 'mosaic') && (
-          <ArchiveView mode={route.view} items={items} media={media} route={route} navigate={navigate} onOpen={openOnBoard} />
-        )}
-        {route.view === 'horizon' && <HorizonView items={items} graph={graph} navigate={navigate} onOpen={openOnBoard} />}
-        {route.view === 'case' && <CaseView graph={graph} navigate={navigate} onOpen={openOnBoard} />}
-        {route.view === 'line' && <LineView graph={graph} navigate={navigate} onOpen={openOnBoard} />}
-        {route.view === 'finding' && <FindingView graph={graph} route={route} navigate={navigate} onOpen={openOnBoard} media={media} />}
-        {route.view === 'card' && <CardView graph={graph} route={route} navigate={navigate} onOpen={openOnBoard} media={media} />}
+        <main id="main" tabIndex={-1} style={{ outline: 'none' }}>
+          {route.view === 'landing' && <Landing />}
+          {route.view === 'about' && <About />}
+          {route.view === 'board' && (
+            <BoardView
+              items={items}
+              graph={graph}
+              media={media}
+              route={route}
+              navigate={navigate}
+              board={board}
+              onYear={onBoardPosition}
+            />
+          )}
+          {(route.view === 'archive' || route.view === 'plates' || route.view === 'mosaic') && (
+            <ArchiveView mode={route.view} items={items} media={media} route={route} navigate={navigate} />
+          )}
+          {route.view === 'horizon' && <HorizonView items={items} graph={graph} route={route} navigate={navigate} onOpen={openOnBoard} />}
+          {route.view === 'case' && <CaseView graph={graph} />}
+          {route.view === 'line' && <LineView graph={graph} />}
+          {route.view === 'finding' && <FindingView graph={graph} route={route} navigate={navigate} onOpen={openOnBoard} media={media} />}
+          {route.view === 'card' && <CardView graph={graph} route={route} media={media} />}
+        </main>
       </ErrorBoundary>
 
       {route.view !== 'landing' && route.view !== 'board' && (
-        <footer style={{ maxWidth: 1400, margin: '0 auto', padding: '26px 32px 90px', borderTop: '1px solid rgba(243,240,234,0.12)', display: 'flex', gap: 34, flexWrap: 'wrap' }}>
-          <p style={{ margin: 0, font: '400 11px/1.85 ' + MONO, color: 'rgba(243,240,234,0.34)', maxWidth: '46ch', textWrap: 'pretty' }}>
+        <footer style={{ ...shell(FOOT_KIND[route.view] || 'wide'), padding: '26px ' + GUTTER + ' 90px', borderTop: RULE, display: 'flex', gap: 34, flexWrap: 'wrap' }}>
+          <p style={{ margin: 0, font: '400 11px/1.85 ' + MONO, color: ink(4), maxWidth: '46ch', textWrap: 'pretty' }}>
             Photographs and summaries come from Wikipedia/Wikimedia Commons and remain under their own licences.
             Entry text is CC BY-SA 4.0.
           </p>
-          <p style={{ margin: 0, font: '400 11px/1.85 ' + MONO, color: 'rgba(243,240,234,0.34)', maxWidth: '40ch', textWrap: 'pretty' }}>
+          <p style={{ margin: 0, font: '400 11px/1.85 ' + MONO, color: ink(4), maxWidth: '40ch', textWrap: 'pretty' }}>
             Entries after {NOW} are scenarios, not forecasts. The confidence label is the point;
             the date is a placeholder.
           </p>
-          <p style={{ margin: 0, font: '400 11px/1.85 ' + SANS, color: 'rgba(243,240,234,0.34)' }}>
-            <a href="https://github.com/mobahug/The_AI_Timeline">Source & contributions ↗</a>
+          <p style={{ margin: 0, font: '400 11px/1.85 ' + SANS, color: ink(4) }}>
+            <a href="https://github.com/mobahug/The_AI_Timeline">Contribute ↗</a>
           </p>
         </footer>
       )}

@@ -1,5 +1,6 @@
 import React from 'react';
-import { MONO, SERIF, button, micro } from '../lib/styles.js';
+import { MONO, SERIF, ink, shell } from '../lib/styles.js';
+import { Btn, Eyebrow } from './kit.jsx';
 
 /* If a view throws, show the failure and a way back instead of a white page.
    The board threw once during development and took the whole app with it —
@@ -28,15 +29,16 @@ export default class ErrorBoundary extends React.Component {
     if (!this.state.error) return this.props.children;
     const message = (this.state.error && this.state.error.message) || String(this.state.error);
     return (
-      <div role="alert" style={{ maxWidth: 720, margin: '0 auto', padding: '80px 32px 120px' }}>
-        <div style={{ ...micro(0.42), letterSpacing: '0.24em', marginBottom: 16 }}>Something broke on this page</div>
-        <h1 style={{ margin: 0, font: '400 clamp(26px,4vw,40px)/1.1 ' + SERIF, letterSpacing: '-0.025em' }}>
+      <div role="alert" style={{ ...shell('read'), paddingTop: 30 }}>
+        <Eyebrow tier="page" dim style={{ marginBottom: 16 }}>Something broke on this page</Eyebrow>
+        <h1 tabIndex={-1} style={{ margin: 0, outline: 'none', font: '400 clamp(26px,4vw,40px)/1.1 ' + SERIF, letterSpacing: '-0.025em' }}>
           This view failed to render.
         </h1>
-        <pre style={{ margin: '18px 0 0', font: '400 12px/1.6 ' + MONO, color: 'rgba(243,240,234,0.55)', whiteSpace: 'pre-wrap', overflowWrap: 'anywhere' }}>{message}</pre>
+        <pre style={{ margin: '18px 0 0', font: '400 12px/1.6 ' + MONO, color: ink(4), whiteSpace: 'pre-wrap', overflowWrap: 'anywhere' }}>{message}</pre>
         <div style={{ display: 'flex', gap: 10, marginTop: 26, flexWrap: 'wrap' }}>
-          <a href={import.meta.env.BASE_URL} style={button('loud')}>← Front page</a>
-          <button onClick={() => window.location.reload()} style={button()}>Reload</button>
+          {/* A plain full-load anchor on purpose: the router itself may be what threw. */}
+          <Btn href={import.meta.env.BASE_URL} tone="loud">← Front page</Btn>
+          <Btn onClick={() => window.location.reload()}>Reload</Btn>
         </div>
       </div>
     );

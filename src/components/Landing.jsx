@@ -1,56 +1,63 @@
 import React from 'react';
-import { NOW, events, links, projections } from '../lib/data.js';
-import { INK, MONO, SERIF, RED, button, micro } from '../lib/styles.js';
+import { NOW, THREADS, buildGraph, forwardLedger } from '../lib/data.js';
+import { buildLine } from '../lib/spine.js';
+import { GOLD, MONO, RULE, SANS, SERIF, ink, shell } from '../lib/styles.js';
+import { Btn, Door, Doors, Eyebrow } from './kit.jsx';
 
-const notes = links.filter((l) => l.note).length;
+/* The front page. Every figure on it is derived from the canonical data — the
+   landing is the one page that never shows a contributor's local edits, so it
+   reads the graph once, without a board. */
+const graph = buildGraph(null);
+const line = buildLine(graph);
+const fwd = forwardLedger(graph);
+const notes = graph.edges.filter((l) => l.note).length;
 
-export default function Landing({ navigate }) {
+/* The four doors: the three readings of the same strings, then the invitation.
+   Each title is the page it opens; the body carries the page's own figure. */
+const doors = [
+  { eyebrow: 'How it got here', title: 'The line', body: line.rows.length + ' findings, oldest first.', to: { view: 'line' } },
+  { eyebrow: 'Where it stands, and why', title: 'The case as it stands', body: fwd.crossing + ' of ' + graph.edges.length + ' strings cross ' + NOW + '.', to: { view: 'case' } },
+  { eyebrow: 'What comes next', title: 'The horizon', body: fwd.argued + ' of ' + fwd.total + ' scenarios carry a string.', to: { view: 'horizon' } },
+  { eyebrow: 'Yours to edit', title: 'The board', body: 'Add cards and strings on the board, export the patch, open a pull request.', to: { view: 'board' } }
+];
+
+export default function Landing() {
+  // No footer follows the landing, so it keeps its own, shorter bottom; and it
+  // is a hero, not an interior page — the one exception to the 30px head.
   return (
-    <div style={{ maxWidth: 1400, margin: '0 auto', padding: '0 32px' }}>
+    <div style={{ ...shell('wide'), paddingBottom: 90 }}>
       <header style={{ padding: '112px 0 72px' }}>
-        <div style={{ ...micro(0.42), letterSpacing: '0.26em', marginBottom: 30 }}>
-          {events.length} entries · {links.length} strings · {notes} case notes
-        </div>
-        <h1 style={{ margin: '0 0 28px', font: '400 clamp(48px,10vw,150px)/0.9 ' + SERIF, letterSpacing: '-0.035em', maxWidth: '15ch', textWrap: 'balance' }}>
-          Everything that led here, <em style={{ color: 'oklch(0.82 0.13 85)' }}>and what comes next.</em>
+        <Eyebrow tier="page" dim style={{ marginBottom: 30 }}>
+          {graph.all.length} entries · {graph.edges.length} strings · {notes} case notes
+        </Eyebrow>
+        <h1 tabIndex={-1} style={{ margin: '0 0 28px', outline: 'none', font: '400 clamp(48px,10vw,150px)/0.9 ' + SERIF, letterSpacing: '-0.035em', maxWidth: '15ch', textWrap: 'balance' }}>
+          Everything that led here, <em style={{ color: GOLD }}>where it stands, and what comes next.</em>
         </h1>
         <div style={{ display: 'flex', gap: 44, flexWrap: 'wrap', maxWidth: 940 }}>
-          <p style={{ margin: 0, font: '400 16px/1.62 ' + "'Helvetica Neue', Helvetica, Arial, sans-serif", color: 'rgba(243,240,234,0.66)', maxWidth: '46ch', textWrap: 'pretty' }}>
+          <p style={{ margin: 0, font: '400 16px/1.62 ' + SANS, color: ink(3), maxWidth: '46ch', textWrap: 'pretty' }}>
             Breakthroughs, boardroom coups, lawsuits, breaches and fiction — pinned to a wall
             with the strings between them. Every string is a claim that one event made another
-            possible, and {notes} of the {links.length} carry a written case note.
+            possible, and {notes} of the {graph.edges.length} carry a written case note. The same
+            strings are read three ways: how it got here, where it stands and why, and what they
+            argue comes next.
           </p>
-          <p style={{ margin: 0, font: '400 11.5px/1.85 ' + MONO, color: 'rgba(243,240,234,0.4)', maxWidth: '34ch', textWrap: 'pretty' }}>
-            Six threads run at once: ideas, products, power, failures, rules, culture.
+          <p style={{ margin: 0, font: '400 11.5px/1.85 ' + MONO, color: ink(5), maxWidth: '34ch', textWrap: 'pretty' }}>
+            {THREADS.length} threads run at once — {THREADS.map((t) => t.label).join(' · ')}.
             Everything past {NOW} is a scenario on manila stock — it carries a confidence,
             never a citation.
           </p>
         </div>
         <div style={{ display: 'flex', gap: 12, marginTop: 40, flexWrap: 'wrap' }}>
-          <button onClick={() => navigate({ view: 'board' })} style={{ ...button('loud'), padding: '13px 20px', borderColor: RED }}>
-            Open the board →
-          </button>
-          <button onClick={() => navigate({ view: 'line' })} style={{ ...button(), padding: '13px 20px' }}>
-            Read the line
-          </button>
-          <button onClick={() => navigate({ view: 'archive' })} style={{ ...button(), padding: '13px 20px', color: 'rgba(243,240,234,0.5)' }}>
-            Browse the archive
-          </button>
+          <Btn tone="loud" size="hero" to={{ view: 'board' }}>Open the board →</Btn>
+          <Btn size="hero" to={{ view: 'line' }}>Read the line</Btn>
+          <Btn tone="dim" size="hero" to={{ view: 'archive' }}>Browse the archive</Btn>
         </div>
       </header>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(240px,1fr))', gap: 24, paddingBottom: 90, borderTop: '1px solid rgba(243,240,234,0.12)', paddingTop: 30 }}>
-        {[
-          ['The board', 'Photo cards, red string, and a walkthrough that follows a chain clue by clue.'],
-          ['The argument', 'Not a list of dates. Each string states what one event did to another.'],
-          ['The projections', projections.length + ' entries past ' + NOW + ', labelled Likely, Uncertain or Speculative.'],
-          ['Yours to edit', 'Add cards and strings locally, export the patch, open a pull request.']
-        ].map(([title, body]) => (
-          <div key={title}>
-            <div style={{ font: '400 21px/1.2 ' + SERIF, letterSpacing: '-0.02em', color: INK, marginBottom: 9 }}>{title}</div>
-            <div style={{ font: '400 13.5px/1.6 ' + "'Helvetica Neue', Helvetica, Arial, sans-serif", color: 'rgba(243,240,234,0.55)', textWrap: 'pretty' }}>{body}</div>
-          </div>
-        ))}
+      <div style={{ borderTop: RULE, paddingTop: 30 }}>
+        <Doors>
+          {doors.map((d) => <Door key={d.title} eyebrow={d.eyebrow} title={d.title} body={d.body} to={d.to} />)}
+        </Doors>
       </div>
     </div>
   );

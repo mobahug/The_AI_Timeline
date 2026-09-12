@@ -3,7 +3,7 @@ import { accent, catLabel } from '../lib/data.js';
 import { hrefFor, resolve } from '../lib/url.js';
 import {
   INK, MONO, SANS, SERIF, STRING_INK, RULE, ROW_RULE, DASHED_RULE, DASHED_ROW, GUTTER,
-  badge, button, headline, ink, micro, reading, ref as refStyle, tag, yearBit
+  badge, button, headline, ink, micro, prose, reading, ref as refStyle, tag, yearBit
 } from '../lib/styles.js';
 
 /* The small components every page is built from. Presentational, one look each:
@@ -52,7 +52,7 @@ export const Eyebrow = ({ tier, dim, style, as: As = 'div', children, ...rest })
 
 /** The body paragraph. */
 export const Prose = ({ style, children, ...rest }) => (
-  <p style={{ margin: 0, font: '400 clamp(13px,1.15vw,14.5px)/1.62 ' + SANS, color: ink(3), textWrap: 'pretty', ...style }} {...rest}>{children}</p>
+  <p style={{ ...prose, ...style }} {...rest}>{children}</p>
 );
 
 /** The verb on a string. It carries its arrow wherever it sits between a source
