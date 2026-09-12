@@ -13,7 +13,7 @@ import { Eyebrow, Quote, Credit, Disclosure, Gap } from './kit.jsx';
                 opening anyway, collapsed
      link     — a non-Wikipedia citation with no text to show; a plain link, and
                 no disclosure control, so its absence is the signal
-     none     — a projection carries no citation, so nothing is rendered
+     none     — a scenario carries no citation, so nothing is rendered
 
    A hand-written quote on sources[] outranks an automatic match, and an
    automatic match never counts toward the entry's sourcing strength — a matcher
