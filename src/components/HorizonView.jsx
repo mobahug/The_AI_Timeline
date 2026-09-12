@@ -59,7 +59,7 @@ export default function HorizonView({ items, graph, route, navigate, onOpen }) {
 
         return (
           <section key={h.id} data-year={h.from} style={{ position: 'relative', overflow: 'hidden', paddingTop: 76 }}>
-            <div style={{
+            <div aria-hidden="true" style={{
               position: 'absolute', right: -4, top: 26, font: '400 clamp(72px,13vw,180px)/0.8 ' + SERIF,
               letterSpacing: '-0.05em', color: 'transparent', pointerEvents: 'none',
               WebkitTextStroke: '1px rgba(243,240,234,' + (0.16 - f * 0.09).toFixed(3) + ')'

@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { THREADS, TICKS, FIRST, NOW, CATEGORIES, accent, buildChain, catLabel, catHue, fade, yearFraction, yearAtFraction } from '../lib/data.js';
-import { MANILA, MONO, PAPER, RED, RED_LIT, CYAN, micro } from '../lib/styles.js';
+import { MANILA, MONO, PAPER, RED, RED_LIT, CYAN, SERIF, EASE, FADE, micro, paperInk } from '../lib/styles.js';
+import { Empty } from './kit.jsx';
 import { panDuration, panPosition } from '../lib/motion.js';
 import CluePanel from './CluePanel.jsx';
 import EditorBar from './EditorBar.jsx';
@@ -511,7 +512,7 @@ export default function BoardView({ items, graph, media, route, navigate, board,
         <EditorBar
           compact={box.w < 820}
           lead={<>
-            <h1 style={{ margin: 0, font: '400 clamp(16px,1.7vw,21px)/1 ' + "'Instrument Serif', Georgia, serif", letterSpacing: '-0.02em', whiteSpace: 'nowrap' }}>The board</h1>
+            <h1 style={{ margin: 0, font: '400 clamp(16px,1.7vw,21px)/1 ' + SERIF, letterSpacing: '-0.02em', whiteSpace: 'nowrap' }}>The board</h1>
             <span style={{ ...micro(chain ? 0.75 : 0.42), color: chain ? RED_LIT : undefined }}>{hint}</span>
           </>}
           trail={<span style={{ ...micro(0.5), letterSpacing: '0.18em', display: 'inline-flex', alignItems: 'center', gap: 7, whiteSpace: 'nowrap' }}>
@@ -614,7 +615,7 @@ export default function BoardView({ items, graph, media, route, navigate, board,
                 border: '1px solid rgba(23,22,26,0.3)', boxShadow: '0 5px 12px rgba(0,0,0,0.5)', padding: '4px 7px',
                 borderLeft: '3px solid ' + s.tone,
                 font: '400 9px/1 ' + MONO, letterSpacing: '0.13em', textTransform: 'uppercase', whiteSpace: 'nowrap',
-                animation: 'fadeIn .25s both'
+                animation: FADE
               }}>{s.claim}</div>
             ))}
 
@@ -641,7 +642,7 @@ export default function BoardView({ items, graph, media, route, navigate, board,
                     padding: 0, border: 'none', background: 'transparent', textAlign: 'left', boxSizing: 'border-box',
                     cursor: editing ? 'text' : 'pointer',
                     transform: 'rotate(' + node.tilt + 'deg) scale(' + (raised ? 1.05 : 1) + ')',
-                    transformOrigin: '50% 0%', transition: 'transform .3s cubic-bezier(.22,.7,.3,1), opacity .3s',
+                    transformOrigin: '50% 0%', transition: 'transform .3s ' + EASE + ', opacity .3s',
                     opacity: lit ? 1 : 0.2, zIndex: raised ? 12 : 2
                   }}
                 >
@@ -665,18 +666,18 @@ export default function BoardView({ items, graph, media, route, navigate, board,
                         flex: '1 1 auto', minHeight: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%',
                         border: '1px solid rgba(23,22,26,0.22)', textAlign: 'center',
                         background: 'repeating-linear-gradient(135deg,rgba(23,22,26,0.07) 0 5px,transparent 5px 10px)',
-                        font: '400 8px/1 ' + MONO, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'rgba(23,22,26,0.45)'
+                        font: '400 8px/1 ' + MONO, letterSpacing: '0.16em', textTransform: 'uppercase', color: paperInk(0.65)
                       }}>no photo</span>
                     ))}
-                    <span style={{ flex: 'none', display: 'block', marginTop: m.photo ? 5 : 8, font: '500 8.5px/1 ' + MONO, letterSpacing: '0.14em', color: 'rgba(23,22,26,0.6)', fontVariantNumeric: 'tabular-nums' }}>{e.year}</span>
+                    <span style={{ flex: 'none', display: 'block', marginTop: m.photo ? 5 : 8, font: '500 8.5px/1 ' + MONO, letterSpacing: '0.14em', color: paperInk(0.72), fontVariantNumeric: 'tabular-nums' }}>{e.year}</span>
                     <span style={{
                       flex: m.photo ? 'none' : '1 1 auto', display: '-webkit-box', WebkitBoxOrient: 'vertical',
                       WebkitLineClamp: m.titleLines, overflow: 'hidden', marginTop: 3,
-                      font: '400 ' + m.titlePx + 'px/1.14 ' + "'Instrument Serif', Georgia, serif", color: '#17161a'
+                      font: '400 ' + m.titlePx + 'px/1.14 ' + SERIF, color: '#17161a'
                     }}>{e.title}</span>
                     {m.showCat && (
-                      <span style={{ flex: 'none', display: 'block', marginTop: 4, font: '400 7.5px/1 ' + MONO, letterSpacing: '0.18em', textTransform: 'uppercase', color: e.future ? 'oklch(0.45 0.16 25)' : 'rgba(23,22,26,0.42)' }}>
-                        {e.future ? 'Projection · ' + (e.confidence || 'Uncertain') : e.local ? 'Added by you' : catLabel(e.category)}
+                      <span style={{ flex: 'none', display: 'block', marginTop: 4, font: '400 7.5px/1 ' + MONO, letterSpacing: '0.18em', textTransform: 'uppercase', color: e.future ? 'oklch(0.45 0.16 25)' : paperInk(0.65) }}>
+                        {e.future ? 'Scenario · ' + (e.confidence || 'Uncertain') : e.local ? 'Added by you' : catLabel(e.category)}
                       </span>
                     )}
                   </span>
@@ -698,8 +699,8 @@ export default function BoardView({ items, graph, media, route, navigate, board,
         ))}
 
         {!items.length && (
-          <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none', ...micro(0.4), letterSpacing: '0.14em' }}>
-            No entries match
+          <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none', zIndex: 9 }}>
+            <Empty noun="card" route={route} navigate={navigate} style={{ padding: 0 }} />
           </div>
         )}
 
@@ -723,12 +724,12 @@ export default function BoardView({ items, graph, media, route, navigate, board,
             onTouchMove={(e) => e.stopPropagation()}
             style={{
               position: 'absolute', zIndex: 22, height: panelContentH ? panelH : 'auto', maxHeight: PANEL_CAP,
-              transition: panelContentH ? 'height .24s cubic-bezier(.22,.7,.3,1)' : 'none',
+              transition: panelContentH ? 'height .24s ' + EASE : 'none',
               ...(railMode
-                ? { top: 0, right: 0, width: RAIL_W, border: '1px solid rgba(243,240,234,0.14)', borderTop: 'none', borderRight: 'none', borderBottomLeftRadius: 3, animation: 'slideInRight .24s cubic-bezier(.22,.7,.3,1) both' }
+                ? { top: 0, right: 0, width: RAIL_W, border: '1px solid rgba(243,240,234,0.14)', borderTop: 'none', borderRight: 'none', borderBottomLeftRadius: 3, animation: 'slideInRight .24s ' + EASE + ' both' }
                 : { left: 0, right: 0, ...(dockTop ? { top: 0 } : { bottom: 0 }),
                     [dockTop ? 'borderBottom' : 'borderTop']: '1px solid rgba(243,240,234,0.16)',
-                    animation: (dockTop ? 'slideInDown' : 'slideInUp') + ' .24s cubic-bezier(.22,.7,.3,1) both' }),
+                    animation: (dockTop ? 'slideInDown' : 'slideInUp') + ' .24s ' + EASE + ' both' }),
               overflowY: panelContentH > PANEL_CAP ? 'auto' : 'hidden', overscrollBehavior: 'contain',
               touchAction: 'pan-y', WebkitOverflowScrolling: 'touch',
               pointerEvents: preview ? 'none' : 'auto',
@@ -749,7 +750,6 @@ export default function BoardView({ items, graph, media, route, navigate, board,
               onOpenChain={openChain}
               onOpenCard={focusCard}
               onOpenClue={openClue}
-              onOpenDossier={(id) => navigate({ view: 'card', id, clue: null, finding: null })}
             />
            </div>
           </div>

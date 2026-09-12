@@ -24,7 +24,7 @@ const Side = ({ event, role, accentBorder }) => (
   </div>
 );
 
-export default function CluePanel({ graph, chain, step, current, focus, media, onStep, onJump, onExit, onOpenChain, onOpenCard, onOpenClue, onOpenDossier }) {
+export default function CluePanel({ graph, chain, step, current, focus, media, onStep, onJump, onExit, onOpenChain, onOpenCard, onOpenClue }) {
   // No outer margin or minimum height: the panel that hosts this measures it and
   // sizes itself to fit exactly, so both would only manufacture dead space —
   // and a top margin collapses outside the measured box and clips the bottom.
@@ -103,9 +103,8 @@ export default function CluePanel({ graph, chain, step, current, focus, media, o
               <Reading event={focus} style={{ marginTop: 2 }} />
               <EvidenceStrip event={focus} media={media} compact />
               <div style={{ display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap', marginTop: 2 }}>
-                {/* The dossier is a page of its own, so this is a link with a real
-                    href; the route patch is the one onOpenDossier pushes. */}
-                {onOpenDossier && <Btn tone="loud" to={{ view: 'card', id: focus.id, clue: null, finding: null }}>Read the dossier →</Btn>}
+                {/* The dossier is a page of its own, so this is a link with a real href. */}
+                <Btn tone="loud" to={{ view: 'card', id: focus.id }}>Read the dossier →</Btn>
                 {(graph.adjacency[focus.id] || []).length > 0 &&
                   <Btn onClick={() => onOpenChain(focus.id)}>Walk the chain →</Btn>}
                 {focus.url && <a href={focus.url} target="_blank" rel="noopener" style={sourceLink}>{focus.source || 'Source'} ↗</a>}

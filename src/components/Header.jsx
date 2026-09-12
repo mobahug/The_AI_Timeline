@@ -128,7 +128,9 @@ export default function Header({ route, navigate, year, progress, status }) {
           )}
           {!narrow && contribute()}
           <span style={{
-            font: '400 ' + (narrow ? 20 : 26) + 'px/0.9 ' + SERIF, letterSpacing: '-0.02em',
+            // Longhands, not the `font` shorthand: this size flips with the
+            // breakpoint, and React will not update a shorthand beside a longhand.
+            fontFamily: SERIF, fontWeight: 400, fontSize: narrow ? 20 : 26, lineHeight: 0.9, letterSpacing: '-0.02em',
             fontVariantNumeric: 'tabular-nums', minWidth: narrow ? 52 : 96, textAlign: 'right',
             color: Number(year) > NOW ? ink(3) : INK
           }}>{year}</span>

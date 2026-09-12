@@ -16,7 +16,7 @@ export default function PlatesView({ items, media }) {
             position: 'relative', padding: '96px 0 30px', marginTop: 26, overflow: 'hidden',
             borderTop: era.year > NOW ? DASHED_RULE : RULE
           }}>
-            <div style={{
+            <div aria-hidden="true" style={{
               position: 'absolute', right: -2, top: 34, font: '400 clamp(90px,17vw,240px)/0.8 ' + SERIF,
               letterSpacing: '-0.05em', color: 'transparent', WebkitTextStroke: '1px rgba(243,240,234,0.12)', pointerEvents: 'none'
             }}>{era.year}</div>
