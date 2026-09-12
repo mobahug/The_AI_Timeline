@@ -10,7 +10,7 @@ import EditorBar from './EditorBar.jsx';
 /* One card on the cork. Memoised on plain values, so a scroll, a drag frame or a
    hover elsewhere on the board does not reconcile it: only the card whose own
    lit / subject / raised state flipped renders again. */
-const Card = React.memo(function Card({ node, m, img, lit, subject, raised, editing, hoverable, onClick, onHover }) {
+const Card = React.memo(function Card({ node, m, img, lit, subject, raised, editing, hoverable, onClick, onHover, onFocusCard }) {
   const e = node.event;
   const f = fade(e.year);
   return (
@@ -19,7 +19,7 @@ const Card = React.memo(function Card({ node, m, img, lit, subject, raised, edit
       id={'card-' + e.id}
       aria-label={e.year + ', ' + catLabel(e.category) + ', ' + e.title}
       onClick={() => onClick(e)}
-      onFocus={() => hoverable && onHover(e.id)}
+      onFocus={() => { onFocusCard(e.id); if (hoverable) onHover(e.id); }}
       onBlur={() => hoverable && onHover(null)}
       onMouseEnter={() => hoverable && onHover(e.id)}
       onMouseLeave={() => hoverable && onHover(null)}
@@ -114,6 +114,10 @@ export default function BoardView({ items, graph, media, route, navigate, board,
   const [pinned, setPinned] = useState(null);
   const [chain, setChain] = useState(null);
   const [step, setStep] = useState(0);
+  // The last address the board itself wrote or answered. The deep-link effect
+  // below acts only on an address it has not seen, so stepping a chain — which
+  // rewrites ?clue= at every step — never rebuilds the chain under the reader.
+  const applied = useRef('');
   const [viewport, setViewport] = useState([FIRST, FIRST + 50]);
   // The scrubber's thumb is written straight to the DOM on every scroll frame;
   // it is the one thing that must move every frame and nothing else depends on it.
@@ -240,6 +244,17 @@ export default function BoardView({ items, graph, media, route, navigate, board,
     if (el.scrollHeight > el.clientHeight) el.scrollTop = Math.max(0, (a.y + b.y) / 2 - el.clientHeight / 2);
   }, [positions, panTo]);
 
+  /** A card that takes keyboard focus must be in view — the browser scrolls it
+   *  into the frame, but not out from under the rail. */
+  const keepVisible = useCallback((id) => {
+    const el = scroller.current;
+    const p = positions[id];
+    if (!el || !p) return;
+    const left = el.scrollLeft;
+    const usable = el.clientWidth - railInset.current;
+    if (p.x - m.cardW / 2 < left || p.x + m.cardW / 2 > left + usable) panTo(p.x - usable / 2);
+  }, [positions, panTo, m.cardW]);
+
   /** Bring one card to the middle of what the panel leaves visible. */
   const panToCard = useCallback((id) => {
     const el = scroller.current;
@@ -250,9 +265,24 @@ export default function BoardView({ items, graph, media, route, navigate, board,
     setChain(null);
     setHover(null);
     setPinned(id);
+    applied.current = id;
     navigate({ id, clue: null }, true);
     panToCard(id);
   }, [navigate, panToCard]);
+
+  /** Close whatever the panel holds and hand focus back to the card it opened
+   *  from, so a keyboard reader is never dropped on <body>. */
+  const leave = useCallback(() => {
+    const back = pinned || (chain && chain.length ? chain[Math.min(step, chain.length - 1)].to : null);
+    setChain(null);
+    setHover(null);
+    setPinned(null);
+    navigate({ clue: null, id: null }, true);
+    if (back) {
+      const el = document.getElementById('card-' + back);
+      if (el) el.focus({ preventScroll: true });
+    }
+  }, [pinned, chain, step, navigate]);
 
   /** Put a walked chain on the board at one of its steps, and pan to it. */
   const showChain = useCallback((steps, index, replaceUrl) => {
@@ -260,6 +290,7 @@ export default function BoardView({ items, graph, media, route, navigate, board,
     setHover(null);
     setChain(steps);
     setStep(index);
+    applied.current = steps[index].from + '>' + steps[index].to;
     if (replaceUrl) navigate({ clue: { from: steps[index].from, to: steps[index].to }, id: null }, true);
     requestAnimationFrame(() => centre(steps[index]));
   }, [navigate, centre]);
@@ -280,7 +311,6 @@ export default function BoardView({ items, graph, media, route, navigate, board,
   }, [graph, showChain, focusCard]);
 
   // Deep links: ?id=… opens a card, ?clue=a>b opens the walkthrough at that string.
-  const applied = useRef('');
   useEffect(() => {
     const key = route.clue ? route.clue.from + '>' + route.clue.to : route.id || '';
     if (!key || key === applied.current || !board3.nodes.length) return;
@@ -321,19 +351,30 @@ export default function BoardView({ items, graph, media, route, navigate, board,
   const move = useCallback((delta) => {
     if (!chain) return;
     const next = Math.min(chain.length - 1, Math.max(0, step + delta));
+    if (next === step) return;
     setStep(next);
+    applied.current = chain[next].from + '>' + chain[next].to;
     navigate({ clue: { from: chain[next].from, to: chain[next].to } }, true);
     centre(chain[next]);
   }, [chain, step, navigate, centre]);
 
   useEffect(() => {
     const onKey = (e) => {
-      if (e.key === 'Escape') { setChain(null); setPinned(null); setDraft(null); setConnectFrom(null); }
+      // The search field and the editor own their own keys.
+      const t = e.target;
+      if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.tagName === 'SELECT' || t.isContentEditable)) return;
+      if (e.key === 'Escape') {
+        // One layer per press: a draft, then a chain, then a pinned card, then a preview.
+        if (draft || connectFrom) { setDraft(null); setConnectFrom(null); return; }
+        if (chain) { leave(); return; }
+        if (pinned) { leave(); return; }
+        setHover(null);
+      }
       if (chain && (e.key === 'ArrowRight' || e.key === 'ArrowLeft')) { e.preventDefault(); move(e.key === 'ArrowRight' ? 1 : -1); }
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [chain, move]);
+  }, [chain, move, draft, connectFrom, pinned, leave]);
 
   const onScroll = useCallback(() => {
     const el = scroller.current;
@@ -462,6 +503,14 @@ export default function BoardView({ items, graph, media, route, navigate, board,
       : graph.edges.length + ' strings · click a card to see what led to it and what it led to' + (canHover ? ' · Tab steps cards' : '');
 
   const panelOpen = !!(current || focusId);
+  // A pinned card opens its panel for reading: focus goes to the panel's heading
+  // so the next Tab reaches its buttons, and Escape returns to the card.
+  const panelRef = useRef(null);
+  useEffect(() => {
+    if (!pinned || !panelRef.current) return;
+    const h = panelRef.current.querySelector('h2, h3');
+    if (h) { h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: true }); }
+  }, [pinned]);
   // A hover preview must never steal the hover that produced it, so it lets the
   // pointer straight through.
   const preview = !current && !pinned && !!hover;
@@ -507,7 +556,7 @@ export default function BoardView({ items, graph, media, route, navigate, board,
           compact={box.w < 820}
           lead={<>
             <h1 style={{ margin: 0, font: '400 clamp(16px,1.7vw,21px)/1 ' + SERIF, letterSpacing: '-0.02em', whiteSpace: 'nowrap' }}>The board</h1>
-            <span style={{ ...micro(chain ? 0.75 : 0.42), color: chain ? RED_LIT : undefined }}>{hint}</span>
+            <span aria-live="polite" style={{ ...micro(chain ? 3 : 5), color: chain ? RED_LIT : undefined }}>{hint}</span>
           </>}
           trail={<span style={{ ...micro(0.5), letterSpacing: '0.18em', display: 'inline-flex', alignItems: 'center', gap: 7, whiteSpace: 'nowrap' }}>
             <span style={{ width: 6, height: 6, borderRadius: '50%', background: CYAN, animation: 'hudPulse 2.4s ease-in-out infinite' }} />
@@ -609,6 +658,7 @@ export default function BoardView({ items, graph, media, route, navigate, board,
                   hoverable={hoverable}
                   onClick={clickCard}
                   onHover={setHover}
+                  onFocusCard={keepVisible}
                 />
               );
             })}
@@ -643,6 +693,7 @@ export default function BoardView({ items, graph, media, route, navigate, board,
 
         {panelOpen && (
           <div
+            ref={panelRef}
             role="complementary"
             aria-label="Card context"
             // Whatever the reader does inside the panel stays inside it. A wheel
@@ -676,7 +727,7 @@ export default function BoardView({ items, graph, media, route, navigate, board,
               media={media}
               onStep={move}
               onJump={(index) => { setStep(index); centre(chain[index]); }}
-              onExit={() => { setChain(null); setHover(null); setPinned(null); navigate({ clue: null, id: null }, true); }}
+              onExit={leave}
               onOpenChain={openChain}
               onOpenCard={focusCard}
               onOpenClue={openClue}
@@ -686,7 +737,19 @@ export default function BoardView({ items, graph, media, route, navigate, board,
         )}
       </div>
 
-      <div ref={scrubRef} onPointerDown={onScrub} role="scrollbar" aria-label="Pan the board" aria-controls="board-canvas" aria-orientation="horizontal" aria-valuenow={0}
+      <div
+        ref={scrubRef}
+        onPointerDown={onScrub}
+        onKeyDown={(e) => {
+          const el = scroller.current;
+          if (!el) return;
+          const step = el.clientWidth * 0.4;
+          if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { e.preventDefault(); panTo(el.scrollLeft + (e.key === 'ArrowRight' ? step : -step)); }
+          if (e.key === 'Home') { e.preventDefault(); panTo(0); }
+          if (e.key === 'End') { e.preventDefault(); panTo(el.scrollWidth); }
+        }}
+        tabIndex={0}
+        role="scrollbar" aria-label="Pan the board" aria-controls="board-canvas" aria-orientation="horizontal" aria-valuenow={0}
         style={{ marginTop: 4, height: 12, position: 'relative', cursor: 'pointer', display: 'flex', alignItems: 'center', flex: 'none' }}>
         <div style={{ position: 'absolute', left: 0, right: 0, height: 3, background: 'rgba(243,240,234,0.1)', borderRadius: 2 }} />
         <div ref={thumbRef} style={{ position: 'absolute', left: 0, width: '20%', height: 8, background: CYAN, opacity: 0.7, borderRadius: 2 }} />

@@ -50,19 +50,28 @@ export function useRoute() {
     const raw = q.get('view');
     if (raw && RETIRED[raw]) {
       q.set('view', RETIRED[raw]);
-      window.history.replaceState({}, '', window.location.pathname + '?' + q.toString());
+      window.history.replaceState(window.history.state, '', window.location.pathname + '?' + q.toString());
     }
-    const onPop = () => setRoute(read());
+    // The page, not the browser, restores the offset: the browser would restore
+    // it before React has rendered the page it belongs to.
+    if ('scrollRestoration' in window.history) window.history.scrollRestoration = 'manual';
+    // Going back lands where the reader left, not at the top of the page.
+    const onPop = () => setRoute({ ...read(), pop: (window.history.state && window.history.state.y) || 0 });
     window.addEventListener('popstate', onPop);
     return () => window.removeEventListener('popstate', onPop);
   }, []);
 
   const navigate = useCallback((patch, replace) => {
     setRoute((prev) => {
-      const next = resolve(prev, patch);
+      const next = { ...resolve(prev, patch), pop: 0 };
       const url = hrefFor(next);
-      if (replace) window.history.replaceState({}, '', url);
-      else window.history.pushState({}, '', url);
+      if (replace) {
+        window.history.replaceState(window.history.state, '', url);
+      } else {
+        // Remember where this page was left before moving on, so Back can return there.
+        window.history.replaceState({ ...(window.history.state || {}), y: window.scrollY }, '', window.location.href);
+        window.history.pushState({ y: 0 }, '', url);
+      }
       return next;
     });
   }, []);

@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, forwardRef, useContext, useState } from 'react';
 import { accent, catLabel } from '../lib/data.js';
 import { hrefFor, resolve } from '../lib/url.js';
 import {
@@ -36,12 +36,12 @@ export function Link({ to, replace, style, onClick, children, ...rest }) {
 }
 
 /** A button, or a link that looks like one. */
-export function Btn({ tone = 'quiet', size = 'md', to, href, style, children, ...rest }) {
+export const Btn = forwardRef(function Btn({ tone = 'quiet', size = 'md', to, href, style, children, ...rest }, ref) {
   const s = { ...button(tone, size), ...style };
   if (to) return <Link to={to} style={s} {...rest}>{children}</Link>;
-  if (href) return <a href={href} style={s} {...rest}>{children}</a>;
-  return <button type="button" style={s} {...rest}>{children}</button>;
-}
+  if (href) return <a ref={ref} href={href} style={s} {...rest}>{children}</a>;
+  return <button ref={ref} type="button" style={s} {...rest}>{children}</button>;
+});
 
 /* ─── Type ───────────────────────────────────────────────────────────────── */
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { CATEGORIES, FIRST, LAST, NOW, accent } from '../lib/data.js';
 import { TABS, tabOf, viewById } from '../lib/views.js';
@@ -34,18 +34,57 @@ export default function Header({ route, navigate, year, barRef, status }) {
     return () => window.removeEventListener('resize', onResize);
   }, []);
 
+  // A focused row must never land under the sticky chrome: the document's
+  // scroll padding follows the header's measured height.
+  const headerRef = useRef(null);
+  useEffect(() => {
+    const el = headerRef.current;
+    if (!el || !window.ResizeObserver) return;
+    const apply = () => { document.documentElement.style.scrollPaddingTop = el.offsetHeight + 8 + 'px'; };
+    const ro = new ResizeObserver(apply);
+    ro.observe(el);
+    apply();
+    return () => { ro.disconnect(); document.documentElement.style.scrollPaddingTop = ''; };
+  }, []);
+
   // Choosing anything closes the sheet, so the board is never left behind it.
   const close = () => setOpen(false);
   const go = (patch, replace) => { navigate(patch, replace); close(); };
 
+  // The sheet is modal in fact, not just in name. While it is up the page behind
+  // it is inert, focus starts on Close and cycles inside, and closing hands focus
+  // back to the Menu button it came from. Keyed on the sheet actually showing —
+  // widening the window past NARROW with it open must release the page.
+  const sheet = narrow && open;
+  const menuBtn = useRef(null);
+  const sheetRef = useRef(null);
   useEffect(() => {
-    if (!open) return;
+    if (!sheet) return;
     const prev = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
-    const onKey = (e) => { if (e.key === 'Escape') setOpen(false); };
+    const page = document.getElementById('root');
+    if (page) page.inert = true;
+    const focusable = () => [...(sheetRef.current ? sheetRef.current.querySelectorAll('a[href], button, input, select, textarea, [tabindex]:not([tabindex="-1"])') : [])];
+    const first = focusable()[0];
+    if (first) first.focus();
+    const onKey = (e) => {
+      if (e.key === 'Escape') { setOpen(false); return; }
+      if (e.key !== 'Tab') return;
+      const items = focusable();
+      if (!items.length) return;
+      const a = items[0];
+      const z = items[items.length - 1];
+      if (e.shiftKey && document.activeElement === a) { e.preventDefault(); z.focus(); }
+      else if (!e.shiftKey && document.activeElement === z) { e.preventDefault(); a.focus(); }
+    };
     window.addEventListener('keydown', onKey);
-    return () => { document.body.style.overflow = prev; window.removeEventListener('keydown', onKey); };
-  }, [open]);
+    return () => {
+      document.body.style.overflow = prev;
+      if (page) page.inert = false;
+      window.removeEventListener('keydown', onKey);
+      if (menuBtn.current) menuBtn.current.focus();
+    };
+  }, [sheet]);
 
   // A filter is a refinement of the page, not a new page: it replaces the entry.
   const filters = (
@@ -105,7 +144,7 @@ export default function Header({ route, navigate, year, barRef, status }) {
   );
 
   return (
-    <header data-chrome="header" style={{
+    <header ref={headerRef} data-chrome="header" style={{
       position: 'sticky', top: 0, zIndex: 40, background: 'rgba(10,10,11,0.9)',
       backdropFilter: 'blur(18px) saturate(1.4)', borderBottom: '1px solid rgba(243,240,234,0.1)'
     }}>
@@ -136,6 +175,7 @@ export default function Header({ route, navigate, year, barRef, status }) {
           }}>{year}</span>
           {narrow && (
             <Btn
+              ref={menuBtn}
               size="lg"
               onClick={() => setOpen((v) => !v)}
               aria-expanded={open}
@@ -154,8 +194,9 @@ export default function Header({ route, navigate, year, barRef, status }) {
           </div>
         )}
 
-        {narrow && open && createPortal(
+        {sheet && createPortal(
           <div
+            ref={sheetRef}
             role="dialog"
             aria-modal="true"
             aria-label="Menu"
