@@ -147,7 +147,26 @@ export const CONFIDENCE = ['Likely', 'Uncertain', 'Speculative'];
 
 export const projections = events.filter((e) => e.future);
 
-const parentsOf = (graph, id) => (graph.adjacency[id] || []).filter((a) => !a.out);
+export const parentsOf = (graph, id) => (graph.adjacency[id] || []).filter((a) => !a.out);
+
+/** The strings on one card, split by direction and ordered by the other end's
+ *  year — what led to this, and what this led to. */
+export function stringsOf(graph, id) {
+  const byYear = (a, b) => (graph.index[a.id] ? graph.index[a.id].year : 0) - (graph.index[b.id] ? graph.index[b.id].year : 0);
+  const links = (graph.adjacency[id] || []).filter((a) => graph.index[a.id]);
+  return {
+    into: links.filter((a) => !a.out).sort(byYear),
+    outOf: links.filter((a) => a.out).sort(byYear)
+  };
+}
+
+/** Entries grouped under the era heading they fall in; empty eras are skipped. */
+export function groupByEra(items) {
+  return ERAS.map((era, i) => {
+    const next = ERAS[i + 1] ? ERAS[i + 1].year : Infinity;
+    return { era, items: items.filter((e) => e.year >= era.year && e.year < next) };
+  }).filter((g) => g.items.length);
+}
 
 /** Every string behind one projection — all of them, not one path. */
 export function strandOf(graph, id) {

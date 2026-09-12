@@ -5,8 +5,11 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
-a { color: oklch(0.82 0.13 85); text-decoration: none; }
-a:hover { color: oklch(0.9 0.14 85); text-decoration: underline; }
+/* A link in running text is told apart from the text by its underline, not by
+   colour alone. Controls that borrow the anchor (buttons, nav, doors) set
+   text-decoration: none inline and keep their own look. */
+a { color: oklch(0.82 0.13 85); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.16em; }
+a:hover { color: oklch(0.9 0.14 85); }
 ::selection { background: oklch(0.82 0.13 85); color: #0a0a0b; }
 input::placeholder { color: rgba(243, 240, 234, 0.32); }
 button { font: inherit; }
