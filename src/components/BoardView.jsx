@@ -1,121 +1,99 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { THREADS, TICKS, FIRST, NOW, CATEGORIES, accent, buildChain, catLabel, catHue, fade, yearFraction, yearAtFraction } from '../lib/data.js';
+import { THREADS, TICKS, FIRST, NOW, CATEGORIES, accent, buildChain, catLabel, catHue, fade, yearAtFraction } from '../lib/data.js';
+import { PAD, metrics, layout, stringPath } from '../lib/layout.js';
 import { MANILA, MONO, PAPER, RED, RED_LIT, CYAN, SERIF, EASE, FADE, micro, paperInk } from '../lib/styles.js';
 import { Empty } from './kit.jsx';
 import { panDuration, panPosition } from '../lib/motion.js';
 import CluePanel from './CluePanel.jsx';
 import EditorBar from './EditorBar.jsx';
 
-const PAD = 200;
+/* One card on the cork. Memoised on plain values, so a scroll, a drag frame or a
+   hover elsewhere on the board does not reconcile it: only the card whose own
+   lit / subject / raised state flipped renders again. */
+const Card = React.memo(function Card({ node, m, img, lit, subject, raised, editing, hoverable, onClick, onHover }) {
+  const e = node.event;
+  const f = fade(e.year);
+  return (
+    <button
+      type="button"
+      id={'card-' + e.id}
+      aria-label={e.year + ', ' + catLabel(e.category) + ', ' + e.title}
+      onClick={() => onClick(e)}
+      onFocus={() => hoverable && onHover(e.id)}
+      onBlur={() => hoverable && onHover(null)}
+      onMouseEnter={() => hoverable && onHover(e.id)}
+      onMouseLeave={() => hoverable && onHover(null)}
+      style={{
+        position: 'absolute', left: node.x - m.cardW / 2, top: node.top, width: m.cardW, height: m.cardH,
+        padding: 0, border: 'none', background: 'transparent', textAlign: 'left', boxSizing: 'border-box',
+        cursor: editing ? 'text' : 'pointer',
+        transform: 'rotate(' + node.tilt + 'deg) scale(' + (raised ? 1.05 : 1) + ')',
+        transformOrigin: '50% 0%', transition: 'transform .3s ' + EASE + ', opacity .3s',
+        opacity: lit ? 1 : 0.2, zIndex: raised ? 12 : 2
+      }}
+    >
+      <span style={{
+        display: 'flex', flexDirection: 'column', position: 'relative', boxSizing: 'border-box',
+        width: '100%', height: '100%', overflow: 'hidden',
+        background: e.future ? MANILA : PAPER, borderRadius: 1,
+        padding: m.k < 0.6 ? '5px 6px 6px' : '7px 7px 8px',
+        border: e.future ? '1px dashed rgba(23,22,26,0.4)' : '1px solid rgba(23,22,26,0.16)',
+        boxShadow: (subject ? '0 0 0 2px ' + RED + ', ' : '') + '0 10px 20px rgba(0,0,0,0.5)'
+      }}>
+        <span style={{
+          position: 'absolute', left: '50%', top: 2, marginLeft: -5, width: 10, height: 10, borderRadius: '50%',
+          background: 'radial-gradient(circle at 35% 30%, oklch(0.9 0.05 ' + catHue(e.category) + '), ' + accent(e.category, f) + ')',
+          border: '1px solid rgba(0,0,0,0.35)', boxShadow: '0 2px 4px rgba(0,0,0,0.6)', zIndex: 2
+        }} />
+        {m.photo && (img ? (
+          <img src={img} alt="" loading="lazy" decoding="async" style={{ flex: '1 1 auto', minHeight: 0, width: '100%', objectFit: 'cover', display: 'block', border: '1px solid rgba(23,22,26,0.22)', filter: 'grayscale(0.35) sepia(0.16) contrast(1.05)' }} />
+        ) : (
+          <span style={{
+            flex: '1 1 auto', minHeight: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%',
+            border: '1px solid rgba(23,22,26,0.22)', textAlign: 'center',
+            background: 'repeating-linear-gradient(135deg,rgba(23,22,26,0.07) 0 5px,transparent 5px 10px)',
+            font: '400 8px/1 ' + MONO, letterSpacing: '0.16em', textTransform: 'uppercase', color: paperInk(0.65)
+          }}>no photo</span>
+        ))}
+        <span style={{ flex: 'none', display: 'block', marginTop: m.photo ? 5 : 8, font: '500 8.5px/1 ' + MONO, letterSpacing: '0.14em', color: paperInk(0.72), fontVariantNumeric: 'tabular-nums' }}>{e.year}</span>
+        <span style={{
+          flex: m.photo ? 'none' : '1 1 auto', display: '-webkit-box', WebkitBoxOrient: 'vertical',
+          WebkitLineClamp: m.titleLines, overflow: 'hidden', marginTop: 3,
+          font: '400 ' + m.titlePx + 'px/1.14 ' + SERIF, color: '#17161a'
+        }}>{e.title}</span>
+        {m.showCat && (
+          <span style={{ flex: 'none', display: 'block', marginTop: 4, font: '400 7.5px/1 ' + MONO, letterSpacing: '0.18em', textTransform: 'uppercase', color: e.future ? 'oklch(0.45 0.16 25)' : paperInk(0.65) }}>
+            {e.future ? 'Scenario · ' + (e.confidence || 'Uncertain') : e.local ? 'Added by you' : catLabel(e.category)}
+          </span>
+        )}
+      </span>
+    </button>
+  );
+});
 
-/**
- * Every dimension on the board is solved from the height the window actually gives
- * us, so all six threads fit on screen exactly once and the board never scrolls
- * vertically. The gutter that falls out of that solve — the strip above each lane's
- * cards — is not spare room: it is the channel the strings are drawn in.
- */
-const MIN_LANE = 46;
-
-function metrics(height, width) {
-  const lanes = THREADS.length;
-  const ruler = height >= 520 ? 30 : 22;
-  // The lane height that would make all six fit exactly. If honouring the
-  // legibility floor overshoots it, the board genuinely cannot fit this window —
-  // so it says so by scrolling, rather than clipping a lane off the bottom.
-  const ideal = Math.floor((height - ruler) / lanes);
-  const lane = Math.max(MIN_LANE, ideal);
-  const fits = ideal >= MIN_LANE;
-  const cardH = Math.max(34, Math.round(lane * 0.72));
-  const gutter = lane - cardH;
-  const k = Math.min(1, lane / 216);
-  const cardW = Math.max(126, Math.round(210 * (0.58 + 0.42 * k)));
-  const gap = cardW + Math.max(14, Math.round(34 * k));
-  const photo = cardH >= 72;
-  return {
-    ruler, lane, cardH, gutter, cardW, gap, k, photo, fits,
-    showCat: cardH >= 120,
-    titleLines: cardH >= 104 ? 2 : (photo ? 1 : 3),
-    titlePx: Math.max(10.5, Math.min(14, 8 + 6 * k)),
-    boardW: Math.max(4200, Math.round(width * 7))
-  };
-}
-
-/** One row per thread, chronological, never overlapping — and never far from
- *  its true year. Collision avoidance pushes crowded cards right, and a lane
- *  that is pushed a long way stops lining up with the lanes beside it: one lane
- *  shows 1969 where another shows 2025. That breaks the one thing a timeline
- *  board promises, so the board is sized to the densest lane's whole need
- *  before anything is placed. */
-function layout(items, m) {
-  const place = (boardW) => {
-    const xOf = (year) => PAD + yearFraction(year) * (boardW - PAD * 2);
-    const nodes = [];
-    THREADS.forEach((thread, row) => {
-      let lastX = -Infinity;
-      const laneTop = m.ruler + row * m.lane;
-      items
-        .filter((e) => e.thread === thread.id)
-        .map((e) => ({ event: e, x: xOf(e.year) }))
-        .sort((a, b) => a.x - b.x)
-        .forEach((slot) => {
-          const gap = slot.event.featured ? m.gap + Math.round(m.gap * 0.16) : m.gap;
-          const x = Math.max(slot.x, lastX + gap);
-          lastX = x;
-          nodes.push({
-            event: slot.event,
-            x,
-            top: laneTop + m.gutter,
-            y: laneTop + m.gutter + m.cardH / 2,
-            ty: laneTop + m.gutter,
-            tilt: (((slot.event.id.length * 37) % 5) - 2) * 0.5
-          });
-        });
-    });
-    return { nodes, xOf, boardW };
-  };
-
-  // Give the densest lane room for its cards. Eight entries in one year will
-  // always be pushed a card apart whatever the width — that is not misalignment —
-  // so this sizes to the lane's total need rather than chasing a push that a
-  // same-year cluster can never eliminate. On a desktop this is close to the
-  // nominal width; on a phone, where cards are large relative to the board, it
-  // is what stops one lane drifting decades away from the lane beside it.
-  const densest = THREADS.reduce((mx, th) => Math.max(mx, items.filter((e) => e.thread === th.id).length), 0);
-  const boardW = Math.max(m.boardW, Math.ceil(densest * m.gap * 1.35) + PAD * 2);
-  const result = place(boardW);
-
-  const reach = result.nodes.reduce((mx, n) => Math.max(mx, n.x + m.cardW / 2), 0);
-  return {
-    nodes: result.nodes,
-    xOf: result.xOf,
-    width: Math.max(result.boardW, Math.ceil(reach + PAD)),
-    height: m.ruler + THREADS.length * m.lane
-  };
-}
-
-/**
- * Strings tie to the pin at the top edge of a card and arch UP into the gutter.
- * The old geometry started at the card's centre — burying ~105px horizontally and
- * ~79px vertically of every string inside its own two endpoint cards — and sagged
- * downward into the row below. Arching up keeps same-lane strings — the majority —
- * entirely in empty space.
- */
-function stringPath(a, b, gutter) {
-  const dx = b.x - a.x;
-  const lift = Math.min(gutter * 0.86, 12 + Math.abs(dx) * 0.03);
-  const c1x = a.x + dx * 0.25;
-  const c1y = a.ty - lift;
-  const c2x = b.x - dx * 0.25;
-  const c2y = b.ty - lift;
-  return {
-    d: 'M' + a.x.toFixed(1) + ' ' + a.ty.toFixed(1) +
-       ' C' + c1x.toFixed(1) + ' ' + c1y.toFixed(1) + ',' +
-       c2x.toFixed(1) + ' ' + c2y.toFixed(1) + ',' +
-       b.x.toFixed(1) + ' ' + b.ty.toFixed(1),
-    mx: (a.x + 3 * c1x + 3 * c2x + b.x) / 8,
-    my: (a.ty + 3 * c1y + 3 * c2y + b.ty) / 8
-  };
-}
+/* One string. `strong` lights it as the clue being read; `onChain` keeps it in
+   the walked chain; `dim` fades everything outside the active set. */
+const StringPath = React.memo(function StringPath({ s, strong, onChain, dim }) {
+  const width = strong ? 2.6 : 1.7;
+  const opacity = dim ? (strong ? 1 : onChain ? 0.6 : 0.2) : 0.92;
+  return (
+    <g style={{ opacity, transition: 'opacity .3s' }}>
+      {strong && <path d={s.d} style={{ fill: 'none', stroke: s.lit, strokeWidth: width + 7, opacity: 0.22, filter: 'blur(4px)' }} />}
+      {/* Casing: invisible on the dark ground, but it is what keeps a
+          string readable where it crosses a cream card. */}
+      <path d={s.d} style={{ fill: 'none', stroke: '#0a0a0b', strokeWidth: width + 2.6, strokeLinecap: 'round', opacity: 0.62, strokeDasharray: s.future ? '6 7' : undefined }} />
+      <path
+        d={s.d}
+        markerEnd={strong ? 'url(#tip-' + s.cat + ')' : undefined}
+        style={{
+          fill: 'none', stroke: strong ? s.lit : s.tone, strokeWidth: width, strokeLinecap: 'round',
+          strokeDasharray: s.future ? '6 7' : undefined,
+          transition: 'stroke-width .3s, stroke .3s'
+        }}
+      />
+    </g>
+  );
+});
 
 export default function BoardView({ items, graph, media, route, navigate, board, onYear }) {
   const root = useRef(null);
@@ -137,7 +115,10 @@ export default function BoardView({ items, graph, media, route, navigate, board,
   const [chain, setChain] = useState(null);
   const [step, setStep] = useState(0);
   const [viewport, setViewport] = useState([FIRST, FIRST + 50]);
-  const [thumb, setThumb] = useState({ left: 0, width: 0.2 });
+  // The scrubber's thumb is written straight to the DOM on every scroll frame;
+  // it is the one thing that must move every frame and nothing else depends on it.
+  const thumbRef = useRef(null);
+  const scrubRef = useRef(null);
   const [editing, setEditing] = useState(false);
   const [draft, setDraft] = useState(null);
   const [connectFrom, setConnectFrom] = useState(null);
@@ -365,15 +346,22 @@ export default function BoardView({ items, graph, media, route, navigate, board,
     // Read the years off the cards in view. Where a lane has been pushed past its
     // year positions, the x->year map lies; the cards themselves do not.
     const seen = board3.nodes.filter((n) => n.x + m.cardW / 2 > left && n.x - m.cardW / 2 < right);
+    let lo, hi;
     if (seen.length) {
-      let lo = Infinity, hi = -Infinity;
+      lo = Infinity; hi = -Infinity;
       seen.forEach((n) => { if (n.event.year < lo) lo = n.event.year; if (n.event.year > hi) hi = n.event.year; });
-      setViewport([lo, hi]);
     } else {
-      setViewport([yearAtFraction(fr(left)), yearAtFraction(fr(right))]);
+      lo = yearAtFraction(fr(left)); hi = yearAtFraction(fr(right));
     }
+    // State only when the readout would actually change: a scroll frame that
+    // stays inside the same years must not re-render the board.
+    setViewport((v) => (v[0] === lo && v[1] === hi ? v : [lo, hi]));
 
-    setThumb({ left: left / el.scrollWidth, width: el.clientWidth / el.scrollWidth });
+    if (thumbRef.current) {
+      thumbRef.current.style.left = (left / el.scrollWidth * 100).toFixed(2) + '%';
+      thumbRef.current.style.width = Math.max(4, el.clientWidth / el.scrollWidth * 100).toFixed(2) + '%';
+    }
+    if (scrubRef.current) scrubRef.current.setAttribute('aria-valuenow', String(Math.round(left / el.scrollWidth * 100)));
 
     if (onYear) {
       const head = left + Math.min(el.clientWidth * 0.4, 380);
@@ -443,20 +431,26 @@ export default function BoardView({ items, graph, media, route, navigate, board,
     window.addEventListener('pointerup', up);
   };
 
-  const clickCard = (event) => {
+  // The editor's state is read through a ref so this handler keeps one identity
+  // and the memoised cards are not re-rendered every time the editor changes.
+  const editor = useRef({ editing, connectFrom, board });
+  editor.current = { editing, connectFrom, board };
+  const clickCard = useCallback((event) => {
     if (dragged.current) return;
-    if (editing) { setDraft({ ...event, note: event.summary, isNew: false }); return; }
-    if (connectFrom) {
-      if (connectFrom === event.id) { setConnectFrom(null); return; }
+    const { editing: on, connectFrom: from, board: b } = editor.current;
+    if (on) { setDraft({ ...event, note: event.summary, isNew: false }); return; }
+    if (from) {
+      if (from === event.id) { setConnectFrom(null); return; }
       const claim = window.prompt('What does this string claim? e.g. “provoked”, “funded”, “was the warning for”', 'led to');
       if (claim === null) { setConnectFrom(null); return; }
       const note = window.prompt('Case note (optional): explain the causal argument.', '') || '';
-      board.addString({ from: connectFrom, to: event.id, claim: claim || 'led to', note });
+      b.addString({ from, to: event.id, claim: claim || 'led to', note });
       setConnectFrom(null);
       return;
     }
     focusCard(event.id);
-  };
+  }, [focusCard]);
+  const hoverable = canHover && !chain && !pinned;
 
   // The one first-time hint the board gives. Keys are only offered where a
   // keyboard is likely — a phone reader would only wonder where the arrows are.
@@ -582,26 +576,7 @@ export default function BoardView({ items, graph, media, route, navigate, board,
               {strings.map((s) => {
                 const onChain = chain ? (chainIds.includes(s.from) && chainIds.includes(s.to)) : (active && (s.from === focusId || s.to === focusId));
                 const isStep = current && ((current.from === s.from && current.to === s.to) || (current.from === s.to && current.to === s.from));
-                const strong = isStep || (!chain && onChain);
-                const width = strong ? 2.6 : 1.7;
-                const opacity = active ? (strong ? 1 : onChain ? 0.6 : 0.2) : 0.92;
-                return (
-                  <g key={s.id} style={{ opacity, transition: 'opacity .3s' }}>
-                    {strong && <path d={s.d} style={{ fill: 'none', stroke: s.lit, strokeWidth: width + 7, opacity: 0.22, filter: 'blur(4px)' }} />}
-                    {/* Casing: invisible on the dark ground, but it is what keeps a
-                        string readable where it crosses a cream card. */}
-                    <path d={s.d} style={{ fill: 'none', stroke: '#0a0a0b', strokeWidth: width + 2.6, strokeLinecap: 'round', opacity: 0.62, strokeDasharray: s.future ? '6 7' : undefined }} />
-                    <path
-                      d={s.d}
-                      markerEnd={strong ? 'url(#tip-' + s.cat + ')' : undefined}
-                      style={{
-                        fill: 'none', stroke: strong ? s.lit : s.tone, strokeWidth: width, strokeLinecap: 'round',
-                        strokeDasharray: s.future ? '6 7' : undefined,
-                        transition: 'stroke-width .3s, stroke .3s'
-                      }}
-                    />
-                  </g>
-                );
+                return <StringPath key={s.id} s={s} strong={!!(isStep || (!chain && onChain))} onChain={!!onChain} dim={!!active} />;
               })}
             </svg>
 
@@ -621,67 +596,20 @@ export default function BoardView({ items, graph, media, route, navigate, board,
 
             {board3.nodes.map((node) => {
               const e = node.event;
-              const f = fade(e.year);
-              const lit = !active || active.includes(e.id);
-              const inStep = current && (current.from === e.id || current.to === e.id);
-              const subject = current ? current.to === e.id : focusId === e.id;
-              const raised = inStep || focusId === e.id;
-              const shot = media(e);
               return (
-                <button
+                <Card
                   key={e.id}
-                  type="button"
-                  aria-label={e.year + ', ' + catLabel(e.category) + ', ' + e.title}
-                  onClick={() => clickCard(e)}
-                  onFocus={() => canHover && !chain && !pinned && setHover(e.id)}
-                  onBlur={() => canHover && !chain && !pinned && setHover(null)}
-                  onMouseEnter={() => canHover && !chain && !pinned && setHover(e.id)}
-                  onMouseLeave={() => canHover && !chain && !pinned && setHover(null)}
-                  style={{
-                    position: 'absolute', left: node.x - m.cardW / 2, top: node.top, width: m.cardW, height: m.cardH,
-                    padding: 0, border: 'none', background: 'transparent', textAlign: 'left', boxSizing: 'border-box',
-                    cursor: editing ? 'text' : 'pointer',
-                    transform: 'rotate(' + node.tilt + 'deg) scale(' + (raised ? 1.05 : 1) + ')',
-                    transformOrigin: '50% 0%', transition: 'transform .3s ' + EASE + ', opacity .3s',
-                    opacity: lit ? 1 : 0.2, zIndex: raised ? 12 : 2
-                  }}
-                >
-                  <span style={{
-                    display: 'flex', flexDirection: 'column', position: 'relative', boxSizing: 'border-box',
-                    width: '100%', height: '100%', overflow: 'hidden',
-                    background: e.future ? MANILA : PAPER, borderRadius: 1,
-                    padding: m.k < 0.6 ? '5px 6px 6px' : '7px 7px 8px',
-                    border: e.future ? '1px dashed rgba(23,22,26,0.4)' : '1px solid rgba(23,22,26,0.16)',
-                    boxShadow: (subject ? '0 0 0 2px ' + RED + ', ' : '') + '0 10px 20px rgba(0,0,0,0.5)'
-                  }}>
-                    <span style={{
-                      position: 'absolute', left: '50%', top: 2, marginLeft: -5, width: 10, height: 10, borderRadius: '50%',
-                      background: 'radial-gradient(circle at 35% 30%, oklch(0.9 0.05 ' + catHue(e.category) + '), ' + accent(e.category, f) + ')',
-                      border: '1px solid rgba(0,0,0,0.35)', boxShadow: '0 2px 4px rgba(0,0,0,0.6)', zIndex: 2
-                    }} />
-                    {m.photo && (shot.img ? (
-                      <img src={shot.img} alt="" loading="lazy" style={{ flex: '1 1 auto', minHeight: 0, width: '100%', objectFit: 'cover', display: 'block', border: '1px solid rgba(23,22,26,0.22)', filter: 'grayscale(0.35) sepia(0.16) contrast(1.05)' }} />
-                    ) : (
-                      <span style={{
-                        flex: '1 1 auto', minHeight: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%',
-                        border: '1px solid rgba(23,22,26,0.22)', textAlign: 'center',
-                        background: 'repeating-linear-gradient(135deg,rgba(23,22,26,0.07) 0 5px,transparent 5px 10px)',
-                        font: '400 8px/1 ' + MONO, letterSpacing: '0.16em', textTransform: 'uppercase', color: paperInk(0.65)
-                      }}>no photo</span>
-                    ))}
-                    <span style={{ flex: 'none', display: 'block', marginTop: m.photo ? 5 : 8, font: '500 8.5px/1 ' + MONO, letterSpacing: '0.14em', color: paperInk(0.72), fontVariantNumeric: 'tabular-nums' }}>{e.year}</span>
-                    <span style={{
-                      flex: m.photo ? 'none' : '1 1 auto', display: '-webkit-box', WebkitBoxOrient: 'vertical',
-                      WebkitLineClamp: m.titleLines, overflow: 'hidden', marginTop: 3,
-                      font: '400 ' + m.titlePx + 'px/1.14 ' + SERIF, color: '#17161a'
-                    }}>{e.title}</span>
-                    {m.showCat && (
-                      <span style={{ flex: 'none', display: 'block', marginTop: 4, font: '400 7.5px/1 ' + MONO, letterSpacing: '0.18em', textTransform: 'uppercase', color: e.future ? 'oklch(0.45 0.16 25)' : paperInk(0.65) }}>
-                        {e.future ? 'Scenario · ' + (e.confidence || 'Uncertain') : e.local ? 'Added by you' : catLabel(e.category)}
-                      </span>
-                    )}
-                  </span>
-                </button>
+                  node={node}
+                  m={m}
+                  img={media(e).img}
+                  lit={!active || active.includes(e.id)}
+                  subject={current ? current.to === e.id : focusId === e.id}
+                  raised={!!((current && (current.from === e.id || current.to === e.id)) || focusId === e.id)}
+                  editing={editing}
+                  hoverable={hoverable}
+                  onClick={clickCard}
+                  onHover={setHover}
+                />
               );
             })}
           </div>
@@ -733,7 +661,9 @@ export default function BoardView({ items, graph, media, route, navigate, board,
               overflowY: panelContentH > PANEL_CAP ? 'auto' : 'hidden', overscrollBehavior: 'contain',
               touchAction: 'pan-y', WebkitOverflowScrolling: 'touch',
               pointerEvents: preview ? 'none' : 'auto',
-              background: 'rgba(10,10,11,0.94)', backdropFilter: 'blur(16px) saturate(1.3)'
+              // Near-opaque rather than blurred: a backdrop filter over a canvas
+              // that pans behind it is a GPU pass on every frame of every walk.
+              background: 'rgba(10,10,11,0.985)'
             }}
           >
            <div ref={panelInner}>
@@ -756,10 +686,10 @@ export default function BoardView({ items, graph, media, route, navigate, board,
         )}
       </div>
 
-      <div onPointerDown={onScrub} role="scrollbar" aria-label="Pan the board" aria-controls="board-canvas" aria-valuenow={Math.round(thumb.left * 100)}
+      <div ref={scrubRef} onPointerDown={onScrub} role="scrollbar" aria-label="Pan the board" aria-controls="board-canvas" aria-orientation="horizontal" aria-valuenow={0}
         style={{ marginTop: 4, height: 12, position: 'relative', cursor: 'pointer', display: 'flex', alignItems: 'center', flex: 'none' }}>
         <div style={{ position: 'absolute', left: 0, right: 0, height: 3, background: 'rgba(243,240,234,0.1)', borderRadius: 2 }} />
-        <div style={{ position: 'absolute', left: (thumb.left * 100).toFixed(2) + '%', width: Math.max(4, thumb.width * 100).toFixed(2) + '%', height: 8, background: CYAN, opacity: 0.7, borderRadius: 2 }} />
+        <div ref={thumbRef} style={{ position: 'absolute', left: 0, width: '20%', height: 8, background: CYAN, opacity: 0.7, borderRadius: 2 }} />
       </div>
     </div>
   );

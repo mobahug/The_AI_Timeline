@@ -16,7 +16,7 @@ const NAV = {
  * The forward half of the board, read as three horizons. Every count is computed
  * from data/events.json and data/links.json at render; nothing here is written down.
  */
-export default function HorizonView({ items, graph, route, navigate, onOpen }) {
+function HorizonView({ items, graph, route, navigate, onOpen }) {
   const visible = items.filter((e) => e.future);
   const board = forwardLedger(graph);
   const filtered = visible.length !== board.total;
@@ -220,3 +220,6 @@ function Strand({ event, strand, graph, onOpen }) {
     </article>
   );
 }
+
+// A page re-renders on its own route, not on the header's year ticking over.
+export default React.memo(HorizonView);

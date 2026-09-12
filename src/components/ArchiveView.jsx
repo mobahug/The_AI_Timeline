@@ -16,7 +16,7 @@ const MODES = [
   ['mosaic', 'Mosaic']
 ];
 
-export default function ArchiveView({ mode, items, media, route, navigate }) {
+function ArchiveView({ mode, items, media, route, navigate }) {
   return (
     <>
       <div style={{ ...shell('wide'), paddingBottom: 0 }}>
@@ -38,3 +38,6 @@ export default function ArchiveView({ mode, items, media, route, navigate }) {
     </>
   );
 }
+
+// A page re-renders on its own route, not on the header's year ticking over.
+export default React.memo(ArchiveView);

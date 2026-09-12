@@ -12,7 +12,7 @@ import OpenFile from './OpenFile.jsx';
 /** A finding is referred to as `NN · Title` everywhere. */
 const findingLabel = (r) => String(r.finding.n).padStart(2, '0') + ' · ' + r.finding.title;
 
-export default function FindingView({ graph, route, navigate, onOpen, media }) {
+function FindingView({ graph, route, navigate, onOpen, media }) {
   const line = buildLine(graph);
   const n = Number(route.finding) || 1;
   const finding = findingByNumber(n);
@@ -158,3 +158,6 @@ export default function FindingView({ graph, route, navigate, onOpen, media }) {
     </div>
   );
 }
+
+// A page re-renders on its own route, not on the header's year ticking over.
+export default React.memo(FindingView);

@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import Header from './components/Header.jsx';
 import { RouteProvider } from './components/kit.jsx';
 import ErrorBoundary from './components/ErrorBoundary.jsx';
@@ -27,7 +27,10 @@ export default function App() {
   const graph = useMemo(() => buildGraph(board.board), [board.board]);
   const media = useMedia(graph.all);
   const [year, setYear] = useState(String(FIRST));
-  const [progress, setProgress] = useState(0);
+  // The 1px progress bar is painted straight into the DOM: a scroll must not
+  // re-render the header and the whole page to move it.
+  const barRef = useRef(null);
+  const paint = (p) => { if (barRef.current) barRef.current.style.width = (p * 100).toFixed(2) + '%'; };
 
   const items = useMemo(() => {
     const q = route.query.trim().toLowerCase();
@@ -44,7 +47,7 @@ export default function App() {
     const onScroll = () => {
       const doc = document.documentElement;
       const max = doc.scrollHeight - window.innerHeight;
-      setProgress(max > 0 ? Math.min(1, window.scrollY / max) : 0);
+      paint(max > 0 ? Math.min(1, window.scrollY / max) : 0);
       const nodes = document.querySelectorAll('[data-year]');
       let found = null;
       nodes.forEach((n) => { if (n.getBoundingClientRect().top < 180) found = n.getAttribute('data-year'); });
@@ -105,7 +108,7 @@ export default function App() {
   }, [route.view]);
 
   const openOnBoard = useCallback((id) => navigate({ view: 'board', id, clue: null, category: 'all', query: '' }), [navigate]);
-  const onBoardPosition = useCallback((y, p) => { setYear(y); setProgress(p); }, []);
+  const onBoardPosition = useCallback((y, p) => { setYear(y); paint(p); }, []);
 
   const fwd = useMemo(() => forwardLedger(graph), [graph]);
   const status = route.view === 'board'
@@ -126,7 +129,7 @@ export default function App() {
         onBlur={(e) => { e.currentTarget.style.left = '-9999px'; }}
       >Skip to content</a>
       <div style={{ position: 'fixed', inset: 0, zIndex: 60, pointerEvents: 'none', mixBlendMode: 'overlay', backgroundImage: 'repeating-linear-gradient(0deg,rgba(255,255,255,0.028) 0 1px,transparent 1px 3px)' }} />
-      <Header route={route} navigate={navigate} year={year} progress={progress} status={status} />
+      <Header route={route} navigate={navigate} year={year} barRef={barRef} status={status} />
 
       <ErrorBoundary resetKey={route.view + '|' + (route.finding || '') + '|' + (route.id || '')}>
         <main id="main" tabIndex={-1} style={{ outline: 'none' }}>

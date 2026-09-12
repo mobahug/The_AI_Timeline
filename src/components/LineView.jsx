@@ -21,7 +21,7 @@ const Hop = ({ from, claim, to }) => (
   </div>
 );
 
-export default function LineView({ graph }) {
+function LineView({ graph }) {
   const line = buildLine(graph);
 
   // The opening example is derived, not chosen: the first boundary-crossing string
@@ -166,3 +166,6 @@ export default function LineView({ graph }) {
     </div>
   );
 }
+
+// A page re-renders on its own route, not on the header's year ticking over.
+export default React.memo(LineView);

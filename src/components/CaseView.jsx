@@ -38,7 +38,7 @@ const Road = ({ road }) => (
   </div>
 );
 
-export default function CaseView({ graph }) {
+function CaseView({ graph }) {
   const standing = standingNow(graph);
   const threads = threadLedger(graph);
   const bearing = loadBearing(graph, 6);
@@ -201,3 +201,6 @@ export default function CaseView({ graph }) {
     </div>
   );
 }
+
+// A page re-renders on its own route, not on the header's year ticking over.
+export default React.memo(CaseView);

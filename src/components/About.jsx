@@ -12,7 +12,7 @@ const Section = ({ title, children }) => (
   </section>
 );
 
-export default function About() {
+function About() {
   return (
     <div style={shell('read')}>
       <PageHead
@@ -74,3 +74,6 @@ export default function About() {
     </div>
   );
 }
+
+// A page re-renders on its own route, not on the header's year ticking over.
+export default React.memo(About);

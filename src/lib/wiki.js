@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import fallbacks from '../../data/image-fallbacks.json';
 
 const LIVE_KEY = 'aiTimeline.wikiLive.v1';
@@ -101,7 +101,7 @@ export function bearingOn(event, extract) {
  * has a free photograph. Live results are remembered in localStorage.
  */
 export function useMedia(items) {
-  const [, bump] = useState(0);
+  const [version, bump] = useState(0);
 
   useEffect(() => {
     let cancelled = false;
@@ -137,7 +137,9 @@ export function useMedia(items) {
     return () => { cancelled = true; };
   }, [items]);
 
-  return (event) => {
+  // One function per cache version, not per render: every card on the board
+  // takes this as a prop, and a fresh closure each render would re-render them all.
+  return useCallback((event) => {
     if (!event || event.future) return { img: '', extract: '', cited: null };
 
     // The cited page, which is what a reader is checking the claim against.
@@ -152,5 +154,5 @@ export function useMedia(items) {
     const alt = fallbacks[event.id] ? lookup(fallbacks[event.id]) : null;
     if (alt && alt.img) return { img: alt.img, extract: (direct && direct.extract) || '', borrowed: fallbacks[event.id], cited };
     return { img: '', extract: '', ...(direct || {}), cited };
-  };
+  }, [version]);
 }

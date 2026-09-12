@@ -65,7 +65,7 @@ const SourceBlock = ({ src, event, page }) => {
   );
 };
 
-export default function CardView({ graph, route, media }) {
+function CardView({ graph, route, media }) {
   const event = route.id ? graph.index[route.id] : null;
   if (!event) {
     return (
@@ -200,3 +200,6 @@ export default function CardView({ graph, route, media }) {
     </div>
   );
 }
+
+// A page re-renders on its own route, not on the header's year ticking over.
+export default React.memo(CardView);

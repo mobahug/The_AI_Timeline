@@ -21,7 +21,7 @@ const doors = [
   { eyebrow: 'Yours to edit', title: 'The board', body: 'Add cards and strings on the board, export the patch, open a pull request.', to: { view: 'board' } }
 ];
 
-export default function Landing() {
+function Landing() {
   // No footer follows the landing, so it keeps its own, shorter bottom; and it
   // is a hero, not an interior page — the one exception to the 30px head.
   return (
@@ -62,3 +62,6 @@ export default function Landing() {
     </div>
   );
 }
+
+// A page re-renders on its own route, not on the header's year ticking over.
+export default React.memo(Landing);

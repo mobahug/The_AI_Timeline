@@ -21,7 +21,7 @@ const MID = 1160;
 /** The heading above each block of the sheet. */
 const sheetLabel = { ...micro(5, 'section'), margin: '28px 0 8px' };
 
-export default function Header({ route, navigate, year, progress, status }) {
+export default function Header({ route, navigate, year, barRef, status }) {
   const activeView = tabOf(route.view);
   const [narrow, setNarrow] = useState(() => (typeof window !== 'undefined' ? window.innerWidth < NARROW : false));
   const [mid, setMid] = useState(() => (typeof window !== 'undefined' ? window.innerWidth < MID : false));
@@ -211,7 +211,7 @@ export default function Header({ route, navigate, year, progress, status }) {
         )}
       </div>
       <div style={{ height: 1, background: 'rgba(243,240,234,0.1)' }}>
-        <div style={{ height: 1, width: (progress * 100).toFixed(2) + '%', background: GOLD }} />
+        <div ref={barRef} style={{ height: 1, width: '0%', background: GOLD }} />
       </div>
     </header>
   );
