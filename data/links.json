@@ -2,12 +2,12 @@
   {
     "from": "turing-asks-the-question",
     "to": "dartmouth-names-the-field",
-    "claim": "gave it a goal"
+    "claim": "was taken up at"
   },
   {
     "from": "the-mcculloch-pitts-neuron",
     "to": "the-perceptron",
-    "claim": "became hardware"
+    "claim": "became the hardware of"
   },
   {
     "from": "dartmouth-names-the-field",
@@ -28,7 +28,7 @@
   {
     "from": "the-first-ai-winter",
     "to": "expert-systems-go-commercial",
-    "claim": "forced a pivot to rules"
+    "claim": "forced the pivot to"
   },
   {
     "from": "expert-systems-go-commercial",
@@ -43,7 +43,7 @@
   {
     "from": "convolutions-read-handwriting",
     "to": "alexnet",
-    "claim": "scaled up into"
+    "claim": "scaled into"
   },
   {
     "from": "moore-s-law",
@@ -53,13 +53,13 @@
   {
     "from": "cuda",
     "to": "alexnet",
-    "claim": "supplied the compute",
+    "claim": "supplied the compute for",
     "note": "Programmable graphics hardware, built for games, was the only affordable way to run the convolutions. Without it the 2012 result waits years longer."
   },
   {
     "from": "imagenet",
     "to": "alexnet",
-    "claim": "was the test it won"
+    "claim": "was the test won by"
   },
   {
     "from": "alexnet",
@@ -70,7 +70,7 @@
   {
     "from": "hinton-auctions-his-three-person-startup",
     "to": "google-buys-deepmind",
-    "claim": "priced the talent"
+    "claim": "priced the talent for"
   },
   {
     "from": "google-buys-deepmind",
@@ -92,7 +92,7 @@
   {
     "from": "musk-leaves-the-openai-board",
     "to": "openai-goes-capped-profit-microsoft-puts-in-1bn",
-    "claim": "left a funding hole",
+    "claim": "left a funding hole filled by",
     "note": "With the founding money gone and training costs climbing, a nonprofit could not buy compute. The capped-profit subsidiary and the Microsoft deal exist because the original funding model collapsed."
   },
   {
@@ -123,7 +123,7 @@
   {
     "from": "chatgpt",
     "to": "google-declares-a-code-red",
-    "claim": "panicked",
+    "claim": "set off",
     "note": "The company that published the transformer watched a competitor turn it into a consumer product first. The internal emergency that followed ended the industry's habit of slow, staged releases."
   },
   {
@@ -151,7 +151,7 @@
   {
     "from": "google-fires-timnit-gebru",
     "to": "anthropic-founded-by-departing-openai-staff",
-    "claim": "scattered the safety bench",
+    "claim": "scattered the safety bench into",
     "note": "Both events answer the same question — what happens when internal safety criticism collides with product pressure. One ended in a firing; the other in a rival company."
   },
   {
@@ -162,13 +162,13 @@
   {
     "from": "openai-goes-capped-profit-microsoft-puts-in-1bn",
     "to": "altman-is-fired-then-rehired-in-five-days",
-    "claim": "built the fault line",
+    "claim": "built the fault line that broke in",
     "note": "A nonprofit board with a duty to humanity now sat on top of a company worth tens of billions to its investors and staff. When the board finally used its power, the commercial side simply out-voted it with resignation letters."
   },
   {
     "from": "altman-is-fired-then-rehired-in-five-days",
     "to": "sutskever-leaves-superalignment-dissolves",
-    "claim": "cost him the lab",
+    "claim": "ended with",
     "note": "The chief scientist backed the removal and lost. Six months later he was gone and the long-horizon safety team he co-led no longer existed."
   },
   {
@@ -179,12 +179,12 @@
   {
     "from": "musk-leaves-the-openai-board",
     "to": "musk-sues-openai",
-    "claim": "ten years later, becomes"
+    "claim": "came back as"
   },
   {
     "from": "the-pause-letter",
     "to": "bletchley-and-the-executive-orders",
-    "claim": "handed the problem to states",
+    "claim": "handed the problem to states at",
     "note": "A voluntary pause nobody honoured demonstrated that the industry could not self-coordinate. Governments used that failure as the argument for statutory oversight."
   },
   {
@@ -211,7 +211,7 @@
   {
     "from": "diffusion-goes-mainstream",
     "to": "the-voice-that-sounded-like-her",
-    "claim": "made likeness cheap"
+    "claim": "made likeness cheap enough for"
   },
   {
     "from": "generative-adversarial-networks",
@@ -222,7 +222,7 @@
   {
     "from": "deepfakes-arrive",
     "to": "provenance-becomes-mandatory",
-    "claim": "will finally force"
+    "claim": "finally forces"
   },
   {
     "from": "chatgpt",
@@ -232,7 +232,7 @@
   {
     "from": "attention-is-all-you-need",
     "to": "reasoning-models",
-    "claim": "left room to think longer",
+    "claim": "left room for",
     "note": "The transformer made capability a function of scale. When training scale got expensive, the same architecture allowed the spend to move to inference — thinking longer instead of training bigger."
   },
   {
@@ -249,7 +249,7 @@
   {
     "from": "the-datacenter-buildout",
     "to": "power-becomes-a-strategy",
-    "claim": "ran into the grid",
+    "claim": "ran into the grid before",
     "note": "Capital could buy chips faster than utilities could deliver megawatts. The constraint moved from the fab to the grid connection, and labs started behaving like energy companies."
   },
   {
@@ -260,17 +260,17 @@
   {
     "from": "the-datacenter-buildout",
     "to": "sovereign-compute",
-    "claim": "made chips a state matter"
+    "claim": "made chips a state matter before"
   },
   {
     "from": "sovereign-compute",
     "to": "the-first-frontier-lab-consolidation",
-    "claim": "prices out all but a few"
+    "claim": "prices out all but a few, forcing"
   },
   {
     "from": "sovereign-compute",
     "to": "model-weights-become-a-national-security-asset",
-    "claim": "classifies",
+    "claim": "is the logic by which",
     "note": "Once states treat training capacity as strategic infrastructure, the trained artefact inherits the same status — controlled, insured, and worth stealing."
   },
   {
@@ -304,7 +304,7 @@
   {
     "from": "the-flash-crash",
     "to": "an-agent-driven-market-event",
-    "claim": "will repeat as"
+    "claim": "repeats as"
   },
   {
     "from": "multi-day-autonomous-work",
@@ -321,7 +321,7 @@
   {
     "from": "reasoning-models",
     "to": "a-machine-assisted-proof",
-    "claim": "may deliver"
+    "claim": "deliver"
   },
   {
     "from": "sutskever-leaves-superalignment-dissolves",
@@ -331,7 +331,7 @@
   {
     "from": "models-that-keep-learning",
     "to": "a-contested-agi-claim",
-    "claim": "makes it unfalsifiable"
+    "claim": "make unfalsifiable"
   },
   {
     "from": "deep-networks-become-trainable",
@@ -360,7 +360,7 @@
   {
     "from": "convolutions-read-handwriting",
     "to": "zuckerberg-hires-lecun",
-    "claim": "made its author the hire",
+    "claim": "made its author the hire in",
     "note": "The convolutional network that read zip codes in 1989 was, by 2013, the architecture that had just won ImageNet. Its inventor was the obvious second founding father to recruit once Google had the first."
   },
   {
@@ -378,7 +378,7 @@
   {
     "from": "cuda",
     "to": "pytorch",
-    "claim": "is wrapped in Python by",
+    "claim": "was wrapped in Python by",
     "note": "PyTorch's tensors run on Nvidia GPUs through CUDA bindings. The framework made CUDA hardware usable from a few lines of Python, which is how most researchers have touched CUDA since."
   },
   {
@@ -426,7 +426,7 @@
   {
     "from": "cuda",
     "to": "washington-restricts-the-chips",
-    "claim": "made the GPU strategic",
+    "claim": "made the GPU strategic enough for",
     "note": "A platform built for games became the only affordable way to train frontier models. Fifteen years later the same chips needed an export licence."
   },
   {
@@ -582,7 +582,7 @@
   {
     "from": "deep-blue-beats-kasparov",
     "to": "gold-at-the-imo",
-    "claim": "repeats as",
+    "claim": "repeated as",
     "note": "The same shape twenty-eight years on: a benchmark that stood for 'real intelligence' falls, the winners announce it themselves, and the task is promptly reclassified as not the interesting one. Buzzard: 'now everyone knows that “AI has got a gold in the IMO” and the question is probably no longer of interest.'"
   },
   {
@@ -594,7 +594,7 @@
   {
     "from": "openai-goes-capped-profit-microsoft-puts-in-1bn",
     "to": "openai-converts-the-nonprofit-keeps-a-stake",
-    "claim": "is unwound by",
+    "claim": "was unwound by",
     "note": "The capped-profit structure was built to let a nonprofit raise capital without losing control. Six years later the cap is gone, the for-profit is a conventional benefit corporation, and the foundation keeps control through board-appointment rights while holding 26% of the equity."
   },
   {

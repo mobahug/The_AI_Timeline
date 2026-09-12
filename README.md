@@ -14,7 +14,7 @@ founding, the funding hole that forced the capped-profit structure, the governan
 line that finally broke over five days in November 2023. Click a card and the board walks
 you through the chain, clue by clue.
 
-Entries after 2026 are projections. They carry a confidence label (`Likely`,
+Entries after the present are scenarios. They carry a confidence label (`Likely`,
 `Uncertain`, `Speculative`) and reasoning instead of a citation, and the board draws
 them on manila stock with dashed edges so they can never be mistaken for record.
 

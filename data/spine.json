@@ -1,5 +1,5 @@
 {
-  "note": "The route through the case. A finding is a titled stretch of years with one lead card; every entry is filed under the last finding whose `from` year is not after it. Assignment is arithmetic, so nothing is orphaned and a new entry files itself. Add a finding by adding a row here — never by tagging entries.",
+  "note": "The line — the route through the case. A finding is a titled stretch of years with one lead card; every entry is filed under the last finding whose `from` year is not after it. Assignment is arithmetic, so nothing is orphaned and a new entry files itself. Add a finding by adding a row here — never by tagging entries.",
   "findings": [
     {
       "n": 1,

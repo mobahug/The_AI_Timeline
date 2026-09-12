@@ -39,13 +39,13 @@ sentence explaining why the first event made the second possible, it is not a st
 }
 ```
 
-- `claim` is short, lowercase, verb-first, and reads as *A **claim** B*.
+- `claim` is short, lowercase, verb-first, and *A **claim** B* must be a grammatical sentence with the second card as its object. End on a preposition or a verb that still wants an object (`for`, `into`, `by`, `set off`), never on a noun that closes the phrase (`supplied the compute`), never with a pronoun standing in for either card (`it`, `him`), never with a typed number. Tense follows what the first card did: past when it is done (`was disproved by`, `funded`), present when the consequence is still unfolding (`hardens into`). Never `will` or `may` — the scenario's confidence label is the hedge. The site prints this sentence verbatim as the page description of every clue link.
 - `note` is optional but strongly encouraged — it is the whole point of the board.
 
-## Projections (anything after 2026)
+## Scenarios (anything after the present year in data/threads.json)
 
 - `confidence` is required: `Likely`, `Uncertain` or `Speculative`.
-- No `url` — a projection cannot have a citation. Put the reasoning in `why`.
+- No `url` — a scenario cannot have a citation. Put the reasoning in `why`.
 - Prefer mechanisms over dates. "Energy becomes the binding constraint" is a claim you can
   argue with; "AGI in 2031" is not.
 
