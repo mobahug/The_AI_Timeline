@@ -95,6 +95,10 @@ const StringPath = React.memo(function StringPath({ s, strong, onChain, dim }) {
   );
 });
 
+/** Where the board was left, as a fraction of its width, so returning to it
+ *  without a card in the address lands where the reader was — not at 1900. */
+let lastFraction = null;
+
 export default function BoardView({ items, graph, media, route, navigate, board, onYear }) {
   const root = useRef(null);
   const frameRef = useRef(null);
@@ -164,6 +168,10 @@ export default function BoardView({ items, graph, media, route, navigate, board,
   }, []);
 
   const m = useMemo(() => metrics(box.h, box.w), [box.h, box.w]);
+  // On a wide screen the panel is a rail down the right edge and takes that much
+  // of the frame from the board; on a narrow one it is a sheet and takes none.
+  const railMode = box.w >= 900;
+  const RAIL_W = railMode ? Math.min(440, Math.round(box.w * 0.36)) : 0;
   const board3 = useMemo(() => layout(items, m), [items, m]);
   const positions = useMemo(() => Object.fromEntries(board3.nodes.map((n) => [n.event.id, n])), [board3]);
 
@@ -209,6 +217,10 @@ export default function BoardView({ items, graph, media, route, navigate, board,
   const cancelPan = useCallback(() => {
     if (panAnim.current !== null) { cancelAnimationFrame(panAnim.current); panAnim.current = null; }
   }, []);
+  // Set once the reader pans by hand. Until then the board may re-place the
+  // card the address names whenever its own geometry changes underneath it.
+  const settled = useRef(false);
+  const takeOver = useCallback(() => { settled.current = true; cancelPan(); }, [cancelPan]);
 
   const panTo = useCallback((left) => {
     const el = scroller.current;
@@ -261,6 +273,15 @@ export default function BoardView({ items, graph, media, route, navigate, board,
     if (el && positions[id]) panTo(positions[id].x - (el.clientWidth - railInset.current) / 2);
   }, [positions, panTo]);
 
+  /** The same, at once: for arriving on the board, where a flight across ninety
+   *  years from the left edge would be a spectacle, not a transition. */
+  const placeCard = useCallback((id) => {
+    const el = scroller.current;
+    if (!el || !positions[id]) return;
+    cancelPan();
+    el.scrollLeft = positions[id].x - (el.clientWidth - railInset.current) / 2;
+  }, [positions, cancelPan]);
+
   const focusCard = useCallback((id) => {
     setChain(null);
     setHover(null);
@@ -310,11 +331,38 @@ export default function BoardView({ items, graph, media, route, navigate, board,
     showChain(built.steps, typeof atStep === 'number' ? atStep : built.start, true);
   }, [graph, showChain, focusCard]);
 
+  // The board's geometry, as a stamp: it changes when the frame is measured or
+  // resized, and a placement made before that is made again after it.
+  const geometry = board3.width + '×' + m.lane + '×' + RAIL_W;
+
+  // Leaving the board remembers where it was; coming back without an address
+  // returns there once the frame is measured.
+  // (Read from a ref kept by onScroll: by the time the cleanup runs the canvas
+  // has left the DOM and measures as nothing.)
+  const fraction = useRef(null);
+  useEffect(() => () => { if (fraction.current !== null) lastFraction = fraction.current; }, []);
+  const restoredAt = useRef('');
+  useEffect(() => {
+    const el = scroller.current;
+    if (!el || route.id || route.clue || lastFraction === null || settled.current || restoredAt.current === geometry) return;
+    restoredAt.current = geometry;
+    el.scrollLeft = lastFraction * (el.scrollWidth - el.clientWidth);
+  }, [route.id, route.clue, geometry]);
+
   // Deep links: ?id=… opens a card, ?clue=a>b opens the walkthrough at that string.
+  // The board is laid out once with a guessed frame and again when the frame is
+  // measured, so a card placed on the first pass can end up under the rail on the
+  // second. The placement is therefore repeated whenever the geometry changes —
+  // until the reader pans by hand, after which the view is theirs.
+  const placedAt = useRef('');
   useEffect(() => {
     const key = route.clue ? route.clue.from + '>' + route.clue.to : route.id || '';
-    if (!key || key === applied.current || !board3.nodes.length) return;
+    if (!key || !board3.nodes.length) return;
+    const fresh = key !== applied.current;
+    if (!fresh && (settled.current || placedAt.current === geometry)) return;
     applied.current = key;
+    placedAt.current = geometry;
+    if (fresh) settled.current = false;
     if (route.clue) {
       const built = buildChain(graph, route.clue.to, route.clue.from);
       const index = built.steps.findIndex((s) => s.from === route.clue.from && s.to === route.clue.to);
@@ -323,16 +371,16 @@ export default function BoardView({ items, graph, media, route, navigate, board,
       // rather than on empty cork, and let the address say what was found.
       if (positions[route.clue.to]) {
         setPinned(route.clue.to);
-        panToCard(route.clue.to);
+        placeCard(route.clue.to);
         navigate({ id: route.clue.to, clue: null }, true);
       }
       return;
     }
     if (route.id && positions[route.id]) {
       setPinned(route.id);
-      panToCard(route.id);
+      placeCard(route.id);
     }
-  }, [route.id, route.clue, graph, positions, board3.nodes.length, showChain, panToCard, navigate]);
+  }, [route.id, route.clue, graph, positions, board3.nodes.length, geometry, showChain, placeCard, navigate]);
 
   // Filtering a 4200px board to five cards used to leave you staring at empty
   // cork, with the results somewhere off-screen. Changing a filter now pans to
@@ -398,6 +446,7 @@ export default function BoardView({ items, graph, media, route, navigate, board,
     // stays inside the same years must not re-render the board.
     setViewport((v) => (v[0] === lo && v[1] === hi ? v : [lo, hi]));
 
+    fraction.current = max > 0 ? left / max : 0;
     if (thumbRef.current) {
       thumbRef.current.style.left = (left / el.scrollWidth * 100).toFixed(2) + '%';
       thumbRef.current.style.width = Math.max(4, el.clientWidth / el.scrollWidth * 100).toFixed(2) + '%';
@@ -418,7 +467,7 @@ export default function BoardView({ items, graph, media, route, navigate, board,
     if (e.button !== 0) return;
     const el = scroller.current;
     if (!el) return;
-    cancelPan();
+    takeOver();
     const startX = e.clientX;
     const startLeft = el.scrollLeft;
     dragged.current = false;
@@ -444,7 +493,7 @@ export default function BoardView({ items, graph, media, route, navigate, board,
     const el = scroller.current;
     if (!el) return;
     const onWheel = (e) => {
-      cancelPan();
+      takeOver();
       const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
       const max = el.scrollWidth - el.clientWidth;
       if ((delta < 0 && el.scrollLeft > 0) || (delta > 0 && el.scrollLeft < max)) {
@@ -454,10 +503,10 @@ export default function BoardView({ items, graph, media, route, navigate, board,
     };
     el.addEventListener('wheel', onWheel, { passive: false });
     return () => el.removeEventListener('wheel', onWheel);
-  }, [cancelPan]);
+  }, [takeOver]);
 
   const onScrub = (e) => {
-    cancelPan();
+    takeOver();
     const track = e.currentTarget;
     const pan = (ev) => {
       const rect = track.getBoundingClientRect();
@@ -515,13 +564,10 @@ export default function BoardView({ items, graph, media, route, navigate, board,
   // pointer straight through.
   const preview = !current && !pinned && !!hover;
 
-  // The context panel is one fixed size, always in one place, whatever card is
-  // selected and whether it was hovered or clicked. On a wide screen that is a
-  // rail down the right edge, which never covers a lane and never has to flip.
-  // On a narrow one it is a sheet of fixed height, which still docks away from
+  // The context panel is always in one place, whatever card is selected and
+  // whether it was hovered or clicked: the rail on a wide screen never covers a
+  // lane and never has to flip; the sheet on a narrow one still docks away from
   // the subject because there is nowhere else for it to go.
-  const railMode = box.w >= 900;
-  const RAIL_W = railMode ? Math.min(440, Math.round(box.w * 0.36)) : 0;
   // The panel is exactly as tall as what it holds, up to a cap, and scrolls past
   // it. Never a fixed block with dead space under short content, and never a
   // snap between sizes: the height is measured and the change is animated.
