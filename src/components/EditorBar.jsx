@@ -29,7 +29,10 @@ export default function EditorBar({ editing, onToggle, onNewCard, onConnect, con
 
   return (
     <>
-      <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap', marginBottom: 10 }}>
+      {/* One line, always: the hint changes with every hover, and if this row
+          could wrap, the board below would re-measure and jump on each one.
+          The hint ellipsises and the legend scrolls instead. */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'nowrap', minWidth: 0, marginBottom: 10 }}>
         {lead}
         <Btn tone={editing ? 'loud' : 'quiet'} size="sm" onClick={onToggle}>
           {editing ? 'Close editor' : 'Edit board'}
@@ -51,10 +54,8 @@ export default function EditorBar({ editing, onToggle, onNewCard, onConnect, con
         )}
         <span style={{ flex: 1 }} />
         <div style={{
-          display: 'flex', gap: compact ? 10 : 14, alignItems: 'center', minWidth: 0,
-          ...(compact
-            ? { flexWrap: 'nowrap', overflowX: 'auto', overflowY: 'hidden', maxWidth: '100%', scrollbarWidth: 'none' }
-            : { flexWrap: 'wrap' })
+          display: 'flex', gap: compact ? 10 : 14, alignItems: 'center', minWidth: 0, flex: '0 1 auto',
+          flexWrap: 'nowrap', overflowX: 'auto', overflowY: 'hidden', maxWidth: '100%', scrollbarWidth: 'none'
         }}>
           <span style={{ ...micro(5), flex: 'none' }}>Colour is the category · lanes are the threads</span>
           {CATEGORIES.map((c) => (

@@ -500,7 +500,7 @@ export default function BoardView({ items, graph, media, route, navigate, board,
     ? 'Walking a chain' + keys
     : focusId
       ? 'Card selected · ' + ((graph.adjacency[focusId] || []).length) + ' strings attached'
-      : graph.edges.length + ' strings · click a card to see what led to it and what it led to' + (canHover ? ' · Tab steps cards' : '');
+      : graph.edges.length + ' strings · click a card for what led to it and what followed';
 
   const panelOpen = !!(current || focusId);
   // A pinned card opens its panel for reading: focus goes to the panel's heading
@@ -555,8 +555,8 @@ export default function BoardView({ items, graph, media, route, navigate, board,
         <EditorBar
           compact={box.w < 820}
           lead={<>
-            <h1 style={{ margin: 0, font: '400 clamp(16px,1.7vw,21px)/1 ' + SERIF, letterSpacing: '-0.02em', whiteSpace: 'nowrap' }}>The board</h1>
-            <span aria-live="polite" style={{ ...micro(chain ? 3 : 5), color: chain ? RED_LIT : undefined }}>{hint}</span>
+            <h1 style={{ margin: 0, font: '400 clamp(16px,1.7vw,21px)/1 ' + SERIF, letterSpacing: '-0.02em', whiteSpace: 'nowrap', flex: 'none' }}>The board</h1>
+            <span aria-live="polite" style={{ ...micro(chain ? 3 : 5), color: chain ? RED_LIT : undefined, flex: '0 1 auto', minWidth: 0, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{hint}</span>
           </>}
           trail={<span style={{ ...micro(0.5), letterSpacing: '0.18em', display: 'inline-flex', alignItems: 'center', gap: 7, whiteSpace: 'nowrap' }}>
             <span style={{ width: 6, height: 6, borderRadius: '50%', background: CYAN, animation: 'hudPulse 2.4s ease-in-out infinite' }} />
