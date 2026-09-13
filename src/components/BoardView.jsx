@@ -679,9 +679,11 @@ export default function BoardView({ items, graph, media, route, navigate, board,
               ? (current.from === s.from && current.to === s.to) || (current.from === s.to && current.to === s.from)
               : active && (s.from === focusId || s.to === focusId)
             ).map((s) => (
+              // The claim rides its string, above every card — a raised card
+              // sits at 12, and a tag half-hidden behind it reads as a typo.
               <div key={'tag-' + s.id} style={{
                 position: 'absolute', left: s.mx, top: s.my, transform: 'translate(-50%,-50%) rotate(-1.4deg)',
-                zIndex: 8, pointerEvents: 'none', background: '#efe9da', color: '#17161a',
+                zIndex: 14, pointerEvents: 'none', background: '#efe9da', color: '#17161a',
                 border: '1px solid rgba(23,22,26,0.3)', boxShadow: '0 5px 12px rgba(0,0,0,0.5)', padding: '4px 7px',
                 borderLeft: '3px solid ' + s.tone,
                 font: '400 9px/1 ' + MONO, letterSpacing: '0.13em', textTransform: 'uppercase', whiteSpace: 'nowrap',
