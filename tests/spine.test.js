@@ -57,7 +57,7 @@ describe('assignment is total — nothing is orphaned', () => {
   it('files a brand-new entry without touching the spine', () => {
     const extended = buildGraph({
       nodes: [{ id: 'test-new', year: 2024, category: 'research', title: 'Test', summary: '' }],
-      edges: [], hidden: [], hiddenEdges: [], edits: {}
+      edges: []
     });
     const filed = buildLine(extended).rows.flatMap((r) => r.cards.map((e) => e.id));
     expect(filed).toContain('test-new');

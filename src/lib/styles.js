@@ -146,8 +146,14 @@ const HEADLINE = {
   row: { year: '24px/1', title: '17px/1.2' }
 };
 export const headline = (size = 'panel') => ({
+  // Longhands, not the `font` shorthand: the year sits beside a longhand
+  // (fontVariantNumeric), and React will not update a shorthand next to a
+  // longhand when the size flips — the panel's card becomes the page's.
   year: {
-    font: '400 ' + (HEADLINE[size] || HEADLINE.panel).year + ' ' + SERIF,
+    fontFamily: SERIF,
+    fontWeight: 400,
+    fontSize: (HEADLINE[size] || HEADLINE.panel).year.split('/')[0],
+    lineHeight: (HEADLINE[size] || HEADLINE.panel).year.split('/')[1],
     fontVariantNumeric: 'tabular-nums',
     letterSpacing: '-0.03em'
   },

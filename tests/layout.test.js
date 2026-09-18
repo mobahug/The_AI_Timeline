@@ -38,7 +38,7 @@ describe('layout — one row per thread, never overlapping, never far from its y
     THREADS.forEach((t) => {
       const lane = b.nodes.filter((n) => n.event.thread === t.id).sort((p, q) => p.x - q.x);
       for (let i = 1; i < lane.length; i++) {
-        expect(lane[i].x - lane[i - 1].x).toBeGreaterThanOrEqual(m.gap);
+        expect(lane[i].x - lane[i - 1].x).toBeGreaterThanOrEqual(m.gap - 1e-6);
         expect(lane[i].event.year).toBeGreaterThanOrEqual(lane[i - 1].event.year);
       }
     });

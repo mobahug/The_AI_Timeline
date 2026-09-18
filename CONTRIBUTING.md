@@ -22,8 +22,14 @@ so a contribution is a pull request that edits data — no React required.
 }
 ```
 
-3. Run `npm test`. The suite checks ids, years, categories, sources and link targets.
-4. Open a PR using the template. One entry per PR is easiest to review.
+3. Give it a file if it deserves one: `detail` (two or three paragraphs), `figures`
+   (the numbers a reader should be able to quote), `firsts` (a threshold crossed for the
+   first time), and `sources` with a verbatim quote for whatever supports the claim.
+   Tag `people`, `orgs` and `terms` only where the card's own text does not already
+   name them — names in the text are found automatically.
+4. Run `npm test`. The suite checks ids, years, categories, sources, link targets, lead
+   rungs and file tags.
+5. Open a PR using the template. One entry per PR is easiest to review.
 
 ## Add a string
 
@@ -42,6 +48,17 @@ sentence explaining why the first event made the second possible, it is not a st
 - `claim` is short, lowercase, verb-first, and *A **claim** B* must be a grammatical sentence with the second card as its object. End on a preposition or a verb that still wants an object (`for`, `into`, `by`, `set off`), never on a noun that closes the phrase (`supplied the compute`), never with a pronoun standing in for either card (`it`, `him`), never with a typed number. Tense follows what the first card did: past when it is done (`was disproved by`, `funded`), present when the consequence is still unfolding (`hardens into`). Never `will` or `may` — the scenario's confidence label is the hedge. The site prints this sentence verbatim as the page description of every clue link.
 - `note` is optional but strongly encouraged — it is the whole point of the board.
 
+## Add a rung to a lead, or a name to the files
+
+A lead (`data/leads.json`) is one question followed through the record. A rung is a
+card plus the level it reached and one paragraph connecting it to the next. Add a rung
+only where the card genuinely moves the ladder; if it is a cause, draw a string too.
+
+A person, organisation or term (`data/people.json`, `data/orgs.json`,
+`data/glossary.json`) needs an id, a one-line `role` or `short`, and a paragraph in the
+board's voice — what the file says about the name, no biography beyond what bears on
+the case. Aliases go in `aka`; keep ordinary words out of it.
+
 ## Scenarios (anything after the present year in data/threads.json)
 
 - `confidence` is required: `Likely`, `Uncertain` or `Speculative`.
@@ -54,7 +71,8 @@ sentence explaining why the first event made the second possible, it is not a st
 - British-ish plain English, no marketing voice, no exclamation marks.
 - One sentence for `summary`, one or two for `why`.
 - Cite the most neutral source you can find. Wikipedia is fine and preferred for
-  photographs, because the image pipeline uses `wikiTitle`.
+  photographs, because the image pipeline uses `wikiTitle`. A quote must be verbatim —
+  copy it, never paraphrase inside quotation marks.
 - Contested events: describe the contest, do not pick a side.
 
 ## What gets rejected
@@ -63,3 +81,10 @@ sentence explaining why the first event made the second possible, it is not a st
 - Strings without a claim.
 - Predictions dressed as record, or record dressed as prediction.
 - Anything that cannot be sourced or reasoned in the file itself.
+
+## Licence of what you contribute
+
+By opening a pull request against `data/` you agree that the text you contribute is
+licensed to the project under CC BY-NC-ND 4.0 (see `LICENSE-CONTENT.md`), and that any
+quoted sentence is a short quotation attributed to its source. Code contributions are
+under the PolyForm Noncommercial License 1.0.0 (see `LICENSE`).

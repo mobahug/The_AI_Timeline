@@ -1,6 +1,8 @@
-import React, { createContext, forwardRef, useContext, useState } from 'react';
+import React, { createContext, forwardRef, useContext, useEffect, useState } from 'react';
 import { accent, catLabel } from '../lib/data.js';
 import { hrefFor, resolve } from '../lib/url.js';
+import { useMode } from '../lib/mode.js';
+import { absolute, copyText } from '../lib/dom.js';
 import {
   INK, MONO, SANS, SERIF, STRING_INK, RULE, ROW_RULE, DASHED_RULE, DASHED_ROW, GUTTER,
   badge, button, headline, ink, micro, prose, reading, ref as refStyle, tag, yearBit
@@ -120,21 +122,125 @@ export function PageHead({ eyebrow, title, lede, facts, h1Style, children }) {
   );
 }
 
-/** A ruled section: the rule is always above the label. */
-export function Section({ eyebrow, title, count, style, children, ...rest }) {
+/** The "#" beside a heading: a real link to this section, copied on click.
+ *  Hidden until the heading is hovered or the link itself is focused, like the
+ *  anchors on every documentation site a reader has used. */
+export function Anchor({ id, label }) {
+  const { route } = useNav();
+  const [done, setDone] = useState(false);
+  const href = hrefFor({ ...route, hash: id });
+  useEffect(() => { if (!done) return; const t = setTimeout(() => setDone(false), 1400); return () => clearTimeout(t); }, [done]);
   return (
-    <section style={{ marginTop: 44, paddingTop: 22, borderTop: RULE, ...style }} {...rest}>
+    <a
+      href={href}
+      className="anchor"
+      aria-label={'Link to ' + (label || 'this section')}
+      title={done ? 'Copied' : 'Copy link to this section'}
+      onClick={(e) => {
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+        e.preventDefault();
+        // Inside the board's file drawer the section belongs to the dossier's
+        // address, not the board's: copy it, but leave the board's address alone.
+        if (new URL(href, window.location.origin).pathname === window.location.pathname) window.history.replaceState(window.history.state, '', href);
+        copyText(absolute(href)).then((ok) => setDone(!!ok));
+      }}
+      style={{ ...micro(4), textDecoration: 'none', padding: '2px 4px', borderRadius: 2, color: done ? INK : undefined }}
+    >{done ? 'copied' : '#'}</a>
+  );
+}
+
+/** A ruled section: the rule is always above the label. Given an `id` it is
+ *  addressable — the heading grows an anchor and a #id link lands on it. */
+export function Section({ id, eyebrow, title, count, style, children, ...rest }) {
+  return (
+    <section id={id} style={{ marginTop: 44, paddingTop: 22, borderTop: RULE, scrollMarginTop: 96, ...style }} {...rest}>
       {(eyebrow || title || count) && (
-        <div style={{ display: 'flex', alignItems: 'baseline', gap: 12, flexWrap: 'wrap', marginBottom: 14 }}>
+        <div className={id ? 'anchored' : undefined} style={{ display: 'flex', alignItems: 'baseline', gap: 12, flexWrap: 'wrap', marginBottom: 14 }}>
           {eyebrow && <Eyebrow tier="section" dim>{eyebrow}</Eyebrow>}
           {title && <h2 style={{ margin: 0, font: '400 clamp(20px,2.4vw,26px)/1.1 ' + SERIF, letterSpacing: '-0.02em', color: INK }}>{title}</h2>}
           {count && <span style={micro(5)}>{count}</span>}
+          {id && <Anchor id={id} label={title || eyebrow} />}
         </div>
       )}
       {children}
     </section>
   );
 }
+
+/** Content the brief mode leaves out. In brief it collapses to one line that
+ *  says what is there and offers the switch, so nothing is hidden silently. */
+export function FullOnly({ label, children }) {
+  const [, setMode, full] = useMode();
+  if (full) return children;
+  return (
+    <button
+      type="button"
+      onClick={() => setMode('full')}
+      style={{ ...micro(4), background: 'transparent', border: '1px dashed rgba(243,240,234,0.22)', borderRadius: 2, padding: '8px 11px', cursor: 'pointer', textAlign: 'left', display: 'inline-block' }}
+    >
+      {label || 'More in the full file'} · switch to full →
+    </button>
+  );
+}
+
+/** A "Copy link" button: the absolute address of the current route, or of a
+ *  route given as `to`. Says "Copied" for a moment. */
+export function CopyLink({ to, label = 'Copy link', size = 'sm', tone = 'quiet', style }) {
+  const { route } = useNav();
+  const [done, setDone] = useState(false);
+  useEffect(() => { if (!done) return; const t = setTimeout(() => setDone(false), 1400); return () => clearTimeout(t); }, [done]);
+  const href = to ? hrefFor(resolve(route, to)) : hrefFor(route);
+  return (
+    <Btn size={size} tone={tone} style={style} onClick={() => copyText(absolute(href)).then((ok) => setDone(!!ok))} aria-live="polite">
+      {done ? 'Copied ✓' : label}
+    </Btn>
+  );
+}
+
+/** A row of entity chips — people, organisations, terms — each a link to its
+ *  page in the files. A term's chip carries its one-line gloss as a title. */
+export function Chips({ items, kind, label, style }) {
+  if (!items || !items.length) return null;
+  return (
+    <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, flexWrap: 'wrap', ...style }}>
+      {label && <span style={{ ...micro(5), flex: 'none' }}>{label}</span>}
+      {items.map((x) => (
+        <Link
+          key={x.kind + x.id}
+          to={{ view: x.kind, id: x.id }}
+          title={x.short || x.role || undefined}
+          style={{
+            ...micro(3), letterSpacing: '0.1em', textTransform: 'none', font: '400 11px/1 ' + MONO,
+            border: '1px solid rgba(243,240,234,0.16)', borderRadius: 2, padding: '5px 8px', whiteSpace: 'nowrap',
+            borderLeft: '2px solid ' + (x.kind === 'person' ? 'oklch(0.8 0.12 85)' : x.kind === 'org' ? 'oklch(0.8 0.1 205)' : 'rgba(243,240,234,0.35)')
+          }}
+        >{x.label}</Link>
+      ))}
+    </div>
+  );
+}
+
+/** The figures on a card: label / value pairs, set as a small ledger. */
+export function Figures({ figures, style }) {
+  if (!figures || !figures.length) return null;
+  return (
+    <dl style={{ margin: 0, display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))', gap: '10px 18px', ...style }}>
+      {figures.map((f, i) => (
+        <div key={i} style={{ minWidth: 0, borderTop: ROW_RULE, paddingTop: 8 }}>
+          <dt style={micro(5)}>{f.label}</dt>
+          <dd style={{ margin: '5px 0 0', font: '400 15px/1.3 ' + SERIF, color: INK, letterSpacing: '-0.01em', overflowWrap: 'anywhere' }}>{f.value}</dd>
+        </div>
+      ))}
+    </dl>
+  );
+}
+
+/** The "first" badge: a threshold crossed for the first time. */
+export const First = ({ children, style }) => (
+  <span style={{ ...micro(1), color: STRING_INK, border: '1px solid ' + STRING_INK, borderRadius: 2, padding: '4px 7px', display: 'inline-block', lineHeight: 1.5, maxWidth: '100%', ...style }}>
+    First · {children}
+  </span>
+);
 
 /** A rule drawn as its own element. */
 export const Rule = ({ dashed, row, style }) => (

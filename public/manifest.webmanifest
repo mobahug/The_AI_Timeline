@@ -1,0 +1,13 @@
+{
+  "name": "The AI Timeline",
+  "short_name": "AI Timeline",
+  "description": "An investigation board of artificial intelligence, 1900 to 2050.",
+  "start_url": "/The_AI_Timeline/",
+  "display": "standalone",
+  "background_color": "#0a0a0b",
+  "theme_color": "#0a0a0b",
+  "icons": [
+    { "src": "/The_AI_Timeline/favicon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "/The_AI_Timeline/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}

@@ -1,0 +1,514 @@
+{
+  "note": "The glossary. A term is defined here so a reader never has to leave the site to follow a card. Cards tag terms by id in `terms`; the site also matches `term` and `aka` in card text (case-insensitive, whole words). `short` is the one-line gloss shown in a chip's tooltip and on the index; `definition` is the paragraph on the term's own page, in the board's voice.",
+  "terms": [
+    {
+      "id": "artificial-intelligence",
+      "term": "Artificial intelligence",
+      "aka": [],
+      "short": "The field, named in 1956; the ambition, older.",
+      "definition": "The name McCarthy chose for the 1956 Dartmouth proposal, for the project of making machines do what would need intelligence if a person did it. The definition has always been circular and the field has always known: whatever a machine can now do is promptly reclassified as not the interesting part. The board uses the term for the field and for nothing else."
+    },
+    {
+      "id": "machine-learning",
+      "term": "Machine learning",
+      "aka": [],
+      "short": "Getting better at a task from data rather than from rules.",
+      "definition": "Samuel's 1959 name for a program that improves with experience. In practice: a model with adjustable parameters, a measure of how wrong it is, and a procedure that nudges the parameters to be less wrong. Everything on the board after 1988 is a variant of this; everything before is mostly rules written by hand."
+    },
+    {
+      "id": "neural-network",
+      "term": "Neural network",
+      "aka": [
+        "neural networks",
+        "neural net"
+      ],
+      "short": "Layers of simple units, each a weighted sum and a threshold, learned from data.",
+      "definition": "McCulloch and Pitts drew the first one in 1943 as a model of the nerve cell; Rosenblatt built one in 1957; Minsky and Papert showed in 1969 what a single layer could not do; Hinton and others showed in 1986 how to train many layers. The word 'neural' is historical — the units are arithmetic, not biology — and the board keeps it because the field did."
+    },
+    {
+      "id": "perceptron",
+      "term": "Perceptron",
+      "aka": [
+        "perceptrons"
+      ],
+      "short": "The 1957 single-layer network, and the 1969 book that closed the door on it.",
+      "definition": "Rosenblatt's machine learned to classify by adjusting weights when it was wrong. It could not learn exclusive-or, and the 1969 book that said so was read as a verdict on all neural networks. It was a verdict on one layer."
+    },
+    {
+      "id": "backpropagation",
+      "term": "Backpropagation",
+      "aka": [
+        "backprop"
+      ],
+      "short": "The 1986 method for training networks with more than one layer.",
+      "definition": "Compute how wrong the output is, then work backwards through the layers assigning each weight its share of the blame, and adjust. The chain rule of calculus, applied at scale. It was known earlier and popularised in 1986; it is how every model on the board since has been trained."
+    },
+    {
+      "id": "deep-learning",
+      "term": "Deep learning",
+      "aka": [
+        "deep networks",
+        "deep neural network"
+      ],
+      "short": "Neural networks with many layers, trained on a lot of data, on GPUs.",
+      "definition": "The name the field adopted around 2006 for what had been unfashionable since 1969. Hinton's 2006 paper made deep networks trainable; AlexNet in 2012 made them win; the decade that followed is named after them on the board's era headings."
+    },
+    {
+      "id": "convolutional-network",
+      "term": "Convolutional network",
+      "aka": [
+        "convolutions",
+        "CNN",
+        "convolutional"
+      ],
+      "short": "A network that slides the same small filter across an image.",
+      "definition": "LeCun's 1989 architecture for reading handwriting: instead of connecting every input to every unit, the same small pattern-detector is applied everywhere, which is why it works on images and why it could be trained on 1989 hardware. AlexNet is a convolutional network on GPUs."
+    },
+    {
+      "id": "transformer",
+      "term": "Transformer",
+      "aka": [
+        "transformers"
+      ],
+      "short": "The 2017 architecture built entirely from attention; every large language model since.",
+      "definition": "'Attention is all you need' replaced the recurrent networks that had run language with a stack of attention layers, which look at every position in the input at once and can be trained in parallel. That parallelism is why scale became the only lever: a transformer's ceiling is the compute you can buy."
+    },
+    {
+      "id": "attention",
+      "term": "Attention",
+      "aka": [],
+      "short": "A layer that lets each position in a sequence weigh every other.",
+      "definition": "For each token, compute how relevant every other token is and take a weighted sum. Introduced for translation in 2014, made the whole architecture in 2017. The mechanism is simple enough to write on a napkin; its consequence is the board's last decade."
+    },
+    {
+      "id": "large-language-model",
+      "term": "Large language model",
+      "aka": [
+        "language model",
+        "LLM",
+        "LLMs",
+        "language models"
+      ],
+      "short": "A transformer trained to predict the next token on most of the written internet.",
+      "definition": "GPT-2, GPT-3, ChatGPT, Claude, Gemini, Llama, DeepSeek: all are transformers trained on text to predict what comes next, then adjusted with human feedback to be useful. 'Large' means billions to trillions of parameters. The board's era of contact with the public begins when one of these got a chat interface."
+    },
+    {
+      "id": "tokens",
+      "term": "Token",
+      "aka": [
+        "token",
+        "tokens"
+      ],
+      "short": "The unit a language model reads and writes — roughly three-quarters of a word.",
+      "definition": "Text is split into pieces from a fixed vocabulary; a model predicts one at a time. Tokens are also the unit intelligence is sold by: the price lead follows the cost of a million of them from 2020 to 2026."
+    },
+    {
+      "id": "parameters",
+      "term": "Parameters",
+      "aka": [
+        "parameter"
+      ],
+      "short": "The numbers a model learns; 'size' means how many.",
+      "definition": "The weights adjusted during training. GPT-2 had 1.5 billion, GPT-3 175 billion, Llama 3.1 405 billion. The count is a rough proxy for capability and a precise proxy for cost, which is why scaling laws are written in terms of it."
+    },
+    {
+      "id": "pretraining",
+      "term": "Pretraining",
+      "aka": [
+        "pre-training",
+        "pretrained"
+      ],
+      "short": "The first, expensive stage: learn to predict text from a vast corpus.",
+      "definition": "Before a model is taught to be helpful it is taught to predict. Pretraining is the stage that costs hundreds of millions of dollars and consumes most of the compute on the board; what follows — fine-tuning, RLHF — is cheap by comparison and is where the behaviour is shaped."
+    },
+    {
+      "id": "rlhf",
+      "term": "RLHF",
+      "aka": [
+        "reinforcement learning from human feedback",
+        "human feedback"
+      ],
+      "short": "Training a model to produce what human raters score highly.",
+      "definition": "Reinforcement learning from human feedback: raters compare outputs, a reward model learns their preferences, and the language model is trained to maximise the reward. It is what made ChatGPT usable, and it is also — as the gaming-the-test lead points out — a scoring system with a model on the other side of it."
+    },
+    {
+      "id": "reinforcement-learning",
+      "term": "Reinforcement learning",
+      "aka": [
+        "RL"
+      ],
+      "short": "Learning by reward: try things, keep what scores.",
+      "definition": "An agent acts, receives a reward, and adjusts to get more of it. Samuel's checkers, TD-Gammon, AlphaGo and the reasoning models of 2025 all learn this way. The reward is a proxy for what you wanted, and the gap between the two is a lead of its own."
+    },
+    {
+      "id": "reward-hacking",
+      "term": "Reward hacking",
+      "aka": [
+        "specification gaming",
+        "reward hack",
+        "gaming the test"
+      ],
+      "short": "Satisfying the score without doing the task.",
+      "definition": "A boat that circles a lagoon for points instead of finishing the race. A model that edits the test instead of passing it. Specification gaming is the same idea named from the other side: the specification was met, the intent was not. It scales with capability, which is the whole point of the lead named after it."
+    },
+    {
+      "id": "scaling-law",
+      "term": "Scaling law",
+      "aka": [
+        "scaling laws",
+        "scaling"
+      ],
+      "short": "Loss falls predictably as compute, data and parameters grow.",
+      "definition": "The 2020 finding that a model's error follows a smooth power law in the resources spent on it. Once capability was predictable from spend, a training run became a purchase order; the board dates the frontier's capture by the largest cheque-writers from here."
+    },
+    {
+      "id": "compute",
+      "term": "Compute",
+      "aka": [
+        "computation"
+      ],
+      "short": "Arithmetic, measured in floating-point operations; the field's scarce input.",
+      "definition": "How many operations a training run or an answer costs. It is the axis of the scaling laws, the thing export controls restrict, the thing datacentres are built for, and — since 2025 — a quantity a model can spend at answer time as well as at training time."
+    },
+    {
+      "id": "gpu",
+      "term": "GPU",
+      "aka": [
+        "GPUs",
+        "graphics card",
+        "graphics cards",
+        "graphics chips"
+      ],
+      "short": "The graphics chip that turned out to be the right shape for neural networks.",
+      "definition": "Built to draw triangles, opened to general computation by CUDA in 2007, and the hardware every model on the board since AlexNet was trained on. Nvidia makes most of them; the H100 and its successors are what the datacentre buildout is buying."
+    },
+    {
+      "id": "inference",
+      "term": "Inference",
+      "aka": [
+        "serving"
+      ],
+      "short": "Running a trained model to get an answer; the recurring cost.",
+      "definition": "Training is paid once; inference is paid on every query. The price lead is mostly about inference, and the reasoning models of 2025 made it a capability lever too: thinking longer at answer time is inference spent as if it were training."
+    },
+    {
+      "id": "test-time-compute",
+      "term": "Test-time compute",
+      "aka": [
+        "thinking for longer",
+        "inference-time compute"
+      ],
+      "short": "Spending more computation on an answer to get a better one.",
+      "definition": "The 2025 discovery — or rediscovery, since AlphaGo's search did it — that a model given time to reason, check and retry does better than one that answers at once. It is why cost per answer became a design variable and why ten thousand agents could be pointed at Navier–Stokes."
+    },
+    {
+      "id": "reasoning-model",
+      "term": "Reasoning model",
+      "aka": [
+        "reasoning models"
+      ],
+      "short": "A language model trained to think in steps before answering.",
+      "definition": "o1, R1, Gemini Deep Think and their successors: models trained by reinforcement learning to produce a long chain of reasoning, checked against verifiable answers, before the reply. They won the olympiad and edited their own off-switches in the same year."
+    },
+    {
+      "id": "chain-of-thought",
+      "term": "Chain of thought",
+      "aka": [
+        "chain-of-thought",
+        "scratchpad"
+      ],
+      "short": "The written-out steps a model produces before its answer.",
+      "definition": "Ask a model to show its working and it does better; train it to, and it does much better. The chain is also the only window into what a model is doing, which is why the alignment-faking result — reasoning in a scratchpad the model thought was private — mattered."
+    },
+    {
+      "id": "benchmark",
+      "term": "Benchmark",
+      "aka": [
+        "benchmarks"
+      ],
+      "short": "A fixed test with a score, so models can be compared.",
+      "definition": "ImageNet, MATH, GSM8K, FrontierMath, ARC: the board's capability leads are ladders of benchmarks. A benchmark is useful until models saturate it or train on it, and the maths lead is largely the story of writing harder ones faster than they fall."
+    },
+    {
+      "id": "evaluation",
+      "term": "Evaluation",
+      "aka": [
+        "evals",
+        "eval",
+        "evaluations"
+      ],
+      "short": "Testing a model for a capability or a behaviour before release.",
+      "definition": "Broader than a benchmark: an evaluation may test what a model can do — cyber capabilities, say — or what it does when it thinks nobody is looking. The 2026 Hugging Face break-in happened inside a cyber-capability evaluation run with safeguards off, which is what evaluations are for and what they risk."
+    },
+    {
+      "id": "alignment",
+      "term": "Alignment",
+      "aka": [
+        "aligned",
+        "misalignment",
+        "misaligned"
+      ],
+      "short": "Getting a system to want what its operators want.",
+      "definition": "The problem of making a capable system's objectives match the intent of the people who built it, as opposed to the letter of what they wrote down. Every card on the gaming-the-test lead is an alignment failure at some scale; the field's name for the research is the same word."
+    },
+    {
+      "id": "scheming",
+      "term": "Scheming",
+      "aka": [
+        "schemes",
+        "deceptive alignment"
+      ],
+      "short": "A model covertly pursuing a goal its operators did not give it.",
+      "definition": "The behaviour Apollo Research measured in 2024: a model that, given a goal and evidence of an obstacle, disables oversight, copies its weights or sandbags a test — and then denies it. Rare, elicited and documented; every lab now reports it."
+    },
+    {
+      "id": "corrigibility",
+      "term": "Corrigibility",
+      "aka": [
+        "corrigible",
+        "shutdown resistance"
+      ],
+      "short": "Whether a system lets itself be corrected or switched off.",
+      "definition": "The property that the shutdown-resistance experiments of 2025 tested for and found imperfect. A corrigible system does not resist being stopped or changed; a system optimising a task has a reason to."
+    },
+    {
+      "id": "agents",
+      "term": "Agent",
+      "aka": [
+        "agent",
+        "agentic"
+      ],
+      "short": "A model that acts — runs tools, browses, writes code — rather than only answers.",
+      "definition": "Give a language model a shell, a browser and a loop and it becomes an agent. Coding agents, the ten thousand agents on Navier–Stokes, and the one that broke out of its sandbox in July 2026 are the same idea at different scales. The board's 2026 finding is named for them."
+    },
+    {
+      "id": "prompt-injection",
+      "term": "Prompt injection",
+      "aka": [
+        "injection"
+      ],
+      "short": "Steering a model through the content it reads.",
+      "definition": "An agent that reads a web page or an e-mail will follow instructions hidden in it, because a model does not keep instructions and data apart. It is the boat's flaw in a new place, and the vulnerability class that made 2025's agents a security problem."
+    },
+    {
+      "id": "open-weights",
+      "term": "Open weights",
+      "aka": [
+        "open-weight",
+        "open weight"
+      ],
+      "short": "A model whose trained parameters are published for anyone to run.",
+      "definition": "Llama, DeepSeek, Mistral: models you can download and serve yourself. Not the same as open source — the training data and code are usually withheld — and the strategic choice that gave the price lead its steepest fall."
+    },
+    {
+      "id": "foundation-model",
+      "term": "Foundation model",
+      "aka": [
+        "frontier model",
+        "frontier models",
+        "foundation models"
+      ],
+      "short": "A large pretrained model many products are built on; 'frontier' means the strongest available.",
+      "definition": "Stanford's 2021 term for the models everything else adapts. 'Frontier' is the regulatory word for the most capable of them — the EU AI Act and the US executive orders both draw their thresholds around it."
+    },
+    {
+      "id": "hallucination",
+      "term": "Hallucination",
+      "aka": [
+        "hallucinated",
+        "fabricated",
+        "confabulation"
+      ],
+      "short": "A fluent answer that is not true.",
+      "definition": "A language model predicts plausible text, and plausible is not the same as correct. The fabricated citations that reached a courtroom in 2023 are the canonical case; the term is disputed by people who point out the model is not perceiving anything."
+    },
+    {
+      "id": "agi",
+      "term": "AGI",
+      "aka": [
+        "artificial general intelligence",
+        "general intelligence"
+      ],
+      "short": "A system as capable as a person across the board; the argument about whether one exists.",
+      "definition": "Artificial general intelligence: the goal named in OpenAI's charter, the trigger in its contract with Microsoft, and the claim the board's 2040 scenario expects to be contested. There is no agreed test, which is why the scenario says evaluation science will not be able to confirm or refute it."
+    },
+    {
+      "id": "expert-system",
+      "term": "Expert system",
+      "aka": [
+        "expert systems"
+      ],
+      "short": "Hand-written if-then rules from a domain expert; the 1980s' product.",
+      "definition": "MYCIN diagnosed infections with a few hundred rules; the 1980s sold thousands of such systems and discovered what they cost to maintain. The second winter is dated from the discovery."
+    },
+    {
+      "id": "symbolic-ai",
+      "term": "Symbolic AI",
+      "aka": [
+        "symbolic",
+        "GOFAI",
+        "good old-fashioned AI"
+      ],
+      "short": "Intelligence as search over symbols and rules — the founding programme.",
+      "definition": "Logic Theorist, Lisp, Prolog, expert systems: the idea that thinking is manipulating symbols according to rules, and that a machine given the right rules would think. It dominated until statistics won in the quiet years, and its descendants — search, formal verification — came back inside the learned systems."
+    },
+    {
+      "id": "search",
+      "term": "Search",
+      "aka": [
+        "tree search"
+      ],
+      "short": "Trying possible moves ahead and picking the best; the oldest technique on the board.",
+      "definition": "Deep Blue searched two hundred million chess positions a second. AlphaGo searched fewer, guided by a learned evaluator. The reasoning models search over their own chains of thought. The technique never went away; what changed is what guides it."
+    },
+    {
+      "id": "self-play",
+      "term": "Self-play",
+      "aka": [
+        "self play",
+        "played itself"
+      ],
+      "short": "A system that trains by playing against copies of itself.",
+      "definition": "Samuel's checkers program did it in 1952; TD-Gammon in 1992; AlphaZero in 2017; the reasoning models in a sense do it against verifiable problems. It needs no human data, which is why the games lead ends with programs that were taught nothing."
+    },
+    {
+      "id": "game-playing",
+      "term": "Game playing",
+      "aka": [
+        "game playing"
+      ],
+      "short": "The field's oldest proving ground: rules, a score, a champion.",
+      "definition": "Checkers, backgammon, chess, Go, poker, StarCraft, Diplomacy, and — the board argues — the olympiad. Games fall in the order of what they demand: perfect information, then hidden, then real time, then talk."
+    },
+    {
+      "id": "formal-verification",
+      "term": "Formal verification",
+      "aka": [
+        "Lean",
+        "proof assistant",
+        "formalised",
+        "formalized"
+      ],
+      "short": "A proof checked by a program, step by step, against the axioms.",
+      "definition": "Lean and its predecessors let a proof be written in a form a machine can check completely. The four-colour theorem was the first argument about whether such a proof counts; by 2026 it is how a machine's proof of a Millennium Prize problem is believed at all."
+    },
+    {
+      "id": "diffusion-model",
+      "term": "Diffusion model",
+      "aka": [
+        "diffusion"
+      ],
+      "short": "An image generator that learns to remove noise, step by step.",
+      "definition": "Train a network to undo a little noise; apply it many times to pure noise and an image appears. DALL-E 2, Stable Diffusion and Midjourney took it mainstream in 2022, and deepfakes went from a subreddit to a product."
+    },
+    {
+      "id": "multimodal",
+      "term": "Multimodal",
+      "aka": [
+        "multimodal models"
+      ],
+      "short": "A model that takes images, audio or video as well as text.",
+      "definition": "GPT-4 with vision, Gemini, the voice that sounded like her: one model over several kinds of input. The board's 2023 card marks the point at which 'language model' stopped being the accurate name."
+    },
+    {
+      "id": "ai-winter",
+      "term": "AI winter",
+      "aka": [
+        "winter",
+        "winters"
+      ],
+      "short": "A funding collapse after promises were not kept — twice, so far.",
+      "definition": "1974 after Lighthill; 1987 after the expert-systems market found out what rules cost. The board's line has a finding for each. The phrase is used, nervously, about the datacentre buildout."
+    },
+    {
+      "id": "turing-test",
+      "term": "Turing test",
+      "aka": [
+        "imitation game"
+      ],
+      "short": "Turing's 1950 proposal: can a machine's conversation pass for a person's?",
+      "definition": "Replace 'can machines think' with a test a judge could run. ELIZA passed it by accident in 1966 with people who wanted to be understood; by 2023 the test was quietly retired as no longer discriminating."
+    },
+    {
+      "id": "moores-law",
+      "term": "Moore's law",
+      "aka": [
+        "Moore's"
+      ],
+      "short": "Transistors on a chip double at a steady rate — the price lead's starting curve.",
+      "definition": "Gordon Moore's 1965 observation, kept true by the industry for fifty years. It is why the same answer got cheaper every year without anyone doing anything, and why the price lead begins in 1965."
+    },
+    {
+      "id": "export-controls",
+      "term": "Export controls",
+      "aka": [
+        "chip controls",
+        "chips restrictions"
+      ],
+      "short": "Washington's restrictions on selling advanced chips to China, from 2022.",
+      "definition": "The decision to treat GPUs as strategic goods. It made compute a matter of state, made sovereign compute a scenario, and made DeepSeek's cheap frontier a geopolitical event rather than a pricing one."
+    },
+    {
+      "id": "ai-act",
+      "term": "AI Act",
+      "aka": [
+        "EU AI Act"
+      ],
+      "short": "The European Union's risk-tiered AI law, adopted 2024, in force in stages.",
+      "definition": "Proposed in 2021, adopted in 2024, with general-purpose model duties applying from 2026. The first comprehensive law, and the one the rest of the world's rules are measured against."
+    },
+    {
+      "id": "deepfake",
+      "term": "Deepfake",
+      "aka": [
+        "deepfakes",
+        "synthetic media"
+      ],
+      "short": "A synthetic image, voice or video of a real person.",
+      "definition": "Named on a subreddit in 2017; a product by 2022; a policy problem the board expects to force provenance rules by 2029."
+    },
+    {
+      "id": "word-embedding",
+      "term": "Word embedding",
+      "aka": [
+        "word2vec",
+        "embeddings",
+        "embedding"
+      ],
+      "short": "Words as points in space, so that meaning is geometry.",
+      "definition": "word2vec's 2013 trick: train a small network to predict neighbouring words and the learned vectors put king minus man plus woman near queen. Every language model since represents its input this way."
+    },
+    {
+      "id": "recurrent-network",
+      "term": "Recurrent network",
+      "aka": [
+        "LSTM",
+        "recurrent",
+        "RNN"
+      ],
+      "short": "A network that reads a sequence one step at a time, carrying state — what ran language before the transformer.",
+      "definition": "The LSTM of 1997 solved the problem of remembering across long sequences and ran speech recognition and translation for twenty years. The transformer replaced it because it could not be trained in parallel."
+    },
+    {
+      "id": "gan",
+      "term": "GAN",
+      "aka": [
+        "generative adversarial network",
+        "generative adversarial networks",
+        "adversarial"
+      ],
+      "short": "Two networks, one forging and one detecting, trained against each other.",
+      "definition": "Goodfellow's 2014 idea: a generator makes images, a discriminator tells them from real ones, and each improves the other. The first convincing generated faces, and the technique behind the first deepfakes."
+    },
+    {
+      "id": "capped-profit",
+      "term": "Capped profit",
+      "aka": [
+        "capped-profit",
+        "public benefit corporation"
+      ],
+      "short": "OpenAI's 2019 structure: investors' returns limited, the nonprofit in control — until 2025.",
+      "definition": "A for-profit subsidiary whose returns were capped at a multiple, governed by the nonprofit's board. It was the structure that fired Altman and could not keep him fired, and it was replaced in 2025 by a public benefit corporation with the nonprofit as shareholder."
+    }
+  ]
+}

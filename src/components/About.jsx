@@ -1,7 +1,9 @@
 import React from 'react';
 import { events, links, projections } from '../lib/data.js';
+import { LEADS } from '../lib/leads.js';
+import { PEOPLE, ORGS, TERMS } from '../lib/files.js';
 import { INK, MONO, SERIF, SANS, RULE, ink, shell } from '../lib/styles.js';
-import { PageHead } from './kit.jsx';
+import { Link, PageHead } from './kit.jsx';
 
 /* The essay's own section: no rule above it, only the measure and the h2 it
    shares with the ruled sections elsewhere. */
@@ -28,6 +30,41 @@ function About() {
           <em> left a funding hole filled by</em>, <em>was the warning for</em> — and {links.filter((l) => l.note).length} of
           the {links.length} strings carry a written case note explaining the reasoning. If a
           connection cannot be argued in a sentence, it does not get a string.
+        </Section>
+
+        <Section title="Brief and full">
+          The site opens in brief: the board shows its landmark cards — the featured ones, every rung
+          on a lead, and both ends of every string that carries a case note — and a card's panel shows
+          its summary, its reading and one quoted sentence. Switch to full, in the header, and every
+          card and string is drawn, and every dossier shows its whole file: the paragraphs behind the
+          summary, the figures, the names on it, every source with what it says, and the road here in
+          the board's own claim verbs. The choice is remembered in your browser; a link with
+          <code style={{ font: 'inherit', color: INK }}> ?mode=full</code> opens the whole file for someone else.
+        </Section>
+
+        <Section title="The leads">
+          A lead follows one question through the record, rung by rung: how far machines got at
+          mathematics, at games, at gaming their own tests, and how cheap an answer became.
+          There are {LEADS.length}, with {LEADS.reduce((n, l) => n + l.rungs.length, 0)} rungs between them, and every rung is a card
+          on the board. A rung is a level reached, not a cause: where two rungs are also joined by a
+          string, the step carries the string's claim; where they are not, the lead is the only
+          argument, and the page says so. <Link to={{ view: 'leads' }}>The leads →</Link>
+        </Section>
+
+        <Section title="The files">
+          Every name the board uses has a page: {PEOPLE.length} people, {ORGS.length} organisations
+          and {TERMS.length} terms, each with every card it appears on and the strings between those
+          cards. A card counts as carrying a name if a contributor tagged it or if the name appears in
+          the card's own text; quoted sources are never searched. The glossary defines each term in the
+          board's own words, so nothing here needs an encyclopaedia to follow.
+          {' '}<Link to={{ view: 'files' }}>The files →</Link>
+        </Section>
+
+        <Section title="Every block has an address">
+          Every page, card, lead, finding, person and term is its own address, and every section on a
+          page has an anchor — hover a heading for the # and click it to copy the link. On the board,
+          Copy link carries the open card, the clue or the rung you are on. Old links in the
+          <code style={{ font: 'inherit', color: INK }}> ?view=</code> form still work and are rewritten.
         </Section>
 
         <Section title="Where the quoted sentences come from">
@@ -59,17 +96,23 @@ function About() {
         </Section>
 
         <Section title="How to change it">
-          The board is the JSON in data/ — the entries, the strings, the threads and the findings. Add a card or a string in the editor, export the
-          patch, and open a pull request against{' '}
-          <a href="https://github.com/mobahug/The_AI_Timeline" target="_blank" rel="noopener">the repository</a>.
+          The board is the JSON in data/ — the entries, the strings, the leads, the files, the threads and the findings. There is no
+          editor on the site: a change is a pull request against{' '}
+          <a href="https://github.com/mobahug/The_AI_Timeline" target="_blank" rel="noopener">the repository</a>, reviewed like any other.
           A test suite checks ids, years, sources, link targets and that every scenario is
           labelled. Contribution rules are in CONTRIBUTING.md.
         </Section>
       </div>
 
-      <div style={{ borderTop: RULE, paddingTop: 20, font: '400 11px/1.8 ' + MONO, color: ink(5), maxWidth: '60ch' }}>
-        Code MIT. Entry text CC BY-SA 4.0. Built with React and Vite; deployed by GitHub
-        Actions to GitHub Pages. <span style={{ color: INK }}>No analytics, no cookies.</span>
+      <div style={{ borderTop: RULE, paddingTop: 20, font: '400 11px/1.8 ' + MONO, color: ink(5), maxWidth: '64ch' }}>
+        <span style={{ color: INK }}>Licence.</span> The board's own text — entries, readings, case notes, leads, files, glossary —
+        is <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">CC BY-NC-ND 4.0</a>:
+        share it with credit, do not sell it, do not alter it. The code is
+        <a href="https://github.com/mobahug/The_AI_Timeline/blob/main/LICENSE" target="_blank" rel="noopener"> PolyForm Noncommercial 1.0.0</a>:
+        read it, run it, change it for any noncommercial purpose. Quoted sentences remain their publishers';
+        Wikipedia text is CC BY-SA 4.0 and credited where shown. Photographs remain under their Wikimedia
+        licences. Built with React and Vite; every page prerendered; deployed by GitHub Actions to GitHub Pages.
+        {' '}<span style={{ color: INK }}>No analytics, no cookies.</span>
       </div>
     </div>
   );

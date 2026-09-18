@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { VIEWS, VIEW_IDS, TABS, SITEMAP_VIEWS, RETIRED, tabOf, viewById } from '../src/lib/views.js';
-import { hrefFor, resolve } from '../src/lib/url.js';
+import { hrefFor, parse, resolve } from '../src/lib/url.js';
 import { metaFor } from '../src/lib/meta.js';
 import { FIRST, NOW, LAST, buildGraph, yearFraction, yearAtFraction, TICKS, forwardLedger } from '../src/lib/data.js';
 import { ink, micro, button, badge, shell, headline } from '../src/lib/styles.js';
@@ -8,9 +8,10 @@ import { ink, micro, button, badge, shell, headline } from '../src/lib/styles.js
 const graph = buildGraph(null);
 
 describe('the view registry is the one list of pages', () => {
-  it('has unique ids and exactly three tabs', () => {
+  it('has unique ids, unique paths and five doors', () => {
     expect(new Set(VIEWS.map((v) => v.id)).size).toBe(VIEWS.length);
-    expect(TABS.map((v) => v.id)).toEqual(['line', 'board', 'archive']);
+    expect(new Set(VIEWS.map((v) => v.path)).size).toBe(VIEWS.length);
+    expect(TABS.map((v) => v.id)).toEqual(['line', 'board', 'leads', 'archive', 'files']);
   });
 
   it('files every child under a tab that exists', () => {
@@ -19,6 +20,8 @@ describe('the view registry is the one list of pages', () => {
     expect(tabOf('card')).toBe('board');
     expect(tabOf('plates')).toBe('archive');
     expect(tabOf('board')).toBe('board');
+    expect(tabOf('lead')).toBe('leads');
+    expect(tabOf('term')).toBe('files');
   });
 
   it('gives every sitemap view a title and a description', () => {
@@ -34,11 +37,44 @@ describe('the view registry is the one list of pages', () => {
 });
 
 describe('routes round-trip through the URL', () => {
-  it('writes only what differs from the default', () => {
+  it('writes a page as a path and a refinement as a query', () => {
     expect(hrefFor({ view: 'landing', category: 'all', query: '' })).toBe('/');
-    expect(hrefFor({ view: 'card', id: 'alexnet' })).toBe('/?view=card&id=alexnet');
-    expect(hrefFor({ view: 'finding', finding: '3' })).toBe('/?view=finding&f=3');
-    expect(hrefFor({ view: 'board', clue: { from: 'a', to: 'b' }, id: 'ignored' })).toBe('/?view=board&clue=a%3Eb');
+    expect(hrefFor({ view: 'card', id: 'alexnet' })).toBe('/card/alexnet/');
+    expect(hrefFor({ view: 'finding', finding: '3' })).toBe('/line/3/');
+    expect(hrefFor({ view: 'lead', id: 'games-fall' })).toBe('/lead/games-fall/');
+    expect(hrefFor({ view: 'term', id: 'rlhf', hash: 'cards' })).toBe('/term/rlhf/#cards');
+    expect(hrefFor({ view: 'board', clue: { from: 'a', to: 'b' }, id: 'ignored' })).toBe('/board/?clue=a%3Eb');
+    expect(hrefFor({ view: 'board', lead: 'games-fall', rung: 2 })).toBe('/board/?lead=games-fall&rung=2');
+    expect(hrefFor({ view: 'archive', category: 'power', query: 'x' })).toBe('/archive/?cat=power&q=x');
+    expect(hrefFor({ view: 'plates' })).toBe('/archive/plates/');
+  });
+
+  it('reads every path it writes', () => {
+    const routes = [
+      { view: 'landing' }, { view: 'card', id: 'alexnet' }, { view: 'finding', finding: '3' },
+      { view: 'lead', id: 'games-fall' }, { view: 'person', id: 'alan-turing' }, { view: 'plates' },
+      { view: 'board', id: 'gpt-3' }, { view: 'board', clue: { from: 'a', to: 'b' } },
+      { view: 'board', lead: 'games-fall', rung: 2 }, { view: 'glossary', category: 'power', query: 'q' }
+    ];
+    routes.forEach((r) => {
+      const url = new URL(hrefFor(r), 'https://x.test');
+      const back = parse(url.pathname, url.search, url.hash);
+      Object.keys(r).forEach((k) => expect(back[k], k + ' of ' + url.href).toEqual(r[k]));
+    });
+  });
+
+  it('still lands the old ?view= addresses, and marks them for rewriting', () => {
+    expect(parse('/', '?view=card&id=alexnet')).toMatchObject({ view: 'card', id: 'alexnet', legacy: true });
+    expect(parse('/', '?view=finding&f=3')).toMatchObject({ view: 'finding', finding: '3', legacy: true });
+    expect(parse('/', '?view=board&clue=a%3Eb')).toMatchObject({ view: 'board', clue: { from: 'a', to: 'b' } });
+    expect(parse('/', '?view=index')).toMatchObject({ view: 'archive' });
+    expect(parse('/', '?view=nonsense')).toMatchObject({ view: 'landing' });
+    expect(parse('/no/such/page/', '')).toMatchObject({ view: 'landing', legacy: true });
+  });
+
+  it('carries a mode from the address without keeping it in the route', () => {
+    expect(parse('/board/', '?mode=full').mode).toBe('full');
+    expect(parse('/board/', '?mode=x').mode).toBeUndefined();
   });
 
   it('starts a new view from a clean slate but carries the filter', () => {

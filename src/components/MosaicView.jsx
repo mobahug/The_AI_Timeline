@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { catLabel } from '../lib/data.js';
+import { useMatch } from '../lib/dom.js';
 import { INK, SERIF, RISE, PHOTO_FILTER, PLACEHOLDER, frame, micro, shell } from '../lib/styles.js';
 import { Link } from './kit.jsx';
 
@@ -7,13 +8,7 @@ import { Link } from './kit.jsx';
 export default function MosaicView({ items, media }) {
   // A landmark spans two columns — but only once there are two columns to span.
   // Below that it overflows the grid, which is what it used to do on a phone.
-  const [wide, setWide] = useState(() => (typeof window !== 'undefined' ? window.innerWidth >= 560 : true));
-  useEffect(() => {
-    const onResize = () => setWide(window.innerWidth >= 560);
-    onResize();
-    window.addEventListener('resize', onResize);
-    return () => window.removeEventListener('resize', onResize);
-  }, []);
+  const wide = useMatch('(min-width: 560px)', true);
 
   return (
     <div style={{ ...shell('wide'), paddingTop: 22, display: 'grid', gridTemplateColumns: 'repeat(auto-fill,minmax(min(100%,240px),1fr))', gap: 10 }}>

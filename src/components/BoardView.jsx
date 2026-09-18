@@ -1,16 +1,18 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { THREADS, TICKS, FIRST, NOW, CATEGORIES, accent, buildChain, catLabel, catHue, fade, yearAtFraction } from '../lib/data.js';
 import { PAD, metrics, layout, stringPath } from '../lib/layout.js';
+import { leadById, leadChain } from '../lib/leads.js';
+import { useMode } from '../lib/mode.js';
 import { MANILA, MONO, PAPER, RED, RED_LIT, CYAN, SERIF, EASE, FADE, micro, paperInk } from '../lib/styles.js';
-import { Empty } from './kit.jsx';
+import { Empty, RouteProvider } from './kit.jsx';
 import { panDuration, panPosition } from '../lib/motion.js';
 import CluePanel from './CluePanel.jsx';
-import EditorBar from './EditorBar.jsx';
+import CardView from './CardView.jsx';
 
 /* One card on the cork. Memoised on plain values, so a scroll, a drag frame or a
    hover elsewhere on the board does not reconcile it: only the card whose own
    lit / subject / raised state flipped renders again. */
-const Card = React.memo(function Card({ node, m, img, lit, subject, raised, editing, hoverable, onClick, onHover, onFocusCard }) {
+const Card = React.memo(function Card({ node, m, img, lit, subject, raised, hoverable, onClick, onHover, onFocusCard }) {
   const e = node.event;
   const f = fade(e.year);
   return (
@@ -26,7 +28,7 @@ const Card = React.memo(function Card({ node, m, img, lit, subject, raised, edit
       style={{
         position: 'absolute', left: node.x - m.cardW / 2, top: node.top, width: m.cardW, height: m.cardH,
         padding: 0, border: 'none', background: 'transparent', textAlign: 'left', boxSizing: 'border-box',
-        cursor: editing ? 'text' : 'pointer',
+        cursor: 'pointer',
         transform: 'rotate(' + node.tilt + 'deg) scale(' + (raised ? 1.05 : 1) + ')',
         transformOrigin: '50% 0%', transition: 'transform .3s ' + EASE + ', opacity .3s',
         opacity: lit ? 1 : 0.2, zIndex: raised ? 12 : 2
@@ -63,7 +65,7 @@ const Card = React.memo(function Card({ node, m, img, lit, subject, raised, edit
         }}>{e.title}</span>
         {m.showCat && (
           <span style={{ flex: 'none', display: 'block', marginTop: 4, font: '400 7.5px/1 ' + MONO, letterSpacing: '0.18em', textTransform: 'uppercase', color: e.future ? 'oklch(0.45 0.16 25)' : paperInk(0.65) }}>
-            {e.future ? 'Scenario · ' + (e.confidence || 'Uncertain') : e.local ? 'Added by you' : catLabel(e.category)}
+            {e.future ? 'Scenario · ' + (e.confidence || 'Uncertain') : catLabel(e.category)}
           </span>
         )}
       </span>
@@ -99,7 +101,13 @@ const StringPath = React.memo(function StringPath({ s, strong, onChain, dim }) {
  *  without a card in the address lands where the reader was — not at 1900. */
 let lastFraction = null;
 
-export default function BoardView({ items, graph, media, route, navigate, board, onYear }) {
+/** The address a walked step writes: ?lead=&rung= for a rung, ?clue=a>b for a string. */
+const keyOf = (s) => (s.lead ? 'lead:' + s.lead + ':' + s.rung : s.from + '>' + s.to);
+const patchOf = (s) => (s.lead
+  ? { lead: s.lead, rung: s.rung, clue: null, id: null }
+  : { clue: { from: s.from, to: s.to }, id: null, lead: null, rung: null });
+
+export default function BoardView({ items, graph, media, route, navigate, onYear, full }) {
   const root = useRef(null);
   const frameRef = useRef(null);
   const scroller = useRef(null);
@@ -127,9 +135,11 @@ export default function BoardView({ items, graph, media, route, navigate, board,
   // it is the one thing that must move every frame and nothing else depends on it.
   const thumbRef = useRef(null);
   const scrubRef = useRef(null);
-  const [editing, setEditing] = useState(false);
-  const [draft, setDraft] = useState(null);
-  const [connectFrom, setConnectFrom] = useState(null);
+  // The file: the pinned card's whole dossier, opened inside the board's panel
+  // so a reader can dig without leaving the wall. Closed by Escape, by closing
+  // the card, or by opening another one.
+  const [fileOpen, setFileOpen] = useState(false);
+  const [, setMode] = useMode();
 
   // The shell fills whatever the header leaves. The header is measured, never
   // assumed, so wrapping at narrow widths just makes the lanes shorter.
@@ -152,8 +162,8 @@ export default function BoardView({ items, graph, media, route, navigate, board,
     };
   }, []);
 
-  // The frame measures itself, so anything else in the column (the editor opening,
-  // for instance) simply takes room from the lanes instead of overflowing. It is
+  // The frame measures itself, so anything else in the column simply takes room
+  // from the lanes instead of overflowing. It is
   // the frame and not the canvas scroller because the list rendering has no
   // scroller — measuring that left the width stuck at its default and put a
   // 440px rail on a 390px phone.
@@ -168,11 +178,23 @@ export default function BoardView({ items, graph, media, route, navigate, board,
   }, []);
 
   const m = useMemo(() => metrics(box.h, box.w), [box.h, box.w]);
+  // In brief the wall shows its landmarks and whatever the reader has open: the
+  // pinned card, the card or clue the address names, and every card on a walked
+  // chain — all of it, from the first step, so stepping never re-lays the board.
+  // Keyed on the ids as a string, not on the route object: a step rewrites
+  // route.clue, and the wall must not be laid out again for the same set.
+  const keepKey = [pinned, route.id, route.clue && route.clue.from, route.clue && route.clue.to,
+    ...(chain ? chain.flatMap((s) => [s.from, s.to]) : [])].filter(Boolean).sort().join('|');
+  const visible = useMemo(() => {
+    if (full) return items;
+    const keep = new Set(keepKey ? keepKey.split('|') : []);
+    return items.filter((e) => e.landmark || keep.has(e.id));
+  }, [items, full, keepKey]);
   // On a wide screen the panel is a rail down the right edge and takes that much
   // of the frame from the board; on a narrow one it is a sheet and takes none.
   const railMode = box.w >= 900;
-  const RAIL_W = railMode ? Math.min(440, Math.round(box.w * 0.36)) : 0;
-  const board3 = useMemo(() => layout(items, m), [items, m]);
+  const RAIL_W = railMode ? (fileOpen ? Math.min(760, Math.round(box.w * 0.58)) : Math.min(440, Math.round(box.w * 0.36))) : 0;
+  const board3 = useMemo(() => layout(visible, m), [visible, m]);
   const positions = useMemo(() => Object.fromEntries(board3.nodes.map((n) => [n.event.id, n])), [board3]);
 
   // A string is coloured by the category of the event it leaves — the kind of thing
@@ -198,6 +220,15 @@ export default function BoardView({ items, graph, media, route, navigate, board,
   const chainIds = chain ? [...new Set(chain.flatMap((s) => [s.from, s.to]))] : null;
   const focusId = chain ? null : (pinned || hover);
   const active = chain ? chainIds : (focusId ? [focusId, ...(graph.adjacency[focusId] || []).map((a) => a.id)] : null);
+  // A walked lead: the ladder is drawn through its rungs in the lead's own hue,
+  // and every rung card wears its number.
+  const lead = current && current.lead ? leadById[current.lead] : null;
+  const ladder = useMemo(() => {
+    if (!lead) return null;
+    const rungs = lead.rungs.map((r, i) => ({ ...r, n: i + 1, p: positions[r.event] })).filter((r) => r.p);
+    const segs = rungs.slice(1).map((r, i) => ({ from: rungs[i], to: r, ...stringPath(rungs[i].p, r.p, m.gutter) }));
+    return { rungs, segs, tone: 'oklch(0.82 0.13 ' + lead.hue + ')' };
+  }, [lead, positions, m.gutter]);
 
   /**
    * Pan the board to a position along an eased curve driven by requestAnimationFrame.
@@ -252,9 +283,13 @@ export default function BoardView({ items, graph, media, route, navigate, board,
     const a = positions[stepData.from];
     const b = positions[stepData.to];
     if (!a || !b) return;
-    panTo((a.x + b.x) / 2 - (el.clientWidth - railInset.current) / 2);
-    if (el.scrollHeight > el.clientHeight) el.scrollTop = Math.max(0, (a.y + b.y) / 2 - el.clientHeight / 2);
-  }, [positions, panTo]);
+    // Both ends in view when the frame allows it; when it does not — a phone,
+    // or two cards a decade apart — the card the step arrives at, centred.
+    const usable = el.clientWidth - railInset.current;
+    const fits = Math.abs(b.x - a.x) + m.cardW + 24 <= usable;
+    panTo((fits ? (a.x + b.x) / 2 : b.x) - usable / 2);
+    if (el.scrollHeight > el.clientHeight) el.scrollTop = Math.max(0, (fits ? (a.y + b.y) / 2 : b.y) - el.clientHeight / 2);
+  }, [positions, panTo, m.cardW]);
 
   /** A card that takes keyboard focus must be in view — the browser scrolls it
    *  into the frame, but not out from under the rail. */
@@ -282,14 +317,25 @@ export default function BoardView({ items, graph, media, route, navigate, board,
     el.scrollLeft = positions[id].x - (el.clientWidth - railInset.current) / 2;
   }, [positions, cancelPan]);
 
+  // A card opened in brief that is not yet on the wall is laid out on the next
+  // render; the pan to it waits for its position.
+  const pendingPan = useRef(null);
   const focusCard = useCallback((id) => {
     setChain(null);
     setHover(null);
+    // The file stays open across cards: a name clicked inside one dossier
+    // opens the next dossier in the same drawer, so digging never leaves the wall.
     setPinned(id);
     applied.current = id;
-    navigate({ id, clue: null }, true);
-    panToCard(id);
-  }, [navigate, panToCard]);
+    navigate({ id, clue: null, lead: null, rung: null }, true);
+    // Never from this render's positions: clearing a chain or opening a card
+    // in brief re-lays the wall, and the pan must use the layout that results.
+    pendingPan.current = id;
+  }, [navigate]);
+  useEffect(() => {
+    const id = pendingPan.current;
+    if (id && positions[id]) { pendingPan.current = null; panToCard(id); }
+  });
 
   /** Close whatever the panel holds and hand focus back to the card it opened
    *  from, so a keyboard reader is never dropped on <body>. */
@@ -298,23 +344,46 @@ export default function BoardView({ items, graph, media, route, navigate, board,
     setChain(null);
     setHover(null);
     setPinned(null);
-    navigate({ clue: null, id: null }, true);
-    if (back) {
-      const el = document.getElementById('card-' + back);
-      if (el) el.focus({ preventScroll: true });
-    }
-  }, [pinned, chain, step, navigate]);
+    setFileOpen(false);
+    navigate({ clue: null, id: null, lead: null, rung: null }, true);
+    // In brief a card that was only on the wall because it was open leaves it
+    // now; focus goes to the scrubber instead of being dropped on <body>.
+    const stays = back && graph.index[back] && (full || graph.index[back].landmark);
+    const el = stays ? document.getElementById('card-' + back) : scrubRef.current;
+    if (el) el.focus({ preventScroll: true });
+  }, [pinned, chain, step, navigate, full, graph.index]);
 
   /** Put a walked chain on the board at one of its steps, and pan to it. */
+  // The step to centre on is remembered and centred after the render that
+  // places it: a chain opened in brief may add cards to the wall, and a pan
+  // computed from the positions before that render would miss them.
+  const wantCentre = useRef(null);
   const showChain = useCallback((steps, index, replaceUrl) => {
     setPinned(null);
     setHover(null);
+    setFileOpen(false);
     setChain(steps);
     setStep(index);
-    applied.current = steps[index].from + '>' + steps[index].to;
-    if (replaceUrl) navigate({ clue: { from: steps[index].from, to: steps[index].to }, id: null }, true);
-    requestAnimationFrame(() => centre(steps[index]));
-  }, [navigate, centre]);
+    applied.current = keyOf(steps[index]);
+    wantCentre.current = steps[index];
+    if (replaceUrl) navigate(patchOf(steps[index]), true);
+  }, [navigate]);
+  useEffect(() => {
+    const s = wantCentre.current;
+    if (!s || !positions[s.from] || !positions[s.to]) return;
+    wantCentre.current = null;
+    centre(s);
+  });
+
+  /** Walk a lead from one of its rungs. */
+  const openLead = useCallback((id, rung) => {
+    const l = leadById[id];
+    if (!l) return;
+    const steps = leadChain(graph, l);
+    if (!steps.length) return;
+    const index = Math.max(0, Math.min(steps.length - 1, (rung || 1) - 1));
+    showChain(steps, index, true);
+  }, [graph, showChain]);
 
   /** Open one specific string as a walked clue. buildChain only ever follows the
    *  first-authored link at each hop, so without naming the parent, a share of
@@ -344,10 +413,10 @@ export default function BoardView({ items, graph, media, route, navigate, board,
   const restoredAt = useRef('');
   useEffect(() => {
     const el = scroller.current;
-    if (!el || route.id || route.clue || lastFraction === null || settled.current || restoredAt.current === geometry) return;
+    if (!el || route.id || route.clue || route.lead || lastFraction === null || settled.current || restoredAt.current === geometry) return;
     restoredAt.current = geometry;
     el.scrollLeft = lastFraction * (el.scrollWidth - el.clientWidth);
-  }, [route.id, route.clue, geometry]);
+  }, [route.id, route.clue, route.lead, geometry]);
 
   // Deep links: ?id=… opens a card, ?clue=a>b opens the walkthrough at that string.
   // The board is laid out once with a guessed frame and again when the frame is
@@ -356,13 +425,29 @@ export default function BoardView({ items, graph, media, route, navigate, board,
   // until the reader pans by hand, after which the view is theirs.
   const placedAt = useRef('');
   useEffect(() => {
-    const key = route.clue ? route.clue.from + '>' + route.clue.to : route.id || '';
+    const key = route.lead ? 'lead:' + route.lead + ':' + (route.rung || 1) : route.clue ? route.clue.from + '>' + route.clue.to : route.id || '';
     if (!key || !board3.nodes.length) return;
     const fresh = key !== applied.current;
     if (!fresh && (settled.current || placedAt.current === geometry)) return;
     applied.current = key;
     placedAt.current = geometry;
     if (fresh) settled.current = false;
+    // Only the geometry moved under an address the board has already answered:
+    // put the same step or card back in view. Rebuilding the chain here would
+    // walk from the current step's first-authored parent and could hand the
+    // reader a different chain than the one they were stepping.
+    if (!fresh) {
+      if (current) centre(current);
+      else if (pinned && positions[pinned]) placeCard(pinned);
+      return;
+    }
+    if (route.lead) {
+      const l = leadById[route.lead];
+      const steps = l ? leadChain(graph, l) : [];
+      if (steps.length) { showChain(steps, Math.max(0, Math.min(steps.length - 1, (route.rung || 1) - 1)), false); return; }
+      navigate({ lead: null, rung: null }, true);
+      return;
+    }
     if (route.clue) {
       const built = buildChain(graph, route.clue.to, route.clue.from);
       const index = built.steps.findIndex((s) => s.from === route.clue.from && s.to === route.clue.to);
@@ -380,7 +465,27 @@ export default function BoardView({ items, graph, media, route, navigate, board,
       setPinned(route.id);
       placeCard(route.id);
     }
-  }, [route.id, route.clue, graph, positions, board3.nodes.length, geometry, showChain, placeCard, navigate]);
+  }, [route.id, route.clue, route.lead, route.rung, graph, positions, board3.nodes.length, geometry, showChain, placeCard, navigate, current, pinned, centre]);
+
+  // Brief and full lay the axis out differently — a hundred cards more or fewer
+  // warp it by thousands of pixels — so a switch puts back what the reader was
+  // looking at: the open card, the current step, or else the year at the head
+  // of the frame.
+  const headYear = useRef(null);
+  const wasFull = useRef(full);
+  useEffect(() => {
+    if (wasFull.current === full) return;
+    wasFull.current = full;
+    const el = scroller.current;
+    if (!el) return;
+    cancelPan();
+    if (current) { centre(current); return; }
+    if (pinned && positions[pinned]) { placeCard(pinned); return; }
+    if (headYear.current !== null) {
+      el.scrollLeft = Math.max(0, board3.xOf(headYear.current) - Math.min(el.clientWidth * 0.4, 380));
+      onScroll();
+    }
+  }, [full]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Filtering a 4200px board to five cards used to leave you staring at empty
   // cork, with the results somewhere off-screen. Changing a filter now pans to
@@ -401,19 +506,20 @@ export default function BoardView({ items, graph, media, route, navigate, board,
     const next = Math.min(chain.length - 1, Math.max(0, step + delta));
     if (next === step) return;
     setStep(next);
-    applied.current = chain[next].from + '>' + chain[next].to;
-    navigate({ clue: { from: chain[next].from, to: chain[next].to } }, true);
-    centre(chain[next]);
-  }, [chain, step, navigate, centre]);
+    applied.current = keyOf(chain[next]);
+    navigate(patchOf(chain[next]), true);
+    wantCentre.current = chain[next];
+  }, [chain, step, navigate]);
 
   useEffect(() => {
     const onKey = (e) => {
-      // The search field and the editor own their own keys.
+      // The search field owns its own keys, and so does the header's sheet.
       const t = e.target;
       if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.tagName === 'SELECT' || t.isContentEditable)) return;
+      if (t && t.closest && t.closest('[role="dialog"]')) return;
       if (e.key === 'Escape') {
-        // One layer per press: a draft, then a chain, then a pinned card, then a preview.
-        if (draft || connectFrom) { setDraft(null); setConnectFrom(null); return; }
+        // One layer per press: the file, then a chain, then a pinned card, then a preview.
+        if (fileOpen) { setFileOpen(false); return; }
         if (chain) { leave(); return; }
         if (pinned) { leave(); return; }
         setHover(null);
@@ -422,7 +528,7 @@ export default function BoardView({ items, graph, media, route, navigate, board,
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [chain, move, draft, connectFrom, pinned, leave]);
+  }, [chain, move, pinned, leave, fileOpen]);
 
   const onScroll = useCallback(() => {
     const el = scroller.current;
@@ -457,7 +563,8 @@ export default function BoardView({ items, graph, media, route, navigate, board,
       const head = left + Math.min(el.clientWidth * 0.4, 380);
       let nearest = null;
       board3.nodes.forEach((n) => { if (!nearest || Math.abs(n.x - head) < Math.abs(nearest.x - head)) nearest = n; });
-      onYear(String(nearest ? nearest.event.year : yearAtFraction(fr(head))), max > 0 ? left / max : 0);
+      headYear.current = nearest ? nearest.event.year : yearAtFraction(fr(head));
+      onYear(String(headYear.current), max > 0 ? left / max : 0);
     }
   }, [board3.width, board3.nodes, m.cardW, onYear]);
 
@@ -521,23 +628,9 @@ export default function BoardView({ items, graph, media, route, navigate, board,
     window.addEventListener('pointerup', up);
   };
 
-  // The editor's state is read through a ref so this handler keeps one identity
-  // and the memoised cards are not re-rendered every time the editor changes.
-  const editor = useRef({ editing, connectFrom, board });
-  editor.current = { editing, connectFrom, board };
+  // One identity, so the memoised cards are not re-rendered on every render.
   const clickCard = useCallback((event) => {
     if (dragged.current) return;
-    const { editing: on, connectFrom: from, board: b } = editor.current;
-    if (on) { setDraft({ ...event, note: event.summary, isNew: false }); return; }
-    if (from) {
-      if (from === event.id) { setConnectFrom(null); return; }
-      const claim = window.prompt('What does this string claim? e.g. “provoked”, “funded”, “was the warning for”', 'led to');
-      if (claim === null) { setConnectFrom(null); return; }
-      const note = window.prompt('Case note (optional): explain the causal argument.', '') || '';
-      b.addString({ from, to: event.id, claim: claim || 'led to', note });
-      setConnectFrom(null);
-      return;
-    }
     focusCard(event.id);
   }, [focusCard]);
   const hoverable = canHover && !chain && !pinned;
@@ -546,7 +639,7 @@ export default function BoardView({ items, graph, media, route, navigate, board,
   // keyboard is likely — a phone reader would only wonder where the arrows are.
   const keys = canHover ? ' · ← → to step · Esc to close' : '';
   const hint = chain
-    ? 'Walking a chain' + keys
+    ? (lead ? 'Following a lead · ' + lead.title : 'Walking a chain') + keys
     : focusId
       ? 'Card selected · ' + ((graph.adjacency[focusId] || []).length) + ' strings attached'
       : graph.edges.length + ' strings · click a card for what led to it and what followed';
@@ -560,6 +653,17 @@ export default function BoardView({ items, graph, media, route, navigate, board,
     const h = panelRef.current.querySelector('h2, h3');
     if (h) { h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: true }); }
   }, [pinned]);
+  // Opening or closing the file starts the panel at its top, and hands focus to
+  // the file's own heading so a keyboard reader lands inside it.
+  useEffect(() => {
+    const el = panelRef.current;
+    if (!el) return;
+    el.scrollTop = 0;
+    // Whichever way it went, the panel's heading takes focus: into the file on
+    // opening, back to the card on closing, never dropped on <body>.
+    const h = el.querySelector('h1, h2, h3');
+    if (h) { h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: true }); }
+  }, [fileOpen]);
   // A hover preview must never steal the hover that produced it, so it lets the
   // pointer straight through.
   const preview = !current && !pinned && !!hover;
@@ -571,8 +675,8 @@ export default function BoardView({ items, graph, media, route, navigate, board,
   // The panel is exactly as tall as what it holds, up to a cap, and scrolls past
   // it. Never a fixed block with dead space under short content, and never a
   // snap between sizes: the height is measured and the change is animated.
-  const PANEL_CAP = railMode ? box.h : Math.max(180, Math.round(shellH * 0.46));
-  const panelH = Math.min(PANEL_CAP, panelContentH || PANEL_CAP);
+  const PANEL_CAP = railMode ? box.h : Math.max(180, Math.round(shellH * (fileOpen ? 0.9 : 0.46)));
+  const panelH = fileOpen ? PANEL_CAP : Math.min(PANEL_CAP, panelContentH || PANEL_CAP);
   useEffect(() => { if (!panelOpen) setPanelContentH(0); }, [panelOpen]);
 
   // Measure the panel's content so the panel can be exactly as tall as it.
@@ -597,26 +701,31 @@ export default function BoardView({ items, graph, media, route, navigate, board,
         padding: '0 clamp(10px,1.6vw,20px) 6px', boxSizing: 'border-box'
       }}
     >
+      {/* The status row. One line, always: the hint changes with every hover,
+          and if this row could wrap, the board below would re-measure and jump
+          on each one. The hint ellipsises and the legend scrolls instead. */}
       <div style={{ flex: 'none', paddingTop: 9 }}>
-        <EditorBar
-          compact={box.w < 820}
-          lead={<>
-            <h1 style={{ margin: 0, font: '400 clamp(16px,1.7vw,21px)/1 ' + SERIF, letterSpacing: '-0.02em', whiteSpace: 'nowrap', flex: 'none' }}>The board</h1>
-            <span aria-live="polite" style={{ ...micro(chain ? 3 : 5), color: chain ? RED_LIT : undefined, flex: '0 1 auto', minWidth: 0, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{hint}</span>
-          </>}
-          trail={<span style={{ ...micro(0.5), letterSpacing: '0.18em', display: 'inline-flex', alignItems: 'center', gap: 7, whiteSpace: 'nowrap' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'nowrap', minWidth: 0, marginBottom: 10 }}>
+          <h1 style={{ margin: 0, font: '400 clamp(16px,1.7vw,21px)/1 ' + SERIF, letterSpacing: '-0.02em', whiteSpace: 'nowrap', flex: 'none' }}>The board</h1>
+          <span aria-live="polite" style={{ ...micro(chain ? 3 : 5), color: chain ? RED_LIT : undefined, flex: '0 1 auto', minWidth: 0, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{hint}</span>
+          <span style={{ flex: 1 }} />
+          <div style={{
+            display: 'flex', gap: box.w < 820 ? 10 : 14, alignItems: 'center', minWidth: 0, flex: '0 1 auto',
+            flexWrap: 'nowrap', overflowX: 'auto', overflowY: 'hidden', maxWidth: '100%', scrollbarWidth: 'none'
+          }}>
+            <span style={{ ...micro(5), flex: 'none' }}>Colour is the category · lanes are the threads</span>
+            {CATEGORIES.map((c) => (
+              <span key={c.id} style={{ display: 'inline-flex', alignItems: 'center', gap: 6, flex: 'none', ...micro(5), letterSpacing: '0.14em' }}>
+                <span style={{ width: 7, height: 7, borderRadius: '50%', display: 'inline-block', background: accent(c.id, 0) }} />
+                {c.label}
+              </span>
+            ))}
+          </div>
+          <span style={{ ...micro(0.5), letterSpacing: '0.18em', display: 'inline-flex', alignItems: 'center', gap: 7, whiteSpace: 'nowrap' }}>
             <span style={{ width: 6, height: 6, borderRadius: '50%', background: CYAN, animation: 'hudPulse 2.4s ease-in-out infinite' }} />
             {viewport[0]} — {viewport[1]}
-          </span>}
-          editing={editing}
-          onToggle={() => { setEditing((v) => !v); setDraft(null); setConnectFrom(null); setChain(null); setPinned(null); }}
-          onNewCard={() => { setEditing(true); setDraft({ id: null, year: NOW + 1, category: 'research', title: '', note: '', isNew: true }); }}
-          onConnect={() => setConnectFrom(draft ? draft.id : focusId)}
-          connecting={!!connectFrom}
-          board={board}
-          draft={draft}
-          setDraft={setDraft}
-        />
+          </span>
+        </div>
       </div>
 
       <div ref={frameRef} style={{ position: 'relative', flex: 1, minHeight: 0 }}>
@@ -673,7 +782,30 @@ export default function BoardView({ items, graph, media, route, navigate, board,
                 const isStep = current && ((current.from === s.from && current.to === s.to) || (current.from === s.to && current.to === s.from));
                 return <StringPath key={s.id} s={s} strong={!!(isStep || (!chain && onChain))} onChain={!!onChain} dim={!!active} />;
               })}
+              {/* The ladder: a lead's rungs joined in order, in the lead's hue,
+                  dashed where the board draws no string of its own. The segment
+                  into the current rung is lit. */}
+              {ladder && ladder.segs.map((g) => {
+                const lit = current && g.to.event === current.to && g.from.event === current.from;
+                return (
+                  <g key={'lead-' + g.to.event} style={{ opacity: lit ? 1 : 0.55 }}>
+                    {lit && <path d={g.d} style={{ fill: 'none', stroke: ladder.tone, strokeWidth: 9, opacity: 0.2, filter: 'blur(4px)' }} />}
+                    <path d={g.d} style={{ fill: 'none', stroke: '#0a0a0b', strokeWidth: 4.4, strokeLinecap: 'round', opacity: 0.6 }} />
+                    <path d={g.d} style={{ fill: 'none', stroke: ladder.tone, strokeWidth: lit ? 2.6 : 1.8, strokeLinecap: 'round', strokeDasharray: '2 6' }} />
+                  </g>
+                );
+              })}
             </svg>
+
+            {ladder && ladder.rungs.map((r) => (
+              <div key={'rung-' + r.event} aria-hidden="true" style={{
+                position: 'absolute', left: r.p.x - m.cardW / 2 - 6, top: r.p.top - 8, zIndex: 14, pointerEvents: 'none',
+                minWidth: 20, height: 20, padding: '0 5px', borderRadius: 10, boxSizing: 'border-box',
+                background: current && current.to === r.event ? ladder.tone : '#0a0a0b', color: current && current.to === r.event ? '#0a0a0b' : ladder.tone,
+                border: '1px solid ' + ladder.tone, display: 'flex', alignItems: 'center', justifyContent: 'center',
+                font: '500 9.5px/1 ' + MONO, letterSpacing: '0.04em', boxShadow: '0 3px 8px rgba(0,0,0,0.5)', animation: FADE
+              }}>{r.n}</div>
+            ))}
 
             {strings.filter((s) => current
               ? (current.from === s.from && current.to === s.to) || (current.from === s.to && current.to === s.from)
@@ -702,7 +834,6 @@ export default function BoardView({ items, graph, media, route, navigate, board,
                   lit={!active || active.includes(e.id)}
                   subject={current ? current.to === e.id : focusId === e.id}
                   raised={!!((current && (current.from === e.id || current.to === e.id)) || focusId === e.id)}
-                  editing={editing}
                   hoverable={hoverable}
                   onClick={clickCard}
                   onHover={setHover}
@@ -724,9 +855,21 @@ export default function BoardView({ items, graph, media, route, navigate, board,
           }}>{thread.label}</div>
         ))}
 
-        {!items.length && (
+        {!visible.length && (
           <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none', zIndex: 9 }}>
-            <Empty noun="card" route={route} navigate={navigate} style={{ padding: 0 }} />
+            {items.length ? (
+              <div role="status" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 14, textAlign: 'center' }}>
+                <span style={{ ...micro(5), letterSpacing: '0.14em' }}>
+                  {items.length} {items.length === 1 ? 'card matches' : 'cards match'}, none of them a landmark — they are in the full file.
+                </span>
+                <div style={{ display: 'flex', gap: 10, pointerEvents: 'auto' }}>
+                  <button type="button" onClick={() => setMode('full')} style={{ ...micro(1), background: 'rgba(255,80,60,0.1)', border: '1px solid ' + RED, borderRadius: 2, padding: '7px 12px', cursor: 'pointer', letterSpacing: '0.14em' }}>Switch to full</button>
+                  <button type="button" onClick={() => navigate({ category: 'all', query: '' }, true)} style={{ ...micro(5), background: 'transparent', border: '1px solid rgba(243,240,234,0.2)', borderRadius: 2, padding: '7px 12px', cursor: 'pointer', letterSpacing: '0.14em' }}>Show everything</button>
+                </div>
+              </div>
+            ) : (
+              <Empty noun="card" route={route} navigate={navigate} style={{ padding: 0 }} />
+            )}
           </div>
         )}
 
@@ -766,6 +909,29 @@ export default function BoardView({ items, graph, media, route, navigate, board,
             }}
           >
            <div ref={panelInner}>
+            {fileOpen && pinned && graph.index[pinned] ? (
+              <div style={{ display: 'flex', flexDirection: 'column', minHeight: 0 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 14px', borderBottom: '1px solid rgba(243,240,234,0.12)', position: 'sticky', top: 0, background: 'rgba(10,10,11,0.985)', zIndex: 2 }}>
+                  <span style={{ ...micro(3), color: RED_LIT }}>The file</span>
+                  <span style={{ ...micro(5), minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{graph.index[pinned].year} · {graph.index[pinned].title}</span>
+                  <span style={{ flex: 1 }} />
+                  <button type="button" onClick={() => setFileOpen(false)} style={{ ...micro(3), background: 'transparent', border: '1px solid rgba(243,240,234,0.2)', borderRadius: 2, padding: '6px 10px', cursor: 'pointer' }}>Back to the card</button>
+                  <button type="button" onClick={leave} style={{ ...micro(5), background: 'transparent', border: '1px solid rgba(243,240,234,0.2)', borderRadius: 2, padding: '6px 10px', cursor: 'pointer' }}>Close</button>
+                </div>
+                {/* Links inside the file stay on the board: a card opens as the
+                    pinned card, a clue opens as a walk, a lead as a ladder. Any
+                    other page is a real navigation. Every href stays real. */}
+                <RouteProvider value={{ route: { ...route, view: 'card', id: pinned, clue: null, lead: null, rung: null, hash: null }, navigate: (patch, replace) => {
+                  if (patch.view === 'card' && patch.id) { focusCard(patch.id); return; }
+                  if (patch.view === 'board' && patch.clue) { openClue(patch.clue.from, patch.clue.to); return; }
+                  if (patch.view === 'board' && patch.lead) { openLead(patch.lead, patch.rung); return; }
+                  if (patch.view === 'board' && patch.id) { focusCard(patch.id); return; }
+                  navigate(patch, replace);
+                } }}>
+                  <CardView graph={graph} route={{ view: 'card', id: pinned }} media={media} embedded />
+                </RouteProvider>
+              </div>
+            ) : (
             <CluePanel
               graph={graph}
               chain={chain}
@@ -773,13 +939,17 @@ export default function BoardView({ items, graph, media, route, navigate, board,
               current={current}
               focus={focusId ? graph.index[focusId] : null}
               media={media}
+              full={full}
               onStep={move}
-              onJump={(index) => { setStep(index); centre(chain[index]); }}
+              onJump={(index) => { setStep(index); applied.current = keyOf(chain[index]); navigate(patchOf(chain[index]), true); wantCentre.current = chain[index]; }}
               onExit={leave}
               onOpenChain={openChain}
               onOpenCard={focusCard}
               onOpenClue={openClue}
+              onOpenLead={openLead}
+              onOpenFile={pinned ? () => setFileOpen(true) : null}
             />
+            )}
            </div>
           </div>
         )}

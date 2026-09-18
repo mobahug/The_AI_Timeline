@@ -30,3 +30,9 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
   html { scroll-behavior: auto; }
   * { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
 }
+/* Section anchors: the # appears when the heading row is hovered or the link
+   itself has focus, and is always in the tab order. */
+.anchored .anchor { opacity: 0; transition: opacity .15s; }
+.anchored:hover .anchor, .anchor:focus-visible { opacity: 1; }
+@media (hover: none) { .anchored .anchor { opacity: 1; } }
+:target { scroll-margin-top: 96px; }

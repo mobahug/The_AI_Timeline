@@ -2,37 +2,61 @@ import React, { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { CATEGORIES, FIRST, LAST, NOW, accent } from '../lib/data.js';
 import { TABS, tabOf, viewById } from '../lib/views.js';
+import { useMode } from '../lib/mode.js';
+import { useNarrow } from '../lib/dom.js';
 import { Btn, Link, Segmented } from './kit.jsx';
+import SearchBox from './Search.jsx';
 import { INK, MONO, SERIF, GOLD, ROW_RULE, GUTTER, FADE, ink, micro } from '../lib/styles.js';
 
-/* Three doors. The line is the argument in order; the board is the wall with the
-   strings; the archive is everything, dated. Each stretch of the line, the open
-   file (the case, the horizon), a card's dossier and the archive's costumes are
-   pages under those three, not tabs of their own — the registry says which. */
+/* Five doors. The line is the argument in order; the board is the wall with the
+   strings; the leads are the lines of inquiry; the archive is everything, dated;
+   the files are every name. Each stretch of the line, the open file (the case,
+   the horizon), a card's dossier, a lead, a person and the archive's costumes are
+   pages under those five, not tabs of their own — the registry says which. */
 const DOORS = TABS.map((v) => ({ id: v.id, label: v.label, to: { view: v.id } }));
 
 /** Below this the chrome would eat the screen, so it folds into one row + a sheet. */
-const NARROW = 820;
+const NARROW = 880;
 /** Between here and NARROW — a small laptop, a tablet on its side — the chrome
  *  keeps its two rows but sheds the tagline and lets the filter chips scroll
  *  sideways, so neither row ever wraps into a third. */
-const MID = 1160;
+const MID = 1260;
+
+/** The brief / full switch. Brief is the outline; full is the whole file. */
+function ModeSwitch({ size }) {
+  const [mode, setMode] = useMode();
+  const items = [['brief', 'Brief'], ['full', 'Full']];
+  return (
+    <div role="group" aria-label="Detail" title="Brief shows the landmark cards and one quote per card; Full shows every card, string, figure, name and source" style={{ display: 'flex', gap: 2, padding: 2, background: 'rgba(243,240,234,0.07)', borderRadius: 2, flex: 'none' }}>
+      {items.map(([id, label]) => {
+        const on = mode === id;
+        return (
+          <button
+            key={id}
+            type="button"
+            aria-pressed={on}
+            onClick={() => setMode(id)}
+            style={{
+              ...micro(on ? 1 : 4), padding: size === 'lg' ? '9px 13px' : '6px 10px', borderRadius: 2, border: 'none', cursor: 'pointer',
+              letterSpacing: '0.12em', background: on ? INK : 'transparent', color: on ? '#0a0a0b' : ink(4)
+            }}
+          >{label}</button>
+        );
+      })}
+    </div>
+  );
+}
 
 /** The heading above each block of the sheet. */
 const sheetLabel = { ...micro(5, 'section'), margin: '28px 0 8px' };
 
-export default function Header({ route, navigate, year, barRef, status }) {
+export default function Header({ route, navigate, year, barRef, status, graph }) {
   const activeView = tabOf(route.view);
-  const [narrow, setNarrow] = useState(() => (typeof window !== 'undefined' ? window.innerWidth < NARROW : false));
-  const [mid, setMid] = useState(() => (typeof window !== 'undefined' ? window.innerWidth < MID : false));
+  // Measured through a store with a server default, so the prerendered page and
+  // the first client render agree, and the phone gets its sheet a frame later.
+  const narrow = useNarrow(NARROW);
+  const mid = useNarrow(MID);
   const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    const onResize = () => { setNarrow(window.innerWidth < NARROW); setMid(window.innerWidth < MID); };
-    onResize();
-    window.addEventListener('resize', onResize);
-    return () => window.removeEventListener('resize', onResize);
-  }, []);
 
   // A focused row must never land under the sticky chrome: the document's
   // scroll padding follows the header's measured height.
@@ -90,9 +114,9 @@ export default function Header({ route, navigate, year, barRef, status }) {
   const filters = (
     <div style={{
       display: 'flex', gap: 5, minWidth: 0,
-      ...(narrow ? { flexWrap: 'wrap' } : mid
-        ? { flex: '1 1 0', flexWrap: 'nowrap', overflowX: 'auto', scrollbarWidth: 'none', paddingBottom: 1 }
-        : { flexWrap: 'wrap' })
+      // On a desk the chips take what the row leaves and scroll sideways past
+      // it, so the doors, the filter and the search always hold one line.
+      ...(narrow ? { flexWrap: 'wrap' } : { flex: '1 1 0', flexWrap: 'nowrap', overflowX: 'auto', scrollbarWidth: 'none', paddingBottom: 1 })
     }}>
       {[{ id: 'all', label: 'All' }, ...CATEGORIES].map((c) => {
         const on = route.category === c.id;
@@ -124,19 +148,7 @@ export default function Header({ route, navigate, year, barRef, status }) {
   );
 
   const search = (
-    <input
-      value={route.query}
-      onChange={(e) => navigate({ query: e.target.value }, true)}
-      placeholder="search…"
-      aria-label="Search entries"
-      style={{
-        border: 'none', borderBottom: '1px solid rgba(243,240,234,0.2)', background: 'transparent',
-        padding: narrow ? '10px 2px' : '5px 2px', color: INK, font: '400 ' + (narrow ? 15 : 12) + 'px/1.2 ' + MONO,
-        // On a desk the field takes what the row leaves, within reason, so the
-        // doors, the filter and the search hold one line down to a small laptop.
-        ...(narrow ? { width: '100%' } : { flex: '1 1 110px', minWidth: 110, maxWidth: 220 })
-      }}
-    />
+    <SearchBox graph={graph} value={route.query} onChange={(v) => navigate({ query: v }, true)} narrow={narrow} />
   );
 
   const contribute = (size) => (
@@ -165,6 +177,7 @@ export default function Header({ route, navigate, year, barRef, status }) {
               style={{ ...micro(activeView === 'about' ? 1 : 4), padding: '7px 4px' }}
             >About</Link>
           )}
+          {!narrow && <ModeSwitch />}
           {!narrow && contribute()}
           <span style={{
             // Longhands, not the `font` shorthand: this size flips with the
@@ -185,10 +198,10 @@ export default function Header({ route, navigate, year, barRef, status }) {
         </div>
 
         {!narrow && (
-          <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', alignItems: 'center' }}>
-            <Segmented label="Primary" items={DOORS} value={activeView} />
-            <div style={{ width: 1, height: 17, background: 'rgba(243,240,234,0.14)' }} />
-            {!mid && <span style={micro(5)}>Category</span>}
+          <div style={{ display: 'flex', gap: 8, flexWrap: 'nowrap', alignItems: 'center', minWidth: 0 }}>
+            <Segmented label="Primary" items={DOORS} value={activeView} style={{ flex: 'none', flexWrap: 'nowrap' }} />
+            <div style={{ width: 1, height: 17, background: 'rgba(243,240,234,0.14)', flex: 'none' }} />
+            {!mid && <span style={{ ...micro(5), flex: 'none' }}>Category</span>}
             {filters}
             {search}
           </div>
@@ -235,6 +248,9 @@ export default function Header({ route, navigate, year, barRef, status }) {
                 })}
               </ul>
             </nav>
+
+            <div style={sheetLabel}>Detail</div>
+            <ModeSwitch size="lg" />
 
             <div style={sheetLabel}>Show only · category</div>
             {filters}

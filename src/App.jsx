@@ -1,31 +1,41 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import React, { Suspense, lazy, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import Header from './components/Header.jsx';
 import { RouteProvider } from './components/kit.jsx';
 import ErrorBoundary from './components/ErrorBoundary.jsx';
 import Landing from './components/Landing.jsx';
 import About from './components/About.jsx';
-import BoardView from './components/BoardView.jsx';
+import BoardStatic from './components/BoardStatic.jsx';
 import ArchiveView from './components/ArchiveView.jsx';
 import HorizonView from './components/HorizonView.jsx';
 import CaseView from './components/CaseView.jsx';
 import LineView from './components/LineView.jsx';
 import FindingView from './components/FindingView.jsx';
 import CardView from './components/CardView.jsx';
+import LeadsView from './components/LeadsView.jsx';
+import LeadView from './components/LeadView.jsx';
+import FilesView from './components/FilesView.jsx';
+import GlossaryView from './components/GlossaryView.jsx';
+import EntityView from './components/EntityView.jsx';
 import { buildGraph, events as canonEvents, forwardLedger, FIRST, NOW } from './lib/data.js';
-import { useBoard } from './lib/board.js';
 import { useMedia } from './lib/wiki.js';
 import { useRoute } from './lib/url.js';
+import { useMode } from './lib/mode.js';
 import { metaFor, applyMeta } from './lib/meta.js';
+import { viewById } from './lib/views.js';
 import { MONO, SANS, GUTTER, RULE, button, ink, shell } from './lib/styles.js';
 
-/** The footer takes the column of the page above it; the board and the landing have none. */
-const FOOT_KIND = { card: 'read', about: 'read', line: 'route', finding: 'route', case: 'route', horizon: 'route' };
+/* The board is the one heavy view — the canvas, the drag, the pan animation —
+   and the one a crawler gets nothing from. It is loaded when the reader opens
+   it; the server renders its static listing instead. */
+const BoardView = typeof window === 'undefined' ? BoardStatic : lazy(() => import('./components/BoardView.jsx'));
 
-export default function App() {
-  const [route, navigate] = useRoute();
-  const board = useBoard();
-  const graph = useMemo(() => buildGraph(board.board), [board.board]);
+const isBrowser = typeof window !== 'undefined';
+
+export default function App({ initialRoute }) {
+  const [route, navigate] = useRoute(initialRoute);
+  const graph = useMemo(() => buildGraph(), []);
   const media = useMedia(graph.all);
+  const [mode, , full] = useMode();
   const [year, setYear] = useState(String(FIRST));
   // The 1px progress bar is painted straight into the DOM: a scroll must not
   // re-render the header and the whole page to move it.
@@ -39,6 +49,11 @@ export default function App() {
       (!q || (e.title + ' ' + e.summary + ' ' + e.year).toLowerCase().includes(q))
     );
   }, [graph.all, route.category, route.query]);
+
+  // In brief the board shows its landmarks — featured cards, rungs on a lead,
+  // the ends of every case-noted string — plus whatever the reader has open;
+  // the board itself decides that, since the walked chain lives there.
+  const shown = useMemo(() => (full ? items.length : items.filter((e) => e.landmark).length), [items, full]);
 
   // The page scroll drives the year marker in every view except the board,
   // which reports its own horizontal position.
@@ -60,18 +75,28 @@ export default function App() {
 
   // Every route carries its own title, description and canonical URL, so a
   // shared card or finding is not just "The AI Timeline" to a crawler or a
-  // browser tab. Social scrapers do not run JavaScript, so this alone does not
-  // fix link previews — that needs prerendering — but it fixes everything else.
+  // browser tab. The prerenderer writes the same meta into each page's HTML.
   useEffect(() => { applyMeta(metaFor(route, graph)); }, [route, graph]);
 
-  // Moving to a different page should start it at the top. Without this the
-  // browser keeps the previous page's offset, so opening a finding from halfway
-  // down the Line drops you halfway down the finding. Deep links to a card are
-  // excluded — those scroll themselves to the card.
+  // Moving to a different page should start it at the top — or at the section
+  // the address names. Without this the browser keeps the previous page's
+  // offset, so opening a finding from halfway down the Line drops you halfway
+  // down the finding. Deep links to a card on the board are excluded — the board
+  // scrolls itself to the card.
   const firstRoute = useRef(true);
   useEffect(() => {
     if (route.view === 'board') return;
-    if (route.view !== 'card' && (route.id || route.clue)) return;
+    if (route.hash) {
+      // The target may be rendered a frame later than the route; look twice.
+      const jump = () => {
+        const el = document.getElementById(route.hash);
+        if (el) { el.scrollIntoView({ block: 'start', behavior: firstRoute.current ? 'instant' : 'smooth' }); return true; }
+        return false;
+      };
+      if (!jump()) requestAnimationFrame(() => { if (!jump()) setTimeout(jump, 120); });
+      firstRoute.current = false;
+      return;
+    }
     // base.css sets scroll-behavior: smooth, which is right for in-page jumps and
     // wrong here — a page transition would visibly glide up from the old offset
     // instead of simply starting at the top. Back returns to where the reader was.
@@ -81,7 +106,7 @@ export default function App() {
     if (firstRoute.current) { firstRoute.current = false; return; }
     const h1 = document.querySelector('main h1');
     if (h1 && !route.pop) { h1.setAttribute('tabindex', '-1'); h1.focus({ preventScroll: true }); }
-  }, [route.view, route.finding, route.id, route.clue, route.pop]);
+  }, [route.view, route.finding, route.id, route.clue, route.pop, route.hash]);
 
   // The board is an application surface, not a document. While it is up the page
   // itself must not scroll — the canvas owns every axis of movement.
@@ -118,12 +143,15 @@ export default function App() {
 
   const fwd = useMemo(() => forwardLedger(graph), [graph]);
   const status = route.view === 'board'
-    ? items.length + '/' + canonEvents.length + ' cards · ' + graph.edges.length + ' strings'
+    ? shown + '/' + canonEvents.length + ' cards · ' + graph.edges.length + ' strings · ' + mode
     : route.view === 'horizon'
       ? fwd.argued + '/' + fwd.total + ' scenarios carry a string · ' + fwd.crossing + ' cross ' + NOW
       : route.view === 'case'
         ? fwd.crossing + ' strings cross ' + NOW + ' · ' + fwd.argued + '/' + fwd.total + ' scenarios argued'
-        : items.length + '/' + canonEvents.length + ' entries';
+        : items.length + '/' + canonEvents.length + ' entries · ' + mode;
+
+  const view = route.view;
+  const footKind = (viewById[view] && viewById[view].shell) || 'wide';
 
   return (
     <RouteProvider value={{ route, navigate }}>
@@ -135,46 +163,55 @@ export default function App() {
         onBlur={(e) => { e.currentTarget.style.left = '-9999px'; }}
       >Skip to content</a>
       <div style={{ position: 'fixed', inset: 0, zIndex: 60, pointerEvents: 'none', mixBlendMode: 'overlay', backgroundImage: 'repeating-linear-gradient(0deg,rgba(255,255,255,0.028) 0 1px,transparent 1px 3px)' }} />
-      <Header route={route} navigate={navigate} year={year} barRef={barRef} status={status} />
+      <Header route={route} navigate={navigate} year={year} barRef={barRef} status={status} graph={graph} />
 
-      <ErrorBoundary resetKey={route.view + '|' + (route.finding || '') + '|' + (route.id || '')}>
+      <ErrorBoundary resetKey={view + '|' + (route.finding || '') + '|' + (route.id || '')}>
         <main id="main" tabIndex={-1} style={{ outline: 'none' }}>
-          {route.view === 'landing' && <Landing />}
-          {route.view === 'about' && <About />}
-          {route.view === 'board' && (
-            <BoardView
-              items={items}
-              graph={graph}
-              media={media}
-              route={route}
-              navigate={navigate}
-              board={board}
-              onYear={onBoardPosition}
-            />
+          {view === 'landing' && <Landing />}
+          {view === 'about' && <About />}
+          {view === 'board' && !isBrowser && <BoardStatic items={items} graph={graph} route={route} />}
+          {view === 'board' && isBrowser && (
+            <Suspense fallback={<BoardStatic items={items} graph={graph} route={route} loading />}>
+              <BoardView
+                items={items}
+                graph={graph}
+                media={media}
+                route={route}
+                navigate={navigate}
+                onYear={onBoardPosition}
+                full={full}
+              />
+            </Suspense>
           )}
-          {(route.view === 'archive' || route.view === 'plates' || route.view === 'mosaic') && (
-            <ArchiveView mode={route.view} items={items} media={media} route={route} navigate={navigate} />
+          {(view === 'archive' || view === 'plates' || view === 'mosaic') && (
+            <ArchiveView mode={view} items={items} media={media} route={route} navigate={navigate} />
           )}
-          {route.view === 'horizon' && <HorizonView items={items} graph={graph} route={route} navigate={navigate} onOpen={openOnBoard} />}
-          {route.view === 'case' && <CaseView graph={graph} />}
-          {route.view === 'line' && <LineView graph={graph} />}
-          {route.view === 'finding' && <FindingView graph={graph} route={route} navigate={navigate} onOpen={openOnBoard} media={media} />}
-          {route.view === 'card' && <CardView graph={graph} route={route} media={media} />}
+          {view === 'horizon' && <HorizonView items={items} graph={graph} route={route} navigate={navigate} onOpen={openOnBoard} />}
+          {view === 'case' && <CaseView graph={graph} />}
+          {view === 'line' && <LineView graph={graph} />}
+          {view === 'finding' && <FindingView graph={graph} route={route} navigate={navigate} onOpen={openOnBoard} media={media} />}
+          {view === 'card' && <CardView graph={graph} route={route} media={media} />}
+          {view === 'leads' && <LeadsView graph={graph} />}
+          {view === 'lead' && <LeadView graph={graph} route={route} media={media} />}
+          {view === 'files' && <FilesView graph={graph} />}
+          {view === 'glossary' && <GlossaryView graph={graph} />}
+          {(view === 'person' || view === 'org' || view === 'term') && <EntityView graph={graph} route={route} />}
         </main>
       </ErrorBoundary>
 
-      {route.view !== 'landing' && route.view !== 'board' && (
-        <footer style={{ ...shell(FOOT_KIND[route.view] || 'wide'), padding: '26px ' + GUTTER + ' 90px', borderTop: RULE, display: 'flex', gap: 34, flexWrap: 'wrap' }}>
+      {view !== 'landing' && view !== 'board' && (
+        <footer style={{ ...shell(footKind), padding: '26px ' + GUTTER + ' 90px', borderTop: RULE, display: 'flex', gap: 34, flexWrap: 'wrap' }}>
           <p style={{ margin: 0, font: '400 11px/1.85 ' + MONO, color: ink(4), maxWidth: '46ch', textWrap: 'pretty' }}>
-            Photographs and summaries come from Wikipedia/Wikimedia Commons and remain under their own licences.
-            Entry text is CC BY-SA 4.0.
+            The board's own text is CC BY-NC-ND 4.0; the code is PolyForm Noncommercial. Quoted sentences and photographs
+            remain under their sources' licences — Wikipedia text is CC BY-SA 4.0.
           </p>
           <p style={{ margin: 0, font: '400 11px/1.85 ' + MONO, color: ink(4), maxWidth: '40ch', textWrap: 'pretty' }}>
             Entries after {NOW} are scenarios, not forecasts. The confidence label is the point;
             the date is a placeholder.
           </p>
-          <p style={{ margin: 0, font: '400 11px/1.85 ' + SANS, color: ink(4) }}>
-            <a href="https://github.com/mobahug/The_AI_Timeline">Contribute ↗</a>
+          <p style={{ margin: 0, font: '400 11px/1.85 ' + SANS, color: ink(4), display: 'flex', gap: 14, flexWrap: 'wrap' }}>
+            <a href="https://github.com/mobahug/The_AI_Timeline">Source ↗</a>
+            <a href="https://github.com/mobahug/The_AI_Timeline/blob/main/LICENSE">Licence ↗</a>
           </p>
         </footer>
       )}

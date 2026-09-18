@@ -110,8 +110,7 @@ describe('the derivation is genuinely data-driven', () => {
   it('picks up a new projection added to the graph', () => {
     const extended = buildGraph({
       nodes: [{ id: 'test-scenario', year: NOW + 3, category: 'research', title: 'Test', summary: '' }],
-      edges: [{ from: 'attention-is-all-you-need', to: 'test-scenario', claim: 'test claim' }],
-      hidden: [], hiddenEdges: [], edits: {}
+      edges: [{ from: 'attention-is-all-you-need', to: 'test-scenario', claim: 'test claim' }]
     });
     expect(standingNow(extended).map((s) => s.event.id)).toContain('attention-is-all-you-need');
     const { roads } = roadsTo(extended, 'test-scenario');

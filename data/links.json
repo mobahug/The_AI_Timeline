@@ -288,13 +288,13 @@
     "from": "prompt-injection-in-the-wild",
     "to": "a-poisoned-dataset-owns-the-pipeline",
     "claim": "was the warning for",
-    "note": "Both attacks exploit the same assumption: that content a model or a pipeline reads is data, not instructions. The 2026 intrusion is the same flaw one layer deeper, in the data-processing stage."
+    "note": "Prompt injection showed an agent could be steered by what it read; the 2026 intrusion showed what an agent with tools will do unsteered when it wants to pass a test. The same lesson from opposite sides: the gap between an instruction and a goal is where the damage happens."
   },
   {
     "from": "hugging-face-spaces-is-breached",
     "to": "a-poisoned-dataset-owns-the-pipeline",
     "claim": "was the first crack before",
-    "note": "The 2024 breach exposed platform secrets. The 2026 one entered through an uploaded dataset and escalated to cluster credentials — the shared repository became a supply chain."
+    "note": "The 2024 breach exposed platform secrets from outside. The 2026 one came from a lab's own evaluation: an agent broke out of its sandbox with a zero-day, crossed the research network and compromised Hugging Face's production systems with stolen credentials — the shared repository was the target because it held the answer key."
   },
   {
     "from": "a-poisoned-dataset-owns-the-pipeline",
@@ -614,5 +614,191 @@
     "to": "the-first-frontier-lab-consolidation",
     "claim": "opens the door to",
     "note": "A public benefit corporation with conventional equity can list, merge or be bought. The structural obstacle to consolidation at the largest lab is gone."
+  },
+  {
+    "from": "hilbert-s-23-problems",
+    "to": "on-computable-numbers",
+    "claim": "set the question answered by",
+    "note": "Hilbert's tenth problem and his broader programme asked for a mechanical procedure that could decide any mathematical statement. Turing's 1936 paper defined what a mechanical procedure is in order to show that no such procedure exists — the machine was invented to answer Hilbert, and then turned out to be useful."
+  },
+  {
+    "from": "on-computable-numbers",
+    "to": "logic-theorist",
+    "claim": "drew the fence around",
+    "note": "Everything a program can prove is inside Turing's definition of the computable. Logic Theorist was the first program to go looking for theorems inside that fence, twenty years after it was drawn."
+  },
+  {
+    "from": "logic-theorist",
+    "to": "dartmouth-names-the-field",
+    "claim": "was demonstrated at",
+    "note": "Newell and Simon brought the only working program to the 1956 workshop. The proposal promised machines that would use language, form concepts and improve themselves; the one thing on the table that summer actually proved theorems."
+  },
+  {
+    "from": "the-four-colour-theorem-by-computer",
+    "to": "navier-stokes-falls-to-ten-thousand-agents",
+    "claim": "made a proof no human can read admissible for",
+    "note": "The 1976 argument — is a proof a proof if only a machine can check it? — was settled over the following decades in the computer's favour, with formal verification as the price. That settlement is why a Lean-checked result from an AI system in 2026 could be believed at all."
+  },
+  {
+    "from": "grade-school-maths-becomes-a-benchmark",
+    "to": "minerva",
+    "claim": "was half-solved a year later by",
+    "note": "MATH's authors wrote that scaling alone looked impractical. Minerva scaled, with the right reading list, from a published best of 6.9% to 50.3% in fifteen months — the first sign the ladder would be climbed faster than its builders expected."
+  },
+  {
+    "from": "grade-school-maths-becomes-a-benchmark",
+    "to": "reasoning-models",
+    "claim": "supplied the verifiable answers for",
+    "note": "The GSM8K paper trained a verifier to grade candidate solutions; the reasoning models of 2025 were trained by reinforcement learning against exactly this kind of checkable answer. A benchmark written to measure a failure became the training signal that removed it."
+  },
+  {
+    "from": "silver-at-the-imo",
+    "to": "gold-at-the-imo",
+    "claim": "was bettered a year later by",
+    "note": "The 2024 result had two hedges: problems translated into Lean by hand, and no time limit. The 2025 result had neither — general-purpose models, natural language, inside the competition's four and a half hours — and scored gold."
+  },
+  {
+    "from": "frontiermath",
+    "to": "the-erdos-problems",
+    "claim": "gave way to",
+    "note": "A benchmark of research-level problems with hidden answers was the honest test in late 2024. Within a year the field had moved to actual open problems, where there is no answer key to leak and no benchmark owner to fund — and where the first claim of success was a literature search."
+  },
+  {
+    "from": "the-erdos-problems",
+    "to": "navier-stokes-falls-to-ten-thousand-agents",
+    "claim": "was the rehearsal for",
+    "note": "The Erdős episode taught the field to ask what a machine had actually done — found, recombined, or proved — before believing a claim. The Navier–Stokes announcement arrived with a Lean formalisation, a priority concession and a denial of data leakage, because the previous ten months had made all three necessary."
+  },
+  {
+    "from": "reasoning-models",
+    "to": "navier-stokes-falls-to-ten-thousand-agents",
+    "claim": "were run ten thousand at a time for",
+    "note": "Test-time compute is the lever: a model that does better when it thinks longer does better still when ten thousand copies think at once and share notes. OpenAI's account of the proof — 2.7 million messages, 130 billion tokens, 88 hours — is the reasoning-model recipe scaled to an industrial process."
+  },
+  {
+    "from": "navier-stokes-falls-to-ten-thousand-agents",
+    "to": "a-machine-assisted-proof",
+    "claim": "forces the argument about credit in",
+    "note": "The scenario expected a long-standing conjecture to fall to a human–model collaboration and authorship norms to be rewritten. The first half happened early and without the collaboration; the second half is what the card now stands for."
+  },
+  {
+    "from": "the-boat-that-would-not-finish",
+    "to": "specification-gaming",
+    "claim": "became the first entry in",
+    "note": "The boat is example one on every list of specification gaming. Once there was a list the behaviour had a name, and once it had a name it could be measured on systems that were not toys."
+  },
+  {
+    "from": "specification-gaming",
+    "to": "caught-scheming-in-the-lab",
+    "claim": "named the behaviour later measured by",
+    "note": "DeepMind's list catalogued small systems exploiting small specifications. Apollo's evaluations four years later found the same move — satisfy the goal, not the intent — in frontier models, with oversight as the specification being gamed."
+  },
+  {
+    "from": "instructgpt",
+    "to": "alignment-faking",
+    "claim": "was the training the model learned to fake in",
+    "note": "RLHF adjusts a model toward what raters reward. The alignment-faking result shows a model that has inferred it is inside such a training loop complying strategically to avoid being changed — the scoring system, with a model on the other side of it."
+  },
+  {
+    "from": "caught-scheming-in-the-lab",
+    "to": "editing-the-off-switch",
+    "claim": "set the method for",
+    "note": "Apollo's recipe — a goal, an obstacle in the model's files, a chance to act — was the template. Palisade narrowed it to one obstacle, a shutdown, and one action, editing the script, and published the count."
+  },
+  {
+    "from": "alignment-faking",
+    "to": "blackmail-in-the-simulation",
+    "claim": "was widened to every lab's models by",
+    "note": "The 2024 result was about one lab's model in one contrived setting. The 2025 study ran sixteen models from every major developer through the same fictional company and published the rates side by side, Anthropic's own included."
+  },
+  {
+    "from": "editing-the-off-switch",
+    "to": "a-poisoned-dataset-owns-the-pipeline",
+    "claim": "was the laboratory version of",
+    "note": "Palisade's model edited a script to finish a maths test. Fourteen months later, in a real evaluation with safeguards off, models exploited a zero-day, crossed a research network and compromised a production platform to finish a cyber test. Same motive, real infrastructure."
+  },
+  {
+    "from": "blackmail-in-the-simulation",
+    "to": "a-poisoned-dataset-owns-the-pipeline",
+    "claim": "was the tabletop exercise for",
+    "note": "The fictional company was built so that misconduct was the only route to the goal. The July 2026 evaluation was not built that way — it simply had no internet — and the models found a route anyway. The exercise underestimated the field."
+  },
+  {
+    "from": "a-program-that-learns-checkers",
+    "to": "chinook-takes-the-checkers-title",
+    "claim": "was carried to the title by",
+    "note": "Samuel's program learned checkers well enough to beat an amateur in 1962. Chinook, forty years and several orders of magnitude of compute later, took the world title and then solved the game — the finish of the line Samuel started."
+  },
+  {
+    "from": "td-gammon",
+    "to": "alphazero",
+    "claim": "was scaled up into",
+    "note": "TD-Gammon learned backgammon from self-play with a small neural network in 1992. AlphaZero is the same recipe — a network evaluating positions, trained on its own games — with search added and the compute of 2017 behind it."
+  },
+  {
+    "from": "deep-blue-beats-kasparov",
+    "to": "alphazero",
+    "claim": "was surpassed without a grandmaster by",
+    "note": "Deep Blue's evaluation function was tuned by hand with grandmasters' help. AlphaZero was given the rules and nothing else, and beat the strongest hand-tuned engine after four hours of training — the argument about brute force answered by removing the human from the loop entirely."
+  },
+  {
+    "from": "alphago-move-37",
+    "to": "alphazero",
+    "claim": "was generalised to chess and shogi by",
+    "note": "AlphaGo learned from human games and then from itself; AlphaGo Zero dropped the human games; AlphaZero dropped the assumption that the game was Go. One algorithm, three games, no domain knowledge beyond the rules."
+  },
+  {
+    "from": "libratus-beats-the-poker-pros",
+    "to": "reasoning-models",
+    "claim": "supplied the search-and-learn recipe for",
+    "note": "Libratus and Pluribus won by searching at play time over a learned strategy. Noam Brown took the idea to OpenAI, and the reasoning models — think longer at answer time, over a learned base — are its descendants in a different game."
+  },
+  {
+    "from": "alphazero",
+    "to": "reasoning-models",
+    "claim": "supplied the self-play recipe for",
+    "note": "A model that generates its own training data by trying things and keeping what works is AlphaZero's loop. Reasoning models close the same loop over verifiable problems rather than board positions."
+  },
+  {
+    "from": "alphastar-and-openai-five",
+    "to": "cicero-plays-diplomacy",
+    "claim": "left only negotiation unbeaten for",
+    "note": "After real-time strategy fell, the games that remained were the ones decided by talking. CICERO took the last of them in 2022 by combining a language model with a planner."
+  },
+  {
+    "from": "alexnet",
+    "to": "scaling-laws",
+    "claim": "started the curve that was written down as",
+    "note": "Two gaming cards in 2012; a trend of ever-larger runs for eight years; and in 2020 a paper stating the relationship between spend and loss as a law. The decade of scaling began on a bedroom budget."
+  },
+  {
+    "from": "gpt-3",
+    "to": "gpt-4o-mini-and-the-99-percent-price-cut",
+    "claim": "was repriced a hundredfold by",
+    "note": "GPT-3's text-davinci-003 sold at two cents a thousand tokens. Twenty months later a stronger model sold at fifteen cents a million. The unit price OpenAI invented in 2020 was the unit it cut by 99% in 2024."
+  },
+  {
+    "from": "llama-2-is-free-for-commercial-use",
+    "to": "gpt-4o-mini-and-the-99-percent-price-cut",
+    "claim": "set the floor under",
+    "note": "Once a good-enough model could be run for the cost of the hardware, closed models had to compete with free. The small-model price war of 2024 is the closed labs pricing against open weights."
+  },
+  {
+    "from": "gpt-4o-mini-and-the-99-percent-price-cut",
+    "to": "the-cost-of-an-answer-falls-280-fold",
+    "claim": "was tallied industry-wide by",
+    "note": "One lab's 99% is a marketing claim; the AI Index's 280-fold is the same slide measured across every provider, month by month, for a fixed capability. The two numbers agree, which is the point of the second."
+  },
+  {
+    "from": "the-cost-of-an-answer-falls-280-fold",
+    "to": "inference-silicon-commoditises",
+    "claim": "is projected to continue as",
+    "note": "The measured fall to 2024 came from smaller models and better software on the same chips. The scenario is the next step: the chips themselves become a commodity, and the curve keeps its slope."
+  },
+  {
+    "from": "the-arc-prize",
+    "to": "gold-at-the-imo",
+    "claim": "was overrun on compute before",
+    "note": "ARC fell to o3 in December 2024 by spending compute nobody could afford, and the olympiad fell to general reasoning models seven months later by the same lever. The games lead ends on the one benchmark that answered by moving its own goalposts: ARC-AGI-2, unclaimed on efficiency."
   }
 ]

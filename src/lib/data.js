@@ -1,7 +1,7 @@
 import rawEvents from '../../data/events.json';
 import rawLinks from '../../data/links.json';
 import meta from '../../data/threads.json';
-import { EMPTY } from './board.js';
+import { LEAD_CARD_IDS } from './leads.js';
 
 /* The span of the board — the first year drawn, the present, the last year drawn —
    is data, read here once and never retyped. `now` is the line between record and
@@ -62,35 +62,19 @@ export const yearAtFraction = (v) => {
 
 export const TICKS = ANCHORS.map(([y]) => y);
 
-/** Merge the canonical data with a contributor's local board edits. */
-export function buildGraph(board) {
-  const b = board || EMPTY;
-  const hidden = b.hidden || [];
-  const edits = b.edits || {};
-  const base = events
-    .filter((e) => !hidden.includes(e.id))
-    .map((e) => {
-      const patch = edits[e.id];
-      if (!patch) return e;
-      const merged = { ...e, ...patch };
-      merged.thread = threadOf(merged.category);
-      merged.future = merged.year > NOW;
-      return merged;
-    });
-  const mine = (b.nodes || []).map((n) => ({
-    ...n,
-    thread: threadOf(n.category),
-    future: n.year > NOW,
-    local: true
-  }));
-  const all = [...base, ...mine].sort((a, c) => a.year - c.year);
+/** The graph: every card and string in data/, indexed and joined. The board
+ *  changes by pull request and nowhere else. `extra` — `{ nodes, edges }` — is
+ *  for the tests, which prove the derivations are data-driven by adding a card
+ *  and a string that the files do not contain. */
+export function buildGraph(extra) {
+  const x = extra || {};
+  const more = (x.nodes || []).map((n) => ({ ...n, thread: threadOf(n.category), future: n.year > NOW }));
+  const all = [...events, ...more].map((e) => ({ ...e })).sort((a, c) => a.year - c.year);
   const index = Object.fromEntries(all.map((e) => [e.id, e]));
 
   const canon = links.map((l, i) => ({ ...l, id: 'c' + i }));
-  const extra = (b.edges || []).map((l, i) => ({ ...l, id: 'l' + i, local: true }));
-  const edges = [...canon, ...extra]
-    .filter((l) => !(b.hiddenEdges || []).includes(l.id))
-    .filter((l) => index[l.from] && index[l.to] && l.from !== l.to);
+  const added = (x.edges || []).map((l, i) => ({ ...l, id: 'x' + i }));
+  const edges = [...canon, ...added].filter((l) => index[l.from] && index[l.to] && l.from !== l.to);
 
   const adjacency = {};
   edges.forEach((l) => {
@@ -98,7 +82,14 @@ export function buildGraph(board) {
     (adjacency[l.to] = adjacency[l.to] || []).push({ id: l.from, claim: l.claim, note: l.note, out: false, edge: l.id });
   });
 
-  return { all, index, edges, adjacency };
+  // A landmark is what the board shows in brief: a featured card, a rung on a
+  // lead, or either end of a string that carries a case note. Derived, never
+  // tagged, so a new lead or a new note promotes its cards by itself.
+  const noted = new Set();
+  edges.forEach((l) => { if (l.note) { noted.add(l.from); noted.add(l.to); } });
+  all.forEach((e) => { e.landmark = !!(e.featured || LEAD_CARD_IDS.has(e.id) || noted.has(e.id)); });
+
+  return { all, index, edges, adjacency, landmarks: all.filter((e) => e.landmark).length };
 }
 
 /** Walk backwards then forwards from an event to assemble one causal chain.

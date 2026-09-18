@@ -1,0 +1,385 @@
+{
+  "note": "Persons of interest. A person is on the board because a card names them. Cards reference people by id in `people`; the site also matches `name` and `aka` in a card's text, so most appearances are found without tagging. `role` is one line; `bio` is what the file says about them, in the board's voice — no biography beyond what bears on the case.",
+  "people": [
+    {
+      "id": "david-hilbert",
+      "name": "David Hilbert",
+      "aka": [
+        "Hilbert"
+      ],
+      "role": "Mathematician · Göttingen",
+      "bio": "Posed the twenty-three problems in 1900 that set the century's agenda, and the programme — to put all of mathematics on a finite, checkable footing — that Gödel and Turing answered in the negative."
+    },
+    {
+      "id": "kurt-godel",
+      "name": "Kurt Gödel",
+      "aka": [
+        "Gödel",
+        "Godel"
+      ],
+      "role": "Logician · Vienna, Princeton",
+      "bio": "Proved in 1931 that any consistent formal system rich enough for arithmetic contains true statements it cannot prove. The result is the fence around everything a machine can be asked to decide."
+    },
+    {
+      "id": "alan-turing",
+      "name": "Alan Turing",
+      "aka": [
+        "Turing"
+      ],
+      "role": "Mathematician · Cambridge, Bletchley Park, Manchester",
+      "bio": "Defined computation in 1936 and asked in 1950 whether machines can think, proposing that the question be replaced by a test. Both papers are on the board; nearly everything else descends from one or the other."
+    },
+    {
+      "id": "claude-shannon",
+      "name": "Claude Shannon",
+      "aka": [
+        "Shannon"
+      ],
+      "role": "Engineer · Bell Labs",
+      "bio": "Showed in 1937 that switching circuits do Boolean algebra, and in 1948 gave information a unit. The second paper is why a model's output can be measured in bits and its training in loss."
+    },
+    {
+      "id": "warren-mcculloch",
+      "name": "Warren McCulloch",
+      "aka": [
+        "McCulloch"
+      ],
+      "role": "Neurophysiologist · Chicago, MIT",
+      "bio": "With Walter Pitts, modelled the nerve cell as a logic gate in 1943 — the first neural network on paper, and the reason the word 'neuron' survived into the deep-learning decade."
+    },
+    {
+      "id": "donald-hebb",
+      "name": "Donald Hebb",
+      "aka": [
+        "Hebb",
+        "Hebbian"
+      ],
+      "role": "Psychologist · McGill",
+      "bio": "Proposed in 1949 that cells that fire together wire together. Every learning rule on the board, backpropagation included, is a formalisation of the idea."
+    },
+    {
+      "id": "john-mccarthy",
+      "name": "John McCarthy",
+      "aka": [
+        "McCarthy"
+      ],
+      "role": "Computer scientist · Dartmouth, MIT, Stanford",
+      "bio": "Coined 'artificial intelligence' for the 1956 Dartmouth proposal and invented Lisp two years later. The field's name, and its first language, are his."
+    },
+    {
+      "id": "marvin-minsky",
+      "name": "Marvin Minsky",
+      "aka": [
+        "Minsky"
+      ],
+      "role": "Cognitive scientist · MIT",
+      "bio": "Built the first neural-network learning machine in 1951 and, with Seymour Papert, wrote the 1969 book that was read as closing the door on neural networks for a decade. Both cards are his."
+    },
+    {
+      "id": "frank-rosenblatt",
+      "name": "Frank Rosenblatt",
+      "aka": [
+        "Rosenblatt"
+      ],
+      "role": "Psychologist · Cornell",
+      "bio": "Built the perceptron in 1957 and promised the Navy a machine that would walk, talk and see. The promise was the first the field could not keep; the machine was the ancestor of every network since."
+    },
+    {
+      "id": "herbert-simon",
+      "name": "Herbert Simon",
+      "aka": [],
+      "role": "Polymath · Carnegie Mellon, Nobel economics 1978",
+      "bio": "With Newell and Shaw wrote Logic Theorist, the first program to prove theorems, and predicted in 1957 that a computer would be world chess champion within ten years. He was forty years early."
+    },
+    {
+      "id": "allen-newell",
+      "name": "Allen Newell",
+      "aka": [
+        "Newell"
+      ],
+      "role": "Computer scientist · RAND, Carnegie Mellon",
+      "bio": "Co-author of Logic Theorist and the General Problem Solver, and of the idea that intelligence is search through a space of symbols — the programme that dominated the field until statistics won."
+    },
+    {
+      "id": "arthur-samuel",
+      "name": "Arthur Samuel",
+      "aka": [
+        "Samuel"
+      ],
+      "role": "Engineer · IBM",
+      "bio": "Wrote a checkers program in 1952 that improved by playing itself, and in 1959 gave the technique its name: machine learning."
+    },
+    {
+      "id": "joseph-weizenbaum",
+      "name": "Joseph Weizenbaum",
+      "aka": [
+        "Weizenbaum"
+      ],
+      "role": "Computer scientist · MIT",
+      "bio": "Wrote ELIZA in 1966 and was alarmed when people confided in it. He spent the rest of his career warning about the confusion the board keeps recording."
+    },
+    {
+      "id": "james-lighthill",
+      "name": "James Lighthill",
+      "aka": [
+        "Lighthill"
+      ],
+      "role": "Applied mathematician · Cambridge",
+      "bio": "Wrote the 1973 report for the British Science Research Council that found the field had not delivered on its promises. Funding stopped; the first winter is dated from it."
+    },
+    {
+      "id": "john-hopfield",
+      "name": "John Hopfield",
+      "aka": [
+        "Hopfield"
+      ],
+      "role": "Physicist · Caltech, Princeton, Nobel physics 2024",
+      "bio": "Brought neural networks back in 1982 with a network that stores memories as energy minima. The Nobel forty-two years later cites that paper."
+    },
+    {
+      "id": "geoffrey-hinton",
+      "name": "Geoffrey Hinton",
+      "aka": [
+        "Hinton"
+      ],
+      "role": "Researcher · Toronto, Google, Nobel physics 2024",
+      "bio": "On the 1986 backpropagation paper, the 2006 deep-belief-network paper, the 2012 AlexNet paper, and the 2013 auction that sold his three-person company to Google. Left Google in 2023 to speak about risk. The board's most-connected person."
+    },
+    {
+      "id": "yann-lecun",
+      "name": "Yann LeCun",
+      "aka": [
+        "LeCun"
+      ],
+      "role": "Researcher · Bell Labs, NYU, Meta",
+      "bio": "Made convolutional networks read handwriting in 1989 and was hired by Zuckerberg in 2013 to run Meta's AI research. Turing Award 2018 with Hinton and Bengio; the board's loudest sceptic of the risk case."
+    },
+    {
+      "id": "yoshua-bengio",
+      "name": "Yoshua Bengio",
+      "aka": [
+        "Bengio"
+      ],
+      "role": "Researcher · Montreal",
+      "bio": "The third of the 2018 Turing laureates, on the GAN paper, and after 2023 the most senior researcher to call for a pause and to chair the international scientific report on AI safety."
+    },
+    {
+      "id": "jurgen-schmidhuber",
+      "name": "Jürgen Schmidhuber",
+      "aka": [
+        "Schmidhuber"
+      ],
+      "role": "Researcher · IDSIA",
+      "bio": "With Sepp Hochreiter, published the LSTM in 1997 — the recurrent network that ran language and speech until the transformer replaced it."
+    },
+    {
+      "id": "fei-fei-li",
+      "name": "Fei-Fei Li",
+      "aka": [
+        "Fei-Fei Li"
+      ],
+      "role": "Researcher · Princeton, Stanford",
+      "bio": "Built ImageNet — fourteen million labelled images — when the field thought data was the boring part. The 2012 result that started the decade was on her benchmark."
+    },
+    {
+      "id": "jensen-huang",
+      "name": "Jensen Huang",
+      "aka": [],
+      "role": "Chief executive · Nvidia",
+      "bio": "Opened graphics chips to general computation with CUDA in 2007 and sold the shovels for every training run since. In 2024 his company became the most valuable on earth."
+    },
+    {
+      "id": "ilya-sutskever",
+      "name": "Ilya Sutskever",
+      "aka": [
+        "Sutskever"
+      ],
+      "role": "Researcher · Toronto, Google, OpenAI, SSI",
+      "bio": "On the AlexNet paper, on sequence-to-sequence, co-founder and chief scientist of OpenAI, one of the board members who removed Altman in 2023, and gone within six months. His name is on four rungs of the board."
+    },
+    {
+      "id": "demis-hassabis",
+      "name": "Demis Hassabis",
+      "aka": [
+        "Hassabis"
+      ],
+      "role": "Chief executive · Google DeepMind, Nobel chemistry 2024",
+      "bio": "Founded DeepMind in 2010, sold it to Google in 2014, and led the teams behind AlphaGo, AlphaZero, AlphaFold and the olympiad results. The Nobel is for AlphaFold."
+    },
+    {
+      "id": "david-silver",
+      "name": "David Silver",
+      "aka": [],
+      "role": "Researcher · DeepMind",
+      "bio": "Led AlphaGo and AlphaZero — the self-play recipe that the reasoning models of 2025 returned to."
+    },
+    {
+      "id": "sam-altman",
+      "name": "Sam Altman",
+      "aka": [
+        "Altman"
+      ],
+      "role": "Chief executive · OpenAI",
+      "bio": "Co-founded OpenAI with Musk in 2015, took it capped-profit in 2019, launched ChatGPT in 2022, was fired and rehired in five days in 2023, and converted the company in 2025. The board's power thread mostly runs through him."
+    },
+    {
+      "id": "elon-musk",
+      "name": "Elon Musk",
+      "aka": [
+        "Musk"
+      ],
+      "role": "Founder · Tesla, SpaceX, xAI",
+      "bio": "Co-founded OpenAI as a counterweight to Google, left its board in 2018, sued it in 2024 over the abandonment of the mission, and founded a rival. On the board he is the string that provoked the string."
+    },
+    {
+      "id": "greg-brockman",
+      "name": "Greg Brockman",
+      "aka": [
+        "Brockman"
+      ],
+      "role": "President · OpenAI",
+      "bio": "Co-founder of OpenAI who resigned in solidarity when Altman was fired in 2023 and returned with him."
+    },
+    {
+      "id": "dario-amodei",
+      "name": "Dario Amodei",
+      "aka": [
+        "Amodei"
+      ],
+      "role": "Chief executive · Anthropic",
+      "bio": "Led research at OpenAI through GPT-2 and GPT-3, left in 2021 with a group of colleagues to found Anthropic, and has since published the labs' most detailed public risk assessments alongside the models."
+    },
+    {
+      "id": "timnit-gebru",
+      "name": "Timnit Gebru",
+      "aka": [
+        "Gebru"
+      ],
+      "role": "Researcher · Google, DAIR",
+      "bio": "Co-led Google's ethical AI team until a dispute over a paper on the risks of large language models ended in her departure in 2020. The paper's title — stochastic parrots — outlived the dispute."
+    },
+    {
+      "id": "mark-zuckerberg",
+      "name": "Mark Zuckerberg",
+      "aka": [
+        "Zuckerberg"
+      ],
+      "role": "Chief executive · Meta",
+      "bio": "Hired LeCun in 2013 and in 2023–24 made Meta the lab that gives frontier weights away, arguing that AI would go the way of Linux. The open-weights side of the board is largely his."
+    },
+    {
+      "id": "garry-kasparov",
+      "name": "Garry Kasparov",
+      "aka": [
+        "Kasparov"
+      ],
+      "role": "World chess champion, 1985–2000",
+      "bio": "Lost to Deep Blue in 1997 and has argued ever since that the match proved less than it seemed. The board's model for how every later victory was received."
+    },
+    {
+      "id": "lee-sedol",
+      "name": "Lee Sedol",
+      "aka": [
+        "Sedol"
+      ],
+      "role": "Go professional, 9-dan",
+      "bio": "Lost four games to one against AlphaGo in 2016, won the fourth with a move the machine had not considered, and retired in 2019 saying AI could not be defeated."
+    },
+    {
+      "id": "ray-kurzweil",
+      "name": "Ray Kurzweil",
+      "aka": [
+        "Kurzweil"
+      ],
+      "role": "Inventor, futurist · Google",
+      "bio": "Put 2045 on the poster as the year of the singularity. The board keeps the date as a scenario card, on manila stock, with the confidence it deserves."
+    },
+    {
+      "id": "francois-chollet",
+      "name": "François Chollet",
+      "aka": [
+        "Chollet"
+      ],
+      "role": "Researcher · Google, ARC Prize",
+      "bio": "Built the ARC benchmark in 2019 to resist memorisation and staked a million-dollar prize on it in 2024. It fell to compute and stands on efficiency — the one game the board says is still open."
+    },
+    {
+      "id": "terence-tao",
+      "name": "Terence Tao",
+      "aka": [
+        "Tao"
+      ],
+      "role": "Mathematician · UCLA, Fields Medal 2006",
+      "bio": "The mathematician the field checks its claims with. Reviewed FrontierMath, tracked the Erdős problems as machines began to solve them, and warned against simple comparisons when the olympiad fell."
+    },
+    {
+      "id": "paul-erdos",
+      "name": "Paul Erdős",
+      "aka": [
+        "Erdős",
+        "Erdos"
+      ],
+      "role": "Mathematician, 1913–1996",
+      "bio": "Left more than a thousand open problems, catalogued and numbered. In 2025–26 they became the field's test of whether a machine could do research rather than pass an exam."
+    },
+    {
+      "id": "noam-brown",
+      "name": "Noam Brown",
+      "aka": [],
+      "role": "Researcher · Carnegie Mellon, Meta, OpenAI",
+      "bio": "Built Libratus and Pluribus, the poker programs, then took the search-plus-learning recipe to OpenAI's reasoning models."
+    },
+    {
+      "id": "tuomas-sandholm",
+      "name": "Tuomas Sandholm",
+      "aka": [
+        "Sandholm"
+      ],
+      "role": "Professor · Carnegie Mellon",
+      "bio": "Brown's adviser and co-author on Libratus and Pluribus; the game-theory side of the poker results."
+    },
+    {
+      "id": "jonathan-schaeffer",
+      "name": "Jonathan Schaeffer",
+      "aka": [
+        "Schaeffer"
+      ],
+      "role": "Computer scientist · Alberta",
+      "bio": "Built Chinook, which took the checkers title in 1994, and led the eighteen-year computation that solved the game in 2007."
+    },
+    {
+      "id": "victoria-krakovna",
+      "name": "Victoria Krakovna",
+      "aka": [
+        "Krakovna"
+      ],
+      "role": "Researcher · DeepMind",
+      "bio": "Keeps the list of specification-gaming examples that gave the behaviour a name and the gaming-the-test lead its second rung."
+    },
+    {
+      "id": "dan-hendrycks",
+      "name": "Dan Hendrycks",
+      "aka": [
+        "Hendrycks"
+      ],
+      "role": "Researcher · Center for AI Safety",
+      "bio": "Wrote the MATH benchmark in 2021 and organised the 2023 one-sentence statement on extinction risk signed by the heads of the major labs."
+    },
+    {
+      "id": "blake-lemoine",
+      "name": "Blake Lemoine",
+      "aka": [
+        "Lemoine"
+      ],
+      "role": "Engineer · Google",
+      "bio": "Said in 2022 that Google's LaMDA was sentient, and was dismissed. The first public case of a professional convinced by a system he was testing."
+    },
+    {
+      "id": "liang-wenfeng",
+      "name": "Liang Wenfeng",
+      "aka": [],
+      "role": "Founder · DeepSeek, High-Flyer",
+      "bio": "Funded DeepSeek from a quantitative hedge fund and released R1 in January 2025 — the open-weight reasoning model that reset the price of the frontier."
+    }
+  ]
+}

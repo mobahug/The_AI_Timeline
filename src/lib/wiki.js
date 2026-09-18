@@ -8,8 +8,28 @@ let prebuilt = null;
 let live = {};
 try { live = JSON.parse(localStorage.getItem(LIVE_KEY) || '{}'); } catch { live = {}; }
 
+/* The prerenderer hands the build-time cache to the server render, and writes
+   the pages each route actually used into that route's HTML. The client reads
+   those back synchronously here, so its first render — the hydration — sees
+   the same photographs the server did, before the full cache has been fetched. */
+let inlined = {};
+try {
+  const el = typeof document !== 'undefined' && document.getElementById('wiki-inline');
+  if (el) inlined = JSON.parse(el.textContent || '{}') || {};
+} catch { inlined = {}; }
+
+/** Server side: use this cache, and start recording which titles are read. */
+let recording = null;
+export function primeMedia(cache) { prebuilt = cache || {}; recording = new Set(); }
+/** Server side: the titles read since primeMedia, as a cache subset to inline. */
+export function usedMedia() {
+  const out = {};
+  if (recording && prebuilt) recording.forEach((t) => { if (prebuilt[t]) out[t] = prebuilt[t]; });
+  return out;
+}
+
 /** One page from Wikipedia's summary endpoint, in the cache's own shape. Only a
- *  title the build did not cache — an editor-added card, say — ever gets here. */
+ *  title the build did not cache — a card newer than the cache, say — ever gets here. */
 async function fetchTitle(title) {
   const res = await fetch(REST + encodeURIComponent(title.replace(/ /g, '_')));
   if (!res.ok) throw new Error(title + ': ' + res.status);
@@ -28,7 +48,10 @@ async function loadPrebuilt() {
   return prebuilt;
 }
 
-const lookup = (title) => (prebuilt && prebuilt[title]) || live[title] || null;
+const lookup = (title) => {
+  if (recording && title) recording.add(title);
+  return (prebuilt && prebuilt[title]) || inlined[title] || live[title] || null;
+};
 
 /** The article a citation URL points at. Deliberately not the same as wikiTitle:
  *  wikiTitle chooses the illustration, the URL is the evidence. After the source

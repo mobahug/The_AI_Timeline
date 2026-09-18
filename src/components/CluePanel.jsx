@@ -1,7 +1,9 @@
 import React from 'react';
 import { stringsOf } from '../lib/data.js';
-import { INK, MONO, RED, RED_LIT, SANS, FADE, PHOTO_FILTER, frame, ink, micro, sourceLink } from '../lib/styles.js';
-import { Btn, CardTriple, Claim, Eyebrow, Reading } from './kit.jsx';
+import { leadById, leadsOf } from '../lib/leads.js';
+import { entitiesOf } from '../lib/files.js';
+import { INK, MONO, RED, RED_LIT, SANS, SERIF, FADE, PHOTO_FILTER, frame, ink, micro, sourceLink } from '../lib/styles.js';
+import { Btn, CardTriple, Chips, Claim, CopyLink, Eyebrow, Figures, First, Reading } from './kit.jsx';
 import EvidenceStrip from './EvidenceStrip.jsx';
 
 /* These rows carry the actual argument, so they wrap. They used to be nowrap with
@@ -24,11 +26,74 @@ const Side = ({ event, role, accentBorder }) => (
   </div>
 );
 
-export default function CluePanel({ graph, chain, step, current, focus, media, onStep, onJump, onExit, onOpenChain, onOpenCard, onOpenClue }) {
+export default function CluePanel({ graph, chain, step, current, focus, media, full, onStep, onJump, onExit, onOpenChain, onOpenCard, onOpenClue, onOpenLead, onOpenFile }) {
   // No outer margin or minimum height: the panel that hosts this measures it and
   // sizes itself to fit exactly, so both would only manufacture dead space —
   // and a top margin collapses outside the measured box and clips the bottom.
   const shell = { display: 'flex', flexDirection: 'column' };
+
+  // A rung on a lead: the level reached, the card, the rung's own text, and the
+  // string on the board (if any) that already joins it to the rung before.
+  if (current && current.lead) {
+    const lead = leadById[current.lead];
+    const card = graph.index[current.to];
+    const prev = current.from !== current.to ? graph.index[current.from] : null;
+    const first = step === 0;
+    const last = step === chain.length - 1;
+    const tone = 'oklch(0.82 0.13 ' + (lead ? lead.hue : 85) + ')';
+    const shot = media(card);
+    return (
+      <div style={shell}>
+        <div style={{ padding: 'clamp(13px,3vw,18px) clamp(14px,3vw,22px)', display: 'flex', flexDirection: 'column', gap: 14, animation: FADE }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
+            <span style={{ ...micro(1, 'section'), color: tone }}>Rung {current.rung} / {current.of}</span>
+            <span style={{ ...micro(5), minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{lead ? lead.title : ''}</span>
+            <span style={{ flex: 1 }} />
+            <Btn onClick={() => { if (!first) onStep(-1); }} aria-disabled={first} style={first ? { opacity: 0.45 } : undefined}>← Previous rung</Btn>
+            <Btn tone="loud" onClick={() => { if (!last) onStep(1); }} aria-disabled={last} style={last ? { opacity: 0.45 } : undefined}>Next rung →</Btn>
+            <Btn tone="dim" onClick={onExit}>Close</Btn>
+          </div>
+
+          <div style={{ display: 'flex', gap: 16, alignItems: 'flex-start', flexWrap: 'wrap' }}>
+            {shot.img && (
+              <div aria-hidden="true" style={{ flex: 'none', width: 84, height: 84, ...frame(card.future), backgroundImage: 'url(' + shot.img + ')', backgroundSize: 'cover', backgroundPosition: 'center', filter: PHOTO_FILTER }} />
+            )}
+            <div style={{ flex: '1 1 240px', minWidth: 0, display: 'flex', flexDirection: 'column', gap: 8 }}>
+              <span style={{ ...micro(3), color: tone }}>{current.claim}</span>
+              <CardTriple event={card} size="row" as="h3" />
+              <p style={{ margin: 0, font: '400 13px/1.55 ' + SANS, color: ink(4), maxWidth: '60ch', textWrap: 'pretty' }}>{card.summary}</p>
+            </div>
+          </div>
+
+          <p style={{ margin: 0, font: '400 14.5px/1.6 ' + SERIF, color: ink(2), maxWidth: '68ch', textWrap: 'pretty', borderLeft: '2px solid ' + tone, paddingLeft: 12 }}>{current.note}</p>
+
+          <div style={{ display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap' }}>
+            {prev && current.string && (
+              <button type="button" onClick={() => onOpenClue(current.string.from, current.string.to)} style={chip(false)}>
+                <Claim wrap sep="none">{current.string.claim}</Claim>{'  '}a string joins these two rungs · open the clue
+              </button>
+            )}
+            {prev && !current.string && <span style={micro(5)}>No string between this rung and the last — the lead is the only argument here</span>}
+          </div>
+
+          <div style={{ display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap' }}>
+            <Btn onClick={() => onOpenCard(card.id)}>Open this card</Btn>
+            <Btn to={{ view: 'lead', id: current.lead, hash: 'rung-' + current.rung }}>Read the lead →</Btn>
+            <CopyLink label="Copy link to this rung" />
+          </div>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 5, maxHeight: 170, overflowY: 'auto' }}>
+            <Eyebrow tier="section">The ladder</Eyebrow>
+            {chain.map((s, i) => (
+              <button key={i} type="button" onClick={() => onJump(i)} style={chip(i === step)}>
+                {s.rung}. {graph.index[s.to].year}  {s.claim}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   if (current) {
     const from = graph.index[current.from];
@@ -99,16 +164,34 @@ export default function CluePanel({ graph, chain, step, current, focus, media, o
           <div style={{ flex: '1 1 280px', minWidth: 0, padding: 'clamp(13px,3vw,18px) clamp(14px,3vw,22px)', display: 'flex', gap: 'clamp(14px,3vw,26px)', flexWrap: 'wrap' }}>
             <div style={{ flex: '1 1 260px', minWidth: 0, display: 'flex', flexDirection: 'column', gap: 10 }}>
               <CardTriple event={focus} size="panel" />
+              {focus.firsts && <First>{focus.firsts}</First>}
               <div style={{ font: '400 13.5px/1.6 ' + SANS, color: ink(4), maxWidth: '64ch', textWrap: 'pretty' }}>{focus.summary}</div>
               <Reading event={focus} style={{ marginTop: 2 }} />
               <EvidenceStrip event={focus} media={media} compact />
+              {full && Array.isArray(focus.figures) && focus.figures.length > 0 && <Figures figures={focus.figures} style={{ marginTop: 4 }} />}
+              {full && (() => { const n = entitiesOf(focus); return <Chips items={[...n.people, ...n.orgs, ...n.terms]} label="Names" />; })()}
+              {(() => {
+                const on = leadsOf(focus.id);
+                return on.length ? (
+                  <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', alignItems: 'baseline' }}>
+                    <span style={micro(5)}>On a lead</span>
+                    {on.map(({ lead, index }) => (
+                      <button key={lead.id} type="button" onClick={() => onOpenLead && onOpenLead(lead.id, index + 1)} style={{ ...micro(3), color: 'oklch(0.82 0.13 ' + lead.hue + ')', background: 'transparent', border: '1px solid oklch(0.6 0.1 ' + lead.hue + ')', borderRadius: 2, padding: '5px 8px', cursor: 'pointer', textTransform: 'none', letterSpacing: '0.08em', font: '400 11px/1 ' + MONO }}>
+                        {lead.title} · rung {index + 1} →
+                      </button>
+                    ))}
+                  </div>
+                ) : null;
+              })()}
               <div style={{ display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap', marginTop: 2 }}>
-                {/* The dossier is a page of its own, so this is a link with a real href. */}
-                <Btn tone="loud" to={{ view: 'card', id: focus.id }}>Read the dossier →</Btn>
+                {/* The file opens here, on the board; the dossier is also a page of its own. */}
+                {onOpenFile && <Btn tone="loud" onClick={onOpenFile}>Open the file →</Btn>}
                 {(graph.adjacency[focus.id] || []).length > 0 &&
                   <Btn onClick={() => onOpenChain(focus.id)}>Walk the chain →</Btn>}
+                <Btn tone="dim" to={{ view: 'card', id: focus.id }}>Dossier page</Btn>
                 {focus.url && <a href={focus.url} target="_blank" rel="noopener" style={sourceLink}>{focus.source || 'Source'} ↗</a>}
                 <span style={{ flex: 1 }} />
+                <CopyLink label="Copy link" tone="dim" />
                 <Btn tone="dim" onClick={onExit}>Close</Btn>
               </div>
             </div>
