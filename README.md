@@ -52,10 +52,13 @@ page has an anchor (hover a heading for the `#`). Old `?view=` links still resol
 
 ## Running it
 
+TypeScript (strict) throughout: `src/lib/types.ts` holds the shapes the JSON is read into.
+
 ```bash
 npm install
 npm run dev        # http://localhost:5173
-npm test           # validates data/*.json and the routes
+npm test           # typechecks, then validates data/*.json and the routes
+npm run typecheck  # tsc --noEmit alone
 npm run build      # sitemap, client build, server build, prerender → dist/
 npm run preview    # serves dist/ at http://localhost:4173/The_AI_Timeline/
 ```

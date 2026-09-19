@@ -6,21 +6,27 @@
   "description": "An investigation board of artificial intelligence: 1900 to 2050, with the strings between the events.",
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/gen-sitemap.mjs && vite build && vite build --ssr src/entry-server.jsx --outDir dist-ssr && node scripts/prerender.mjs",
+    "build": "tsx scripts/gen-sitemap.ts && vite build && vite build --ssr src/entry-server.tsx --outDir dist-ssr && tsx scripts/prerender.ts",
+    "build:client": "vite build",
     "preview": "vite preview",
-    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "test": "tsc --noEmit && vitest run",
     "test:watch": "vitest",
-    "fetch:images": "node scripts/fetch-images.mjs",
-    "check:links": "node scripts/check-links.mjs",
-    "gen:sitemap": "node scripts/gen-sitemap.mjs",
-    "build:client": "vite build"
+    "fetch:images": "tsx scripts/fetch-images.ts",
+    "check:links": "tsx scripts/check-links.ts",
+    "gen:sitemap": "tsx scripts/gen-sitemap.ts"
   },
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@types/node": "^20.19.43",
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
     "@vitejs/plugin-react": "^4.3.1",
+    "tsx": "^4.23.13",
+    "typescript": "~5.6",
     "vite": "^5.4.0",
     "vitest": "^2.0.5"
   },
