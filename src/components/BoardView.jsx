@@ -47,6 +47,27 @@ const Card = React.memo(function Card({ node, m, img, lit, subject, raised, hove
           background: 'radial-gradient(circle at 35% 30%, oklch(0.9 0.05 ' + catHue(e.category) + '), ' + accent(e.category, f) + ')',
           border: '1px solid rgba(0,0,0,0.35)', boxShadow: '0 2px 4px rgba(0,0,0,0.6)', zIndex: 2
         }} />
+        {m.side ? (
+          // A short card: the text on the left, the photograph a square on the right.
+          <span style={{ flex: '1 1 auto', minHeight: 0, display: 'flex', gap: 6, alignItems: 'stretch' }}>
+            <span style={{ flex: '1 1 auto', minWidth: 0, display: 'flex', flexDirection: 'column', paddingTop: 6 }}>
+              <span style={{ flex: 'none', display: 'block', font: '500 8.5px/1 ' + MONO, letterSpacing: '0.14em', color: paperInk(0.72), fontVariantNumeric: 'tabular-nums' }}>{e.year}</span>
+              <span style={{
+                flex: '1 1 auto', display: '-webkit-box', WebkitBoxOrient: 'vertical',
+                WebkitLineClamp: m.titleLines, overflow: 'hidden', marginTop: 3,
+                font: '400 ' + m.titlePx + 'px/1.14 ' + SERIF, color: '#17161a'
+              }}>{e.title}</span>
+            </span>
+            {img ? (
+              <img src={img} alt="" loading="lazy" decoding="async" style={{ flex: 'none', width: m.thumb, height: m.thumb, objectFit: 'cover', display: 'block', border: '1px solid rgba(23,22,26,0.22)', filter: 'grayscale(0.35) sepia(0.16) contrast(1.05)' }} />
+            ) : (
+              <span aria-hidden="true" style={{
+                flex: 'none', width: m.thumb, height: m.thumb, border: '1px solid rgba(23,22,26,0.22)',
+                background: 'repeating-linear-gradient(135deg,rgba(23,22,26,0.07) 0 5px,transparent 5px 10px)'
+              }} />
+            )}
+          </span>
+        ) : (<>
         {m.photo && (img ? (
           <img src={img} alt="" loading="lazy" decoding="async" style={{ flex: '1 1 auto', minHeight: 0, width: '100%', objectFit: 'cover', display: 'block', border: '1px solid rgba(23,22,26,0.22)', filter: 'grayscale(0.35) sepia(0.16) contrast(1.05)' }} />
         ) : (
@@ -63,6 +84,7 @@ const Card = React.memo(function Card({ node, m, img, lit, subject, raised, hove
           WebkitLineClamp: m.titleLines, overflow: 'hidden', marginTop: 3,
           font: '400 ' + m.titlePx + 'px/1.14 ' + SERIF, color: '#17161a'
         }}>{e.title}</span>
+        </>)}
         {m.showCat && (
           <span style={{ flex: 'none', display: 'block', marginTop: 4, font: '400 7.5px/1 ' + MONO, letterSpacing: '0.18em', textTransform: 'uppercase', color: e.future ? 'oklch(0.45 0.16 25)' : paperInk(0.65) }}>
             {e.future ? 'Scenario · ' + (e.confidence || 'Uncertain') : catLabel(e.category)}

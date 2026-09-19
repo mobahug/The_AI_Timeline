@@ -29,12 +29,19 @@ export function metrics(height, width) {
   const k = Math.min(1, lane / 216);
   const cardW = Math.max(126, Math.round(210 * (0.58 + 0.42 * k)));
   const gap = cardW + Math.max(14, Math.round(34 * k));
+  // A tall card stacks its photograph over the text. A short one has no room
+  // for that, so the photograph moves to the right as a square thumb and the
+  // text takes the left; only a card too short for even a thumb goes without.
   const photo = cardH >= 72;
+  const pad = k < 0.6 ? 11 : 15;
+  const side = !photo && cardH - pad >= 30;
+  const thumb = side ? cardH - pad : 0;
+  const titlePx = Math.max(10.5, Math.min(14, 8 + 6 * k));
   return {
-    ruler, lane, cardH, gutter, cardW, gap, k, photo, fits,
+    ruler, lane, cardH, gutter, cardW, gap, k, photo, side, thumb, fits,
     showCat: cardH >= 120,
-    titleLines: cardH >= 104 ? 2 : (photo ? 1 : 3),
-    titlePx: Math.max(10.5, Math.min(14, 8 + 6 * k)),
+    titleLines: cardH >= 104 ? 2 : photo ? 1 : side ? Math.max(1, Math.min(3, Math.floor((thumb - 12) / (titlePx * 1.14)))) : 3,
+    titlePx,
     boardW: Math.max(4200, Math.round(width * 7))
   };
 }

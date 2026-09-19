@@ -97,3 +97,21 @@ describe('stringPath — arches up into the gutter', () => {
     expect(100 - controlY).toBeLessThanOrEqual(30 * 0.86 + 0.01);
   });
 });
+
+describe('the card takes one of three shapes by its height', () => {
+  it('stacks the photograph on a tall card, sets it beside the text on a short one, drops it only when there is no room', () => {
+    const tall = metrics(900, 1400);
+    expect(tall.photo).toBe(true);
+    expect(tall.side).toBe(false);
+    const short = metrics(560, 1280);
+    expect(short.photo).toBe(false);
+    expect(short.side).toBe(true);
+    expect(short.thumb).toBeGreaterThanOrEqual(30);
+    expect(short.thumb).toBeLessThan(short.cardH);
+    expect(short.titleLines).toBeGreaterThanOrEqual(1);
+    const tiny = metrics(300, 900);
+    expect(tiny.photo).toBe(false);
+    expect(tiny.side).toBe(false);
+    expect(tiny.thumb).toBe(0);
+  });
+});
