@@ -265,6 +265,9 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
    */
   const panAnim = useRef(null);
   const railInset = useRef(0);
+  // How much of the frame's bottom the sheet covers on a narrow screen; the
+  // canvas is given that much extra height so a card can be scrolled above it.
+  const sheetInset = useRef(0);
   const panelInner = useRef(null);
   const [panelContentH, setPanelContentH] = useState(0);
   const cancelPan = useCallback(() => {
@@ -299,6 +302,19 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
 
   useEffect(() => cancelPan, [cancelPan]);
 
+  /** On a narrow screen the sheet covers the bottom of the frame: scroll the
+   *  canvas so the card sits above it, and never let it hide under the top. */
+  const keepAbove = useCallback((id) => {
+    const el = scroller.current;
+    const p = positions[id];
+    const inset = sheetInset.current;
+    if (!el || !p || !inset) return;
+    const room = el.clientHeight - inset;
+    const bottom = p.top + m.cardH;
+    if (bottom - el.scrollTop > room) el.scrollTop = Math.max(0, Math.min(el.scrollHeight - el.clientHeight, bottom - room + 8));
+    else if (p.top < el.scrollTop) el.scrollTop = Math.max(0, p.top - 8);
+  }, [positions, m.cardH]);
+
   const centre = useCallback((stepData) => {
     const el = scroller.current;
     if (!el || !stepData) return;
@@ -310,8 +326,9 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
     const usable = el.clientWidth - railInset.current;
     const fits = Math.abs(b.x - a.x) + m.cardW + 24 <= usable;
     panTo((fits ? (a.x + b.x) / 2 : b.x) - usable / 2);
-    if (el.scrollHeight > el.clientHeight) el.scrollTop = Math.max(0, (fits ? (a.y + b.y) / 2 : b.y) - el.clientHeight / 2);
-  }, [positions, panTo, m.cardW]);
+    if (sheetInset.current) keepAbove(stepData.to);
+    else if (el.scrollHeight > el.clientHeight) el.scrollTop = Math.max(0, (fits ? (a.y + b.y) / 2 : b.y) - el.clientHeight / 2);
+  }, [positions, panTo, m.cardW, keepAbove]);
 
   /** A card that takes keyboard focus must be in view — the browser scrolls it
    *  into the frame, but not out from under the rail. */
@@ -327,8 +344,8 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
   /** Bring one card to the middle of what the panel leaves visible. */
   const panToCard = useCallback((id) => {
     const el = scroller.current;
-    if (el && positions[id]) panTo(positions[id].x - (el.clientWidth - railInset.current) / 2);
-  }, [positions, panTo]);
+    if (el && positions[id]) { panTo(positions[id].x - (el.clientWidth - railInset.current) / 2); keepAbove(id); }
+  }, [positions, panTo, keepAbove]);
 
   /** The same, at once: for arriving on the board, where a flight across ninety
    *  years from the left edge would be a spectacle, not a transition. */
@@ -337,7 +354,8 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
     if (!el || !positions[id]) return;
     cancelPan();
     el.scrollLeft = positions[id].x - (el.clientWidth - railInset.current) / 2;
-  }, [positions, cancelPan]);
+    keepAbove(id);
+  }, [positions, cancelPan, keepAbove]);
 
   // A card opened in brief that is not yet on the wall is laid out on the next
   // render; the pan to it waits for its position.
@@ -701,12 +719,28 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
   // space under short content, and never a snap between sizes: the height is
   // measured and the change is animated.
   const PEEK_H = 58;
-  const CAP = { half: Math.max(180, Math.round(shellH * 0.46)), full: Math.max(240, Math.round(shellH * 0.9)) };
+  const CAP = { half: Math.max(180, Math.round(shellH * 0.46)), full: Math.max(240, Math.round(shellH * 0.8)) };
   const [sheet, setSheet] = useState('half');
-  const PANEL_CAP = railMode ? box.h : (sheet === 'peek' ? PEEK_H : CAP[sheet]);
-  const panelH = railMode
-    ? (fileOpen ? PANEL_CAP : Math.min(PANEL_CAP, panelContentH || PANEL_CAP))
-    : (sheet === 'peek' ? PEEK_H : Math.min(PANEL_CAP, Math.max(PEEK_H, panelContentH || PANEL_CAP)));
+  // The sheet is always its full height and is slid down by what is not shown,
+  // so pulling it moves a transform — composited, no layout per frame — and
+  // the content below the fold is reachable by scroll because the inner block
+  // carries that much padding.
+  const SHEET_TRANSITION = 'transform .32s cubic-bezier(.2,.8,.2,1)';
+  const stopH = (which) => (which === 'peek' ? PEEK_H : Math.min(CAP[which], Math.max(PEEK_H, panelContentH || CAP[which])));
+  const shown = railMode ? 0 : stopH(sheet);
+  sheetInset.current = railMode || !panelOpen ? 0 : shown;
+  // The sheet slides in by the same transform it is pulled with: it mounts
+  // below the frame and moves up on the next frame. (A keyframe animation
+  // would do — but one that ends on `transform: none` and fills forwards
+  // would pin the sheet there, over the transform the drag writes.)
+  const [sheetIn, setSheetIn] = useState(false);
+  useEffect(() => {
+    if (!panelOpen || railMode) { setSheetIn(false); return undefined; }
+    const id = requestAnimationFrame(() => setSheetIn(true));
+    return () => cancelAnimationFrame(id);
+  }, [panelOpen, railMode]);
+  const PANEL_CAP = railMode ? box.h : CAP.full;
+  const panelH = railMode ? (fileOpen ? PANEL_CAP : Math.min(PANEL_CAP, panelContentH || PANEL_CAP)) : CAP.full;
   useEffect(() => { if (!panelOpen) setPanelContentH(0); }, [panelOpen]);
 
   // Measure the panel's content so the panel can be exactly as tall as it.
@@ -735,40 +769,69 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
     if (opening) setSheet(subject && box.h && subject.y > box.h * 0.52 ? 'peek' : 'half');
   }, [panelOpen, fileOpen, railMode, subjectId]); // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => { if (!fileOpen && !railMode && sheet === 'full') setSheet('half'); }, [fileOpen]); // eslint-disable-line react-hooks/exhaustive-deps
+  // As the sheet grows the selected card is kept above it; as it shrinks the
+  // canvas is let back down.
+  useEffect(() => {
+    if (railMode || !subjectId) return;
+    if (shown) keepAbove(subjectId);
+    else if (scroller.current) scroller.current.scrollTop = 0;
+  }, [shown, railMode]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // Pulling the sheet by its handle: the height follows the finger, and on
-  // release settles at the nearest of the three; a tap toggles peek and half.
+  // Pulling the sheet by its handle: the sheet follows the finger, one
+  // transform per animation frame, and on release settles at the nearest of
+  // the three stops — or, after a flick, at the next stop in that direction.
+  // A tap toggles peek and half.
   const sheetDrag = useRef(null);
   const onSheetDown = (e) => {
     if (railMode || e.button !== 0) return;
     const el = panelRef.current;
     if (!el) return;
-    e.currentTarget.setPointerCapture(e.pointerId);
-    sheetDrag.current = { y: e.clientY, h: el.getBoundingClientRect().height, moved: false };
+    try { e.currentTarget.setPointerCapture(e.pointerId); } catch { /* a pointer already gone: the move and up still arrive on the strip */ }
+    sheetDrag.current = { y0: e.clientY, h0: shown, h: shown, moved: false, t: performance.now(), y: e.clientY, v: 0, raf: null };
     el.style.transition = 'none';
   };
   const onSheetMove = (e) => {
     const d = sheetDrag.current;
     const el = panelRef.current;
     if (!d || !el) return;
-    const dy = d.y - e.clientY;
+    const now = performance.now();
+    // Velocity in px/ms, smoothed, from the last few moves.
+    const dt = Math.max(1, now - d.t);
+    d.v = 0.6 * d.v + 0.4 * ((d.y - e.clientY) / dt);
+    d.t = now; d.y = e.clientY;
+    const dy = d.y0 - e.clientY;
     if (Math.abs(dy) > 6) d.moved = true;
-    const h = Math.max(PEEK_H, Math.min(CAP.full, d.h + dy));
-    el.style.height = h + 'px';
-    el.style.maxHeight = h + 'px';
+    d.h = Math.max(PEEK_H, Math.min(CAP.full, d.h0 + dy));
+    if (d.raf === null) {
+      d.raf = requestAnimationFrame(() => {
+        d.raf = null;
+        el.style.transform = 'translateY(' + (CAP.full - d.h) + 'px)';
+      });
+    }
   };
-  const onSheetUp = (e) => {
+  const onSheetUp = () => {
     const d = sheetDrag.current;
     const el = panelRef.current;
     sheetDrag.current = null;
     if (!d || !el) return;
-    el.style.transition = '';
-    el.style.height = '';
-    el.style.maxHeight = '';
-    if (!d.moved) { setSheet((v) => (v === 'peek' ? 'half' : 'peek')); return; }
-    const h = Math.max(PEEK_H, Math.min(CAP.full, d.h + (d.y - e.clientY)));
-    const stops = [['peek', PEEK_H], ['half', Math.min(CAP.half, Math.max(PEEK_H, panelContentH || CAP.half))], ['full', Math.min(CAP.full, Math.max(PEEK_H, panelContentH || CAP.full))]];
-    setSheet(stops.reduce((best, s) => (Math.abs(s[1] - h) < Math.abs(best[1] - h) ? s : best))[0]);
+    if (d.raf !== null) cancelAnimationFrame(d.raf);
+    // A finger that stopped before lifting was not a flick.
+    if (performance.now() - d.t > 80) d.v = 0;
+    const stops = ['peek', 'half', 'full'].map((k) => [k, stopH(k)]);
+    let next;
+    if (!d.moved) next = sheet === 'peek' ? 'half' : 'peek';
+    else if (Math.abs(d.v) > 0.45) {
+      // A flick goes one stop in its direction; a slow pull lands at the nearest.
+      const hit = d.v > 0 ? stops.find((st) => st[1] > d.h + 4) : stops.slice().reverse().find((st) => st[1] < d.h - 4);
+      next = hit ? hit[0] : null;
+    }
+    if (!next) next = stops.reduce((best, st) => (Math.abs(st[1] - d.h) < Math.abs(best[1] - d.h) ? st : best))[0];
+    // These two properties are React's, and React only rewrites a style whose
+    // value changed since its last render — so the DOM is set to exactly what
+    // React believes it holds, whether or not the stop changes.
+    el.style.transition = SHEET_TRANSITION;
+    el.style.transform = 'translateY(' + (CAP.full - stopH(next)) + 'px)';
+    setSheet(next);
   };
   const peekLabel = current && current.lead
     ? 'Rung ' + current.rung + ' / ' + current.of + ' · ' + (leadById[current.lead] ? leadById[current.lead].title : '')
@@ -814,19 +877,19 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
         </div>
       </div>
 
-      <div ref={frameRef} style={{ position: 'relative', flex: 1, minHeight: 0 }}>
+      <div ref={frameRef} style={{ position: 'relative', flex: 1, minHeight: 0, overflow: 'clip' }}>
         <div
           ref={scroller}
           onScroll={onScroll}
           onPointerDown={onPointerDown}
           id="board-canvas"
           style={{
-            position: 'absolute', inset: 0, overflowX: 'auto', overflowY: m.fits ? 'hidden' : 'auto',
-            border: '1px solid rgba(243,240,234,0.12)', borderRadius: 3, cursor: 'grab', touchAction: m.fits ? 'pan-x' : 'auto',
+            position: 'absolute', inset: 0, overflowX: 'auto', overflowY: m.fits && !sheetInset.current ? 'hidden' : 'auto',
+            border: '1px solid rgba(243,240,234,0.12)', borderRadius: 3, cursor: 'grab', touchAction: m.fits && !sheetInset.current ? 'pan-x' : 'auto',
             background: 'radial-gradient(120% 90% at 20% 0%,#171310,#08080a 70%)'
           }}
         >
-          <div style={{ position: 'relative', width: board3.width, height: board3.height, minWidth: '100%' }}>
+          <div style={{ position: 'relative', width: board3.width, height: board3.height + sheetInset.current, minWidth: '100%' }}>
             {THREADS.map((thread, i) => (
               <div key={thread.id} style={{
                 position: 'absolute', left: 0, top: m.ruler + i * m.lane, width: board3.width, height: m.lane,
@@ -979,13 +1042,18 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
             onWheel={(e) => e.stopPropagation()}
             onTouchMove={(e) => e.stopPropagation()}
             style={{
-              position: 'absolute', zIndex: 22, height: (railMode ? panelContentH : true) ? panelH : 'auto', maxHeight: PANEL_CAP,
-              transition: (railMode ? panelContentH : true) ? 'height .24s ' + EASE + ', max-height .24s ' + EASE : 'none',
+              position: 'absolute', zIndex: 22, height: railMode ? (panelContentH ? panelH : 'auto') : panelH, maxHeight: PANEL_CAP,
+              transition: railMode
+                ? (panelContentH ? 'height .24s ' + EASE : 'none')
+                : SHEET_TRANSITION,
               ...(railMode
                 ? { top: 0, right: 0, width: RAIL_W, border: '1px solid rgba(243,240,234,0.14)', borderTop: 'none', borderRight: 'none', borderBottomLeftRadius: 3, animation: 'slideInRight .24s ' + EASE + ' both' }
-                : { left: 0, right: 0, bottom: 0, borderTop: '1px solid rgba(243,240,234,0.16)', borderTopLeftRadius: 8, borderTopRightRadius: 8,
-                    boxShadow: '0 -10px 30px rgba(0,0,0,0.45)', animation: 'slideInUp .24s ' + EASE + ' both' }),
-              overflowY: !railMode && sheet === 'peek' ? 'hidden' : panelContentH > PANEL_CAP ? 'auto' : 'hidden', overscrollBehavior: 'contain',
+                : { left: 0, right: 0, bottom: 0, borderTop: '1px solid rgba(243,240,234,0.16)', borderTopLeftRadius: 10, borderTopRightRadius: 10,
+                    boxShadow: '0 -10px 30px rgba(0,0,0,0.45)',
+                    // Mid-drag a render must not yank the sheet back to its stop.
+                    transform: 'translateY(' + (sheetDrag.current ? CAP.full - sheetDrag.current.h : sheetIn ? CAP.full - shown : CAP.full) + 'px)',
+                    willChange: 'transform' }),
+              overflowY: !railMode && sheet === 'peek' ? 'hidden' : (railMode ? panelContentH > PANEL_CAP : panelContentH > shown) ? 'auto' : 'hidden', overscrollBehavior: 'contain',
               touchAction: 'pan-y', WebkitOverflowScrolling: 'touch',
               pointerEvents: preview ? 'none' : 'auto',
               // Near-opaque rather than blurred: a backdrop filter over a canvas
@@ -1025,6 +1093,9 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
                 >✕</button>
               </div>
             )}
+            {/* At peek the content below the strip is out of reach of the tab
+                order too, so focus cannot drag the frame up to it. */}
+            <div {...(!railMode && sheet === 'peek' ? { inert: '' } : {})}>
             {fileOpen && pinned && graph.index[pinned] ? (
               <div style={{ display: 'flex', flexDirection: 'column', minHeight: 0 }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 14px', borderBottom: '1px solid rgba(243,240,234,0.12)', position: 'sticky', top: 0, background: 'rgba(10,10,11,0.985)', zIndex: 2 }}>
@@ -1066,7 +1137,11 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
               onOpenFile={pinned ? () => setFileOpen(true) : null}
             />
             )}
+            </div>
            </div>
+           {/* The fold: what the sheet hides below the frame, so the end of the
+               content can be scrolled up into view. Not inside the measured block. */}
+           {!railMode && <div aria-hidden="true" style={{ height: CAP.full - shown }} />}
           </div>
         )}
       </div>
