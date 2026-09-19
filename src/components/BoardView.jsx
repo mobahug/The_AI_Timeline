@@ -5,7 +5,7 @@ import { leadById, leadChain } from '../lib/leads.js';
 import { useMode } from '../lib/mode.js';
 import { MANILA, MONO, PAPER, RED, RED_LIT, CYAN, SERIF, DUR, EASE, FADE, STATE, micro, paperInk } from '../lib/styles.js';
 import { Btn, Empty, RouteProvider } from './kit.jsx';
-import { panDuration, panPosition, rubberBand, sheetClaims, springDuration, springEasing } from '../lib/motion.js';
+import { easeOut, panDuration, rubberBand, sheetClaims, springDuration, springEasing } from '../lib/motion.js';
 import CluePanel from './CluePanel.jsx';
 import CardView from './CardView.jsx';
 
@@ -281,8 +281,12 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
    */
   const panAnim = useRef(null);
   const railInset = useRef(0);
-  // How much of the frame's bottom the sheet covers on a narrow screen; the
-  // canvas is given that much extra height so a card can be scrolled above it.
+  // How much of the frame's bottom the sheet covers on a narrow screen, and
+  // the vertical room the canvas is given above and below its lanes: half the
+  // frame each side, so any card can be brought to the middle of what the
+  // reader sees. The lanes rest flush with the top when nothing is selected.
+  const sheetInset = useRef(0);
+  const padY = useRef(0);
   const panelInner = useRef(null);
   const [panelContentH, setPanelContentH] = useState(0);
   const cancelPan = useCallback(() => {
@@ -293,45 +297,55 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
   const settled = useRef(false);
   const takeOver = useCallback(() => { settled.current = true; cancelPan(); }, [cancelPan]);
 
-  const panTo = useCallback((left) => {
+  const panTo = useCallback((left, top) => {
     const el = scroller.current;
     if (!el) return;
     cancelPan();
     const target = Math.max(0, Math.min(left, el.scrollWidth - el.clientWidth));
+    const targetTop = top === undefined ? el.scrollTop : Math.max(0, Math.min(top, el.scrollHeight - el.clientHeight));
     const from = el.scrollLeft;
+    const fromTop = el.scrollTop;
     const dist = target - from;
+    const distTop = targetTop - fromTop;
     const reduce = typeof window.matchMedia === 'function' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduce || Math.abs(dist) < 2) { el.scrollLeft = target; return; }
+    if (reduce || (Math.abs(dist) < 2 && Math.abs(distTop) < 2)) { el.scrollLeft = target; el.scrollTop = targetTop; return; }
 
-    const duration = panDuration(dist);
+    // Both axes travel together, for the time the longer of them needs.
+    const duration = panDuration(Math.max(Math.abs(dist), Math.abs(distTop)));
     const t0 = performance.now();
     const step = (now) => {
       const el2 = scroller.current;
       if (!el2) { panAnim.current = null; return; }
       const elapsed = now - t0;
-      el2.scrollLeft = panPosition(from, target, elapsed);
+      const p = Math.min(1, elapsed / duration);
+      el2.scrollLeft = from + dist * easeOut(p);
+      el2.scrollTop = fromTop + distTop * easeOut(p);
       panAnim.current = elapsed < duration ? requestAnimationFrame(step) : null;
     };
     panAnim.current = requestAnimationFrame(step);
   }, [cancelPan]);
 
+  /** Where the canvas must scroll to put a card in the middle of what the
+   *  reader sees: the frame less the rail on a desk, less the sheet on a phone. */
+  const middleOf = useCallback((id) => {
+    const el = scroller.current;
+    const p = positions[id];
+    if (!el || !p) return null;
+    return {
+      left: p.x - (el.clientWidth - railInset.current) / 2,
+      top: padY.current + p.top + m.cardH / 2 - (el.clientHeight - sheetInset.current) / 2
+    };
+  }, [positions, m.cardH]);
+
   useEffect(() => cancelPan, [cancelPan]);
 
-  /** On a narrow screen the sheet covers the bottom of the frame: scroll the
-   *  canvas so the card sits above it, and never let it hide under the top. */
+  /** A step of a walk: the card it arrives at — the one lit — goes to the
+   *  middle of what the reader sees, on a desk and on a phone alike. */
   const centre = useCallback((stepData) => {
-    const el = scroller.current;
-    if (!el || !stepData) return;
-    const a = positions[stepData.from];
-    const b = positions[stepData.to];
-    if (!a || !b) return;
-    // Both ends in view when the frame allows it; when it does not — a phone,
-    // or two cards a decade apart — the card the step arrives at, centred.
-    const usable = el.clientWidth - railInset.current;
-    const fits = Math.abs(b.x - a.x) + m.cardW + 24 <= usable;
-    panTo((fits ? (a.x + b.x) / 2 : b.x) - usable / 2);
-    if (el.scrollHeight > el.clientHeight) el.scrollTop = Math.max(0, (fits ? (a.y + b.y) / 2 : b.y) - el.clientHeight / 2);
-  }, [positions, panTo, m.cardW]);
+    if (!stepData) return;
+    const at = middleOf(stepData.to);
+    if (at) panTo(at.left, at.top);
+  }, [middleOf, panTo]);
 
   /** A card that takes keyboard focus must be in view — the browser scrolls it
    *  into the frame, but not out from under the rail. */
@@ -346,18 +360,20 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
 
   /** Bring one card to the middle of what the panel leaves visible. */
   const panToCard = useCallback((id) => {
-    const el = scroller.current;
-    if (el && positions[id]) panTo(positions[id].x - (el.clientWidth - railInset.current) / 2);
-  }, [positions, panTo]);
+    const at = middleOf(id);
+    if (at) panTo(at.left, at.top);
+  }, [middleOf, panTo]);
 
   /** The same, at once: for arriving on the board, where a flight across ninety
    *  years from the left edge would be a spectacle, not a transition. */
   const placeCard = useCallback((id) => {
     const el = scroller.current;
-    if (!el || !positions[id]) return;
+    const at = middleOf(id);
+    if (!el || !at) return;
     cancelPan();
-    el.scrollLeft = positions[id].x - (el.clientWidth - railInset.current) / 2;
-  }, [positions, cancelPan]);
+    el.scrollLeft = at.left;
+    el.scrollTop = Math.max(0, Math.min(at.top, el.scrollHeight - el.clientHeight));
+  }, [middleOf, cancelPan]);
 
   // A card opened in brief that is not yet on the wall is laid out on the next
   // render; the pan to it waits for its position.
@@ -388,12 +404,14 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
     setPinned(null);
     setFileOpen(false);
     navigate({ clue: null, id: null, lead: null, rung: null }, true);
+    // With nothing selected the lanes rest flush with the top again.
+    if (scroller.current) panTo(scroller.current.scrollLeft, padY.current);
     // In brief a card that was only on the wall because it was open leaves it
     // now; focus goes to the scrubber instead of being dropped on <body>.
     const stays = back && graph.index[back] && (full || graph.index[back].landmark);
     const el = stays ? document.getElementById('card-' + back) : scrubRef.current;
     if (el) el.focus({ preventScroll: true });
-  }, [pinned, chain, step, navigate, full, graph.index]);
+  }, [pinned, chain, step, navigate, full, graph.index, panTo]);
 
   /** Put a walked chain on the board at one of its steps, and pan to it. */
   // The step to centre on is remembered and centred after the render that
@@ -731,6 +749,14 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
   // carries that much padding.
   const stopH = (which) => (which === 'peek' ? PEEK_H : Math.min(CAP[which], Math.max(PEEK_H, panelContentH || CAP[which])));
   const shown = railMode ? 0 : stopH(sheet);
+  sheetInset.current = railMode || !panelOpen ? 0 : shown;
+  padY.current = Math.round(box.h / 2);
+  // With nothing selected the lanes rest flush with the frame's top: the room
+  // above them is only ever used to bring a card to the middle.
+  useEffect(() => {
+    const el = scroller.current;
+    if (el && !panelOpen && !route.id && !route.clue && !route.lead) el.scrollTop = padY.current;
+  }, [box.h, panelOpen]); // eslint-disable-line react-hooks/exhaustive-deps
   // The sheet slides in by the same transform it is pulled with: it mounts
   // below the frame and moves up on the next frame. (A keyframe animation
   // would do — but one that ends on `transform: none` and fills forwards
@@ -768,7 +794,7 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
     wasOpen.current = panelOpen;
     if (!panelOpen) return;
     if (fileOpen) { setSheet('full'); return; }
-    if (opening) setSheet(subject && box.h && subject.y > box.h * 0.52 ? 'peek' : 'half');
+    if (opening) setSheet('half');
   }, [panelOpen, fileOpen, railMode, subjectId]); // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => { if (!fileOpen && !railMode && sheet === 'full') setSheet('half'); }, [fileOpen]); // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -946,13 +972,24 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
             background: 'radial-gradient(120% 90% at 20% 0%,#171310,#08080a 70%)'
           }}
         >
+          <div style={{ width: board3.width, minWidth: '100%', height: board3.height + 2 * padY.current, paddingTop: padY.current, boxSizing: 'border-box' }}>
           <div style={{ position: 'relative', width: board3.width, height: board3.height, minWidth: '100%' }}>
             {THREADS.map((thread, i) => (
               <div key={thread.id} style={{
                 position: 'absolute', left: 0, top: m.ruler + i * m.lane, width: board3.width, height: m.lane,
                 borderTop: '1px solid rgba(243,240,234,0.07)',
                 background: i % 2 ? 'rgba(243,240,234,0.012)' : 'transparent'
-              }} />
+              }}>
+                {/* The lane's label: pinned to the frame's left edge as the wall
+                    pans, and riding with its lane as the wall scrolls. */}
+                <div style={{
+                  position: 'sticky', left: 7, top: 0, display: 'inline-block', marginTop: 2, zIndex: 6, pointerEvents: 'none',
+                  maxWidth: 'min(46vw,168px)', padding: '3px 7px', borderRadius: 2,
+                  background: 'rgba(10,10,11,0.82)', border: '1px solid rgba(243,240,234,0.14)',
+                  color: 'rgba(243,240,234,0.72)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis',
+                  font: '500 ' + (m.k < 0.55 ? 7.5 : 8.5) + 'px/1.3 ' + MONO, letterSpacing: '0.13em', textTransform: 'uppercase'
+                }}>{thread.label}</div>
+              </div>
             ))}
 
             {TICKS.map((year) => (
@@ -1048,18 +1085,10 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
               );
             })}
           </div>
+          </div>
         </div>
 
         <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: 4, zIndex: 6, pointerEvents: 'none' }} />
-        {THREADS.map((thread, i) => (
-          <div key={'label-' + thread.id} style={{
-            position: 'absolute', left: 7, top: m.ruler + i * m.lane + 2, zIndex: 6, pointerEvents: 'none',
-            maxWidth: 'min(46vw,168px)', padding: '3px 7px', borderRadius: 2,
-            background: 'rgba(10,10,11,0.82)', border: '1px solid rgba(243,240,234,0.14)',
-            color: 'rgba(243,240,234,0.72)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis',
-            font: '500 ' + (m.k < 0.55 ? 7.5 : 8.5) + 'px/1.3 ' + MONO, letterSpacing: '0.13em', textTransform: 'uppercase'
-          }}>{thread.label}</div>
-        ))}
 
         {!visible.length && (
           <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none', zIndex: 9 }}>
