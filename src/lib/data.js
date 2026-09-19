@@ -63,7 +63,7 @@ export const yearAtFraction = (v) => {
 export const TICKS = ANCHORS.map(([y]) => y);
 
 /** The graph: every card and string in data/, indexed and joined. The board
- *  changes by pull request and nowhere else. `extra` — `{ nodes, edges }` — is
+ *  changes in the data and nowhere else. `extra` — `{ nodes, edges }` — is
  *  for the tests, which prove the derivations are data-driven by adding a card
  *  and a string that the files do not contain. */
 export function buildGraph(extra) {

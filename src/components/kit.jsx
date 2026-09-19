@@ -337,7 +337,7 @@ export function Empty({ noun = 'entry', route, navigate, style }) {
 
 export const CC = 'https://creativecommons.org/licenses/by-sa/4.0/';
 
-/** A quoted sentence. 'claim' = a contributor chose it in support (string-inked);
+/** A quoted sentence. 'claim' = the author chose it in support (string-inked);
  *  'context' and 'auto' = background or a machine match, which never outranks a
  *  hand-chosen line. */
 export const Quote = ({ tone = 'context', top = 0, children }) => (

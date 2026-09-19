@@ -151,10 +151,6 @@ export default function Header({ route, navigate, year, barRef, status, graph })
     <SearchBox graph={graph} value={route.query} onChange={(v) => navigate({ query: v }, true)} narrow={narrow} />
   );
 
-  const contribute = (size) => (
-    <Btn size={size} href="https://github.com/mobahug/The_AI_Timeline" target="_blank" rel="noopener">Contribute ↗</Btn>
-  );
-
   return (
     <header ref={headerRef} data-chrome="header" style={{
       position: 'sticky', top: 0, zIndex: 40, background: 'rgba(10,10,11,0.9)',
@@ -168,8 +164,8 @@ export default function Header({ route, navigate, year, barRef, status, graph })
           {!narrow && !mid && <span style={micro(5)}>An investigation board · {FIRST} — {LAST}</span>}
           <span style={{ flex: 1 }} />
           {!narrow && <span style={{ ...micro(5), whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', minWidth: 0 }}>{status}</span>}
-          {/* About and Contribute sit up here with the wordmark, so the row of
-              doors and filters below keeps to one line on an ordinary desk. */}
+          {/* About sits up here with the wordmark, so the row of doors and
+              filters below keeps to one line on an ordinary desk. */}
           {!narrow && (
             <Link
               to={{ view: 'about' }}
@@ -178,7 +174,6 @@ export default function Header({ route, navigate, year, barRef, status, graph })
             >About</Link>
           )}
           {!narrow && <ModeSwitch />}
-          {!narrow && contribute()}
           <span style={{
             // Longhands, not the `font` shorthand: this size flips with the
             // breakpoint, and React will not update a shorthand beside a longhand.
@@ -260,8 +255,6 @@ export default function Header({ route, navigate, year, barRef, status, graph })
 
             <div style={{ marginTop: 'auto', paddingTop: 30, display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap' }}>
               <span style={{ font: '400 11px/1.6 ' + MONO, color: ink(5) }}>{status}</span>
-              <span style={{ flex: 1 }} />
-              {contribute('lg')}
             </div>
           </div>,
           document.body

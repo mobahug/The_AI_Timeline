@@ -73,8 +73,8 @@ count, not a year.
 - `data/threads.json` — the span of the board, threads (board rows), categories, eras
 - `data/spine.json` — the findings: the numbered stretches of years that make the line
 
-See [docs/SCHEMA.md](docs/SCHEMA.md) for the field reference and
-[CONTRIBUTING.md](CONTRIBUTING.md) for how to propose a change.
+See [docs/SCHEMA.md](docs/SCHEMA.md) for the field reference. The board is kept by
+its author; it is not open to outside contribution, and the licence below says why.
 
 ## Images
 

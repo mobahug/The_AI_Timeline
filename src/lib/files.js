@@ -5,7 +5,7 @@ import rawTerms from '../../data/glossary.json';
 /* The files: persons of interest, organisations and the glossary. A card names
    an entity either by id (`people`, `orgs`, `terms`) or simply by using its name
    in the text; both count as an appearance, so a reader following a name lands
-   on every card that carries it without a contributor having tagged each one. */
+   on every card that carries it without each one having been tagged by hand. */
 
 export const PEOPLE = rawPeople.people.map((p) => ({ ...p, kind: 'person', label: p.name }));
 export const ORGS = rawOrgs.orgs.map((o) => ({ ...o, kind: 'org', label: o.name }));

@@ -265,7 +265,7 @@ function CardView({ graph, route, media, embedded }) {
           {!full && sources.length > 1 && <div style={{ marginTop: 16 }}><FullOnly label={(sources.length - 1) + ' more ' + (sources.length === 2 ? 'source' : 'sources') + ', each with what it says'} /></div>}
           {strength.state !== 'quoted' && sources.length > 0 && (
             <p style={{ margin: '16px 0 0', font: '400 11.5px/1.7 ' + MONO, color: ink(5), maxWidth: '70ch' }}>
-              This entry is cited but not yet quoted: no source on it carries a verbatim line supporting the claim. Until a contributor reads a source and chooses the line, treat the citations as background.
+              This entry is cited but not yet quoted: no source on it carries a verbatim line supporting the claim. Until a source has been read and the line chosen, treat the citations as background.
             </p>
           )}
         </Section>

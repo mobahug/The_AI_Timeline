@@ -66,7 +66,7 @@ function jsonLd(route, meta, url, image) {
     return [
       { '@context': 'https://schema.org', '@type': 'Article', headline: e.title, description: meta.description, url,
         image: image ? [image] : undefined, datePublished: String(e.year), isPartOf: site,
-        author: { '@type': 'Organization', name: SITE + ' contributors' }, citation: sources.length ? sources : undefined,
+        author: { '@type': 'Organization', name: SITE }, citation: sources.length ? sources : undefined,
         about: e.year > NOW ? 'Scenario, confidence ' + (e.confidence || 'Uncertain') : undefined },
       { '@context': 'https://schema.org', ...crumbs([[SITE, ''], ['The board', 'board/'], [e.year + ' ' + e.title, 'card/' + enc(e.id) + '/']]) }
     ];
@@ -76,7 +76,7 @@ function jsonLd(route, meta, url, image) {
     if (!l) return [];
     return [
       { '@context': 'https://schema.org', '@type': 'Article', headline: l.title, description: meta.description, url, isPartOf: site,
-        author: { '@type': 'Organization', name: SITE + ' contributors' },
+        author: { '@type': 'Organization', name: SITE },
         hasPart: l.rungs.map((r, i) => ({ '@type': 'ListItem', position: i + 1, name: r.label, url: ORIGIN + BASE + 'card/' + enc(r.event) + '/' })) },
       { '@context': 'https://schema.org', ...crumbs([[SITE, ''], ['The leads', 'leads/'], [l.title, 'lead/' + enc(l.id) + '/']]) }
     ];

@@ -34,10 +34,3 @@ The full legal text is at
 - **Photographs** are Wikipedia/Wikimedia Commons lead images, looked up at
   build time and not redistributed here. Each remains under its own licence;
   check the file's page on Commons before reuse.
-
-## Contributions
-
-By opening a pull request against `data/`, you agree that the text you
-contribute is licensed to the project under CC BY-NC-ND 4.0 with the right for
-the project to publish it here, and that any sentence you quote from a source
-is a short quotation attributed to that source.

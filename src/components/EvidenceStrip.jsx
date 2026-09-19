@@ -38,7 +38,7 @@ export default function EvidenceStrip({ event, media, compact }) {
     background: 'rgba(243,240,234,0.035)', border: '1px solid rgba(243,240,234,0.08)'
   };
 
-  // 1. A contributor read the source and chose the line. That outranks any match.
+  // 1. The author read the source and chose the line. That outranks any match.
   if (handQuote) {
     return (
       <div style={box}>

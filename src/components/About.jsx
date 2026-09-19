@@ -54,7 +54,7 @@ function About() {
         <Section title="The files">
           Every name the board uses has a page: {PEOPLE.length} people, {ORGS.length} organisations
           and {TERMS.length} terms, each with every card it appears on and the strings between those
-          cards. A card counts as carrying a name if a contributor tagged it or if the name appears in
+          cards. A card counts as carrying a name if the card is tagged with it or if the name appears in
           the card's own text; quoted sources are never searched. The glossary defines each term in the
           board's own words, so nothing here needs an encyclopaedia to follow.
           {' '}<Link to={{ view: 'files' }}>The files →</Link>
@@ -71,7 +71,7 @@ function About() {
           Under a card, one sentence from the page it cites is shown in place, so a claim can be
           checked without leaving. For Wikipedia sources that sentence is the article's own text,
           reproduced under the Creative Commons Attribution-ShareAlike 4.0 licence, with the article
-          named and linked beneath it. Where a contributor has read the source and chosen the line,
+          named and linked beneath it. Where the author has read the source and chosen the line,
           the strip says so; where the match was made automatically, it says that instead. And
           where the cited page does not mention the entry at all, the strip says exactly that
           rather than letting a nearby paragraph imply support it does not give.
@@ -95,12 +95,11 @@ function About() {
           licences — check before reuse.
         </Section>
 
-        <Section title="How to change it">
-          The board is the JSON in data/ — the entries, the strings, the leads, the files, the threads and the findings. There is no
-          editor on the site: a change is a pull request against{' '}
-          <a href="https://github.com/mobahug/The_AI_Timeline" target="_blank" rel="noopener">the repository</a>, reviewed like any other.
-          A test suite checks ids, years, sources, link targets and that every scenario is
-          labelled. Contribution rules are in CONTRIBUTING.md.
+        <Section title="How it is kept">
+          The board is the JSON in data/ — the entries, the strings, the leads, the files, the threads and the findings — and it is
+          kept by its author. There is no editor on the site and no open contribution: the record is one reading, argued in one voice,
+          and corrected when it is wrong. A test suite checks ids, years, sources, link targets and that every scenario is labelled
+          before anything is published.
         </Section>
       </div>
 

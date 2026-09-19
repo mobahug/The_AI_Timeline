@@ -67,7 +67,7 @@ function FilesView({ graph }) {
       </Section>
 
       <div style={{ borderTop: RULE, marginTop: 44, paddingTop: 22, ...micro(5), letterSpacing: '0.1em', textTransform: 'none', font: '400 11.5px/1.8 ' + MONO, maxWidth: '72ch' }}>
-        A card counts as carrying a name if a contributor tagged it or if the name appears in the card's own text.
+        A card counts as carrying a name if the card is tagged with it or if the name appears in the card's own text.
         Quoted sources are never searched — their words belong to someone else.
       </div>
     </div>
