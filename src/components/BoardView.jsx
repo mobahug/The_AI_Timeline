@@ -5,9 +5,21 @@ import { leadById, leadChain } from '../lib/leads.js';
 import { useMode } from '../lib/mode.js';
 import { MANILA, MONO, PAPER, RED, RED_LIT, CYAN, SERIF, EASE, FADE, micro, paperInk } from '../lib/styles.js';
 import { Empty, RouteProvider } from './kit.jsx';
-import { panDuration, panPosition } from '../lib/motion.js';
+import { panDuration, panPosition, rubberBand, sheetClaims, springDuration, springEasing } from '../lib/motion.js';
 import CluePanel from './CluePanel.jsx';
 import CardView from './CardView.jsx';
+
+/* How the sheet settles on a stop: a spring, so it overshoots a touch and comes
+   back, the way a native sheet does. `linear()` carries the real curve, with the
+   finger's speed at release folded in; a browser without it gets a bezier that
+   bounces the same amount from rest. Reduced motion zeroes the duration in CSS. */
+const SPRING_MS = springDuration();
+const HAS_LINEAR = typeof CSS !== 'undefined' && !!CSS.supports && CSS.supports('transition-timing-function', 'linear(0, 1)');
+const settle = (v0 = 0) => 'transform ' + SPRING_MS + 'ms ' + (HAS_LINEAR ? springEasing({ v0 }) : 'cubic-bezier(.32,1.28,.5,1)');
+const SHEET_TRANSITION = settle();
+/** How far the sheet may bounce or be stretched past its top stop: the sheet
+ *  is painted this much taller than it is, so the frame's floor never shows. */
+const SHEET_TAIL = 72;
 
 /* One card on the cork. Memoised on plain values, so a scroll, a drag frame or a
    hover elsewhere on the board does not reconcile it: only the card whose own
@@ -725,7 +737,6 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
   // so pulling it moves a transform — composited, no layout per frame — and
   // the content below the fold is reachable by scroll because the inner block
   // carries that much padding.
-  const SHEET_TRANSITION = 'transform .32s cubic-bezier(.2,.8,.2,1)';
   const stopH = (which) => (which === 'peek' ? PEEK_H : Math.min(CAP[which], Math.max(PEEK_H, panelContentH || CAP[which])));
   const shown = railMode ? 0 : stopH(sheet);
   sheetInset.current = railMode || !panelOpen ? 0 : shown;
@@ -777,31 +788,78 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
     else if (scroller.current) scroller.current.scrollTop = 0;
   }, [shown, railMode]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // Pulling the sheet by its handle: the sheet follows the finger, one
-  // transform per animation frame, and on release settles at the nearest of
-  // the three stops — or, after a flick, at the next stop in that direction.
-  // A tap toggles peek and half.
+  // Pulling the sheet: the whole of it is the handle, as on a phone. A touch
+  // that starts to move is the sheet's or the content's by the native rule
+  // (sheetClaims): the content scrolls only at the top stop, or when it is
+  // pulled back down from part-way through; otherwise the finger has the
+  // sheet, which follows it, one transform per animation frame, and past either
+  // end gives less and less — the rubber band. On release it springs to the
+  // nearest of the three stops — or, after a flick, to the next stop in that
+  // direction — at the speed the finger let go, so a flick carries through and
+  // a slow pull settles softly. A tap on the strip toggles peek and half; a
+  // tap anywhere else is the tap it was, on whatever it landed on.
+  //
+  // The decision is made on the first movement and never revisited, and the
+  // touchmove that carries it is cancelled from a listener that can cancel it
+  // (React's own is passive), so the browser's scroll never starts under a pull.
+  // The pointer is only captured once the pull is a pull: capturing on the
+  // press would take the click away from the button under the finger.
   const sheetDrag = useRef(null);
+  const sheetAtTop = useRef(false);
+  sheetAtTop.current = sheet === 'full';
+  const claim = (d, dx, dy) => {
+    if (d.claimed !== null) return d.claimed;
+    // A mouse gets a little slack, so a press with a wobble is still a click,
+    // and a drag on text is not a selection.
+    if (d.mouse && Math.abs(dx) < 6 && Math.abs(dy) < 6) return null;
+    d.claimed = sheetClaims({ dx, dy, scrollTop: d.scrollTop, atTop: sheetAtTop.current, onHandle: false });
+    if (d.claimed === 'sheet' && panelRef.current) {
+      panelRef.current.style.transition = 'none';
+      if (d.mouse) { panelRef.current.style.userSelect = 'none'; const sel = window.getSelection(); if (sel) sel.removeAllRanges(); }
+    }
+    return d.claimed;
+  };
+  useEffect(() => {
+    const el = panelRef.current;
+    if (!el || railMode || !panelOpen) return undefined;
+    const block = (e) => {
+      const d = sheetDrag.current;
+      if (!d || e.touches.length !== 1) return;
+      const t = e.touches[0];
+      if (claim(d, t.clientX - d.x0, t.clientY - d.y0) === 'sheet' && e.cancelable) e.preventDefault();
+    };
+    el.addEventListener('touchmove', block, { passive: false });
+    return () => el.removeEventListener('touchmove', block);
+  }, [railMode, panelOpen]); // eslint-disable-line react-hooks/exhaustive-deps
   const onSheetDown = (e) => {
     if (railMode || e.button !== 0) return;
     const el = panelRef.current;
     if (!el) return;
-    try { e.currentTarget.setPointerCapture(e.pointerId); } catch { /* a pointer already gone: the move and up still arrive on the strip */ }
-    sheetDrag.current = { y0: e.clientY, h0: shown, h: shown, moved: false, t: performance.now(), y: e.clientY, v: 0, raf: null };
-    el.style.transition = 'none';
+    const onHandle = !!(e.target.closest && e.target.closest('[data-sheet-handle]'));
+    sheetDrag.current = {
+      x0: e.clientX, y0: e.clientY, h0: shown, h: shown, moved: false, t: performance.now(), y: e.clientY, v: 0, raf: null,
+      onHandle, claimed: onHandle ? 'sheet' : null, scrollTop: el.scrollTop, mouse: e.pointerType === 'mouse', captured: false
+    };
+    if (onHandle) el.style.transition = 'none';
   };
   const onSheetMove = (e) => {
     const d = sheetDrag.current;
     const el = panelRef.current;
     if (!d || !el) return;
+    if (claim(d, e.clientX - d.x0, e.clientY - d.y0) !== 'sheet') return;
     const now = performance.now();
     // Velocity in px/ms, smoothed, from the last few moves.
     const dt = Math.max(1, now - d.t);
     d.v = 0.6 * d.v + 0.4 * ((d.y - e.clientY) / dt);
     d.t = now; d.y = e.clientY;
     const dy = d.y0 - e.clientY;
-    if (Math.abs(dy) > 6) d.moved = true;
-    d.h = Math.max(PEEK_H, Math.min(CAP.full, d.h0 + dy));
+    if (Math.abs(dy) > 6 && !d.moved) {
+      d.moved = true;
+      // Now that it is a pull, the panel keeps the pointer past its own edges.
+      try { el.setPointerCapture(e.pointerId); d.captured = true; } catch { /* a pointer already gone: the up still arrives */ }
+    }
+    const raw = d.h0 + dy;
+    d.h = raw > CAP.full ? CAP.full + rubberBand(raw - CAP.full) : raw < PEEK_H ? PEEK_H - rubberBand(PEEK_H - raw) : raw;
     if (d.raf === null) {
       d.raf = requestAnimationFrame(() => {
         d.raf = null;
@@ -815,6 +873,12 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
     sheetDrag.current = null;
     if (!d || !el) return;
     if (d.raf !== null) cancelAnimationFrame(d.raf);
+    if (d.mouse) el.style.userSelect = '';
+    // The content's touch: the sheet was never its. A press off the strip that
+    // never became a pull: the sheet did not move, and only gets its transition
+    // back, so the next stop it is given is still animated.
+    if (d.claimed !== 'sheet') return;
+    if (!d.moved && !d.onHandle) { el.style.transition = SHEET_TRANSITION; return; }
     // A finger that stopped before lifting was not a flick.
     if (performance.now() - d.t > 80) d.v = 0;
     const stops = ['peek', 'half', 'full'].map((k) => [k, stopH(k)]);
@@ -826,12 +890,20 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
       next = hit ? hit[0] : null;
     }
     if (!next) next = stops.reduce((best, st) => (Math.abs(st[1] - d.h) < Math.abs(best[1] - d.h) ? st : best))[0];
-    // These two properties are React's, and React only rewrites a style whose
-    // value changed since its last render — so the DOM is set to exactly what
-    // React believes it holds, whether or not the stop changes.
-    el.style.transition = SHEET_TRANSITION;
+    // The finger's speed at release, in whole distances a second toward the
+    // stop, held to what a spring can take; the transition end restores the
+    // resting spring, which is the transition React believes the sheet holds.
+    // The transform is set to exactly what React will render for the stop, and
+    // React only rewrites a style whose value changed since its last render, so
+    // the settle is never interrupted whether or not the stop changes.
+    const dist = stopH(next) - d.h;
+    const v0 = Math.abs(dist) < 1 ? 0 : Math.max(-3, Math.min(12, (d.v * 1000) / dist));
+    el.style.transition = settle(v0);
     el.style.transform = 'translateY(' + (CAP.full - stopH(next)) + 'px)';
     setSheet(next);
+  };
+  const onSheetSettled = (e) => {
+    if (e.target === e.currentTarget && e.propertyName === 'transform' && !sheetDrag.current) e.currentTarget.style.transition = SHEET_TRANSITION;
   };
   const peekLabel = current && current.lead
     ? 'Rung ' + current.rung + ' / ' + current.of + ' · ' + (leadById[current.lead] ? leadById[current.lead].title : '')
@@ -1041,6 +1113,11 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
             // on into the canvas behind it, on any device.
             onWheel={(e) => e.stopPropagation()}
             onTouchMove={(e) => e.stopPropagation()}
+            onTransitionEnd={onSheetSettled}
+            onPointerDown={onSheetDown}
+            onPointerMove={onSheetMove}
+            onPointerUp={onSheetUp}
+            onPointerCancel={onSheetUp}
             style={{
               position: 'absolute', zIndex: 22, height: railMode ? (panelContentH ? panelH : 'auto') : panelH, maxHeight: PANEL_CAP,
               transition: railMode
@@ -1049,7 +1126,10 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
               ...(railMode
                 ? { top: 0, right: 0, width: RAIL_W, border: '1px solid rgba(243,240,234,0.14)', borderTop: 'none', borderRight: 'none', borderBottomLeftRadius: 3, animation: 'slideInRight .24s ' + EASE + ' both' }
                 : { left: 0, right: 0, bottom: 0, borderTop: '1px solid rgba(243,240,234,0.16)', borderTopLeftRadius: 10, borderTopRightRadius: 10,
-                    boxShadow: '0 -10px 30px rgba(0,0,0,0.45)',
+                    // The second shadow is the tail: the sheet's own colour, hung
+                    // below it, so a bounce or a stretch above the top stop shows
+                    // more sheet and never the floor of the frame.
+                    boxShadow: '0 -10px 30px rgba(0,0,0,0.45), 0 ' + SHEET_TAIL + 'px 0 rgba(10,10,11,0.985)',
                     // Mid-drag a render must not yank the sheet back to its stop.
                     transform: 'translateY(' + (sheetDrag.current ? CAP.full - sheetDrag.current.h : sheetIn ? CAP.full - shown : CAP.full) + 'px)',
                     willChange: 'transform' }),
@@ -1066,10 +1146,7 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
               // The handle: a strip the sheet is pulled by, that names what is
               // selected so the peek state is never a blank bar.
               <div
-                onPointerDown={onSheetDown}
-                onPointerMove={onSheetMove}
-                onPointerUp={onSheetUp}
-                onPointerCancel={onSheetUp}
+                data-sheet-handle=""
                 role="button"
                 aria-label={sheet === 'peek' ? 'Expand the panel' : 'Collapse the panel'}
                 tabIndex={0}

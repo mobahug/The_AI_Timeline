@@ -78,9 +78,8 @@ function LeadView({ graph, route, media }) {
                 )}
 
                 <div className="anchored" style={{ display: 'flex', gap: 'clamp(14px,3vw,26px)', alignItems: 'flex-start', flexWrap: 'wrap' }}>
-                  <div style={{ flex: 'none', width: 54, display: 'flex', flexDirection: 'column', gap: 6 }}>
-                    <span style={{ font: '400 clamp(24px,3vw,34px)/1 ' + SERIF, color: tone, fontVariantNumeric: 'tabular-nums' }}>{String(r.n).padStart(2, '0')}</span>
-                    <Anchor id={'rung-' + r.n} label={r.label} />
+                  <div style={{ flex: 'none', width: 54 }}>
+                    <Anchor id={'rung-' + r.n} label={r.label} style={{ font: '400 clamp(24px,3vw,34px)/1 ' + SERIF, color: tone, fontVariantNumeric: 'tabular-nums' }}>{String(r.n).padStart(2, '0')}</Anchor>
                   </div>
 
                   <div aria-hidden="true" style={{

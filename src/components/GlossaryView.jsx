@@ -45,8 +45,7 @@ function GlossaryView({ graph }) {
         {groups.map((g) => (
           <div key={g.letter} id={'letter-' + g.letter} style={{ scrollMarginTop: 96 }}>
             <div className="anchored" style={{ display: 'flex', alignItems: 'baseline', gap: 10, padding: '30px 0 8px' }}>
-              <span style={{ font: '400 clamp(22px,2.6vw,30px)/1 ' + SERIF, color: ink(0.38) }}>{g.letter}</span>
-              <Anchor id={'letter-' + g.letter} label={'terms beginning with ' + g.letter} />
+              <Anchor id={'letter-' + g.letter} label={'terms beginning with ' + g.letter} style={{ font: '400 clamp(22px,2.6vw,30px)/1 ' + SERIF, color: ink(0.38) }}>{g.letter}</Anchor>
             </div>
             {g.rows.map(({ term, cards }) => (
               <Link

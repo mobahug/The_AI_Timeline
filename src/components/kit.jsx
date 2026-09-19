@@ -122,20 +122,27 @@ export function PageHead({ eyebrow, title, lede, facts, h1Style, children }) {
   );
 }
 
-/** The "#" beside a heading: a real link to this section, copied on click.
- *  Hidden until the heading is hovered or the link itself is focused, like the
- *  anchors on every documentation site a reader has used. */
-export function Anchor({ id, label }) {
+/** A heading that is a real link to its own section, copied on click. The #
+ *  beside it is its mark, drawn when the row is hovered or the link is focused,
+ *  as on every documentation site a reader has used; alone, with no children,
+ *  the # is the whole link. */
+export function Anchor({ id, label, style, children }) {
   const { route } = useNav();
   const [done, setDone] = useState(false);
   const href = hrefFor({ ...route, hash: id });
   useEffect(() => { if (!done) return; const t = setTimeout(() => setDone(false), 1400); return () => clearTimeout(t); }, [done]);
+  // With children the heading itself is the link and the # is its mark, sized
+  // to the heading; alone, the # is the whole link, at a size a finger finds.
+  const mark = children
+    ? { fontSize: '0.5em', marginLeft: '0.4em', verticalAlign: '0.28em', letterSpacing: 0 }
+    : { fontSize: 11, padding: '2px 4px', letterSpacing: 0 };
   return (
     <a
       href={href}
       className="anchor"
-      aria-label={'Link to ' + (label || 'this section')}
+      aria-label={children ? undefined : 'Link to ' + (label || 'this section')}
       title={done ? 'Copied' : 'Copy link to this section'}
+      style={style}
       onClick={(e) => {
         if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
         e.preventDefault();
@@ -144,8 +151,12 @@ export function Anchor({ id, label }) {
         if (new URL(href, window.location.origin).pathname === window.location.pathname) window.history.replaceState(window.history.state, '', href);
         copyText(absolute(href)).then((ok) => setDone(!!ok));
       }}
-      style={{ ...micro(4), textDecoration: 'none', padding: '2px 4px', borderRadius: 2, color: done ? INK : undefined }}
-    >{done ? 'copied' : '#'}</a>
+    >
+      {children}
+      <span className="anchor-mark" aria-hidden={children ? 'true' : undefined} style={{ fontFamily: MONO, fontWeight: 400, lineHeight: 1, whiteSpace: 'nowrap', color: done ? INK : ink(2), ...mark }}>
+        {done ? 'copied' : '#'}
+      </span>
+    </a>
   );
 }
 
@@ -157,9 +168,9 @@ export function Section({ id, eyebrow, title, count, style, children, ...rest })
       {(eyebrow || title || count) && (
         <div className={id ? 'anchored' : undefined} style={{ display: 'flex', alignItems: 'baseline', gap: 12, flexWrap: 'wrap', marginBottom: 14 }}>
           {eyebrow && <Eyebrow tier="section" dim>{eyebrow}</Eyebrow>}
-          {title && <h2 style={{ margin: 0, font: '400 clamp(20px,2.4vw,26px)/1.1 ' + SERIF, letterSpacing: '-0.02em', color: INK }}>{title}</h2>}
+          {title && <h2 style={{ margin: 0, font: '400 clamp(20px,2.4vw,26px)/1.1 ' + SERIF, letterSpacing: '-0.02em', color: INK }}>{id ? <Anchor id={id} label={title}>{title}</Anchor> : title}</h2>}
           {count && <span style={micro(5)}>{count}</span>}
-          {id && <Anchor id={id} label={title || eyebrow} />}
+          {id && !title && <Anchor id={id} label={eyebrow} />}
         </div>
       )}
       {children}

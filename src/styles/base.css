@@ -30,9 +30,14 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
   html { scroll-behavior: auto; }
   * { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
 }
-/* Section anchors: the # appears when the heading row is hovered or the link
-   itself has focus, and is always in the tab order. */
-.anchored .anchor { opacity: 0; transition: opacity .15s; }
-.anchored:hover .anchor, .anchor:focus-visible { opacity: 1; }
-@media (hover: none) { .anchored .anchor { opacity: 1; } }
+/* Section anchors: the heading is the link, in its own colour and without an
+   underline until it is hovered. Its # is drawn when the heading's row is
+   hovered or the link has focus, lit when the link itself is, and always on a
+   touch screen, where there is no hover to find it by. */
+.anchor { color: inherit; text-decoration: none; }
+.anchor:hover { text-decoration: underline; text-decoration-style: dotted; text-decoration-color: rgba(243, 240, 234, 0.45); }
+.anchor-mark { opacity: 0; transition: opacity .15s, color .15s; text-decoration: none; }
+.anchored:hover .anchor-mark, .anchor:focus-visible .anchor-mark { opacity: 1; }
+.anchor:hover .anchor-mark { color: oklch(0.82 0.13 85); }
+@media (hover: none) { .anchor-mark { opacity: 1; } }
 :target { scroll-margin-top: 96px; }
