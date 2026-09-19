@@ -37,7 +37,7 @@ function GlossaryView({ graph }) {
 
       <nav aria-label="Letters" style={{ display: 'flex', flexWrap: 'wrap', gap: 4, marginTop: 30 }}>
         {groups.map((g) => (
-          <Link key={g.letter} to={{ view: 'glossary', hash: 'letter-' + g.letter }} style={{ ...micro(3), padding: '6px 8px', border: '1px solid rgba(243,240,234,0.14)', borderRadius: 2 }}>{g.letter}</Link>
+          <Link key={g.letter} to={{ view: 'glossary', hash: 'letter-' + g.letter }} className="ix-chip" style={{ ...micro(3), padding: '6px 8px', border: '1px solid rgba(243,240,234,0.14)', borderRadius: 2 }}>{g.letter}</Link>
         ))}
       </nav>
 
@@ -51,6 +51,7 @@ function GlossaryView({ graph }) {
               <Link
                 key={term.id}
                 to={{ view: 'term', id: term.id }}
+                className="ix-row"
                 style={{ display: 'flex', flexWrap: 'wrap', gap: '4px 16px', alignItems: 'baseline', padding: '11px 4px', borderBottom: ROW_RULE }}
               >
                 <span style={{ flex: '0 1 220px', minWidth: 0, font: '400 16px/1.25 ' + SERIF, color: INK, letterSpacing: '-0.015em' }}>{term.label}</span>

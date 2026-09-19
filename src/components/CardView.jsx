@@ -49,7 +49,7 @@ const SourceBlock = ({ src, event, page }) => {
         {supports && <span style={{ ...micro(1), color: STRING_INK, letterSpacing: '0.14em' }}>supports the claim</span>}
         {src.legacy && <span style={micro(5)}>cited, not yet quoted</span>}
       </div>
-      <a href={src.url} target="_blank" rel="noopener" style={{ display: 'inline-block', marginTop: 8, font: '400 16px/1.3 ' + SERIF, color: INK, letterSpacing: '-0.015em', textDecoration: 'none' }}>
+      <a href={src.url} target="_blank" rel="noopener" className="ix ix-ref" style={{ display: 'inline-block', marginTop: 8, font: '400 16px/1.3 ' + SERIF, color: INK, letterSpacing: '-0.015em', textDecoration: 'none' }}>
         {src.title || src.publisher} ↗
       </a>
       {src.quote && <Quote tone={supports ? 'claim' : 'context'} top={9}>{src.quote}</Quote>}
@@ -149,7 +149,7 @@ function CardView({ graph, route, media, embedded }) {
             <Reading event={event} size="lg" maxWidth="50ch" style={{ margin: '16px 0 0' }} />
             {basedOn && (
               <div style={{ margin: '16px 0 0', ...micro(5), textTransform: 'none', letterSpacing: '0.06em', font: '400 11px/1.6 ' + MONO, overflowWrap: 'anywhere' }}>
-                Based on · <a href={basedOn.url} target="_blank" rel="noopener" style={{ color: ink(3) }}>{basedOn.publisher || basedOn.title}{basedOn.title && basedOn.publisher ? ', ' + basedOn.title : ''}</a>{basedOn.date ? ' · ' + basedOn.date : ''}
+                Based on · <a href={basedOn.url} target="_blank" rel="noopener" className="ix" style={{ color: ink(3) }}>{basedOn.publisher || basedOn.title}{basedOn.title && basedOn.publisher ? ', ' + basedOn.title : ''}</a>{basedOn.date ? ' · ' + basedOn.date : ''}
               </div>
             )}
             <Chips label="Names" items={[...names.people, ...names.orgs]} style={{ marginTop: 16 }} />
@@ -190,14 +190,14 @@ function CardView({ graph, route, media, embedded }) {
               return (
                 <div key={lead.id} style={{ borderLeft: '2px solid ' + hue, paddingLeft: 14, display: 'flex', flexDirection: 'column', gap: 8 }}>
                   <div style={{ display: 'flex', gap: 12, alignItems: 'baseline', flexWrap: 'wrap' }}>
-                    <Link to={{ view: 'lead', id: lead.id, hash: 'rung-' + (index + 1) }} style={{ font: '400 18px/1.25 ' + SERIF, color: INK }}>{lead.title} →</Link>
+                    <Link to={{ view: 'lead', id: lead.id, hash: 'rung-' + (index + 1) }} className="ix-ref" style={{ font: '400 18px/1.25 ' + SERIF, color: INK }}>{lead.title} →</Link>
                     <span style={{ ...micro(4), color: hue }}>Rung {index + 1} of {lead.rungs.length} · {rung.label}</span>
                   </div>
                   <p style={{ margin: 0, font: '400 14px/1.6 ' + SANS, color: ink(3), maxWidth: '62ch', textWrap: 'pretty' }}>{rung.text}</p>
                   <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', alignItems: 'baseline' }}>
-                    {prevR && graph.index[prevR.event] && <Link to={{ view: 'card', id: prevR.event }} style={micro(4)}>← {graph.index[prevR.event].year} · {prevR.label}</Link>}
-                    {nextR && graph.index[nextR.event] && <Link to={{ view: 'card', id: nextR.event }} style={micro(4)}>{graph.index[nextR.event].year} · {nextR.label} →</Link>}
-                    <Link to={{ view: 'board', lead: lead.id, rung: index + 1, category: 'all', query: '' }} style={micro(5)}>follow on the board</Link>
+                    {prevR && graph.index[prevR.event] && <Link to={{ view: 'card', id: prevR.event }} className="ix-ref" style={micro(4)}>← {graph.index[prevR.event].year} · {prevR.label}</Link>}
+                    {nextR && graph.index[nextR.event] && <Link to={{ view: 'card', id: nextR.event }} className="ix-ref" style={micro(4)}>{graph.index[nextR.event].year} · {nextR.label} →</Link>}
+                    <Link to={{ view: 'board', lead: lead.id, rung: index + 1, category: 'all', query: '' }} className="ix-ref" style={micro(5)}>follow on the board</Link>
                   </div>
                 </div>
               );

@@ -131,6 +131,7 @@ export default function SearchBox({ graph, value, onChange, narrow, style }) {
                   <Link
                     key={item.kind + item.id}
                     id={listId + '-' + idx}
+                    className="ix-row"
                     role="option"
                     aria-selected={on}
                     to={{ ...item.to, query: '' }}

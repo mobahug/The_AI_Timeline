@@ -21,7 +21,7 @@ export const useNav = () => useContext(RouteContext);
 /** A navigation that pushes a history entry is a link: a real href, so it can be
  *  middle-clicked, copied and crawled. A replace-navigation or a no-URL action
  *  stays a button. `to` is a route patch, as navigate() takes it. */
-export function Link({ to, replace, style, onClick, children, ...rest }) {
+export function Link({ to, replace, style, onClick, className, children, ...rest }) {
   const { route, navigate } = useNav();
   const href = hrefFor(resolve(route, to));
   const click = (e) => {
@@ -31,7 +31,7 @@ export function Link({ to, replace, style, onClick, children, ...rest }) {
     navigate(to, replace);
   };
   return (
-    <a href={href} onClick={click} style={{ color: 'inherit', textDecoration: 'none', ...style }} {...rest}>
+    <a href={href} onClick={click} className={className ? 'ix ' + className : undefined} style={{ color: 'inherit', textDecoration: 'none', ...style }} {...rest}>
       {children}
     </a>
   );
@@ -40,9 +40,9 @@ export function Link({ to, replace, style, onClick, children, ...rest }) {
 /** A button, or a link that looks like one. */
 export const Btn = forwardRef(function Btn({ tone = 'quiet', size = 'md', to, href, style, children, ...rest }, ref) {
   const s = { ...button(tone, size), ...style };
-  if (to) return <Link to={to} style={s} {...rest}>{children}</Link>;
-  if (href) return <a ref={ref} href={href} style={s} {...rest}>{children}</a>;
-  return <button ref={ref} type="button" style={s} {...rest}>{children}</button>;
+  if (to) return <Link to={to} className="ix-btn" data-tone={tone} style={s} {...rest}>{children}</Link>;
+  if (href) return <a ref={ref} href={href} className="ix ix-btn" data-tone={tone} style={s} {...rest}>{children}</a>;
+  return <button ref={ref} type="button" className="ix ix-btn" data-tone={tone} style={s} {...rest}>{children}</button>;
 });
 
 /* ─── Type ───────────────────────────────────────────────────────────────── */
@@ -71,10 +71,10 @@ export const Claim = ({ tone, wrap, sep = 'arrow', style, children }) => (
 export function Ref({ event, size = 15, to, onClick, style }) {
   const inner = <><span style={yearBit}>{event.year}</span>{event.title}</>;
   const s = { ...refStyle(size), ...style };
-  if (to) return <Link to={to} style={s}>{inner}</Link>;
+  if (to) return <Link to={to} className="ix-ref" style={s}>{inner}</Link>;
   if (onClick) {
     return (
-      <button type="button" onClick={onClick} style={{ background: 'transparent', border: 'none', padding: 0, cursor: 'pointer', textAlign: 'left', ...s }}>
+      <button type="button" className="ix ix-ref" onClick={onClick} style={{ background: 'transparent', border: 'none', padding: 0, cursor: 'pointer', textAlign: 'left', ...s }}>
         {inner}
       </button>
     );
@@ -186,6 +186,7 @@ export function FullOnly({ label, children }) {
   return (
     <button
       type="button"
+      className="ix ix-btn"
       onClick={() => setMode('full')}
       style={{ ...micro(4), background: 'transparent', border: '1px dashed rgba(243,240,234,0.22)', borderRadius: 2, padding: '8px 11px', cursor: 'pointer', textAlign: 'left', display: 'inline-block' }}
     >
@@ -219,6 +220,7 @@ export function Chips({ items, kind, label, style }) {
         <Link
           key={x.kind + x.id}
           to={{ view: x.kind, id: x.id }}
+          className="ix-chip"
           title={x.short || x.role || undefined}
           style={{
             ...micro(3), letterSpacing: '0.1em', textTransform: 'none', font: '400 11px/1 ' + MONO,
@@ -293,6 +295,7 @@ export function Segmented({ items, value, label, size = 'md', style }) {
           <Link
             key={it.id}
             to={it.to}
+            className="ix-seg"
             aria-current={on ? 'page' : undefined}
             style={{
               ...micro(on ? 1 : 4), display: 'inline-block', padding: size === 'lg' ? '9px 13px' : '7px 12px', borderRadius: 2,
@@ -309,7 +312,7 @@ export function Segmented({ items, value, label, size = 'md', style }) {
 /** A door to another page: eyebrow, title, a line of body, a derived figure. */
 export function Door({ eyebrow, title, body, figure, to }) {
   return (
-    <Link to={to} style={{
+    <Link to={to} className="ix-door" style={{
       display: 'flex', flexDirection: 'column', gap: 8, alignItems: 'flex-start', textAlign: 'left',
       background: 'rgba(243,240,234,0.035)', border: '1px solid rgba(243,240,234,0.1)',
       borderRadius: 3, padding: 'clamp(14px,2vw,20px)', minWidth: 0
@@ -385,6 +388,7 @@ export function Disclosure({ label = 'the article’s opening', children }) {
     <>
       <button
         type="button"
+        className="ix ix-ref"
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
         style={{ ...micro(5), background: 'transparent', border: 'none', padding: '8px 0 0', cursor: 'pointer' }}

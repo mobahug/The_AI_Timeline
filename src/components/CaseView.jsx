@@ -87,6 +87,7 @@ function CaseView({ graph }) {
           <Link
             key={event.id}
             to={{ view: 'board', id: event.id, category: 'all', query: '' }}
+            className="ix-row"
             style={{
               display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(min(100%,260px),1fr))', gap: 'clamp(16px,3vw,40px)',
               borderTop: RULE, padding: '24px 0', alignItems: 'start'

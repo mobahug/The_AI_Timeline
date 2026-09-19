@@ -67,7 +67,7 @@ function LeadView({ graph, route, media }) {
                   <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16, flexWrap: 'wrap' }}>
                     <span aria-hidden="true" style={{ width: 28, height: 0, borderTop: step.string ? '2px solid ' + accent(graph.index[step.string.from].category, 0) : '1px dashed ' + tone, flex: 'none' }} />
                     {step.string ? (
-                      <Link to={{ view: 'board', clue: { from: step.string.from, to: step.string.to } }} style={{ display: 'inline-flex', gap: 8, alignItems: 'baseline', flexWrap: 'wrap' }}>
+                      <Link to={{ view: 'board', clue: { from: step.string.from, to: step.string.to } }} className="ix-ref" style={{ display: 'inline-flex', gap: 8, alignItems: 'baseline', flexWrap: 'wrap' }}>
                         <Claim tone={accent(graph.index[step.string.from].category, 0)} sep="none">{step.string.claim}</Claim>
                         <span style={micro(5)}>a string on the board · open the clue →</span>
                       </Link>

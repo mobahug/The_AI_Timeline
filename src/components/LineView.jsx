@@ -83,6 +83,7 @@ function LineView({ graph }) {
               {/* The whole row is one link to the finding. */}
               <Link
                 to={{ view: 'finding', finding: String(f.n) }}
+                className="ix-row"
                 style={{ display: 'block', borderTop: RULE, padding: 'clamp(22px,3vw,30px) 0' }}
               >
                 <div style={{ display: 'flex', gap: 'clamp(14px,3vw,28px)', alignItems: 'flex-start', flexWrap: 'wrap' }}>
@@ -138,6 +139,7 @@ function LineView({ graph }) {
                         <span style={{ flex: 'none', width: 1, alignSelf: 'stretch', minHeight: 22, background: accent(from.category, 0), opacity: 0.55 }} />
                         <Link
                           to={{ view: 'board', clue: { from: c.from, to: c.to } }}
+                          className="ix-row"
                           style={{ minWidth: 0, display: 'flex', flexWrap: 'wrap', alignItems: 'baseline', gap: '4px 9px', paddingBottom: 4 }}
                         >
                           <Ref event={from} size={13.5} />

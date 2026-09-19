@@ -15,6 +15,7 @@ const withCounts = (graph, list) => list
 const Row = ({ entity, cards, sub }) => (
   <Link
     to={{ view: entity.kind, id: entity.id }}
+    className="ix-row"
     style={{ display: 'flex', flexWrap: 'wrap', gap: '4px 16px', alignItems: 'baseline', padding: '11px 4px', borderBottom: ROW_RULE }}
   >
     <span style={{ flex: '0 1 220px', minWidth: 0, font: '400 16px/1.25 ' + SERIF, color: INK, letterSpacing: '-0.015em' }}>{entity.label}</span>

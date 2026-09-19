@@ -191,6 +191,7 @@ function Strand({ event, strand, graph, onOpen }) {
         {/* The headline is the way onto the board; the triple never wraps itself, so it sits in the button. */}
         <button
           type="button"
+          className="ix ix-ref"
           onClick={() => onOpen(event.id)}
           aria-label={'Open ' + event.title + ' on the board'}
           style={{

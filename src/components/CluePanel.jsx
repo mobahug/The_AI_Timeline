@@ -21,7 +21,7 @@ const Side = ({ event, role, accentBorder }) => (
   <div style={{ flex: '1 1 200px', minWidth: 0, borderLeft: '2px solid ' + (accentBorder || 'rgba(243,240,234,0.18)'), paddingLeft: 14 }}>
     <CardTriple event={event} size="row" as="h3" lead={<span style={micro(4)}>{role}</span>} style={{ marginBottom: 6 }} />
     {event.url
-      ? <a href={event.url} target="_blank" rel="noopener" style={sourceLink}>{event.source || 'Source'} ↗</a>
+      ? <a href={event.url} target="_blank" rel="noopener" className="ix ix-ref" style={sourceLink}>{event.source || 'Source'} ↗</a>
       : <span style={micro(5)}>No citation — {event.confidence ? 'scenario' : 'unsourced'}</span>}
   </div>
 );
@@ -69,7 +69,7 @@ export default function CluePanel({ graph, chain, step, current, focus, media, f
 
           <div style={{ display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap' }}>
             {prev && current.string && (
-              <button type="button" onClick={() => onOpenClue(current.string.from, current.string.to)} style={chip(false)}>
+              <button type="button" className="ix ix-chip" onClick={() => onOpenClue(current.string.from, current.string.to)} style={chip(false)}>
                 <Claim wrap sep="none">{current.string.claim}</Claim>{'  '}a string joins these two rungs · open the clue
               </button>
             )}
@@ -85,7 +85,7 @@ export default function CluePanel({ graph, chain, step, current, focus, media, f
           <div style={{ display: 'flex', flexDirection: 'column', gap: 5, maxHeight: 170, overflowY: 'auto' }}>
             <Eyebrow tier="section">The ladder</Eyebrow>
             {chain.map((s, i) => (
-              <button key={i} type="button" onClick={() => onJump(i)} style={chip(i === step)}>
+              <button key={i} type="button" className="ix ix-chip" onClick={() => onJump(i)} style={chip(i === step)}>
                 {s.rung}. {graph.index[s.to].year}  {s.claim}
               </button>
             ))}
@@ -133,7 +133,7 @@ export default function CluePanel({ graph, chain, step, current, focus, media, f
             <div style={{ flex: '1 1 260px', minWidth: 0, display: 'flex', flexDirection: 'column', gap: 5, maxHeight: 190, overflowY: 'auto' }}>
               <Eyebrow tier="section">The whole chain</Eyebrow>
               {chain.map((s, i) => (
-                <button key={i} type="button" onClick={() => onJump(i)} style={chip(i === step)}>
+                <button key={i} type="button" className="ix ix-chip" onClick={() => onJump(i)} style={chip(i === step)}>
                   {i + 1}. {graph.index[s.from].year} → {graph.index[s.to].year}  {s.claim}
                 </button>
               ))}
@@ -176,7 +176,7 @@ export default function CluePanel({ graph, chain, step, current, focus, media, f
                   <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', alignItems: 'baseline' }}>
                     <span style={micro(5)}>On a lead</span>
                     {on.map(({ lead, index }) => (
-                      <button key={lead.id} type="button" onClick={() => onOpenLead && onOpenLead(lead.id, index + 1)} style={{ ...micro(3), color: 'oklch(0.82 0.13 ' + lead.hue + ')', background: 'transparent', border: '1px solid oklch(0.6 0.1 ' + lead.hue + ')', borderRadius: 2, padding: '5px 8px', cursor: 'pointer', textTransform: 'none', letterSpacing: '0.08em', font: '400 11px/1 ' + MONO }}>
+                      <button key={lead.id} type="button" className="ix ix-chip" onClick={() => onOpenLead && onOpenLead(lead.id, index + 1)} style={{ ...micro(3), color: 'oklch(0.82 0.13 ' + lead.hue + ')', background: 'transparent', border: '1px solid oklch(0.6 0.1 ' + lead.hue + ')', borderRadius: 2, padding: '5px 8px', cursor: 'pointer', textTransform: 'none', letterSpacing: '0.08em', font: '400 11px/1 ' + MONO }}>
                         {lead.title} · rung {index + 1} →
                       </button>
                     ))}
@@ -189,7 +189,7 @@ export default function CluePanel({ graph, chain, step, current, focus, media, f
                 {(graph.adjacency[focus.id] || []).length > 0 &&
                   <Btn onClick={() => onOpenChain(focus.id)}>Walk the chain →</Btn>}
                 <Btn tone="dim" to={{ view: 'card', id: focus.id }}>Dossier page</Btn>
-                {focus.url && <a href={focus.url} target="_blank" rel="noopener" style={sourceLink}>{focus.source || 'Source'} ↗</a>}
+                {focus.url && <a href={focus.url} target="_blank" rel="noopener" className="ix ix-ref" style={sourceLink}>{focus.source || 'Source'} ↗</a>}
                 <span style={{ flex: 1 }} />
                 <CopyLink label="Copy link" tone="dim" />
                 <Btn tone="dim" onClick={onExit}>Close</Btn>
@@ -204,6 +204,7 @@ export default function CluePanel({ graph, chain, step, current, focus, media, f
                       <button
                         key={label + i}
                         type="button"
+                        className="ix ix-chip"
                         onClick={() => {
                           // a.out means focus caused a.id; otherwise a.id caused focus
                           const from = a.out ? focus.id : a.id;

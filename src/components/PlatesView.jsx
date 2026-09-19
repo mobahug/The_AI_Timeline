@@ -38,6 +38,7 @@ export default function PlatesView({ items, media }) {
               <Link
                 key={e.id}
                 to={{ view: 'board', id: e.id, category: 'all', query: '' }}
+                className="ix-row"
                 data-year={e.year}
                 style={{
                   display: 'flex', flexWrap: 'wrap', gap: '18px 30px', alignItems: 'flex-start',

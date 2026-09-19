@@ -34,6 +34,7 @@ function ModeSwitch({ size }) {
           <button
             key={id}
             type="button"
+            className="ix ix-seg"
             aria-pressed={on}
             onClick={() => setMode(id)}
             style={{
@@ -124,6 +125,8 @@ export default function Header({ route, navigate, year, barRef, status, graph })
           <button
             key={c.id}
             type="button"
+            className="ix ix-seg"
+            aria-pressed={on}
             onClick={() => go({ category: c.id }, true)}
             style={{
               ...micro(on ? 1 : 4), padding: narrow ? '10px 13px' : '6px 10px', borderRadius: 2, cursor: 'pointer',
@@ -169,6 +172,7 @@ export default function Header({ route, navigate, year, barRef, status, graph })
           {!narrow && (
             <Link
               to={{ view: 'about' }}
+              className="ix-seg"
               aria-current={activeView === 'about' ? 'page' : undefined}
               style={{ ...micro(activeView === 'about' ? 1 : 4), padding: '7px 4px' }}
             >About</Link>
@@ -230,6 +234,7 @@ export default function Header({ route, navigate, year, barRef, status, graph })
                     <li key={d.id}>
                       <Link
                         to={d.to}
+                        className="ix-row"
                         onClick={close}
                         aria-current={on ? 'page' : undefined}
                         style={{

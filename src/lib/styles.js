@@ -39,9 +39,19 @@ export const DASHED_ROW = '1px dashed rgba(243,240,234,0.2)';
 export const GUTTER = 'clamp(16px,4vw,32px)';
 export const SHELL_BOTTOM = 120;
 
+/* ─── Motion ─────────────────────────────────────────────────────────────
+   One language for every move on the site, so nothing looks like it came from
+   a different site. Four durations and one curve; nothing overshoots, nothing
+   bounces — the one exception is the phone's sheet, whose spring is damped to
+   the edge of a bounce (motion.js). A state change (colour, border, opacity) is
+   fast; a reveal is base; a thing that moves or grows takes move; the sheet
+   settles in settle. Reduced motion collapses all of them in base.css. */
+export const DUR = { fast: 120, base: 200, move: 320, settle: 420 };
 export const EASE = 'cubic-bezier(.22,.7,.3,1)';
-export const FADE = 'fadeIn .2s both';
-export const RISE = 'riseIn .45s ' + EASE + ' both';
+/** The transition every interactive element's state change uses. */
+export const STATE = 'color ' + DUR.fast + 'ms, background-color ' + DUR.fast + 'ms, border-color ' + DUR.fast + 'ms, opacity ' + DUR.fast + 'ms';
+export const FADE = 'fadeIn ' + DUR.base + 'ms both';
+export const RISE = 'riseIn ' + DUR.move + 'ms ' + EASE + ' both';
 
 export const PHOTO_FILTER = 'saturate(0.9) contrast(1.03)';
 export const PLACEHOLDER = 'repeating-linear-gradient(135deg,rgba(243,240,234,0.06) 0 6px,transparent 6px 12px)';

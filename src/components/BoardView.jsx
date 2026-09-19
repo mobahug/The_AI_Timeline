@@ -3,8 +3,8 @@ import { THREADS, TICKS, FIRST, NOW, CATEGORIES, accent, buildChain, catLabel, c
 import { PAD, metrics, layout, stringPath } from '../lib/layout.js';
 import { leadById, leadChain } from '../lib/leads.js';
 import { useMode } from '../lib/mode.js';
-import { MANILA, MONO, PAPER, RED, RED_LIT, CYAN, SERIF, EASE, FADE, micro, paperInk } from '../lib/styles.js';
-import { Empty, RouteProvider } from './kit.jsx';
+import { MANILA, MONO, PAPER, RED, RED_LIT, CYAN, SERIF, DUR, EASE, FADE, STATE, micro, paperInk } from '../lib/styles.js';
+import { Btn, Empty, RouteProvider } from './kit.jsx';
 import { panDuration, panPosition, rubberBand, sheetClaims, springDuration, springEasing } from '../lib/motion.js';
 import CluePanel from './CluePanel.jsx';
 import CardView from './CardView.jsx';
@@ -13,9 +13,13 @@ import CardView from './CardView.jsx';
    back, the way a native sheet does. `linear()` carries the real curve, with the
    finger's speed at release folded in; a browser without it gets a bezier that
    bounces the same amount from rest. Reduced motion zeroes the duration in CSS. */
-const SPRING_MS = springDuration();
+/* The spring is damped to the edge of a bounce (ζ ≈ 0.85: it overshoots by
+   well under one per cent, which the eye reads as weight, not play), and the
+   bezier a browser without linear() gets is the site's one curve. */
+const SPRING = { stiffness: 400, damping: 34, mass: 1 };
+const SPRING_MS = springDuration(SPRING);
 const HAS_LINEAR = typeof CSS !== 'undefined' && !!CSS.supports && CSS.supports('transition-timing-function', 'linear(0, 1)');
-const settle = (v0 = 0) => 'transform ' + SPRING_MS + 'ms ' + (HAS_LINEAR ? springEasing({ v0 }) : 'cubic-bezier(.32,1.28,.5,1)');
+const settle = (v0 = 0) => 'transform ' + SPRING_MS + 'ms ' + (HAS_LINEAR ? springEasing({ ...SPRING, v0 }) : EASE);
 const SHEET_TRANSITION = settle();
 /** How far the sheet may bounce or be stretched past its top stop: the sheet
  *  is painted this much taller than it is, so the frame's floor never shows. */
@@ -42,7 +46,7 @@ const Card = React.memo(function Card({ node, m, img, lit, subject, raised, hove
         padding: 0, border: 'none', background: 'transparent', textAlign: 'left', boxSizing: 'border-box',
         cursor: 'pointer',
         transform: 'rotate(' + node.tilt + 'deg) scale(' + (raised ? 1.05 : 1) + ')',
-        transformOrigin: '50% 0%', transition: 'transform .3s ' + EASE + ', opacity .3s',
+        transformOrigin: '50% 0%', transition: 'transform ' + DUR.move + 'ms ' + EASE + ', opacity ' + DUR.move + 'ms ' + EASE,
         opacity: lit ? 1 : 0.2, zIndex: raised ? 12 : 2
       }}
     >
@@ -113,7 +117,7 @@ const StringPath = React.memo(function StringPath({ s, strong, onChain, dim }) {
   const width = strong ? 2.6 : 1.7;
   const opacity = dim ? (strong ? 1 : onChain ? 0.6 : 0.2) : 0.92;
   return (
-    <g style={{ opacity, transition: 'opacity .3s' }}>
+    <g style={{ opacity, transition: 'opacity ' + DUR.move + 'ms ' + EASE }}>
       {strong && <path d={s.d} style={{ fill: 'none', stroke: s.lit, strokeWidth: width + 7, opacity: 0.22, filter: 'blur(4px)' }} />}
       {/* Casing: invisible on the dark ground, but it is what keeps a
           string readable where it crosses a cream card. */}
@@ -124,7 +128,7 @@ const StringPath = React.memo(function StringPath({ s, strong, onChain, dim }) {
         style={{
           fill: 'none', stroke: strong ? s.lit : s.tone, strokeWidth: width, strokeLinecap: 'round',
           strokeDasharray: s.future ? '6 7' : undefined,
-          transition: 'stroke-width .3s, stroke .3s'
+          transition: 'stroke-width ' + DUR.move + 'ms ' + EASE + ', stroke ' + DUR.move + 'ms ' + EASE
         }}
       />
     </g>
@@ -331,7 +335,7 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
     if (!glide || Math.abs(want - el.scrollTop) < 2) { el.scrollTop = want; return; }
     const from = el.scrollTop;
     const t0 = performance.now();
-    const ms = Math.round(SPRING_MS * 0.7);
+    const ms = SPRING_MS;
     const step = (now) => {
       const el2 = scroller.current;
       if (!el2) { glideAnim.current = null; return; }
@@ -645,6 +649,7 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
     const startX = e.clientX;
     const startLeft = el.scrollLeft;
     dragged.current = false;
+    el.setAttribute('data-grabbing', 'true');
     const onMove = (ev) => {
       const dx = ev.clientX - startX;
       if (Math.abs(dx) > 4) dragged.current = true;
@@ -654,6 +659,7 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
     const onUp = () => {
       window.removeEventListener('pointermove', onMove);
       window.removeEventListener('pointerup', onUp);
+      el.removeAttribute('data-grabbing');
       setTimeout(() => { dragged.current = false; }, 40);
     };
     window.addEventListener('pointermove', onMove);
@@ -873,7 +879,7 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
       try { el.setPointerCapture(e.pointerId); d.captured = true; } catch { /* a pointer already gone: the up still arrives */ }
     }
     const raw = d.h0 + dy;
-    d.h = raw > CAP.full ? CAP.full + rubberBand(raw - CAP.full) : raw < PEEK_H ? PEEK_H - rubberBand(PEEK_H - raw) : raw;
+    d.h = raw > CAP.full ? CAP.full + rubberBand(raw - CAP.full, 20) : raw < PEEK_H ? PEEK_H - rubberBand(PEEK_H - raw, 20) : raw;
     if (d.raf === null) {
       d.raf = requestAnimationFrame(() => {
         d.raf = null;
@@ -963,7 +969,7 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
             ))}
           </div>
           <span style={{ ...micro(0.5), letterSpacing: '0.18em', display: 'inline-flex', alignItems: 'center', gap: 7, whiteSpace: 'nowrap' }}>
-            <span style={{ width: 6, height: 6, borderRadius: '50%', background: CYAN, animation: 'hudPulse 2.4s ease-in-out infinite' }} />
+            <span style={{ width: 6, height: 6, borderRadius: '50%', background: CYAN, opacity: 0.8 }} />
             {viewport[0]} — {viewport[1]}
           </span>
         </div>
@@ -975,9 +981,10 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
           onScroll={onScroll}
           onPointerDown={onPointerDown}
           id="board-canvas"
+          className="grab"
           style={{
             position: 'absolute', inset: 0, overflowX: 'auto', overflowY: m.fits && !sheetInset.current ? 'hidden' : 'auto',
-            border: '1px solid rgba(243,240,234,0.12)', borderRadius: 3, cursor: 'grab', touchAction: m.fits && !sheetInset.current ? 'pan-x' : 'auto',
+            border: '1px solid rgba(243,240,234,0.12)', borderRadius: 3, touchAction: m.fits && !sheetInset.current ? 'pan-x' : 'auto',
             background: 'radial-gradient(120% 90% at 20% 0%,#171310,#08080a 70%)'
           }}
         >
@@ -1029,7 +1036,7 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
               {ladder && ladder.segs.map((g) => {
                 const lit = current && g.to.event === current.to && g.from.event === current.from;
                 return (
-                  <g key={'lead-' + g.to.event} style={{ opacity: lit ? 1 : 0.55 }}>
+                  <g key={'lead-' + g.to.event} style={{ opacity: lit ? 1 : 0.55, transition: 'opacity ' + DUR.move + 'ms ' + EASE }}>
                     {lit && <path d={g.d} style={{ fill: 'none', stroke: ladder.tone, strokeWidth: 9, opacity: 0.2, filter: 'blur(4px)' }} />}
                     <path d={g.d} style={{ fill: 'none', stroke: '#0a0a0b', strokeWidth: 4.4, strokeLinecap: 'round', opacity: 0.6 }} />
                     <path d={g.d} style={{ fill: 'none', stroke: ladder.tone, strokeWidth: lit ? 2.6 : 1.8, strokeLinecap: 'round', strokeDasharray: '2 6' }} />
@@ -1044,7 +1051,7 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
                 minWidth: 20, height: 20, padding: '0 5px', borderRadius: 10, boxSizing: 'border-box',
                 background: current && current.to === r.event ? ladder.tone : '#0a0a0b', color: current && current.to === r.event ? '#0a0a0b' : ladder.tone,
                 border: '1px solid ' + ladder.tone, display: 'flex', alignItems: 'center', justifyContent: 'center',
-                font: '500 9.5px/1 ' + MONO, letterSpacing: '0.04em', boxShadow: '0 3px 8px rgba(0,0,0,0.5)', animation: FADE
+                font: '500 9.5px/1 ' + MONO, letterSpacing: '0.04em', boxShadow: '0 3px 8px rgba(0,0,0,0.5)', animation: FADE, transition: STATE
               }}>{r.n}</div>
             ))}
 
@@ -1104,8 +1111,8 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
                   {items.length} {items.length === 1 ? 'card matches' : 'cards match'}, none of them a landmark — they are in the full file.
                 </span>
                 <div style={{ display: 'flex', gap: 10, pointerEvents: 'auto' }}>
-                  <button type="button" onClick={() => setMode('full')} style={{ ...micro(1), background: 'rgba(255,80,60,0.1)', border: '1px solid ' + RED, borderRadius: 2, padding: '7px 12px', cursor: 'pointer', letterSpacing: '0.14em' }}>Switch to full</button>
-                  <button type="button" onClick={() => navigate({ category: 'all', query: '' }, true)} style={{ ...micro(5), background: 'transparent', border: '1px solid rgba(243,240,234,0.2)', borderRadius: 2, padding: '7px 12px', cursor: 'pointer', letterSpacing: '0.14em' }}>Show everything</button>
+                  <Btn tone="loud" onClick={() => setMode('full')}>Switch to full</Btn>
+                  <Btn tone="dim" onClick={() => navigate({ category: 'all', query: '' }, true)}>Show everything</Btn>
                 </div>
               </div>
             ) : (
@@ -1141,10 +1148,10 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
             style={{
               position: 'absolute', zIndex: 22, height: railMode ? (panelContentH ? panelH : 'auto') : panelH, maxHeight: PANEL_CAP,
               transition: railMode
-                ? (panelContentH ? 'height .24s ' + EASE : 'none')
+                ? (panelContentH ? 'height ' + DUR.move + 'ms ' + EASE : 'none')
                 : SHEET_TRANSITION,
               ...(railMode
-                ? { top: 0, right: 0, width: RAIL_W, border: '1px solid rgba(243,240,234,0.14)', borderTop: 'none', borderRight: 'none', borderBottomLeftRadius: 3, animation: 'slideInRight .24s ' + EASE + ' both' }
+                ? { top: 0, right: 0, width: RAIL_W, border: '1px solid rgba(243,240,234,0.14)', borderTop: 'none', borderRight: 'none', borderBottomLeftRadius: 3, animation: 'slideInRight ' + DUR.base + 'ms ' + EASE + ' both' }
                 : { left: 0, right: 0, bottom: 0, borderTop: '1px solid rgba(243,240,234,0.16)', borderTopLeftRadius: 10, borderTopRightRadius: 10,
                     // The second shadow is the tail: the sheet's own colour, hung
                     // below it, so a bounce or a stretch above the top stop shows
@@ -1167,27 +1174,22 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
               // selected so the peek state is never a blank bar.
               <div
                 data-sheet-handle=""
+                className="grab sheet-handle"
                 role="button"
                 aria-label={sheet === 'peek' ? 'Expand the panel' : 'Collapse the panel'}
                 tabIndex={0}
                 onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setSheet((v) => (v === 'peek' ? 'half' : 'peek')); } }}
                 style={{
                   position: 'sticky', top: 0, zIndex: 3, display: 'flex', alignItems: 'center', gap: 10, height: PEEK_H, boxSizing: 'border-box',
-                  padding: '14px 14px 8px', touchAction: 'none', cursor: 'grab', userSelect: 'none', background: 'rgba(10,10,11,0.985)',
+                  padding: '14px 14px 8px', touchAction: 'none', userSelect: 'none', background: 'rgba(10,10,11,0.985)',
                   borderBottom: sheet === 'peek' ? 'none' : '1px solid rgba(243,240,234,0.08)'
                 }}
               >
-                <span aria-hidden="true" style={{ position: 'absolute', left: '50%', top: 6, width: 36, height: 4, marginLeft: -18, borderRadius: 2, background: 'rgba(243,240,234,0.32)' }} />
+                <span aria-hidden="true" className="grabber" style={{ position: 'absolute', left: '50%', top: 6, width: 36, height: 4, marginLeft: -18, borderRadius: 2, background: 'rgba(243,240,234,0.32)' }} />
                 <span style={{ ...micro(current ? 3 : 4), color: current ? RED_LIT : undefined, minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', textTransform: 'none', letterSpacing: '0.08em', font: '400 11px/1.3 ' + MONO }}>{peekLabel}</span>
                 <span style={{ flex: 1 }} />
                 <span style={{ ...micro(5), flex: 'none' }}>{sheet === 'peek' ? 'pull up ▴' : sheet === 'full' ? 'pull down ▾' : '▴ ▾'}</span>
-                <button
-                  type="button"
-                  onPointerDown={(e) => e.stopPropagation()}
-                  onClick={leave}
-                  aria-label="Close"
-                  style={{ ...micro(4), flex: 'none', background: 'transparent', border: '1px solid rgba(243,240,234,0.2)', borderRadius: 2, padding: '5px 8px', cursor: 'pointer' }}
-                >✕</button>
+                <Btn size="sm" tone="dim" onPointerDown={(e) => e.stopPropagation()} onClick={leave} aria-label="Close" style={{ flex: 'none' }}>✕</Btn>
               </div>
             )}
             {/* At peek the content below the strip is out of reach of the tab
@@ -1199,8 +1201,8 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
                   <span style={{ ...micro(3), color: RED_LIT }}>The file</span>
                   <span style={{ ...micro(5), minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{graph.index[pinned].year} · {graph.index[pinned].title}</span>
                   <span style={{ flex: 1 }} />
-                  <button type="button" onClick={() => setFileOpen(false)} style={{ ...micro(3), background: 'transparent', border: '1px solid rgba(243,240,234,0.2)', borderRadius: 2, padding: '6px 10px', cursor: 'pointer' }}>Back to the card</button>
-                  <button type="button" onClick={leave} style={{ ...micro(5), background: 'transparent', border: '1px solid rgba(243,240,234,0.2)', borderRadius: 2, padding: '6px 10px', cursor: 'pointer' }}>Close</button>
+                  <Btn size="sm" onClick={() => setFileOpen(false)}>Back to the card</Btn>
+                  <Btn size="sm" tone="dim" onClick={leave}>Close</Btn>
                 </div>
                 {/* Links inside the file stay on the board: a card opens as the
                     pinned card, a clue opens as a walk, a lead as a ladder. Any
@@ -1255,10 +1257,11 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
           if (e.key === 'End') { e.preventDefault(); panTo(el.scrollWidth); }
         }}
         tabIndex={0}
+        className="scrub"
         role="scrollbar" aria-label="Pan the board" aria-controls="board-canvas" aria-orientation="horizontal" aria-valuenow={0}
         style={{ marginTop: 4, height: 12, position: 'relative', cursor: 'pointer', display: 'flex', alignItems: 'center', flex: 'none' }}>
         <div style={{ position: 'absolute', left: 0, right: 0, height: 3, background: 'rgba(243,240,234,0.1)', borderRadius: 2 }} />
-        <div ref={thumbRef} style={{ position: 'absolute', left: 0, width: '20%', height: 8, background: CYAN, opacity: 0.7, borderRadius: 2 }} />
+        <div ref={thumbRef} className="thumb" style={{ position: 'absolute', left: 0, width: '20%', height: 8, background: CYAN, opacity: 0.7, borderRadius: 2 }} />
       </div>
     </div>
   );

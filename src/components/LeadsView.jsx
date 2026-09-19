@@ -34,7 +34,7 @@ function LeadsView({ graph }) {
                 </div>
                 <div style={{ flex: '1 1 320px', minWidth: 0, display: 'flex', flexDirection: 'column', gap: 10 }}>
                   <Eyebrow tier="section">{KIND[l.kind] || l.kind} · {b.span ? b.span.from + ' — ' + b.span.to : ''} · {b.rungs.length} rungs</Eyebrow>
-                  <Link to={{ view: 'lead', id: l.id }}>
+                  <Link to={{ view: 'lead', id: l.id }} className="ix-ref">
                     <h2 style={{ margin: 0, font: '400 clamp(24px,3.2vw,38px)/1.06 ' + SERIF, letterSpacing: '-0.025em', textWrap: 'balance', color: INK }}>{l.title}</h2>
                   </Link>
                   <p style={{ margin: 0, font: '400 clamp(15px,1.5vw,17px)/1.5 ' + SERIF, color: ink(2), maxWidth: '58ch', textWrap: 'pretty', fontStyle: 'italic' }}>{l.question}</p>
@@ -45,6 +45,7 @@ function LeadsView({ graph }) {
                       <li key={r.event} style={{ display: 'inline-flex', alignItems: 'center' }}>
                         <Link
                           to={{ view: 'lead', id: l.id, hash: 'rung-' + r.n }}
+                          className="ix-ref"
                           title={r.card.year + ' ' + r.card.title}
                           style={{ ...micro(r.card.future ? 5 : 3), letterSpacing: '0.1em', textTransform: 'none', font: '400 11px/1.3 ' + MONO, padding: '3px 0', borderBottom: r.card.future ? '1px dashed rgba(243,240,234,0.3)' : '1px solid transparent' }}
                         >{r.label}</Link>

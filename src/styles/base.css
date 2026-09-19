@@ -20,9 +20,41 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
 ::-webkit-scrollbar { width: 9px; height: 9px; }
 ::-webkit-scrollbar-thumb { background: rgba(243, 240, 234, 0.16); border-radius: 9px; }
 ::-webkit-scrollbar-track { background: transparent; }
+/* ─── One interaction language ──────────────────────────────────────────
+   Every control on the site answers a pointer the same way, by kind, and at
+   one speed. The rules touch only the three properties a state changes —
+   colour, border, surface — so an element's own look (set inline) stays its
+   own; `!important` is what lets a class outrank an inline declaration.
+     .ix       the transition every state change rides
+     .ix-btn   a button: the border wakes, the text goes to ink; pressed sinks
+     .ix-chip  a chip: a small button
+     .ix-row   a link that is a whole row: the row lifts a shade
+     .ix-seg   an item of a segmented control or a filter: the idle ones wake
+     .ix-door  a door to another page: border and surface wake
+     .ix-ref   a reference in text: a dotted rule under it, as under a heading */
+.ix { transition: color 120ms, background-color 120ms, border-color 120ms, opacity 120ms, box-shadow 120ms; }
+.ix-btn:hover, .ix-chip:hover { border-color: rgba(243, 240, 234, 0.5) !important; color: #f3f0ea !important; }
+.ix-btn:active, .ix-chip:active { background-color: rgba(243, 240, 234, 0.08) !important; }
+.ix-btn[data-tone="loud"]:hover { border-color: oklch(0.68 0.24 25) !important; background-color: rgba(255, 80, 60, 0.18) !important; }
+.ix-btn[data-tone="loud"]:active { background-color: rgba(255, 80, 60, 0.26) !important; }
+.ix-btn[aria-disabled="true"] { cursor: default; }
+.ix-btn[aria-disabled="true"]:hover { border-color: rgba(243, 240, 234, 0.2) !important; color: inherit !important; }
+.ix-row:hover { background-color: rgba(243, 240, 234, 0.035) !important; }
+.ix-row:active { background-color: rgba(243, 240, 234, 0.06) !important; }
+.ix-seg:not([aria-current]):not([aria-pressed="true"]):hover { color: #f3f0ea !important; background-color: rgba(243, 240, 234, 0.07) !important; }
+.ix-seg:not([aria-current]):not([aria-pressed="true"]):active { background-color: rgba(243, 240, 234, 0.12) !important; }
+.ix-door:hover { border-color: rgba(243, 240, 234, 0.28) !important; background-color: rgba(243, 240, 234, 0.06) !important; }
+.ix-door:active { background-color: rgba(243, 240, 234, 0.09) !important; }
+.ix-ref:hover { text-decoration: underline !important; text-decoration-style: dotted !important; text-decoration-color: rgba(243, 240, 234, 0.45) !important; text-underline-offset: 0.16em; }
+/* The grab surfaces: the board and the sheet's handle. */
+.grab { cursor: grab; }
+.grab:active, .grab[data-grabbing="true"] { cursor: grabbing; }
+.sheet-handle .grabber { transition: background-color 120ms; }
+.sheet-handle:hover .grabber, .sheet-handle:focus-visible .grabber { background-color: rgba(243, 240, 234, 0.6); }
+.scrub .thumb { transition: opacity 120ms; }
+.scrub:hover .thumb, .scrub:focus-visible .thumb { opacity: 1 !important; }
 @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
 @keyframes riseIn { from { opacity: 0; transform: translateY(14px) } to { opacity: 1; transform: none } }
-@keyframes hudPulse { 0%, 100% { opacity: .35 } 50% { opacity: .9 } }
 @keyframes slideInRight { from { opacity: 0; transform: translateX(18px) } to { opacity: 1; transform: none } }
 @keyframes slideInUp    { from { opacity: 0; transform: translateY(14px) } to { opacity: 1; transform: none } }
 @keyframes slideInDown  { from { opacity: 0; transform: translateY(-14px) } to { opacity: 1; transform: none } }

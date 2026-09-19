@@ -23,6 +23,7 @@ export default function IndexView({ items }) {
               <Link
                 key={e.id}
                 to={{ view: 'board', id: e.id, category: 'all', query: '' }}
+                className="ix-row"
                 data-year={e.year}
                 style={{
                   display: 'flex', flexWrap: 'wrap', gap: '8px 20px', alignItems: 'baseline',

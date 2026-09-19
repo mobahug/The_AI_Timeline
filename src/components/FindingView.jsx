@@ -80,7 +80,7 @@ function FindingView({ graph, route, navigate, onOpen, media }) {
           }} />
           <div style={{ flex: '1 1 340px', minWidth: 0, display: 'flex', flexDirection: 'column', gap: 12 }}>
             <Eyebrow tier="section" dim>The lead card</Eyebrow>
-            <Link to={{ view: 'card', id: row.lead.id }}>
+            <Link to={{ view: 'card', id: row.lead.id }} className="ix-ref">
               <CardTriple event={row.lead} size="panel" as="h2" />
             </Link>
             <p style={{ margin: 0, font: '400 14px/1.6 ' + SANS, color: ink(3), maxWidth: '52ch', textWrap: 'pretty' }}>{row.lead.summary}</p>
@@ -90,7 +90,7 @@ function FindingView({ graph, route, navigate, onOpen, media }) {
               {/* onOpen also clears the board's filter, which no route patch expresses. */}
               <Btn tone="loud" onClick={() => onOpen(row.lead.id)}>Open on the board →</Btn>
               {row.lead.url
-                ? <a href={row.lead.url} target="_blank" rel="noopener" style={sourceLink}>{row.lead.source || 'Source'} ↗</a>
+                ? <a href={row.lead.url} target="_blank" rel="noopener" className="ix ix-ref" style={sourceLink}>{row.lead.source || 'Source'} ↗</a>
                 : <span style={micro(5)}>No citation on this entry</span>}
             </div>
           </div>
@@ -104,6 +104,7 @@ function FindingView({ graph, route, navigate, onOpen, media }) {
             return (
               <button
                 key={e.id}
+                className="ix ix-row"
                 onClick={() => onOpen(e.id)}
                 style={{
                   display: 'grid', width: '100%', textAlign: 'left', cursor: 'pointer', background: 'transparent',
@@ -139,6 +140,7 @@ function FindingView({ graph, route, navigate, onOpen, media }) {
                 <Link
                   key={i}
                   to={{ view: 'board', clue: { from: l.from, to: l.to } }}
+                  className="ix-row"
                   style={{
                     display: 'flex', flexWrap: 'wrap', alignItems: 'baseline', gap: '5px 10px',
                     borderLeft: '2px solid ' + accent(from.category, 0), paddingLeft: 13, paddingTop: 4, paddingBottom: 4

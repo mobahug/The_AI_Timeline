@@ -20,6 +20,7 @@ export default function MosaicView({ items, media }) {
           <Link
             key={e.id}
             to={{ view: 'board', id: e.id, category: 'all', query: '' }}
+            className="ix-door"
             data-year={e.year}
             style={{
               ...frame(e.future), position: 'relative', overflow: 'hidden', display: 'block',

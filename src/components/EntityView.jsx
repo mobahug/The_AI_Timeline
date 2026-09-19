@@ -92,6 +92,7 @@ function EntityView({ graph, route }) {
             <Link
               key={e.id}
               to={{ view: 'card', id: e.id }}
+              className="ix-row"
               data-year={e.year}
               style={{
                 display: 'grid', gridTemplateColumns: 'clamp(46px,7vw,64px) minmax(0,1fr) auto', gap: 'clamp(10px,2vw,20px)',
@@ -125,6 +126,7 @@ function EntityView({ graph, route }) {
                 <Link
                   key={k}
                   to={{ view: 'board', clue: { from: l.from, to: l.to } }}
+                  className="ix-row"
                   style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'baseline', gap: '5px 10px', borderLeft: '2px solid ' + accent(from.category, 0), paddingLeft: 13, paddingTop: 4, paddingBottom: 4 }}
                 >
                   <Ref event={from} />
@@ -141,7 +143,7 @@ function EntityView({ graph, route }) {
         <Section id="leads" eyebrow="Leads" title="Lines of inquiry this name is on">
           <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
             {leads.map(({ lead, n }) => (
-              <Link key={lead.id} to={{ view: 'lead', id: lead.id }} style={{ display: 'flex', gap: 12, alignItems: 'baseline', flexWrap: 'wrap' }}>
+              <Link key={lead.id} to={{ view: 'lead', id: lead.id }} className="ix-ref" style={{ display: 'flex', gap: 12, alignItems: 'baseline', flexWrap: 'wrap' }}>
                 <span style={{ font: '400 17px/1.25 ' + SERIF, color: INK }}>{lead.title} →</span>
                 <span style={micro(5)}>{n} {n === 1 ? 'rung' : 'rungs'}</span>
               </Link>
