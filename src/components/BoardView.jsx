@@ -691,14 +691,22 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
   const preview = !current && !pinned && !!hover;
 
   // The context panel is always in one place, whatever card is selected and
-  // whether it was hovered or clicked: the rail on a wide screen never covers a
-  // lane and never has to flip; the sheet on a narrow one still docks away from
-  // the subject because there is nowhere else for it to go.
-  // The panel is exactly as tall as what it holds, up to a cap, and scrolls past
-  // it. Never a fixed block with dead space under short content, and never a
-  // snap between sizes: the height is measured and the change is animated.
-  const PANEL_CAP = railMode ? box.h : Math.max(180, Math.round(shellH * (fileOpen ? 0.9 : 0.46)));
-  const panelH = fileOpen ? PANEL_CAP : Math.min(PANEL_CAP, panelContentH || PANEL_CAP);
+  // whether it was hovered or clicked. On a wide screen it is a rail down the
+  // right edge that never covers a lane. On a narrow one it is a sheet at the
+  // bottom with three heights — a peek strip that only says what is selected,
+  // half the frame, and nearly all of it — pulled between them by its handle,
+  // so the wall is never covered unless the reader asks for it.
+  // The rail, and the sheet's larger heights, are exactly as tall as what they
+  // hold, up to the cap, and scroll past it. Never a fixed block with dead
+  // space under short content, and never a snap between sizes: the height is
+  // measured and the change is animated.
+  const PEEK_H = 58;
+  const CAP = { half: Math.max(180, Math.round(shellH * 0.46)), full: Math.max(240, Math.round(shellH * 0.9)) };
+  const [sheet, setSheet] = useState('half');
+  const PANEL_CAP = railMode ? box.h : (sheet === 'peek' ? PEEK_H : CAP[sheet]);
+  const panelH = railMode
+    ? (fileOpen ? PANEL_CAP : Math.min(PANEL_CAP, panelContentH || PANEL_CAP))
+    : (sheet === 'peek' ? PEEK_H : Math.min(PANEL_CAP, Math.max(PEEK_H, panelContentH || PANEL_CAP)));
   useEffect(() => { if (!panelOpen) setPanelContentH(0); }, [panelOpen]);
 
   // Measure the panel's content so the panel can be exactly as tall as it.
@@ -712,7 +720,63 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
     return () => ro.disconnect();
   }, [panelOpen]);
   const subject = current ? positions[current.to] : (focusId ? positions[focusId] : null);
-  const dockTop = !railMode && !!(subject && box.h && subject.y > box.h * 0.52);
+  // The sheet opens at half when the selected card sits in the upper part of
+  // the frame, where half a sheet leaves it in view; when the card sits low it
+  // opens as the peek strip, so the reader sees what they selected and pulls
+  // the sheet up when they want to read. The file always takes the full height.
+  const wasOpen = useRef(false);
+  const subjectId = current ? current.to : focusId;
+  useEffect(() => {
+    if (railMode) return;
+    const opening = panelOpen && !wasOpen.current;
+    wasOpen.current = panelOpen;
+    if (!panelOpen) return;
+    if (fileOpen) { setSheet('full'); return; }
+    if (opening) setSheet(subject && box.h && subject.y > box.h * 0.52 ? 'peek' : 'half');
+  }, [panelOpen, fileOpen, railMode, subjectId]); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => { if (!fileOpen && !railMode && sheet === 'full') setSheet('half'); }, [fileOpen]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Pulling the sheet by its handle: the height follows the finger, and on
+  // release settles at the nearest of the three; a tap toggles peek and half.
+  const sheetDrag = useRef(null);
+  const onSheetDown = (e) => {
+    if (railMode || e.button !== 0) return;
+    const el = panelRef.current;
+    if (!el) return;
+    e.currentTarget.setPointerCapture(e.pointerId);
+    sheetDrag.current = { y: e.clientY, h: el.getBoundingClientRect().height, moved: false };
+    el.style.transition = 'none';
+  };
+  const onSheetMove = (e) => {
+    const d = sheetDrag.current;
+    const el = panelRef.current;
+    if (!d || !el) return;
+    const dy = d.y - e.clientY;
+    if (Math.abs(dy) > 6) d.moved = true;
+    const h = Math.max(PEEK_H, Math.min(CAP.full, d.h + dy));
+    el.style.height = h + 'px';
+    el.style.maxHeight = h + 'px';
+  };
+  const onSheetUp = (e) => {
+    const d = sheetDrag.current;
+    const el = panelRef.current;
+    sheetDrag.current = null;
+    if (!d || !el) return;
+    el.style.transition = '';
+    el.style.height = '';
+    el.style.maxHeight = '';
+    if (!d.moved) { setSheet((v) => (v === 'peek' ? 'half' : 'peek')); return; }
+    const h = Math.max(PEEK_H, Math.min(CAP.full, d.h + (d.y - e.clientY)));
+    const stops = [['peek', PEEK_H], ['half', Math.min(CAP.half, Math.max(PEEK_H, panelContentH || CAP.half))], ['full', Math.min(CAP.full, Math.max(PEEK_H, panelContentH || CAP.full))]];
+    setSheet(stops.reduce((best, s) => (Math.abs(s[1] - h) < Math.abs(best[1] - h) ? s : best))[0]);
+  };
+  const peekLabel = current && current.lead
+    ? 'Rung ' + current.rung + ' / ' + current.of + ' · ' + (leadById[current.lead] ? leadById[current.lead].title : '')
+    : current
+      ? 'Clue ' + (step + 1) + ' / ' + chain.length + ' · ' + graph.index[current.from].year + ' → ' + graph.index[current.to].year + ' ' + graph.index[current.to].title
+      : focusId && graph.index[focusId]
+        ? graph.index[focusId].year + ' · ' + graph.index[focusId].title
+        : '';
   railInset.current = RAIL_W;
 
   return (
@@ -915,14 +979,13 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
             onWheel={(e) => e.stopPropagation()}
             onTouchMove={(e) => e.stopPropagation()}
             style={{
-              position: 'absolute', zIndex: 22, height: panelContentH ? panelH : 'auto', maxHeight: PANEL_CAP,
-              transition: panelContentH ? 'height .24s ' + EASE : 'none',
+              position: 'absolute', zIndex: 22, height: (railMode ? panelContentH : true) ? panelH : 'auto', maxHeight: PANEL_CAP,
+              transition: (railMode ? panelContentH : true) ? 'height .24s ' + EASE + ', max-height .24s ' + EASE : 'none',
               ...(railMode
                 ? { top: 0, right: 0, width: RAIL_W, border: '1px solid rgba(243,240,234,0.14)', borderTop: 'none', borderRight: 'none', borderBottomLeftRadius: 3, animation: 'slideInRight .24s ' + EASE + ' both' }
-                : { left: 0, right: 0, ...(dockTop ? { top: 0 } : { bottom: 0 }),
-                    [dockTop ? 'borderBottom' : 'borderTop']: '1px solid rgba(243,240,234,0.16)',
-                    animation: (dockTop ? 'slideInDown' : 'slideInUp') + ' .24s ' + EASE + ' both' }),
-              overflowY: panelContentH > PANEL_CAP ? 'auto' : 'hidden', overscrollBehavior: 'contain',
+                : { left: 0, right: 0, bottom: 0, borderTop: '1px solid rgba(243,240,234,0.16)', borderTopLeftRadius: 8, borderTopRightRadius: 8,
+                    boxShadow: '0 -10px 30px rgba(0,0,0,0.45)', animation: 'slideInUp .24s ' + EASE + ' both' }),
+              overflowY: !railMode && sheet === 'peek' ? 'hidden' : panelContentH > PANEL_CAP ? 'auto' : 'hidden', overscrollBehavior: 'contain',
               touchAction: 'pan-y', WebkitOverflowScrolling: 'touch',
               pointerEvents: preview ? 'none' : 'auto',
               // Near-opaque rather than blurred: a backdrop filter over a canvas
@@ -931,6 +994,37 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
             }}
           >
            <div ref={panelInner}>
+            {!railMode && (
+              // The handle: a strip the sheet is pulled by, that names what is
+              // selected so the peek state is never a blank bar.
+              <div
+                onPointerDown={onSheetDown}
+                onPointerMove={onSheetMove}
+                onPointerUp={onSheetUp}
+                onPointerCancel={onSheetUp}
+                role="button"
+                aria-label={sheet === 'peek' ? 'Expand the panel' : 'Collapse the panel'}
+                tabIndex={0}
+                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setSheet((v) => (v === 'peek' ? 'half' : 'peek')); } }}
+                style={{
+                  position: 'sticky', top: 0, zIndex: 3, display: 'flex', alignItems: 'center', gap: 10, height: PEEK_H, boxSizing: 'border-box',
+                  padding: '14px 14px 8px', touchAction: 'none', cursor: 'grab', userSelect: 'none', background: 'rgba(10,10,11,0.985)',
+                  borderBottom: sheet === 'peek' ? 'none' : '1px solid rgba(243,240,234,0.08)'
+                }}
+              >
+                <span aria-hidden="true" style={{ position: 'absolute', left: '50%', top: 6, width: 36, height: 4, marginLeft: -18, borderRadius: 2, background: 'rgba(243,240,234,0.32)' }} />
+                <span style={{ ...micro(current ? 3 : 4), color: current ? RED_LIT : undefined, minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', textTransform: 'none', letterSpacing: '0.08em', font: '400 11px/1.3 ' + MONO }}>{peekLabel}</span>
+                <span style={{ flex: 1 }} />
+                <span style={{ ...micro(5), flex: 'none' }}>{sheet === 'peek' ? 'pull up ▴' : sheet === 'full' ? 'pull down ▾' : '▴ ▾'}</span>
+                <button
+                  type="button"
+                  onPointerDown={(e) => e.stopPropagation()}
+                  onClick={leave}
+                  aria-label="Close"
+                  style={{ ...micro(4), flex: 'none', background: 'transparent', border: '1px solid rgba(243,240,234,0.2)', borderRadius: 2, padding: '5px 8px', cursor: 'pointer' }}
+                >✕</button>
+              </div>
+            )}
             {fileOpen && pinned && graph.index[pinned] ? (
               <div style={{ display: 'flex', flexDirection: 'column', minHeight: 0 }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 14px', borderBottom: '1px solid rgba(243,240,234,0.12)', position: 'sticky', top: 0, background: 'rgba(10,10,11,0.985)', zIndex: 2 }}>
