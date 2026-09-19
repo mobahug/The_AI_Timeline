@@ -280,6 +280,7 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
   // How much of the frame's bottom the sheet covers on a narrow screen; the
   // canvas is given that much extra height so a card can be scrolled above it.
   const sheetInset = useRef(0);
+  const canvasInner = useRef(null);
   const panelInner = useRef(null);
   const [panelContentH, setPanelContentH] = useState(0);
   const cancelPan = useCallback(() => {
@@ -316,15 +317,29 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
 
   /** On a narrow screen the sheet covers the bottom of the frame: scroll the
    *  canvas so the card sits above it, and never let it hide under the top. */
-  const keepAbove = useCallback((id) => {
+  // The canvas rides with the sheet: as the sheet rises the wall scrolls up so
+  // the selected card sits just above it, and as the sheet comes down the wall
+  // comes back down with it. `h` is how much of the frame the sheet takes;
+  // with `glide` the wall moves over the same time the sheet settles.
+  const glideAnim = useRef(null);
+  const keepAbove = useCallback((id, h = sheetInset.current, glide = false) => {
     const el = scroller.current;
     const p = positions[id];
-    const inset = sheetInset.current;
-    if (!el || !p || !inset) return;
-    const room = el.clientHeight - inset;
-    const bottom = p.top + m.cardH;
-    if (bottom - el.scrollTop > room) el.scrollTop = Math.max(0, Math.min(el.scrollHeight - el.clientHeight, bottom - room + 8));
-    else if (p.top < el.scrollTop) el.scrollTop = Math.max(0, p.top - 8);
+    if (!el || !p) return;
+    if (glideAnim.current !== null) { cancelAnimationFrame(glideAnim.current); glideAnim.current = null; }
+    const want = h ? Math.max(0, Math.min(el.scrollHeight - el.clientHeight, p.top + m.cardH + 8 - (el.clientHeight - h))) : 0;
+    if (!glide || Math.abs(want - el.scrollTop) < 2) { el.scrollTop = want; return; }
+    const from = el.scrollTop;
+    const t0 = performance.now();
+    const ms = Math.round(SPRING_MS * 0.7);
+    const step = (now) => {
+      const el2 = scroller.current;
+      if (!el2) { glideAnim.current = null; return; }
+      const p1 = Math.min(1, (now - t0) / ms);
+      el2.scrollTop = from + (want - from) * (1 - Math.pow(1 - p1, 3));
+      glideAnim.current = p1 < 1 ? requestAnimationFrame(step) : null;
+    };
+    glideAnim.current = requestAnimationFrame(step);
   }, [positions, m.cardH]);
 
   const centre = useCallback((stepData) => {
@@ -784,8 +799,7 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
   // canvas is let back down.
   useEffect(() => {
     if (railMode || !subjectId) return;
-    if (shown) keepAbove(subjectId);
-    else if (scroller.current) scroller.current.scrollTop = 0;
+    keepAbove(subjectId, shown, true);
   }, [shown, railMode]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Pulling the sheet: the whole of it is the handle, as on a phone. A touch
@@ -864,6 +878,10 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
       d.raf = requestAnimationFrame(() => {
         d.raf = null;
         el.style.transform = 'translateY(' + (CAP.full - d.h) + 'px)';
+        // The wall rides with the finger. The canvas is given the room first,
+        // written back to React's own value on release.
+        if (canvasInner.current) canvasInner.current.style.height = (board3.height + Math.max(0, Math.min(CAP.full, d.h))) + 'px';
+        if (subjectId) keepAbove(subjectId, Math.max(PEEK_H, Math.min(CAP.full, d.h)));
       });
     }
   };
@@ -900,6 +918,8 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
     const v0 = Math.abs(dist) < 1 ? 0 : Math.max(-3, Math.min(12, (d.v * 1000) / dist));
     el.style.transition = settle(v0);
     el.style.transform = 'translateY(' + (CAP.full - stopH(next)) + 'px)';
+    if (canvasInner.current) canvasInner.current.style.height = (board3.height + stopH(next)) + 'px';
+    if (subjectId) keepAbove(subjectId, stopH(next), true);
     setSheet(next);
   };
   const onSheetSettled = (e) => {
@@ -961,7 +981,7 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
             background: 'radial-gradient(120% 90% at 20% 0%,#171310,#08080a 70%)'
           }}
         >
-          <div style={{ position: 'relative', width: board3.width, height: board3.height + sheetInset.current, minWidth: '100%' }}>
+          <div ref={canvasInner} style={{ position: 'relative', width: board3.width, height: board3.height + sheetInset.current, minWidth: '100%' }}>
             {THREADS.map((thread, i) => (
               <div key={thread.id} style={{
                 position: 'absolute', left: 0, top: m.ruler + i * m.lane, width: board3.width, height: m.lane,
