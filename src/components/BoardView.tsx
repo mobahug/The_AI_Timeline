@@ -190,7 +190,9 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
   const dragged = useRef<boolean>(false);
   const [shellH, setShellH] = useState(640);
 
-  const [box, setBox] = useState({ w: 1280, h: 560 });
+  // `h` is the canvas's inner height, which the lanes are solved for; `frameH`
+  // the frame's, which the rail stands in.
+  const [box, setBox] = useState({ w: 1280, h: 560, frameH: 560 });
   const [hover, setHover] = useState<string | null>(null);
   // Hover is a mouse concept. A phone fires mouseover before click, which opened
   // the preview pointer-transparent for the gap between the two — a finger went
@@ -239,14 +241,19 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
   }, []);
 
   // The frame measures itself, so anything else in the column simply takes room
-  // from the lanes instead of overflowing. It is
-  // the frame and not the canvas scroller because the list rendering has no
-  // scroller — measuring that left the width stuck at its default and put a
-  // 440px rail on a 390px phone.
+  // from the lanes instead of overflowing. The width is the frame's — the
+  // rail is laid out against it. The height is the canvas's own inner height,
+  // less its border and the scrollbar along its foot: the lanes are solved to
+  // fill exactly that, and solving them for the frame instead left the bottom
+  // lane's cards cut off by the scrollbar's height.
   useEffect(() => {
     const el = frameRef.current;
     if (!el || !window.ResizeObserver) return;
-    const read = () => setBox({ w: el.clientWidth || 1280, h: el.clientHeight || 560 });
+    const read = () => {
+      const canvas = scroller.current;
+      const frameH = el.clientHeight || 560;
+      setBox({ w: el.clientWidth || 1280, h: (canvas ? canvas.clientHeight : el.clientHeight) || 560, frameH });
+    };
     const ro = new ResizeObserver(read);
     ro.observe(el);
     read();
@@ -318,11 +325,16 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
    * Honours prefers-reduced-motion by jumping straight there.
    */
   const panAnim = useRef<number | null>(null);
+  /** Whether the pan under way moves the height as well as the width. */
+  const panDown = useRef<boolean>(false);
   const railInset = useRef<number>(0);
   // How much of the frame's bottom the sheet covers on a narrow screen, and
-  // the vertical room the canvas is given above and below its lanes: half the
-  // frame each side, so any card can be brought to the middle of what the
-  // reader sees. The lanes rest flush with the top when nothing is selected.
+  // the vertical room the canvas is given above and below its lanes on one:
+  // half the frame each side, so any card can be brought to the middle of
+  // what the sheet leaves. On a desk the lanes fit the frame and the wall
+  // never moves up or down — a lit card is brought to the middle of the
+  // board's width only — so there the room is nil. The lanes rest flush
+  // with the top when nothing is selected.
   const sheetInset = useRef<number>(0);
   const padY = useRef<number>(0);
   const panelInner = useRef<HTMLDivElement>(null);
@@ -340,13 +352,18 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
     if (!el) return;
     cancelPan();
     const target = Math.max(0, Math.min(left, el.scrollWidth - el.clientWidth));
-    const targetTop = top === undefined ? el.scrollTop : Math.max(0, Math.min(top, el.scrollHeight - el.clientHeight));
+    // Without a top the pan is across only: the height is not touched at all,
+    // frame by frame, so whatever else sets it meanwhile — the reader, or the
+    // frame changing kind — keeps it.
+    const down = top !== undefined;
+    panDown.current = down;
+    const targetTop = down ? Math.max(0, Math.min(top, el.scrollHeight - el.clientHeight)) : el.scrollTop;
     const from = el.scrollLeft;
     const fromTop = el.scrollTop;
     const dist = target - from;
     const distTop = targetTop - fromTop;
     const reduce = typeof window.matchMedia === 'function' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduce || (Math.abs(dist) < 2 && Math.abs(distTop) < 2)) { el.scrollLeft = target; el.scrollTop = targetTop; return; }
+    if (reduce || (Math.abs(dist) < 2 && Math.abs(distTop) < 2)) { el.scrollLeft = target; if (down) el.scrollTop = targetTop; return; }
 
     // Both axes travel together, for the time the longer of them needs.
     const duration = panDuration(Math.max(Math.abs(dist), Math.abs(distTop)));
@@ -357,23 +374,26 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
       const elapsed = now - t0;
       const p = Math.min(1, elapsed / duration);
       el2.scrollLeft = from + dist * easeOut(p);
-      el2.scrollTop = fromTop + distTop * easeOut(p);
+      if (down) el2.scrollTop = fromTop + distTop * easeOut(p);
       panAnim.current = elapsed < duration ? requestAnimationFrame(step) : null;
     };
     panAnim.current = requestAnimationFrame(step);
   }, [cancelPan]);
 
   /** Where the canvas must scroll to put a card in the middle of what the
-   *  reader sees: the frame less the rail on a desk, less the sheet on a phone. */
-  const middleOf = useCallback((id: string): { left: number; top: number } | null => {
+   *  reader sees: across, the frame less the rail on a desk; and down as well
+   *  where the wall has height to give — on a phone, the frame less the sheet,
+   *  and on a desk too short for its lanes. `top` is null on a desk whose
+   *  lanes fit, where the wall keeps its height. */
+  const middleOf = useCallback((id: string): { left: number; top: number | null } | null => {
     const el = scroller.current;
     const p = positions[id];
     if (!el || !p) return null;
     return {
       left: p.x - (el.clientWidth - railInset.current) / 2,
-      top: padY.current + p.top + m.cardH / 2 - (el.clientHeight - sheetInset.current) / 2
+      top: padY.current || !m.fits ? padY.current + p.top + m.cardH / 2 - (el.clientHeight - sheetInset.current) / 2 : null
     };
-  }, [positions, m.cardH]);
+  }, [positions, m.cardH, m.fits]);
 
   useEffect(() => cancelPan, [cancelPan]);
 
@@ -382,7 +402,7 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
   const centre = useCallback((stepData: Step | null) => {
     if (!stepData) return;
     const at = middleOf(stepData.to);
-    if (at) panTo(at.left, at.top);
+    if (at) panTo(at.left, at.top ?? undefined);
   }, [middleOf, panTo]);
 
   /** A card that takes keyboard focus must be in view — the browser scrolls it
@@ -399,7 +419,7 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
   /** Bring one card to the middle of what the panel leaves visible. */
   const panToCard = useCallback((id: string) => {
     const at = middleOf(id);
-    if (at) panTo(at.left, at.top);
+    if (at) panTo(at.left, at.top ?? undefined);
   }, [middleOf, panTo]);
 
   /** The same, at once: for arriving on the board, where a flight across ninety
@@ -410,7 +430,7 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
     if (!el || !at) return;
     cancelPan();
     el.scrollLeft = at.left;
-    el.scrollTop = Math.max(0, Math.min(at.top, el.scrollHeight - el.clientHeight));
+    if (at.top !== null) el.scrollTop = Math.max(0, Math.min(at.top, el.scrollHeight - el.clientHeight));
   }, [middleOf, cancelPan]);
 
   // A card opened in brief that is not yet on the wall is laid out on the next
@@ -442,7 +462,8 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
     setPinned(null);
     setFileOpen(false);
     navigate({ clue: null, id: null, lead: null, rung: null }, true);
-    // With nothing selected the lanes rest flush with the top again.
+    // With nothing selected the lanes rest flush with the top again (on a
+    // desk they never left it, and this only stops a pan still under way).
     if (scroller.current) panTo(scroller.current.scrollLeft, padY.current);
     // In brief a card that was only on the wall because it was open leaves it
     // now; focus goes to the scrubber instead of being dropped on <body>.
@@ -787,14 +808,37 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
   // carries that much padding.
   const stopH = (which: Stop): number => (which === 'peek' ? PEEK_H : Math.min(CAP[which], Math.max(PEEK_H, panelContentH || CAP[which])));
   const shown = railMode ? 0 : stopH(sheet);
-  sheetInset.current = railMode || !panelOpen ? 0 : shown;
-  padY.current = Math.round(box.h / 2);
+  // The sheet opens at half, or at full for the file (the effect below sets
+  // it); a card centred on the render that opens it is centred against that
+  // stop, not the one the sheet was last left at.
+  const wasOpen = useRef<boolean>(false);
+  const stopAhead: Stop = fileOpen ? 'full' : (panelOpen && !wasOpen.current ? 'half' : sheet);
+  sheetInset.current = railMode || !panelOpen ? 0 : stopH(stopAhead);
+  padY.current = railMode ? 0 : Math.round(box.h / 2);
   // With nothing selected the lanes rest flush with the frame's top: the room
   // above them is only ever used to bring a card to the middle.
   useEffect(() => {
     const el = scroller.current;
     if (el && !panelOpen && !route.id && !route.clue && !route.lead) el.scrollTop = padY.current;
-  }, [box.h, panelOpen]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [box.h, railMode, panelOpen]); // eslint-disable-line react-hooks/exhaustive-deps
+  // When the frame changes kind — rail to sheet or back — the room above the
+  // lanes comes or goes under whatever is open, so it is placed again, whether
+  // or not the reader had panned by hand: the view they had is gone anyway.
+  const wasRail = useRef<boolean>(railMode);
+  useEffect(() => {
+    if (wasRail.current === railMode) return;
+    wasRail.current = railMode;
+    const el = scroller.current;
+    if (!el) return;
+    // The height goes to its rest for the new kind — the lanes flush on a
+    // rail, the sheet's room above them on a phone — and then what is open
+    // is placed again. A pan across is left running; one that was moving the
+    // height is stopped, its target gone.
+    if (panDown.current) cancelPan();
+    el.scrollTop = padY.current;
+    if (current) centre(current);
+    else if (pinned && positions[pinned]) placeCard(pinned);
+  }, [railMode]); // eslint-disable-line react-hooks/exhaustive-deps
   // The sheet slides in by the same transform it is pulled with: it mounts
   // below the frame and moves up on the next frame. (A keyframe animation
   // would do — but one that ends on `transform: none` and fills forwards
@@ -805,7 +849,7 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
     const id = requestAnimationFrame(() => setSheetIn(true));
     return () => cancelAnimationFrame(id);
   }, [panelOpen, railMode]);
-  const PANEL_CAP = railMode ? box.h : CAP.full;
+  const PANEL_CAP = railMode ? box.frameH : CAP.full;
   const panelH = railMode ? (fileOpen ? PANEL_CAP : Math.min(PANEL_CAP, panelContentH || PANEL_CAP)) : CAP.full;
   useEffect(() => { if (!panelOpen) setPanelContentH(0); }, [panelOpen]);
 
@@ -820,11 +864,9 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
     return () => ro.disconnect();
   }, [panelOpen]);
   const subject = current ? positions[current.to] : (focusId ? positions[focusId] : null);
-  // The sheet opens at half when the selected card sits in the upper part of
-  // the frame, where half a sheet leaves it in view; when the card sits low it
-  // opens as the peek strip, so the reader sees what they selected and pulls
-  // the sheet up when they want to read. The file always takes the full height.
-  const wasOpen = useRef<boolean>(false);
+  // The sheet opens at half, with the selected card centred in what it
+  // leaves; the reader pulls it up to read, or down to the peek strip. The
+  // file always takes the full height.
   const subjectId = current ? current.to : focusId;
   useEffect(() => {
     if (railMode) return;
