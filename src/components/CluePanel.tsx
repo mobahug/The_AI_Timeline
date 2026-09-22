@@ -37,6 +37,10 @@ export interface CluePanelProps {
   focus: Event | null | undefined;
   media: Media;
   full?: boolean;
+  /** True in the rail, where the panel has a frame of its own and a long list
+   *  may scroll inside it. False in the phone's sheet, where the sheet is the
+   *  only scroll there is — see `wells` below. */
+  nested?: boolean;
   onStep: (delta: number) => void;
   onJump: (index: number) => void;
   onExit: () => void;
@@ -47,8 +51,16 @@ export interface CluePanelProps {
   onOpenFile?: (() => void) | null;
 }
 
-export default function CluePanel({ graph, chain: walked, step, current, focus, media, full, onStep, onJump, onExit, onOpenChain, onOpenCard, onOpenClue, onOpenLead, onOpenFile }: CluePanelProps) {
+export default function CluePanel({ graph, chain: walked, step, current, focus, media, full, nested, onStep, onJump, onExit, onOpenChain, onOpenCard, onOpenClue, onOpenLead, onOpenFile }: CluePanelProps) {
   const chain = walked || [];
+  /* Three lists inside this panel scroll on their own. In the rail that is
+     right: the panel has a frame, and a twelve-rung ladder should not push the
+     card off the bottom of it. In the phone's sheet it is a trap — the sheet is
+     itself dragged, `sheetClaims` knows only the panel's own scrollTop, and a
+     finger over a list at the half stop cannot scroll it while a list scrolled
+     down at the full stop cannot be scrolled back up: the drag is taken by the
+     sheet, which collapses instead. On a phone the sheet is the only scroll. */
+  const wells = (maxHeight: number): CSSProperties => (nested ? { maxHeight, overflowY: 'auto' } : {});
   // No outer margin or minimum height: the panel that hosts this measures it and
   // sizes itself to fit exactly, so both would only manufacture dead space —
   // and a top margin collapses outside the measured box and clips the bottom.
@@ -104,7 +116,7 @@ export default function CluePanel({ graph, chain: walked, step, current, focus, 
             <CopyLink label="Copy link to this rung" />
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 5, maxHeight: 170, overflowY: 'auto' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 5, ...wells(170) }}>
             <Eyebrow tier="section">The ladder</Eyebrow>
             {chain.map((s, i) => (
               <button key={i} type="button" className="ix ix-chip" onClick={() => onJump(i)} style={chip(i === step)}>
@@ -152,7 +164,7 @@ export default function CluePanel({ graph, chain: walked, step, current, focus, 
 
           <div style={{ display: 'flex', gap: 22, flexWrap: 'wrap' }}>
             <p style={{ margin: 0, flex: '1 1 300px', minWidth: 0, maxWidth: '78ch', font: '400 13.5px/1.62 ' + SANS, color: ink(3), textWrap: 'pretty' }}>{note}</p>
-            <div style={{ flex: '1 1 260px', minWidth: 0, display: 'flex', flexDirection: 'column', gap: 5, maxHeight: 190, overflowY: 'auto' }}>
+            <div style={{ flex: '1 1 260px', minWidth: 0, display: 'flex', flexDirection: 'column', gap: 5, ...wells(190) }}>
               <Eyebrow tier="section">The whole chain</Eyebrow>
               {chain.map((s, i) => (
                 <button key={i} type="button" className="ix ix-chip" onClick={() => onJump(i)} style={chip(i === step)}>
@@ -217,7 +229,7 @@ export default function CluePanel({ graph, chain: walked, step, current, focus, 
                 <Btn tone="dim" onClick={onExit}>Close</Btn>
               </div>
             </div>
-            <div style={{ flex: '1 1 270px', minWidth: 0, display: 'flex', flexDirection: 'column', gap: 6, maxHeight: 220, overflowY: 'auto' }}>
+            <div style={{ flex: '1 1 270px', minWidth: 0, display: 'flex', flexDirection: 'column', gap: 6, ...wells(220) }}>
               {(() => {
                 const group = (label: string, list: Adjacent[]) => list.length > 0 && (
                   <React.Fragment key={label}>

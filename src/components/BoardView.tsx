@@ -1293,6 +1293,7 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
               focus={focusId ? graph.index[focusId] : null}
               media={media}
               full={full}
+              nested={railMode}
               onStep={move}
               onJump={(index: number) => { setStep(index); applied.current = keyOf(chain![index]); navigate(patchOf(chain![index]), true); wantCentre.current = chain![index]; }}
               onExit={leave}
