@@ -117,7 +117,7 @@ const Card = React.memo(function Card({ node, m, img, lit, subject, raised, hove
           font: '400 ' + m.titlePx + 'px/1.14 ' + SERIF, color: '#17161a'
         }}>{e.title}</span>
         </>)}
-        {m.showCat && (
+        {(e.future ? m.showConfidence : m.showCat) && (
           <span style={{ flex: 'none', display: 'block', marginTop: 4, font: '400 7.5px/1 ' + MONO, letterSpacing: '0.18em', textTransform: 'uppercase', color: e.future ? 'oklch(0.45 0.16 25)' : paperInk(0.65) }}>
             {e.future ? 'Scenario · ' + (e.confidence || 'Uncertain') : catLabel(e.category)}
           </span>

@@ -115,3 +115,30 @@ describe('the card takes one of three shapes by its height', () => {
     expect(tiny.thumb).toBe(0);
   });
 });
+
+/* The wall's card face. `showCat` needs a card 120px tall, which needs a lane of
+   167, which needs a canvas over ~1032px — no ordinary desk gives one, so the
+   category line has never rendered outside a very tall window. That is tolerable
+   for the category, which the pin's colour and the header's chips both carry.
+   It was not tolerable for a scenario's confidence, which the board tells
+   readers to read instead of the date and then printed nowhere on the wall. */
+describe('what a card can say at a real window size', () => {
+  const desk = metrics(900 - 150, 1440);   // a laptop, less the chrome
+  const big = metrics(1080 - 150, 1920);   // a large desk monitor
+
+  it('shows a scenario its confidence at ordinary desk sizes', () => {
+    expect(desk.showConfidence).toBe(true);
+    expect(big.showConfidence).toBe(true);
+  });
+
+  it('still asks a very tall card before naming the category', () => {
+    expect(desk.showCat).toBe(false);
+    expect(metrics(1200, 1440).showCat).toBe(true);
+  });
+
+  it('says neither on a card too short to carry a line', () => {
+    const tiny = metrics(300, 375);
+    expect(tiny.showConfidence).toBe(false);
+    expect(tiny.showCat).toBe(false);
+  });
+});

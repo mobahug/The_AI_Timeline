@@ -135,7 +135,7 @@ export type ViewId =
 export interface Metrics {
   ruler: number; lane: number; cardH: number; gutter: number; cardW: number; gap: number; k: number;
   photo: boolean; side: boolean; thumb: number; fits: boolean;
-  showCat: boolean; titleLines: number; titlePx: number; boardW: number;
+  showCat: boolean; showConfidence: boolean; titleLines: number; titlePx: number; boardW: number;
 }
 
 /** A card placed on the board. */

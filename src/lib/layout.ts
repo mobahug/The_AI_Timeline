@@ -40,7 +40,16 @@ export function metrics(height: number, width: number): Metrics {
   const titlePx = Math.max(10.5, Math.min(14, 8 + 6 * k));
   return {
     ruler, lane, cardH, gutter, cardW, gap, k, photo, side, thumb, fits,
+    /* The category has two other ways of being read — the pin's colour and the
+       legend of chips in the header — so its name only earns a line on a card
+       tall enough to spare one, which in practice means a very tall window.
+       A scenario's confidence has no other way of being read at all. The board
+       tells readers to read the confidence and not the date, and then prints it
+       nowhere on the wall: a scenario is a dashed border and nothing else.
+       It costs about twelve pixels of photograph on eighteen of 163 cards, and
+       on those eighteen the confidence is worth more than the picture. */
     showCat: cardH >= 120,
+    showConfidence: cardH >= 84,
     titleLines: cardH >= 104 ? 2 : photo ? 1 : side ? Math.max(1, Math.min(3, Math.floor((thumb - 12) / (titlePx * 1.14)))) : 3,
     titlePx,
     boardW: Math.max(4200, Math.round(width * 7))
