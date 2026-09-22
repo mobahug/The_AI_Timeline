@@ -96,10 +96,13 @@ export const Claim = ({ tone, wrap, sep = 'arrow', style, children }: ClaimProps
 );
 
 /** An inline "year title" reference to a card; a link when given somewhere to go. */
-export interface RefProps { event: Event; size?: number | string; to?: RoutePatch; onClick?: (e: MouseEvent<HTMLButtonElement>) => void; style?: CSSProperties }
-export function Ref({ event, size = 15, to, onClick, style }: RefProps) {
-  const inner = <><span style={yearBit}>{event.year}</span>{event.title}</>;
-  const s = { ...refStyle(size), ...style };
+export interface RefProps { event: Event; size?: number | string; to?: RoutePatch; onClick?: (e: MouseEvent<HTMLButtonElement>) => void; mono?: boolean; style?: CSSProperties }
+export function Ref({ event, size = 15, to, onClick, mono, style }: RefProps) {
+  // In a ledger the whole row is mono, and the year is already the row's own
+  // first word: the serif title and its separate year chip would both be a
+  // change of voice in the middle of a sentence.
+  const inner = mono ? <>{event.year} {event.title}</> : <><span style={yearBit}>{event.year}</span>{event.title}</>;
+  const s = { ...refStyle(size, mono), ...style };
   if (to) return <Link to={to} className="ix-ref" style={s}>{inner}</Link>;
   if (onClick) {
     return (

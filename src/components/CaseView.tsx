@@ -1,6 +1,6 @@
 import React from 'react';
 import { ERAS, NOW, standingNow, roadsTo, threadLedger, loadBearing, strandOf } from '../lib/data';
-import { RED, RED_LIT, RULE, SERIF, badge, micro, shell } from '../lib/styles';
+import { RED, RED_LIT, RULE, SERIF, badge, ink, micro, shell } from '../lib/styles';
 import { Btn, CardTriple, Claim, Eyebrow, Ledger, Link, NavRow, PageHead, Prose, Reading, Ref, Section } from './kit';
 import type { NavItem } from './kit';
 import type { ReactNode } from 'react';
@@ -88,36 +88,42 @@ function CaseView({ graph }: CaseViewProps) {
 
       <div style={{ display: 'flex', flexDirection: 'column' }}>
         {standing.map(({ event, into }) => (
-          // The whole row is one link to the card on the board, so nothing inside it links on its own.
-          <Link
+          // The row used to be one whole-row link, which is why the scenarios
+          // it throws forward could not be followed: an anchor cannot hold
+          // another. The card's own half is the link now — a block, so it is
+          // still a large target on a phone — and each string it throws goes
+          // to the scenario it names.
+          <div
             key={event.id}
-            to={{ view: 'board', id: event.id, category: 'all', query: '' }}
-            className="ix-row"
             style={{
               display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(min(100%,260px),1fr))', gap: 'clamp(16px,3vw,40px)',
               borderTop: RULE, padding: '24px 0', alignItems: 'start'
             }}
           >
-            <div style={{ minWidth: 0, display: 'flex', flexDirection: 'column', gap: 9 }}>
+            <Link
+              to={{ view: 'card', id: event.id }}
+              className="ix-row"
+              style={{ display: 'flex', minWidth: 0, flexDirection: 'column', gap: 9, padding: '4px 8px 8px', margin: '-4px -8px -8px' }}
+            >
               <CardTriple event={event} size="panel" as="h3" />
               <Prose style={{ maxWidth: '54ch' }}>{event.summary}</Prose>
               <Reading event={event} maxWidth="54ch" />
               <div style={micro(event.url ? 3 : 5)}>
                 {event.url ? (event.source || 'Source') + ' on file' : 'No citation on this entry'}
               </div>
-            </div>
+            </Link>
 
             <div style={{ minWidth: 0, display: 'flex', flexDirection: 'column', gap: 12, paddingTop: 6 }}>
               <Eyebrow tier="section" dim>Throws forward</Eyebrow>
               {into.map((i, n) => (
                 <div key={n} style={{ display: 'flex', flexDirection: 'column', gap: 6, borderLeft: '2px solid ' + RED, paddingLeft: 13 }}>
                   <Claim wrap>{i.claim}</Claim>
-                  <Ref event={i.event} size={16} />
+                  <Ref event={i.event} size={16} to={{ view: 'card', id: i.event.id }} />
                   {i.event.confidence && <span style={{ ...badge(), alignSelf: 'flex-start' }}>{i.event.confidence}</span>}
                 </div>
               ))}
             </div>
-          </Link>
+          </div>
         ))}
       </div>
 
@@ -139,7 +145,15 @@ function CaseView({ graph }: CaseViewProps) {
             <Road road={roads[0]} />
             {roads.length > 1 && (
               <div style={{ ...micro(5), letterSpacing: '0.1em', textTransform: 'none' }}>
-                Also reached from {roads.slice(1).map((r) => r[0].from.year + ' ' + r[0].from.title).join(' · ')}
+                Also reached from{' '}
+                {roads.slice(1).map((r, k) => (
+                  <React.Fragment key={r[0].from.id}>
+                    {k > 0 && ' · '}
+                    <Link to={{ view: 'card', id: r[0].from.id }} className="ix-ref" style={{ color: ink(4) }}>
+                      {r[0].from.year} {r[0].from.title}
+                    </Link>
+                  </React.Fragment>
+                ))}
               </div>
             )}
           </div>
@@ -149,7 +163,7 @@ function CaseView({ graph }: CaseViewProps) {
       <Section eyebrow="The load-bearing record">
         {bearing.map((r) => (
           <Ledger key={r.event.id} label={r.futures + (r.futures === 1 ? ' scenario' : ' scenarios')}>
-            {r.event.year} {r.event.title}
+            <Ref event={r.event} mono to={{ view: 'card', id: r.event.id }} />
           </Ledger>
         ))}
       </Section>

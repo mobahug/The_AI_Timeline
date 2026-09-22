@@ -115,6 +115,18 @@ describe('server rendering', () => {
     expect((html.match(/The model was GPT-3\.5/g) || []).length).toBe(1);
   });
 
+  /* A page that names a card gives a way to it. The horizon in particular had
+     no route from a scenario to its own dossier at all. */
+  it('leaves no card named without a way to it', () => {
+    const cards = (html: string) => new Set((html.match(/href="\/card\/([^"]+)\//g) || []));
+    // Every scenario on the horizon, its parents, and the cards its ledgers name.
+    expect(cards(render('/horizon/')).size).toBeGreaterThan(20);
+    // The load-bearing record, the roads' other starts, and Movement I's cards.
+    expect(cards(render('/case/')).size).toBeGreaterThan(20);
+    // Every entry of a stretch of the line, not only its lead card.
+    expect(cards(render('/line/16/')).size).toBeGreaterThan(5);
+  });
+
   it('says so when an address names nothing, without throwing', () => {
     expect(render('/card/no-such-card/')).toContain('No entry has the id');
     expect(render('/lead/no-such-lead/')).toContain('There is no lead');

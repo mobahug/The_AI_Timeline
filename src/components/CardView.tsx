@@ -272,7 +272,20 @@ function CardView({ graph, route, media, embedded }: CardViewProps) {
               </React.Fragment>
             ))}
           </div>
-          {roads.length > 1 && <div style={{ ...micro(5), marginTop: 12, textTransform: 'none', letterSpacing: '0.08em' }}>Also reached from {roads.slice(1).map((r) => r[0].from.year + ' ' + r[0].from.title).join(' · ')}{truncated ? ' · list capped' : ''}</div>}
+          {roads.length > 1 && (
+            <div style={{ ...micro(5), marginTop: 12, textTransform: 'none', letterSpacing: '0.08em' }}>
+              Also reached from{' '}
+              {roads.slice(1).map((r, k) => (
+                <React.Fragment key={r[0].from.id}>
+                  {k > 0 && ' · '}
+                  <Link to={{ view: 'card', id: r[0].from.id }} className="ix-ref" style={{ color: ink(4) }}>
+                    {r[0].from.year} {r[0].from.title}
+                  </Link>
+                </React.Fragment>
+              ))}
+              {truncated ? ' · list capped' : ''}
+            </div>
+          )}
           </Full>
         </Section>
       )}

@@ -106,12 +106,15 @@ function FindingView({ graph, route, navigate, onOpen, media }: FindingViewProps
           {rest.map((e) => {
             const linked = (graph.adjacency[e.id] || []).length;
             return (
-              <button
+              // A listed card goes to its dossier: a real href, so the row can
+              // be middle-clicked, copied and crawled. The board is one step
+              // further on, from the dossier's own loud button.
+              <Link
                 key={e.id}
-                className="ix ix-row"
-                onClick={() => onOpen(e.id)}
+                to={{ view: 'card', id: e.id }}
+                className="ix-row"
                 style={{
-                  display: 'grid', width: '100%', textAlign: 'left', cursor: 'pointer', background: 'transparent',
+                  display: 'grid', width: '100%', textAlign: 'left', background: 'transparent',
                   gridTemplateColumns: 'clamp(46px,7vw,64px) minmax(0,1fr) auto', gap: 'clamp(10px,2vw,20px)',
                   alignItems: 'baseline', padding: '14px 2px', border: 'none', borderTop: ROW_RULE,
                   borderLeft: linked ? '2px solid ' + accent(e.category, fade(e.year)) : '2px dashed rgba(243,240,234,0.18)',
@@ -126,7 +129,7 @@ function FindingView({ graph, route, navigate, onOpen, media }: FindingViewProps
                 <span style={{ ...micro(linked ? 4 : 5), whiteSpace: 'nowrap' }}>
                   {linked ? linked + (linked === 1 ? ' string' : ' strings') : 'no string'}
                 </span>
-              </button>
+              </Link>
             );
           })}
         </Section>

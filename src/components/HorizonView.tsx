@@ -2,7 +2,7 @@ import React from 'react';
 import { ERAS, HORIZONS, NOW, THREADS, catLabel, fade, horizonLedger, forwardLedger } from '../lib/data';
 import { INK, RED, SANS, SERIF, DASHED_RULE, DASHED_ROW, badge, ink, micro, shell } from '../lib/styles';
 import {
-  CardTriple, Claim, Empty, Eyebrow, Ledger, NavRow, PageHead, Prose, Reading, Ref, Section
+  Btn, CardTriple, Claim, Empty, Eyebrow, Ledger, Link, NavRow, PageHead, Prose, Reading, Ref, Section
 } from './kit';
 import type { NavItem } from './kit';
 import type { Event, Graph, Route, Strand as StrandOf } from '../lib/types';
@@ -178,44 +178,47 @@ function Strand({ event, strand, graph, onOpen }: { event: Event; strand: Strand
           </div>
         ))}
 
+        {/* A ledger that names a card gives a way to it. The reference is set
+            mono, like the row around it: a serif title in the middle of one is
+            a change of voice mid-sentence. */}
         {strand.hops > 1 && (
           <Ledger label="Behind that">
             {strand.hops} hops · {strand.paths} {strand.paths === 1 ? 'path' : 'paths'} · oldest card{' '}
-            {strand.roots[0].year} {strand.roots[0].title}
+            <Ref event={strand.roots[0]} mono to={{ view: 'card', id: strand.roots[0].id }} />
           </Ledger>
         )}
         {strand.restsOn.map((r) => (
           <Ledger key={r.id} label="Rests on">
-            {r.year} {r.title} — itself a scenario
+            <Ref event={r} mono to={{ view: 'card', id: r.id }} /> — itself a scenario
             {(graph.adjacency[r.id] || []).some((a) => !a.out) ? '' : ', with no string behind it'}
           </Ledger>
         ))}
         {strand.uncited.map((u) => (
           <Ledger key={u.id} label="Uncited">
-            {u.year} {u.title} sits in this chain and carries no source link
+            <Ref event={u} mono to={{ view: 'card', id: u.id }} /> sits in this chain and carries no source link
           </Ledger>
         ))}
       </div>
 
       {/* ── the card ── */}
       <div style={{ minWidth: 0, display: 'flex', flexDirection: 'column', gap: 10 }}>
-        {/* The headline is the way onto the board; the triple never wraps itself, so it sits in the button. */}
-        <button
-          type="button"
-          className="ix ix-ref"
-          onClick={() => onOpen(event.id)}
-          aria-label={'Open ' + event.title + ' on the board'}
-          style={{
-            display: 'block', width: '100%', textAlign: 'left', border: 'none', background: 'transparent',
-            padding: 0, cursor: 'pointer', color: INK
-          }}
+        {/* The headline goes to the scenario's own dossier — until now the
+            horizon was the one page from which a scenario had no route to its
+            own page at all. The triple never wraps itself, so it sits in the
+            link; the board is a step further on, from the button below. */}
+        <Link
+          to={{ view: 'card', id: event.id }}
+          className="ix-ref"
+          style={{ display: 'block', width: '100%', textAlign: 'left', color: INK }}
         >
           <CardTriple event={event} size="panel" as="h3" />
-        </button>
+        </Link>
         <Prose style={{ color: ink(4), maxWidth: '52ch' }}>{event.summary}</Prose>
         {why
           ? <Reading event={event} maxWidth="48ch" />
           : <div style={{ ...micro(5), paddingLeft: 14, borderLeft: '2px dashed rgba(243,240,234,0.14)' }}>Reason not written down</div>}
+        {/* onOpen also clears the board's filter, which no route patch expresses. */}
+        <div><Btn onClick={() => onOpen(event.id)}>On the board →</Btn></div>
       </div>
 
       {/* ── the arithmetic ── */}

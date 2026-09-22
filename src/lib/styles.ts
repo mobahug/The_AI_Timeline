@@ -155,12 +155,16 @@ export const yearBit: CSSProperties = {
   marginRight: 5
 };
 
-/** An inline "year title" reference; `size` carries the emphasis of its place. */
-export const ref = (size: number | string = 15): CSSProperties => ({
-  font: '400 ' + (typeof size === 'number' ? size + 'px' : size) + '/1.25 ' + SERIF,
-  color: INK,
-  letterSpacing: '-0.015em'
-});
+/** An inline "year title" reference; `size` carries the emphasis of its place.
+ *  `mono` is for a reference inside a ledger row, which is set in mono from end
+ *  to end: a serif card name in the middle of one changes typeface mid-sentence. */
+export const ref = (size: number | string = 15, mono?: boolean): CSSProperties => (mono
+  ? { font: '400 12.5px/1.6 ' + MONO, color: INK, letterSpacing: 0 }
+  : {
+      font: '400 ' + (typeof size === 'number' ? size + 'px' : size) + '/1.25 ' + SERIF,
+      color: INK,
+      letterSpacing: '-0.015em'
+    });
 
 /** The year + category + confidence + title headline, at three scales. */
 export type HeadlineSize = 'page' | 'panel' | 'row';
