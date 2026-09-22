@@ -4778,7 +4778,16 @@
     "category": "policy",
     "title": "International compute reporting",
     "summary": "Major economies agree on training-run disclosure thresholds — the first transparency regime with teeth.",
-    "confidence": "Uncertain"
+    "why": "Every threshold written so far — the EU’s, the American executive order’s — counts training compute and then asks the laboratory to report it. The board keeps this card for the first one that carries an inspection power somebody is willing to use across a border, which is the part no draft has yet contained.",
+    "confidence": "Uncertain",
+    "orgs": [
+      "european-union"
+    ],
+    "terms": [
+      "compute",
+      "ai-act",
+      "export-controls"
+    ]
   },
   {
     "id": "provenance-becomes-mandatory",
@@ -4795,7 +4804,12 @@
     "category": "incident",
     "title": "An agent-driven market event",
     "summary": "Interacting autonomous trading and treasury agents produce a disorderly move no single desk can explain — the flash crash, with reasoning traces.",
-    "confidence": "Uncertain"
+    "why": "The 2010 flash crash took five years to explain, and the explanation was one trader. This card asks what the same half-hour looks like when the participants are agents that leave reasoning traces nobody can read at the speed the market moves. The board keeps it because both strings behind it are already on the record.",
+    "confidence": "Uncertain",
+    "terms": [
+      "agents",
+      "reasoning-model"
+    ]
   },
   {
     "id": "energy-is-the-binding-constraint",
@@ -4803,7 +4817,11 @@
     "category": "compute",
     "title": "Energy is the binding constraint",
     "summary": "Grid capacity, cooling and siting decide who can train frontier models — not talent or capital.",
-    "confidence": "Likely"
+    "why": "This is the one forward card the board files as Likely, because its argument is already arithmetic rather than expectation: grid connection queues and cooling water are counted in public, and they are shorter than the datacentre plans that need them.",
+    "confidence": "Likely",
+    "terms": [
+      "compute"
+    ]
   },
   {
     "id": "knowledge-work-is-measurably-restructured",
@@ -4811,7 +4829,11 @@
     "category": "culture",
     "title": "Knowledge work is measurably restructured",
     "summary": "The first credible longitudinal data on task displacement lands, and it is messier than either camp predicted.",
-    "confidence": "Uncertain"
+    "why": "Every claim about displacement so far has been a survey or an anecdote. The board keeps a card for the first study with a control group and several years behind it — the evidence both camps have been arguing without — and files it Uncertain because a measurement arriving is not the same as it settling anything.",
+    "confidence": "Uncertain",
+    "terms": [
+      "agents"
+    ]
   },
   {
     "id": "a-machine-assisted-proof",
@@ -4828,7 +4850,12 @@
     "category": "power",
     "title": "Model weights become a national-security asset",
     "summary": "Frontier weights are handled like enriched material: export-controlled, insured, and occasionally stolen.",
-    "confidence": "Speculative"
+    "why": "The analogy the card rests on is enriched material, and it is the one governments have reached for before: a control list, an insurance market, and a theft discovered late. Every step of it is precedented and none of them has happened to a set of weights, which is why it is filed Speculative.",
+    "confidence": "Speculative",
+    "terms": [
+      "open-weights",
+      "export-controls"
+    ]
   },
   {
     "id": "a-model-caused-infrastructure-failure",
@@ -4863,6 +4890,7 @@
     "category": "culture",
     "title": "Tutoring at population scale",
     "summary": "Persistent personalised instruction is measured against attainment gaps, and the results are contested for a decade.",
+    "why": "Bloom’s two-sigma result is from 1984 and has never been delivered at scale, because the constraint was always the number of tutors. The board keeps a card for the first time that constraint is removed, and files it Speculative because the same promise has been made for every teaching technology since television.",
     "confidence": "Speculative"
   },
   {
@@ -4899,6 +4927,7 @@
     "category": "culture",
     "title": "The second half of the century",
     "summary": "By now the question is not what machines can do, but which institutions survived the transition.",
+    "why": "The board’s last card is not a prediction. It is where the argument runs out: every string on this wall is finally a claim about an institution — a laboratory’s charter, a court, a ministry — and what this card holds open is which of them is still deciding anything once the capability questions have stopped being the interesting ones.",
     "confidence": "Speculative"
   }
 ]

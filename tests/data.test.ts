@@ -52,6 +52,15 @@ describe('events.json', () => {
     expect(bad.map((e) => e.title)).toEqual([]);
   });
 
+  /* A projection carries reasoning instead of a citation — docs/SCHEMA.md has
+     always said so, and nothing checked it. Seven of eighteen scenarios had
+     none, and the horizon printed the consequence out loud on every one of
+     them: "Asserted, with no reason written down." */
+  it('gives every projection a reading, since it has no citation', () => {
+    const silent = events.filter((e) => e.year > NOW && !e.why);
+    expect(silent.map((e) => e.id)).toEqual([]);
+  });
+
   /* A date is the order inside a year, where the record knows it. It is
      `YYYY-MM` or `YYYY-MM-DD`, it agrees with the year above it, and it never
      appears on a scenario — a scenario's year is a placeholder, and a date on

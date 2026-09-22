@@ -14,7 +14,7 @@ The files under `data/`, all validated by `npm test`.
 | `summary` | string | yes | one or two sentences, ≤ 220 characters |
 | `source` | string | no | display name, e.g. `Wikipedia` (legacy; prefer `sources`) |
 | `url` | string | no | https only; omit for projections (legacy; prefer `sources`) |
-| `why` | string | no | the reading — why it mattered; required for projections |
+| `why` | string | see note | the reading — why it mattered. **Required** on a projection (`year > now`), which carries reasoning in place of a citation; optional on the record |
 | `detail` | string[] | no | the file: paragraphs behind the summary, shown on the dossier (first one in brief, all in full) |
 | `figures` | `{label, value}[]` | no | the numbers a reader should be able to quote |
 | `firsts` | string | no | a threshold crossed for the first time, shown as a `First ·` badge |
