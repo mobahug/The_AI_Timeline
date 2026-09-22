@@ -47,29 +47,90 @@ const patternFor = (entity: Entity): RegExp[] => {
 };
 
 /** The text of a card an entity can appear in: never its sources, whose text
- *  belongs to someone else. */
-const textOf = (event: Event) => [event.title, event.summary, event.why || '', ...(event.detail || [])].join('\n');
+ *  belongs to someone else.
+ *
+ *  Built once per card. It used to be rebuilt for every entity tested against
+ *  it, which is 120 string joins per card and 163 cards per entity — the same
+ *  paragraphs concatenated some twenty thousand times to answer one page. */
+const TEXT = new WeakMap<Event, string>();
+const textOf = (event: Event): string => {
+  const had = TEXT.get(event);
+  if (had !== undefined) return had;
+  const out = [event.title, event.summary, event.why || '', ...(event.detail || [])].join('\n');
+  TEXT.set(event, out);
+  return out;
+};
+
+/* A word-bounded regex can only match where the plain substring is there, so a
+   substring test is a sound gate in front of it — and about a hundred times
+   cheaper than a unicode-mode alternation over two kilobytes of prose. Most of
+   the 120 entities are absent from most of the 163 cards, so the regex now runs
+   only where it might succeed. */
+const LOWER = new WeakMap<Event, string>();
+const lowerText = (event: Event): string => {
+  const had = LOWER.get(event);
+  if (had !== undefined) return had;
+  const out = textOf(event).toLowerCase();
+  LOWER.set(event, out);
+  return out;
+};
+const needles = new Map<string, string[]>();
+const needlesFor = (entity: Entity): string[] => {
+  const key = entity.id + '|' + entity.kind;
+  let found = needles.get(key);
+  if (!found) {
+    found = [entity.label, ...(entity.aka || [])].filter(Boolean).map((n) => n.toLowerCase());
+    needles.set(key, found);
+  }
+  return found;
+};
 
 /** Does a card name this entity, by tag or by text? */
 export function names(event: Event, entity: Entity): boolean {
   const tagged = event[FIELD[entity.kind]];
   if (Array.isArray(tagged) && tagged.includes(entity.id)) return true;
+  const hay = lowerText(event);
+  if (!needlesFor(entity).some((n) => hay.includes(n))) return false;
   const text = textOf(event);
   return patternFor(entity).some((re) => re.test(text));
 }
 
-/** Every entity a card names, grouped by kind, tagged ones first. */
+/** Every entity a card names, grouped by kind, tagged ones first.
+ *
+ *  Kept once per card: this walks all 43 people, 25 organisations and 52 terms
+ *  and runs each one's regex over the card's whole text, and the co-occurrence
+ *  blocks ask for it once per card of an entity's trail — which on OpenAI's
+ *  page is thirty cards, twice. */
+const NAMED = new WeakMap<Event, { people: PersonEntity[]; orgs: OrgEntity[]; terms: TermEntity[] }>();
+
 export function entitiesOf(event: Event): { people: PersonEntity[]; orgs: OrgEntity[]; terms: TermEntity[] } {
+  const had = NAMED.get(event);
+  if (had) return had;
   const pick = <T extends Entity>(list: T[]): T[] => {
     const tagged = list.filter((x) => { const t = event[FIELD[x.kind]]; return Array.isArray(t) && t.includes(x.id); });
     const found = list.filter((x) => !tagged.includes(x) && names(event, x));
     return [...tagged, ...found];
   };
-  return { people: pick(PEOPLE), orgs: pick(ORGS), terms: pick(TERMS) };
+  const out = { people: pick(PEOPLE), orgs: pick(ORGS), terms: pick(TERMS) };
+  NAMED.set(event, out);
+  return out;
 }
 
-/** Every card that names an entity, in date order. */
-export const appearancesOf = (graph: Graph, entity: Entity): Event[] => graph.all.filter((e) => names(e, entity));
+/** Every card that names an entity, in date order. Kept, like `entitiesOf`:
+ *  the files page asks for every entity's trail to count it, and the entity
+ *  page asks again for the same one. */
+const TRAILS = new WeakMap<Graph, Map<string, Event[]>>();
+
+export const appearancesOf = (graph: Graph, entity: Entity): Event[] => {
+  let per = TRAILS.get(graph);
+  if (!per) { per = new Map(); TRAILS.set(graph, per); }
+  const key = entity.kind + '|' + entity.id;
+  const had = per.get(key);
+  if (had) return had;
+  const out = graph.all.filter((e) => names(e, entity));
+  per.set(key, out);
+  return out;
+};
 
 /** The route to an entity's page. */
 export const routeOf = (entity: Entity): { view: ViewId; id: string } => ({ view: VIEW[entity.kind], id: entity.id });
@@ -112,7 +173,12 @@ export function coOccurring(graph: Graph, entity: Entity, kinds: EntityKind[]): 
 /** The files page's own order — most-used first — shared with the pages it
  *  links to, so prev and next follow the order the reader arrived by. */
 export function byUse(graph: Graph, list: Entity[]): Entity[] {
-  return [...list].sort((a, b) => appearancesOf(graph, b).length - appearancesOf(graph, a).length || a.label.localeCompare(b.label));
+  // Counted once each, then sorted. Counting inside the comparator asked for
+  // 358 trails to order 43 people — a sort is not a place to do work in.
+  return list
+    .map((entity) => ({ entity, n: appearancesOf(graph, entity).length }))
+    .sort((a, b) => b.n - a.n || a.entity.label.localeCompare(b.entity.label))
+    .map((x) => x.entity);
 }
 
 export const ALL_ENTITIES: Entity[] = [...PEOPLE, ...ORGS, ...TERMS];
@@ -133,10 +199,10 @@ export const entityById = (kind: EntityKind, id: string): Entity | null => (kind
    the numbers it quotes, the threshold it claims, the date it carries, and the
    names it tags but does not spell out. Never its sources — a card is not
    found by the publisher of a page it cites. Built once per card and kept. */
-const INDEX = new Map<string, string>();
+const INDEX = new WeakMap<Event, string>();
 
 export function searchText(event: Event): string {
-  const had = INDEX.get(event.id);
+  const had = INDEX.get(event);
   if (had !== undefined) return had;
   const tagged = [
     ...(event.people || []).map((id) => personById[id]),
@@ -154,7 +220,7 @@ export function searchText(event: Event): string {
     event.date,
     ...tagged.flatMap((x) => [x.label, ...(x.aka || [])])
   ].filter(Boolean).join(' ').toLowerCase();
-  INDEX.set(event.id, text);
+  INDEX.set(event, text);
   return text;
 }
 
