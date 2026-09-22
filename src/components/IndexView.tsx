@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Event } from '../lib/types';
-import { accent, catLabel, groupByEra } from '../lib/data';
+import { accent, catLabel, groupByEra, whenOf } from '../lib/data';
 import { INK, MONO, SANS, SERIF, RULE, ROW_RULE, badge, ink, shell, tag } from '../lib/styles';
 import { Eyebrow, Link } from './kit';
 
@@ -34,7 +34,9 @@ export default function IndexView({ items }: IndexViewProps) {
                   borderLeft: e.future ? '2px dashed rgba(243,240,234,0.25)' : '2px solid transparent'
                 }}
               >
-                <div style={{ flex: '0 0 72px', font: '400 12px/1.5 ' + MONO, color: ink(4), fontVariantNumeric: 'tabular-nums' }}>{e.year}</div>
+                {/* Wide enough for "30 Nov 2022"; the undated rows still read
+                    as a column of years down the left. */}
+                <div style={{ flex: '0 0 88px', font: '400 12px/1.5 ' + MONO, color: ink(4), fontVariantNumeric: 'tabular-nums' }}>{whenOf(e)}</div>
                 <div style={{ flex: '1 1 220px', minWidth: 0, display: 'flex', flexWrap: 'wrap', gap: '4px 20px', alignItems: 'baseline' }}>
                   <div style={{ flex: '1.1 1 200px', minWidth: 0, font: '400 17px/1.2 ' + SERIF, letterSpacing: '-0.015em', color: INK, textWrap: 'balance' }}>{e.title}</div>
                   <div style={{ flex: '1.5 1 260px', minWidth: 0, font: '400 12.5px/1.5 ' + SANS, color: ink(4), textWrap: 'pretty' }}>{e.summary}</div>

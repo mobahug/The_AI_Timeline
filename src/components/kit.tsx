@@ -1,6 +1,6 @@
 import React, { createContext, forwardRef, useContext, useEffect, useState } from 'react';
 import type { CSSProperties, ElementType, MouseEvent, ReactNode } from 'react';
-import { accent, catLabel } from '../lib/data';
+import { accent, catLabel, whenOf } from '../lib/data';
 import { hrefFor, resolve } from '../lib/url';
 import type { Navigate } from '../lib/url';
 import { useMode } from '../lib/mode';
@@ -126,6 +126,9 @@ export function CardTriple({ event, size = 'panel', as: As = 'h2', showTag = tru
       <div style={{ display: 'flex', alignItems: 'center', gap: 9, flexWrap: 'wrap' }}>
         {lead}
         <span style={h.year}>{event.year}</span>
+        {/* The year is the board's axis and stays the big number. The day sits
+            beside it, small, and only where the record knows it. */}
+        {event.date && <span style={{ ...micro(5), letterSpacing: '0.14em' }}>{whenOf(event, { year: false })}</span>}
         {showTag && <span style={tag(event.category, accent)}>{catLabel(event.category)}</span>}
         {event.confidence && <span style={badge()}>{event.confidence}</span>}
       </div>

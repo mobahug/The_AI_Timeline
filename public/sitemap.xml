@@ -49,8 +49,8 @@
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/turing-asks-the-question/</loc><priority>0.6</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/snarc-the-first-neural-net-machine/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/a-program-that-learns-checkers/</loc><priority>0.5</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/dartmouth-names-the-field/</loc><priority>0.6</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/logic-theorist/</loc><priority>0.5</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/dartmouth-names-the-field/</loc><priority>0.6</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/the-perceptron/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/lisp/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/machine-learning-gets-its-name/</loc><priority>0.5</priority></url>
@@ -81,8 +81,8 @@
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/td-gammon/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/chinook-takes-the-checkers-title/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/support-vector-machines/</loc><priority>0.5</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/deep-blue-beats-kasparov/</loc><priority>0.6</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/lstm/</loc><priority>0.5</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/deep-blue-beats-kasparov/</loc><priority>0.6</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/pagerank/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/roomba/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/nobody-finishes-the-grand-challenge/</loc><priority>0.5</priority></url>
@@ -93,62 +93,62 @@
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/imagenet/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/the-flash-crash/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/kaggle/</loc><priority>0.5</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/watson-wins-jeopardy/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/siri-ships/</loc><priority>0.5</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/watson-wins-jeopardy/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/alexnet/</loc><priority>0.6</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/word2vec/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/hinton-auctions-his-three-person-startup/</loc><priority>0.6</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/zuckerberg-hires-lecun/</loc><priority>0.5</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/generative-adversarial-networks/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/sequence-to-sequence/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/google-buys-deepmind/</loc><priority>0.5</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/generative-adversarial-networks/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/resnet-passes-human-error-rates/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/the-autonomous-weapons-letter/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/musk-and-altman-found-openai/</loc><priority>0.6</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/alphago-move-37/</loc><priority>0.6</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/tay/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/gdpr-is-adopted/</loc><priority>0.5</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/alphago-move-37/</loc><priority>0.6</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/the-boat-that-would-not-finish/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/attention-is-all-you-need/</loc><priority>0.6</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/deepfakes-arrive/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/pytorch/</loc><priority>0.5</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/alphazero/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/libratus-beats-the-poker-pros/</loc><priority>0.5</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/alphazero/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/a-self-driving-car-kills-a-pedestrian/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/amazon-scraps-a-biased-hiring-tool/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/bert-and-gpt-1/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/musk-leaves-the-openai-board/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/gpt-2-s-staged-release/</loc><priority>0.5</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/openai-goes-capped-profit-microsoft-puts-in-1bn/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/alphastar-and-openai-five/</loc><priority>0.5</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/gpt-3/</loc><priority>0.5</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/alphafold-2/</loc><priority>0.6</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/openai-goes-capped-profit-microsoft-puts-in-1bn/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/google-fires-timnit-gebru/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/scaling-laws/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/specification-gaming/</loc><priority>0.5</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/gpt-3/</loc><priority>0.5</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/alphafold-2/</loc><priority>0.6</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/copilot/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/the-eu-proposes-the-ai-act/</loc><priority>0.5</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/anthropic-founded-by-departing-openai-staff/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/grade-school-maths-becomes-a-benchmark/</loc><priority>0.5</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/anthropic-founded-by-departing-openai-staff/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/diffusion-goes-mainstream/</loc><priority>0.5</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/chatgpt/</loc><priority>0.6</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/an-engineer-says-lamda-is-sentient/</loc><priority>0.5</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/google-declares-a-code-red/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/instructgpt/</loc><priority>0.5</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/minerva/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/washington-restricts-the-chips/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/cicero-plays-diplomacy/</loc><priority>0.5</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/minerva/</loc><priority>0.5</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/chatgpt/</loc><priority>0.6</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/google-declares-a-code-red/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/multimodal-models/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/fabricated-citations-reach-a-courtroom/</loc><priority>0.5</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/bletchley-and-the-executive-orders/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/hollywood-strikes-settle-ai-terms/</loc><priority>0.5</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/llama-leaks/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/sydney/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/the-pause-letter/</loc><priority>0.5</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/altman-is-fired-then-rehired-in-five-days/</loc><priority>0.6</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/hinton-leaves-google/</loc><priority>0.5</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/llama-leaks/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/llama-2-is-free-for-commercial-use/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/a-magnet-link-from-paris/</loc><priority>0.5</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/bletchley-and-the-executive-orders/</loc><priority>0.5</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/altman-is-fired-then-rehired-in-five-days/</loc><priority>0.6</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/the-eu-ai-act-is-adopted/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/nobel-prizes-for-neural-networks/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/the-datacenter-buildout/</loc><priority>0.5</priority></url>
@@ -156,29 +156,29 @@
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/sutskever-leaves-superalignment-dissolves/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/the-voice-that-sounded-like-her/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/hugging-face-spaces-is-breached/</loc><priority>0.5</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/meta-claims-the-frontier-for-open-weights/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/the-arc-prize/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/nvidia-is-the-most-valuable-company-on-earth/</loc><priority>0.5</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/caught-scheming-in-the-lab/</loc><priority>0.5</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/alignment-faking/</loc><priority>0.5</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/meta-claims-the-frontier-for-open-weights/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/gpt-4o-mini-and-the-99-percent-price-cut/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/silver-at-the-imo/</loc><priority>0.5</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/caught-scheming-in-the-lab/</loc><priority>0.5</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/alignment-faking/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/frontiermath/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/reasoning-models/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/power-becomes-a-strategy/</loc><priority>0.5</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/prompt-injection-in-the-wild/</loc><priority>0.5</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/deepseek-r1-resets-the-price-of-reasoning/</loc><priority>0.6</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/coding-agents-take-the-keyboard/</loc><priority>0.5</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/deepseek-r1-resets-the-price-of-reasoning/</loc><priority>0.6</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/the-cost-of-an-answer-falls-280-fold/</loc><priority>0.5</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/editing-the-off-switch/</loc><priority>0.5</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/prompt-injection-in-the-wild/</loc><priority>0.5</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/blackmail-in-the-simulation/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/gold-at-the-imo/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/openai-converts-the-nonprofit-keeps-a-stake/</loc><priority>0.5</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/editing-the-off-switch/</loc><priority>0.5</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/blackmail-in-the-simulation/</loc><priority>0.5</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/the-cost-of-an-answer-falls-280-fold/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/agents-enter-real-workflows/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/ai-act-obligations-bite/</loc><priority>0.5</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/a-poisoned-dataset-owns-the-pipeline/</loc><priority>0.6</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/sovereign-compute/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/the-erdos-problems/</loc><priority>0.5</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/a-poisoned-dataset-owns-the-pipeline/</loc><priority>0.6</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/navier-stokes-falls-to-ten-thousand-agents/</loc><priority>0.6</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/multi-day-autonomous-work/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/inference-silicon-commoditises/</loc><priority>0.5</priority></url>

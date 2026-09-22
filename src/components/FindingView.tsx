@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Graph, Media, Route, Row } from '../lib/types';
 import type { Navigate } from '../lib/url';
-import { NOW, accent, fade } from '../lib/data';
+import { NOW, accent, fade, whenOf } from '../lib/data';
 import { buildLine, readingOf, findingByNumber } from '../lib/spine';
 import { INK, MONO, SANS, SERIF, RULE, ROW_RULE, PHOTO_FILTER, PLACEHOLDER, frame, ink, micro, shell, sourceLink } from '../lib/styles';
 import { Btn, CardTriple, Claim, Eyebrow, Link, NavRow, Ref, Reading, Section } from './kit';
@@ -115,13 +115,13 @@ function FindingView({ graph, route, navigate, onOpen, media }: FindingViewProps
                 className="ix-row"
                 style={{
                   display: 'grid', width: '100%', textAlign: 'left', background: 'transparent',
-                  gridTemplateColumns: 'clamp(46px,7vw,64px) minmax(0,1fr) auto', gap: 'clamp(10px,2vw,20px)',
+                  gridTemplateColumns: 'clamp(64px,9vw,88px) minmax(0,1fr) auto', gap: 'clamp(10px,2vw,20px)',
                   alignItems: 'baseline', padding: '14px 2px', border: 'none', borderTop: ROW_RULE,
                   borderLeft: linked ? '2px solid ' + accent(e.category, fade(e.year)) : '2px dashed rgba(243,240,234,0.18)',
                   paddingLeft: 12
                 }}
               >
-                <span style={{ font: '400 12px/1.5 ' + MONO, color: ink(4), fontVariantNumeric: 'tabular-nums' }}>{e.year}</span>
+                <span style={{ font: '400 12px/1.5 ' + MONO, color: ink(4), fontVariantNumeric: 'tabular-nums' }}>{whenOf(e)}</span>
                 <span style={{ minWidth: 0 }}>
                   <span style={{ display: 'block', font: '400 clamp(15px,1.8vw,18px)/1.25 ' + SERIF, color: INK, letterSpacing: '-0.015em', textWrap: 'balance' }}>{e.title}</span>
                   <span style={{ display: 'block', marginTop: 4, font: '400 12.5px/1.55 ' + SANS, color: ink(4), maxWidth: '64ch', textWrap: 'pretty' }}>{e.summary}</span>

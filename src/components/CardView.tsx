@@ -1,5 +1,9 @@
 import React from 'react';
-import { NOW, accent, roadsTo, sourcesOf, sourceStrength, stringsOf } from '../lib/data';
+import { NOW, accent, roadsTo, sourcesOf, sourceStrength, stringsOf, whenOf } from '../lib/data';
+
+/* A citation's own date, written the way the board writes a card's — otherwise
+   `2024-12-18` and `Dec 2024` sit a few lines apart on one page. */
+const dateText = (iso: string): string => whenOf({ year: Number(iso.slice(0, 4)), date: iso });
 import { bearingOn, splitSentences } from '../lib/wiki';
 import { findingFor } from '../lib/spine';
 import { leadsOf } from '../lib/leads';
@@ -46,7 +50,7 @@ const SourceBlock = ({ src, event, page }: { src: Source; event: Event; page: Sh
     <div style={{ padding: '16px 0', borderBottom: ROW_RULE }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 9, flexWrap: 'wrap' }}>
         <span style={{ ...micro(3), border: '1px solid rgba(243,240,234,0.22)', borderRadius: 2, padding: '3px 7px' }}>{KIND_LABEL[src.kind] || src.kind}</span>
-        <span style={{ ...micro(5), letterSpacing: '0.12em' }}>{src.publisher}{src.date ? ' · ' + src.date : ''}{src.at ? ' · at ' + src.at : ''}</span>
+        <span style={{ ...micro(5), letterSpacing: '0.12em' }}>{src.publisher}{src.date ? ' · ' + dateText(src.date) : ''}{src.at ? ' · at ' + src.at : ''}</span>
         {supports && <span style={{ ...micro(1), color: STRING_INK, letterSpacing: '0.14em' }}>supports the claim</span>}
         {src.legacy && <span style={micro(5)}>cited, not yet quoted</span>}
       </div>
@@ -130,11 +134,13 @@ function CardView({ graph, route, media, embedded }: CardViewProps) {
     { label: 'The board', to: { view: 'board', id: event.id } },
     finding ? { label: String(finding.n).padStart(2, '0') + ' · ' + finding.title, to: { view: 'finding', finding: String(finding.n) } } : null
   ] satisfies (NavItem | null)[]).filter(Boolean) as NavItem[];
+  // The neighbours are labelled by date, never by title: `Btn` is nowrap, and a
+  // title would run off the side of a phone.
   const nav = (
     <NavRow
       up={up}
-      prev={prev && { label: prev.year, to: { view: 'card', id: prev.id } }}
-      next={next && { label: next.year, to: { view: 'card', id: next.id } }}
+      prev={prev && { label: whenOf(prev), to: { view: 'card', id: prev.id } }}
+      next={next && { label: whenOf(next), to: { view: 'card', id: next.id } }}
     />
   );
 
@@ -158,7 +164,7 @@ function CardView({ graph, route, media, embedded }: CardViewProps) {
             <Reading event={event} size="lg" maxWidth="50ch" style={{ margin: '16px 0 0' }} />
             {basedOn && (
               <div style={{ margin: '16px 0 0', ...micro(5), textTransform: 'none', letterSpacing: '0.06em', font: '400 11px/1.6 ' + MONO, overflowWrap: 'anywhere' }}>
-                Based on · <a href={basedOn.url} target="_blank" rel="noopener" className="ix" style={{ color: ink(3) }}>{basedOn.publisher || basedOn.title}{basedOn.title && basedOn.publisher ? ', ' + basedOn.title : ''}</a>{basedOn.date ? ' · ' + basedOn.date : ''}
+                Based on · <a href={basedOn.url} target="_blank" rel="noopener" className="ix" style={{ color: ink(3) }}>{basedOn.publisher || basedOn.title}{basedOn.title && basedOn.publisher ? ', ' + basedOn.title : ''}</a>{basedOn.date ? ' · ' + dateText(basedOn.date) : ''}
               </div>
             )}
             <Chips label="Names" items={[...names.people, ...names.orgs]} style={{ marginTop: 16 }} />

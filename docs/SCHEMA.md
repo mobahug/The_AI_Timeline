@@ -8,6 +8,7 @@ The files under `data/`, all validated by `npm test`.
 | --- | --- | --- | --- |
 | `id` | string | yes | kebab-case, unique, stable — deep links use it |
 | `year` | number | yes | 1900–2050 |
+| `date` | string | no | `YYYY-MM` or `YYYY-MM-DD`, agreeing with `year`; never on a projection |
 | `category` | string | yes | one of the ids in `threads.json` |
 | `title` | string | yes | ≤ 70 characters, sentence case |
 | `summary` | string | yes | one or two sentences, ≤ 220 characters |
@@ -22,6 +23,12 @@ The files under `data/`, all validated by `npm test`.
 | `confidence` | string | no | `Likely` / `Uncertain` / `Speculative`; required when `year > now` |
 | `featured` | boolean | no | draws a larger card; a landmark in brief |
 | `wikiTitle` | string | no | article the photo is pulled from |
+
+The year is the axis; `date` is the order inside a year, where the record knows
+it. An undated record card sorts **first** in its year — a card written at year
+scale is the ground that year's dated incidents happen on, not an event on a
+day. Two cards in one year that both carry a date are written in that order, and
+a string never runs backwards inside a year: `npm test` checks both.
 
 Each source: `{ kind, publisher, title, url, date (YYYY-MM-DD), quote, supports }`.
 `kind` is one of `primary, paper, article, video, podcast, interview, encyclopedia`.

@@ -64,6 +64,37 @@ export const yearAtFraction = (v: number): number => {
 
 export const TICKS = ANCHORS.map(([y]) => y);
 
+/* ─── When ───────────────────────────────────────────────────────────────
+   The year is the board's axis and always was. A date is the order inside a
+   year, where the record knows it: 2024 alone holds fifteen cards, and without
+   one they fall in the order someone happened to type them, which is how two
+   strings came to run backwards down a single lane.
+
+   An undated record card sorts FIRST in its year. A card written at year scale
+   — the datacentre buildout, the year coding agents arrived — is not an event
+   on a day, and it reads as the ground the year's dated incidents happen on.
+
+   The month names are written out here rather than asked of `Intl`, which
+   answers by locale: the server renders once, in whatever locale the build
+   machine has, and the client must not disagree with it. */
+const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+/** `2022-11-30` → `30 Nov 2022`; `2022-11` → `Nov 2022`; nothing → the year. */
+export function whenOf(e: { year: number; date?: string }, opts?: { year?: boolean }): string {
+  const withYear = !opts || opts.year !== false;
+  const m = /^(\d{4})-(\d{2})(?:-(\d{2}))?$/.exec(e.date || '');
+  if (!m) return String(e.year);
+  const month = MONTHS[Number(m[2]) - 1];
+  if (!month) return String(e.year);
+  const head = m[3] ? String(Number(m[3])) + ' ' + month : month;
+  return withYear ? head + ' ' + m[1] : head;
+}
+
+/** Oldest first: by year, then by date where both carry one, then by the order
+ *  they are written in the file. An undated card leads its year. */
+export const byWhen = (a: { year: number; date?: string }, b: { year: number; date?: string }): number =>
+  a.year - b.year || (a.date || '').localeCompare(b.date || '');
+
 /** The graph: every card and string in data/, indexed and joined. The board
  *  changes in the data and nowhere else. `extra` — `{ nodes, edges }` — is
  *  for the tests, which prove the derivations are data-driven by adding a card
@@ -73,7 +104,7 @@ export interface GraphExtra { nodes?: EventRaw[]; edges?: LinkRaw[] }
 export function buildGraph(extra?: GraphExtra): Graph {
   const x = extra || {};
   const more = (x.nodes || []).map(raise);
-  const all: Event[] = [...events, ...more].map((e) => ({ ...e })).sort((a, c) => a.year - c.year);
+  const all: Event[] = [...events, ...more].map((e) => ({ ...e })).sort(byWhen);
   const index: Record<string, Event> = Object.fromEntries(all.map((e) => [e.id, e]));
 
   const canon: Edge[] = links.map((l, i) => ({ ...l, id: 'c' + i }));
@@ -147,7 +178,9 @@ export const parentsOf = (graph: Graph, id: string): Adjacent[] => (graph.adjace
 /** The strings on one card, split by direction and ordered by the other end's
  *  year — what led to this, and what this led to. */
 export function stringsOf(graph: Graph, id: string): { into: Adjacent[]; outOf: Adjacent[] } {
-  const byYear = (a: Adjacent, b: Adjacent) => (graph.index[a.id] ? graph.index[a.id].year : 0) - (graph.index[b.id] ? graph.index[b.id].year : 0);
+  // The same key the graph is sorted by, so a card's own string lists never
+  // disagree with the order the board draws them in.
+  const byYear = (a: Adjacent, b: Adjacent) => byWhen(graph.index[a.id] || { year: 0 }, graph.index[b.id] || { year: 0 });
   const links = (graph.adjacency[id] || []).filter((a) => graph.index[a.id]);
   return {
     into: links.filter((a) => !a.out).sort(byYear),

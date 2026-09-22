@@ -36,6 +36,9 @@ export interface Figure { label: string; value: string }
 export interface EventRaw {
   id: string;
   year: number;
+  /** `YYYY-MM` or `YYYY-MM-DD`, where the record knows it. Never on a scenario:
+   *  a scenario's year is a placeholder and a date would read as a forecast. */
+  date?: string;
   category: string;
   title: string;
   summary: string;

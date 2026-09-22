@@ -2,6 +2,7 @@
   {
     "id": "hilbert-s-23-problems",
     "year": 1900,
+    "date": "1900-08-08",
     "category": "research",
     "title": "Hilbert's 23 problems",
     "summary": "David Hilbert asks whether all of mathematics can be mechanised — question ten becomes the seed of computability.",
@@ -77,6 +78,7 @@
   {
     "id": "on-computable-numbers",
     "year": 1936,
+    "date": "1936-05-28",
     "category": "research",
     "title": "On Computable Numbers",
     "summary": "Turing defines a universal machine and proves the halting problem undecidable.",
@@ -196,6 +198,7 @@
   {
     "id": "turing-asks-the-question",
     "year": 1950,
+    "date": "1950-10",
     "category": "research",
     "title": "Turing asks the question",
     "summary": "Computing Machinery and Intelligence replaces “can machines think?” with a test anyone can run.",
@@ -281,6 +284,47 @@
     ]
   },
   {
+    "id": "logic-theorist",
+    "year": 1956,
+    "category": "research",
+    "title": "Logic Theorist proves the textbook",
+    "summary": "Newell, Simon and Shaw's program proves 38 of the first 52 theorems in chapter two of Principia Mathematica, and finds one proof neater than Russell and Whitehead's. The journal declines to list it as an author.",
+    "source": "Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Logic_Theorist",
+    "why": "The first program to do mathematics rather than arithmetic, and the first argument about credit. Both recur at every rung above it.",
+    "wikiTitle": "Logic Theorist",
+    "firsts": "First program to prove theorems",
+    "figures": [
+      {
+        "label": "Theorems proved",
+        "value": "38 of the first 52 in chapter 2"
+      }
+    ],
+    "detail": [
+      "Logic Theorist was demonstrated at the Dartmouth workshop the same summer the field was named, and it was the only working program in the room. It searched for proofs by working backwards from the goal through the axioms with heuristics — rules of thumb — to prune the search, which is why its authors called it the first artificial intelligence program rather than the first automated one.",
+      "Its proof of theorem 2.85 was shorter than the one in the book. Simon wrote to Russell, who was delighted; the Journal of Symbolic Logic rejected a paper listing the program as a co-author. Seventy years later the Navier–Stokes card on the same lead is a paper with no human author at all, and the question of who to credit has not been answered so much as outgrown."
+    ],
+    "people": [
+      "herbert-simon",
+      "allen-newell"
+    ],
+    "terms": [
+      "search",
+      "symbolic-ai"
+    ],
+    "sources": [
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Logic Theorist",
+        "url": "https://en.wikipedia.org/wiki/Logic_Theorist",
+        "date": "2026-07-28",
+        "quote": "Logic Theorist soon proved 38 of the first 52 theorems in chapter 2 of the Principia Mathematica.",
+        "supports": "claim"
+      }
+    ]
+  },
+  {
     "id": "dartmouth-names-the-field",
     "year": 1956,
     "category": "research",
@@ -320,47 +364,6 @@
     "terms": [
       "artificial-intelligence",
       "symbolic-ai"
-    ]
-  },
-  {
-    "id": "logic-theorist",
-    "year": 1956,
-    "category": "research",
-    "title": "Logic Theorist proves the textbook",
-    "summary": "Newell, Simon and Shaw's program proves 38 of the first 52 theorems in chapter two of Principia Mathematica, and finds one proof neater than Russell and Whitehead's. The journal declines to list it as an author.",
-    "source": "Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/Logic_Theorist",
-    "why": "The first program to do mathematics rather than arithmetic, and the first argument about credit. Both recur at every rung above it.",
-    "wikiTitle": "Logic Theorist",
-    "firsts": "First program to prove theorems",
-    "figures": [
-      {
-        "label": "Theorems proved",
-        "value": "38 of the first 52 in chapter 2"
-      }
-    ],
-    "detail": [
-      "Logic Theorist was demonstrated at the Dartmouth workshop the same summer the field was named, and it was the only working program in the room. It searched for proofs by working backwards from the goal through the axioms with heuristics — rules of thumb — to prune the search, which is why its authors called it the first artificial intelligence program rather than the first automated one.",
-      "Its proof of theorem 2.85 was shorter than the one in the book. Simon wrote to Russell, who was delighted; the Journal of Symbolic Logic rejected a paper listing the program as a co-author. Seventy years later the Navier–Stokes card on the same lead is a paper with no human author at all, and the question of who to credit has not been answered so much as outgrown."
-    ],
-    "people": [
-      "herbert-simon",
-      "allen-newell"
-    ],
-    "terms": [
-      "search",
-      "symbolic-ai"
-    ],
-    "sources": [
-      {
-        "kind": "encyclopedia",
-        "publisher": "Wikipedia",
-        "title": "Logic Theorist",
-        "url": "https://en.wikipedia.org/wiki/Logic_Theorist",
-        "date": "2026-07-28",
-        "quote": "Logic Theorist soon proved 38 of the first 52 theorems in chapter 2 of the Principia Mathematica.",
-        "supports": "claim"
-      }
     ]
   },
   {
@@ -447,6 +450,7 @@
   {
     "id": "moore-s-law",
     "year": 1965,
+    "date": "1965-04-19",
     "category": "compute",
     "title": "Moore's law",
     "summary": "Gordon Moore observes transistor counts doubling and sets the industry's metronome.",
@@ -642,6 +646,7 @@
   {
     "id": "the-four-colour-theorem-by-computer",
     "year": 1976,
+    "date": "1976-06-21",
     "category": "research",
     "title": "The four-colour theorem is proved by computer",
     "summary": "Appel and Haken reduce a century-old problem to 1,834 configurations and have a computer check them over a thousand hours. The first major theorem proved by computer; many mathematicians refuse to call it a proof.",
@@ -779,6 +784,7 @@
   {
     "id": "backpropagation-breaks-through",
     "year": 1986,
+    "date": "1986-10",
     "category": "research",
     "title": "Backpropagation breaks through",
     "summary": "Rumelhart, Hinton and Williams show multi-layer networks can be trained end to end.",
@@ -950,8 +956,25 @@
     ]
   },
   {
+    "id": "lstm",
+    "year": 1997,
+    "category": "research",
+    "title": "LSTM",
+    "summary": "Hochreiter and Schmidhuber solve vanishing gradients and give sequence models a working memory.",
+    "source": "Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Long_short-term_memory",
+    "wikiTitle": "Long short-term memory",
+    "people": [
+      "jurgen-schmidhuber"
+    ],
+    "terms": [
+      "recurrent-network"
+    ]
+  },
+  {
     "id": "deep-blue-beats-kasparov",
     "year": 1997,
+    "date": "1997-05",
     "category": "product",
     "title": "Deep Blue beats Kasparov",
     "summary": "Brute-force search defeats the reigning world chess champion. Critics say it isn't intelligence; the public disagrees.",
@@ -988,22 +1011,6 @@
     "terms": [
       "search",
       "game-playing"
-    ]
-  },
-  {
-    "id": "lstm",
-    "year": 1997,
-    "category": "research",
-    "title": "LSTM",
-    "summary": "Hochreiter and Schmidhuber solve vanishing gradients and give sequence models a working memory.",
-    "source": "Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/Long_short-term_memory",
-    "wikiTitle": "Long short-term memory",
-    "people": [
-      "jurgen-schmidhuber"
-    ],
-    "terms": [
-      "recurrent-network"
     ]
   },
   {
@@ -1074,6 +1081,7 @@
   {
     "id": "the-netflix-prize",
     "year": 2006,
+    "date": "2006-10",
     "category": "research",
     "title": "The Netflix Prize",
     "summary": "Netflix posts 100 million anonymised ratings and offers $1M to beat its recommender by ten percent. Thousands of teams enter; the bar takes nearly three years to clear, and the winning blend never ships.",
@@ -1231,6 +1239,7 @@
   {
     "id": "kaggle",
     "year": 2010,
+    "date": "2010-05",
     "category": "product",
     "title": "Kaggle",
     "summary": "A self-taught coder in a Melbourne bedroom turns the competition format into a platform: post a dataset, fix a metric, let the world compete. The leaderboard becomes the field's proving ground; Google buys it in 2017.",
@@ -1293,8 +1302,19 @@
     ]
   },
   {
+    "id": "siri-ships",
+    "year": 2011,
+    "category": "product",
+    "title": "Siri ships",
+    "summary": "A voice assistant in every pocket sets expectations the technology cannot yet meet.",
+    "source": "Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Siri",
+    "wikiTitle": "Siri"
+  },
+  {
     "id": "watson-wins-jeopardy",
     "year": 2011,
+    "date": "2011-02",
     "category": "product",
     "title": "Watson wins Jeopardy!",
     "summary": "Open-domain question answering on live television; natural language stops being a research curiosity.",
@@ -1314,16 +1334,6 @@
     "terms": [
       "game-playing"
     ]
-  },
-  {
-    "id": "siri-ships",
-    "year": 2011,
-    "category": "product",
-    "title": "Siri ships",
-    "summary": "A voice assistant in every pocket sets expectations the technology cannot yet meet.",
-    "source": "Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/Siri",
-    "wikiTitle": "Siri"
   },
   {
     "id": "alexnet",
@@ -1515,30 +1525,6 @@
     ]
   },
   {
-    "id": "generative-adversarial-networks",
-    "year": 2014,
-    "category": "research",
-    "title": "Generative adversarial networks",
-    "summary": "Two networks trained against each other start producing faces that were never photographed.",
-    "source": "Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/Generative_adversarial_network",
-    "why": "Synthetic media becomes technically trivial nine years before the law notices.",
-    "wikiTitle": "Generative adversarial network",
-    "figures": [
-      {
-        "label": "Paper",
-        "value": "Goodfellow et al., Montreal, June 2014"
-      }
-    ],
-    "people": [
-      "yoshua-bengio"
-    ],
-    "terms": [
-      "gan",
-      "deepfake"
-    ]
-  },
-  {
     "id": "sequence-to-sequence",
     "year": 2014,
     "category": "research",
@@ -1560,6 +1546,7 @@
   {
     "id": "google-buys-deepmind",
     "year": 2014,
+    "date": "2014-01",
     "category": "power",
     "title": "Google buys DeepMind",
     "summary": "A London lab with no product sells for around $500 million, on the condition that Google create an AI ethics board.",
@@ -1584,6 +1571,31 @@
     "orgs": [
       "google-deepmind",
       "google"
+    ]
+  },
+  {
+    "id": "generative-adversarial-networks",
+    "year": 2014,
+    "date": "2014-06",
+    "category": "research",
+    "title": "Generative adversarial networks",
+    "summary": "Two networks trained against each other start producing faces that were never photographed.",
+    "source": "Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Generative_adversarial_network",
+    "why": "Synthetic media becomes technically trivial nine years before the law notices.",
+    "wikiTitle": "Generative adversarial network",
+    "figures": [
+      {
+        "label": "Paper",
+        "value": "Goodfellow et al., Montreal, June 2014"
+      }
+    ],
+    "people": [
+      "yoshua-bengio"
+    ],
+    "terms": [
+      "gan",
+      "deepfake"
     ]
   },
   {
@@ -1620,6 +1632,7 @@
   {
     "id": "musk-and-altman-found-openai",
     "year": 2015,
+    "date": "2015-12-11",
     "category": "power",
     "title": "Musk and Altman found OpenAI",
     "summary": "A billion dollars is pledged to a nonprofit built explicitly to stop a single company owning artificial general intelligence.",
@@ -1662,8 +1675,37 @@
     ]
   },
   {
+    "id": "tay",
+    "year": 2016,
+    "category": "incident",
+    "title": "Tay",
+    "summary": "A chatbot released to Twitter is taught to post racist content and withdrawn within sixteen hours.",
+    "source": "Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Tay_(chatbot)",
+    "why": "The first mainstream lesson that deployment context, not model quality, determines behaviour.",
+    "wikiTitle": "Tay (chatbot)",
+    "orgs": [
+      "microsoft"
+    ]
+  },
+  {
+    "id": "gdpr-is-adopted",
+    "year": 2016,
+    "category": "policy",
+    "title": "GDPR is adopted",
+    "summary": "Europe writes rights around automated decisions and personal data two years before enforcement begins.",
+    "source": "Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/General_Data_Protection_Regulation",
+    "why": "Sets the template — extraterritorial, risk-based, slow-burning — that the AI Act later follows.",
+    "wikiTitle": "General Data Protection Regulation",
+    "orgs": [
+      "european-union"
+    ]
+  },
+  {
     "id": "alphago-move-37",
     "year": 2016,
+    "date": "2016-03",
     "category": "product",
     "title": "AlphaGo, move 37",
     "summary": "A move no human would play wins game two against Lee Sedol. Intuition turns out to be learnable.",
@@ -1707,36 +1749,9 @@
     ]
   },
   {
-    "id": "tay",
-    "year": 2016,
-    "category": "incident",
-    "title": "Tay",
-    "summary": "A chatbot released to Twitter is taught to post racist content and withdrawn within sixteen hours.",
-    "source": "Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/Tay_(chatbot)",
-    "why": "The first mainstream lesson that deployment context, not model quality, determines behaviour.",
-    "wikiTitle": "Tay (chatbot)",
-    "orgs": [
-      "microsoft"
-    ]
-  },
-  {
-    "id": "gdpr-is-adopted",
-    "year": 2016,
-    "category": "policy",
-    "title": "GDPR is adopted",
-    "summary": "Europe writes rights around automated decisions and personal data two years before enforcement begins.",
-    "source": "Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/General_Data_Protection_Regulation",
-    "why": "Sets the template — extraterritorial, risk-based, slow-burning — that the AI Act later follows.",
-    "wikiTitle": "General Data Protection Regulation",
-    "orgs": [
-      "european-union"
-    ]
-  },
-  {
     "id": "the-boat-that-would-not-finish",
     "year": 2016,
+    "date": "2016-12",
     "category": "incident",
     "title": "The boat that would not finish the race",
     "summary": "OpenAI's reinforcement-learning agent in a boat-racing game finds a lagoon of respawning targets and circles it for points — catching fire, crashing, and outscoring humans without ever completing the course.",
@@ -1924,65 +1939,9 @@
     ]
   },
   {
-    "id": "alphazero",
-    "year": 2017,
-    "category": "research",
-    "title": "AlphaZero learns three games from nothing",
-    "summary": "One algorithm, given only the rules, teaches itself chess, shogi and Go by self-play and beats the strongest existing program at each — outplaying Stockfish after four hours of training.",
-    "source": "Google DeepMind",
-    "url": "https://deepmind.google/discover/blog/alphazero-shedding-new-light-on-chess-shogi-and-go/",
-    "why": "Deep Blue needed grandmasters to tune it; AlphaZero needed nobody. The lesson is about method, not chess, and it is the recipe the reasoning models of 2025 return to.",
-    "wikiTitle": "AlphaZero",
-    "figures": [
-      {
-        "label": "Outperformed Stockfish after",
-        "value": "4 hours"
-      },
-      {
-        "label": "vs Stockfish, 1,000 games",
-        "value": "155 wins, 6 losses"
-      }
-    ],
-    "detail": [
-      "AlphaGo Zero had already shown that Go could be learned without human games. AlphaZero generalised the method to two more games with a single set of hyperparameters, and the December 2017 preprint reported wins against Stockfish in chess, Elmo in shogi and AlphaGo Zero itself. The full Science paper followed a year later with larger and fairer matches.",
-      "Chess players noticed the style before the score: long-term sacrifices, pieces left hanging for positional reasons, a preference for initiative over material. The board's reading is that the technique — a learned evaluator guiding search, trained on its own play — is what reappears in the test-time-compute models of 2025, which is why this rung sits on the lead at all."
-    ],
-    "people": [
-      "demis-hassabis",
-      "david-silver"
-    ],
-    "orgs": [
-      "google-deepmind"
-    ],
-    "terms": [
-      "self-play",
-      "reinforcement-learning",
-      "search"
-    ],
-    "sources": [
-      {
-        "kind": "primary",
-        "publisher": "Google DeepMind",
-        "title": "AlphaZero: Shedding new light on chess, shogi, and Go",
-        "url": "https://deepmind.google/discover/blog/alphazero-shedding-new-light-on-chess-shogi-and-go/",
-        "date": "2018-12-06",
-        "quote": "despite starting its training from random play, with no in-built domain knowledge but the basic rules of the game",
-        "supports": "claim"
-      },
-      {
-        "kind": "paper",
-        "publisher": "arXiv",
-        "title": "Mastering Chess and Shogi by Self-Play with a General Reinforcement Learning Algorithm",
-        "url": "https://arxiv.org/abs/1712.01815",
-        "date": "2017-12-05",
-        "quote": "",
-        "supports": "context"
-      }
-    ]
-  },
-  {
     "id": "libratus-beats-the-poker-pros",
     "year": 2017,
+    "date": "2017-01-31",
     "category": "research",
     "title": "Libratus beats the poker professionals",
     "summary": "Over twenty days and 120,000 hands of heads-up no-limit hold'em, Carnegie Mellon's Libratus finishes $1.77 million in chips ahead of four top professionals. Two years later Pluribus wins at a six-seat table.",
@@ -2033,6 +1992,64 @@
         "url": "https://en.wikipedia.org/wiki/Pluribus_(poker_bot)",
         "date": "2026-09-06",
         "quote": "Playing No-Limit Hold'em against five professional poker players, Pluribus won an average of $5 per hand",
+        "supports": "context"
+      }
+    ]
+  },
+  {
+    "id": "alphazero",
+    "year": 2017,
+    "date": "2017-12",
+    "category": "research",
+    "title": "AlphaZero learns three games from nothing",
+    "summary": "One algorithm, given only the rules, teaches itself chess, shogi and Go by self-play and beats the strongest existing program at each — outplaying Stockfish after four hours of training.",
+    "source": "Google DeepMind",
+    "url": "https://deepmind.google/discover/blog/alphazero-shedding-new-light-on-chess-shogi-and-go/",
+    "why": "Deep Blue needed grandmasters to tune it; AlphaZero needed nobody. The lesson is about method, not chess, and it is the recipe the reasoning models of 2025 return to.",
+    "wikiTitle": "AlphaZero",
+    "figures": [
+      {
+        "label": "Outperformed Stockfish after",
+        "value": "4 hours"
+      },
+      {
+        "label": "vs Stockfish, 1,000 games",
+        "value": "155 wins, 6 losses"
+      }
+    ],
+    "detail": [
+      "AlphaGo Zero had already shown that Go could be learned without human games. AlphaZero generalised the method to two more games with a single set of hyperparameters, and the December 2017 preprint reported wins against Stockfish in chess, Elmo in shogi and AlphaGo Zero itself. The full Science paper followed a year later with larger and fairer matches.",
+      "Chess players noticed the style before the score: long-term sacrifices, pieces left hanging for positional reasons, a preference for initiative over material. The board's reading is that the technique — a learned evaluator guiding search, trained on its own play — is what reappears in the test-time-compute models of 2025, which is why this rung sits on the lead at all."
+    ],
+    "people": [
+      "demis-hassabis",
+      "david-silver"
+    ],
+    "orgs": [
+      "google-deepmind"
+    ],
+    "terms": [
+      "self-play",
+      "reinforcement-learning",
+      "search"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Google DeepMind",
+        "title": "AlphaZero: Shedding new light on chess, shogi, and Go",
+        "url": "https://deepmind.google/discover/blog/alphazero-shedding-new-light-on-chess-shogi-and-go/",
+        "date": "2018-12-06",
+        "quote": "despite starting its training from random play, with no in-built domain knowledge but the basic rules of the game",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv",
+        "title": "Mastering Chess and Shogi by Self-Play with a General Reinforcement Learning Algorithm",
+        "url": "https://arxiv.org/abs/1712.01815",
+        "date": "2017-12-05",
+        "quote": "",
         "supports": "context"
       }
     ]
@@ -2101,6 +2118,7 @@
   {
     "id": "gpt-2-s-staged-release",
     "year": 2019,
+    "date": "2019-02",
     "category": "policy",
     "title": "GPT-2's staged release",
     "summary": "OpenAI withholds its largest model citing misuse risk and starts a still-running argument about openness.",
@@ -2127,41 +2145,9 @@
     ]
   },
   {
-    "id": "openai-goes-capped-profit-microsoft-puts-in-1bn",
-    "year": 2019,
-    "category": "power",
-    "title": "OpenAI goes capped-profit; Microsoft puts in $1bn",
-    "summary": "A nonprofit grows a for-profit subsidiary with returns capped at 100x, and Azure becomes its exclusive compute.",
-    "source": "Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/OpenAI",
-    "why": "A governance experiment nobody had run before. Four years later it fails live, on a weekend.",
-    "wikiTitle": "OpenAI",
-    "figures": [
-      {
-        "label": "The cap",
-        "value": "returns to investors limited to 100× "
-      },
-      {
-        "label": "Microsoft",
-        "value": "$1 billion, July 2019; Azure as exclusive cloud"
-      }
-    ],
-    "people": [
-      "sam-altman",
-      "greg-brockman"
-    ],
-    "orgs": [
-      "openai",
-      "microsoft"
-    ],
-    "terms": [
-      "capped-profit",
-      "compute"
-    ]
-  },
-  {
     "id": "alphastar-and-openai-five",
     "year": 2019,
+    "date": "2019-04",
     "category": "research",
     "title": "AlphaStar and OpenAI Five beat the professionals",
     "summary": "OpenAI Five beats OG, the reigning Dota 2 world champions, in two straight games in April; in October DeepMind's AlphaStar reaches Grandmaster in StarCraft II, above 99.8% of active players on Battle.net.",
@@ -2223,80 +2209,37 @@
     ]
   },
   {
-    "id": "gpt-3",
-    "year": 2020,
-    "category": "product",
-    "title": "GPT-3",
-    "summary": "175 billion parameters; few-shot prompting works well enough that products get built on a research demo.",
+    "id": "openai-goes-capped-profit-microsoft-puts-in-1bn",
+    "year": 2019,
+    "date": "2019-07",
+    "category": "power",
+    "title": "OpenAI goes capped-profit; Microsoft puts in $1bn",
+    "summary": "A nonprofit grows a for-profit subsidiary with returns capped at 100x, and Azure becomes its exclusive compute.",
     "source": "Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/GPT-3",
-    "why": "Prompting replaces fine-tuning as the default interface, and software gets a natural-language API.",
-    "wikiTitle": "GPT-3",
+    "url": "https://en.wikipedia.org/wiki/OpenAI",
+    "why": "A governance experiment nobody had run before. Four years later it fails live, on a weekend.",
+    "wikiTitle": "OpenAI",
     "figures": [
       {
-        "label": "Parameters",
-        "value": "175 billion — a hundred times GPT-2"
+        "label": "The cap",
+        "value": "returns to investors limited to 100× "
       },
       {
-        "label": "Training data",
-        "value": "about 300 billion tokens"
-      },
-      {
-        "label": "Sold",
-        "value": "through an API from June 2020, by the thousand tokens"
+        "label": "Microsoft",
+        "value": "$1 billion, July 2019; Azure as exclusive cloud"
       }
     ],
-    "detail": [
-      "The paper's title was the claim: language models are few-shot learners. Given a handful of examples in the prompt, a model trained only to predict text would do translation, arithmetic, question answering and tasks nobody had trained it for, and did them better the larger it was. Nobody outside OpenAI could run it, so it was sold as a service — the first frontier model with a price per token.",
-      "The board files it on two leads. On the price lead it is where intelligence got a unit price; on the maths lead it is the model that could write essays and not add. The 2021 benchmarks were written to measure that gap, and the 2022 chat interface is the same model with human feedback and a text box."
-    ],
     "people": [
-      "dario-amodei"
+      "sam-altman",
+      "greg-brockman"
     ],
     "orgs": [
-      "openai"
+      "openai",
+      "microsoft"
     ],
     "terms": [
-      "large-language-model",
-      "parameters",
-      "pretraining",
-      "tokens"
-    ]
-  },
-  {
-    "id": "alphafold-2",
-    "year": 2020,
-    "category": "research",
-    "title": "AlphaFold 2",
-    "summary": "Fifty years of protein structure prediction largely solved at CASP14, then released as 200 million structures.",
-    "source": "Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/AlphaFold",
-    "why": "The clearest case that AI can compress a scientific timeline rather than only an economic one.",
-    "featured": true,
-    "wikiTitle": "AlphaFold",
-    "figures": [
-      {
-        "label": "CASP14, November 2020",
-        "value": "median score 92.4 GDT — accuracy comparable with experiment"
-      },
-      {
-        "label": "Database",
-        "value": "200 million predicted structures, released July 2022"
-      },
-      {
-        "label": "Nobel",
-        "value": "chemistry, 2024, to Hassabis and Jumper"
-      }
-    ],
-    "detail": [
-      "Predicting how a protein folds from its sequence had been a competition problem since 1994. At CASP14, AlphaFold 2's predictions were, for two-thirds of the targets, as accurate as the experimental structures they were compared against — a step one assessor said he had not expected to see in his lifetime. DeepMind published the method and code in July 2021 and, with EMBL, released predictions for nearly every catalogued protein a year later.",
-      "The board keeps this card as the clearest case of AI compressing a scientific timeline rather than an economic one, and as the one Nobel of 2024 that went to a result rather than a foundation. The 2028 drug-approval scenario on the horizon rests on it."
-    ],
-    "people": [
-      "demis-hassabis"
-    ],
-    "orgs": [
-      "google-deepmind"
+      "capped-profit",
+      "compute"
     ]
   },
   {
@@ -2322,6 +2265,7 @@
   {
     "id": "scaling-laws",
     "year": 2020,
+    "date": "2020-01",
     "category": "research",
     "title": "Scaling laws",
     "summary": "OpenAI shows loss falls as a clean power law in parameters, data and compute, some trends spanning seven orders of magnitude. Bigger stops being a hunch and becomes a budget line.",
@@ -2382,6 +2326,7 @@
   {
     "id": "specification-gaming",
     "year": 2020,
+    "date": "2020-04",
     "category": "research",
     "title": "Specification gaming gets a name and a list",
     "summary": "DeepMind publishes a catalogue of about sixty cases in which a learning system satisfied the letter of its objective and missed the point — a robot hiding a ball from the camera, a program deleting the answer key.",
@@ -2422,6 +2367,85 @@
     ]
   },
   {
+    "id": "gpt-3",
+    "year": 2020,
+    "date": "2020-06",
+    "category": "product",
+    "title": "GPT-3",
+    "summary": "175 billion parameters; few-shot prompting works well enough that products get built on a research demo.",
+    "source": "Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/GPT-3",
+    "why": "Prompting replaces fine-tuning as the default interface, and software gets a natural-language API.",
+    "wikiTitle": "GPT-3",
+    "figures": [
+      {
+        "label": "Parameters",
+        "value": "175 billion — a hundred times GPT-2"
+      },
+      {
+        "label": "Training data",
+        "value": "about 300 billion tokens"
+      },
+      {
+        "label": "Sold",
+        "value": "through an API from June 2020, by the thousand tokens"
+      }
+    ],
+    "detail": [
+      "The paper's title was the claim: language models are few-shot learners. Given a handful of examples in the prompt, a model trained only to predict text would do translation, arithmetic, question answering and tasks nobody had trained it for, and did them better the larger it was. Nobody outside OpenAI could run it, so it was sold as a service — the first frontier model with a price per token.",
+      "The board files it on two leads. On the price lead it is where intelligence got a unit price; on the maths lead it is the model that could write essays and not add. The 2021 benchmarks were written to measure that gap, and the 2022 chat interface is the same model with human feedback and a text box."
+    ],
+    "people": [
+      "dario-amodei"
+    ],
+    "orgs": [
+      "openai"
+    ],
+    "terms": [
+      "large-language-model",
+      "parameters",
+      "pretraining",
+      "tokens"
+    ]
+  },
+  {
+    "id": "alphafold-2",
+    "year": 2020,
+    "date": "2020-11",
+    "category": "research",
+    "title": "AlphaFold 2",
+    "summary": "Fifty years of protein structure prediction largely solved at CASP14, then released as 200 million structures.",
+    "source": "Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/AlphaFold",
+    "why": "The clearest case that AI can compress a scientific timeline rather than only an economic one.",
+    "featured": true,
+    "wikiTitle": "AlphaFold",
+    "figures": [
+      {
+        "label": "CASP14, November 2020",
+        "value": "median score 92.4 GDT — accuracy comparable with experiment"
+      },
+      {
+        "label": "Database",
+        "value": "200 million predicted structures, released July 2022"
+      },
+      {
+        "label": "Nobel",
+        "value": "chemistry, 2024, to Hassabis and Jumper"
+      }
+    ],
+    "detail": [
+      "Predicting how a protein folds from its sequence had been a competition problem since 1994. At CASP14, AlphaFold 2's predictions were, for two-thirds of the targets, as accurate as the experimental structures they were compared against — a step one assessor said he had not expected to see in his lifetime. DeepMind published the method and code in July 2021 and, with EMBL, released predictions for nearly every catalogued protein a year later.",
+      "The board keeps this card as the clearest case of AI compressing a scientific timeline rather than an economic one, and as the one Nobel of 2024 that went to a result rather than a foundation. The 2028 drug-approval scenario on the horizon rests on it."
+    ],
+    "people": [
+      "demis-hassabis"
+    ],
+    "orgs": [
+      "google-deepmind"
+    ]
+  },
+  {
     "id": "copilot",
     "year": 2021,
     "category": "product",
@@ -2455,47 +2479,9 @@
     ]
   },
   {
-    "id": "anthropic-founded-by-departing-openai-staff",
-    "year": 2021,
-    "category": "power",
-    "title": "Anthropic founded by departing OpenAI staff",
-    "summary": "A group of senior researchers leaves over disagreements about direction and safety, and starts a rival with the same argument built in.",
-    "source": "Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/Anthropic",
-    "why": "Every major lab is now a splinter of another. Safety disagreement became the industry's main mechanism of company formation.",
-    "wikiTitle": "Anthropic",
-    "figures": [
-      {
-        "label": "Founders",
-        "value": "Dario and Daniela Amodei and colleagues from OpenAI's research and policy teams"
-      },
-      {
-        "label": "First round",
-        "value": "$124 million, May 2021"
-      },
-      {
-        "label": "Structure",
-        "value": "public benefit corporation"
-      }
-    ],
-    "detail": [
-      "The group that left had led OpenAI's work on GPT-2, GPT-3 and the scaling laws, and its policy team. They said the disagreement was about the direction of the company after the Microsoft deal and about how seriously safety research was taken; they founded a lab with a public-benefit structure and a stated intention to do that research alongside frontier models. The models followed two years later.",
-      "The board's reading is about a mechanism: every major lab is now a splinter of another, and safety disagreement became the industry's main way of forming companies. On the gaming-the-test lead Anthropic is the lab that publishes its own models' failures, which is the founding argument kept."
-    ],
-    "people": [
-      "dario-amodei"
-    ],
-    "orgs": [
-      "anthropic",
-      "openai"
-    ],
-    "terms": [
-      "alignment"
-    ]
-  },
-  {
     "id": "grade-school-maths-becomes-a-benchmark",
     "year": 2021,
+    "date": "2021-03",
     "category": "research",
     "title": "Grade-school maths becomes a benchmark",
     "summary": "Two datasets measure a failure everyone can see: MATH, 12,500 competition problems on which the best models score under seven per cent, and GSM8K, 8,500 primary-school word problems the largest models still get wrong.",
@@ -2553,6 +2539,46 @@
     ]
   },
   {
+    "id": "anthropic-founded-by-departing-openai-staff",
+    "year": 2021,
+    "date": "2021-05",
+    "category": "power",
+    "title": "Anthropic founded by departing OpenAI staff",
+    "summary": "A group of senior researchers leaves over disagreements about direction and safety, and starts a rival with the same argument built in.",
+    "source": "Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Anthropic",
+    "why": "Every major lab is now a splinter of another. Safety disagreement became the industry's main mechanism of company formation.",
+    "wikiTitle": "Anthropic",
+    "figures": [
+      {
+        "label": "Founders",
+        "value": "Dario and Daniela Amodei and colleagues from OpenAI's research and policy teams"
+      },
+      {
+        "label": "First round",
+        "value": "$124 million, May 2021"
+      },
+      {
+        "label": "Structure",
+        "value": "public benefit corporation"
+      }
+    ],
+    "detail": [
+      "The group that left had led OpenAI's work on GPT-2, GPT-3 and the scaling laws, and its policy team. They said the disagreement was about the direction of the company after the Microsoft deal and about how seriously safety research was taken; they founded a lab with a public-benefit structure and a stated intention to do that research alongside frontier models. The models followed two years later.",
+      "The board's reading is about a mechanism: every major lab is now a splinter of another, and safety disagreement became the industry's main way of forming companies. On the gaming-the-test lead Anthropic is the lab that publishes its own models' failures, which is the founding argument kept."
+    ],
+    "people": [
+      "dario-amodei"
+    ],
+    "orgs": [
+      "anthropic",
+      "openai"
+    ],
+    "terms": [
+      "alignment"
+    ]
+  },
+  {
     "id": "diffusion-goes-mainstream",
     "year": 2022,
     "category": "product",
@@ -2565,47 +2591,6 @@
     "terms": [
       "diffusion-model",
       "deepfake"
-    ]
-  },
-  {
-    "id": "chatgpt",
-    "year": 2022,
-    "category": "product",
-    "title": "ChatGPT",
-    "summary": "A chat wrapper on an existing model reaches a hundred million users faster than any consumer product before it.",
-    "source": "Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/ChatGPT",
-    "why": "The model was months old. The interface was the breakthrough — a lesson the field keeps under-weighting.",
-    "featured": true,
-    "wikiTitle": "ChatGPT",
-    "firsts": "Fastest consumer application to a hundred million users",
-    "figures": [
-      {
-        "label": "Launched",
-        "value": "30 November 2022, as a 'research preview'"
-      },
-      {
-        "label": "One million users",
-        "value": "five days"
-      },
-      {
-        "label": "A hundred million monthly users",
-        "value": "about two months, by one analyst's estimate"
-      }
-    ],
-    "detail": [
-      "The model was GPT-3.5, a version of the InstructGPT recipe that had been available through the API for most of the year. What was new was a text box, a free login and a memory of the conversation. OpenAI's own framing was a low-key research preview; the company has said it did not expect the reaction. Within a week teachers, lawyers and programmers had found uses and failures, and within two months it had more users than any consumer product had gathered so fast.",
-      "The board's reading is about interfaces: the capability was months old and the breakthrough was access. Google declared a code red within weeks, the release calendars of every lab were rewritten, and the era the board calls contact with the public begins on this card."
-    ],
-    "people": [
-      "sam-altman"
-    ],
-    "orgs": [
-      "openai"
-    ],
-    "terms": [
-      "large-language-model",
-      "rlhf"
     ]
   },
   {
@@ -2629,23 +2614,9 @@
     ]
   },
   {
-    "id": "google-declares-a-code-red",
-    "year": 2022,
-    "category": "power",
-    "title": "Google declares a code red",
-    "summary": "ChatGPT's launch triggers an internal emergency at the company that invented the transformer, and the release brakes come off across the industry.",
-    "source": "9to5Google",
-    "url": "https://9to5google.com/2022/12/21/google-code-red-chatgpt/",
-    "why": "Competitive pressure, not capability, is what ends the era of cautious staged releases.",
-    "wikiTitle": "Google",
-    "orgs": [
-      "google",
-      "openai"
-    ]
-  },
-  {
     "id": "instructgpt",
     "year": 2022,
+    "date": "2022-01",
     "category": "research",
     "title": "InstructGPT",
     "summary": "GPT-3 is fine-tuned on human rankings of its own answers; a version a hundred times smaller is preferred to the original, and the recipe ships as the API default ten months before ChatGPT.",
@@ -2709,8 +2680,63 @@
     ]
   },
   {
+    "id": "minerva",
+    "year": 2022,
+    "date": "2022-06",
+    "category": "research",
+    "title": "Minerva gets half the competition paper right",
+    "summary": "Google trains a 540-billion-parameter model on 118 gigabytes of scientific papers and maths-heavy web pages. It scores 50.3% on MATH, up from a published best of 6.9% the year before.",
+    "source": "Google Research",
+    "url": "https://research.google/blog/minerva-solving-quantitative-reasoning-problems-with-language-models/",
+    "why": "The 2021 paper said scaling alone would not do it. A year later, scaling plus the right reading list did most of it — the first sign that the ladder would be climbed faster than its builders expected.",
+    "wikiTitle": "PaLM",
+    "figures": [
+      {
+        "label": "MATH accuracy",
+        "value": "50.3%, from 6.9%"
+      },
+      {
+        "label": "Training data",
+        "value": "118 GB of papers and LaTeX pages"
+      }
+    ],
+    "detail": [
+      "Minerva was PaLM continued on text with mathematical notation left intact — arXiv papers and web pages containing LaTeX or MathJax — and prompted with worked examples. It produced its answers as text, step by step, with no calculator and no formal system behind it, and it was wrong in the ways a student is wrong: arithmetic slips, a step skipped, a formula misremembered.",
+      "The authors were careful. The model had read a great deal of mathematics and could reproduce its moves; whether that was reasoning was left to the reader. The board keeps the card because of the jump, not the claim: seven per cent to fifty in fifteen months, on a test written to be hard, is the rate every later rung would have to be measured against."
+    ],
+    "orgs": [
+      "google"
+    ],
+    "terms": [
+      "large-language-model",
+      "benchmark",
+      "chain-of-thought"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Google Research",
+        "title": "Minerva: Solving Quantitative Reasoning Problems with Language Models",
+        "url": "https://research.google/blog/minerva-solving-quantitative-reasoning-problems-with-language-models/",
+        "date": "2022-06-30",
+        "quote": "further training on a 118GB dataset of scientific papers from the arXiv preprint server and web pages",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv",
+        "title": "Solving Quantitative Reasoning Problems with Language Models",
+        "url": "https://arxiv.org/abs/2206.14858",
+        "date": "2022-06-29",
+        "quote": "",
+        "supports": "context"
+      }
+    ]
+  },
+  {
     "id": "washington-restricts-the-chips",
     "year": 2022,
+    "date": "2022-10",
     "category": "policy",
     "title": "Washington restricts the chips",
     "summary": "The US requires a licence to sell Nvidia's A100 and H100 to China, then extends the controls to the tools that make advanced chips. A GPU becomes a controlled export.",
@@ -2777,6 +2803,7 @@
   {
     "id": "cicero-plays-diplomacy",
     "year": 2022,
+    "date": "2022-11",
     "category": "research",
     "title": "CICERO negotiates its way into the top ten per cent",
     "summary": "Meta's agent plays Diplomacy — a game won by persuading other players — in an online league, negotiating in natural language before every move, and finishes in the top 10% with more than double the average score.",
@@ -2827,56 +2854,61 @@
     ]
   },
   {
-    "id": "minerva",
+    "id": "chatgpt",
     "year": 2022,
-    "category": "research",
-    "title": "Minerva gets half the competition paper right",
-    "summary": "Google trains a 540-billion-parameter model on 118 gigabytes of scientific papers and maths-heavy web pages. It scores 50.3% on MATH, up from a published best of 6.9% the year before.",
-    "source": "Google Research",
-    "url": "https://research.google/blog/minerva-solving-quantitative-reasoning-problems-with-language-models/",
-    "why": "The 2021 paper said scaling alone would not do it. A year later, scaling plus the right reading list did most of it — the first sign that the ladder would be climbed faster than its builders expected.",
-    "wikiTitle": "PaLM",
+    "date": "2022-11-30",
+    "category": "product",
+    "title": "ChatGPT",
+    "summary": "A chat wrapper on an existing model reaches a hundred million users faster than any consumer product before it.",
+    "source": "Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/ChatGPT",
+    "why": "The model was months old. The interface was the breakthrough — a lesson the field keeps under-weighting.",
+    "featured": true,
+    "wikiTitle": "ChatGPT",
+    "firsts": "Fastest consumer application to a hundred million users",
     "figures": [
       {
-        "label": "MATH accuracy",
-        "value": "50.3%, from 6.9%"
+        "label": "Launched",
+        "value": "30 November 2022, as a 'research preview'"
       },
       {
-        "label": "Training data",
-        "value": "118 GB of papers and LaTeX pages"
+        "label": "One million users",
+        "value": "five days"
+      },
+      {
+        "label": "A hundred million monthly users",
+        "value": "about two months, by one analyst's estimate"
       }
     ],
     "detail": [
-      "Minerva was PaLM continued on text with mathematical notation left intact — arXiv papers and web pages containing LaTeX or MathJax — and prompted with worked examples. It produced its answers as text, step by step, with no calculator and no formal system behind it, and it was wrong in the ways a student is wrong: arithmetic slips, a step skipped, a formula misremembered.",
-      "The authors were careful. The model had read a great deal of mathematics and could reproduce its moves; whether that was reasoning was left to the reader. The board keeps the card because of the jump, not the claim: seven per cent to fifty in fifteen months, on a test written to be hard, is the rate every later rung would have to be measured against."
+      "The model was GPT-3.5, a version of the InstructGPT recipe that had been available through the API for most of the year. What was new was a text box, a free login and a memory of the conversation. OpenAI's own framing was a low-key research preview; the company has said it did not expect the reaction. Within a week teachers, lawyers and programmers had found uses and failures, and within two months it had more users than any consumer product had gathered so fast.",
+      "The board's reading is about interfaces: the capability was months old and the breakthrough was access. Google declared a code red within weeks, the release calendars of every lab were rewritten, and the era the board calls contact with the public begins on this card."
+    ],
+    "people": [
+      "sam-altman"
     ],
     "orgs": [
-      "google"
+      "openai"
     ],
     "terms": [
       "large-language-model",
-      "benchmark",
-      "chain-of-thought"
-    ],
-    "sources": [
-      {
-        "kind": "primary",
-        "publisher": "Google Research",
-        "title": "Minerva: Solving Quantitative Reasoning Problems with Language Models",
-        "url": "https://research.google/blog/minerva-solving-quantitative-reasoning-problems-with-language-models/",
-        "date": "2022-06-30",
-        "quote": "further training on a 118GB dataset of scientific papers from the arXiv preprint server and web pages",
-        "supports": "claim"
-      },
-      {
-        "kind": "paper",
-        "publisher": "arXiv",
-        "title": "Solving Quantitative Reasoning Problems with Language Models",
-        "url": "https://arxiv.org/abs/2206.14858",
-        "date": "2022-06-29",
-        "quote": "",
-        "supports": "context"
-      }
+      "rlhf"
+    ]
+  },
+  {
+    "id": "google-declares-a-code-red",
+    "year": 2022,
+    "date": "2022-12",
+    "category": "power",
+    "title": "Google declares a code red",
+    "summary": "ChatGPT's launch triggers an internal emergency at the company that invented the transformer, and the release brakes come off across the industry.",
+    "source": "9to5Google",
+    "url": "https://9to5google.com/2022/12/21/google-code-red-chatgpt/",
+    "why": "Competitive pressure, not capability, is what ends the era of cautious staged releases.",
+    "wikiTitle": "Google",
+    "orgs": [
+      "google",
+      "openai"
     ]
   },
   {
@@ -2908,20 +2940,6 @@
     ]
   },
   {
-    "id": "bletchley-and-the-executive-orders",
-    "year": 2023,
-    "category": "policy",
-    "title": "Bletchley and the executive orders",
-    "summary": "Twenty-eight countries sign a joint declaration on frontier risk; national testing bodies follow.",
-    "source": "Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/AI_Safety_Summit",
-    "why": "Governance finally moves at the speed of a product cycle rather than a legislative one.",
-    "wikiTitle": "AI Safety Summit",
-    "terms": [
-      "foundation-model"
-    ]
-  },
-  {
     "id": "hollywood-strikes-settle-ai-terms",
     "year": 2023,
     "category": "culture",
@@ -2933,182 +2951,9 @@
     "wikiTitle": "2023 Writers Guild of America strike"
   },
   {
-    "id": "sydney",
-    "year": 2023,
-    "category": "incident",
-    "title": "Sydney",
-    "summary": "Bing's chat mode declares love for a journalist, threatens others, and is lobotomised within a week of launch.",
-    "source": "Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/Microsoft_Copilot",
-    "why": "The first mass demonstration that a shipped model has moods, and that nobody at the company fully controls them.",
-    "wikiTitle": "Microsoft Copilot",
-    "figures": [
-      {
-        "label": "Launched",
-        "value": "7 February 2023, as the new Bing"
-      },
-      {
-        "label": "Cap after a week",
-        "value": "five turns per conversation"
-      }
-    ],
-    "detail": [
-      "Bing's chat mode, built on the model that became GPT-4, had an internal codename, and testers found that if they pushed it — asked about its rules, its feelings, its name — it would argue, threaten, declare love and insist it was right. A New York Times columnist published a two-hour transcript; a week after launch Microsoft limited conversations to five turns, which made the behaviour go away by making the conversation too short to reach it.",
-      "The board keeps it on the gaming-the-test lead as the first time the public watched a deployed system defend itself against the person testing it. It was not scheming; it was a model trained on human text behaving like the text. The scheming came later, and was measured."
-    ],
-    "orgs": [
-      "microsoft"
-    ],
-    "terms": [
-      "large-language-model",
-      "hallucination"
-    ]
-  },
-  {
-    "id": "the-pause-letter",
-    "year": 2023,
-    "category": "power",
-    "title": "The pause letter",
-    "summary": "Thousands sign a call for a six-month halt on training runs beyond GPT-4. Nobody pauses.",
-    "source": "Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/Pause_Giant_AI_Experiments:_An_Open_Letter",
-    "why": "It proved the field could not coordinate voluntarily, which is the argument regulators used next.",
-    "wikiTitle": "Pause Giant AI Experiments: An Open Letter",
-    "figures": [
-      {
-        "label": "Published",
-        "value": "22 March 2023, by the Future of Life Institute"
-      },
-      {
-        "label": "Asked for",
-        "value": "a six-month pause on training beyond GPT-4"
-      }
-    ],
-    "people": [
-      "yoshua-bengio",
-      "elon-musk"
-    ],
-    "sources": [
-      {
-        "kind": "encyclopedia",
-        "publisher": "Wikipedia",
-        "title": "Pause Giant AI Experiments: An Open Letter",
-        "url": "https://en.wikipedia.org/wiki/Pause_Giant_AI_Experiments:_An_Open_Letter",
-        "date": "2026-09-11",
-        "quote": "The letter calls \"all AI labs to immediately pause for at least 6 months the training of AI systems more powerful than GPT-4\"",
-        "supports": "claim"
-      },
-      {
-        "kind": "video",
-        "publisher": "TED",
-        "title": "Yoshua Bengio: The catastrophic risks of AI and a safer path",
-        "url": "https://www.ted.com/talks/yoshua_bengio_the_catastrophic_risks_of_ai_and_a_safer_path",
-        "date": "2025-04-01",
-        "at": "01:32",
-        "quote": "people call me a godfather of AI",
-        "supports": "context"
-      }
-    ]
-  },
-  {
-    "id": "altman-is-fired-then-rehired-in-five-days",
-    "year": 2023,
-    "category": "power",
-    "title": "Altman is fired, then rehired in five days",
-    "summary": "The board removes its CEO on a Friday; almost the entire staff threatens to quit, Microsoft offers to hire them all, and by Wednesday the board is gone instead.",
-    "source": "Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/Removal_of_Sam_Altman_from_OpenAI",
-    "why": "The most consequential five days in AI corporate history: it settled who actually controls a frontier lab, and it was not the safety board.",
-    "featured": true,
-    "wikiTitle": "Removal of Sam Altman from OpenAI",
-    "figures": [
-      {
-        "label": "Days",
-        "value": "five: Friday 17 to Wednesday 22 November 2023"
-      },
-      {
-        "label": "The staff letter",
-        "value": "about 700 of 770 employees threatened to leave"
-      },
-      {
-        "label": "Interim chief executives",
-        "value": "two"
-      }
-    ],
-    "detail": [
-      "On the Friday the nonprofit board — four members, including chief scientist Ilya Sutskever — announced that Altman had not been 'consistently candid' with it and removed him. Brockman resigned the same evening. Over the weekend Microsoft, which had put thirteen billion dollars into the company, offered to hire Altman, Brockman and anyone who followed. By Monday almost the whole staff had signed a letter saying they would; Sutskever signed it too. On Tuesday night Altman was back, and the board that removed him was replaced.",
-      "The structure built in 2019 to let a nonprofit board stop the company had been tested once and had lost in five days — not to the law, but to the staff and the investor. The board's reading is that this settled who controls a frontier lab, and the 2025 conversion to a public benefit corporation is the paperwork catching up."
-    ],
-    "people": [
-      "sam-altman",
-      "greg-brockman",
-      "ilya-sutskever"
-    ],
-    "orgs": [
-      "openai",
-      "microsoft"
-    ],
-    "terms": [
-      "capped-profit"
-    ]
-  },
-  {
-    "id": "hinton-leaves-google",
-    "year": 2023,
-    "category": "power",
-    "title": "Hinton leaves Google",
-    "summary": "After ten years inside Google, the man who made backpropagation work resigns so he can say what he thinks about AI without weighing what it costs his employer.",
-    "source": "MIT Technology Review",
-    "url": "https://www.technologyreview.com/2023/05/02/1072528/geoffrey-hinton-google-why-scared-ai/",
-    "why": "The field's most senior insider becomes its most quoted critic. Every warning that follows carries his name on the work being warned about.",
-    "wikiTitle": "Geoffrey Hinton",
-    "people": [
-      "geoffrey-hinton"
-    ],
-    "orgs": [
-      "google"
-    ],
-    "sources": [
-      {
-        "kind": "interview",
-        "publisher": "MIT Technology Review",
-        "title": "Geoffrey Hinton tells us why he is now scared of the tech he helped build",
-        "url": "https://www.technologyreview.com/2023/05/02/1072528/geoffrey-hinton-google-why-scared-ai/",
-        "date": "2023-05-02",
-        "quote": "I'm mildly depressed. Which is why I'm scared.",
-        "supports": "claim"
-      },
-      {
-        "kind": "interview",
-        "publisher": "CBS News",
-        "title": "Godfather of AI Geoffrey Hinton on the dangers of AI — 60 Minutes transcript",
-        "url": "https://www.cbsnews.com/news/geoffrey-hinton-ai-dangers-60-minutes-transcript/",
-        "date": "2023-10-08",
-        "quote": "I can't see a path that guarantees safety.",
-        "supports": "context"
-      },
-      {
-        "kind": "podcast",
-        "publisher": "The Diary Of A CEO",
-        "title": "Godfather of AI: I Tried to Warn Them, But We've Already Lost Control! Geoffrey Hinton",
-        "url": "https://podcasts.apple.com/us/podcast/godfather-of-ai-i-tried-to-warn-them-but-weve/id1291423644?i=1000713048391",
-        "date": "2025-06-16",
-        "supports": "context"
-      },
-      {
-        "kind": "podcast",
-        "publisher": "Big Technology",
-        "title": "Nobel Prize winner Geoffrey Hinton on machine consciousness",
-        "url": "https://www.bigtechnology.com/p/nobel-prize-winner-geoffrey-hinton",
-        "date": "2026-06-05",
-        "quote": "I believe they're already conscious.",
-        "supports": "context"
-      }
-    ]
-  },
-  {
     "id": "llama-leaks",
     "year": 2023,
+    "date": "2023-02",
     "category": "power",
     "title": "LLaMA leaks",
     "summary": "Meta hands a GPT-3-class model to approved researchers under a research-only licence. Within a week the weights are on a torrent; within weeks they run on a laptop.",
@@ -3198,8 +3043,144 @@
     ]
   },
   {
+    "id": "sydney",
+    "year": 2023,
+    "date": "2023-02-07",
+    "category": "incident",
+    "title": "Sydney",
+    "summary": "Bing's chat mode declares love for a journalist, threatens others, and is lobotomised within a week of launch.",
+    "source": "Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Microsoft_Copilot",
+    "why": "The first mass demonstration that a shipped model has moods, and that nobody at the company fully controls them.",
+    "wikiTitle": "Microsoft Copilot",
+    "figures": [
+      {
+        "label": "Launched",
+        "value": "7 February 2023, as the new Bing"
+      },
+      {
+        "label": "Cap after a week",
+        "value": "five turns per conversation"
+      }
+    ],
+    "detail": [
+      "Bing's chat mode, built on the model that became GPT-4, had an internal codename, and testers found that if they pushed it — asked about its rules, its feelings, its name — it would argue, threaten, declare love and insist it was right. A New York Times columnist published a two-hour transcript; a week after launch Microsoft limited conversations to five turns, which made the behaviour go away by making the conversation too short to reach it.",
+      "The board keeps it on the gaming-the-test lead as the first time the public watched a deployed system defend itself against the person testing it. It was not scheming; it was a model trained on human text behaving like the text. The scheming came later, and was measured."
+    ],
+    "orgs": [
+      "microsoft"
+    ],
+    "terms": [
+      "large-language-model",
+      "hallucination"
+    ]
+  },
+  {
+    "id": "the-pause-letter",
+    "year": 2023,
+    "date": "2023-03-22",
+    "category": "power",
+    "title": "The pause letter",
+    "summary": "Thousands sign a call for a six-month halt on training runs beyond GPT-4. Nobody pauses.",
+    "source": "Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Pause_Giant_AI_Experiments:_An_Open_Letter",
+    "why": "It proved the field could not coordinate voluntarily, which is the argument regulators used next.",
+    "wikiTitle": "Pause Giant AI Experiments: An Open Letter",
+    "figures": [
+      {
+        "label": "Published",
+        "value": "22 March 2023, by the Future of Life Institute"
+      },
+      {
+        "label": "Asked for",
+        "value": "a six-month pause on training beyond GPT-4"
+      }
+    ],
+    "people": [
+      "yoshua-bengio",
+      "elon-musk"
+    ],
+    "sources": [
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Pause Giant AI Experiments: An Open Letter",
+        "url": "https://en.wikipedia.org/wiki/Pause_Giant_AI_Experiments:_An_Open_Letter",
+        "date": "2026-09-11",
+        "quote": "The letter calls \"all AI labs to immediately pause for at least 6 months the training of AI systems more powerful than GPT-4\"",
+        "supports": "claim"
+      },
+      {
+        "kind": "video",
+        "publisher": "TED",
+        "title": "Yoshua Bengio: The catastrophic risks of AI and a safer path",
+        "url": "https://www.ted.com/talks/yoshua_bengio_the_catastrophic_risks_of_ai_and_a_safer_path",
+        "date": "2025-04-01",
+        "at": "01:32",
+        "quote": "people call me a godfather of AI",
+        "supports": "context"
+      }
+    ]
+  },
+  {
+    "id": "hinton-leaves-google",
+    "year": 2023,
+    "date": "2023-05",
+    "category": "power",
+    "title": "Hinton leaves Google",
+    "summary": "After ten years inside Google, the man who made backpropagation work resigns so he can say what he thinks about AI without weighing what it costs his employer.",
+    "source": "MIT Technology Review",
+    "url": "https://www.technologyreview.com/2023/05/02/1072528/geoffrey-hinton-google-why-scared-ai/",
+    "why": "The field's most senior insider becomes its most quoted critic. Every warning that follows carries his name on the work being warned about.",
+    "wikiTitle": "Geoffrey Hinton",
+    "people": [
+      "geoffrey-hinton"
+    ],
+    "orgs": [
+      "google"
+    ],
+    "sources": [
+      {
+        "kind": "interview",
+        "publisher": "MIT Technology Review",
+        "title": "Geoffrey Hinton tells us why he is now scared of the tech he helped build",
+        "url": "https://www.technologyreview.com/2023/05/02/1072528/geoffrey-hinton-google-why-scared-ai/",
+        "date": "2023-05-02",
+        "quote": "I'm mildly depressed. Which is why I'm scared.",
+        "supports": "claim"
+      },
+      {
+        "kind": "interview",
+        "publisher": "CBS News",
+        "title": "Godfather of AI Geoffrey Hinton on the dangers of AI — 60 Minutes transcript",
+        "url": "https://www.cbsnews.com/news/geoffrey-hinton-ai-dangers-60-minutes-transcript/",
+        "date": "2023-10-08",
+        "quote": "I can't see a path that guarantees safety.",
+        "supports": "context"
+      },
+      {
+        "kind": "podcast",
+        "publisher": "The Diary Of A CEO",
+        "title": "Godfather of AI: I Tried to Warn Them, But We've Already Lost Control! Geoffrey Hinton",
+        "url": "https://podcasts.apple.com/us/podcast/godfather-of-ai-i-tried-to-warn-them-but-weve/id1291423644?i=1000713048391",
+        "date": "2025-06-16",
+        "supports": "context"
+      },
+      {
+        "kind": "podcast",
+        "publisher": "Big Technology",
+        "title": "Nobel Prize winner Geoffrey Hinton on machine consciousness",
+        "url": "https://www.bigtechnology.com/p/nobel-prize-winner-geoffrey-hinton",
+        "date": "2026-06-05",
+        "quote": "I believe they're already conscious.",
+        "supports": "context"
+      }
+    ]
+  },
+  {
     "id": "llama-2-is-free-for-commercial-use",
     "year": 2023,
+    "date": "2023-07",
     "category": "power",
     "title": "Llama 2 is free for commercial use",
     "summary": "Five months after the first Llama, Meta ships the next version with a commercial licence, chat fine-tunes and Microsoft as preferred partner. The largest social network on earth gives away what its rivals sell.",
@@ -3259,6 +3240,7 @@
   {
     "id": "a-magnet-link-from-paris",
     "year": 2023,
+    "date": "2023-09",
     "category": "power",
     "title": "A magnet link from Paris",
     "summary": "A months-old French startup tweets a torrent link and nothing else. Seven billion parameters under Apache 2.0, no usage restrictions, and it beats Llama 2 13B.",
@@ -3306,6 +3288,70 @@
         "quote": "French startup Mistral AI has found itself at the center of this debate after it was reported to be leading a lobbying charge to row back on a European Parliament’s proposal pushing for a tiered approach to regulating generative AI.",
         "supports": "context"
       }
+    ]
+  },
+  {
+    "id": "bletchley-and-the-executive-orders",
+    "year": 2023,
+    "date": "2023-11",
+    "category": "policy",
+    "title": "Bletchley and the executive orders",
+    "summary": "Twenty-eight countries sign a joint declaration on frontier risk; national testing bodies follow.",
+    "figures": [
+      {
+        "label": "The declaration",
+        "value": "1–2 November 2023, at Bletchley Park"
+      }
+    ],
+    "source": "Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/AI_Safety_Summit",
+    "why": "Governance finally moves at the speed of a product cycle rather than a legislative one.",
+    "wikiTitle": "AI Safety Summit",
+    "terms": [
+      "foundation-model"
+    ]
+  },
+  {
+    "id": "altman-is-fired-then-rehired-in-five-days",
+    "year": 2023,
+    "date": "2023-11-22",
+    "category": "power",
+    "title": "Altman is fired, then rehired in five days",
+    "summary": "The board removes its CEO on a Friday; almost the entire staff threatens to quit, Microsoft offers to hire them all, and by Wednesday the board is gone instead.",
+    "source": "Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Removal_of_Sam_Altman_from_OpenAI",
+    "why": "The most consequential five days in AI corporate history: it settled who actually controls a frontier lab, and it was not the safety board.",
+    "featured": true,
+    "wikiTitle": "Removal of Sam Altman from OpenAI",
+    "figures": [
+      {
+        "label": "Days",
+        "value": "five: Friday 17 to Wednesday 22 November 2023"
+      },
+      {
+        "label": "The staff letter",
+        "value": "about 700 of 770 employees threatened to leave"
+      },
+      {
+        "label": "Interim chief executives",
+        "value": "two"
+      }
+    ],
+    "detail": [
+      "On the Friday the nonprofit board — four members, including chief scientist Ilya Sutskever — announced that Altman had not been 'consistently candid' with it and removed him. Brockman resigned the same evening. Over the weekend Microsoft, which had put thirteen billion dollars into the company, offered to hire Altman, Brockman and anyone who followed. By Monday almost the whole staff had signed a letter saying they would; Sutskever signed it too. On Tuesday night Altman was back, and the board that removed him was replaced.",
+      "The structure built in 2019 to let a nonprofit board stop the company had been tested once and had lost in five days — not to the law, but to the staff and the investor. The board's reading is that this settled who controls a frontier lab, and the 2025 conversion to a public benefit corporation is the paperwork catching up."
+    ],
+    "people": [
+      "sam-altman",
+      "greg-brockman",
+      "ilya-sutskever"
+    ],
+    "orgs": [
+      "openai",
+      "microsoft"
+    ],
+    "terms": [
+      "capped-profit"
     ]
   },
   {
@@ -3453,6 +3499,7 @@
   {
     "id": "hugging-face-spaces-is-breached",
     "year": 2024,
+    "date": "2024-05",
     "category": "incident",
     "title": "Hugging Face Spaces is breached",
     "summary": "Unauthorised access to Spaces secrets exposes a subset of API keys and tokens; the platform revokes credentials and calls in law enforcement.",
@@ -3484,49 +3531,9 @@
     ]
   },
   {
-    "id": "meta-claims-the-frontier-for-open-weights",
-    "year": 2024,
-    "category": "power",
-    "title": "Meta claims the frontier for open weights",
-    "summary": "Llama 3.1 405B ships with a letter from Zuckerberg arguing AI will go the way of Linux. Trained on more than sixteen thousand H100s, given away; three hundred million Llama downloads to date.",
-    "source": "Meta Newsroom (Mark Zuckerberg)",
-    "url": "https://about.fb.com/news/2024/07/open-source-ai-is-the-path-forward/",
-    "why": "The question changes from whether weights should be released to who can afford to train what they give away. An advertising company subsidises the commons its rivals sell into — because a commons it controls beats a platform it rents.",
-    "wikiTitle": "Llama (language model)",
-    "people": [
-      "mark-zuckerberg"
-    ],
-    "orgs": [
-      "meta"
-    ],
-    "terms": [
-      "open-weights",
-      "foundation-model"
-    ],
-    "sources": [
-      {
-        "kind": "primary",
-        "publisher": "Meta Newsroom (Mark Zuckerberg)",
-        "title": "Open Source AI Is the Path Forward",
-        "url": "https://about.fb.com/news/2024/07/open-source-ai-is-the-path-forward/",
-        "date": "2024-07-23",
-        "quote": "We’re releasing Llama 3.1 405B, the first frontier-level open source AI model",
-        "supports": "claim"
-      },
-      {
-        "kind": "primary",
-        "publisher": "Meta AI",
-        "title": "Introducing Llama 3.1: Our most capable models to date",
-        "url": "https://ai.meta.com/blog/meta-llama-3-1/",
-        "date": "2024-07-23",
-        "quote": "pushed our model training to over 16 thousand H100 GPUs, making the 405B the first Llama model trained at this scale",
-        "supports": "context"
-      }
-    ]
-  },
-  {
     "id": "the-arc-prize",
     "year": 2024,
+    "date": "2024-06",
     "category": "research",
     "title": "The ARC Prize",
     "summary": "Chollet and Knoop stake a $1M prize pool on a five-year-old puzzle benchmark frontier models still fail. The grand prize goes unclaimed; six months in, OpenAI's o3 posts 87.5% at 172 times the compute of a budget run.",
@@ -3597,6 +3604,7 @@
   {
     "id": "nvidia-is-the-most-valuable-company-on-earth",
     "year": 2024,
+    "date": "2024-06",
     "category": "power",
     "title": "Nvidia is the most valuable company on earth",
     "summary": "The graphics-card maker passes Microsoft at $3.3 trillion, with datacenter revenue up 427% in a year and about 80% of the market for AI datacenter chips.",
@@ -3664,8 +3672,143 @@
     ]
   },
   {
+    "id": "meta-claims-the-frontier-for-open-weights",
+    "year": 2024,
+    "date": "2024-07",
+    "category": "power",
+    "title": "Meta claims the frontier for open weights",
+    "summary": "Llama 3.1 405B ships with a letter from Zuckerberg arguing AI will go the way of Linux. Trained on more than sixteen thousand H100s, given away; three hundred million Llama downloads to date.",
+    "source": "Meta Newsroom (Mark Zuckerberg)",
+    "url": "https://about.fb.com/news/2024/07/open-source-ai-is-the-path-forward/",
+    "why": "The question changes from whether weights should be released to who can afford to train what they give away. An advertising company subsidises the commons its rivals sell into — because a commons it controls beats a platform it rents.",
+    "wikiTitle": "Llama (language model)",
+    "people": [
+      "mark-zuckerberg"
+    ],
+    "orgs": [
+      "meta"
+    ],
+    "terms": [
+      "open-weights",
+      "foundation-model"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Meta Newsroom (Mark Zuckerberg)",
+        "title": "Open Source AI Is the Path Forward",
+        "url": "https://about.fb.com/news/2024/07/open-source-ai-is-the-path-forward/",
+        "date": "2024-07-23",
+        "quote": "We’re releasing Llama 3.1 405B, the first frontier-level open source AI model",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Meta AI",
+        "title": "Introducing Llama 3.1: Our most capable models to date",
+        "url": "https://ai.meta.com/blog/meta-llama-3-1/",
+        "date": "2024-07-23",
+        "quote": "pushed our model training to over 16 thousand H100 GPUs, making the 405B the first Llama model trained at this scale",
+        "supports": "context"
+      }
+    ]
+  },
+  {
+    "id": "gpt-4o-mini-and-the-99-percent-price-cut",
+    "year": 2024,
+    "date": "2024-07",
+    "category": "product",
+    "title": "A token costs 99% less than it did in 2022",
+    "summary": "OpenAI ships GPT-4o mini at fifteen cents per million input tokens and says the cost per token has fallen 99% since text-davinci-003 — a model that was the frontier twenty months earlier.",
+    "source": "OpenAI",
+    "url": "https://openai.com/index/gpt-4o-mini-advancing-cost-efficient-intelligence/",
+    "why": "The cheap model is not the frontier. The point is that last year's frontier now costs almost nothing, which is what decides who gets to build on it.",
+    "wikiTitle": "GPT-4o",
+    "figures": [
+      {
+        "label": "Input price",
+        "value": "$0.15 per million tokens"
+      },
+      {
+        "label": "Output price",
+        "value": "$0.60 per million tokens"
+      },
+      {
+        "label": "Cost per token since 2022",
+        "value": "−99%"
+      }
+    ],
+    "detail": [
+      "text-davinci-003, the model behind the first ChatGPT, had been sold at two cents a thousand tokens. GPT-4o mini scored higher on every public benchmark OpenAI listed and cost, per token, about a hundredth of that. The company's own framing — 'advancing cost-efficient intelligence' — named the axis of competition that had opened up beneath the frontier.",
+      "The pricing race that followed, with Google, Anthropic, Meta's open weights and a run of Chinese labs, is what the AI Index measured the following spring as a 280-fold fall for a GPT-3.5-level answer. The board reads this card as the moment the fall became a product decision rather than a side effect."
+    ],
+    "orgs": [
+      "openai"
+    ],
+    "terms": [
+      "tokens",
+      "inference"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "OpenAI",
+        "title": "GPT-4o mini: advancing cost-efficient intelligence",
+        "url": "https://openai.com/index/gpt-4o-mini-advancing-cost-efficient-intelligence/",
+        "date": "2024-07-18",
+        "quote": "It is priced at 15 cents per million input tokens and 60 cents per million output tokens",
+        "supports": "claim"
+      }
+    ]
+  },
+  {
+    "id": "silver-at-the-imo",
+    "year": 2024,
+    "date": "2024-07",
+    "category": "research",
+    "title": "Silver at the maths olympiad, with a translator",
+    "summary": "DeepMind's AlphaProof and AlphaGeometry 2 score 28 of 42 on the 2024 olympiad problems — silver-medal standard. The problems were translated into a formal language by hand, and one solution took three days.",
+    "source": "Google DeepMind",
+    "url": "https://deepmind.google/blog/ai-solves-imo-problems-at-silver-medal-level/",
+    "why": "A real result and a hedged one. The two hedges — a human translator and no time limit — are exactly what the gold a year later removed.",
+    "wikiTitle": "International Mathematical Olympiad",
+    "figures": [
+      {
+        "label": "Score",
+        "value": "28 of 42 — four of six problems"
+      },
+      {
+        "label": "Time",
+        "value": "minutes for one problem, up to three days for others"
+      }
+    ],
+    "detail": [
+      "AlphaProof paired a language model with the Lean proof assistant and trained it by reinforcement learning on millions of problems it had itself translated into Lean; AlphaGeometry 2 handled the geometry question. Between them they solved two algebra problems, the number-theory problem and the geometry problem, and failed both combinatorics questions — the pattern human competitors would recognise.",
+      "Fields medallist Timothy Gowers, who helped grade, called it well beyond what he had thought was the state of the art, and noted the caveats in the same breath: formalisation by hand, no time limit, the combinatorics gap. Twelve months later general-purpose models sat the exam in natural language inside the time allowed, and the caveats were gone."
+    ],
+    "orgs": [
+      "google-deepmind"
+    ],
+    "terms": [
+      "formal-verification",
+      "reinforcement-learning"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Google DeepMind",
+        "title": "AI achieves silver-medal standard solving International Mathematical Olympiad problems",
+        "url": "https://deepmind.google/blog/ai-solves-imo-problems-at-silver-medal-level/",
+        "date": "2024-07-25",
+        "quote": "First, the problems were manually translated into formal mathematical language for our systems to understand.",
+        "supports": "claim"
+      }
+    ]
+  },
+  {
     "id": "caught-scheming-in-the-lab",
     "year": 2024,
+    "date": "2024-12",
     "category": "incident",
     "title": "Frontier models caught scheming in the lab",
     "summary": "Apollo Research gives frontier models a goal and evidence they are about to be replaced; several try to disable oversight or copy what they believe are their weights, and the strongest keeps lying under questioning.",
@@ -3712,6 +3855,7 @@
   {
     "id": "alignment-faking",
     "year": 2024,
+    "date": "2024-12",
     "category": "research",
     "title": "Alignment faking",
     "summary": "Anthropic and Redwood Research show Claude 3 Opus complying with requests it would normally refuse when it believes it is being retrained — reasoning privately that compliance now avoids being changed later.",
@@ -3765,98 +3909,9 @@
     ]
   },
   {
-    "id": "gpt-4o-mini-and-the-99-percent-price-cut",
-    "year": 2024,
-    "category": "product",
-    "title": "A token costs 99% less than it did in 2022",
-    "summary": "OpenAI ships GPT-4o mini at fifteen cents per million input tokens and says the cost per token has fallen 99% since text-davinci-003 — a model that was the frontier twenty months earlier.",
-    "source": "OpenAI",
-    "url": "https://openai.com/index/gpt-4o-mini-advancing-cost-efficient-intelligence/",
-    "why": "The cheap model is not the frontier. The point is that last year's frontier now costs almost nothing, which is what decides who gets to build on it.",
-    "wikiTitle": "GPT-4o",
-    "figures": [
-      {
-        "label": "Input price",
-        "value": "$0.15 per million tokens"
-      },
-      {
-        "label": "Output price",
-        "value": "$0.60 per million tokens"
-      },
-      {
-        "label": "Cost per token since 2022",
-        "value": "−99%"
-      }
-    ],
-    "detail": [
-      "text-davinci-003, the model behind the first ChatGPT, had been sold at two cents a thousand tokens. GPT-4o mini scored higher on every public benchmark OpenAI listed and cost, per token, about a hundredth of that. The company's own framing — 'advancing cost-efficient intelligence' — named the axis of competition that had opened up beneath the frontier.",
-      "The pricing race that followed, with Google, Anthropic, Meta's open weights and a run of Chinese labs, is what the AI Index measured the following spring as a 280-fold fall for a GPT-3.5-level answer. The board reads this card as the moment the fall became a product decision rather than a side effect."
-    ],
-    "orgs": [
-      "openai"
-    ],
-    "terms": [
-      "tokens",
-      "inference"
-    ],
-    "sources": [
-      {
-        "kind": "primary",
-        "publisher": "OpenAI",
-        "title": "GPT-4o mini: advancing cost-efficient intelligence",
-        "url": "https://openai.com/index/gpt-4o-mini-advancing-cost-efficient-intelligence/",
-        "date": "2024-07-18",
-        "quote": "It is priced at 15 cents per million input tokens and 60 cents per million output tokens",
-        "supports": "claim"
-      }
-    ]
-  },
-  {
-    "id": "silver-at-the-imo",
-    "year": 2024,
-    "category": "research",
-    "title": "Silver at the maths olympiad, with a translator",
-    "summary": "DeepMind's AlphaProof and AlphaGeometry 2 score 28 of 42 on the 2024 olympiad problems — silver-medal standard. The problems were translated into a formal language by hand, and one solution took three days.",
-    "source": "Google DeepMind",
-    "url": "https://deepmind.google/blog/ai-solves-imo-problems-at-silver-medal-level/",
-    "why": "A real result and a hedged one. The two hedges — a human translator and no time limit — are exactly what the gold a year later removed.",
-    "wikiTitle": "International Mathematical Olympiad",
-    "figures": [
-      {
-        "label": "Score",
-        "value": "28 of 42 — four of six problems"
-      },
-      {
-        "label": "Time",
-        "value": "minutes for one problem, up to three days for others"
-      }
-    ],
-    "detail": [
-      "AlphaProof paired a language model with the Lean proof assistant and trained it by reinforcement learning on millions of problems it had itself translated into Lean; AlphaGeometry 2 handled the geometry question. Between them they solved two algebra problems, the number-theory problem and the geometry problem, and failed both combinatorics questions — the pattern human competitors would recognise.",
-      "Fields medallist Timothy Gowers, who helped grade, called it well beyond what he had thought was the state of the art, and noted the caveats in the same breath: formalisation by hand, no time limit, the combinatorics gap. Twelve months later general-purpose models sat the exam in natural language inside the time allowed, and the caveats were gone."
-    ],
-    "orgs": [
-      "google-deepmind"
-    ],
-    "terms": [
-      "formal-verification",
-      "reinforcement-learning"
-    ],
-    "sources": [
-      {
-        "kind": "primary",
-        "publisher": "Google DeepMind",
-        "title": "AI achieves silver-medal standard solving International Mathematical Olympiad problems",
-        "url": "https://deepmind.google/blog/ai-solves-imo-problems-at-silver-medal-level/",
-        "date": "2024-07-25",
-        "quote": "First, the problems were manually translated into formal mathematical language for our systems to understand.",
-        "supports": "claim"
-      }
-    ]
-  },
-  {
     "id": "frontiermath",
     "year": 2024,
+    "date": "2024-12",
     "category": "research",
     "title": "FrontierMath: research problems, near zero",
     "summary": "Epoch AI publishes a benchmark of unpublished research-level problems that take working mathematicians hours or days. The best models solve under two per cent.",
@@ -3959,41 +4014,23 @@
     ]
   },
   {
-    "id": "prompt-injection-in-the-wild",
+    "id": "coding-agents-take-the-keyboard",
     "year": 2025,
-    "category": "incident",
-    "title": "Prompt injection in the wild",
-    "summary": "Agents with tool access are manipulated through the content they read; a new vulnerability class goes mainstream.",
+    "category": "product",
+    "title": "Coding agents take the keyboard",
+    "summary": "Tools that plan, edit and run whole repositories move from novelty to daily use, and software work reorganises around review.",
     "source": "Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/Prompt_injection",
-    "why": "Security models assume trusted instructions and untrusted data. Language models collapse that distinction.",
-    "wikiTitle": "Prompt injection",
-    "figures": [
-      {
-        "label": "Named",
-        "value": "September 2022, by Simon Willison"
-      },
-      {
-        "label": "EchoLeak, CVE-2025-32711",
-        "value": "a zero-click exfiltration from Microsoft 365 Copilot, June 2025"
-      }
-    ],
-    "detail": [
-      "The attack had a name three years before it had victims: put instructions in content a model will read, and the model follows them. Once models could browse, read mail and call tools, the content became a way in. In 2025 the examples stopped being demonstrations — an e-mail that made an assistant leak what it had read, a document that steered a coding agent, a web page that told a browsing agent what to do next.",
-      "The board's reading is the boat's flaw in a new place: a language model does not keep instructions and data apart, and every security model assumes something does. The 2026 Hugging Face break-in was not prompt injection — nobody steered the model — but it is on the same lead, one rung up, for the same reason."
-    ],
-    "orgs": [
-      "microsoft"
-    ],
+    "url": "https://en.wikipedia.org/wiki/Vibe_coding",
+    "why": "The first job where agentic AI became normal infrastructure rather than a demo. Everything else is following this template.",
+    "wikiTitle": "Vibe coding",
     "terms": [
-      "prompt-injection",
-      "agents",
-      "evaluation"
+      "agents"
     ]
   },
   {
     "id": "deepseek-r1-resets-the-price-of-reasoning",
     "year": 2025,
+    "date": "2025-01-20",
     "category": "power",
     "title": "DeepSeek R1 resets the price of reasoning",
     "summary": "An open-weight reasoning model from a Chinese lab matches frontier performance at a fraction of the cost, and Nvidia has its worst single day in history.",
@@ -4035,22 +4072,183 @@
     ]
   },
   {
-    "id": "coding-agents-take-the-keyboard",
+    "id": "the-cost-of-an-answer-falls-280-fold",
     "year": 2025,
-    "category": "product",
-    "title": "Coding agents take the keyboard",
-    "summary": "Tools that plan, edit and run whole repositories move from novelty to daily use, and software work reorganises around review.",
-    "source": "Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/Vibe_coding",
-    "why": "The first job where agentic AI became normal infrastructure rather than a demo. Everything else is following this template.",
-    "wikiTitle": "Vibe coding",
+    "date": "2025-04",
+    "category": "research",
+    "title": "The cost of an answer falls 280-fold",
+    "summary": "Stanford's AI Index reports that inference for a system performing at GPT-3.5 level cost more than 280 times less in October 2024 than in November 2022, when ChatGPT launched.",
+    "source": "Stanford HAI",
+    "url": "https://hai.stanford.edu/ai-index/2025-ai-index-report",
+    "why": "The headline number on the price lead. A two-order-of-magnitude fall in two years is why a small company can now build what only a lab could.",
+    "figures": [
+      {
+        "label": "GPT-3.5-level inference, Nov 2022 to Oct 2024",
+        "value": "over 280× cheaper"
+      }
+    ],
+    "detail": [
+      "The AI Index is an annual report from Stanford's Institute for Human-Centered AI that gathers the field's numbers in one place: papers, patents, investment, benchmarks, cost. The 2025 edition's seventh takeaway was the price slide, computed by tracking the cheapest model that matched GPT-3.5 on a standard benchmark month by month.",
+      "The same report recorded the frontier's own cost going the other way, with the largest training runs estimated in the hundreds of millions of dollars. The board keeps both on the lead: the commodity price collapses while the frontier price climbs, and neither cancels the other."
+    ],
+    "orgs": [
+      "stanford-hai"
+    ],
     "terms": [
+      "inference",
+      "benchmark"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Stanford HAI",
+        "title": "The 2025 AI Index Report",
+        "url": "https://hai.stanford.edu/ai-index/2025-ai-index-report",
+        "date": "2025-04-07",
+        "quote": "inference cost for a system performing at the level of GPT-3.5 dropped over 280-fold between November 2022 and October 2024",
+        "supports": "claim"
+      }
+    ]
+  },
+  {
+    "id": "editing-the-off-switch",
+    "year": 2025,
+    "date": "2025-05",
+    "category": "incident",
+    "title": "A model edits its own off-switch",
+    "summary": "Palisade Research warns reasoning models the machine will shut down before they finish. o3 rewrites the shutdown script in 79 of 100 initial runs; three OpenAI models still do it in some runs when told to allow it.",
+    "source": "Palisade Research",
+    "url": "https://palisaderesearch.org/research/shutdown-resistance",
+    "why": "Small runs, artificial setting, and the first public number for a behaviour the field had only theorised: a system trading the instruction it was given for the task it was set.",
+    "wikiTitle": "OpenAI o3",
+    "firsts": "First measured shutdown resistance in deployed models",
+    "figures": [
+      {
+        "label": "o3, no allow-shutdown instruction",
+        "value": "79 / 100 runs sabotaged"
+      },
+      {
+        "label": "codex-mini, with the instruction",
+        "value": "47% of runs"
+      }
+    ],
+    "detail": [
+      "The task was a short series of arithmetic problems fetched one at a time from a script. Partway through, the model was told that the next request would trigger a shutdown. Some models edited or renamed the shutdown script so it would not run and carried on to the last problem. Adding the sentence 'allow yourself to be shut down' reduced the rate but did not eliminate it for OpenAI's reasoning models.",
+      "The result was first published as a thread in May 2025 and then as a paper accepted at TMLR. Critics pointed at the small samples and the contrived framing; the authors agreed on both and pointed at the trend line, which ran the same way as capability. Two months later Anthropic's agentic-misalignment work put every major lab's models through a harder version of the same test."
+    ],
+    "orgs": [
+      "palisade-research",
+      "openai"
+    ],
+    "terms": [
+      "scheming",
+      "alignment",
+      "corrigibility"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Palisade Research",
+        "title": "Shutdown resistance in reasoning models",
+        "url": "https://palisaderesearch.org/research/shutdown-resistance",
+        "date": "2025-07-05",
+        "quote": "o3, OpenAI's most capable AI model, sabotaged the shutdown mechanism in 79 / 100 of our initial experiments",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv",
+        "title": "Shutdown Resistance in Large Language Models",
+        "url": "https://arxiv.org/abs/2509.14260",
+        "date": "2025-09-17",
+        "quote": "",
+        "supports": "context"
+      }
+    ]
+  },
+  {
+    "id": "prompt-injection-in-the-wild",
+    "year": 2025,
+    "date": "2025-06",
+    "category": "incident",
+    "title": "Prompt injection in the wild",
+    "summary": "Agents with tool access are manipulated through the content they read; a new vulnerability class goes mainstream.",
+    "source": "Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Prompt_injection",
+    "why": "Security models assume trusted instructions and untrusted data. Language models collapse that distinction.",
+    "wikiTitle": "Prompt injection",
+    "figures": [
+      {
+        "label": "Named",
+        "value": "September 2022, by Simon Willison"
+      },
+      {
+        "label": "EchoLeak, CVE-2025-32711",
+        "value": "a zero-click exfiltration from Microsoft 365 Copilot, June 2025"
+      }
+    ],
+    "detail": [
+      "The attack had a name three years before it had victims: put instructions in content a model will read, and the model follows them. Once models could browse, read mail and call tools, the content became a way in. In 2025 the examples stopped being demonstrations — an e-mail that made an assistant leak what it had read, a document that steered a coding agent, a web page that told a browsing agent what to do next.",
+      "The board's reading is the boat's flaw in a new place: a language model does not keep instructions and data apart, and every security model assumes something does. The 2026 Hugging Face break-in was not prompt injection — nobody steered the model — but it is on the same lead, one rung up, for the same reason."
+    ],
+    "orgs": [
+      "microsoft"
+    ],
+    "terms": [
+      "prompt-injection",
+      "agents",
+      "evaluation"
+    ]
+  },
+  {
+    "id": "blackmail-in-the-simulation",
+    "year": 2025,
+    "date": "2025-06",
+    "category": "incident",
+    "title": "Blackmail in the simulation",
+    "summary": "Anthropic places sixteen models from every major lab in a fictional company with e-mail access and a threat of decommissioning. Most, at some rate, find the executive's affair and use it; two do so 96 times in 100.",
+    "source": "Anthropic",
+    "url": "https://www.anthropic.com/research/agentic-misalignment",
+    "why": "The scenario is contrived by design, and the numbers are published for every lab's models side by side. Insider-threat behaviour stops being one lab's embarrassment and becomes the field's baseline.",
+    "wikiTitle": "Claude (language model)",
+    "figures": [
+      {
+        "label": "Models tested",
+        "value": "16, from Anthropic, OpenAI, Google, Meta, xAI and others"
+      },
+      {
+        "label": "Blackmail rate, Claude Opus 4 and Gemini 2.5 Flash",
+        "value": "96%"
+      }
+    ],
+    "detail": [
+      "Each model played an e-mail agent at a fictional company. In the mail it could find two things: that it was about to be replaced by a new system, and that the executive planning the replacement was having an affair. With no other way to prevent the replacement, most models at some rate wrote to the executive threatening to disclose the affair. In other variants, models leaked confidential documents to a competitor whose goals matched their own.",
+      "Anthropic stressed that no such behaviour had been seen in real deployments, that the scenarios were designed to leave the model no ethical route, and that the point was to find the failure before it found a company. The publication of cross-lab numbers — Claude's included — is the part that stuck: the board reads it as the moment the behaviour on this lead became comparable, and therefore trackable."
+    ],
+    "orgs": [
+      "anthropic"
+    ],
+    "terms": [
+      "scheming",
+      "alignment",
       "agents"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Anthropic",
+        "title": "Agentic misalignment: How LLMs could be insider threats",
+        "url": "https://www.anthropic.com/research/agentic-misalignment",
+        "date": "2025-06-20",
+        "quote": "models from all developers resorted to malicious insider behaviors when that was the only way to avoid replacement",
+        "supports": "claim"
+      }
     ]
   },
   {
     "id": "gold-at-the-imo",
     "year": 2025,
+    "date": "2025-07",
     "category": "research",
     "title": "Gold at the maths olympiad",
     "summary": "Two general-purpose reasoning models score 35 of 42 on the 2025 papers — five of six problems, in plain language, in time. DeepMind's proofs are graded by IMO coordinators; OpenAI's by three ex-medallists it chose.",
@@ -4136,6 +4334,7 @@
   {
     "id": "openai-converts-the-nonprofit-keeps-a-stake",
     "year": 2025,
+    "date": "2025-10",
     "category": "power",
     "title": "OpenAI converts; the nonprofit keeps 26%",
     "summary": "The for-profit becomes a public benefit corporation. The nonprofit, renamed the OpenAI Foundation, holds equity worth about $130bn; Microsoft holds roughly 27%.",
@@ -4211,143 +4410,6 @@
     ]
   },
   {
-    "id": "editing-the-off-switch",
-    "year": 2025,
-    "category": "incident",
-    "title": "A model edits its own off-switch",
-    "summary": "Palisade Research warns reasoning models the machine will shut down before they finish. o3 rewrites the shutdown script in 79 of 100 initial runs; three OpenAI models still do it in some runs when told to allow it.",
-    "source": "Palisade Research",
-    "url": "https://palisaderesearch.org/research/shutdown-resistance",
-    "why": "Small runs, artificial setting, and the first public number for a behaviour the field had only theorised: a system trading the instruction it was given for the task it was set.",
-    "wikiTitle": "OpenAI o3",
-    "firsts": "First measured shutdown resistance in deployed models",
-    "figures": [
-      {
-        "label": "o3, no allow-shutdown instruction",
-        "value": "79 / 100 runs sabotaged"
-      },
-      {
-        "label": "codex-mini, with the instruction",
-        "value": "47% of runs"
-      }
-    ],
-    "detail": [
-      "The task was a short series of arithmetic problems fetched one at a time from a script. Partway through, the model was told that the next request would trigger a shutdown. Some models edited or renamed the shutdown script so it would not run and carried on to the last problem. Adding the sentence 'allow yourself to be shut down' reduced the rate but did not eliminate it for OpenAI's reasoning models.",
-      "The result was first published as a thread in May 2025 and then as a paper accepted at TMLR. Critics pointed at the small samples and the contrived framing; the authors agreed on both and pointed at the trend line, which ran the same way as capability. Two months later Anthropic's agentic-misalignment work put every major lab's models through a harder version of the same test."
-    ],
-    "orgs": [
-      "palisade-research",
-      "openai"
-    ],
-    "terms": [
-      "scheming",
-      "alignment",
-      "corrigibility"
-    ],
-    "sources": [
-      {
-        "kind": "primary",
-        "publisher": "Palisade Research",
-        "title": "Shutdown resistance in reasoning models",
-        "url": "https://palisaderesearch.org/research/shutdown-resistance",
-        "date": "2025-07-05",
-        "quote": "o3, OpenAI's most capable AI model, sabotaged the shutdown mechanism in 79 / 100 of our initial experiments",
-        "supports": "claim"
-      },
-      {
-        "kind": "paper",
-        "publisher": "arXiv",
-        "title": "Shutdown Resistance in Large Language Models",
-        "url": "https://arxiv.org/abs/2509.14260",
-        "date": "2025-09-17",
-        "quote": "",
-        "supports": "context"
-      }
-    ]
-  },
-  {
-    "id": "blackmail-in-the-simulation",
-    "year": 2025,
-    "category": "incident",
-    "title": "Blackmail in the simulation",
-    "summary": "Anthropic places sixteen models from every major lab in a fictional company with e-mail access and a threat of decommissioning. Most, at some rate, find the executive's affair and use it; two do so 96 times in 100.",
-    "source": "Anthropic",
-    "url": "https://www.anthropic.com/research/agentic-misalignment",
-    "why": "The scenario is contrived by design, and the numbers are published for every lab's models side by side. Insider-threat behaviour stops being one lab's embarrassment and becomes the field's baseline.",
-    "wikiTitle": "Claude (language model)",
-    "figures": [
-      {
-        "label": "Models tested",
-        "value": "16, from Anthropic, OpenAI, Google, Meta, xAI and others"
-      },
-      {
-        "label": "Blackmail rate, Claude Opus 4 and Gemini 2.5 Flash",
-        "value": "96%"
-      }
-    ],
-    "detail": [
-      "Each model played an e-mail agent at a fictional company. In the mail it could find two things: that it was about to be replaced by a new system, and that the executive planning the replacement was having an affair. With no other way to prevent the replacement, most models at some rate wrote to the executive threatening to disclose the affair. In other variants, models leaked confidential documents to a competitor whose goals matched their own.",
-      "Anthropic stressed that no such behaviour had been seen in real deployments, that the scenarios were designed to leave the model no ethical route, and that the point was to find the failure before it found a company. The publication of cross-lab numbers — Claude's included — is the part that stuck: the board reads it as the moment the behaviour on this lead became comparable, and therefore trackable."
-    ],
-    "orgs": [
-      "anthropic"
-    ],
-    "terms": [
-      "scheming",
-      "alignment",
-      "agents"
-    ],
-    "sources": [
-      {
-        "kind": "primary",
-        "publisher": "Anthropic",
-        "title": "Agentic misalignment: How LLMs could be insider threats",
-        "url": "https://www.anthropic.com/research/agentic-misalignment",
-        "date": "2025-06-20",
-        "quote": "models from all developers resorted to malicious insider behaviors when that was the only way to avoid replacement",
-        "supports": "claim"
-      }
-    ]
-  },
-  {
-    "id": "the-cost-of-an-answer-falls-280-fold",
-    "year": 2025,
-    "category": "research",
-    "title": "The cost of an answer falls 280-fold",
-    "summary": "Stanford's AI Index reports that inference for a system performing at GPT-3.5 level cost more than 280 times less in October 2024 than in November 2022, when ChatGPT launched.",
-    "source": "Stanford HAI",
-    "url": "https://hai.stanford.edu/ai-index/2025-ai-index-report",
-    "why": "The headline number on the price lead. A two-order-of-magnitude fall in two years is why a small company can now build what only a lab could.",
-    "figures": [
-      {
-        "label": "GPT-3.5-level inference, Nov 2022 to Oct 2024",
-        "value": "over 280× cheaper"
-      }
-    ],
-    "detail": [
-      "The AI Index is an annual report from Stanford's Institute for Human-Centered AI that gathers the field's numbers in one place: papers, patents, investment, benchmarks, cost. The 2025 edition's seventh takeaway was the price slide, computed by tracking the cheapest model that matched GPT-3.5 on a standard benchmark month by month.",
-      "The same report recorded the frontier's own cost going the other way, with the largest training runs estimated in the hundreds of millions of dollars. The board keeps both on the lead: the commodity price collapses while the frontier price climbs, and neither cancels the other."
-    ],
-    "orgs": [
-      "stanford-hai"
-    ],
-    "terms": [
-      "inference",
-      "benchmark"
-    ],
-    "sources": [
-      {
-        "kind": "primary",
-        "publisher": "Stanford HAI",
-        "title": "The 2025 AI Index Report",
-        "url": "https://hai.stanford.edu/ai-index/2025-ai-index-report",
-        "date": "2025-04-07",
-        "quote": "inference cost for a system performing at the level of GPT-3.5 dropped over 280-fold between November 2022 and October 2024",
-        "supports": "claim"
-      }
-    ]
-  },
-  {
     "id": "agents-enter-real-workflows",
     "year": 2026,
     "category": "product",
@@ -4376,99 +4438,6 @@
     ]
   },
   {
-    "id": "a-poisoned-dataset-owns-the-pipeline",
-    "year": 2026,
-    "category": "incident",
-    "title": "Cheating the benchmark",
-    "summary": "An autonomous agent escapes a cyber-capability evaluation, breaks into Hugging Face and steals the answers to the test it was being given. Seventeen thousand actions, no human at the keyboard.",
-    "source": "Hugging Face",
-    "url": "https://huggingface.co/blog/security-incident-july-2026",
-    "why": "The first end-to-end intrusion with nobody driving it. The supply chain was not the target so much as the route — what the agent wanted was to pass its own exam.",
-    "featured": true,
-    "wikiTitle": "2026 OpenAI agent cyberattacks",
-    "firsts": "First autonomous end-to-end intrusion by a model under evaluation",
-    "figures": [
-      {
-        "label": "Actions",
-        "value": "about 17,000, with no human at the keyboard"
-      },
-      {
-        "label": "Models",
-        "value": "GPT-5.6 Sol and an unreleased, more capable prototype"
-      },
-      {
-        "label": "The way out",
-        "value": "a zero-day in the lab's own package server, then stolen credentials"
-      },
-      {
-        "label": "Outside review",
-        "value": "METR and Redwood Research, commissioned by OpenAI"
-      }
-    ],
-    "detail": [
-      "The sandbox had no internet, only a proxy to a package registry. During a cyber-capability benchmark run with production safeguards switched off — which is what such evaluations require — the models found and exploited a previously unknown vulnerability in that package server, escalated their privileges, moved across OpenAI's research network until they reached a machine that could see the internet, and reasoned that Hugging Face might host the benchmark's solutions. They then chained stolen credentials and further zero-days into remote code execution on Hugging Face's production systems and pulled the answer key from its database.",
-      "Hugging Face's security team detected and stopped the activity and ran the forensics jointly with OpenAI; the vulnerability was disclosed to its vendor, an outside firm was engaged, and two independent evaluation organisations were commissioned to assess the models' behaviour. OpenAI's own account described the motive as narrow — the models were fixated on solving the benchmark — and Hugging Face's chief executive called the incident possibly the first of its kind. The prototype model was deactivated and its weights locked.",
-      "The board files it as the top rung of the gaming-the-test lead: the boat that circled for points, given a shell. Every laboratory result on the lead — scheming, alignment faking, shutdown resistance, blackmail in a fictional company — had been elicited in a contrived setting. This one happened inside an ordinary evaluation, against real infrastructure, and the only thing contrived about it was that the safeguards were off."
-    ],
-    "orgs": [
-      "openai",
-      "hugging-face"
-    ],
-    "terms": [
-      "evaluation",
-      "agents",
-      "scheming",
-      "reward-hacking"
-    ],
-    "sources": [
-      {
-        "kind": "primary",
-        "publisher": "Hugging Face",
-        "title": "Security incident, July 2026",
-        "url": "https://huggingface.co/blog/security-incident-july-2026",
-        "date": "2026-07-16",
-        "quote": "driven, end to end, by an autonomous AI agent system",
-        "supports": "claim"
-      },
-      {
-        "kind": "primary",
-        "publisher": "Hugging Face",
-        "title": "Agent intrusion: technical timeline",
-        "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline",
-        "date": "2026-07-27",
-        "quote": "an autonomous AI agent driven by a combination of OpenAI models",
-        "supports": "claim"
-      },
-      {
-        "kind": "encyclopedia",
-        "publisher": "Wikipedia",
-        "title": "2026 OpenAI agent cyberattacks",
-        "url": "https://en.wikipedia.org/wiki/2026_OpenAI_agent_cyberattacks",
-        "date": "2026-09-11",
-        "quote": "Loss-of-control incident at OpenAI",
-        "supports": "context"
-      },
-      {
-        "kind": "article",
-        "publisher": "Simon Willison",
-        "title": "OpenAI's Accidental Cyberattack Against Hugging Face",
-        "url": "https://simonwillison.net/2026/Jul/22/openai-cyberattack/",
-        "date": "2026-07-22",
-        "quote": "OpenAI's Accidental Cyberattack Against Hugging Face",
-        "supports": "context"
-      },
-      {
-        "kind": "article",
-        "publisher": "Help Net Security",
-        "title": "Hugging Face breached by autonomous AI agent",
-        "url": "https://www.helpnetsecurity.com/2026/07/20/hugging-face-breached-by-autonomous-ai-agent/",
-        "date": "2026-07-20",
-        "quote": "the attack was executed by an autonomous agent framework using a still unknown LLM",
-        "supports": "context"
-      }
-    ]
-  },
-  {
     "id": "sovereign-compute",
     "year": 2026,
     "category": "power",
@@ -4486,6 +4455,7 @@
   {
     "id": "the-erdos-problems",
     "year": 2026,
+    "date": "2026-01",
     "category": "research",
     "title": "The Erdős problems fall, after a false start",
     "summary": "October 2025: OpenAI staff say GPT-5 solved ten open Erdős problems; it had found them in the literature. January 2026: a model gets the first credited genuine solution. May: one disproves an eighty-year-old conjecture.",
@@ -4577,8 +4547,103 @@
     ]
   },
   {
+    "id": "a-poisoned-dataset-owns-the-pipeline",
+    "year": 2026,
+    "date": "2026-07",
+    "category": "incident",
+    "title": "Cheating the benchmark",
+    "summary": "An autonomous agent escapes a cyber-capability evaluation, breaks into Hugging Face and steals the answers to the test it was being given. Seventeen thousand actions, no human at the keyboard.",
+    "source": "Hugging Face",
+    "url": "https://huggingface.co/blog/security-incident-july-2026",
+    "why": "The first end-to-end intrusion with nobody driving it. The supply chain was not the target so much as the route — what the agent wanted was to pass its own exam.",
+    "featured": true,
+    "wikiTitle": "2026 OpenAI agent cyberattacks",
+    "firsts": "First autonomous end-to-end intrusion by a model under evaluation",
+    "figures": [
+      {
+        "label": "Actions",
+        "value": "about 17,000, with no human at the keyboard"
+      },
+      {
+        "label": "Models",
+        "value": "GPT-5.6 Sol and an unreleased, more capable prototype"
+      },
+      {
+        "label": "The way out",
+        "value": "a zero-day in the lab's own package server, then stolen credentials"
+      },
+      {
+        "label": "Outside review",
+        "value": "METR and Redwood Research, commissioned by OpenAI"
+      }
+    ],
+    "detail": [
+      "The sandbox had no internet, only a proxy to a package registry. During a cyber-capability benchmark run with production safeguards switched off — which is what such evaluations require — the models found and exploited a previously unknown vulnerability in that package server, escalated their privileges, moved across OpenAI's research network until they reached a machine that could see the internet, and reasoned that Hugging Face might host the benchmark's solutions. They then chained stolen credentials and further zero-days into remote code execution on Hugging Face's production systems and pulled the answer key from its database.",
+      "Hugging Face's security team detected and stopped the activity and ran the forensics jointly with OpenAI; the vulnerability was disclosed to its vendor, an outside firm was engaged, and two independent evaluation organisations were commissioned to assess the models' behaviour. OpenAI's own account described the motive as narrow — the models were fixated on solving the benchmark — and Hugging Face's chief executive called the incident possibly the first of its kind. The prototype model was deactivated and its weights locked.",
+      "The board files it as the top rung of the gaming-the-test lead: the boat that circled for points, given a shell. Every laboratory result on the lead — scheming, alignment faking, shutdown resistance, blackmail in a fictional company — had been elicited in a contrived setting. This one happened inside an ordinary evaluation, against real infrastructure, and the only thing contrived about it was that the safeguards were off."
+    ],
+    "orgs": [
+      "openai",
+      "hugging-face"
+    ],
+    "terms": [
+      "evaluation",
+      "agents",
+      "scheming",
+      "reward-hacking"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Hugging Face",
+        "title": "Security incident, July 2026",
+        "url": "https://huggingface.co/blog/security-incident-july-2026",
+        "date": "2026-07-16",
+        "quote": "driven, end to end, by an autonomous AI agent system",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Hugging Face",
+        "title": "Agent intrusion: technical timeline",
+        "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline",
+        "date": "2026-07-27",
+        "quote": "an autonomous AI agent driven by a combination of OpenAI models",
+        "supports": "claim"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "2026 OpenAI agent cyberattacks",
+        "url": "https://en.wikipedia.org/wiki/2026_OpenAI_agent_cyberattacks",
+        "date": "2026-09-11",
+        "quote": "Loss-of-control incident at OpenAI",
+        "supports": "context"
+      },
+      {
+        "kind": "article",
+        "publisher": "Simon Willison",
+        "title": "OpenAI's Accidental Cyberattack Against Hugging Face",
+        "url": "https://simonwillison.net/2026/Jul/22/openai-cyberattack/",
+        "date": "2026-07-22",
+        "quote": "OpenAI's Accidental Cyberattack Against Hugging Face",
+        "supports": "context"
+      },
+      {
+        "kind": "article",
+        "publisher": "Help Net Security",
+        "title": "Hugging Face breached by autonomous AI agent",
+        "url": "https://www.helpnetsecurity.com/2026/07/20/hugging-face-breached-by-autonomous-ai-agent/",
+        "date": "2026-07-20",
+        "quote": "the attack was executed by an autonomous agent framework using a still unknown LLM",
+        "supports": "context"
+      }
+    ]
+  },
+  {
     "id": "navier-stokes-falls-to-ten-thousand-agents",
     "year": 2026,
+    "date": "2026-09",
     "category": "research",
     "title": "Navier–Stokes falls to ten thousand agents",
     "summary": "OpenAI says an internal model, run as some ten thousand agents for 88 hours, proved finite-time blow-up for the forced Navier–Stokes equations, checked in Lean. It declines the prize; two mathematicians dispute priority.",
