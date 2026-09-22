@@ -1,4 +1,6 @@
 import { describe, it, expect } from 'vitest';
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import App from '../src/App';
@@ -62,6 +64,20 @@ describe('server rendering', () => {
     expect(html).toContain('chrome chrome-narrow');
     expect(html).toContain('chrome chrome-desk');
     expect(html).toContain('Open menu');
+  });
+
+  /* The faces are this site's own. A stylesheet from a third party blocks the
+     first paint of all 318 pages and reflows the text when it answers. */
+  it('asks no third party for its type', () => {
+    const shell = readFileSync(join(__dirname, '..', 'index.html'), 'utf8');
+    expect(shell).not.toContain('fonts.googleapis.com');
+    expect(shell).not.toContain('fonts.gstatic.com');
+    expect(shell).toContain('@font-face');
+    // A font is fetched in CORS mode even from its own origin: without this the
+    // preload misses and the file is downloaded a second time.
+    const preloads = shell.match(/<link rel="preload"[^>]*>/g) || [];
+    expect(preloads.length).toBe(2);
+    preloads.forEach((p) => expect(p).toContain('crossorigin'));
   });
 
   it('says so when an address names nothing, without throwing', () => {

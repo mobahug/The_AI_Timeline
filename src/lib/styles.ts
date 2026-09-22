@@ -21,7 +21,12 @@ export const STRING_INK = 'oklch(0.78 0.16 25)';
 export const GOLD = 'oklch(0.82 0.13 85)';
 export const CYAN = 'oklch(0.85 0.12 200)';
 export const MONO = "'IBM Plex Mono', ui-monospace, monospace";
-export const SERIF = "'Instrument Serif', Georgia, serif";
+/* Both faces are served from this site (public/fonts, declared in index.html).
+ * The fallbacks are what a reader sees for the moment before they land, and
+ * for good on a machine that refuses web fonts: Georgia on a desk, Noto Serif
+ * on Android and most Linux, where Georgia is not installed and the bare
+ * `serif` keyword is a wide, loose face nothing like this one. */
+export const SERIF = "'Instrument Serif', Georgia, 'Noto Serif', 'Times New Roman', serif";
 export const SANS = "'Helvetica Neue', Helvetica, Arial, sans-serif";
 
 /** Ink on the ground, in five steps. 0.5 is the lowest alpha that clears WCAG AA

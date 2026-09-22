@@ -102,5 +102,7 @@ The board's own text (everything in `data/`) is **CC BY-NC-ND 4.0** — share it
 credit, do not sell it, do not alter it. The code is **PolyForm Noncommercial 1.0.0** —
 read it, run it, change it for any noncommercial purpose. Quoted sentences remain their
 publishers'; Wikipedia text is CC BY-SA 4.0 and credited where shown; photographs remain
-under their Wikimedia licences. See [LICENSE](LICENSE) and
+under their Wikimedia licences. The two typefaces — Instrument Serif and IBM Plex Mono —
+are served from this site under the SIL Open Font License 1.1, whose text sits beside
+them in `public/fonts`. See [LICENSE](LICENSE) and
 [LICENSE-CONTENT.md](LICENSE-CONTENT.md).
