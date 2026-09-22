@@ -28,12 +28,22 @@ const readStored = (): Mode => {
   return DEFAULT_MODE;
 };
 
-if (typeof window !== 'undefined') current = readStored();
+/* The document already carries the choice: an inline script in index.html sets
+   `data-mode` on <html> before the first paint, and base.css shows one of the
+   two readings every page ships with. This keeps the attribute and the store
+   from ever disagreeing — the script is the first word, this is every word
+   after it. */
+const apply = (m: Mode) => {
+  if (typeof document !== 'undefined') document.documentElement.setAttribute('data-mode', m);
+};
+
+if (typeof window !== 'undefined') { current = readStored(); apply(current); }
 
 export function setMode(next: Mode) {
   if (!isMode(next) || next === current) return;
   current = next;
   try { localStorage.setItem(KEY, next); } catch {}
+  apply(next);
   listeners.forEach((l) => l());
 }
 

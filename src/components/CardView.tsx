@@ -4,9 +4,8 @@ import { bearingOn, splitSentences } from '../lib/wiki';
 import { findingFor } from '../lib/spine';
 import { leadsOf } from '../lib/leads';
 import { entitiesOf } from '../lib/files';
-import { useMode } from '../lib/mode';
 import { INK, MONO, SANS, SERIF, STRING_INK, RULE, ROW_RULE, PHOTO_FILTER, frame, ink, micro, shell } from '../lib/styles';
-import { Btn, CardTriple, Chips, Claim, CopyLink, Credit, Disclosure, Eyebrow, Figures, First, FullOnly, Gap, Link, NavRow, Quote, Reading, Ref, Section } from './kit';
+import { Brief, Btn, CardTriple, Chips, Claim, CopyLink, Credit, Disclosure, Eyebrow, Figures, First, Full, FullOnly, Gap, Link, NavRow, Quote, Reading, Ref, Section } from './kit';
 import type { NavItem } from './kit';
 import type { Event, Graph, Media, Route, Shot, Source } from '../lib/types';
 
@@ -90,7 +89,6 @@ function CardView({ graph, route, media, embedded }: CardViewProps) {
   const frameStyle = embedded ? { padding: '0 clamp(14px,3vw,22px) 40px' } : shell('read');
   // Every hook before the first return, so an unknown id followed by a known
   // one renders the same hooks in the same order.
-  const [, , full] = useMode();
   const event = route.id ? graph.index[route.id] : null;
   if (!event) {
     return (
@@ -177,10 +175,19 @@ function CardView({ graph, route, media, embedded }: CardViewProps) {
       {detail.length > 0 && (
         <Section id="file" eyebrow="The file" title="What happened, at length" count={detail.length + (detail.length === 1 ? ' paragraph' : ' paragraphs')}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 14, maxWidth: '68ch' }}>
-            {(full ? detail : detail.slice(0, 1)).map((para, k) => (
-              <p key={k} style={{ margin: 0, font: '400 clamp(14.5px,1.3vw,16px)/1.68 ' + SANS, color: ink(3), textWrap: 'pretty' }}>{para}</p>
-            ))}
-            {!full && detail.length > 1 && <FullOnly label={(detail.length - 1) + (detail.length === 2 ? ' more paragraph' : ' more paragraphs')} />}
+            <p style={{ margin: 0, font: '400 clamp(14.5px,1.3vw,16px)/1.68 ' + SANS, color: ink(3), textWrap: 'pretty' }}>{detail[0]}</p>
+            {detail.length > 1 && (
+              <>
+                <Full>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+                    {detail.slice(1).map((para, k) => (
+                      <p key={k} style={{ margin: 0, font: '400 clamp(14.5px,1.3vw,16px)/1.68 ' + SANS, color: ink(3), textWrap: 'pretty' }}>{para}</p>
+                    ))}
+                  </div>
+                </Full>
+                <Brief><FullOnly label={(detail.length - 1) + (detail.length === 2 ? ' more paragraph' : ' more paragraphs')} /></Brief>
+              </>
+            )}
           </div>
         </Section>
       )}
@@ -248,14 +255,14 @@ function CardView({ graph, route, media, embedded }: CardViewProps) {
         </Section>
       )}
 
-      {roads.length > 0 && roads[0].length > 1 && !full && (
-        <Section id="road" eyebrow="The road here" count={roads.length + (roads.length === 1 ? ' road' : ' roads') + ' · ' + roads[0].length + ' hops at the longest'}>
-          <FullOnly label="The road here, hop by hop, in the board's own claim verbs" />
-        </Section>
-      )}
-
-      {roads.length > 0 && roads[0].length > 1 && full && (
-        <Section id="road" eyebrow="The road here" title="In the board’s own words" count={roads.length + (roads.length === 1 ? ' road' : ' roads')}>
+      {/* One section, one `id="road"`. Two of them used to live here, mutually
+          exclusive by mode — which is fine while only one is rendered, and a
+          duplicate id the moment both are, with `:target` free to take the
+          hidden one. */}
+      {roads.length > 0 && roads[0].length > 1 && (
+        <Section id="road" eyebrow="The road here" title="In the board’s own words" count={roads.length + (roads.length === 1 ? ' road' : ' roads') + ' · ' + roads[0].length + ' hops at the longest'}>
+          <Brief><FullOnly label="The road here, hop by hop, in the board's own claim verbs" /></Brief>
+          <Full>
           <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'baseline', gap: '7px 9px' }}>
             <Ref event={roads[0][0].from} to={{ view: 'card', id: roads[0][0].from.id }} />
             {roads[0].map((hop, k) => (
@@ -266,14 +273,21 @@ function CardView({ graph, route, media, embedded }: CardViewProps) {
             ))}
           </div>
           {roads.length > 1 && <div style={{ ...micro(5), marginTop: 12, textTransform: 'none', letterSpacing: '0.08em' }}>Also reached from {roads.slice(1).map((r) => r[0].from.year + ' ' + r[0].from.title).join(' · ')}{truncated ? ' · list capped' : ''}</div>}
+          </Full>
         </Section>
       )}
 
       {!event.future && (
         <Section id="sources" eyebrow="Read the sources" title="What the sources say" count={strength.total + (strength.total === 1 ? ' source' : ' sources') + (strength.supporting ? ' · ' + strength.supporting + ' quoted in support' : '')}>
-          {sources.length ? (full || sources.length === 1 ? sources : [basedOn as Source]).map((s, k) => <SourceBlock key={k} src={s} event={event} page={shot} />)
-            : <div style={micro(5)}>No source on this entry.</div>}
-          {!full && sources.length > 1 && <div style={{ marginTop: 16 }}><FullOnly label={(sources.length - 1) + ' more ' + (sources.length === 2 ? 'source' : 'sources') + ', each with what it says'} /></div>}
+          {/* The source the card is based on is read in either mode, so it is
+              rendered once and heads the list; the others are the surplus. */}
+          {basedOn ? <SourceBlock src={basedOn} event={event} page={shot} /> : <div style={micro(5)}>No source on this entry.</div>}
+          {sources.length > 1 && (
+            <>
+              <Full>{sources.filter((s) => s !== basedOn).map((s, k) => <SourceBlock key={k} src={s} event={event} page={shot} />)}</Full>
+              <Brief><div style={{ marginTop: 16 }}><FullOnly label={(sources.length - 1) + ' more ' + (sources.length === 2 ? 'source' : 'sources') + ', each with what it says'} /></div></Brief>
+            </>
+          )}
           {strength.state !== 'quoted' && sources.length > 0 && (
             <p style={{ margin: '16px 0 0', font: '400 11.5px/1.7 ' + MONO, color: ink(5), maxWidth: '70ch' }}>
               This entry is cited but not yet quoted: no source on it carries a verbatim line supporting the claim. Until a source has been read and the line chosen, treat the citations as background.

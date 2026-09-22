@@ -40,6 +40,16 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
 @media (max-width: 1259.98px) { .wide-only { display: none; } }
 @media (min-width: 1260px)    { .chrome-row1 { flex-wrap: wrap; } }
 
+/* Brief and full. Every page is prerendered once and carries both readings;
+   `data-mode` on <html>, set before the first paint, chooses. `display:
+   contents` means neither wrapper is a box of its own, so the children lay out
+   exactly as they would without it — and a reader who asked for the whole file
+   is given it in the first frame, rather than the outline and then, a moment
+   later, four hundred more pixels of page under the link they were reading. */
+.mode-brief, .mode-full { display: contents; }
+:root[data-mode="full"] .mode-brief { display: none; }
+:root:not([data-mode="full"]) .mode-full { display: none; }
+
 /* A landmark tile spans two columns — but only once there are two columns to
    span. The grid already computes its own column count from the same width, so
    the span is told by the same media query rather than by a second opinion

@@ -96,6 +96,25 @@ describe('server rendering', () => {
     expect(titles.size).toBeGreaterThan(120);
   });
 
+  /* A dossier is prerendered once and read in either mode, so it carries both
+     readings and `data-mode` on <html> chooses. Two mutually exclusive
+     sections used to share `id="road"`, which is only safe while one of them
+     is missing from the document. */
+  it('carries both readings of a dossier, each id once', () => {
+    const shell = readFileSync(join(__dirname, '..', 'index.html'), 'utf8');
+    expect(shell).toContain("setAttribute('data-mode'");
+    // The script must mirror readStored in src/lib/mode.ts, key and all.
+    expect(shell).toContain('aiTimeline.mode.v1');
+
+    const html = render('/card/chatgpt/');
+    expect(html).toContain('class="mode-full"');
+    expect(html).toContain('class="mode-brief"');
+    const ids = [...html.matchAll(/ id="([^"]+)"/g)].map((m) => m[1]);
+    expect(ids.filter((x) => ids.indexOf(x) !== ids.lastIndexOf(x))).toEqual([]);
+    // The paragraph brief shows is rendered once, not once per reading.
+    expect((html.match(/The model was GPT-3\.5/g) || []).length).toBe(1);
+  });
+
   it('says so when an address names nothing, without throwing', () => {
     expect(render('/card/no-such-card/')).toContain('No entry has the id');
     expect(render('/lead/no-such-lead/')).toContain('There is no lead');

@@ -212,11 +212,27 @@ export function Section({ id, eyebrow, title, count, style, children, ...rest }:
   );
 }
 
-/** Content the brief mode leaves out. In brief it collapses to one line that
- *  says what is there and offers the switch, so nothing is hidden silently. */
-export function FullOnly({ label, children }: { label?: ReactNode; children?: ReactNode }) {
-  const [, setMode, full] = useMode();
-  if (full) return <>{children}</>;
+/* ─── Brief and full ─────────────────────────────────────────────────────
+   A page is prerendered once and read in either mode, so both readings are in
+   the document and CSS shows the one the reader chose — `data-mode` is on
+   <html> before the first paint (index.html), and the rules are in base.css.
+   Nothing is measured, nothing is swapped, and a page does not grow under a
+   hash link a moment after it lands. `display: contents` means neither wrapper
+   is a box: the children lay out exactly as they would without it.
+
+   Only the surplus is wrapped. Where brief shows the first of something and
+   full shows all of it, the first one is rendered once, outside — so no reader
+   and no crawler meets the same paragraph twice. */
+
+/** The reading only the whole file carries. */
+export const Full = ({ children }: { children?: ReactNode }) => <div className="mode-full">{children}</div>;
+/** What stands in its place in brief. */
+export const Brief = ({ children }: { children?: ReactNode }) => <div className="mode-brief">{children}</div>;
+
+/** The line brief shows in place of what it leaves out: what is there, and the
+ *  switch — so nothing is dropped silently. Put it inside a `Brief`. */
+export function FullOnly({ label }: { label?: ReactNode }) {
+  const [, setMode] = useMode();
   return (
     <button
       type="button"

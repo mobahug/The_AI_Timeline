@@ -5,6 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>The AI Timeline — an investigation board, 1900–2050</title>
     <meta name="description" content="Every breakthrough, boardroom coup, lawsuit and breach that led to modern AI — pinned to a board, with the strings between them, the leads that follow one question at a time, and the scenarios that follow." />
+    <!-- Brief or full, on <html> before the first paint. Every page is
+         prerendered once and carries both readings; this attribute is what
+         chooses between them, so a reader who asked for the whole file gets it
+         in the first frame instead of watching the page grow a moment later.
+         It mirrors `readStored` in src/lib/mode.ts exactly — ?mode= first, and
+         it is remembered, because About documents ?mode=full as the link you
+         send someone. -->
+    <script>
+      (function () {
+        var k = 'aiTimeline.mode.v1', m = null, q = null;
+        try { q = new URLSearchParams(location.search).get('mode'); } catch (e) {}
+        if (q === 'brief' || q === 'full') { m = q; try { localStorage.setItem(k, m); } catch (e) {} }
+        if (!m) { try { var v = localStorage.getItem(k); if (v === 'brief' || v === 'full') m = v; } catch (e) {} }
+        document.documentElement.setAttribute('data-mode', m || 'brief');
+      })();
+    </script>
     <meta name="theme-color" content="#0a0a0b" />
     <meta name="color-scheme" content="dark" />
     <meta property="og:site_name" content="The AI Timeline" />
