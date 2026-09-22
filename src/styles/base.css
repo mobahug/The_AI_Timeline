@@ -20,6 +20,34 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
 ::-webkit-scrollbar { width: 9px; height: 9px; }
 ::-webkit-scrollbar-thumb { background: rgba(243, 240, 234, 0.16); border-radius: 9px; }
 ::-webkit-scrollbar-track { background: transparent; }
+/* ─── The two chromes, and the grid that does its own arithmetic ─────────
+   The header renders both of its shapes into every page and CSS shows one, so
+   the document the server sends is already the document the reader gets. A
+   phone used to be handed the desk chrome — 185px of it, wider than the screen
+   — and then watched it collapse to 49px the moment the script ran. Nothing is
+   measured here and nothing is swapped: `display` decides, before the first
+   frame, and the hidden chrome leaves the accessibility tree with it.
+
+   880 divides the one-row chrome from the two-row one. 1260 is the width at
+   which the second row still holds: below it the chrome sheds its tagline and
+   its Category label and lets the chips scroll sideways rather than wrap into a
+   third row. These two numbers are the header's whole responsive behaviour —
+   `Header.tsx` states them in prose and sets none of them. */
+.chrome { display: none; }
+.chrome-row1 { flex-wrap: nowrap; }
+@media (max-width: 879.98px) { .chrome-narrow { display: block; } }
+@media (min-width: 880px)    { .chrome-desk   { display: flex; } }
+@media (max-width: 1259.98px) { .wide-only { display: none; } }
+@media (min-width: 1260px)    { .chrome-row1 { flex-wrap: wrap; } }
+
+/* A landmark tile spans two columns — but only once there are two columns to
+   span. The grid already computes its own column count from the same width, so
+   the span is told by the same media query rather than by a second opinion
+   from JavaScript, which used to disagree with it until hydration and leave a
+   featured tile two pixels tall on a phone. */
+.tile-featured { grid-column: span 1; height: 250px; }
+@media (min-width: 560px) { .tile-featured { grid-column: span 2; height: 330px; } }
+
 /* ─── One interaction language ──────────────────────────────────────────
    Every control on the site answers a pointer the same way, by kind, and at
    one speed. The rules touch only the three properties a state changes —

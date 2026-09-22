@@ -59,10 +59,12 @@ export interface SearchBoxProps {
   onChange: (value: string) => void;
   /** The narrow header: the field takes the full width. */
   narrow?: boolean;
+  /** Both chromes are in the document, so each field names its own listbox. */
+  id?: string;
   style?: CSSProperties;
 }
 
-export default function SearchBox({ graph, value, onChange, narrow, style }: SearchBoxProps) {
+export default function SearchBox({ graph, value, onChange, narrow, id = 'site-search', style }: SearchBoxProps) {
   const { navigate } = useNav();
   const [open, setOpen] = useState(false);
   const [cursor, setCursor] = useState(0);
@@ -71,12 +73,17 @@ export default function SearchBox({ graph, value, onChange, narrow, style }: Sea
   const groups = useMemo(() => searchAll(graph, value), [graph, value]);
   const flat = useMemo(() => groups.flatMap((g) => g.items), [groups]);
 
-  // ⌘K / Ctrl+K anywhere puts the cursor in the field.
+  // ⌘K / Ctrl+K anywhere puts the cursor in the field — the one a reader can
+  // see. The other chrome's field is in the document too, hidden by CSS, and a
+  // hidden field must not take the cursor: `offsetParent` is null for anything
+  // under `display: none`, which is exactly how the chromes are chosen.
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        const el = inputRef.current;
+        if (!el || el.offsetParent === null) return;
         e.preventDefault();
-        if (inputRef.current) { inputRef.current.focus(); inputRef.current.select(); setOpen(true); }
+        el.focus(); el.select(); setOpen(true);
       }
     };
     window.addEventListener('keydown', onKey);
@@ -99,7 +106,7 @@ export default function SearchBox({ graph, value, onChange, narrow, style }: Sea
     if (inputRef.current) inputRef.current.blur();
   };
 
-  const listId = 'site-search-results';
+  const listId = id + '-results';
   const showing = open && flat.length > 0;
 
   return (

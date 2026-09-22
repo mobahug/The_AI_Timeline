@@ -1,7 +1,6 @@
 import React from 'react';
 import type { Event, Media } from '../lib/types';
 import { catLabel } from '../lib/data';
-import { useMatch } from '../lib/dom';
 import { INK, SERIF, PHOTO_FILTER, PLACEHOLDER, frame, micro, shell } from '../lib/styles';
 import { Link } from './kit';
 
@@ -9,10 +8,9 @@ import { Link } from './kit';
 export interface MosaicViewProps { items: Event[]; media: Media }
 
 export default function MosaicView({ items, media }: MosaicViewProps) {
-  // A landmark spans two columns — but only once there are two columns to span.
-  // Below that it overflows the grid, which is what it used to do on a phone.
-  const wide = useMatch('(min-width: 560px)', true);
-
+  // A landmark spans two columns — but only once there are two columns to span,
+  // which the grid and `.tile-featured` in base.css settle between them at the
+  // same width. Nothing here asks how wide the window is.
   return (
     <div style={{ ...shell('wide'), paddingTop: 22, display: 'grid', gridTemplateColumns: 'repeat(auto-fill,minmax(min(100%,240px),1fr))', gap: 10 }}>
       {items.map((e) => {
@@ -23,11 +21,11 @@ export default function MosaicView({ items, media }: MosaicViewProps) {
           <Link
             key={e.id}
             to={{ view: 'board', id: e.id, category: 'all', query: '' }}
-            className="ix-door"
+            className={'ix-door' + (e.featured ? ' tile-featured' : '')}
             data-year={e.year}
             style={{
               ...frame(e.future), position: 'relative', overflow: 'hidden', display: 'block',
-              height: e.featured ? (wide ? 330 : 250) : 230, gridColumn: e.featured && wide ? 'span 2' : 'span 1'
+              ...(e.featured ? null : { height: 230 })
             }}
           >
             {shot.img

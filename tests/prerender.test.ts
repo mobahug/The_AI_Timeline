@@ -54,6 +54,16 @@ describe('server rendering', () => {
     });
   });
 
+  /* The header's two shapes are both in the document the server sends, and CSS
+     shows one. A phone used to be handed the desk chrome and watched it
+     collapse; if either class goes missing from the HTML, that is back. */
+  it('sends both chromes, so no width is measured after the first paint', () => {
+    const html = render('/line/');
+    expect(html).toContain('chrome chrome-narrow');
+    expect(html).toContain('chrome chrome-desk');
+    expect(html).toContain('Open menu');
+  });
+
   it('says so when an address names nothing, without throwing', () => {
     expect(render('/card/no-such-card/')).toContain('No entry has the id');
     expect(render('/lead/no-such-lead/')).toContain('There is no lead');

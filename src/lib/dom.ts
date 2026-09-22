@@ -23,18 +23,12 @@ export function useMatch(query: string, serverDefault = false): boolean {
   );
 }
 
-const subscribeResize = (cb: () => void) => {
-  if (typeof window === 'undefined') return () => {};
-  window.addEventListener('resize', cb);
-  return () => window.removeEventListener('resize', cb);
-};
-
-/** Is the window narrower than `px`? Default false, so the server draws the desk. */
-export const useNarrow = (px: number): boolean => useSyncExternalStore(
-  subscribeResize,
-  () => (typeof window !== 'undefined' ? window.innerWidth < px : false),
-  () => false
-);
+/* There was a `useNarrow(px)` here, and the header laid itself out by it. It is
+   gone: a layout that depends on a width the server cannot know is a layout the
+   server gets wrong, and the reader watches it correct itself. What a page
+   looks like at a width is CSS's question — see the chrome rules in base.css.
+   `useMatch` stays for the one thing CSS cannot do: tell a modal that the
+   window it was opened on has grown past the breakpoint. */
 
 /** Copy text to the clipboard; resolves true when it worked. */
 export async function copyText(text: string): Promise<boolean> {
