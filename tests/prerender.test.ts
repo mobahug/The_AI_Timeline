@@ -80,6 +80,22 @@ describe('server rendering', () => {
     preloads.forEach((p) => expect(p).toContain('crossorigin'));
   });
 
+  /* The board is drawn fresh in the browser, so the photographs it needs are
+     written into its HTML at build time rather than waited for. A title that
+     quietly stops resolving does not empty the set — it thins it — so the
+     count is held here, not only the "not zero" the build itself checks. */
+  it('has a photograph on file for most of the wall', () => {
+    const read = (p: string) => JSON.parse(readFileSync(join(__dirname, '..', p), 'utf8'));
+    const cache = read('public/wiki-cache.json') as Record<string, { img?: string }>;
+    const fallbacks = read('data/image-fallbacks.json') as Record<string, string>;
+    const events = read('data/events.json') as { id: string; wikiTitle?: string }[];
+    const titles = new Set<string>();
+    events.forEach((e) => [e.wikiTitle, fallbacks[e.id]].forEach((t) => {
+      if (t && cache[t] && cache[t].img) titles.add(t);
+    }));
+    expect(titles.size).toBeGreaterThan(120);
+  });
+
   it('says so when an address names nothing, without throwing', () => {
     expect(render('/card/no-such-card/')).toContain('No entry has the id');
     expect(render('/lead/no-such-lead/')).toContain('There is no lead');

@@ -145,14 +145,39 @@ function routeToPath(route: Route): string {
   return v.path.split('/').map((seg) => (seg[0] === ':' ? enc(route[seg.slice(1) === 'finding' ? 'finding' : 'id']) : seg)).join('/') + '/';
 }
 
+/* The board is the one page the server does not render as itself: a crawler
+   gets the static listing, and the canvas is drawn fresh in the browser. That
+   listing reads no photograph, so the board used to ship with no inline block
+   at all — the wall painted hatched, and the 120KB cache raced the 44KB canvas
+   chunk to fill it in. The board's own subset is therefore built here, from
+   the same events, cache and fallbacks the rest of this file already holds:
+   every title a card can illustrate, images only, no extracts.
+
+   It is a projection of data that must exist. If it comes out empty the cache
+   has gone missing and the whole wall would be hatched, so the build stops
+   rather than shipping it. */
+function boardMedia(): WikiCache {
+  const out: WikiCache = {};
+  for (const e of events) {
+    for (const title of [e.wikiTitle, fallbacks[e.id]]) {
+      if (title && cache[title] && cache[title].img) out[title] = { img: cache[title].img } as WikiPage;
+    }
+  }
+  return out;
+}
+const BOARD_MEDIA = boardMedia();
+if (!Object.keys(BOARD_MEDIA).length) throw new Error('prerender: no photographs for the board — is public/wiki-cache.json missing?');
+
 let n = 0;
 for (const path of routes) {
   const { html, route, meta, media: used } = render(BASE + path, cache);
   // A page that touched many entries — the archive, the plates — only needs
   // their photographs; the extracts are for a card's own page.
-  const media: WikiCache = Object.keys(used).length > 12
-    ? Object.fromEntries(Object.entries(used).map(([k, v]) => [k, { img: v.img || '' } as WikiPage]))
-    : used;
+  const media: WikiCache = route.view === 'board'
+    ? BOARD_MEDIA
+    : Object.keys(used).length > 12
+      ? Object.fromEntries(Object.entries(used).map(([k, v]) => [k, { img: v.img || '' } as WikiPage]))
+      : used;
   const out = page(route, html, meta, media);
   const dir = join(dist, path);
   await mkdir(dir, { recursive: true });
