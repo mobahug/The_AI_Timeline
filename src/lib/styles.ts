@@ -53,8 +53,10 @@ export const DUR = { fast: 120, base: 200, move: 320, settle: 420 };
 export const EASE = 'cubic-bezier(.22,.7,.3,1)';
 /** The transition every interactive element's state change uses. */
 export const STATE = 'color ' + DUR.fast + 'ms, background-color ' + DUR.fast + 'ms, border-color ' + DUR.fast + 'ms, opacity ' + DUR.fast + 'ms';
+/** A thing that was not on the page a moment ago fades in. Content that the
+ *  server already delivered does not: it is on the screen when the screen is,
+ *  and animating it would say it had just arrived. */
 export const FADE = 'fadeIn ' + DUR.base + 'ms both';
-export const RISE = 'riseIn ' + DUR.move + 'ms ' + EASE + ' both';
 
 export const PHOTO_FILTER = 'saturate(0.9) contrast(1.03)';
 export const PLACEHOLDER = 'repeating-linear-gradient(135deg,rgba(243,240,234,0.06) 0 6px,transparent 6px 12px)';

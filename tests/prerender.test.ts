@@ -43,6 +43,17 @@ describe('server rendering', () => {
     expect((html.match(/href="\/card\//g) || []).length).toBeGreaterThan(150);
   });
 
+  /* Content the server delivered is on the screen when the screen is. An
+     `animation` in an inline style ships inside the HTML, so a page that was
+     already painted would fade or rise in front of a reader who had been
+     looking at it since the first frame. The rail and the summoned chip still
+     animate — they are mounted by a gesture, not delivered. */
+  it('delivers its pages still, with no mount animation in the HTML', () => {
+    ['/archive/plates/', '/archive/mosaic/', '/horizon/', '/line/', '/case/', '/archive/'].forEach((path) => {
+      expect(render(path), path + ' should carry no animation').not.toMatch(/animation:/);
+    });
+  });
+
   it('says so when an address names nothing, without throwing', () => {
     expect(render('/card/no-such-card/')).toContain('No entry has the id');
     expect(render('/lead/no-such-lead/')).toContain('There is no lead');

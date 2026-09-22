@@ -1,6 +1,6 @@
 import React from 'react';
 import { ERAS, HORIZONS, NOW, THREADS, catLabel, fade, horizonLedger, forwardLedger } from '../lib/data';
-import { INK, RED, SANS, SERIF, DASHED_RULE, DASHED_ROW, RISE, badge, ink, micro, shell } from '../lib/styles';
+import { INK, RED, SANS, SERIF, DASHED_RULE, DASHED_ROW, badge, ink, micro, shell } from '../lib/styles';
 import {
   CardTriple, Claim, Empty, Eyebrow, Ledger, NavRow, PageHead, Prose, Reading, Ref, Section
 } from './kit';
@@ -142,7 +142,7 @@ function Strand({ event, strand, graph, onOpen }: { event: Event; strand: Strand
     <article
       style={{
         display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(min(100%,250px),1fr))', gap: 'clamp(14px,2.4vw,30px)',
-        alignItems: 'start', padding: '22px 0', borderTop: DASHED_ROW, animation: RISE
+        alignItems: 'start', padding: '22px 0', borderTop: DASHED_ROW
       }}
     >
       {/* ── what the board drew behind it ── */}

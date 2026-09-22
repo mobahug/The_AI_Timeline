@@ -2,7 +2,7 @@ import React from 'react';
 import type { Event, Media } from '../lib/types';
 import { NOW, accent, catLabel, groupByEra } from '../lib/data';
 import {
-  INK, SANS, SERIF, RULE, ROW_RULE, DASHED_RULE, DASHED_ROW, RISE, PHOTO_FILTER, PLACEHOLDER,
+  INK, SANS, SERIF, RULE, ROW_RULE, DASHED_RULE, DASHED_ROW, PHOTO_FILTER, PLACEHOLDER,
   badge, frame, ink, micro, shell, tag
 } from '../lib/styles';
 import { Eyebrow, Link } from './kit';
@@ -46,7 +46,7 @@ export default function PlatesView({ items, media }: PlatesViewProps) {
                 style={{
                   display: 'flex', flexWrap: 'wrap', gap: '18px 30px', alignItems: 'flex-start',
                   padding: featured ? '44px 0' : '30px 0',
-                  borderTop: e.future ? DASHED_ROW : ROW_RULE, animation: RISE
+                  borderTop: e.future ? DASHED_ROW : ROW_RULE
                 }}
               >
                 <div style={{ flex: '0 0 110px', font: '400 ' + (featured ? 40 : 28) + 'px/1 ' + SERIF, letterSpacing: '-0.02em', fontVariantNumeric: 'tabular-nums' }}>{e.year}</div>

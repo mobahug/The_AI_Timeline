@@ -2,7 +2,7 @@ import React from 'react';
 import type { Event, Media } from '../lib/types';
 import { catLabel } from '../lib/data';
 import { useMatch } from '../lib/dom';
-import { INK, SERIF, RISE, PHOTO_FILTER, PLACEHOLDER, frame, micro, shell } from '../lib/styles';
+import { INK, SERIF, PHOTO_FILTER, PLACEHOLDER, frame, micro, shell } from '../lib/styles';
 import { Link } from './kit';
 
 /** All photographs, no prose. Landmarks run double width. */
@@ -27,8 +27,7 @@ export default function MosaicView({ items, media }: MosaicViewProps) {
             data-year={e.year}
             style={{
               ...frame(e.future), position: 'relative', overflow: 'hidden', display: 'block',
-              height: e.featured ? (wide ? 330 : 250) : 230, gridColumn: e.featured && wide ? 'span 2' : 'span 1',
-              animation: RISE
+              height: e.featured ? (wide ? 330 : 250) : 230, gridColumn: e.featured && wide ? 'span 2' : 'span 1'
             }}
           >
             {shot.img
