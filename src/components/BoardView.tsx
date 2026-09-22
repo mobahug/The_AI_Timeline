@@ -704,14 +704,21 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
       el.scrollLeft = startLeft - dx;
       onScroll();
     };
+    // `pointercancel` as well as `pointerup`: the browser takes a gesture back
+    // whenever it decides the touch was really a scroll or a system edge swipe,
+    // and it fires no pointerup when it does. Without this the move listener
+    // stayed bound and the next touch jumped the wall by the distance between
+    // the abandoned gesture and the new one.
     const onUp = () => {
       window.removeEventListener('pointermove', onMove);
       window.removeEventListener('pointerup', onUp);
+      window.removeEventListener('pointercancel', onUp);
       el.removeAttribute('data-grabbing');
       setTimeout(() => { dragged.current = false; }, 40);
     };
     window.addEventListener('pointermove', onMove);
     window.addEventListener('pointerup', onUp);
+    window.addEventListener('pointercancel', onUp);
   };
 
   // Wheel turns vertical scrolling into horizontal panning. React registers
@@ -744,9 +751,16 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
       onScroll();
     };
     pan(e);
-    const up = () => { window.removeEventListener('pointermove', pan); window.removeEventListener('pointerup', up); };
+    // Same as the wall's own pan: a gesture the browser takes back fires no
+    // pointerup, and a scrub left listening follows the next touch anywhere.
+    const up = () => {
+      window.removeEventListener('pointermove', pan);
+      window.removeEventListener('pointerup', up);
+      window.removeEventListener('pointercancel', up);
+    };
     window.addEventListener('pointermove', pan);
     window.addEventListener('pointerup', up);
+    window.addEventListener('pointercancel', up);
   };
 
   // One identity, so the memoised cards are not re-rendered on every render.

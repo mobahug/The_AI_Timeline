@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { catLabel } from '../lib/data';
 import { LEADS } from '../lib/leads';
-import { ALL_ENTITIES } from '../lib/files';
+import { ALL_ENTITIES, searchText } from '../lib/files';
 import { INK, MONO, SANS, SERIF, ROW_RULE, ink, micro } from '../lib/styles';
 import { Link, useNav } from './kit';
 import type { CSSProperties } from 'react';
@@ -35,7 +35,7 @@ export function searchAll(graph: Graph, query: string, limit = 6): SearchGroup[]
   const q = norm(query).trim();
   if (!q || q.length < 2) return [];
   const cards = graph.all
-    .map((e) => ({ s: score(q, e.title, e.summary + ' ' + (e.why || '') + ' ' + e.year), e }))
+    .map((e) => ({ s: score(q, e.title, searchText(e)), e }))
     .filter((x) => x.s).sort((a, b) => b.s - a.s || a.e.year - b.e.year).slice(0, limit)
     .map(({ e }): SearchItem => ({ kind: 'card', id: e.id, label: e.title, sub: e.year + ' · ' + catLabel(e.category), to: { view: 'card', id: e.id } }));
   const leads = LEADS

@@ -76,3 +76,46 @@ export const routeOf = (entity: Entity): { view: ViewId; id: string } => ({ view
 
 export const ALL_ENTITIES: Entity[] = [...PEOPLE, ...ORGS, ...TERMS];
 export const entityById = (kind: EntityKind, id: string): Entity | null => (kind === 'person' ? personById[id] : kind === 'org' ? orgById[id] : termById[id]) || null;
+
+/* ─── One index for the field in the header ──────────────────────────────
+   The field did two different things. It filtered the page it is on by
+   `title + summary + year`, and it ranked the dropdown on `summary + why +
+   year` — so one keystroke drove two indexes that disagreed, and the count in
+   the header referred to whichever one the reader was not looking at.
+
+   Worse, both of them stopped at the summary. 52,000 of the 76,000 characters
+   the board has written live in `why` and `detail`, and none of it could be
+   found: "hinton" filtered the archive to the five cards with his name in a
+   title or summary, while the files page reached ten.
+
+   This is what a card can be found by: everything it says in its own voice,
+   the numbers it quotes, the threshold it claims, the date it carries, and the
+   names it tags but does not spell out. Never its sources — a card is not
+   found by the publisher of a page it cites. Built once per card and kept. */
+const INDEX = new Map<string, string>();
+
+export function searchText(event: Event): string {
+  const had = INDEX.get(event.id);
+  if (had !== undefined) return had;
+  const tagged = [
+    ...(event.people || []).map((id) => personById[id]),
+    ...(event.orgs || []).map((id) => orgById[id]),
+    ...(event.terms || []).map((id) => termById[id])
+  ].filter(Boolean);
+  const text = [
+    event.title,
+    event.summary,
+    event.why,
+    ...(event.detail || []),
+    ...(event.figures || []).flatMap((f) => [f.label, f.value]),
+    event.firsts,
+    String(event.year),
+    event.date,
+    ...tagged.flatMap((x) => [x.label, ...(x.aka || [])])
+  ].filter(Boolean).join(' ').toLowerCase();
+  INDEX.set(event.id, text);
+  return text;
+}
+
+/** Does a card answer this query? The query is already lower-cased and trimmed. */
+export const matches = (event: Event, q: string): boolean => !q || searchText(event).includes(q);

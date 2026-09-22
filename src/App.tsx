@@ -17,6 +17,7 @@ import FilesView from './components/FilesView';
 import GlossaryView from './components/GlossaryView';
 import EntityView from './components/EntityView';
 import { buildGraph, events as canonEvents, forwardLedger, FIRST, NOW } from './lib/data';
+import { matches } from './lib/files';
 import { useMedia } from './lib/wiki';
 import { useRoute } from './lib/url';
 import { useMode } from './lib/mode';
@@ -45,11 +46,12 @@ export default function App({ initialRoute }: AppProps) {
   const barRef = useRef<HTMLDivElement>(null);
   const paint = (p: number) => { if (barRef.current) barRef.current.style.width = (p * 100).toFixed(2) + '%'; };
 
+  // The field and the dropdown read the same index — see `searchText` in
+  // files.ts — so the count in the header is a count of what the page shows.
   const items = useMemo(() => {
     const q = route.query.trim().toLowerCase();
     return graph.all.filter((e) =>
-      (route.category === 'all' || e.category === route.category) &&
-      (!q || (e.title + ' ' + e.summary + ' ' + e.year).toLowerCase().includes(q))
+      (route.category === 'all' || e.category === route.category) && matches(e, q)
     );
   }, [graph.all, route.category, route.query]);
 
