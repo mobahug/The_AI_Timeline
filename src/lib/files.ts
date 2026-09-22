@@ -74,6 +74,47 @@ export const appearancesOf = (graph: Graph, entity: Entity): Event[] => graph.al
 /** The route to an entity's page. */
 export const routeOf = (entity: Entity): { view: ViewId; id: string } => ({ view: VIEW[entity.kind], id: entity.id });
 
+/* ─── Who else is on these cards ─────────────────────────────────────────
+   No entity on this board related to any other. A name's page listed its cards
+   and stopped, and prev/next walked the raw order of the JSON file — which is
+   why "next from Hinton" landed on LeCun: they are written next to each other,
+   and for no other reason. For the seventeen people and five organisations
+   that appear on a single card, there was no onward step at all.
+
+   Nothing new is authored for this. Two names are related when the board has
+   put them on the same card, which it has already said 67, 90 and 108 times in
+   `people`, `orgs` and `terms`, and says again wherever a card's own text uses
+   a name it did not trouble to tag. The count is printed, not hidden in a
+   tooltip, so a reader on a phone sees it too. */
+export interface CoOccurrence { entity: Entity; cards: number }
+
+export function coOccurring(graph: Graph, entity: Entity, kinds: EntityKind[]): CoOccurrence[] {
+  const here = appearancesOf(graph, entity);
+  const tally = new Map<string, CoOccurrence>();
+  for (const card of here) {
+    const named = entitiesOf(card);
+    const all: Entity[] = [
+      ...(kinds.includes('person') ? named.people : []),
+      ...(kinds.includes('org') ? named.orgs : []),
+      ...(kinds.includes('term') ? named.terms : [])
+    ];
+    for (const other of all) {
+      if (other.kind === entity.kind && other.id === entity.id) continue;
+      const key = other.kind + '|' + other.id;
+      const row = tally.get(key) || { entity: other, cards: 0 };
+      row.cards += 1;
+      tally.set(key, row);
+    }
+  }
+  return [...tally.values()].sort((a, b) => b.cards - a.cards || a.entity.label.localeCompare(b.entity.label));
+}
+
+/** The files page's own order — most-used first — shared with the pages it
+ *  links to, so prev and next follow the order the reader arrived by. */
+export function byUse(graph: Graph, list: Entity[]): Entity[] {
+  return [...list].sort((a, b) => appearancesOf(graph, b).length - appearancesOf(graph, a).length || a.label.localeCompare(b.label));
+}
+
 export const ALL_ENTITIES: Entity[] = [...PEOPLE, ...ORGS, ...TERMS];
 export const entityById = (kind: EntityKind, id: string): Entity | null => (kind === 'person' ? personById[id] : kind === 'org' ? orgById[id] : termById[id]) || null;
 

@@ -1,6 +1,7 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { accent, catLabel, fade } from '../lib/data';
-import { PEOPLE, ORGS, TERMS, entityById, appearancesOf } from '../lib/files';
+import { PEOPLE, ORGS, TERMS, byUse, coOccurring, entityById, appearancesOf } from '../lib/files';
+import type { CoOccurrence } from '../lib/files';
 import { leadsOf } from '../lib/leads';
 import { INK, MONO, SANS, SERIF, RULE, ROW_RULE, badge, ink, micro, shell } from '../lib/styles';
 import { Btn, Claim, CopyLink, Eyebrow, Link, NavRow, Ref, Section } from './kit';
@@ -24,6 +25,13 @@ function EntityView({ graph, route }: EntityViewProps) {
   const cards = useMemo(() => (entity ? appearancesOf(graph, entity) : []), [graph, entity]);
   const ids = useMemo(() => new Set(cards.map((e) => e.id)), [cards]);
   const between = useMemo(() => graph.edges.filter((l: Edge) => ids.has(l.from) && ids.has(l.to)), [graph.edges, ids]);
+  /* Who else the board has put on these same cards. Nothing new is authored:
+     two names are related because a card names both. Capped, because
+     `org:openai` reaches 29 names and 30 terms and a list that long is not a
+     way onward but a second index. */
+  const CAP = 12;
+  const alsoNamed = useMemo(() => (entity ? coOccurring(graph, entity, ['person', 'org']) : []), [graph, entity]);
+  const alsoTerms = useMemo(() => (entity ? coOccurring(graph, entity, ['term']) : []), [graph, entity]);
   const leads = useMemo(() => {
     const seen = new Map<string, { lead: Lead; n: number }>();
     cards.forEach((e) => leadsOf(e.id).forEach(({ lead }) => {
@@ -48,7 +56,11 @@ function EntityView({ graph, route }: EntityViewProps) {
     );
   }
 
-  const list = LIST[kind];
+  // Prev and next used to walk the raw order of the JSON file, which is why
+  // "next from Hinton" landed on LeCun — they are written beside each other and
+  // for no other reason. People and organisations now follow the files page's
+  // own order, most-used first; terms stay alphabetical, as the glossary is.
+  const list = kind === 'term' ? LIST[kind] : byUse(graph, LIST[kind]);
   const i = list.findIndex((x) => x.id === entity.id);
   const prev = i > 0 ? list[i - 1] : null;
   const next = i < list.length - 1 ? list[i + 1] : null;
@@ -146,6 +158,20 @@ function EntityView({ graph, route }: EntityViewProps) {
         </Section>
       )}
 
+      {(alsoNamed.length > 0 || alsoTerms.length > 0) && (
+        <Section
+          id="also"
+          eyebrow="Also on these cards"
+          title={kind === 'term' ? 'Who is here when this word is' : 'Who else is on these cards'}
+          count={alsoNamed.length + alsoTerms.length + ' names and terms'}
+        >
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+            <CoChips label="Names" rows={alsoNamed} cap={CAP} />
+            <CoChips label="Terms" rows={alsoTerms} cap={CAP} />
+          </div>
+        </Section>
+      )}
+
       {leads.length > 0 && (
         <Section id="leads" eyebrow="Leads" title="Lines of inquiry this name is on">
           <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
@@ -163,6 +189,39 @@ function EntityView({ graph, route }: EntityViewProps) {
 
       <div style={{ borderTop: RULE, marginTop: 30, paddingTop: 22, ...micro(5), letterSpacing: '0.1em', textTransform: 'none', font: '400 11.5px/1.8 ' + MONO, maxWidth: '72ch' }}>
         This page is derived: the cards are every card whose own text names {entity.label}, and the strings are the ones already drawn between them. Nothing here is written about {entity.label} that a card does not say.
+      </div>
+    </div>
+  );
+}
+
+/* A row of co-occurrence chips, each with the number of cards it shares. The
+   count is printed rather than hidden in a `title`, because a phone has no
+   hover to find one with. */
+function CoChips({ label, rows, cap }: { label: string; rows: CoOccurrence[]; cap: number }) {
+  const [all, setAll] = useState(false);
+  if (!rows.length) return null;
+  const shown = all ? rows : rows.slice(0, cap);
+  return (
+    <div>
+      <Eyebrow tier="section" dim style={{ marginBottom: 8 }}>{label}</Eyebrow>
+      <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, flexWrap: 'wrap' }}>
+        {shown.map(({ entity, cards }) => (
+          <Link
+            key={entity.kind + entity.id}
+            to={{ view: entity.kind, id: entity.id }}
+            className="ix-chip"
+            style={{
+              ...micro(3), letterSpacing: '0.1em', textTransform: 'none', font: '400 11px/1 ' + MONO,
+              border: '1px solid rgba(243,240,234,0.16)', borderRadius: 2, padding: '7px 9px', whiteSpace: 'nowrap',
+              borderLeft: '2px solid ' + (entity.kind === 'person' ? 'oklch(0.8 0.12 85)' : entity.kind === 'org' ? 'oklch(0.8 0.1 205)' : 'rgba(243,240,234,0.35)')
+            }}
+          >
+            {entity.label} <span style={{ color: ink(5) }}>· {cards}</span>
+          </Link>
+        ))}
+        {rows.length > cap && !all && (
+          <Btn size="sm" tone="dim" onClick={() => setAll(true)}>All {rows.length} →</Btn>
+        )}
       </div>
     </div>
   );

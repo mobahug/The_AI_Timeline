@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { PEOPLE, ORGS, TERMS, ALL_ENTITIES, names, entitiesOf, appearancesOf, entityById } from '../src/lib/files';
+import { PEOPLE, ORGS, TERMS, ALL_ENTITIES, byUse, coOccurring, names, entitiesOf, appearancesOf, entityById } from '../src/lib/files';
 import { buildGraph, events } from '../src/lib/data';
 import type { Entity, Event } from '../src/lib/types';
 
@@ -59,5 +59,40 @@ describe('the files', () => {
     const n = entitiesOf(e);
     expect(n.orgs[0].id).toBe('openai');
     expect(n.terms.map((t) => t.id)).toContain('reward-hacking');
+  });
+});
+
+/* Who else the board has put on these cards. Nothing here is authored: two
+   names are related because a card names both, which the board has already
+   said in `people`, `orgs` and `terms` and again wherever a card's own text
+   uses a name it did not trouble to tag. */
+describe('co-occurrence', () => {
+  const person = (id: string) => PEOPLE.find((p) => p.id === id)!;
+  const org = (id: string) => ORGS.find((o) => o.id === id)!;
+
+  it('finds the names a person shares a card with', () => {
+    const rows = coOccurring(graph, person('geoffrey-hinton'), ['person', 'org']);
+    expect(rows.length).toBeGreaterThan(0);
+    // Google is on more of Hinton's cards than anything else the board names.
+    expect(rows[0].cards).toBeGreaterThanOrEqual(rows[rows.length - 1].cards);
+    expect(rows.map((r) => r.entity.id)).toContain('google');
+  });
+
+  it('never counts an entity against itself', () => {
+    const rows = coOccurring(graph, org('openai'), ['person', 'org']);
+    expect(rows.find((r) => r.entity.kind === 'org' && r.entity.id === 'openai')).toBeUndefined();
+  });
+
+  it('gives a single-card name somewhere to go', () => {
+    const lonely = PEOPLE.filter((p) => appearancesOf(graph, p).length === 1);
+    expect(lonely.length).toBeGreaterThan(0);
+    const stranded = lonely.filter((p) => coOccurring(graph, p, ['person', 'org', 'term']).length === 0);
+    expect(stranded.map((p) => p.id)).toEqual([]);
+  });
+
+  it('orders people and organisations by how much of the board they are on', () => {
+    const ordered = byUse(graph, PEOPLE);
+    const counts = ordered.map((p) => appearancesOf(graph, p).length);
+    expect([...counts].sort((a, b) => b - a)).toEqual(counts);
   });
 });
