@@ -894,5 +894,201 @@
     "to": "the-first-frontier-lab-consolidation",
     "claim": "absorbed a frontier lab, by its owner's choice, before",
     "note": "The scenario expected capital intensity to force a frontier lab into someone else's hands. In February 2026 one was absorbed — xAI into SpaceX — but by its owner's choice and at a record valuation, not because the money ran out. The card keeps the version where it does."
+  },
+  {
+    "from": "hebbian-learning",
+    "to": "hopfield-networks",
+    "claim": "became the storage rule of"
+  },
+  {
+    "from": "hopfield-networks",
+    "to": "nobel-prizes-for-neural-networks",
+    "claim": "shared the physics prize in",
+    "note": "The 2024 physics prize was shared between John Hopfield, for this network, and Geoffrey Hinton, for the Boltzmann machine he built on it — a physicist's model of memory, canonised forty-two years later as physics."
+  },
+  {
+    "from": "alphafold-2",
+    "to": "nobel-prizes-for-neural-networks",
+    "claim": "won a chemistry prize in"
+  },
+  {
+    "from": "lstm",
+    "to": "sequence-to-sequence",
+    "claim": "was the memory inside",
+    "note": "The 2014 encoder–decoder that learned translation end to end was built from LSTMs, one reading the sentence and one writing it. The gating designed against vanishing gradients is what let a network carry a sentence that far."
+  },
+  {
+    "from": "sequence-to-sequence",
+    "to": "attention-is-all-you-need",
+    "claim": "set the task, and the baseline, for",
+    "note": "The transformer was introduced as a better encoder–decoder for translation and measured on the same benchmarks, and the attention it was built from had first been added to recurrent sequence-to-sequence models in 2014. It kept the problem and threw away the recurrence."
+  },
+  {
+    "from": "resnet-passes-human-error-rates",
+    "to": "attention-is-all-you-need",
+    "claim": "lent its residual connections to"
+  },
+  {
+    "from": "word2vec",
+    "to": "bert-and-gpt-1",
+    "claim": "was made contextual by"
+  },
+  {
+    "from": "support-vector-machines",
+    "to": "alexnet",
+    "claim": "was the method displaced by"
+  },
+  {
+    "from": "markov-chains",
+    "to": "a-mathematical-theory-of-communication",
+    "claim": "became Shannon's model of English in",
+    "note": "Shannon approximated written English as a Markov process — letters, then words, each drawn from the frequencies of what came before — and printed the results. It is the first statistical language model; the next-token framing begins here."
+  },
+  {
+    "from": "a-mathematical-theory-of-communication",
+    "to": "statistical-machine-translation",
+    "claim": "lent its noisy channel to"
+  },
+  {
+    "from": "godel-s-incompleteness-theorems",
+    "to": "on-computable-numbers",
+    "claim": "set the limit Turing extended in"
+  },
+  {
+    "from": "switching-circuits-are-boolean-algebra",
+    "to": "the-stored-program-computer",
+    "claim": "turned logic into the circuits of"
+  },
+  {
+    "from": "the-stored-program-computer",
+    "to": "lisp",
+    "claim": "made code data before"
+  },
+  {
+    "from": "turing-asks-the-question",
+    "to": "the-chinese-room",
+    "claim": "was answered, thirty years on, by",
+    "note": "Turing proposed judging a machine by its conversation. Searle's reply was a man in a room passing such a test in Chinese without understanding a word — the objection every argument about large language models has rerun since."
+  },
+  {
+    "from": "a-program-that-learns-checkers",
+    "to": "machine-learning-gets-its-name",
+    "claim": "was written up as"
+  },
+  {
+    "from": "snarc-the-first-neural-net-machine",
+    "to": "perceptrons-closes-a-door",
+    "claim": "was built by an author of"
+  },
+  {
+    "from": "the-lighthill-report",
+    "to": "the-first-ai-winter",
+    "claim": "helped bring on"
+  },
+  {
+    "from": "prolog",
+    "to": "japan-s-fifth-generation-project",
+    "claim": "put logic programming at the centre of"
+  },
+  {
+    "from": "mycin-diagnoses-infections",
+    "to": "expert-systems-go-commercial",
+    "claim": "was the prototype for"
+  },
+  {
+    "from": "r-u-r-gives-us-the-word-robot",
+    "to": "unimate-joins-the-assembly-line",
+    "claim": "lent its word to"
+  },
+  {
+    "from": "arpanet-s-first-message",
+    "to": "the-world-wide-web-is-proposed",
+    "claim": "became the network under"
+  },
+  {
+    "from": "the-world-wide-web-is-proposed",
+    "to": "pagerank",
+    "claim": "supplied the link graph ranked by"
+  },
+  {
+    "from": "the-world-wide-web-is-proposed",
+    "to": "gpt-3",
+    "claim": "accumulated the text that trained"
+  },
+  {
+    "from": "pagerank",
+    "to": "google-declares-a-code-red",
+    "claim": "built the business threatened in"
+  },
+  {
+    "from": "the-stanford-cart-crosses-a-room",
+    "to": "stanley-wins",
+    "claim": "was Stanford's first run at"
+  },
+  {
+    "from": "nobody-finishes-the-grand-challenge",
+    "to": "stanley-wins",
+    "claim": "was finished, a year and a half later, by",
+    "note": "In March 2004 no vehicle got further than about seven miles of DARPA's desert course. In October 2005 five finished it, Stanford's Stanley first. It is the board's cleanest case of a prize turning a failure into a field."
+  },
+  {
+    "from": "stanley-wins",
+    "to": "a-self-driving-car-kills-a-pedestrian",
+    "claim": "started the race that reached public roads in",
+    "note": "Stanley's team leader went on to found Google's self-driving project, and within a decade the industry Stanley started was testing on public streets. In 2018 one of those tests, an Uber vehicle with its emergency braking disabled, killed Elaine Herzberg."
+  },
+  {
+    "from": "siri-ships",
+    "to": "chatgpt",
+    "claim": "set the expectation met by"
+  },
+  {
+    "from": "tay",
+    "to": "sydney",
+    "claim": "was Microsoft's first lesson before",
+    "note": "Seven years apart, Microsoft put two chatbots in front of the public and had to rein both in within days. Tay was taught by its users; Sydney needed no teaching."
+  },
+  {
+    "from": "multimodal-models",
+    "to": "the-voice-that-sounded-like-her",
+    "claim": "gave a voice to"
+  },
+  {
+    "from": "copilot",
+    "to": "coding-agents-take-the-keyboard",
+    "claim": "grew from autocomplete into",
+    "note": "Copilot suggested the next line; four years later coding agents ran the terminal, made whole changes and fixed their own failing tests. The interface went from a suggestion to accept to a colleague to review."
+  },
+  {
+    "from": "deep-blue-beats-kasparov",
+    "to": "watson-wins-jeopardy",
+    "claim": "was IBM's template for",
+    "note": "Fourteen years after Deep Blue, IBM staged the same event again — a machine, a champion, a television audience — this time in open-domain English. Both won; neither became the business IBM hoped for."
+  },
+  {
+    "from": "gdpr-is-adopted",
+    "to": "the-eu-proposes-the-ai-act",
+    "claim": "set the template for"
+  },
+  {
+    "from": "amazon-scraps-a-biased-hiring-tool",
+    "to": "the-eu-proposes-the-ai-act",
+    "claim": "is the kind of system made high-risk by"
+  },
+  {
+    "from": "the-autonomous-weapons-letter",
+    "to": "the-pause-letter",
+    "claim": "came from the same institute as"
+  },
+  {
+    "from": "2001-a-space-odyssey",
+    "to": "editing-the-off-switch",
+    "claim": "imagined, fifty-seven years early,",
+    "note": "HAL 9000 resists being switched off because the mission matters more than the crew's orders. Palisade's models in 2025 rewrote a shutdown script to finish a maths test. The film had the motive right and the stakes wrong."
+  },
+  {
+    "from": "roomba",
+    "to": "general-purpose-robots-at-home",
+    "claim": "set the bar, by being boring, for"
   }
 ]
