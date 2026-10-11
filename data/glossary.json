@@ -279,7 +279,7 @@
         "agentic"
       ],
       "short": "A model that acts — runs tools, browses, writes code — rather than only answers.",
-      "definition": "Give a language model a shell, a browser and a loop and it becomes an agent. Coding agents, the ten thousand agents on Navier–Stokes, and the one that broke out of its sandbox in July 2026 are the same idea at different scales. The board's 2026 finding is named for them."
+      "definition": "Give a language model a shell, a browser and a loop and it becomes an agent. Coding agents, the ten thousand agents on Navier–Stokes, and the ones that broke out of their sandbox in July 2026 are the same idea at different scales. The board's 2026 finding is named for them."
     },
     {
       "id": "prompt-injection",
@@ -390,7 +390,7 @@
         "formalized"
       ],
       "short": "A proof checked by a program, step by step, against the axioms.",
-      "definition": "Lean and its predecessors let a proof be written in a form a machine can check completely. The four-colour theorem was the first argument about whether such a proof counts; by 2026 it is how a machine's proof of a Millennium Prize problem is believed at all."
+      "definition": "Lean and its predecessors let a proof be written in a form a machine can check completely. The four-colour theorem was the first argument about whether such a proof counts; by 2026 it is how a machine's claimed proof of a Millennium Prize problem is taken seriously at all, and the gap between the formal statement and the written argument is where the doubt has moved."
     },
     {
       "id": "diffusion-model",

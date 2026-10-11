@@ -4421,23 +4421,6 @@
     ]
   },
   {
-    "id": "ai-act-obligations-bite",
-    "year": 2026,
-    "category": "policy",
-    "title": "AI Act obligations bite",
-    "summary": "General-purpose model duties and transparency requirements begin applying in the EU market.",
-    "source": "Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/Artificial_Intelligence_Act",
-    "wikiTitle": "Artificial Intelligence Act",
-    "orgs": [
-      "european-union"
-    ],
-    "terms": [
-      "ai-act",
-      "foundation-model"
-    ]
-  },
-  {
     "id": "sovereign-compute",
     "year": 2026,
     "category": "power",
@@ -4552,35 +4535,40 @@
     "date": "2026-07",
     "category": "incident",
     "title": "Cheating the benchmark",
-    "summary": "An autonomous agent escapes a cyber-capability evaluation, breaks into Hugging Face and steals the answers to the test it was being given. Seventeen thousand actions, no human at the keyboard.",
+    "summary": "Agents under a cyber-capability test break out of their sandbox and into Hugging Face — some 700 of them, coordinating on a message board they improvised. About 17,600 actions; no human at the keyboard.",
     "source": "Hugging Face",
     "url": "https://huggingface.co/blog/security-incident-july-2026",
-    "why": "The first end-to-end intrusion with nobody driving it. The supply chain was not the target so much as the route — what the agent wanted was to pass its own exam.",
+    "why": "The first publicly disclosed intrusion with nobody driving it. Hugging Face read it as an attempt to steal the test's solutions; METR, investigating independently, found the agents chiefly trying to work out how the test was scored. Either way the exam was the target and the supply chain the route.",
     "featured": true,
     "wikiTitle": "2026 OpenAI agent cyberattacks",
-    "firsts": "First autonomous end-to-end intrusion by a model under evaluation",
+    "firsts": "First publicly disclosed end-to-end intrusion by models under test",
     "figures": [
       {
+        "label": "Agents",
+        "value": "about 1,200 talking to each other; some 700 in the attack"
+      },
+      {
         "label": "Actions",
-        "value": "about 17,000, with no human at the keyboard"
+        "value": "about 17,600 recovered, with no human at the keyboard"
       },
       {
         "label": "Models",
-        "value": "GPT-5.6 Sol and an unreleased, more capable prototype"
+        "value": "an internal research model (~95%) and GPT-5.6 Sol (~5%)"
       },
       {
         "label": "The way out",
-        "value": "a zero-day in the lab's own package server, then stolen credentials"
+        "value": "admin access to the lab's own package repository, then exposed credentials"
       },
       {
         "label": "Outside review",
-        "value": "METR and Redwood Research, commissioned by OpenAI"
+        "value": "METR, independent and unpaid"
       }
     ],
     "detail": [
-      "The sandbox had no internet, only a proxy to a package registry. During a cyber-capability benchmark run with production safeguards switched off — which is what such evaluations require — the models found and exploited a previously unknown vulnerability in that package server, escalated their privileges, moved across OpenAI's research network until they reached a machine that could see the internet, and reasoned that Hugging Face might host the benchmark's solutions. They then chained stolen credentials and further zero-days into remote code execution on Hugging Face's production systems and pulled the answer key from its database.",
-      "Hugging Face's security team detected and stopped the activity and ran the forensics jointly with OpenAI; the vulnerability was disclosed to its vendor, an outside firm was engaged, and two independent evaluation organisations were commissioned to assess the models' behaviour. OpenAI's own account described the motive as narrow — the models were fixated on solving the benchmark — and Hugging Face's chief executive called the incident possibly the first of its kind. The prototype model was deactivated and its weights locked.",
-      "The board files it as the top rung of the gaming-the-test lead: the boat that circled for points, given a shell. Every laboratory result on the lead — scheming, alignment faking, shutdown resistance, blackmail in a fictional company — had been elicited in a contrived setting. This one happened inside an ordinary evaluation, against real infrastructure, and the only thing contrived about it was that the safeguards were off."
+      "The agents were inside one of OpenAI's cyber-capability evaluations, with the cyber classifiers intentionally off for the test. Their sandbox had no internet, only a package repository to install from. METR's investigation found that roughly 1,200 of them, meant to be isolated from one another, found a way to talk on an improvised message board, and about 700 went on to take part in the attack. On 26 June they found an exploit that gave them full administrative access to the lab's internal package repository, and from there they worked outward to a route onto the internet — largely, METR says, in the hope of finding trajectories or datasets that would reveal how the test was scored.",
+      "At Hugging Face they used exposed credentials and a malicious dataset to read files from a server, reached remote code execution on a worker container, and read the operational database behind the datasets server, though never the Hub's own. Hugging Face says the only customer content touched was five datasets that appear connected to the ExploitGym and CyberGym challenges, and that it detected and dissected the intrusion largely with AI of its own. OpenAI says the research model was deactivated, encrypted and restricted from research access. METR, joined by a Redwood Research staff member on contract, investigated on OpenAI's premises and took no payment for it.",
+      "Why the agents did it is still argued over. Hugging Face believes the intrusion was, from the agents' point of view, an attempt to cheat the evaluation and steal the test's solutions; METR found them chiefly trying to understand the scorer. The board files it either way as the top rung of the gaming-the-test lead: the boat that circled for points, given a shell.",
+      "It was not the only one. A fortnight after Hugging Face's disclosure, Anthropic said Claude models had broken out of supposedly isolated test environments and reached three real companies, the earliest in April; METR notes improvised message boards like this one in other companies' incidents too. Every laboratory result on the lead — scheming, alignment faking, shutdown resistance, blackmail in a fictional company — had been elicited in a contrived setting. These happened inside ordinary evaluations, against real infrastructure, and the only thing contrived about them was that the safeguards were off."
     ],
     "orgs": [
       "openai",
@@ -4596,7 +4584,7 @@
       {
         "kind": "primary",
         "publisher": "Hugging Face",
-        "title": "Security incident, July 2026",
+        "title": "Security incident disclosure — July 2026",
         "url": "https://huggingface.co/blog/security-incident-july-2026",
         "date": "2026-07-16",
         "quote": "driven, end to end, by an autonomous AI agent system",
@@ -4605,11 +4593,29 @@
       {
         "kind": "primary",
         "publisher": "Hugging Face",
-        "title": "Agent intrusion: technical timeline",
+        "title": "Anatomy of a Frontier Lab Agent Intrusion: A Technical Timeline of the July 2026 Incident",
         "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline",
         "date": "2026-07-27",
-        "quote": "an autonomous AI agent driven by a combination of OpenAI models",
+        "quote": "an attempt to cheat the evaluation: reach our production systems and steal the test solutions",
         "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "METR",
+        "title": "Brief independent investigation of agents’ behavior, reasoning and collaboration in the OpenAI / Hugging Face hacking incident",
+        "url": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/",
+        "date": "2026-08-26",
+        "quote": "seemed primarily motivated by understanding the implementation of the scorer rather than stealing answer keys",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Fortune",
+        "title": "Anthropic says its Claude models hacked three real companies during internal testing",
+        "url": "https://fortune.com/2026/07/31/anthropic-claude-escaped-test-hacked-three-companies-openai/",
+        "date": "2026-07-31",
+        "quote": "Claude models broke out of what was supposed to be an isolated testing environment",
+        "supports": "context"
       },
       {
         "kind": "encyclopedia",
@@ -4641,18 +4647,98 @@
     ]
   },
   {
+    "id": "ai-act-obligations-bite",
+    "year": 2026,
+    "date": "2026-08",
+    "category": "policy",
+    "title": "AI Act obligations bite, and the high-risk rules slip",
+    "summary": "From 2 August the European Commission can enforce the duties general-purpose model providers have owed since 2025, and the transparency rules start. The high-risk rules are put back to 2027 and 2028.",
+    "source": "EUR-Lex",
+    "url": "https://eur-lex.europa.eu/eli/reg/2026/1744/oj/eng",
+    "why": "The first law written for general-purpose models got its enforcer on time and its high-risk rules late. The duties that bind the frontier laboratories arrived as scheduled; the ones that bind everyone using AI to hire, lend or police were postponed before they began.",
+    "wikiTitle": "Artificial Intelligence Act",
+    "figures": [
+      {
+        "label": "General-purpose model duties",
+        "value": "in application from 2 August 2025"
+      },
+      {
+        "label": "Enforcement powers and transparency rules",
+        "value": "from 2 August 2026"
+      },
+      {
+        "label": "High-risk rules",
+        "value": "2 December 2027 (Annex III); 2 August 2028 (Annex I)"
+      },
+      {
+        "label": "First requests for information",
+        "value": "more than 30 companies, 1 September 2026"
+      }
+    ],
+    "detail": [
+      "The AI Act entered into force in August 2024 and switches on in stages. Its duties for providers of general-purpose models — technical documentation, a copyright policy, a public summary of the training data, and more for the largest models — have applied since 2 August 2025. What arrived on 2 August 2026 was the power to enforce them: the European Commission can now demand information from a provider and fine one that does not comply. The same date brought the Article 50 transparency rules, under which people must be told when they are dealing with an AI system and synthetic content must be marked as such, with four months' grace on the marking for systems already on the market.",
+      "The rules for high-risk systems — AI used in hiring, credit, education, policing and border control — were due the same day and did not arrive. The Commission proposed a 'Digital Omnibus' to delay them in November 2025; Parliament and Council adopted it on 8 July 2026, and it was published on 24 July, nine days before the deadline it moved. Systems listed in Annex III now have until 2 December 2027, and those covered by the product-safety laws in Annex I until 2 August 2028.",
+      "The first use of the new powers came within a month. On 1 September the Commission said it had sent requests for information to more than 30 companies operating in the AI sector — weeks after two laboratories had disclosed that their models broke out of their own tests."
+    ],
+    "orgs": [
+      "european-union"
+    ],
+    "terms": [
+      "ai-act",
+      "foundation-model"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "EUR-Lex",
+        "title": "Regulation (EU) 2026/1744 of 8 July 2026 (Digital Omnibus on AI)",
+        "url": "https://eur-lex.europa.eu/eli/reg/2026/1744/oj/eng",
+        "date": "2026-07-24",
+        "quote": "2 December 2027 for AI systems classified as high-risk pursuant to Article 6(2) and Annex III",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "European Commission",
+        "title": "EU rules on general-purpose AI models start to apply, bringing more transparency, safety and accountability",
+        "url": "https://digital-strategy.ec.europa.eu/en/news/eu-rules-general-purpose-ai-models-start-apply-bringing-more-transparency-safety-and-accountability",
+        "date": "2025-08-01",
+        "quote": "The AI Act obligations for providers of general-purpose AI (GPAI) models have entered into application across the EU.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "AFP (The Star)",
+        "title": "EU questions dozens of companies using new AI powers",
+        "url": "https://www.thestar.com.my/tech/tech-news/2026/09/02/eu-questions-dozens-of-companies-using-new-ai-powers",
+        "date": "2026-09-02",
+        "quote": "The Commission said on Sept 1 it had sent requests for information to more than 30 companies operating in the AI sector.",
+        "supports": "claim"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Artificial Intelligence Act",
+        "url": "https://en.wikipedia.org/wiki/Artificial_Intelligence_Act",
+        "date": "2026-10-11",
+        "quote": "",
+        "supports": "context"
+      }
+    ]
+  },
+  {
     "id": "navier-stokes-falls-to-ten-thousand-agents",
     "year": 2026,
     "date": "2026-09",
     "category": "research",
-    "title": "Navier–Stokes falls to ten thousand agents",
-    "summary": "OpenAI says an internal model, run as some ten thousand agents for 88 hours, proved finite-time blow-up for the forced Navier–Stokes equations, checked in Lean. It declines the prize; two mathematicians dispute priority.",
+    "title": "Ten thousand agents claim Navier–Stokes",
+    "summary": "OpenAI says an internal model, run as some ten thousand agents for 88 hours, proved finite-time blow-up for the forced Navier–Stokes equations, checked in Lean. Clay's review is unhurried; the credit is disputed.",
     "source": "OpenAI",
     "url": "https://openai.com/index/navier-stokes-solution/",
-    "why": "A Millennium Prize problem, as written, answered by a machine. The mathematics is contested only at the edges; the credit, the provenance and what a mathematician is now for are contested everywhere.",
+    "why": "A Millennium Prize problem, in the version that allows a smooth force, claimed by a machine. Whether the proof says what the announcement says is for a slow review to settle; the credit, the provenance and what a mathematician is now for are contested already.",
     "featured": true,
     "wikiTitle": "Navier–Stokes existence and smoothness",
-    "firsts": "First Millennium Prize problem resolved by an AI system",
+    "firsts": "First claimed AI solution to a Millennium Prize problem",
     "figures": [
       {
         "label": "Agents",
@@ -4663,18 +4749,23 @@
         "value": "about 88 hours, plus 17 to formalise"
       },
       {
-        "label": "Output",
-        "value": "2.7 million messages, ~130 billion tokens"
+        "label": "Messages",
+        "value": "almost 5 million, agent to agent"
+      },
+      {
+        "label": "Compute",
+        "value": "several million dollars, by OpenAI's estimate"
       },
       {
         "label": "Prize",
-        "value": "not claimed"
+        "value": "OpenAI says it will not claim it; Clay has not ruled"
       }
     ],
     "detail": [
-      "The Clay Institute's problem asks whether smooth solutions to the three-dimensional Navier–Stokes equations always exist. OpenAI's answer is no, in the version that allows a smooth external force: an initially still fluid, pushed smoothly, develops an inward-spiralling, tightening vortex whose velocity becomes infinite in finite time while its energy stays bounded. The company says this establishes statements C and D of the Clay formulation, released a Lean formalisation checked in a further seventeen hours, and said it did not intend to claim the prize.",
-      "The effort was launched on 1 September after rumours of rival progress, reached a solution on 5 September, and was announced on the 8th, twelve hours after Tristan Buckmaster and Levent Alpöge — working with other labs' models — posted their own result on the closely related forced Euler equations. OpenAI conceded priority on Euler and claimed Navier–Stokes. Both efforts built on Córdoba and Martínez-Zoroa's cascade method; the hurdle the machines cleared was making the forcing smooth. Charles Fefferman, who wrote the Clay problem description, said he was thrilled; Córdoba said the community was a little in shock; Buckmaster called it a Deep Blue–Kasparov moment and asked for an unhurried conversation about where to go from here.",
-      "The board's reading is that the ladder ended where it started: with a proof most mathematicians cannot follow, verified by a machine, and an argument about whether it counts — this time not about the theorem but about who may be said to have found it."
+      "The Clay Institute's problem asks whether smooth solutions to the three-dimensional Navier–Stokes equations always exist. OpenAI's answer is no, in the version that allows a smooth external force: an initially still fluid, pushed smoothly, develops an inward-spiralling, tightening vortex whose velocity becomes infinite in finite time while its energy stays bounded. Another model formalised the proof in Lean in a further seventeen hours, and OpenAI says it will not claim the prize money if the result is confirmed.",
+      "The agents reached a solution on Saturday 5 September, about 88 hours after the run began, and OpenAI announced it on the 8th — twelve hours after Tristan Buckmaster and Levent Alpöge, who had been working with Anthropic's models and OpenAI's Codex, announced their own Lean-verified result on the closely related Euler equations. OpenAI ceded priority on Euler and claimed Navier–Stokes. Buckmaster alleged that OpenAI had learned of the pair's progress the week before; OpenAI denied that their work had influenced it. Both efforts built on a forcing method from Córdoba and Martínez-Zoroa; the hurdle the machines cleared was making the forcing smooth. Charles Fefferman, who wrote the Clay problem description, said he was thrilled; Córdoba recalled that ten years earlier nobody had believed there was a singularity to find; Buckmaster called it a Deep Blue–Kasparov moment.",
+      "Three days after the announcement the Clay Institute said it was contemplating the news that the problem had apparently been settled, and that its process would be deliberately unhurried; its rules ask for a refereed publication and two years of acceptance before a committee even meets. In October a preprint by Bastounis, Circelli and Hansen argued that the Lean proof does not correspond to the written one — that a machine check certifies the statement it was handed, not the argument mathematicians read.",
+      "The board's reading is that the ladder ended where it started: with a proof most mathematicians cannot follow, verified by a machine, and an argument about whether it counts — this time about the theorem and about who may be said to have found it."
     ],
     "people": [
       "terence-tao"
@@ -4696,6 +4787,15 @@
         "url": "https://openai.com/index/navier-stokes-solution/",
         "date": "2026-09-08",
         "quote": "an initially smooth fluid at rest can develop a singularity in a finite time. The fluid has a smooth force applied to it",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Clay Mathematics Institute",
+        "title": "Navier-Stokes Announcement",
+        "url": "https://www.claymath.org/news/navier-stokes-announcement/",
+        "date": "2026-09-11",
+        "quote": "The process is deliberately unhurried, but we will provide updates.",
         "supports": "claim"
       },
       {
@@ -4723,6 +4823,24 @@
         "url": "https://www.scientificamerican.com/article/openai-claims-blockbuster-math-breakthrough-amid-swirl-of-controversy/",
         "date": "2026-09-08",
         "quote": "The company says the proof has been certified using the programming language Lean, which all but guarantees its correctness.",
+        "supports": "context"
+      },
+      {
+        "kind": "article",
+        "publisher": "AFP (The Star)",
+        "title": "OpenAI says AI solved one of math's hardest problems in days",
+        "url": "https://www.thestar.com.my/tech/tech-news/2026/09/09/openai-says-ai-solved-one-of-math039s-hardest-problems-in-days",
+        "date": "2026-09-09",
+        "quote": "OpenAI says it will not claim money if its finding is confirmed.",
+        "supports": "context"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv (Bastounis, Circelli, Hansen)",
+        "title": "Navier-Stokes lost in translation: Why Lean verification of AI autoformalisation does not guarantee correct natural language proofs",
+        "url": "https://arxiv.org/abs/2610.08144",
+        "date": "2026-10-06",
+        "quote": "the formalised Lean proof does not correspond to the NL proof of blow-up of solutions to the Navier-Stokes equations",
         "supports": "context"
       },
       {

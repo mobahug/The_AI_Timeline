@@ -17,8 +17,8 @@ you through the chain, clue by clue.
 
 The leads take the same record and follow one question at a time: how far machines got
 at mathematics (from textbook theorems to a Millennium Prize problem), at games (checkers
-to Diplomacy), at gaming their own tests (a boat circling for points to a model breaking
-out of its sandbox to steal the answer key), and how cheap an answer became.
+to Diplomacy), at gaming their own tests (a boat circling for points to agents breaking
+out of their sandbox to beat the exam), and how cheap an answer became.
 
 Entries after the present are scenarios. They carry a confidence label (`Likely`,
 `Uncertain`, `Speculative`) and reasoning instead of a citation, and the board draws
@@ -71,7 +71,7 @@ count, not a year.
 - `data/events.json` — the cards: summary, reading, the file (`detail`), figures,
   firsts, tagged people / organisations / terms, and sources with quotes. A record
   card may carry a `date` — the order inside its year, where the record knows it;
-  59 of the 145 do
+  60 of the 145 do
 - `data/links.json` — the strings, with the claim and the case note
 - `data/leads.json` — the leads: a question, where it stands, and its rungs
 - `data/people.json`, `data/orgs.json`, `data/glossary.json` — the files

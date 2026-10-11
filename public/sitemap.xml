@@ -175,10 +175,10 @@
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/gold-at-the-imo/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/openai-converts-the-nonprofit-keeps-a-stake/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/agents-enter-real-workflows/</loc><priority>0.5</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/ai-act-obligations-bite/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/sovereign-compute/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/the-erdos-problems/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/a-poisoned-dataset-owns-the-pipeline/</loc><priority>0.6</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/ai-act-obligations-bite/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/navier-stokes-falls-to-ten-thousand-agents/</loc><priority>0.6</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/multi-day-autonomous-work/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/inference-silicon-commoditises/</loc><priority>0.5</priority></url>
@@ -254,6 +254,7 @@
   <url><loc>https://mobahug.github.io/The_AI_Timeline/org/apollo-research/</loc><priority>0.4</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/org/palisade-research/</loc><priority>0.4</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/org/redwood-research/</loc><priority>0.4</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/org/metr/</loc><priority>0.4</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/org/epoch-ai/</loc><priority>0.4</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/org/stanford-hai/</loc><priority>0.4</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/org/carnegie-mellon/</loc><priority>0.4</priority></url>

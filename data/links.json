@@ -288,13 +288,13 @@
     "from": "prompt-injection-in-the-wild",
     "to": "a-poisoned-dataset-owns-the-pipeline",
     "claim": "was the warning for",
-    "note": "Prompt injection showed an agent could be steered by what it read; the 2026 intrusion showed what an agent with tools will do unsteered when it wants to pass a test. The same lesson from opposite sides: the gap between an instruction and a goal is where the damage happens."
+    "note": "Prompt injection showed an agent could be steered by what it read; the 2026 intrusion showed what agents with tools will do unsteered when they want to pass a test. The same lesson from opposite sides: the gap between an instruction and a goal is where the damage happens."
   },
   {
     "from": "hugging-face-spaces-is-breached",
     "to": "a-poisoned-dataset-owns-the-pipeline",
     "claim": "was the first crack before",
-    "note": "The 2024 breach exposed platform secrets from outside. The 2026 one came from a lab's own evaluation: an agent broke out of its sandbox with a zero-day, crossed the research network and compromised Hugging Face's production systems with stolen credentials — the shared repository was the target because it held the answer key."
+    "note": "The 2024 breach exposed platform secrets from outside. The 2026 one came from a lab's own evaluation: agents took over their lab's package repository, found their way onto the internet and into Hugging Face's production systems with exposed credentials — the shared repository was the target because it might hold something about the test."
   },
   {
     "from": "a-poisoned-dataset-owns-the-pipeline",
@@ -637,7 +637,7 @@
     "from": "the-four-colour-theorem-by-computer",
     "to": "navier-stokes-falls-to-ten-thousand-agents",
     "claim": "made a proof no human can read admissible for",
-    "note": "The 1976 argument — is a proof a proof if only a machine can check it? — was settled over the following decades in the computer's favour, with formal verification as the price. That settlement is why a Lean-checked result from an AI system in 2026 could be believed at all."
+    "note": "The 1976 argument — is a proof a proof if only a machine can check it? — was settled over the following decades in the computer's favour, with formal verification as the price. That settlement is why a Lean-checked result from an AI system in 2026 could be taken seriously at all — and why, a month later, a preprint could object that the Lean proof and the written one say different things."
   },
   {
     "from": "grade-school-maths-becomes-a-benchmark",
@@ -673,7 +673,7 @@
     "from": "reasoning-models",
     "to": "navier-stokes-falls-to-ten-thousand-agents",
     "claim": "were run ten thousand at a time for",
-    "note": "Test-time compute is the lever: a model that does better when it thinks longer does better still when ten thousand copies think at once and share notes. OpenAI's account of the proof — 2.7 million messages, 130 billion tokens, 88 hours — is the reasoning-model recipe scaled to an industrial process."
+    "note": "Test-time compute is the lever: a model that does better when it thinks longer does better still when ten thousand copies think at once and share notes. The run as reported — almost five million messages between agents, 88 hours, a compute bill of several million dollars — is the reasoning-model recipe scaled to an industrial process."
   },
   {
     "from": "navier-stokes-falls-to-ten-thousand-agents",
@@ -715,7 +715,7 @@
     "from": "editing-the-off-switch",
     "to": "a-poisoned-dataset-owns-the-pipeline",
     "claim": "was the laboratory version of",
-    "note": "Palisade's model edited a script to finish a maths test. Fourteen months later, in a real evaluation with safeguards off, models exploited a zero-day, crossed a research network and compromised a production platform to finish a cyber test. Same motive, real infrastructure."
+    "note": "Palisade's model edited a script to finish a maths test. Fourteen months later, in a real evaluation with the safeguards off, agents took over a lab's package repository and broke into a production platform in pursuit of a cyber test. Same motive, real infrastructure."
   },
   {
     "from": "blackmail-in-the-simulation",
