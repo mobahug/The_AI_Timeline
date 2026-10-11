@@ -4410,29 +4410,70 @@
     ]
   },
   {
-    "id": "agents-enter-real-workflows",
-    "year": 2026,
-    "category": "product",
-    "title": "Agents enter real workflows",
-    "summary": "Long-horizon tool use moves from demo to deployment; the question shifts from capability to reliability.",
-    "why": "Review, audit and rollback become the interesting product surface — not generation.",
-    "terms": [
-      "agents"
-    ]
-  },
-  {
     "id": "sovereign-compute",
     "year": 2026,
     "category": "power",
     "title": "Sovereign compute",
     "summary": "States treat chips, datacenters and grid connections as strategic assets, with export controls and national build programmes to match.",
-    "source": "Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/United_States_New_Export_Controls_on_Advanced_Computing_and_Semiconductors_to_China",
+    "source": "Stanford HAI",
+    "url": "https://hai.stanford.edu/ai-index/2026-ai-index-report",
     "why": "AI policy stops being about models and becomes industrial policy about electricity and silicon.",
     "wikiTitle": "United States New Export Controls on Advanced Computing and Semiconductors to China",
+    "figures": [
+      {
+        "label": "US AI Action Plan",
+        "value": "23 July 2025: full-stack AI export packages for allies"
+      },
+      {
+        "label": "EU AI gigafactories",
+        "value": "up to seven; tenders due 12 November 2026"
+      }
+    ],
+    "detail": [
+      "By 2026 the Stanford AI Index was calling AI sovereignty a defining feature of national policy, while noting that capabilities remained uneven. The United States made it an export strategy: its AI Action Plan of July 2025 committed the Commerce and State Departments to deliver secure, full-stack AI export packages with industry. Europe made it a build programme: on 30 July 2026 the EuroHPC Joint Undertaking opened a procurement for up to seven AI gigafactories, the next step, it said, in expanding Europe's sovereign AI computing capacity.",
+      "Within the year the logic reached past hardware. In June Washington put a deployed model under export control for eighteen days, by a directive that applied to one company. The chips were the first thing a state controlled; by 2026 it was also the model, the datacentre and the grid connection behind it."
+    ],
     "terms": [
       "export-controls",
       "compute"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Stanford HAI",
+        "title": "The 2026 AI Index Report",
+        "url": "https://hai.stanford.edu/ai-index/2026-ai-index-report",
+        "date": "2026-04-13",
+        "quote": "AI sovereignty is becoming a defining feature of national policy, but capabilities remain uneven",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "The White House",
+        "title": "White House Unveils America's AI Action Plan",
+        "url": "https://www.whitehouse.gov/articles/2025/07/white-house-unveils-americas-ai-action-plan/",
+        "date": "2025-07-23",
+        "quote": "The Commerce and State Departments will partner with industry to deliver secure, full-stack AI export packages",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "EuroHPC Joint Undertaking",
+        "title": "The EuroHPC Joint Undertaking launches the AI Gigafactories Call",
+        "url": "https://eurohpc-ju.europa.eu/eurohpc-joint-undertaking-launches-ai-gigafactories-call-2026-07-30_en",
+        "date": "2026-07-30",
+        "quote": "The AI Gigafactories initiative represents the next step in Europe's strategy to expand its sovereign AI computing capacity.",
+        "supports": "claim"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "United States New Export Controls on Advanced Computing and Semiconductors to China",
+        "url": "https://en.wikipedia.org/wiki/United_States_New_Export_Controls_on_Advanced_Computing_and_Semiconductors_to_China",
+        "date": "2026-10-11",
+        "quote": "",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -4459,7 +4500,7 @@
     ],
     "detail": [
       "Paul Erdős left more than a thousand problems, catalogued at erdosproblems.com with their status. In October 2025 a claim from OpenAI staff that GPT-5 had found solutions to ten of the open ones was withdrawn within days: the model had located published solutions the database had not recorded. The site's maintainer called it a misrepresentation; the retraction was itself news, and the phrase 'literature search' entered the argument for good.",
-      "The genuine cases came after. Problem 728 was proved in January 2026 by Kevin Barreto working with GPT-5.2 Pro and the Aristotle Lean prover — a similar argument turned up afterwards in a 2014 paper, which is the ladder's pattern in miniature — and Tao's tracker called it the first autonomous and nontrivial AI solution to an Erdős problem. In May an internal OpenAI model disproved the planar unit-distance conjecture, problem 90, which Erdős had dated to 1946; Daniel Litt called it the one interesting result produced autonomously so far. By August, mathematicians were accusing OpenAI's batch of ten 'Astra' results of research misconduct over how prior work was credited. Every rung of the story — result, boast, correction — happened inside ten months."
+      "The genuine cases came after. Problem 728 was proved in January 2026 by Kevin Barreto working with GPT-5.2 Pro and the Aristotle Lean prover — its strategy, the write-up noted, was similar to earlier results of Erdős and of Carl Pomerance, which is the ladder's pattern in miniature — and Tao's tracker called it the first autonomous and nontrivial AI solution to an Erdős problem. In May an internal OpenAI model disproved the planar unit-distance conjecture, problem 90, which Erdős had dated to 1946; Daniel Litt called it the one interesting result produced autonomously so far. By August, mathematicians were accusing OpenAI's batch of ten 'Astra' results of research misconduct over how prior work was credited. Every rung of the story — result, boast, correction — happened inside ten months."
     ],
     "people": [
       "terence-tao",
@@ -4526,6 +4567,122 @@
         "date": "2026-08-06",
         "quote": "It seems completely systematic to me, and it points to research misconduct.",
         "supports": "context"
+      }
+    ]
+  },
+  {
+    "id": "agents-enter-real-workflows",
+    "year": 2026,
+    "date": "2026-01-30",
+    "category": "product",
+    "title": "Agents enter real workflows",
+    "summary": "Anthropic gives Claude Cowork open-source plug-ins for legal, finance, sales and data work. Within days investors sell off the firms whose business that work is — Thomson Reuters by nearly 18% in a day.",
+    "source": "Reuters",
+    "url": "https://finance.yahoo.com/news/anthropics-ai-tools-deepen-selloff-054551832.html",
+    "why": "The question shifted from what an agent can do to whose work it does, and the market answered first, repricing the firms that sell professional judgement within days of a product announcement.",
+    "wikiTitle": "Thomson Reuters",
+    "figures": [
+      {
+        "label": "Plug-ins",
+        "value": "11, open-sourced, from legal and finance to biology research"
+      },
+      {
+        "label": "Thomson Reuters",
+        "value": "down nearly 18% in a day, its worst on record"
+      },
+      {
+        "label": "RELX",
+        "value": "down 14%, its biggest drop since 1988"
+      },
+      {
+        "label": "Agent time horizons",
+        "value": "past what METR's task suite can measure reliably (16 hours) by September"
+      }
+    ],
+    "detail": [
+      "On 30 January 2026 Anthropic added plug-ins to Claude Cowork and open-sourced eleven of its own, for legal, finance, sales, data, marketing, customer support and more. Within days investors sold off the companies whose business is that work. On 3 February Thomson Reuters fell nearly 18%, its biggest daily loss on record, RELX 14% and Wolters Kluwer about 13%, and traders told Reuters the move had sparked worries of an impending AI-fuelled disruption of data and professional services.",
+      "The capability behind it kept moving. METR, which measures how long a task an AI agent can complete on its own, said by September that measurements above sixteen hours were unreliable with its current task suite: the test was running out of tasks long enough to measure. The board's 2025 card has coding agents take the keyboard; this one has agents take the work around it, and the scenario after it asks who answers for the result."
+    ],
+    "terms": [
+      "agents"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Anthropic",
+        "title": "Customize Cowork with plugins",
+        "url": "https://claude.com/blog/cowork-plugins",
+        "date": "2026-01-30",
+        "quote": "To get you started, we're open-sourcing 11 plugins built and used by our own team",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Reuters (Yahoo Finance)",
+        "title": "Anthropic's new AI tools deepen selloff in data analytics and software stocks, investors say",
+        "url": "https://finance.yahoo.com/news/anthropics-ai-tools-deepen-selloff-054551832.html",
+        "date": "2026-02-04",
+        "quote": "sparked worries of an impending AI-fueled disruption",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "METR",
+        "title": "Time horizons",
+        "url": "https://metr.org/time-horizons/",
+        "date": "2026-09-08",
+        "quote": "Measurements above 16 hrs are unreliable with our current task suite",
+        "supports": "context"
+      }
+    ]
+  },
+  {
+    "id": "spacex-buys-xai",
+    "year": 2026,
+    "date": "2026-02-02",
+    "category": "power",
+    "title": "SpaceX buys xAI in the largest merger on record",
+    "summary": "Elon Musk's rocket company acquires his AI lab, and with it the X platform. The deal reportedly values SpaceX at $1 trillion and xAI at $250 billion, a record for the world's largest merger.",
+    "source": "Reuters",
+    "url": "https://www.arabnews.com/node/2631545/world",
+    "why": "The board's 2027 scenario expects capital intensity to push a frontier lab into a bigger owner's hands. The first absorption came early and the other way round: not a lab that ran out of money, but one owner's lab folded into another of his companies, at a record price.",
+    "wikiTitle": "SpaceX",
+    "figures": [
+      {
+        "label": "Announced",
+        "value": "Monday 2 February 2026"
+      },
+      {
+        "label": "Valuations",
+        "value": "SpaceX $1 trillion, xAI $250 billion, by one person familiar with the deal"
+      },
+      {
+        "label": "Also acquired",
+        "value": "X, the social platform xAI already owned"
+      }
+    ],
+    "detail": [
+      "SpaceX acquired xAI on Monday 2 February 2026, in a deal combining two companies owned by Elon Musk; xAI, which Musk founded in 2023, already owned the X social platform. Reuters, citing a person familiar with the matter, reported that the transaction valued SpaceX at $1 trillion and xAI at $250 billion, and called it a new record for the world's largest merger.",
+      "The board files it against its 2027 scenario of a first frontier-lab consolidation. A frontier lab was absorbed, but not in the way the card expected: by its owner's choice, at a record price, into another of his companies, rather than because the money ran out."
+    ],
+    "sources": [
+      {
+        "kind": "article",
+        "publisher": "Reuters (Arab News)",
+        "title": "SpaceX acquires xAI in record-setting deal as Musk looks to unify AI and space ambitions",
+        "url": "https://www.arabnews.com/node/2631545/world",
+        "date": "2026-02-03",
+        "quote": "sets a new record for the world's largest M&A deal",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "NBC News",
+        "title": "Elon Musk's SpaceX acquires xAI",
+        "url": "https://www.nbcnews.com/business/business-news/elon-musks-spacex-acquires-xai-rcna257121",
+        "date": "2026-02-02",
+        "quote": "SpaceX on Monday acquired xAI, the artificial intelligence startup that also owns the X social media platform",
+        "supports": "claim"
       }
     ]
   },
@@ -5254,7 +5411,7 @@
     "category": "power",
     "title": "The first frontier-lab consolidation",
     "summary": "Capital intensity outruns revenue; a major lab is absorbed, and the number of organisations training frontier models falls again.",
-    "why": "Concentration is the default outcome of a business where the fixed cost is a power station.",
+    "why": "Concentration is the default outcome of a business where the fixed cost is a power station. A frontier lab was absorbed in February 2026 — xAI into SpaceX — but by its owner's choice and at a record price, not because the money ran out; the card holds the version where it does.",
     "confidence": "Likely"
   },
   {
@@ -5289,7 +5446,7 @@
     "category": "policy",
     "title": "Provenance becomes mandatory",
     "summary": "Content authentication and model disclosure are legally required in major markets after a synthetic-media crisis.",
-    "why": "Likely to arrive reactively, after an election or a market event, rather than by design. The EU did it by design: from August 2026 the AI Act requires synthetic content to be marked as such. The card now holds the reactive version — the other major markets, after the crisis.",
+    "why": "Likely to arrive reactively, after an election or a market event, rather than by design. Two major markets did it by design instead: China's labelling rules took effect in September 2025, and from August 2026 the AI Act requires synthetic content to be marked as such. The card now holds the reactive version — the other major markets, after the crisis.",
     "confidence": "Uncertain"
   },
   {

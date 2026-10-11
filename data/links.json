@@ -888,5 +888,11 @@
     "to": "multi-day-autonomous-work",
     "claim": "ran for 88 hours on one prompt, ahead of",
     "note": "The scenario expected agents to hold a project across days by 2027. In September 2026 ten thousand of them held one for 88 hours on a single prompt — in a laboratory, on a problem with a checkable answer. The card now stands for the workplace version, where someone has to answer for the result."
+  },
+  {
+    "from": "spacex-buys-xai",
+    "to": "the-first-frontier-lab-consolidation",
+    "claim": "absorbed a frontier lab, by its owner's choice, before",
+    "note": "The scenario expected capital intensity to force a frontier lab into someone else's hands. In February 2026 one was absorbed — xAI into SpaceX — but by its owner's choice and at a record valuation, not because the money ran out. The card keeps the version where it does."
   }
 ]

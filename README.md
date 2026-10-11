@@ -71,7 +71,7 @@ count, not a year.
 - `data/events.json` — the cards: summary, reading, the file (`detail`), figures,
   firsts, tagged people / organisations / terms, and sources with quotes. A record
   card may carry a `date` — the order inside its year, where the record knows it;
-  66 of the 151 do
+  68 of the 152 do
 - `data/links.json` — the strings, with the claim and the case note
 - `data/leads.json` — the leads: a question, where it stands, and its rungs
 - `data/people.json`, `data/orgs.json`, `data/glossary.json` — the files
