@@ -137,6 +137,12 @@ function page(route: Route, html: string, meta: PageMeta, media: WikiCache): str
   const inline = Object.keys(media).length ? '\n    <script id="wiki-inline" type="application/json">' + JSON.stringify(media).replace(/</g, '\\u003c') + '</script>' : '';
   const structured = ld.length ? '\n    <script type="application/ld+json">' + JSON.stringify(ld).replace(/</g, '\\u003c') + '</script>' : '';
   out = out.replace('</head>', structured + inline + '\n  </head>');
+  // The front page's headline is set half in the italic, the largest type on
+  // the site, and the italic was the one face not asked for in advance: the
+  // headline drew in the fallback and rewrapped when the face arrived.
+  if (route.view === 'landing') {
+    out = out.replace('</head>', '  <link rel="preload" href="' + BASE + 'fonts/instrument-serif-400-italic-latin.woff2" as="font" type="font/woff2" crossorigin />\n  </head>');
+  }
   if (clientOnly) {
     out = out.replace('<html lang="en">', '<html lang="en" data-client-render>');
     out = out.replace('</head>', '  <link rel="modulepreload" crossorigin href="' + BASE + 'assets/' + BOARD_CHUNK + '">\n  </head>');
