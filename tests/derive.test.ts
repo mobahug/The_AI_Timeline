@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import {
-  NOW, THREADS, buildGraph, buildChain, forwardLedger, standingNow, roadsTo, threadLedger, loadBearing, strandOf
+  NOW, THREADS, buildGraph, buildChain, forwardLedger, standingNow, roadsTo, otherOrigins, threadLedger, loadBearing, strandOf
 } from '../src/lib/data';
 
 const graph = buildGraph(null as unknown as undefined);
@@ -51,6 +51,24 @@ describe('roadsTo — the road here, in the author\'s own verbs', () => {
     const r = roadsTo(graph, 'a-contested-agi-claim', 2);
     expect(r.truncated).toBe(true);
     expect(r.roads.length).toBeLessThanOrEqual(2);
+  });
+});
+
+describe('otherOrigins — "also reached from" names each card once', () => {
+  it('never repeats an origin, nor the one the longest road starts from', () => {
+    graph.all.forEach((e) => {
+      const { roads } = roadsTo(graph, e.id);
+      if (roads.length < 2) return;
+      const ids = otherOrigins(roads).map((o) => o.id);
+      expect(new Set(ids).size).toBe(ids.length);
+      expect(ids).not.toContain(roads[0][0].from.id);
+    });
+  });
+
+  it('keeps every origin the roads have', () => {
+    const { roads } = roadsTo(graph, 'chatgpt');
+    const all = new Set(roads.map((r) => r[0].from.id));
+    expect(otherOrigins(roads).length).toBe(all.size - 1);
   });
 });
 

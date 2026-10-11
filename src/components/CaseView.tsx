@@ -1,5 +1,5 @@
 import React from 'react';
-import { ERAS, NOW, standingNow, roadsTo, threadLedger, loadBearing, strandOf } from '../lib/data';
+import { ERAS, NOW, standingNow, roadsTo, otherOrigins, threadLedger, loadBearing, strandOf } from '../lib/data';
 import { RED, RED_LIT, RULE, SERIF, badge, ink, micro, shell } from '../lib/styles';
 import { Btn, CardTriple, Claim, Eyebrow, Ledger, Link, NavRow, PageHead, Prose, Reading, Ref, Section } from './kit';
 import type { NavItem } from './kit';
@@ -56,7 +56,10 @@ function CaseView({ graph }: CaseViewProps) {
   // The deepest roads to the present, longest first — the argument at its fullest.
   // They lead to the standing entries, so every hop is on the record.
   const deepest = standing
-    .map(({ event }) => ({ event, ...roadsTo(graph, event.id) }))
+    .map(({ event }) => {
+      const r = roadsTo(graph, event.id);
+      return { event, ...r, origins: otherOrigins(r.roads) };
+    })
     .filter((r) => r.roads.length)
     .sort((a, b) => b.longest - a.longest)
     .slice(0, 3);
@@ -135,7 +138,7 @@ function CaseView({ graph }: CaseViewProps) {
       />
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: 30 }}>
-        {deepest.map(({ event, roads, longest, truncated }) => (
+        {deepest.map(({ event, roads, longest, truncated, origins }) => (
           <div key={event.id} style={{ borderTop: RULE, paddingTop: 20, display: 'flex', flexDirection: 'column', gap: 14 }}>
             <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', alignItems: 'baseline' }}>
               <Eyebrow tier="section" as="span">{longest} hops</Eyebrow>
@@ -143,14 +146,14 @@ function CaseView({ graph }: CaseViewProps) {
               {truncated && <span style={{ ...micro(4), color: RED_LIT }}>list capped — more roads exist</span>}
             </div>
             <Road road={roads[0]} />
-            {roads.length > 1 && (
+            {origins.length > 0 && (
               <div style={{ ...micro(5), letterSpacing: '0.1em', textTransform: 'none' }}>
                 Also reached from{' '}
-                {roads.slice(1).map((r, k) => (
-                  <React.Fragment key={r[0].from.id}>
+                {origins.map((origin, k) => (
+                  <React.Fragment key={origin.id}>
                     {k > 0 && ' · '}
-                    <Link to={{ view: 'card', id: r[0].from.id }} className="ix-ref" style={{ color: ink(4) }}>
-                      {r[0].from.year} {r[0].from.title}
+                    <Link to={{ view: 'card', id: origin.id }} className="ix-ref" style={{ color: ink(4) }}>
+                      {origin.year} {origin.title}
                     </Link>
                   </React.Fragment>
                 ))}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { NOW, accent, roadsTo, sourcesOf, sourceStrength, stringsOf, whenOf } from '../lib/data';
+import { NOW, accent, otherOrigins, roadsTo, sourcesOf, sourceStrength, stringsOf, whenOf } from '../lib/data';
 
 /* A citation's own date, written the way the board writes a card's — otherwise
    `2024-12-18` and `Dec 2024` sit a few lines apart on one page. */
@@ -114,6 +114,7 @@ function CardView({ graph, route, media, embedded }: CardViewProps) {
   const { into, outOf } = stringsOf(graph, event.id);
   const strings = into.length + outOf.length;
   const { roads, truncated } = roadsTo(graph, event.id);
+  const origins = otherOrigins(roads);
   const finding = findingFor(event.year);
   const tone = accent(event.category, 0);
   const detail = Array.isArray(event.detail) ? event.detail : [];
@@ -278,14 +279,14 @@ function CardView({ graph, route, media, embedded }: CardViewProps) {
               </React.Fragment>
             ))}
           </div>
-          {roads.length > 1 && (
+          {origins.length > 0 && (
             <div style={{ ...micro(5), marginTop: 12, textTransform: 'none', letterSpacing: '0.08em' }}>
               Also reached from{' '}
-              {roads.slice(1).map((r, k) => (
-                <React.Fragment key={r[0].from.id}>
+              {origins.map((origin, k) => (
+                <React.Fragment key={origin.id}>
                   {k > 0 && ' · '}
-                  <Link to={{ view: 'card', id: r[0].from.id }} className="ix-ref" style={{ color: ink(4) }}>
-                    {r[0].from.year} {r[0].from.title}
+                  <Link to={{ view: 'card', id: origin.id }} className="ix-ref" style={{ color: ink(4) }}>
+                    {origin.year} {origin.title}
                   </Link>
                 </React.Fragment>
               ))}

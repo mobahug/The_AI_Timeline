@@ -332,6 +332,21 @@ export function roadsTo(graph: Graph, id: string, limit = 6, maxDepth = 12): Roa
   return { roads, truncated, longest: roads.length ? roads[0].length : 0 };
 }
 
+/** Where the other roads start, one name per card: two roads out of the same
+ *  card are one origin, and the card the longest road starts from is already
+ *  printed at the head of it. */
+export function otherOrigins(roads: Hop[][]): Event[] {
+  const seen = new Set<string>(roads.length ? [roads[0][0].from.id] : []);
+  const origins: Event[] = [];
+  roads.slice(1).forEach((road) => {
+    const origin = road[0].from;
+    if (seen.has(origin.id)) return;
+    seen.add(origin.id);
+    origins.push(origin);
+  });
+  return origins;
+}
+
 /** One row per thread: what the board projects onto that front, and whether it
  *  argued for any of it. A thread that projects but never strings is the point. */
 export function threadLedger(graph: Graph): ThreadRow[] {
