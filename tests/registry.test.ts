@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { VIEWS, VIEW_IDS, TABS, SITEMAP_VIEWS, RETIRED, tabOf, viewById } from '../src/lib/views';
 import { hrefFor, parse, resolve } from '../src/lib/url';
-import { metaFor } from '../src/lib/meta';
+import { clip, metaFor } from '../src/lib/meta';
 import { FIRST, NOW, LAST, buildGraph, yearFraction, yearAtFraction, TICKS, forwardLedger } from '../src/lib/data';
 import { ink, micro, button, badge, shell, headline } from '../src/lib/styles';
 import type { HeadlineSize, Size } from '../src/lib/styles';
@@ -103,6 +103,22 @@ describe('page meta derives from the route', () => {
     const m = metaFor({ view: 'landing' } as Route, graph);
     expect(m.title).toContain(String(FIRST));
     expect(m.title).toContain(String(LAST));
+  });
+
+  it('keeps every card description short enough for a search result', () => {
+    graph.all.forEach((e) => {
+      expect(metaFor({ view: 'card', id: e.id } as Route, graph).description.length, e.id).toBeLessThanOrEqual(160);
+    });
+  });
+
+  it('cuts a long description at a sentence, else at a word', () => {
+    const sentence = 'A'.repeat(100) + '. ' + 'b'.repeat(100);
+    expect(clip(sentence)).toBe('A'.repeat(100) + '.');
+    const words = Array.from({ length: 40 }, () => 'word').join(' ');
+    const cut = clip(words);
+    expect(cut.endsWith('word…')).toBe(true);
+    expect(cut.length).toBeLessThanOrEqual(160);
+    expect(clip('short')).toBe('short');
   });
 
   it('falls back to the registry for a titled view and to the site for the rest', () => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { NOW, THREADS, buildGraph, forwardLedger } from '../lib/data';
+import { AS_OF, NOW, THREADS, buildGraph, forwardLedger, whenOf } from '../lib/data';
 import { buildLine } from '../lib/spine';
 import { LEADS } from '../lib/leads';
 import { PEOPLE, ORGS, TERMS } from '../lib/files';
@@ -33,7 +33,7 @@ function Landing() {
     <div style={{ ...shell('wide'), paddingBottom: 90 }}>
       <header style={{ padding: '112px 0 72px' }}>
         <Eyebrow tier="page" dim style={{ marginBottom: 30 }}>
-          {graph.all.length} entries · {graph.edges.length} strings · {notes} case notes
+          {graph.all.length} entries · {graph.edges.length} strings · {notes} case notes · current to {whenOf({ year: Number(AS_OF.slice(0, 4)), date: AS_OF })}
         </Eyebrow>
         <h1 tabIndex={-1} style={{ margin: '0 0 28px', outline: 'none', font: '400 clamp(48px,10vw,150px)/0.9 ' + SERIF, letterSpacing: '-0.035em', maxWidth: '15ch', textWrap: 'balance' }}>
           Everything that led here, <em style={{ color: GOLD }}>where it stands, and what comes next.</em>

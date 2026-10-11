@@ -69,7 +69,9 @@ Keep aliases that are ordinary words out of `aka`.
 
 ## `data/threads.json`
 
-- `span` — `{ first, now, last }`: the first year drawn, the present, the last year drawn
+- `span` — `{ first, now, last, asOf }`: the first year drawn, the present, the last year
+  drawn, and the day the record was last brought up to date (`YYYY-MM-DD`, shown on the
+  front page; never earlier than the newest dated card)
 - `threads` — the six board rows, in display order
 - `categories` — `{ id, label, hue, thread }`; `hue` is an OKLCH hue angle (0–360)
 - `eras` — the era headings used by the archive's list and plates

@@ -13,7 +13,21 @@ const TAGLINE = 'An investigation board of artificial intelligence, ' + FIRST + 
 
 /** The title and description a page should carry, derived from the route. */
 export function metaFor(route: Route, graph?: Graph | null): PageMeta {
-  return { ...describe(route, graph), route };
+  const { title, description } = describe(route, graph);
+  return { title, description: clip(description), route };
+}
+
+/** A description short enough for a search result or a link preview. Most are
+ *  a summary and a reading run together — up to 619 characters — and a search
+ *  engine cuts them mid-word at about 160. Cut at the last whole sentence that
+ *  fits, or failing that at a word, with an ellipsis. */
+export function clip(text: string, max = 160): string {
+  if (text.length <= max) return text;
+  const head = text.slice(0, max);
+  const stop = Math.max(head.lastIndexOf('. '), head.lastIndexOf('? '), head.lastIndexOf('! '));
+  if (stop >= max / 2) return head.slice(0, stop + 1);
+  const space = head.lastIndexOf(' ', max - 1);
+  return head.slice(0, space > 0 ? space : max - 1).replace(/[\s,;:—–-]+$/, '') + '…';
 }
 
 function describe(route: Route, graph?: Graph | null): { title: string; description: string } {

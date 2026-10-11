@@ -13,6 +13,10 @@ import type {
 export const FIRST: number = meta.span.first;
 export const NOW: number = meta.span.now;
 export const LAST: number = meta.span.last;
+/** The day the record was last brought up to date (YYYY-MM-DD). A timeline of a
+ *  field that moves weekly should say how current it is; the author sets it
+ *  when the record is reviewed, and a test keeps it from predating a card. */
+export const AS_OF: string = meta.span.asOf;
 export const THREADS: Thread[] = meta.threads;
 export const ERAS: Era[] = meta.eras;
 export const CATEGORIES: Category[] = meta.categories;

@@ -134,4 +134,12 @@ describe('threads.json', () => {
     const threadIds = meta.threads.map((t) => t.id);
     expect(meta.categories.filter((c) => !threadIds.includes(c.thread))).toEqual([]);
   });
+
+  /* The front page says how current the record is. A card dated after that
+     day would make the claim false the moment it was added. */
+  it('dates the record no earlier than its newest card', () => {
+    expect(meta.span.asOf).toMatch(/^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/);
+    const newest = events.filter((e) => e.year <= NOW && e.date).map((e) => e.date as string).sort().pop() as string;
+    expect(meta.span.asOf >= newest, 'asOf ' + meta.span.asOf + ' predates ' + newest).toBe(true);
+  });
 });

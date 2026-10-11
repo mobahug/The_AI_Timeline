@@ -304,10 +304,12 @@ export function Figures({ figures, style }: { figures?: Figure[]; style?: CSSPro
   );
 }
 
-/** The "first" badge: a threshold crossed for the first time. */
+/** The "first" badge: a threshold crossed for the first time. Most entries
+ *  begin with the word already, and the badge said it twice — "First · First
+ *  program to…" — so the label is added only where the text does not carry it. */
 export const First = ({ children, style }: { children?: ReactNode; style?: CSSProperties }) => (
   <span style={{ ...micro(1), color: STRING_INK, border: '1px solid ' + STRING_INK, borderRadius: 2, padding: '4px 7px', display: 'inline-block', lineHeight: 1.5, maxWidth: '100%', ...style }}>
-    First · {children}
+    {typeof children === 'string' && /^first\b/i.test(children) ? children : <>First · {children}</>}
   </span>
 );
 

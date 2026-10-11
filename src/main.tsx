@@ -1,6 +1,7 @@
 import React from 'react';
 import { createRoot, hydrateRoot } from 'react-dom/client';
 import App from './App';
+import { loadBoard } from './components/boardChunk';
 
 declare global {
   interface Window { __hydration?: string[] }
@@ -26,6 +27,15 @@ if (prerendered) {
     }
   });
 } else {
-  root.innerHTML = '';
-  createRoot(root).render(<App />);
+  const draw = () => {
+    root.innerHTML = '';
+    createRoot(root).render(<App />);
+  };
+  // The board's address arrives with a listing for crawlers and without its
+  // canvas. Wiping the listing first left a blank page and "loading the
+  // canvas…" for as long as the chunk took, and the chunk was only asked for
+  // once this script had run. The page now names the chunk (prerender.ts),
+  // the listing stays up until it is here, and the page is drawn once.
+  if (root.querySelector('[data-board-listing]')) loadBoard().then(draw, draw);
+  else draw();
 }

@@ -13,7 +13,7 @@ export interface BoardStaticProps { items: Event[]; graph: Graph; route: Route; 
 
 export default function BoardStatic({ items, graph, route, loading }: BoardStaticProps) {
   return (
-    <div style={{ ...shell('wide'), paddingTop: 22 }} aria-busy={loading ? 'true' : undefined}>
+    <div data-board-listing="" style={{ ...shell('wide'), paddingTop: 22 }} aria-busy={loading ? 'true' : undefined}>
       <div style={{ display: 'flex', alignItems: 'baseline', gap: 14, flexWrap: 'wrap', marginBottom: 18 }}>
         <h1 style={{ margin: 0, font: '400 clamp(20px,2.4vw,28px)/1 ' + SERIF, letterSpacing: '-0.02em' }}>The board</h1>
         <span style={micro(5)}>{loading ? 'loading the canvas…' : items.length + ' cards · ' + graph.edges.length + ' strings · listed by thread'}</span>

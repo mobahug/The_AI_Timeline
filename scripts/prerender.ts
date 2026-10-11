@@ -6,7 +6,7 @@
 // GitHub Pages serves dist/<path>/index.html for /<path>/, so every page the
 // sitemap lists is a real document. dist/404.html is the bare shell: an address
 // nothing was written for still boots the app, which lands on the front page.
-import { mkdir, readFile, writeFile, rm } from 'node:fs/promises';
+import { mkdir, readFile, readdir, writeFile, rm } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { VIEWS } from '../src/lib/views';
@@ -67,10 +67,13 @@ function jsonLd(route: Route, meta: PageMeta, url: string, image: string): Recor
     if (!e) return [];
     const sources = Array.isArray(e.sources) ? e.sources.map((s) => s.url) : (e.url ? [e.url] : []);
     return [
+      // The year is when the event happened, not when the page was written —
+      // as datePublished it dated a page to 1900, and every scenario to the
+      // future. It is the date of what the article is about.
       { '@context': 'https://schema.org', '@type': 'Article', headline: e.title, description: meta.description, url,
-        image: image ? [image] : undefined, datePublished: String(e.year), isPartOf: site,
+        image: image ? [image] : undefined, isPartOf: site,
         author: { '@type': 'Organization', name: SITE }, citation: sources.length ? sources : undefined,
-        about: e.year > NOW ? 'Scenario, confidence ' + (e.confidence || 'Uncertain') : undefined },
+        about: e.year > NOW ? 'Scenario, confidence ' + (e.confidence || 'Uncertain') : { '@type': 'Event', name: e.title, startDate: e.date || String(e.year) } },
       { '@context': 'https://schema.org', ...crumbs([[SITE, ''], ['The board', 'board/'], [e.year + ' ' + e.title, 'card/' + enc(e.id) + '/']]) }
     ];
   }
@@ -134,7 +137,10 @@ function page(route: Route, html: string, meta: PageMeta, media: WikiCache): str
   const inline = Object.keys(media).length ? '\n    <script id="wiki-inline" type="application/json">' + JSON.stringify(media).replace(/</g, '\\u003c') + '</script>' : '';
   const structured = ld.length ? '\n    <script type="application/ld+json">' + JSON.stringify(ld).replace(/</g, '\\u003c') + '</script>' : '';
   out = out.replace('</head>', structured + inline + '\n  </head>');
-  if (clientOnly) out = out.replace('<html lang="en">', '<html lang="en" data-client-render>');
+  if (clientOnly) {
+    out = out.replace('<html lang="en">', '<html lang="en" data-client-render>');
+    out = out.replace('</head>', '  <link rel="modulepreload" crossorigin href="' + BASE + 'assets/' + BOARD_CHUNK + '">\n  </head>');
+  }
   out = out.replace('<div id="root"></div>', '<div id="root">' + html + '</div>');
   return out;
 }
@@ -166,6 +172,12 @@ function boardMedia(): WikiCache {
   return out;
 }
 const BOARD_MEDIA = boardMedia();
+
+/* The canvas is its own chunk, and the board's page named only the main script
+   and React: the chunk was asked for after both had run and React had reached
+   the board. Naming it lets the browser fetch all three at once. */
+const BOARD_CHUNK = (await readdir(join(dist, 'assets'))).find((f) => /^BoardView-[\w-]+\.js$/.test(f));
+if (!BOARD_CHUNK) throw new Error('prerender: no BoardView chunk in dist/assets');
 if (!Object.keys(BOARD_MEDIA).length) throw new Error('prerender: no photographs for the board — is public/wiki-cache.json missing?');
 
 let n = 0;

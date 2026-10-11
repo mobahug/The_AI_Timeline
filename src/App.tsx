@@ -5,6 +5,7 @@ import ErrorBoundary from './components/ErrorBoundary';
 import Landing from './components/Landing';
 import About from './components/About';
 import BoardStatic from './components/BoardStatic';
+import { boardIfLoaded, loadBoard } from './components/boardChunk';
 import ArchiveView from './components/ArchiveView';
 import HorizonView from './components/HorizonView';
 import CaseView from './components/CaseView';
@@ -28,8 +29,11 @@ import type { Route } from './lib/types';
 
 /* The board is the one heavy view — the canvas, the drag, the pan animation —
    and the one a crawler gets nothing from. It is loaded when the reader opens
-   it; the server renders its static listing instead. */
-const BoardView = typeof window === 'undefined' ? BoardStatic : lazy(() => import('./components/BoardView'));
+   it; the server renders its static listing instead. On the board's own
+   address the canvas is fetched before the page is drawn (boardChunk.ts), and
+   is then drawn directly rather than through the lazy wrapper, so the listing
+   is never swapped for an empty "loading" frame. */
+const LazyBoardView = lazy(() => loadBoard().then((Board) => ({ default: Board })));
 
 const isBrowser = typeof window !== 'undefined';
 
@@ -37,6 +41,7 @@ export interface AppProps { initialRoute?: Route }
 
 export default function App({ initialRoute }: AppProps) {
   const [route, navigate] = useRoute(initialRoute);
+  const Board = boardIfLoaded() || LazyBoardView;
   const graph = useMemo(() => buildGraph(), []);
   const media = useMedia(graph.all);
   const [mode, , full] = useMode();
@@ -177,7 +182,7 @@ export default function App({ initialRoute }: AppProps) {
           {view === 'board' && !isBrowser && <BoardStatic items={items} graph={graph} route={route} />}
           {view === 'board' && isBrowser && (
             <Suspense fallback={<BoardStatic items={items} graph={graph} route={route} loading />}>
-              <BoardView
+              <Board
                 items={items}
                 graph={graph}
                 media={media}
