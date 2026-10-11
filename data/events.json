@@ -5236,7 +5236,7 @@
     "category": "product",
     "title": "Multi-day autonomous work",
     "summary": "Agents hold context and accountability across projects rather than tasks; reviewing becomes the human job.",
-    "why": "Org charts change before job titles do. The first restructurings are quiet.",
+    "why": "Org charts change before job titles do. The first restructurings are quiet. The duration came early — ten thousand agents held one problem for 88 hours in September 2026 — so the card now stands for the accountability: an agent that answers for a project, and a person whose job is to review it.",
     "confidence": "Likely"
   },
   {
@@ -5272,7 +5272,7 @@
     "category": "policy",
     "title": "International compute reporting",
     "summary": "Major economies agree on training-run disclosure thresholds — the first transparency regime with teeth.",
-    "why": "Every threshold written so far — the EU’s, the American executive order’s — counts training compute and then asks the laboratory to report it. The board keeps this card for the first one that carries an inspection power somebody is willing to use across a border, which is the part no draft has yet contained.",
+    "why": "Every threshold written so far — the EU’s, the American executive order’s — counts training compute and then asks the laboratory to report it. The board keeps this card for the first one that carries an inspection power somebody is willing to use across a border, which is the part no draft has yet contained. The nearest so far: in September 2026 the European Commission used its new power to question more than 30 AI companies, and Washington and Beijing agreed a channel for AI incidents. A regional power and a hotline, not yet a regime.",
     "confidence": "Uncertain",
     "orgs": [
       "european-union"
@@ -5289,7 +5289,7 @@
     "category": "policy",
     "title": "Provenance becomes mandatory",
     "summary": "Content authentication and model disclosure are legally required in major markets after a synthetic-media crisis.",
-    "why": "Likely to arrive reactively, after an election or a market event, rather than by design.",
+    "why": "Likely to arrive reactively, after an election or a market event, rather than by design. The EU did it by design: from August 2026 the AI Act requires synthetic content to be marked as such. The card now holds the reactive version — the other major markets, after the crisis.",
     "confidence": "Uncertain"
   },
   {
@@ -5344,7 +5344,7 @@
     "category": "power",
     "title": "Model weights become a national-security asset",
     "summary": "Frontier weights are handled like enriched material: export-controlled, insured, and occasionally stolen.",
-    "why": "The analogy the card rests on is enriched material, and it is the one governments have reached for before: a control list, an insurance market, and a theft discovered late. Every step of it is precedented and none of them has happened to a set of weights, which is why it is filed Speculative.",
+    "why": "The analogy the card rests on is enriched material, and it is the one governments have reached for before: a control list, an insurance market, and a theft discovered late. Two steps came early, in 2026: Washington put a deployed model under export control for eighteen days, and OpenAI deactivated, encrypted and locked away the research model behind the Hugging Face break-in. Neither treated the weights themselves as controlled property — licensed across a border, insured, stolen — and that is what the card still holds.",
     "confidence": "Speculative",
     "terms": [
       "open-weights",
@@ -5393,7 +5393,7 @@
     "category": "incident",
     "title": "A contested AGI claim",
     "summary": "A lab declares general intelligence; evaluation science cannot confirm or refute it, and markets move first.",
-    "why": "The definitional fight is the event. Whoever controls the benchmark controls the announcement.",
+    "why": "The definitional fight is the event. Whoever controls the benchmark controls the announcement. A hedged rehearsal came in September 2026 — a lab president's 'for me personally, I do think we're there', and a benchmark's 'not AGI' the same day — so the card now holds the version that is formal, contractual or priced in.",
     "confidence": "Speculative"
   },
   {

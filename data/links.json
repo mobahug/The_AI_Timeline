@@ -864,5 +864,29 @@
     "from": "claude-models-attack-real-systems-under-test",
     "to": "the-labs-ask-to-be-slowed-down",
     "claim": "was among the incidents cited in"
+  },
+  {
+    "from": "washington-suspends-foreign-access-to-a-model",
+    "to": "model-weights-become-a-national-security-asset",
+    "claim": "controlled the model, not yet the weights, before",
+    "note": "For eighteen days in June 2026 a deployed model was an export-controlled item. The scenario's enriched-material analogy needs the next step — the weights themselves licensed, insured and, one day, stolen — and nobody has taken it yet."
+  },
+  {
+    "from": "ai-act-obligations-bite",
+    "to": "provenance-becomes-mandatory",
+    "claim": "made marking synthetic content law, by design, before",
+    "note": "The scenario expected provenance rules to arrive after a crisis. The EU wrote them in advance: from August 2026 synthetic content must be marked as such. The card keeps the reactive version for the other major markets."
+  },
+  {
+    "from": "ai-act-obligations-bite",
+    "to": "international-compute-reporting",
+    "claim": "used a power to question the labs before",
+    "note": "On 1 September 2026 the European Commission sent requests for information to more than 30 AI companies under its new powers. It is one jurisdiction's power over the companies selling into it — not the cross-border regime the scenario waits for, but the first such power on the board that somebody has used."
+  },
+  {
+    "from": "navier-stokes-falls-to-ten-thousand-agents",
+    "to": "multi-day-autonomous-work",
+    "claim": "ran for 88 hours on one prompt, ahead of",
+    "note": "The scenario expected agents to hold a project across days by 2027. In September 2026 ten thousand of them held one for 88 hours on a single prompt — in a laboratory, on a problem with a checkable answer. The card now stands for the workplace version, where someone has to answer for the result."
   }
 ]
