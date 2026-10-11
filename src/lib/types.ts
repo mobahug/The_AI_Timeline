@@ -249,8 +249,10 @@ export interface Route {
   hash: string | null;
   /** The scroll offset to return to on Back; 0 for a fresh page. */
   pop?: number;
-  /** An old-form or unknown address, to be rewritten. */
+  /** An old-form address, to be rewritten. */
   legacy?: boolean;
+  /** An address that names no page, as typed: the front page shows, and says so. */
+  missing?: string;
   /** A ?mode= in the address, consumed on load. */
   mode?: Mode;
 }

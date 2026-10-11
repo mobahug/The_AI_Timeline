@@ -50,9 +50,10 @@ export function parse(pathname: string, search = '', hash = ''): Route {
     if (route.view === 'finding') route.finding = q.get('f') || null;
     if (route.view !== 'board' && q.get('id')) route.id = q.get('id');
   } else if (!hit && segments.length) {
-    // An address that names no page lands on the front page, not a blank one.
+    // An address that names no page lands on the front page, not a blank one —
+    // and keeps what was typed, so the page can say what missed.
     route.view = 'landing';
-    route.legacy = true;
+    route.missing = segments.join('/');
   }
 
   if (route.view === 'board') {
@@ -121,6 +122,7 @@ export function useRoute(initial?: Route): [Route, Navigate] {
       const next: Route = { ...resolve(prev, patch), pop: 0 };
       delete next.legacy;
       delete next.mode;
+      delete next.missing;
       const url = hrefFor(next);
       if (replace) {
         window.history.replaceState(window.history.state, '', url);

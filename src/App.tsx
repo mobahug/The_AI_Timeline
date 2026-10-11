@@ -3,6 +3,7 @@ import Header from './components/Header';
 import { RouteProvider } from './components/kit';
 import ErrorBoundary from './components/ErrorBoundary';
 import Landing from './components/Landing';
+import Missing from './components/Missing';
 import About from './components/About';
 import BoardStatic from './components/BoardStatic';
 import { boardIfLoaded, loadBoard } from './components/boardChunk';
@@ -177,6 +178,7 @@ export default function App({ initialRoute }: AppProps) {
 
       <ErrorBoundary resetKey={view + '|' + (route.finding || '') + '|' + (route.id || '')}>
         <main id="main" tabIndex={-1} style={{ outline: 'none' }}>
+          {view === 'landing' && route.missing && <Missing path={route.missing} graph={graph} />}
           {view === 'landing' && <Landing />}
           {view === 'about' && <About />}
           {view === 'board' && !isBrowser && <BoardStatic items={items} graph={graph} route={route} />}

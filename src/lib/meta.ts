@@ -72,6 +72,7 @@ function describe(route: Route, graph?: Graph | null): { title: string; descript
       return { title: x.label + ' · ' + kind + ' · ' + SITE, description: (lead ? lead + ' ' : '') + (body || '') };
     }
   }
+  if (route.missing) return { title: 'Nothing filed here · ' + SITE, description: TAGLINE };
   const v = viewById[route.view];
   if (v && v.title) return { title: v.title + ' · ' + SITE, description: v.description || TAGLINE };
   return { title: SITE + ' — an investigation board, ' + FIRST + '–' + LAST, description: TAGLINE };

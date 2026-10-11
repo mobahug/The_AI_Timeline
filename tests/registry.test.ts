@@ -65,13 +65,21 @@ describe('routes round-trip through the URL', () => {
     });
   });
 
+  it('keeps an address that names no page, so the front page can say what missed', () => {
+    const r = parse('/chatgpt-launch/');
+    expect(r).toMatchObject({ view: 'landing', missing: 'chatgpt-launch' });
+    expect(r.legacy).toBeUndefined();
+    expect(metaFor(r, graph).title.startsWith('Nothing filed here')).toBe(true);
+  });
+
   it('still lands the old ?view= addresses, and marks them for rewriting', () => {
     expect(parse('/', '?view=card&id=alexnet')).toMatchObject({ view: 'card', id: 'alexnet', legacy: true });
     expect(parse('/', '?view=finding&f=3')).toMatchObject({ view: 'finding', finding: '3', legacy: true });
     expect(parse('/', '?view=board&clue=a%3Eb')).toMatchObject({ view: 'board', clue: { from: 'a', to: 'b' } });
     expect(parse('/', '?view=index')).toMatchObject({ view: 'archive' });
     expect(parse('/', '?view=nonsense')).toMatchObject({ view: 'landing' });
-    expect(parse('/no/such/page/', '')).toMatchObject({ view: 'landing', legacy: true });
+    // An address that names no page is no longer rewritten: the front page says what missed.
+    expect(parse('/no/such/page/', '')).toMatchObject({ view: 'landing', missing: 'no/such/page' });
   });
 
   it('carries a mode from the address without keeping it in the route', () => {
