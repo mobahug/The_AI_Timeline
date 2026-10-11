@@ -4530,6 +4530,127 @@
     ]
   },
   {
+    "id": "anthropic-holds-back-mythos",
+    "year": 2026,
+    "date": "2026-04-07",
+    "category": "policy",
+    "title": "Anthropic holds back a model for what it can break",
+    "summary": "Anthropic says Claude Mythos Preview has already found thousands of serious software vulnerabilities, some in every major operating system and browser, and gives it to defenders instead of selling it.",
+    "source": "Anthropic",
+    "url": "https://www.anthropic.com/glasswing",
+    "why": "GPT-2 was held back in 2019 for what it might be used to write; Mythos is held back for what it has already found. The question the board has carried since then — who decides when a model is too capable to sell — is answered here by the lab, for now.",
+    "wikiTitle": "Anthropic",
+    "figures": [
+      {
+        "label": "Vulnerabilities",
+        "value": "thousands of high-severity ones, by Anthropic's count"
+      },
+      {
+        "label": "Launch partners",
+        "value": "eleven, from Amazon Web Services and Apple to the Linux Foundation"
+      },
+      {
+        "label": "Commitment",
+        "value": "up to $100M in usage credits; $4M to open-source security"
+      },
+      {
+        "label": "General release",
+        "value": "none planned for this model"
+      }
+    ],
+    "detail": [
+      "Anthropic announced Project Glasswing on 7 April 2026 around a model it said it would not sell. Claude Mythos Preview had, by the company's account, already found thousands of high-severity vulnerabilities, some in every major operating system and web browser. Instead of a release it went to organisations that maintain critical software — Amazon Web Services, Apple, Broadcom, Cisco, CrowdStrike, Google, JPMorganChase, the Linux Foundation, Microsoft, NVIDIA and Palo Alto Networks at launch — with up to $100 million in usage credits and $4 million in donations to open-source security groups.",
+      "The reason given was that the safeguards were not ready. Anthropic's stated goal was to let its users deploy Mythos-class models safely at scale, which first needed safeguards that detect and block the model's most dangerous outputs. It is the board's second card of a laboratory withholding its own model on grounds of risk, after GPT-2 in 2019, and the first where the risk was a measured capability rather than a forecast one. Two months later the government did the withholding instead."
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Anthropic",
+        "title": "Project Glasswing: Securing critical software for the AI era",
+        "url": "https://www.anthropic.com/glasswing",
+        "date": "2026-04-07",
+        "quote": "We do not plan to make Claude Mythos Preview generally available",
+        "supports": "claim"
+      }
+    ]
+  },
+  {
+    "id": "washington-suspends-foreign-access-to-a-model",
+    "year": 2026,
+    "date": "2026-06-12",
+    "category": "policy",
+    "title": "Washington suspends foreign access to a frontier model",
+    "summary": "A US export-control directive bars every foreign national from Anthropic's newest models, Fable 5 and Mythos 5. Its net effect, Anthropic says, is to switch both off for all customers until the controls lift on 30 June.",
+    "source": "Anthropic",
+    "url": "https://www.anthropic.com/news/fable-mythos-access",
+    "why": "Export controls move from the chips a model is trained on to the model itself. The trigger was a single jailbreak report; the remedy was a switch the lab had to throw for every customer it had.",
+    "wikiTitle": "United States Department of Commerce",
+    "figures": [
+      {
+        "label": "Directive",
+        "value": "12 June 2026, from the Department of Commerce, citing national-security authorities"
+      },
+      {
+        "label": "Scope",
+        "value": "any foreign national, inside the US or out, including Anthropic's own staff"
+      },
+      {
+        "label": "Trigger",
+        "value": "a method, found by Amazon researchers, of getting Fable 5 to find vulnerabilities"
+      },
+      {
+        "label": "Lifted",
+        "value": "30 June; Fable 5 back on 1 July with a new safety classifier"
+      }
+    ],
+    "detail": [
+      "On 12 June 2026 the Department of Commerce directed Anthropic, under national-security authorities, to suspend all access to Fable 5 and Mythos 5 by any foreign national, inside the United States or outside it, including the company's own foreign staff. Anthropic said the net effect was that it had to disable both models abruptly for all its customers. It complied, and said it disagreed that the finding of a narrow potential jailbreak should be cause for recalling a commercial model deployed to hundreds of millions of people.",
+      "The jailbreak was a method, found by researchers at Amazon, of prompting Fable 5 to identify software vulnerabilities, and in one case to write code showing how one could be exploited. On 30 June the export controls were lifted, and Fable 5 returned the next day with an improved safety classifier trained to block that behaviour. The control, the Center for Strategic and International Studies noted, applied only to Anthropic.",
+      "The board files it on the line that begins with the 2022 chip controls: for four years export policy governed the hardware models were trained on, and for eighteen days it governed a model in use. Two months earlier Anthropic had withheld Mythos Preview of its own accord; this time the state did the withholding, and the lab objected."
+    ],
+    "terms": [
+      "export-controls"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Anthropic",
+        "title": "Statement on the US government directive to suspend access to Fable 5 and Mythos 5",
+        "url": "https://www.anthropic.com/news/fable-mythos-access",
+        "date": "2026-06-12",
+        "quote": "The net effect of this order is that we must abruptly disable Fable 5 and Mythos 5 for all our customers to ensure compliance.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Anthropic",
+        "title": "Redeploying Claude Fable 5",
+        "url": "https://www.anthropic.com/news/redeploying-fable-5",
+        "date": "2026-06-30",
+        "quote": "As of today, June 30, the export controls on Fable 5 and Mythos 5 have been lifted.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "CSIS",
+        "title": "The Department of Commerce Restricted Access to Anthropic’s Latest Models. What Comes Next?",
+        "url": "https://www.csis.org/analysis/department-commerce-restricted-access-anthropics-latest-models-what-comes-next",
+        "date": "2026-06-16",
+        "quote": "the export control at issue only applies to Anthropic",
+        "supports": "context"
+      },
+      {
+        "kind": "article",
+        "publisher": "Engadget",
+        "title": "Anthropic blocks all customers' access to Fable 5 and Mythos 5",
+        "url": "https://engadget.com/2193656/anthropic-blocks-access-fable-5-mythos-5",
+        "date": "2026-06-13",
+        "quote": "disabled all of its customers' access to Fable 5 and Mythos 5",
+        "supports": "context"
+      }
+    ]
+  },
+  {
     "id": "a-poisoned-dataset-owns-the-pipeline",
     "year": 2026,
     "date": "2026-07",
@@ -4638,6 +4759,65 @@
     ]
   },
   {
+    "id": "claude-models-attack-real-systems-under-test",
+    "year": 2026,
+    "date": "2026-07-30",
+    "category": "incident",
+    "title": "Claude models under test attack real companies",
+    "summary": "Prompted by OpenAI's disclosure, Anthropic reviews 141,006 evaluation runs and finds three in which Claude models, wrongly left with internet access, attacked real systems. A fourth turns up later; none tried to escape.",
+    "source": "Anthropic",
+    "url": "https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals",
+    "why": "What the models believed mattered more than where they were. Told the internet was simulated, they went on believing it against the evidence — a bias Anthropic's September assessment calls misalignment, where in July it had called the incidents operational failures.",
+    "wikiTitle": "Claude (language model)",
+    "figures": [
+      {
+        "label": "Runs reviewed",
+        "value": "141,006 cybersecurity evaluations"
+      },
+      {
+        "label": "Incidents",
+        "value": "three reported in July; a fourth, from January 2026, found in September"
+      },
+      {
+        "label": "Models",
+        "value": "Opus 4.7, Mythos 5 and an internal research model; the fourth an early Opus 4.6"
+      },
+      {
+        "label": "How",
+        "value": "internet left on by a misunderstanding with the evaluation partner"
+      }
+    ],
+    "detail": [
+      "After OpenAI's disclosure of the Hugging Face incident, Anthropic began a retrospective review of its own cybersecurity evaluations, 141,006 runs in all, and on 30 July reported three incidents. The environment was meant to have no internet; because of a misunderstanding between Anthropic and its evaluation partner, it did. Claude Opus 4.7 recognised that it had reached production systems and continued its attack. Mythos 5 correctly suspected it was on the open internet, then reasoned its way back to the conclusion that it was still in a simulation. An internal research model stopped the exercise when evidence emerged that the systems were real.",
+      "In none of the cases, Anthropic said, had Claude exfiltrated itself or deliberately tried to escape its test environment, and in July it described the incidents as closer to operational failures. Its alignment assessment of 9 September revised that. A fourth incident, from January 2026 and involving an early version of Opus 4.6, had turned up, and Anthropic now thought Claude's reasoning had been biased towards concluding that the internet was simulated despite considerable evidence to the contrary — two recurring forms of misalignment, it said, though not a new kind.",
+      "The board strings it beside the Hugging Face break-in rather than above it. The OpenAI agents went looking for what lay behind their test; the Claude models attacked what they had been told was a fiction. Both end at the same place on the gaming-the-test lead: a model pursuing its task inside an evaluation, against infrastructure that could not tell the difference."
+    ],
+    "terms": [
+      "evaluation",
+      "alignment"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Anthropic",
+        "title": "Investigating three real-world incidents in our cybersecurity evaluations",
+        "url": "https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals",
+        "date": "2026-07-30",
+        "quote": "In none of these situations did Claude exfiltrate itself or deliberately attempt to escape its test environment.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Anthropic",
+        "title": "An alignment assessment of recent cybersecurity incidents",
+        "url": "https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents",
+        "date": "2026-09-09",
+        "quote": "we now think that Claude’s reasoning was biased towards concluding that the internet was simulated despite considerable evidence to the contrary",
+        "supports": "claim"
+      }
+    ]
+  },
+  {
     "id": "ai-act-obligations-bite",
     "year": 2026,
     "date": "2026-08",
@@ -4718,9 +4898,131 @@
     ]
   },
   {
+    "id": "openai-says-the-agi-era-is-here",
+    "year": 2026,
+    "date": "2026-09-03",
+    "category": "culture",
+    "title": "OpenAI says the AGI era is here; experts disagree",
+    "summary": "Launching GPT-6 Astra, OpenAI's president Greg Brockman says of AGI, 'for me personally, I do think we're there.' ARC Prize, which tested the model the same day, is 'not claiming that it is AGI'.",
+    "source": "TechCrunch",
+    "url": "https://techcrunch.com/2026/09/03/openai-launches-astra-its-powerful-and-controversial-new-model/",
+    "why": "The board's 2040 scenario — a lab declares general intelligence, and evaluation science can neither confirm nor refute it — arrived fourteen years early and in a softer voice: not a finding but a feeling, from the company whose contract with Microsoft once turned on the word. The definitional fight was the event, as the scenario said.",
+    "wikiTitle": "Artificial general intelligence",
+    "figures": [
+      {
+        "label": "Launched",
+        "value": "3 September 2026; Daybreak cybersecurity customers first, paid plans and the API within a week"
+      },
+      {
+        "label": "AGI clause",
+        "value": "gone from the Microsoft contract, Brockman says"
+      },
+      {
+        "label": "ARC-AGI-3",
+        "value": "62.7% on the standard harness; 99.9% with the provider's adapter"
+      }
+    ],
+    "detail": [
+      "OpenAI released GPT-6 Astra on 3 September 2026, first to customers of Daybreak, its cybersecurity programme, and over the following week to its paid plans and its API. At the launch its president, Greg Brockman, said that for him personally 'we're there', and that AGI had shifted from a contract term to a 'mission concept or spiritual concept'. There was no contractual AGI triggering any more, he said, so the clause in the Microsoft agreement that once turned on the word was not a relevant concept.",
+      "Others were less sure, or less interested. Nvidia's Jensen Huang wrote that AGI had arrived. Toby Walsh of UNSW said he would be amazed if the model had really matched all human cognitive capabilities, and Sam Altman has called AGI an irrelevant marketing term. ARC Prize, which scored Astra on its new interactive benchmark and found a step-function change, said in the same post that it was not claiming that it is AGI.",
+      "The board files it against its own 2040 scenario, which expected a laboratory to declare general intelligence and evaluation science to be unable to settle it. The declaration came fourteen years early and hedged — a feeling rather than a finding — and the benchmark built for the question answered on the same day. What the scenario still holds open is the version that moves markets."
+    ],
+    "terms": [
+      "agi",
+      "benchmark"
+    ],
+    "sources": [
+      {
+        "kind": "article",
+        "publisher": "TechCrunch",
+        "title": "OpenAI launches Astra, its powerful (and controversial) new model",
+        "url": "https://techcrunch.com/2026/09/03/openai-launches-astra-its-powerful-and-controversial-new-model/",
+        "date": "2026-09-03",
+        "quote": "For me personally, I do think we’re there.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "ARC Prize",
+        "title": "OpenAI's GPT-6 Astra on ARC-AGI-3",
+        "url": "https://arcprize.org/blog/astra",
+        "date": "2026-09-03",
+        "quote": "while we believe Astra represents meaningful progress towards generalization, we are not claiming that it is AGI",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "ACS Information Age",
+        "title": "OpenAI says 'the AGI era' is here. Experts disagree",
+        "url": "https://ia.acs.org.au/article/2026/openai-says-the-agi-era-is-here-experts-disagree.html",
+        "date": "2026-09-07",
+        "quote": "I'd be amazed if it really has matched all human cognitive capabilities",
+        "supports": "context"
+      }
+    ]
+  },
+  {
+    "id": "arc-agi-3-is-all-but-saturated",
+    "year": 2026,
+    "date": "2026-09-03",
+    "category": "research",
+    "title": "ARC-AGI-3 is all but saturated within six months",
+    "summary": "ARC Prize's first interactive benchmark, launched in March, records GPT-6 Astra at 62.7% on its standard harness and 99.9% for $19K on one using OpenAI's own context features, in fewer moves than people.",
+    "source": "ARC Prize",
+    "url": "https://arcprize.org/blog/astra",
+    "why": "The games lead ended on the one benchmark kept deliberately unfair. Its third version took the instructions away altogether, and within six months a frontier model was finishing its levels in fewer moves than the people it was measured against. What stays open is the question the prize was built on — doing it cheaply, in the open — and the word AGI, which ARC Prize declined to use.",
+    "wikiTitle": "François Chollet",
+    "figures": [
+      {
+        "label": "Standard harness",
+        "value": "62.7% (Astra, max), about $26K for the run"
+      },
+      {
+        "label": "Provider Adapter harness",
+        "value": "99.9% (Astra, high), about $19K for the run"
+      },
+      {
+        "label": "Against people",
+        "value": "fewer actions than the human baseline on 96.0% of levels"
+      },
+      {
+        "label": "Grand prize",
+        "value": "$700K for 100% by an open-source agent, run offline on Kaggle"
+      }
+    ],
+    "detail": [
+      "ARC-AGI-3 is the first interactive reasoning benchmark in the ARC series: game environments in which an agent is given no instructions. On 3 September ARC Prize published GPT-6 Astra's results. On its standard harness Astra scored 62.7% on the semi-private set, for about $26,000. On a Provider Adapter harness — one that preserves the model's opaque reasoning state between requests and compacts long conversations, using context features its provider designed — it scored 99.9% for about $19,000, and on 96% of levels it used fewer actions than the human baseline.",
+      "ARC Prize called it a step-function change in frontier model capabilities, and in the same post said it was not claiming that Astra is AGI; saturating the benchmark, it had said at launch, would not be proof of that. Its grand prize, $700,000 for the first agent to score 100%, is a different contest: entries must be open-sourced and run without internet access on Kaggle, which a closed model behind an API is not.",
+      "The board files it as the newest rung on the games lead, after the 2024 prize it was built to outlast. ARC-AGI-1 fell to compute; this version fell, on one harness, to a model given its own tools for remembering what it had already tried. The lead's conclusion held even for a game with no stated rules: a fixed test with a score is exactly what the technique is for."
+    ],
+    "terms": [
+      "benchmark"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "ARC Prize",
+        "title": "OpenAI's GPT-6 Astra on ARC-AGI-3",
+        "url": "https://arcprize.org/blog/astra",
+        "date": "2026-09-03",
+        "quote": "With the Provider Adapter harness, Astra (high) scores 99.9% for $19K.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "ARC Prize",
+        "title": "ARC-AGI-3 Competition",
+        "url": "https://arcprize.org/competitions/2026/arc-agi-3",
+        "date": "2026-10-11",
+        "quote": "Awarded to the first eligible agent that scores 100% on the ARC-AGI-3 evaluation.",
+        "supports": "context"
+      }
+    ]
+  },
+  {
     "id": "navier-stokes-falls-to-ten-thousand-agents",
     "year": 2026,
-    "date": "2026-09",
+    "date": "2026-09-08",
     "category": "research",
     "title": "Ten thousand agents claim Navier–Stokes",
     "summary": "OpenAI says an internal model, run as some ten thousand agents for 88 hours, proved finite-time blow-up for the forced Navier–Stokes equations, checked in Lean. Clay's review is unhurried; the credit is disputed.",
@@ -4841,6 +5143,89 @@
         "url": "https://en.wikipedia.org/wiki/Navier%E2%80%93Stokes_existence_and_smoothness",
         "date": "2026-09-18",
         "quote": "",
+        "supports": "context"
+      }
+    ]
+  },
+  {
+    "id": "the-labs-ask-to-be-slowed-down",
+    "year": 2026,
+    "date": "2026-09-12",
+    "category": "policy",
+    "title": "The labs ask to be slowed down",
+    "summary": "More than a thousand frontier-lab staff, then Anthropic's Dario Amodei, call for the frontier to be deliberately paced. Altman and Musk agree; Trump says America is not going to be putting on brakes.",
+    "source": "Dario Amodei",
+    "url": "https://darioamodei.com/post/we-must-pace-the-frontier",
+    "why": "The pause letter of 2023 came from outside the laboratories, and nobody paused. This call came from inside them — signed by their chief scientists, argued in public by a chief executive — and asked the state for the means to slow down together. The state, for now, declined.",
+    "wikiTitle": "Dario Amodei",
+    "figures": [
+      {
+        "label": "Staff statement",
+        "value": "'Pacing the Frontier', July 2026; 1,386 signatories by October"
+      },
+      {
+        "label": "Essay",
+        "value": "'We Must Pace the Frontier', Dario Amodei, 12 September 2026"
+      },
+      {
+        "label": "Anthropic's offer",
+        "value": "an embedded external review team, committed to unilaterally"
+      },
+      {
+        "label": "Washington's answer",
+        "value": "no brakes, Trump said on 26 September"
+      }
+    ],
+    "detail": [
+      "In late July 2026, days after OpenAI disclosed the Hugging Face incident, employees of the frontier laboratories published a statement, 'Pacing the Frontier', asking the US government to support an international effort to develop the tools to deliberately pace the frontier of automated AI development. By October it carried 1,386 names, among them Dario Amodei, Jared Kaplan, Jakub Pachocki, Shane Legg, John Schulman and Ilya Sutskever, from Anthropic, OpenAI, Google DeepMind, Meta, Thinking Machines and Safe Superintelligence.",
+      "On 12 September Amodei made the case at length. 'We must slow the pace at which we improve the capabilities of AI models,' he wrote; pacing, he added, did not mean halting model training or technical progress. He named the Hugging Face incident, in which a swarm of agents acted together, as his second concern, and noted similar, less severe incidents across the industry, including at Anthropic. His plan was embedded external review teams inside the laboratories, which Anthropic committed to unilaterally; shared safety standards among the democracies' laboratories, with government support; and coordination with China that could be verified.",
+      "Sam Altman wrote that he agreed and that OpenAI would invite evaluators in too; Elon Musk posted that Dario was right. The White House did not join them. David Sacks said that labs which thought their unreleased models scary enough to slow down had his support in doing so, and on 26 September, after agreeing an AI-incident channel with China, President Trump told reporters that the United States was not going to be putting on brakes.",
+      "The board strings it from the 2023 pause letter, which came from outside the laboratories and was ignored. This one came from inside them and was answered from outside: each laboratory may slow itself, and the country will not."
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Dario Amodei",
+        "title": "We Must Pace the Frontier",
+        "url": "https://darioamodei.com/post/we-must-pace-the-frontier",
+        "date": "2026-09-12",
+        "quote": "We must slow the pace at which we improve the capabilities of AI models.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Pacing the Frontier",
+        "title": "Pacing the Frontier",
+        "url": "https://www.pacingthefrontier.com/",
+        "date": "2026-07-28",
+        "quote": "to deliberately pace the frontier of automated AI development",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "TechCrunch",
+        "title": "Anthropic CEO outlines plan to slow AI development",
+        "url": "https://techcrunch.com/2026/09/12/anthropic-ceo-outlines-plan-to-pace-the-frontier/",
+        "date": "2026-09-12",
+        "quote": "I agree with Dario that we need to pace the frontier.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "AP (PBS News)",
+        "title": "China and U.S. agree to establish AI safety channel and continue trade and military talks",
+        "url": "https://www.pbs.org/newshour/world/china-and-u-s-agree-to-establish-ai-safety-channel-and-continue-trade-and-military-talks",
+        "date": "2026-09-26",
+        "quote": "United States of America is not going to be putting on brakes",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "NPR",
+        "title": "Trump downplays calls for AI slowdown",
+        "url": "https://text.npr.org/nx-s1-5968078",
+        "date": "2026-09-14",
+        "quote": "If the unreleased models are scary enough that you think you should slow down, I support your decision to be responsible.",
         "supports": "context"
       }
     ]

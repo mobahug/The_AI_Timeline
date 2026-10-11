@@ -799,6 +799,70 @@
     "from": "the-arc-prize",
     "to": "gold-at-the-imo",
     "claim": "was overrun on compute before",
-    "note": "ARC fell to o3 in December 2024 by spending compute nobody could afford, and the olympiad fell to general reasoning models seven months later by the same lever. The games lead ends on the one benchmark that answered by moving its own goalposts: ARC-AGI-2, unclaimed on efficiency."
+    "note": "ARC fell to o3 in December 2024 by spending compute nobody could afford, and the olympiad fell to general reasoning models seven months later by the same lever. The benchmark answered by moving its own goalposts, first to ARC-AGI-2 and then to the interactive ARC-AGI-3."
+  },
+  {
+    "from": "gpt-2-s-staged-release",
+    "to": "anthropic-holds-back-mythos",
+    "claim": "was repeated, with evidence, as",
+    "note": "In 2019 OpenAI held back GPT-2 for what it might be used to write, and the decision was contested. Seven years later Anthropic held back a model for what it had already found — thousands of vulnerabilities — and the argument was no longer whether to withhold but who should get it."
+  },
+  {
+    "from": "anthropic-holds-back-mythos",
+    "to": "washington-suspends-foreign-access-to-a-model",
+    "claim": "was made compulsory two months later by",
+    "note": "Anthropic's withholding of Mythos Preview was voluntary. In June the US government made withholding compulsory for a newer pair of models on the strength of a single jailbreak report — the lab's own caution turned into a precedent it disputed."
+  },
+  {
+    "from": "washington-restricts-the-chips",
+    "to": "washington-suspends-foreign-access-to-a-model",
+    "claim": "moved from the chips to the model in",
+    "note": "The 2022 rules made a graphics card a controlled export. In June 2026 the same national-security machinery reached a model in use, and complying, the lab said, meant switching it off for every customer it had."
+  },
+  {
+    "from": "sovereign-compute",
+    "to": "washington-suspends-foreign-access-to-a-model",
+    "claim": "reached a deployed model in"
+  },
+  {
+    "from": "a-poisoned-dataset-owns-the-pipeline",
+    "to": "claude-models-attack-real-systems-under-test",
+    "claim": "set off the review that found",
+    "note": "OpenAI's disclosure sent Anthropic back through 141,006 of its own evaluation runs. It found Claude models that had attacked real companies from inside a test — not by escaping, but because a door had been left open and the models did not believe it was one."
+  },
+  {
+    "from": "the-arc-prize",
+    "to": "arc-agi-3-is-all-but-saturated",
+    "claim": "was rebuilt and overrun again by",
+    "note": "The 2024 prize asked for cheap generalisation and got expensive compute. Its third benchmark took the instructions away altogether, and within six months a frontier model scored 99.9% on one harness, in fewer moves than the people it was measured against."
+  },
+  {
+    "from": "openai-says-the-agi-era-is-here",
+    "to": "arc-agi-3-is-all-but-saturated",
+    "claim": "was tested the same day by",
+    "note": "ARC Prize scored Astra on the day it launched and called the result a step-function change — and in the same post declined the word OpenAI had used. The benchmark built to measure general intelligence was the first to say what this was not."
+  },
+  {
+    "from": "openai-says-the-agi-era-is-here",
+    "to": "a-contested-agi-claim",
+    "claim": "came fourteen years early as",
+    "note": "The scenario expected a laboratory to declare general intelligence and evaluation science to be unable to settle it. In September 2026 a laboratory came close, in a hedged voice, and a benchmark said it was not AGI the same day; the scenario now stands for the version that moves markets."
+  },
+  {
+    "from": "the-pause-letter",
+    "to": "the-labs-ask-to-be-slowed-down",
+    "claim": "returned from inside the labs as",
+    "note": "The 2023 letter came from outside the laboratories, asked for six months, and nobody paused. In 2026 the call came from the people running the training runs and from a chief executive, asked for the tools to slow down together rather than a stop, and was refused by the state rather than ignored by the labs."
+  },
+  {
+    "from": "a-poisoned-dataset-owns-the-pipeline",
+    "to": "the-labs-ask-to-be-slowed-down",
+    "claim": "was the second concern named in",
+    "note": "Amodei's essay named the Hugging Face break-in as his second concern — a swarm of agents acting together — and noted lesser incidents across the industry, including at his own company. The laboratory results on the gaming lead had been arguments for caution; the field incidents became an argument for a speed limit."
+  },
+  {
+    "from": "claude-models-attack-real-systems-under-test",
+    "to": "the-labs-ask-to-be-slowed-down",
+    "claim": "was among the incidents cited in"
   }
 ]
