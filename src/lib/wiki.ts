@@ -41,21 +41,36 @@ async function fetchTitle(title: string): Promise<WikiPage> {
   return { img: (p.thumbnail && p.thumbnail.source) || (p.originalimage && p.originalimage.source) || '', extract: p.extract || '' };
 }
 
-async function loadPrebuilt(): Promise<WikiCache> {
-  if (prebuilt) return prebuilt;
-  try {
-    const res = await fetch(import.meta.env.BASE_URL + 'wiki-cache.json');
-    prebuilt = res.ok ? await res.json() : {};
-  } catch {
-    prebuilt = {};
+/* One request for the cache, however many callers ask before it lands: the
+   promise is kept, not just its result. */
+let prebuiltLoad: Promise<WikiCache> | null = null;
+function loadPrebuilt(): Promise<WikiCache> {
+  if (prebuilt) return Promise.resolve(prebuilt);
+  if (!prebuiltLoad) {
+    prebuiltLoad = fetch(import.meta.env.BASE_URL + 'wiki-cache.json')
+      .then((res) => (res.ok ? res.json() : {}))
+      .catch(() => ({}))
+      .then((cache: WikiCache) => (prebuilt = cache || {}));
   }
-  return prebuilt || {};
+  return prebuiltLoad;
 }
+
+/* Live lookups are for the few titles newer than the build's cache. If the
+   cache itself failed to arrive, every title would look missing and the page
+   would ask Wikipedia for all of them, rewriting localStorage after each one;
+   so a page asks for at most this many, and none when the cache is empty. */
+const LIVE_CAP = 24;
+
+/* The live cache is this browser's own, and the server never saw it. Read
+   during hydration, a title the build had not cached rendered a photograph on
+   the client only, React found the page different from its HTML, and threw the
+   whole page away to draw it again. It is read once the page is live. */
+let liveReady = false;
 
 const lookup = (title: string | null | undefined): WikiPage | null => {
   if (!title) return null;
   if (recording) recording.add(title);
-  return (prebuilt && prebuilt[title]) || inlined[title] || live[title] || null;
+  return (prebuilt && prebuilt[title]) || inlined[title] || (liveReady ? live[title] : null) || null;
 };
 
 /** The article a citation URL points at. Deliberately not the same as wikiTitle:
@@ -135,17 +150,21 @@ export function useMedia(items: Event[]): Media {
   useEffect(() => {
     let cancelled = false;
     (async () => {
-      await loadPrebuilt();
-      if (cancelled) return;
-      bump((n) => n + 1);
-
-      const wanted: string[] = [];
+      const titles = new Set<string>();
       items.forEach((e) => {
         if (e.future) return;
-        [e.wikiTitle, FALLBACK[e.id], citedTitle(e.url)].forEach((t) => {
-          if (t && !lookup(t) && !wanted.includes(t)) wanted.push(t);
-        });
+        [e.wikiTitle, FALLBACK[e.id], citedTitle(e.url)].forEach((t) => { if (t) titles.add(t); });
       });
+      // What the page can already show, from the pages inlined into its HTML.
+      // Only if the full cache changes that is every card re-rendered.
+      const seen = () => [...titles].map((t) => { const p = lookup(t); return p ? (p.img || '') + '#' + (p.extract || '').length : ''; }).join('|');
+      const before = seen();
+      liveReady = true;
+      const cache = await loadPrebuilt();
+      if (cancelled) return;
+      if (seen() !== before) bump((n) => n + 1);
+
+      const wanted = Object.keys(cache).length ? [...titles].filter((t) => !lookup(t)).slice(0, LIVE_CAP) : [];
 
       let index = 0;
       const worker = async () => {
