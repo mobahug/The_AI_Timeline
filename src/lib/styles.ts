@@ -83,7 +83,7 @@ export const micro = (opacity: number = 5, tier?: Tier): CSSProperties => ({
 export type Tone = 'quiet' | 'loud' | 'dim';
 export type Size = 'sm' | 'md' | 'lg' | 'hero';
 const BUTTON_SIZE: Record<Size, CSSProperties> = {
-  sm: { padding: '6px 11px', font: '400 9.5px/1 ' + MONO },
+  sm: { padding: '7px 11px', font: '400 9.5px/1 ' + MONO },
   md: { padding: '7px 12px', font: '400 10px/1 ' + MONO },
   lg: { padding: '9px 12px', font: '400 10px/1 ' + MONO },
   hero: { padding: '13px 20px', font: '400 10px/1 ' + MONO }

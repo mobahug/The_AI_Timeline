@@ -1032,7 +1032,11 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
       <div style={{ flex: 'none', paddingTop: 9 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'nowrap', minWidth: 0, marginBottom: 10 }}>
           <h1 style={{ margin: 0, font: '400 clamp(16px,1.7vw,21px)/1 ' + SERIF, letterSpacing: '-0.02em', whiteSpace: 'nowrap', flex: 'none' }}>The board</h1>
-          <span aria-live="polite" style={{ ...micro(chain ? 3 : 5), color: chain ? RED_LIT : undefined, flex: '0 1 auto', minWidth: 0, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{hint}</span>
+          <span style={{ ...micro(chain ? 3 : 5), color: chain ? RED_LIT : undefined, flex: '0 1 auto', minWidth: 0, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{hint}</span>
+          {/* The hint above changes with every hover, and a live region on it
+              read each one aloud. This one speaks only for what the reader
+              chose — a card pinned, a chain begun — never for a pointer passing. */}
+          <span className="sr-only" aria-live="polite">{chain || pinned ? hint : ''}</span>
           <span style={{ flex: 1 }} />
           <div style={{
             display: 'flex', gap: box.w < 820 ? 10 : 14, alignItems: 'center', minWidth: 0, flex: '0 1 auto',
@@ -1094,7 +1098,7 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
                     ? 'repeating-linear-gradient(180deg,rgba(243,240,234,0.14) 0 3px,transparent 3px 8px)'
                     : 'rgba(243,240,234,0.06)'
                 }} />
-                <div style={{ position: 'absolute', left: board3.xOf(year) + 6, top: Math.max(2, m.ruler - 20), ...micro(0.34), letterSpacing: '0.1em', fontVariantNumeric: 'tabular-nums' }}>{year}</div>
+                <div style={{ position: 'absolute', left: board3.xOf(year) + 6, top: Math.max(2, m.ruler - 20), ...micro(5), letterSpacing: '0.1em', fontVariantNumeric: 'tabular-nums' }}>{year}</div>
               </div>
             ))}
 

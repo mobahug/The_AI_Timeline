@@ -225,7 +225,9 @@ export default function CluePanel({ graph, chain: walked, step, current, focus, 
                 <Btn tone="dim" to={{ view: 'card', id: focus.id }}>Dossier page</Btn>
                 {focus.url && <a href={focus.url} target="_blank" rel="noopener" className="ix ix-ref" style={sourceLink}>{focus.source || 'Source'} ↗</a>}
                 <span style={{ flex: 1 }} />
-                <CopyLink label="Copy link" tone="dim" />
+                {/* The card's own page, not the board's address: it is the one a link
+                    preview can describe, and it opens on the board in one click. */}
+                <CopyLink label="Copy link" tone="dim" to={{ view: 'card', id: focus.id }} />
                 <Btn tone="dim" onClick={onExit}>Close</Btn>
               </div>
             </div>

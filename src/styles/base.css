@@ -11,7 +11,7 @@ body {
 a { color: oklch(0.82 0.13 85); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.16em; }
 a:hover { color: oklch(0.9 0.14 85); }
 ::selection { background: oklch(0.82 0.13 85); color: #0a0a0b; }
-input::placeholder { color: rgba(243, 240, 234, 0.32); }
+input::placeholder { color: rgba(243, 240, 234, 0.5); }
 button { font: inherit; }
 button:focus-visible, a:focus-visible, [tabindex]:focus-visible,
 input:focus-visible, select:focus-visible, textarea:focus-visible {
@@ -112,3 +112,6 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
 .anchor:hover .anchor-mark { color: oklch(0.82 0.13 85); }
 @media (hover: none) { .anchor-mark { opacity: 1; } }
 :target { scroll-margin-top: 96px; }
+
+/* Read by a screen reader, not drawn. */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; border: 0; }

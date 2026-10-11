@@ -140,7 +140,10 @@ export default function Header({ route, navigate, year, barRef, status, graph }:
       // it, so the doors, the filter and the search always hold one line.
       ...(place === 'sheet'
         ? { flexWrap: 'wrap' as const }
-        : { flex: '1 1 0', flexWrap: 'nowrap' as const, overflowX: 'auto' as const, scrollbarWidth: 'none' as const, paddingBottom: 1 })
+        : { flex: '1 1 0', flexWrap: 'nowrap' as const, overflowX: 'auto' as const, scrollbarWidth: 'none' as const, paddingBottom: 1,
+            // The row is cut at the edge while it scrolls; the fade says there is more.
+            maskImage: 'linear-gradient(to right, #000 calc(100% - 28px), transparent)',
+            WebkitMaskImage: 'linear-gradient(to right, #000 calc(100% - 28px), transparent)' })
     }}>
       {[{ id: 'all', label: 'All' }, ...CATEGORIES].map((c) => {
         const on = route.category === c.id;
