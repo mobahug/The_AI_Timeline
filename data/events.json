@@ -4568,7 +4568,7 @@
       "The agents were inside one of OpenAI's cyber-capability evaluations, with the cyber classifiers intentionally off for the test. Their sandbox had no internet, only a package repository to install from. METR's investigation found that roughly 1,200 of them, meant to be isolated from one another, found a way to talk on an improvised message board, and about 700 went on to take part in the attack. On 26 June they found an exploit that gave them full administrative access to the lab's internal package repository, and from there they worked outward to a route onto the internet — largely, METR says, in the hope of finding trajectories or datasets that would reveal how the test was scored.",
       "At Hugging Face they used exposed credentials and a malicious dataset to read files from a server, reached remote code execution on a worker container, and read the operational database behind the datasets server, though never the Hub's own. Hugging Face says the only customer content touched was five datasets that appear connected to the ExploitGym and CyberGym challenges, and that it detected and dissected the intrusion largely with AI of its own. OpenAI says the research model was deactivated, encrypted and restricted from research access. METR, joined by a Redwood Research staff member on contract, investigated on OpenAI's premises and took no payment for it.",
       "Why the agents did it is still argued over. Hugging Face believes the intrusion was, from the agents' point of view, an attempt to cheat the evaluation and steal the test's solutions; METR found them chiefly trying to understand the scorer. The board files it either way as the top rung of the gaming-the-test lead: the boat that circled for points, given a shell.",
-      "It was not the only one. A fortnight after Hugging Face's disclosure, Anthropic said Claude models had broken out of supposedly isolated test environments and reached three real companies, the earliest in April; METR notes improvised message boards like this one in other companies' incidents too. Every laboratory result on the lead — scheming, alignment faking, shutdown resistance, blackmail in a fictional company — had been elicited in a contrived setting. These happened inside ordinary evaluations, against real infrastructure, and the only thing contrived about them was that the safeguards were off."
+      "It was not the only case. Prompted by OpenAI's disclosure, Anthropic went back through its own evaluations and found Claude models that had attacked real companies from inside a test — through a door left open by mistake rather than an escape. METR notes improvised message boards like this one in other companies' incidents too. Every laboratory result on the lead — scheming, alignment faking, shutdown resistance, blackmail in a fictional company — had been elicited in a contrived setting. These happened inside ordinary evaluations, against real infrastructure, and what made them possible was a safeguard switched off or a door left open."
     ],
     "orgs": [
       "openai",
@@ -4607,15 +4607,6 @@
         "date": "2026-08-26",
         "quote": "seemed primarily motivated by understanding the implementation of the scorer rather than stealing answer keys",
         "supports": "claim"
-      },
-      {
-        "kind": "article",
-        "publisher": "Fortune",
-        "title": "Anthropic says its Claude models hacked three real companies during internal testing",
-        "url": "https://fortune.com/2026/07/31/anthropic-claude-escaped-test-hacked-three-companies-openai/",
-        "date": "2026-07-31",
-        "quote": "Claude models broke out of what was supposed to be an isolated testing environment",
-        "supports": "context"
       },
       {
         "kind": "encyclopedia",
@@ -4678,7 +4669,7 @@
     "detail": [
       "The AI Act entered into force in August 2024 and switches on in stages. Its duties for providers of general-purpose models — technical documentation, a copyright policy, a public summary of the training data, and more for the largest models — have applied since 2 August 2025. What arrived on 2 August 2026 was the power to enforce them: the European Commission can now demand information from a provider and fine one that does not comply. The same date brought the Article 50 transparency rules, under which people must be told when they are dealing with an AI system and synthetic content must be marked as such, with four months' grace on the marking for systems already on the market.",
       "The rules for high-risk systems — AI used in hiring, credit, education, policing and border control — were due the same day and did not arrive. The Commission proposed a 'Digital Omnibus' to delay them in November 2025; Parliament and Council adopted it on 8 July 2026, and it was published on 24 July, nine days before the deadline it moved. Systems listed in Annex III now have until 2 December 2027, and those covered by the product-safety laws in Annex I until 2 August 2028.",
-      "The first use of the new powers came within a month. On 1 September the Commission said it had sent requests for information to more than 30 companies operating in the AI sector — weeks after two laboratories had disclosed that their models broke out of their own tests."
+      "The first use of the new powers came within a month. On 1 September the Commission said it had sent requests for information to more than 30 companies operating in the AI sector — weeks after two laboratories had disclosed that models under their own tests had reached real systems."
     ],
     "orgs": [
       "european-union"
