@@ -4,7 +4,7 @@ import { leadById } from './leads';
 import { entityById } from './files';
 import { viewById } from './views';
 import { hrefFor } from './url';
-import type { Graph, Media, PageMeta, Route } from './types';
+import type { Graph, PageMeta, Route } from './types';
 
 const SITE = 'The AI Timeline';
 const TAGLINE = 'An investigation board of artificial intelligence, ' + FIRST + ' to ' + LAST + ' — every breakthrough, boardroom coup, lawsuit and breach, with the strings between them.';
@@ -76,18 +76,6 @@ function describe(route: Route, graph?: Graph | null): { title: string; descript
   const v = viewById[route.view];
   if (v && v.title) return { title: v.title + ' · ' + SITE, description: v.description || TAGLINE };
   return { title: SITE + ' — an investigation board, ' + FIRST + '–' + LAST, description: TAGLINE };
-}
-
-/** The image a share of this route should carry: the card's own photograph
- *  when the route names a card that has one, else the site's card. */
-export function imageFor(route: Route, graph: Graph | null, media: Media | null, fallback: string): string {
-  const id = (route.view === 'card' || route.view === 'board') && route.id ? route.id : null;
-  if (id && graph && media) {
-    const e = graph.index[id];
-    const shot = e ? media(e) : null;
-    if (shot && shot.img) return shot.img;
-  }
-  return fallback;
 }
 
 /** Write the meta into the document. Idempotent; safe to call on every route change. */

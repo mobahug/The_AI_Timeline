@@ -65,6 +65,11 @@ export const FADE = 'fadeIn ' + DUR.base + 'ms both';
 
 export const PHOTO_FILTER = 'saturate(0.9) contrast(1.03)';
 export const PLACEHOLDER = 'repeating-linear-gradient(135deg,rgba(243,240,234,0.06) 0 6px,transparent 6px 12px)';
+/** The board's wall: a warm dark, lit from the upper left. The share images
+ *  are drawn on the same wall (scripts/share-images.tsx). */
+export const BOARD_GROUND = 'radial-gradient(120% 90% at 20% 0%,#171310,#08080a 70%)';
+/** A photograph on a board card is a print: a little faded, a little warm. */
+export const CARD_PHOTO_FILTER = 'grayscale(0.35) sepia(0.16) contrast(1.05)';
 
 /* ─── Helpers ────────────────────────────────────────────────────────────── */
 

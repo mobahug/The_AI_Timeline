@@ -61,7 +61,7 @@ npm install
 npm run dev        # http://localhost:5173
 npm test           # typechecks, then validates data/*.json and the routes
 npm run typecheck  # tsc --noEmit alone
-npm run build      # sitemap, client build, server build, prerender → dist/
+npm run build      # sitemap, client build, server build, share images, prerender → dist/
 npm run preview    # serves dist/ at http://localhost:4173/The_AI_Timeline/
 ```
 
@@ -92,6 +92,18 @@ live lookup for anything missing. Entries with no free image get a generated mar
 Each run also checks that every photograph a card uses still resolves: one Wikimedia has
 deleted is looked up again, and left out rather than shown broken until its article names
 another.
+
+Every page carries a share image, drawn at build time by `scripts/share-images.tsx`: a
+1200×630 PNG for each card (`og/card/<id>.png`) and each lead (`og/lead/<id>.png`), and
+`og.png` for every other page. A card's image is the card as the board draws it — paper,
+or manila for a scenario, the year, the title, the category, the pin and the strings
+that leave it — with its photograph, fetched from Wikimedia at 500px during the build and
+credited on the card with its author and licence. A share image is a copy served from this
+site, so only files on Wikimedia Commons are used, and a card whose picture is not on
+Commons, or cannot be fetched, is drawn in type alone; the build says how many were.
+Photographs and credits are kept in `node_modules/.cache/share-photos` for a month. satori
+lays the images out in the site's own faces and sharp rasterises them to 256-colour PNGs,
+the largest under 200KB.
 
 ## Deep links
 

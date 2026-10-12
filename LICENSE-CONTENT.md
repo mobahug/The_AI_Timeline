@@ -31,6 +31,15 @@ The full legal text is at
   They remain the property of their publishers. Sentences quoted from
   Wikipedia are licensed CC BY-SA 4.0 and are credited, with the article
   linked, wherever the site shows them.
-- **Photographs** are Wikipedia/Wikimedia Commons lead images, looked up at
-  build time and not redistributed here. Each remains under its own licence;
-  check the file's page on Commons before reuse.
+- **Photographs** are Wikipedia/Wikimedia Commons lead images. The board and
+  its pages look them up at build time and show Wikimedia's own copies; they
+  are not redistributed there. The **share images** are the exception: the
+  1200×630 picture a link to a card, a lead or the site shows when it is
+  shared (`og/` and `og.png`) carries a copy of the photograph, cropped,
+  toned to match the board and set on a card. Only files on Wikimedia
+  Commons, where every file is under a free licence, are used this way, and
+  each share image credits its photographs with their authors and licences as
+  Commons gives them; a card whose picture is not on Commons gets a share
+  image without one. Each photograph remains under its own licence, and the
+  changes are as described here; check the file's page on Commons for the
+  full credit before reuse.

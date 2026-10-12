@@ -4,7 +4,7 @@ import { THREADS, TICKS, FIRST, NOW, CATEGORIES, accent, buildChain, catLabel, c
 import { PAD, metrics, layout, stringPath } from '../lib/layout';
 import { leadById, leadChain } from '../lib/leads';
 import { useMode } from '../lib/mode';
-import { MANILA, MONO, PAPER, RED, RED_LIT, CYAN, SERIF, DUR, EASE, FADE, STATE, micro, paperInk } from '../lib/styles';
+import { BOARD_GROUND, CARD_PHOTO_FILTER, MANILA, MONO, PAPER, RED, RED_LIT, CYAN, SERIF, DUR, EASE, FADE, STATE, micro, paperInk } from '../lib/styles';
 import { Btn, Empty, RouteProvider } from './kit';
 import { easeOut, panDuration, rubberBand, sheetClaims, springDuration, springEasing } from '../lib/motion';
 import type { Claim } from '../lib/motion';
@@ -91,7 +91,7 @@ const Card = React.memo(function Card({ node, m, img, lit, subject, raised, hove
               }}>{e.title}</span>
             </span>
             {img ? (
-              <img src={img} alt="" loading="lazy" decoding="async" style={{ flex: 'none', width: m.thumb, height: m.thumb, objectFit: 'cover', display: 'block', border: '1px solid rgba(23,22,26,0.22)', filter: 'grayscale(0.35) sepia(0.16) contrast(1.05)' }} />
+              <img src={img} alt="" loading="lazy" decoding="async" style={{ flex: 'none', width: m.thumb, height: m.thumb, objectFit: 'cover', display: 'block', border: '1px solid rgba(23,22,26,0.22)', filter: CARD_PHOTO_FILTER }} />
             ) : (
               <span aria-hidden="true" style={{
                 flex: 'none', width: m.thumb, height: m.thumb, border: '1px solid rgba(23,22,26,0.22)',
@@ -101,7 +101,7 @@ const Card = React.memo(function Card({ node, m, img, lit, subject, raised, hove
           </span>
         ) : (<>
         {m.photo && (img ? (
-          <img src={img} alt="" loading="lazy" decoding="async" style={{ flex: '1 1 auto', minHeight: 0, width: '100%', objectFit: 'cover', display: 'block', border: '1px solid rgba(23,22,26,0.22)', filter: 'grayscale(0.35) sepia(0.16) contrast(1.05)' }} />
+          <img src={img} alt="" loading="lazy" decoding="async" style={{ flex: '1 1 auto', minHeight: 0, width: '100%', objectFit: 'cover', display: 'block', border: '1px solid rgba(23,22,26,0.22)', filter: CARD_PHOTO_FILTER }} />
         ) : (
           <span style={{
             flex: '1 1 auto', minHeight: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%',
@@ -1067,7 +1067,7 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
           style={{
             position: 'absolute', inset: 0, overflowX: 'auto', overflowY: m.fits ? 'hidden' : 'auto',
             border: '1px solid rgba(243,240,234,0.12)', borderRadius: 3, touchAction: m.fits ? 'pan-x' : 'auto',
-            background: 'radial-gradient(120% 90% at 20% 0%,#171310,#08080a 70%)'
+            background: BOARD_GROUND
           }}
         >
           <div style={{ width: board3.width, minWidth: '100%', height: board3.height + 2 * padY.current, paddingTop: padY.current, boxSizing: 'border-box' }}>

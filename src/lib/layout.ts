@@ -8,6 +8,11 @@ import type { Event, Layout, Metrics, Node } from './types';
 
 export const PAD = 200;
 
+/** How far a card leans where it is pinned, in degrees: one of five slants,
+ *  fixed by its id so a card leans the same way on every load — and on its
+ *  share image (scripts/share-images.tsx). */
+export const tiltOf = (id: string): number => (((id.length * 37) % 5) - 2) * 0.5;
+
 /**
  * Every dimension on the board is solved from the height the window actually gives
  * us, so all six threads fit on screen exactly once and the board never scrolls
@@ -130,7 +135,7 @@ export function layout(items: Event[], m: Metrics): Layout {
           top: laneTop + m.gutter,
           y: laneTop + m.gutter + m.cardH / 2,
           ty: laneTop + m.gutter,
-          tilt: (((e.id.length * 37) % 5) - 2) * 0.5
+          tilt: tiltOf(e.id)
         });
         x += gapOf(e);
       });

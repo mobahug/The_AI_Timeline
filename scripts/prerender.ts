@@ -1,7 +1,8 @@
 // Writes one HTML file per address into dist/, each with the page already
 // rendered, its own title, description, canonical link, share image and
 // structured data. Runs after `vite build` (the client) and `vite build --ssr`
-// (the server entry), and removes the server bundle when it is done.
+// (the server entry), and removes the server bundle when it is done. The share
+// images are drawn first (share-images.tsx), so each page can name its own.
 //
 // GitHub Pages serves dist/<path>/index.html for /<path>/, so every page the
 // sitemap lists is a real document. dist/404.html is the bare shell: an address
@@ -11,6 +12,8 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { VIEWS } from '../src/lib/views';
 import type { EventRaw, Finding, Lead, Org, PageMeta, Person, Route, Term, WikiCache, WikiPage } from '../src/lib/types';
+import { SHARE_H, SHARE_W, writeShareImages } from './share-images';
+import type { ShareImage } from './share-images';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, '..');
@@ -71,7 +74,7 @@ function jsonLd(route: Route, meta: PageMeta, url: string, image: string): Recor
       // as datePublished it dated a page to 1900, and every scenario to the
       // future. It is the date of what the article is about.
       { '@context': 'https://schema.org', '@type': 'Article', headline: e.title, description: meta.description, url,
-        image: image ? [image] : undefined, isPartOf: site,
+        image: [image], isPartOf: site,
         author: { '@type': 'Organization', name: SITE }, citation: sources.length ? sources : undefined,
         about: e.year > NOW ? 'Scenario, confidence ' + (e.confidence || 'Uncertain') : { '@type': 'Event', name: e.title, startDate: e.date || String(e.year) } },
       { '@context': 'https://schema.org', ...crumbs([[SITE, ''], ['The board', 'board/'], [e.year + ' ' + e.title, 'card/' + enc(e.id) + '/']]) }
@@ -82,7 +85,7 @@ function jsonLd(route: Route, meta: PageMeta, url: string, image: string): Recor
     if (!l) return [];
     return [
       { '@context': 'https://schema.org', '@type': 'Article', headline: l.title, description: meta.description, url, isPartOf: site,
-        author: { '@type': 'Organization', name: SITE },
+        image: [image], author: { '@type': 'Organization', name: SITE },
         hasPart: l.rungs.map((r, i) => ({ '@type': 'ListItem', position: i + 1, name: r.label, url: ORIGIN + BASE + 'card/' + enc(r.event) + '/' })) },
       { '@context': 'https://schema.org', ...crumbs([[SITE, ''], ['The leads', 'leads/'], [l.title, 'lead/' + enc(l.id) + '/']]) }
     ];
@@ -108,20 +111,24 @@ function jsonLd(route: Route, meta: PageMeta, url: string, image: string): Recor
   return [{ '@context': 'https://schema.org', '@type': 'WebPage', name: meta.title, description: meta.description, url, isPartOf: site }];
 }
 
-/** The page's share image: the card's own photograph, else the site's card. */
-function imageFor(route: Route, media: WikiCache): string {
-  if (route.view === 'card' && route.id) {
-    const e = events.find((x) => x.id === route.id);
-    const tryTitle = (t: string | undefined): string | false | undefined => t && media[t] && media[t].img;
-    const img = e && (tryTitle(e.wikiTitle) || tryTitle(fallbacks[e.id]));
-    if (img) return img;
-  }
-  return ORIGIN + BASE + 'og.png';
+/* Every card and every lead has a share image of its own — the card as the
+   board draws it, or the lead's question beside three of its rungs — drawn
+   into dist/og/ before any page is written. A photograph that cannot be
+   fetched leaves its card typographic rather than failing the build. */
+const shares = await writeShareImages({ dist, cache, fallbacks });
+
+/** The page's share image: the card's or the lead's own, else the site's. */
+function imageFor(route: Route): ShareImage {
+  const own = route.view === 'card' && route.id ? shares.cards.get(route.id)
+    : route.view === 'lead' && route.id ? shares.leads.get(route.id)
+    : undefined;
+  return own || shares.site;
 }
 
 function page(route: Route, html: string, meta: PageMeta, media: WikiCache): string {
   const url = ORIGIN + BASE + routeToPath(route);
-  const image = imageFor(route, media);
+  const share = imageFor(route);
+  const image = ORIGIN + BASE + share.path;
   const ld = jsonLd(route, meta, url, image);
   const clientOnly = route.view === 'board';
   let out = template;
@@ -130,6 +137,12 @@ function page(route: Route, html: string, meta: PageMeta, media: WikiCache): str
   out = out.replace(/<meta property="og:title" content="[^"]*" \/>/, '<meta property="og:title" content="' + esc(meta.title) + '" />');
   out = out.replace(/<meta property="og:description" content="[^"]*" \/>/, '<meta property="og:description" content="' + esc(meta.description) + '" />');
   out = out.replace(/<meta property="og:image" content="[^"]*" \/>/, '<meta property="og:image" content="' + esc(image) + '" />');
+  // The size lets a preview be laid out before the image arrives; the alt is
+  // what a reader who cannot see it is told it shows.
+  out = out.replace(/<meta property="og:image:width" content="[^"]*" \/>/, '<meta property="og:image:width" content="' + SHARE_W + '" />');
+  out = out.replace(/<meta property="og:image:height" content="[^"]*" \/>/, '<meta property="og:image:height" content="' + SHARE_H + '" />');
+  out = out.replace(/<meta property="og:image:alt" content="[^"]*" \/>/, '<meta property="og:image:alt" content="' + esc(share.alt) + '" />');
+  out = out.replace(/<meta name="twitter:image:alt" content="[^"]*" \/>/, '<meta name="twitter:image:alt" content="' + esc(share.alt) + '" />');
   out = out.replace('<meta property="og:type" content="website" />',
     '<meta property="og:type" content="' + (route.view === 'card' || route.view === 'lead' ? 'article' : 'website') + '" />\n'
     + '    <meta property="og:url" content="' + esc(url) + '" />\n'
