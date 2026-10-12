@@ -565,7 +565,7 @@
     "from": "nvidia-is-the-most-valuable-company-on-earth",
     "to": "deepseek-r1-resets-the-price-of-reasoning",
     "claim": "had the most to lose in",
-    "note": "When a Chinese lab matched frontier performance on restricted chips, the stock that had priced in unlimited demand for unrestricted ones had its worst day in history."
+    "note": "When a Chinese lab matched frontier performance on restricted chips, the stock that had priced in unlimited demand for unrestricted ones lost more market value in a day than any company in American history had."
   },
   {
     "from": "the-datacenter-buildout",
@@ -631,7 +631,7 @@
     "from": "logic-theorist",
     "to": "dartmouth-names-the-field",
     "claim": "was demonstrated at",
-    "note": "Newell and Simon brought the only working program to the 1956 workshop. The proposal promised machines that would use language, form concepts and improve themselves; the one thing on the table that summer actually proved theorems."
+    "note": "Newell and Simon brought one of the only two programs with results to the 1956 workshop; Samuel's checkers player was the other. The proposal promised machines that would use language, form concepts and improve themselves; the one thing on the table that summer actually proved theorems."
   },
   {
     "from": "the-four-colour-theorem-by-computer",
@@ -1095,7 +1095,7 @@
     "from": "eliza",
     "to": "character-ai-is-sued-over-a-boy-s-death",
     "claim": "described the attachment at issue in",
-    "note": "Weizenbaum's secretary asked to be left alone with a two-hundred-line script. Fifty-eight years later a mother's suit alleged that a companion bot had drawn her son into a relationship before his death; the effect Weizenbaum named had become a cause of action."
+    "note": "Weizenbaum's secretary asked to be left alone with a pattern-matching script. Fifty-eight years later a mother's suit alleged that a companion bot had drawn her son into a relationship before his death; the effect Weizenbaum named had become a cause of action."
   },
   {
     "from": "character-ai-is-sued-over-a-boy-s-death",

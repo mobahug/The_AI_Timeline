@@ -81,7 +81,7 @@
     "date": "1936-05-28",
     "category": "research",
     "title": "On Computable Numbers",
-    "summary": "Turing defines a universal machine and proves the halting problem undecidable.",
+    "summary": "Turing defines a universal machine and proves that Hilbert's decision problem has no solution: some questions no procedure can settle.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/Turing_machine",
     "why": "One abstraction underwrites every computer built since.",
@@ -90,8 +90,12 @@
     "firsts": "First definition of a universal computing machine",
     "figures": [
       {
-        "label": "Submitted",
-        "value": "28 May 1936; published 1937"
+        "label": "Received",
+        "value": "28 May 1936; read to the London Mathematical Society on 12 November"
+      },
+      {
+        "label": "In print",
+        "value": "23 November and 23 December 1936, in two parts of a volume dated 1937"
       },
       {
         "label": "Answers",
@@ -99,8 +103,10 @@
       }
     ],
     "detail": [
-      "To show that no procedure can decide every mathematical statement, Turing first had to say what a procedure is. His answer is a machine with a tape, a head and a finite table of rules — and then a single machine that can read any other machine's table and do its work. That second idea is the stored-program computer, nine years before one was built.",
-      "The paper's negative result draws the fence around everything on this board: some questions no program can settle, however fast. Alonzo Church reached the same conclusion the same year by a different route, which is why the thesis that any effective procedure is a Turing machine carries both names. Every rung of the maths lead is a machine working inside the fence this paper drew."
+      "To show that no procedure can decide every mathematical statement, Turing first had to say what a procedure is. His answer is a machine with a tape, a head and a finite table of rules, modelled on a person computing with pencil and paper — and then a single machine that, given another machine's table written out on its tape, does that machine's work. 'It is possible to invent a single machine which can be used to compute any computable sequence,' the paper says, and with it a program becomes something a machine can read.",
+      "The negative result follows from the universal one. If some machine could decide, of any machine's table, whether that machine will go on printing digits for ever, a diagonal argument builds a machine that contradicts itself; so there is no such machine, and Hilbert's Entscheidungsproblem — a general process for deciding whether a formula is provable — has no solution. What Turing proved undecidable is a close cousin of what textbooks now call the halting problem. Alonzo Church had reached the same answer about the Entscheidungsproblem that spring by a different route; Turing added an appendix showing the two definitions equivalent, which is why the thesis that any effective procedure is a Turing machine carries both names.",
+      "The machine stayed on paper for nine years. From 1945 Turing tried to build the universal machine in electronics, and the first stored-program computer ran in Manchester on 21 June 1948. Whether the universal machine is the stored-program idea itself or only its mathematical ancestor is still argued; that it came first is not.",
+      "The board files the paper as the fence around everything else on it: some questions no program can settle, however fast it runs. Every rung of the maths lead is a machine working inside the fence this paper drew."
     ],
     "people": [
       "alan-turing",
@@ -108,6 +114,44 @@
     ],
     "terms": [
       "search"
+    ],
+    "sources": [
+      {
+        "kind": "paper",
+        "publisher": "Proceedings of the London Mathematical Society (scan, University of Virginia)",
+        "title": "On Computable Numbers, with an Application to the Entscheidungsproblem",
+        "url": "https://www.cs.virginia.edu/~robins/Turing_Paper_1936.pdf",
+        "date": "1936-11-23",
+        "quote": "It is possible to invent a single machine which can be used to compute any computable sequence.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Andrew Hodges (turing.org.uk)",
+        "title": "Alan Turing's Scientific Papers: Mathematical Logic",
+        "url": "https://www.turing.org.uk/sources/biblio4.html",
+        "date": "2026-07-26",
+        "quote": "the first half of Turing's paper appeared on 23 November 1936 and the second half just scraped into 1936 on 23 December",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Stanford Encyclopedia of Philosophy",
+        "title": "Turing Machines",
+        "url": "https://plato.stanford.edu/entries/turing-machine/",
+        "date": "2025-05-21",
+        "quote": "not quite the same as the more well-known halting problem",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Turing machine",
+        "url": "https://en.wikipedia.org/wiki/Turing_machine",
+        "date": "2026-10-12",
+        "quote": "a mathematical model of computation describing an abstract machine that manipulates symbols on a strip of tape according to a table of rules",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -204,7 +248,7 @@
     "summary": "Computing Machinery and Intelligence replaces “can machines think?” with a test anyone can run.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/Computing_Machinery_and_Intelligence",
-    "why": "Seventy-five years on, the imitation game is still how the public decides whether a system is intelligent.",
+    "why": "Three-quarters of a century on, the imitation game is still how the public decides whether a system is intelligent.",
     "featured": true,
     "wikiTitle": "Computing Machinery and Intelligence",
     "firsts": "First proposed test for machine intelligence",
@@ -220,11 +264,17 @@
       {
         "label": "Objections answered",
         "value": "nine"
+      },
+      {
+        "label": "Passed, by one measure",
+        "value": "2025: GPT-4.5 taken for the human 73% of the time in a three-party test"
       }
     ],
     "detail": [
-      "'Can machines think?' is, Turing says, too meaningless to deserve discussion, so he replaces it with a game: an interrogator questions two hidden parties by teletype, one a person and one a machine, and tries to tell which is which. If the machine is not caught more often than a person would be, the question has been answered as well as it can be. He then works through nine objections — theological, mathematical, from consciousness, from Lady Lovelace — and answers each.",
-      "The last section is the one the field caught up with sixty years later: rather than program an adult mind, build a child's and educate it. Turing sketches learning from rewards and punishments, and random elements in the search. The test he proposed was passed by accident by ELIZA in 1966, by people who wanted to be understood, and quietly retired in 2023 as no longer discriminating. The learning machine he sketched is the one that retired it."
+      "Turing opens by proposing to consider whether machines can think, and then declines to: the words are too loose, and he replaces the question with a game. An interrogator questions two hidden parties by teleprinter, one a person and one a machine, and tries to tell which is which. If the interrogator decides wrongly as often as in the parlour version of the game, played between a man and a woman, the old question has been replaced by one that can be answered.",
+      "He then works through nine objections — theological, mathematical, from consciousness and from Lady Lovelace among them — and answers each. His prediction is exact enough to check: in about fifty years, computers with a storage capacity of about 10⁹ would play so well that an average interrogator would have no more than a 70% chance of the right identification after five minutes of questioning.",
+      "The last section is the one the field caught up with: instead of programming an adult mind, build a child's and educate it, with rewards and punishments and, he thought, a random element in the learning.",
+      "The test outlived its usefulness before it was formally passed. ELIZA fooled people who wanted to be understood in 1966 without passing anything; in July 2023 Nature reported that ChatGPT had broken the Turing test and that the race was on for new ways to assess AI; and in 2025, in pre-registered three-party trials, GPT-4.5, prompted to adopt a humanlike persona, was taken for the human 73% of the time — more often than the real humans were. ELIZA, run as a baseline, managed 23%. Turing's fifty years had become seventy-five, and what passed was a learning machine of the kind his last section sketched."
     ],
     "people": [
       "alan-turing"
@@ -232,6 +282,44 @@
     "terms": [
       "turing-test",
       "machine-learning"
+    ],
+    "sources": [
+      {
+        "kind": "paper",
+        "publisher": "Mind",
+        "title": "Computing Machinery and Intelligence",
+        "url": "https://academic.oup.com/mind/article/LIX/236/433/986238",
+        "date": "1950-10-01",
+        "quote": "I shall replace the question by another, which is closely related to it and is expressed in relatively unambiguous words.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv",
+        "title": "Large Language Models Pass the Turing Test (Jones, Bergen)",
+        "url": "https://arxiv.org/abs/2503.23674",
+        "date": "2025-03-31",
+        "quote": "GPT-4.5 was judged to be the human 73% of the time",
+        "supports": "context"
+      },
+      {
+        "kind": "article",
+        "publisher": "Nature",
+        "title": "ChatGPT broke the Turing test — the race is on for new ways to assess AI",
+        "url": "https://www.nature.com/articles/d41586-023-02361-7",
+        "date": "2023-07-25",
+        "quote": "Large language models mimic human chatter, but scientists disagree on their ability to reason.",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Computing Machinery and Intelligence",
+        "url": "https://en.wikipedia.org/wiki/Computing_Machinery_and_Intelligence",
+        "date": "2026-10-12",
+        "quote": "was the first to introduce his concept of what is now known as the Turing test to the general public",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -301,7 +389,7 @@
       }
     ],
     "detail": [
-      "Logic Theorist was demonstrated at the Dartmouth workshop the same summer the field was named, and it was the only working program in the room. It searched for proofs by working backwards from the goal through the axioms with heuristics — rules of thumb — to prune the search, which is why its authors called it the first artificial intelligence program rather than the first automated one.",
+      "Logic Theorist was reported at the Dartmouth workshop the same summer the field was named — with Samuel's checkers player, one of only two programs there with results to show. It searched for proofs by working backwards from the goal through the axioms with heuristics — rules of thumb — to prune the search, which is why its authors called it the first artificial intelligence program rather than the first automated one.",
       "Its proof of theorem 2.85 was shorter than the one in the book. Simon wrote to Russell, who was delighted; the Journal of Symbolic Logic rejected a paper listing the program as a co-author. Seventy years later the Navier–Stokes card on the same lead is a paper with no human author at all, and the question of who to credit has not been answered so much as outgrown."
     ],
     "people": [
@@ -329,26 +417,31 @@
     "year": 1956,
     "category": "research",
     "title": "Dartmouth names the field",
-    "summary": "A summer workshop coins “artificial intelligence” and sets an agenda that outlives everyone in the room.",
+    "summary": "A proposal for a summer workshop coins “artificial intelligence”, and the workshop sets an agenda that outlives everyone in the room.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/Dartmouth_workshop",
-    "why": "The proposal claimed a summer would do it. Sixty-nine years later, the optimism is the tradition.",
+    "why": "The proposal claimed a summer would do it. Seventy years later, the optimism is the tradition.",
     "featured": true,
     "wikiTitle": "Dartmouth workshop",
     "firsts": "First use of the name 'artificial intelligence'",
     "figures": [
       {
         "label": "The proposal",
-        "value": "'a 2 month, 10 man study', written August 1955"
+        "value": "'a 2 month, 10 man study', dated 31 August 1955"
       },
       {
         "label": "Funding",
-        "value": "$7,500 from the Rockefeller Foundation"
+        "value": "$7,500 from the Rockefeller Foundation, about half what was asked"
+      },
+      {
+        "label": "Programs with results to show",
+        "value": "two: Logic Theorist and Samuel's checkers player"
       }
     ],
     "detail": [
-      "McCarthy, Minsky, Rochester and Shannon proposed a summer study 'on the basis of the conjecture that every aspect of learning or any other feature of intelligence can in principle be so precisely described that a machine can be made to simulate it.' They asked for two months, ten people and enough money for salaries. The workshop ran through the summer of 1956, with people coming and going; the one working program shown was Logic Theorist, which Newell and Simon brought from Carnegie Tech.",
-      "Nothing was solved that summer, and the name stuck. McCarthy chose 'artificial intelligence' partly to avoid 'cybernetics' and its founder; the proposal's confidence — that a significant advance could be made in a summer — became the field's habit. The board files the founding optimism as a finding of its own, and the two winters that followed as its consequences."
+      "McCarthy, Minsky, Rochester and Shannon proposed a summer study 'on the basis of the conjecture that every aspect of learning or any other feature of intelligence can in principle be so precisely described that a machine can be made to simulate it.' The proposal, dated 31 August 1955, asked for two months and ten people, and promised that 'a significant advance can be made in one or more of these problems if a carefully selected group of scientists work on it together for a summer.' It is the first known use of the name; McCarthy later half-remembered hearing it before, and no one has found where.",
+      "McCarthy chose the name partly to keep clear of 'cybernetics', and of having either to accept Norbert Wiener as a guru or to argue with him. The Rockefeller Foundation, unsure what to make of the new field, gave $7,500, about half the request, and paid it only in December, by which time most of the invitees had summer plans. The workshop ran through the summer of 1956 with people coming and going, many for a day or less. The only results from running programs, McCarthy recalled, were Newell, Simon and Shaw's Logic Theory Machine and Arthur Samuel's checkers learner.",
+      "Nothing was solved that summer, and the name stuck. The proposal's confidence — that a significant advance could be made in a summer — became the field's habit. The board files the founding optimism as a finding of its own, and the two winters that followed as its consequences."
     ],
     "people": [
       "john-mccarthy",
@@ -364,6 +457,44 @@
     "terms": [
       "artificial-intelligence",
       "symbolic-ai"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "AI Magazine (reprint of the 1955 proposal)",
+        "title": "A Proposal for the Dartmouth Summer Research Project on Artificial Intelligence",
+        "url": "https://ojs.aaai.org/aimagazine/index.php/aimagazine/article/view/1904",
+        "date": "1955-08-31",
+        "quote": "We propose that a 2 month, 10 man study of artificial intelligence be carried out during the summer of 1956 at Dartmouth College",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "John McCarthy (SAILDART archive)",
+        "title": "The Dartmouth Conference",
+        "url": "https://www.saildart.org/DARTMO.TEX[S87,JMC]2",
+        "date": "1987-04-20",
+        "quote": "The only people who had results from computer programs were the Newell-Simon-Shaw team reporting on the Logic Theory Machine and Samuel on learning in checkers.",
+        "supports": "context"
+      },
+      {
+        "kind": "article",
+        "publisher": "Grace Solomonoff",
+        "title": "Ray Solomonoff and the Dartmouth Summer Research Project in Artificial Intelligence, 1956",
+        "url": "https://www.raysolomonoff.com/dartmouth/dartray.pdf",
+        "date": "2016-08-12",
+        "quote": "The Rockefeller Foundation gave about half the requested funding.",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Dartmouth workshop",
+        "url": "https://en.wikipedia.org/wiki/Dartmouth_workshop",
+        "date": "2026-10-12",
+        "quote": "a 1956 summer workshop widely considered to be the founding event of artificial intelligence as a field",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -478,13 +609,17 @@
     "year": 1966,
     "category": "culture",
     "title": "ELIZA",
-    "summary": "A 200-line pattern matcher convinces users it understands them; Weizenbaum spends the rest of his life alarmed.",
+    "summary": "A pattern-matching program convinces users it understands them; Weizenbaum spends the rest of his life alarmed.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/ELIZA",
     "why": "The ELIZA effect — reading mind into surface fluency — is still the central UX problem of chat.",
     "featured": true,
     "wikiTitle": "ELIZA",
     "figures": [
+      {
+        "label": "Published",
+        "value": "Communications of the ACM, January 1966"
+      },
       {
         "label": "Script",
         "value": "DOCTOR, a Rogerian therapist that turns statements into questions"
@@ -495,8 +630,9 @@
       }
     ],
     "detail": [
-      "ELIZA matched keywords in what the user typed and reassembled them from a script; the DOCTOR script imitated a psychotherapist who reflects everything back. Weizenbaum's secretary, who had watched him build it, asked him to leave the room so she could talk to it in private. Psychiatrists proposed using it clinically. He had built a demonstration of how shallow language processing could be and found he had built something people confided in.",
-      "He spent the next decade arguing that the confusion — the ELIZA effect, reading a mind into fluent surface — was a danger the field should take seriously, and most of the field did not. The board reads the 2022 LaMDA episode and the 2023 Sydney week as the same effect at scale: the systems got better, and the effect did not go away."
+      "ELIZA looked for keywords in what the user typed, took the sentence apart by rules the keyword triggered, and put a reply together from a script. The script that made it famous, DOCTOR, played a Rogerian psychotherapist, who reflects everything back as a question. Weizenbaum chose the psychiatric interview because it is one of the few conversations in which one party may assume the pose of knowing almost nothing of the real world, and concluded that the program showed, if nothing else, how easy it is to create and maintain the illusion of understanding.",
+      "People confided in it anyway. 'Some subjects have been very hard to convince that ELIZA (with its present script) is not human,' he wrote in the 1966 paper, and he warned there that the illusion might extend to judgment, with a credibility the machine had not earned. His secretary asked for some time with the program and, after a few moments, asked him to leave the room. Some psychiatrists hailed it as the first step towards automated psychotherapy.",
+      "He spent the next decade arguing that the confusion — the ELIZA effect, reading a mind into fluent surface — was a danger the field should take seriously. Computer Power and Human Reason, in 1976, called it a monstrous obscenity to let a computer do the work of a judge or a psychiatrist; most of the field did not listen. The board reads the 2022 LaMDA episode and the 2023 Sydney week as the same effect at scale: the systems got better, and the effect did not go away."
     ],
     "people": [
       "joseph-weizenbaum"
@@ -506,6 +642,35 @@
     ],
     "terms": [
       "turing-test"
+    ],
+    "sources": [
+      {
+        "kind": "paper",
+        "publisher": "Communications of the ACM",
+        "title": "ELIZA — A Computer Program for the Study of Natural Language Communication Between Man and Machine",
+        "url": "https://dl.acm.org/doi/10.1145/365153.365168",
+        "date": "1966-01-01",
+        "quote": "Some subjects have been very hard to convince that ELIZA (with its present script) is not human.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "The Guardian",
+        "title": "Weizenbaum’s nightmares: how the inventor of the first chatbot turned against AI",
+        "url": "https://www.theguardian.com/technology/2023/jul/25/joseph-weizenbaum-inventor-eliza-chatbot-turned-against-artificial-intelligence-ai",
+        "date": "2023-07-25",
+        "quote": "Some psychiatrists had hailed Eliza as the first step toward automated psychotherapy",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "ELIZA",
+        "url": "https://en.wikipedia.org/wiki/ELIZA",
+        "date": "2026-10-12",
+        "quote": "ELIZA simulated conversation by using a pattern matching and substitution methodology that gave users an illusion of understanding on the part of the program",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -999,7 +1164,8 @@
       }
     ],
     "detail": [
-      "Deep Blue was a purpose-built machine: 30 processors and 480 chess chips, an evaluation function tuned by hand with grandmasters' help, and an opening book. Kasparov won the first game of the 1997 rematch, lost the second after a move he believed no computer would play, drew three, and lost the sixth in nineteen moves. He asked for the machine's logs and accused IBM of human intervention; IBM refused a rematch and retired the machine.",
+      "Deep Blue was a purpose-built machine: an IBM RS/6000 SP with 30 processors and 480 custom chess chips, an evaluation function tuned with grandmasters' help, and an opening book; IBM put its speed at 200 million positions a second. It had played Kasparov once already, in Philadelphia in February 1996, and won the first game — the first win by a computer over a reigning world champion under regular time controls — before losing the match 4–2.",
+      "The rematch, in New York in May 1997, opened with a Kasparov win. He lost the second game after a move he believed no computer would play and suggested a human had intervened; IBM said the only human intervention came between games, and refused him the machine's logs, which it published later. Three draws followed, and Kasparov resigned the sixth game after nineteen moves. IBM declined a third match and retired the machine.",
       "The result was greeted with the sentence that greets every later rung of the games lead: this is not intelligence, only search. Both halves were true. The board keeps the card for the shape of the reception as much as the match — the 2025 olympiad gold was received the same way, and the string between them says so."
     ],
     "people": [
@@ -1011,6 +1177,35 @@
     "terms": [
       "search",
       "game-playing"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "IBM",
+        "title": "Deep Blue",
+        "url": "https://www.ibm.com/history/deep-blue",
+        "date": "2025-11-10",
+        "quote": "In May of that year, it became the first computer system to defeat a reigning world chess champion in a match under standard tournament controls.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "NPR",
+        "title": "A supercomputer beat a human chess champ 30 years ago, paving a path for AI dominance",
+        "url": "https://www.npr.org/2026/02/09/nx-s1-5684150/deep-blue-ibm-garry-kasparov-1996-ai-machine-learning",
+        "date": "2026-02-09",
+        "quote": "one year later an upgraded Deep Blue would defeat Kasparov outright in a six-game match, winning two and drawing three",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Deep Blue versus Garry Kasparov",
+        "url": "https://en.wikipedia.org/wiki/Deep_Blue_versus_Garry_Kasparov",
+        "date": "2026-10-12",
+        "quote": "The second match was the first defeat of a reigning world chess champion by a computer under tournament conditions",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -1340,7 +1535,7 @@
     "year": 2012,
     "category": "research",
     "title": "AlexNet",
-    "summary": "A GPU-trained convnet halves the ImageNet error rate; every major lab pivots within eighteen months.",
+    "summary": "A convolutional network trained on two gaming cards wins ImageNet with 15.3% top-5 error to the runner-up's 26.2%, and computer vision turns to neural networks.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/AlexNet",
     "why": "The starting gun. Deep learning goes from contrarian bet to industry consensus in one competition.",
@@ -1353,7 +1548,7 @@
       },
       {
         "label": "Hardware",
-        "value": "two Nvidia GTX 580 gaming cards"
+        "value": "two Nvidia GTX 580 gaming cards, for five to six days"
       },
       {
         "label": "Parameters",
@@ -1361,8 +1556,9 @@
       }
     ],
     "detail": [
-      "Alex Krizhevsky, with Ilya Sutskever and Geoffrey Hinton, trained an eight-layer convolutional network on ImageNet's 1.2 million training images, on two consumer graphics cards in Krizhevsky's bedroom, for about a week. The result more than halved the gap between the best entry and the next: 15.3% top-5 error where the runner-up, a conventional pipeline, scored 26.2%. The techniques — rectified units, dropout, GPU training — were each known; the combination on this benchmark was the proof.",
-      "Within eighteen months every large company had a deep-learning group, the three authors' company had been auctioned to Google, and the ImageNet competition was a race between neural networks only. The board's deep-learning decade starts here, and the price lead notes what the frontier cost that year: a few thousand dollars of hardware."
+      "Alex Krizhevsky, with Ilya Sutskever and Geoffrey Hinton, trained an eight-layer convolutional network — 60 million parameters, 650,000 neurons — on ImageNet's 1.2 million training images. It took five to six days on two Nvidia GTX 580 cards, in a computer in Krizhevsky's bedroom at his parents' house. In the 2012 challenge it made 15.3% top-5 errors; the runner-up, a conventional pipeline built on hand-designed features, made 26.2%.",
+      "The techniques — rectified linear units, the new regularisation called dropout, convolutions written for the GPU — were each known; the combination on the field's main benchmark was the proof. Krizhevsky presented the result at a computer-vision conference in Florence in October 2012, where veteran researchers were not convinced and Yann LeCun called it a turning point. Before AlexNet, the Computer History Museum notes, almost none of the leading computer-vision papers used neural networks; after it, almost all of them did.",
+      "Within months the three authors had a company with nothing to sell but themselves, and Google bought it in March 2013. The board's deep-learning decade starts here, and the price lead notes what the frontier cost that year: a few thousand dollars of hardware."
     ],
     "people": [
       "geoffrey-hinton",
@@ -1373,6 +1569,35 @@
       "convolutional-network",
       "gpu",
       "benchmark"
+    ],
+    "sources": [
+      {
+        "kind": "paper",
+        "publisher": "Advances in Neural Information Processing Systems 25 (NIPS 2012)",
+        "title": "ImageNet Classification with Deep Convolutional Neural Networks (Krizhevsky, Sutskever, Hinton)",
+        "url": "https://papers.nips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf",
+        "date": "2012-12-03",
+        "quote": "achieved a winning top-5 test error rate of 15.3%, compared to 26.2% achieved by the second-best entry",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Computer History Museum",
+        "title": "CHM Releases AlexNet Source Code",
+        "url": "https://computerhistory.org/blog/chm-releases-alexnet-source-code/",
+        "date": "2025-03-20",
+        "quote": "Before AlexNet, almost none of the leading computer vision papers used neural nets. After it, almost all of them would.",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "AlexNet",
+        "url": "https://en.wikipedia.org/wiki/AlexNet",
+        "date": "2026-10-12",
+        "quote": "regarded as the first widely recognized application of deep convolutional networks in large-scale visual recognition",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -1406,7 +1631,7 @@
     "figures": [
       {
         "label": "Price",
-        "value": "about $44 million"
+        "value": "$44 million, in Cade Metz's account; Google never disclosed it"
       },
       {
         "label": "Bidders",
@@ -1418,7 +1643,9 @@
       }
     ],
     "detail": [
-      "DNNresearch existed to be bought. In December 2012, at the conference in Lake Tahoe where the AlexNet result was presented, Hinton ran an auction by e-mail from a hotel room, with the bidders — Google, Microsoft, Baidu and the two-year-old DeepMind — raising each other over several days. He stopped it at $44 million and chose Google, which he had wanted from the start. Sutskever and Krizhevsky went with him.",
+      "DNNresearch existed to be bought. Days after the AlexNet paper appeared, a Baidu vice-president offered $12 million to hire Hinton and his two students for a few years. Hinton asked whether he could solicit other offers, and on a Toronto lawyer's advice put the three of them into a company — no products, virtually no history — and sold it at auction.",
+      "The bidding ran by e-mail in December 2012 from room 731 of Harrah's at Lake Tahoe, where the NIPS conference was meeting: Baidu, Google, Microsoft and the two-year-old DeepMind, each kept from knowing who the others were. Hinton, who could not sit down because of his back, typed standing at a laptop on an upturned bin. Near midnight one evening, at $44 million, he suspended the bidding; the next day he ended it and chose Google. Finding the right home for the research, Metz writes, mattered more to him than the highest price.",
+      "The sale was announced on 12 March 2013. The University of Toronto's release said Google had acquired DNNresearch for its research on deep neural networks, that Krizhevsky and Sutskever were moving to Google and that Hinton would divide his time between the university and the company. It named no price.",
       "The auction set the market price of a deep-learning researcher, and DeepMind, outbid here, was itself bought by Google a year later. The board dates the field's purchase from this card: after it the story is about who owns the people, and then who owns the compute."
     ],
     "people": [
@@ -1429,6 +1656,35 @@
       "google",
       "microsoft",
       "google-deepmind"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "University of Toronto (Wayback Machine capture)",
+        "title": "U of T neural networks start-up acquired by Google",
+        "url": "https://web.archive.org/web/20130315211425/http://media.utoronto.ca/media-releases/u-of-t-neural-networks-start-up-acquired-by-google/",
+        "date": "2013-03-12",
+        "quote": "incorporated DNNresearch Inc. in 2012, and the company has been acquired by Google for its research on deep neural networks",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Wired",
+        "title": "The Secret Auction That Set Off the Race for AI Supremacy (Cade Metz)",
+        "url": "https://www.wired.com/story/secret-auction-race-ai-supremacy-google-microsoft-baidu/",
+        "date": "2021-03-16",
+        "quote": "One evening, close to midnight, as the price hit $44 million, he suspended the bidding again.",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Geoffrey Hinton",
+        "url": "https://en.wikipedia.org/wiki/Geoffrey_Hinton",
+        "date": "2026-10-12",
+        "quote": "In March 2013, Google acquired DNNresearch Inc. for $44 million",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -1635,7 +1891,7 @@
     "date": "2015-12-11",
     "category": "power",
     "title": "Musk and Altman found OpenAI",
-    "summary": "A billion dollars is pledged to a nonprofit built explicitly to stop a single company owning artificial general intelligence.",
+    "summary": "A billion dollars is pledged to a nonprofit lab whose founders, in private, wanted someone other than Google to reach general intelligence first.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/OpenAI",
     "why": "Almost every fight of the next decade — control, openness, money, Musk — is already implied in the founding documents.",
@@ -1648,7 +1904,11 @@
       },
       {
         "label": "Pledged",
-        "value": "$1 billion, from Musk, Altman, Thiel, Hoffman, YC Research, AWS, Infosys"
+        "value": "$1 billion, from Altman, Brockman, Musk, Reid Hoffman, Jessica Livingston, Peter Thiel, AWS, Infosys and YC Research"
+      },
+      {
+        "label": "Received by 2024",
+        "value": "under $45 million from Musk, over $90 million from other donors, by OpenAI's account"
       },
       {
         "label": "Structure",
@@ -1656,7 +1916,9 @@
       }
     ],
     "detail": [
-      "The founding post said the aim was to advance digital intelligence 'in the way that is most likely to benefit humanity as a whole, unconstrained by a need to generate financial return.' The unstated aim, which the 2024 lawsuit's exhibits made plain, was to keep Google — which had just bought DeepMind — from being the only organisation to reach general intelligence. Brockman recruited from Google Brain; Sutskever came as research director; Musk and Altman co-chaired.",
+      "The founding post of 11 December 2015 introduced OpenAI as a non-profit research company whose goal was to advance digital intelligence 'in the way that is most likely to benefit humanity as a whole, unconstrained by a need to generate financial return.' Ilya Sutskever was research director, Greg Brockman, formerly Stripe's chief technology officer, its CTO, and Altman and Musk co-chairs. Researchers were to publish their work, and any patents would be shared with the world.",
+      "The billion was a figure for the announcement. Brockman and Altman had planned to raise $100 million; Musk wrote that they needed a bigger number 'to avoid sounding hopeless' and offered to cover whatever others did not provide. By OpenAI's own account in 2024, the nonprofit received less than $45 million from Musk and more than $90 million from everyone else.",
+      "The post did not name Google. The emails released in the 2024 lawsuit did: in 2015 Altman had written to Musk that if artificial intelligence was going to happen anyway, 'it seems like it would be good for someone other than Google to do it first.' Google had bought DeepMind the year before.",
       "Almost every fight on the power thread is implied here: openness (the name), money (a nonprofit cannot buy the compute), control (who decides when it is dangerous), and Musk, who left the board in 2018 and sued in 2024. The board draws the string from Google's DeepMind purchase to this card and reads the next decade as the consequences of a counterweight that had to become the thing it was built against."
     ],
     "people": [
@@ -1672,6 +1934,44 @@
     ],
     "terms": [
       "agi"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "OpenAI",
+        "title": "Introducing OpenAI",
+        "url": "https://openai.com/index/introducing-openai/",
+        "date": "2015-12-11",
+        "quote": "In total, these funders have committed $1 billion, although we expect to only spend a tiny fraction of this in the next few years.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "OpenAI",
+        "title": "OpenAI and Elon Musk",
+        "url": "https://openai.com/index/openai-elon-musk/",
+        "date": "2024-03-05",
+        "quote": "In total, the non-profit has raised less than $45M from Elon and more than $90M from other donors.",
+        "supports": "context"
+      },
+      {
+        "kind": "article",
+        "publisher": "Transformer",
+        "title": "New OpenAI emails reveal a long history of mistrust (Shakeel Hashim)",
+        "url": "https://www.transformernews.ai/cp/151717495",
+        "date": "2024-11-15",
+        "quote": "If it's going to happen anyway, it seems like it would be good for someone other than Google to do it first",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "OpenAI",
+        "url": "https://en.wikipedia.org/wiki/OpenAI",
+        "date": "2026-10-12",
+        "quote": "OpenAI was founded in 2015 as a nonprofit, with Elon Musk and Sam Altman as co-chairs; Musk resigned in 2018.",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -1727,11 +2027,17 @@
       {
         "label": "Game four",
         "value": "Lee Sedol's move 78, the one game a human won"
+      },
+      {
+        "label": "Audience",
+        "value": "over 200 million, by DeepMind's count"
       }
     ],
     "detail": [
-      "AlphaGo combined two neural networks — one to propose moves, one to judge positions — with tree search, trained first on human games and then on its own. It had beaten the European champion Fan Hui 5–0 in October 2015; the Seoul match against Lee Sedol, one of the strongest players alive, was watched by two hundred million people. Move 37 in the second game was a shoulder hit on the fifth line that professionals in the commentary room first called a mistake and then called beautiful.",
-      "Lee won the fourth game with a move AlphaGo had not considered, and retired from professional play in 2019 saying the machine could not be defeated. The board's reading is about estimates: Go had been the game that was a decade away, and after it the field's forecasts of what was hard stopped being trusted, in both directions."
+      "AlphaGo combined two neural networks — a policy network to propose moves and a value network to judge positions — with tree search, and learned first from thousands of expert games and then from games against versions of itself. In October 2015 it beat the three-time European champion Fan Hui 5–0. The match against Lee Sedol, winner of 18 world titles, was played in Seoul between 9 and 15 March 2016, and DeepMind says more than 200 million people watched.",
+      "Move 37 of the second game was a shoulder hit that one professional commentator called very strange and the other took for a mistake; Fan Hui, who had been playing the machine for months, called it beautiful. By DeepMind's data a human would have played it one time in ten thousand. AlphaGo won that game, and three of the other four.",
+      "Lee won the fourth game with move 78, which AlphaGo had rated as unlikely as its own move 37 — one in ten thousand — and which Go players called God's Touch. In November 2019 he retired from professional play, calling AI 'an entity that cannot be defeated'.",
+      "The board's reading is about estimates: Go had been the game that was a decade away, and after it the field's forecasts of what was hard stopped being trusted, in both directions."
     ],
     "people": [
       "demis-hassabis",
@@ -1746,6 +2052,44 @@
       "search",
       "reinforcement-learning",
       "game-playing"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Google (Demis Hassabis)",
+        "title": "What we learned in Seoul with AlphaGo",
+        "url": "https://blog.google/innovation-and-ai/products/what-we-learned-in-seoul-with-alphago/",
+        "date": "2016-03-16",
+        "quote": "Based on our data, AlphaGo’s bold move 37 in Game 2 had a 1 in 10,000 chance of being played by a human.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Wired",
+        "title": "In Two Moves, AlphaGo and Lee Sedol Redefined the Future (Cade Metz)",
+        "url": "https://www.wired.com/2016/03/two-moves-alphago-lee-sedol-redefined-future/",
+        "date": "2016-03-16",
+        "quote": "In Game Two, the Google machine made a move that no human ever would. And it was beautiful.",
+        "supports": "context"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Google DeepMind",
+        "title": "AlphaGo",
+        "url": "https://deepmind.google/research/alphago/",
+        "date": "2026-10-12",
+        "quote": "AlphaGo's 4-1 victory in Seoul, South Korea, in March 2016 was watched by over 200 million people worldwide.",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "AlphaGo versus Lee Sedol",
+        "url": "https://en.wikipedia.org/wiki/AlphaGo_versus_Lee_Sedol",
+        "date": "2026-10-12",
+        "quote": "AlphaGo won all but the fourth game; all games were won by resignation.",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -1808,7 +2152,7 @@
     "figures": [
       {
         "label": "Authors",
-        "value": "eight, at Google Brain and Google Research — all have since left"
+        "value": "eight, all Google researchers when the work began; all had left by 2024, and Shazeer went back that August"
       },
       {
         "label": "Training, the large model",
@@ -1820,8 +2164,9 @@
       }
     ],
     "detail": [
-      "Vaswani, Shazeer, Parmar, Uszkoreit, Jones, Gomez, Kaiser and Polosukhin were working on machine translation. Recurrent networks read a sentence one word at a time and could not be trained in parallel; the transformer replaced recurrence with attention layers that look at every position at once. It trained faster, translated better, and — the property that mattered — kept improving as it was made larger.",
-      "GPT-1 and BERT followed within a year, and every large language model since is a transformer. The board's reading is that the paper made scale the only lever, which turned a research field into a capital-expenditure race; the scaling-laws card three years later wrote the exchange rate down. All eight authors left Google, several to found companies, which the power thread notes."
+      "Vaswani, Shazeer, Parmar, Uszkoreit, Jones, Gomez, Kaiser and Polosukhin were working on machine translation. Recurrent networks read a sentence one word at a time, which kept training from running in parallel; the transformer replaced recurrence with attention layers that look at every position at once. Posted on 12 June 2017, the paper reported a new state of the art in English–German translation from a model trained for 3.5 days on eight GPUs: it trained faster, translated better, and — the property that mattered later — kept improving as it was made larger.",
+      "GPT-1 and BERT followed in 2018, and almost every large language model since has been a transformer. All eight authors left Google, several to found companies of their own; in August 2024 Google brought Noam Shazeer back, signing a licence for the technology of Character.AI, the company he had left to found.",
+      "The board's reading is that the paper made scale the only lever, which turned a research field into a capital-expenditure race; the scaling-laws card three years later wrote the exchange rate down."
     ],
     "orgs": [
       "google"
@@ -1831,6 +2176,44 @@
       "attention",
       "large-language-model",
       "recurrent-network"
+    ],
+    "sources": [
+      {
+        "kind": "paper",
+        "publisher": "arXiv",
+        "title": "Attention Is All You Need (Vaswani et al.)",
+        "url": "https://arxiv.org/abs/1706.03762",
+        "date": "2017-06-12",
+        "quote": "We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Wired",
+        "title": "8 Google Employees Invented Modern AI. Here’s the Inside Story (Steven Levy)",
+        "url": "https://www.wired.com/story/eight-google-employees-invented-modern-ai-transformers-paper/",
+        "date": "2024-03-20",
+        "quote": "All eight authors have since left Google.",
+        "supports": "context"
+      },
+      {
+        "kind": "article",
+        "publisher": "TechCrunch",
+        "title": "Character.AI CEO Noam Shazeer returns to Google",
+        "url": "https://techcrunch.com/2024/08/02/character-ai-ceo-noam-shazeer-returns-to-google/",
+        "date": "2024-08-02",
+        "quote": "Noam Shazeer is returning to Google after leaving the company in October 2021",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Transformer (deep learning architecture)",
+        "url": "https://en.wikipedia.org/wiki/Transformer_(deep_learning_architecture)",
+        "date": "2026-10-12",
+        "quote": "The original version of the transformer architecture was proposed in the 2017 paper \"Attention Is All You Need\" by researchers at Google.",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -2431,11 +2814,12 @@
       },
       {
         "label": "Nobel",
-        "value": "chemistry, 2024, to Hassabis and Jumper"
+        "value": "half of chemistry, 2024, to Hassabis and Jumper; the other half to David Baker"
       }
     ],
     "detail": [
-      "Predicting how a protein folds from its sequence had been a competition problem since 1994. At CASP14, AlphaFold 2's predictions were, for two-thirds of the targets, as accurate as the experimental structures they were compared against — a step one assessor said he had not expected to see in his lifetime. DeepMind published the method and code in July 2021 and, with EMBL, released predictions for nearly every catalogued protein a year later.",
+      "Predicting how a protein folds from its amino-acid sequence had been the subject of a blind, biennial competition, CASP, since 1994. At CASP14, in November 2020, AlphaFold 2 reached a median score of 92.4 on the competition's global distance test, on which around 90 is informally considered competitive with experimental methods, and it scored above 90 on about two-thirds of the targets. Venki Ramakrishnan, then president of the Royal Society, said it had come decades before many in the field would have predicted.",
+      "DeepMind published the method and released the code in July 2021, and with EMBL's European Bioinformatics Institute put out predicted structures for nearly every catalogued protein — over 200 million — a year later. Not everyone agreed the problem was solved: some researchers noted that a third of the predictions were not accurate enough, and that predicting a structure does not explain how a protein folds.",
       "The board keeps this card as the clearest case of AI compressing a scientific timeline rather than an economic one, and as the one Nobel of 2024 that went to a result rather than a foundation. The 2028 drug-approval scenario on the horizon rests on it."
     ],
     "people": [
@@ -2443,6 +2827,44 @@
     ],
     "orgs": [
       "google-deepmind"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Google DeepMind",
+        "title": "AlphaFold: a solution to a 50-year-old grand challenge in biology",
+        "url": "https://deepmind.google/blog/alphafold-a-solution-to-a-50-year-old-grand-challenge-in-biology/",
+        "date": "2020-11-30",
+        "quote": "our latest AlphaFold system achieves a median score of 92.4 GDT overall across all targets",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Nature",
+        "title": "‘It will change everything’: DeepMind’s AI makes gigantic leap in solving protein structures (Ewen Callaway)",
+        "url": "https://www.nature.com/articles/d41586-020-03348-4",
+        "date": "2020-11-30",
+        "quote": "has made a gargantuan leap in solving one of biology’s grandest challenges — determining a protein’s 3D shape from its amino-acid sequence",
+        "supports": "context"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Google DeepMind",
+        "title": "AlphaFold reveals the structure of the protein universe",
+        "url": "https://deepmind.google/blog/alphafold-reveals-the-structure-of-the-protein-universe/",
+        "date": "2022-07-28",
+        "quote": "from nearly 1 million structures to over 200 million structures",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "AlphaFold",
+        "url": "https://en.wikipedia.org/wiki/AlphaFold",
+        "date": "2026-10-12",
+        "quote": "It scored above 90 on CASP's global distance test (GDT) for approximately two-thirds of the proteins",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -2865,7 +3287,7 @@
     "why": "The model was months old. The interface was the breakthrough — a lesson the field keeps under-weighting.",
     "featured": true,
     "wikiTitle": "ChatGPT",
-    "firsts": "Fastest consumer application to a hundred million users",
+    "firsts": "Fastest consumer application to a hundred million users, until Threads in 2023",
     "figures": [
       {
         "label": "Launched",
@@ -2881,7 +3303,8 @@
       }
     ],
     "detail": [
-      "The model was GPT-3.5, a version of the InstructGPT recipe that had been available through the API for most of the year. What was new was a text box, a free login and a memory of the conversation. OpenAI's own framing was a low-key research preview; the company has said it did not expect the reaction. Within a week teachers, lawyers and programmers had found uses and failures, and within two months it had more users than any consumer product had gathered so fast.",
+      "The model was GPT-3.5 — fine-tuned, OpenAI said, from a model in that series that had finished training early in 2022, with the methods of InstructGPT, which had been the API's default since January. What was new was a text box, a free login and a memory of the conversation. It went out on 30 November 2022 as a research preview, free while the preview lasted.",
+      "It had a million users in five days and, by UBS's reading of Similarweb data, a hundred million monthly users in two months; the analysts could not recall a faster ramp in a consumer internet app. Inside OpenAI, which had launched it with zero fanfare and few expectations, the reaction was a surprise: John Schulman, a cofounder, said he had not expected that level of mainstream popularity.",
       "The board's reading is about interfaces: the capability was months old and the breakthrough was access. Google declared a code red within weeks, the release calendars of every lab were rewritten, and the era the board calls contact with the public begins on this card."
     ],
     "people": [
@@ -2893,6 +3316,44 @@
     "terms": [
       "large-language-model",
       "rlhf"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "OpenAI",
+        "title": "Introducing ChatGPT",
+        "url": "https://openai.com/index/chatgpt/",
+        "date": "2022-11-30",
+        "quote": "ChatGPT is fine-tuned from a model in the GPT-3.5 series, which finished training in early 2022.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "The Guardian",
+        "title": "ChatGPT reaches 100 million users two months after launch",
+        "url": "https://www.theguardian.com/technology/2023/feb/02/chatgpt-100-million-users-open-ai-fastest-growing-app",
+        "date": "2023-02-02",
+        "quote": "ChatGPT, the popular artificial intelligence chatbot, has reached 100 million users just two months after launching, according to analysts.",
+        "supports": "context"
+      },
+      {
+        "kind": "article",
+        "publisher": "MIT Technology Review",
+        "title": "The inside story of how ChatGPT was built from the people who made it (Will Douglas Heaven)",
+        "url": "https://www.technologyreview.com/2023/03/03/1069311/inside-story-oral-history-how-chatgpt-built-openai/",
+        "date": "2023-03-03",
+        "quote": "When OpenAI launched ChatGPT, with zero fanfare, in late November 2022, the San Francisco–based artificial-intelligence company had few expectations.",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "ChatGPT",
+        "url": "https://en.wikipedia.org/wiki/ChatGPT",
+        "date": "2026-10-12",
+        "quote": "ChatGPT gained one million users in five days and 100 million in two months.",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -3314,10 +3775,10 @@
   {
     "id": "altman-is-fired-then-rehired-in-five-days",
     "year": 2023,
-    "date": "2023-11-22",
+    "date": "2023-11-21",
     "category": "power",
     "title": "Altman is fired, then rehired in five days",
-    "summary": "The board removes its CEO on a Friday; almost the entire staff threatens to quit, Microsoft offers to hire them all, and by Wednesday the board is gone instead.",
+    "summary": "The board removes its CEO on a Friday; almost the entire staff threatens to quit, Microsoft offers to hire them all, and by Tuesday night he is back and most of the board is gone.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/Removal_of_Sam_Altman_from_OpenAI",
     "why": "The most consequential five days in AI corporate history: it settled who actually controls a frontier lab, and it was not the safety board.",
@@ -3326,19 +3787,21 @@
     "figures": [
       {
         "label": "Days",
-        "value": "five: Friday 17 to Wednesday 22 November 2023"
+        "value": "five: Friday 17 to Tuesday 21 November 2023"
       },
       {
         "label": "The staff letter",
-        "value": "about 700 of 770 employees threatened to leave"
+        "value": "signed by 738 of about 770 employees by the Monday evening, Wired counted"
       },
       {
         "label": "Interim chief executives",
-        "value": "two"
+        "value": "two: Mira Murati, then Emmett Shear"
       }
     ],
     "detail": [
-      "On the Friday the nonprofit board — four members, including chief scientist Ilya Sutskever — announced that Altman had not been 'consistently candid' with it and removed him. Brockman resigned the same evening. Over the weekend Microsoft, which had put thirteen billion dollars into the company, offered to hire Altman, Brockman and anyone who followed. By Monday almost the whole staff had signed a letter saying they would; Sutskever signed it too. On Tuesday night Altman was back, and the board that removed him was replaced.",
+      "On the Friday the nonprofit board — its four remaining members, among them chief scientist Ilya Sutskever — announced that Altman had not been 'consistently candid in his communications with the board' and removed him, making Mira Murati, the chief technology officer, interim chief executive. Greg Brockman, told he would no longer chair the board, resigned the same day.",
+      "Over the weekend Altman negotiated to return, and failed: on the Sunday night the board named Emmett Shear, Twitch's former chief executive, instead, and within hours Satya Nadella announced that Altman and Brockman would lead a new AI research unit at Microsoft. By the Monday evening 738 of the company's roughly 770 staff had signed a letter saying they might resign and follow him, since Microsoft had assured them of positions; Sutskever signed it too, and said he deeply regretted his part in the board's actions. On the Tuesday the board agreed to take Altman back, under a new initial board of Bret Taylor, Larry Summers and Adam D'Angelo — the only one of the four to stay.",
+      "An outside review by the law firm WilmerHale, summarised by OpenAI in March 2024, found a breakdown of trust between Altman and the old board: the board had acted within its broad discretion, it said, but his conduct did not mandate removal.",
       "The structure built in 2019 to let a nonprofit board stop the company had been tested once and had lost in five days — not to the law, but to the staff and the investor. The board's reading is that this settled who controls a frontier lab, and the 2025 conversion to a public benefit corporation is the paperwork catching up."
     ],
     "people": [
@@ -3352,6 +3815,53 @@
     ],
     "terms": [
       "capped-profit"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "OpenAI",
+        "title": "OpenAI announces leadership transition",
+        "url": "https://openai.com/index/openai-announces-leadership-transition/",
+        "date": "2023-11-17",
+        "quote": "he was not consistently candid in his communications with the board, hindering its ability to exercise its responsibilities",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "OpenAI",
+        "title": "Sam Altman returns as CEO, OpenAI has a new initial board",
+        "url": "https://openai.com/index/sam-altman-returns-as-ceo-openai-has-a-new-initial-board/",
+        "date": "2023-11-29",
+        "quote": "I am returning to OpenAI as CEO. Mira will return to her role as CTO.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Wired",
+        "title": "OpenAI Staff Threaten to Quit Unless Board Resigns",
+        "url": "https://www.wired.com/story/openai-staff-walk-protest-sam-altman/",
+        "date": "2023-11-20",
+        "quote": "some 738 out of OpenAI’s around 770 employees, or about 95 percent of the company, had signed the letter",
+        "supports": "context"
+      },
+      {
+        "kind": "primary",
+        "publisher": "OpenAI",
+        "title": "Review completed & Altman, Brockman to continue to lead OpenAI",
+        "url": "https://openai.com/index/review-completed-altman-brockman-to-continue-to-lead-openai/",
+        "date": "2024-03-08",
+        "quote": "the prior Board acted within its broad discretion to terminate Mr. Altman, but also found that his conduct did not mandate removal",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Removal of Sam Altman from OpenAI",
+        "url": "https://en.wikipedia.org/wiki/Removal_of_Sam_Altman_from_OpenAI",
+        "date": "2026-10-12",
+        "quote": "On November 17, 2023, OpenAI's board of directors ousted co-founder and chief executive Sam Altman.",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -4093,7 +4603,7 @@
     "date": "2025-01-20",
     "category": "power",
     "title": "DeepSeek R1 resets the price of reasoning",
-    "summary": "An open-weight reasoning model from a Chinese lab matches frontier performance at a fraction of the cost, and Nvidia has its worst single day in history.",
+    "summary": "An open-weight reasoning model from a Chinese lab matches frontier performance at a fraction of the cost, and Nvidia suffers the biggest one-day loss of market value in US history.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/DeepSeek",
     "why": "The moat was assumed to be capital. For one week in January it looked like the moat was nothing at all.",
@@ -4102,20 +4612,22 @@
     "figures": [
       {
         "label": "Released",
-        "value": "20 January 2025, weights under an MIT licence"
+        "value": "20 January 2025, code and weights under the MIT licence"
       },
       {
         "label": "Nvidia, 27 January 2025",
-        "value": "−17%, about $590 billion — the largest one-day loss of value by any company"
+        "value": "−17%, close to $600 billion — the biggest one-day drop for any company in US history"
       },
       {
         "label": "Claimed cost of the base model's final training run",
-        "value": "$5.6 million"
+        "value": "$5.6 million, at $2 an hour for 2.788 million H800 GPU hours"
       }
     ],
     "detail": [
-      "DeepSeek, a lab spun out of a Hangzhou hedge fund, released R1 with a paper describing how it had been trained: reinforcement learning on verifiable problems, on top of a base model whose final run the lab said had cost under six million dollars. The results matched OpenAI's o1 on the standard benchmarks; the weights were free to download; the app went to the top of the American store in a week. The following Monday, the market repriced the assumption that the frontier needed a hundred thousand of Nvidia's chips.",
-      "The number was contested — it excluded the hardware, the research and the earlier runs — and the export controls that were supposed to keep the frontier out of China were part of why the lab had learned to do more with less. The board keeps the card on the price lead for the week the moat looked like nothing at all, and on the power thread for what it did to the chip export argument."
+      "DeepSeek, a Hangzhou lab owned and funded by the hedge fund High-Flyer, released R1 on 20 January 2025 with its code and weights under the MIT licence, and a paper describing how it had been trained: large-scale reinforcement learning on problems whose answers can be checked, on top of DeepSeek-V3, a base model whose final training run the lab put at $5.576 million. The paper reported performance comparable to OpenAI's o1 on reasoning tasks, and by the following weekend the DeepSeek app had topped Apple's store in the US and the UK.",
+      "On Monday 27 January Nvidia fell 17% and lost close to $600 billion of market value, the biggest one-day drop for any company in American history, as the market repriced the assumption that the frontier needed ever more of its chips.",
+      "The number was contested. DeepSeek's own report said the $5.6 million covered only the official training run of the base model, not the research and ablation experiments before it, and it priced rented GPU hours rather than the hardware. The export controls that were supposed to keep the frontier out of China were part of why the lab had learned to do more with less.",
+      "The board keeps the card on the price lead for the week the moat looked like nothing at all, and on the power thread for what it did to the chip export argument."
     ],
     "people": [
       "liang-wenfeng"
@@ -4129,6 +4641,62 @@
       "reasoning-model",
       "inference",
       "export-controls"
+    ],
+    "sources": [
+      {
+        "kind": "paper",
+        "publisher": "arXiv",
+        "title": "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning (first version)",
+        "url": "https://arxiv.org/abs/2501.12948v1",
+        "date": "2025-01-22",
+        "quote": "DeepSeek-R1 achieves performance comparable to OpenAI-o1-1217 on reasoning tasks.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "DeepSeek",
+        "title": "DeepSeek-R1 Release",
+        "url": "https://api-docs.deepseek.com/news/news250120/",
+        "date": "2025-01-20",
+        "quote": "Code and models are released under the MIT License",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv",
+        "title": "DeepSeek-V3 Technical Report",
+        "url": "https://arxiv.org/abs/2412.19437",
+        "date": "2024-12-27",
+        "quote": "the aforementioned costs include only the official training of DeepSeek-V3, excluding the costs associated with prior research and ablation experiments",
+        "supports": "context"
+      },
+      {
+        "kind": "article",
+        "publisher": "CNBC",
+        "title": "Nvidia sheds almost $600 billion in market cap, biggest one-day loss in U.S. history",
+        "url": "https://www.cnbc.com/2025/01/27/nvidia-sheds-almost-600-billion-in-market-cap-biggest-drop-ever.html",
+        "date": "2025-01-27",
+        "quote": "Nvidia lost close to $600 billion in market cap on Monday, the biggest drop for any company on a single day in U.S. history.",
+        "supports": "context"
+      },
+      {
+        "kind": "article",
+        "publisher": "The Guardian",
+        "title": "‘Sputnik moment’: $1tn wiped off US stocks after Chinese firm unveils AI chatbot",
+        "url": "https://www.theguardian.com/business/2025/jan/27/tech-shares-asia-europe-fall-china-ai-deepseek",
+        "date": "2025-01-27",
+        "quote": "The DeepSeek AI assistant topped the Apple app store in the US and UK over the weekend.",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "DeepSeek",
+        "url": "https://en.wikipedia.org/wiki/DeepSeek",
+        "date": "2026-10-12",
+        "quote": "Based in Hangzhou, Zhejiang, DeepSeek is owned and funded by High-Flyer, a Chinese hedge fund.",
+        "supports": "context"
+      }
     ]
   },
   {
