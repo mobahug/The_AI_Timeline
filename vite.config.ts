@@ -1,3 +1,4 @@
+/// <reference types="vitest/config" />
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
@@ -12,9 +13,12 @@ export default defineConfig(({ command, isPreview }) => ({
     outDir: 'dist',
     assetsInlineLimit: 0,
     // React in its own chunk: it changes rarely, the site's data changes often,
-    // and a reader who has one cached should not download both.
-    rollupOptions: { output: { manualChunks: (id) => (id.includes('node_modules/react') ? 'vendor' : undefined) } },
+    // and a reader who has one cached should not download both. Rolldown names
+    // the group; what it catches is what Rollup's manualChunks caught.
+    rolldownOptions: { output: { codeSplitting: { groups: [{ name: 'vendor', test: /node_modules[\\/]react/ }] } } },
     chunkSizeWarningLimit: 600
   },
+  // Vitest 2 typed this block as a side effect of the tests importing it;
+  // Vitest 5 types it only through the reference at the top of this file.
   test: { environment: 'node', include: ['tests/**/*.test.ts'] }
 }));

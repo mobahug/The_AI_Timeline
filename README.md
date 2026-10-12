@@ -54,6 +54,7 @@ page has an anchor (hover a heading for the `#`). Old `?view=` links still resol
 ## Running it
 
 TypeScript (strict) throughout: `src/lib/types.ts` holds the shapes the JSON is read into.
+Node 24, the version the deploy builds on; the test runner needs 22.12 or later.
 
 ```bash
 npm install
