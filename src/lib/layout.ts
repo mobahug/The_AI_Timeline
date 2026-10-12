@@ -151,6 +151,70 @@ export function layout(items: Event[], m: Metrics): Layout {
   };
 }
 
+/* ─── The wall by keyboard ──────────────────────────────────────────────
+   The wall is one Tab stop, and the arrow keys walk it: along a lane through
+   its years, and across to the lane above or below. Pure, like the rest of
+   the geometry, so what the walk promises — every card can be reached, and ↓
+   then ↑ comes back to the card it left — is tested rather than tried. */
+
+/** The cards in order of time, across every lane. The warped axis never sets
+ *  a card left of one from an earlier year, in any lane, so the order of
+ *  position is the order of the years; within a year it is the order the
+ *  cards stand in, and where two stand level the upper lane comes first. */
+export function inTime(nodes: Node[]): Node[] {
+  return nodes.slice().sort((a, b) => a.x - b.x || a.top - b.top);
+}
+
+/** What a key asks of the wall: ← and → earlier and later, ↑ and ↓ the lane
+ *  above and below, Home and End the two ends of the record. */
+export type Move = 'earlier' | 'later' | 'up' | 'down' | 'first' | 'last';
+
+/** The point in time a run of ↑ and ↓ keeps aiming at: the year and place of
+ *  the card the run began on. Aiming afresh from each card it lands on would
+ *  drift a card sideways at every lane, and ↓ then ↑ would not come back. */
+export interface Aim { year: number; x: number }
+
+/** The card a key moves to from `from`, or null where there is nowhere to go.
+ *  ← and → keep to the card's lane, in order of time; at either end of it
+ *  they carry on to the card nearest in time on any other lane — the next
+ *  one later, or the last one earlier. ↑ and ↓ go to the next lane that holds
+ *  a card, and to the card there nearest in time: the nearest year, and of
+ *  the cards in that year, the one standing nearest. From a card that is not
+ *  on the wall, every key goes to the first. */
+export function seek(nodes: Node[], from: string, move: Move, aim?: Aim): string | null {
+  const order = inTime(nodes);
+  if (!order.length) return null;
+  const i = order.findIndex((n) => n.event.id === from);
+  if (i < 0 || move === 'first') return order[0].event.id;
+  if (move === 'last') return order[order.length - 1].event.id;
+  const here = order[i];
+  if (move === 'earlier' || move === 'later') {
+    const lane = order.filter((n) => n.top === here.top);
+    const j = lane.indexOf(here);
+    const next = move === 'later' ? lane[j + 1] || order[i + 1] : lane[j - 1] || order[i - 1];
+    return next ? next.event.id : null;
+  }
+  // A card's lane is where it sits: every card in one lane has the same top.
+  const tops = [...new Set(order.map((n) => n.top))].sort((a, b) => a - b);
+  const top = tops[tops.indexOf(here.top) + (move === 'down' ? 1 : -1)];
+  if (top === undefined) return null;
+  const at = aim || { year: here.event.year, x: here.x };
+  const off = (n: Node): [number, number] => [Math.abs(n.event.year - at.year), Math.abs(n.x - at.x)];
+  return order.filter((n) => n.top === top).reduce((best, n) => {
+    const [dy, dx] = off(n);
+    const [by, bx] = off(best);
+    return dy < by || (dy === by && dx < bx) ? n : best;
+  }).event.id;
+}
+
+/** The first card in view, in order of time: the first whose left edge is
+ *  inside the frame — or, where the frame shows bare cork, the next card
+ *  after it, and past the last card, the last. The wall's Tab stop rests
+ *  here until the reader has chosen a card. `order` is the wall in time. */
+export function firstInView(order: Node[], left: number, cardW: number): Node | null {
+  return order.find((n) => n.x - cardW / 2 >= left - 1) || order[order.length - 1] || null;
+}
+
 /**
  * Strings tie to the pin at the top edge of a card and arch UP into the gutter.
  * The old geometry started at the card's centre — burying ~105px horizontally and

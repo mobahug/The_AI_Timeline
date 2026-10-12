@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
-import { PAD, metrics, layout, stringPath } from '../src/lib/layout';
+import { PAD, metrics, layout, stringPath, inTime, seek, firstInView } from '../src/lib/layout';
 import { THREADS, buildGraph } from '../src/lib/data';
+import type { Node } from '../src/lib/types';
 
 const graph = buildGraph(null as unknown as undefined);
 const items = graph.all;
@@ -140,5 +141,140 @@ describe('what a card can say at a real window size', () => {
     const tiny = metrics(300, 375);
     expect(tiny.showConfidence).toBe(false);
     expect(tiny.showCat).toBe(false);
+  });
+});
+
+/* The wall by keyboard: one Tab stop, and the arrow keys walk it. What the walk
+   promises is checked on every card, on a desk and a phone, in full and in brief. */
+describe('the wall by keyboard — one Tab stop, and the arrow keys walk it', () => {
+  const walls: [string, ReturnType<typeof layout>][] = [
+    ['desk, full', layout(items, metrics(760, 1280))],
+    ['phone, full', layout(items, metrics(600, 375))],
+    ['desk, brief', layout(items.filter((e) => e.landmark), metrics(760, 1280))]
+  ];
+  const id = (n: Node) => n.event.id;
+  const at = (nodes: Node[], card: string | null) => nodes.find((n) => id(n) === card) as Node;
+
+  it('reads the wall in order of the years, across every lane', () => {
+    walls.forEach(([, b]) => {
+      const order = inTime(b.nodes);
+      expect(order.length).toBe(b.nodes.length);
+      for (let i = 1; i < order.length; i++) expect(order[i].event.year).toBeGreaterThanOrEqual(order[i - 1].event.year);
+    });
+  });
+
+  it('moves along a lane through its years with ← and →', () => {
+    walls.forEach(([, b]) => THREADS.forEach((t) => {
+      const lane = inTime(b.nodes).filter((n) => n.event.thread === t.id);
+      for (let i = 1; i < lane.length; i++) {
+        expect(seek(b.nodes, id(lane[i - 1]), 'later')).toBe(id(lane[i]));
+        expect(seek(b.nodes, id(lane[i]), 'earlier')).toBe(id(lane[i - 1]));
+      }
+    }));
+  });
+
+  it('carries on from either end of a lane to the card nearest in time on another, and stops at the ends of the record', () => {
+    walls.forEach(([, b]) => {
+      const order = inTime(b.nodes);
+      THREADS.forEach((t) => {
+        const lane = order.filter((n) => n.event.thread === t.id);
+        if (!lane.length) return;
+        const first = lane[0];
+        const last = lane[lane.length - 1];
+        const after = order[order.indexOf(last) + 1];
+        const before = order[order.indexOf(first) - 1];
+        expect(seek(b.nodes, id(last), 'later')).toBe(after ? id(after) : null);
+        expect(seek(b.nodes, id(first), 'earlier')).toBe(before ? id(before) : null);
+        if (after) {
+          expect(after.event.thread).not.toBe(t.id);
+          expect(after.event.year).toBeGreaterThanOrEqual(last.event.year);
+        }
+        if (before) {
+          expect(before.event.thread).not.toBe(t.id);
+          expect(before.event.year).toBeLessThanOrEqual(first.event.year);
+        }
+      });
+    });
+  });
+
+  it('goes up and down to the next lane with a card in it, to the card there nearest in time', () => {
+    walls.forEach(([, b]) => {
+      const tops = [...new Set(b.nodes.map((n) => n.top))].sort((p, q) => p - q);
+      b.nodes.forEach((n) => (['up', 'down'] as const).forEach((move) => {
+        const to = seek(b.nodes, id(n), move);
+        const top = tops[tops.indexOf(n.top) + (move === 'down' ? 1 : -1)];
+        if (top === undefined) { expect(to).toBeNull(); return; }
+        const there = at(b.nodes, to);
+        expect(there.top).toBe(top);
+        // Nothing in that lane is nearer in year, or as near and nearer on the axis.
+        const years = Math.abs(there.event.year - n.event.year);
+        b.nodes.filter((c) => c.top === top).forEach((c) => {
+          const y = Math.abs(c.event.year - n.event.year);
+          expect(y).toBeGreaterThanOrEqual(years);
+          if (y === years) expect(Math.abs(c.x - n.x)).toBeGreaterThanOrEqual(Math.abs(there.x - n.x));
+        });
+      }));
+    });
+  });
+
+  it('comes back to the card it left after ↓ then ↑, and after ↑ then ↓', () => {
+    walls.forEach(([, b]) => b.nodes.forEach((n) => {
+      const aim = { year: n.event.year, x: n.x };
+      const down = seek(b.nodes, id(n), 'down', aim);
+      if (down) expect(seek(b.nodes, down, 'up', aim)).toBe(id(n));
+      const up = seek(b.nodes, id(n), 'up', aim);
+      if (up) expect(seek(b.nodes, up, 'down', aim)).toBe(id(n));
+    }));
+  });
+
+  it('crosses a lane with nothing on it', () => {
+    const b = layout(items.filter((e) => e.thread === THREADS[0].id || e.thread === THREADS[2].id), metrics(760, 1280));
+    const from = b.nodes.find((n) => n.event.thread === THREADS[0].id) as Node;
+    const to = seek(b.nodes, id(from), 'down');
+    expect(at(b.nodes, to).event.thread).toBe(THREADS[2].id);
+    expect(seek(b.nodes, to as string, 'up')).not.toBeNull();
+  });
+
+  it('reaches every card on the wall from the first', () => {
+    walls.forEach(([, b]) => {
+      const start = id(inTime(b.nodes)[0]);
+      const seen = new Set([start]);
+      const queue = [start];
+      while (queue.length) {
+        const from = queue.shift() as string;
+        (['earlier', 'later', 'up', 'down'] as const).forEach((move) => {
+          const to = seek(b.nodes, from, move);
+          if (to && !seen.has(to)) { seen.add(to); queue.push(to); }
+        });
+      }
+      expect(seen.size).toBe(b.nodes.length);
+    });
+  });
+
+  it('takes Home and End to the first and last card in time', () => {
+    walls.forEach(([, b]) => {
+      const order = inTime(b.nodes);
+      const mid = id(order[Math.floor(order.length / 2)]);
+      expect(seek(b.nodes, mid, 'first')).toBe(id(order[0]));
+      expect(seek(b.nodes, mid, 'last')).toBe(id(order[order.length - 1]));
+      expect(order[0].event.year).toBe(Math.min(...b.nodes.map((n) => n.event.year)));
+      expect(order[order.length - 1].event.year).toBe(Math.max(...b.nodes.map((n) => n.event.year)));
+    });
+    expect(seek([], 'anything', 'later')).toBeNull();
+  });
+
+  it('rests the Tab stop on the first card wholly in view, or the next after bare cork', () => {
+    const m = metrics(760, 1280);
+    const b = layout(items, m);
+    const order = inTime(b.nodes);
+    const edge = (n: Node) => n.x - m.cardW / 2;
+    [0, 0.25, 0.5, 0.75].forEach((f) => {
+      const left = f * (b.width - 1280);
+      const first = firstInView(order, left, m.cardW) as Node;
+      expect(edge(first)).toBeGreaterThanOrEqual(left - 1);
+      order.slice(0, order.indexOf(first)).forEach((n) => expect(edge(n)).toBeLessThan(left - 1));
+    });
+    expect(firstInView(order, b.width, m.cardW)).toBe(order[order.length - 1]);
+    expect(firstInView([], 0, m.cardW)).toBeNull();
   });
 });

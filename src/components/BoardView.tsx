@@ -1,7 +1,8 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import type { PointerEvent as ReactPointerEvent, TransitionEvent as ReactTransitionEvent } from 'react';
+import type { KeyboardEvent as ReactKeyboardEvent, PointerEvent as ReactPointerEvent, TransitionEvent as ReactTransitionEvent } from 'react';
 import { THREADS, TICKS, FIRST, NOW, CATEGORIES, accent, buildChain, catLabel, catHue, fade, yearAtFraction } from '../lib/data';
-import { PAD, metrics, layout, stringPath } from '../lib/layout';
+import { PAD, metrics, layout, stringPath, inTime, seek, firstInView } from '../lib/layout';
+import type { Aim, Move } from '../lib/layout';
 import { leadById, leadChain } from '../lib/leads';
 import { useMode } from '../lib/mode';
 import { BOARD_GROUND, CARD_PHOTO_FILTER, MANILA, MONO, PAPER, RED, RED_LIT, CYAN, SERIF, DUR, EASE, FADE, STATE, micro, paperInk } from '../lib/styles';
@@ -29,6 +30,16 @@ const SHEET_TRANSITION = settle();
  *  is painted this much taller than it is, so the frame's floor never shows. */
 const SHEET_TAIL = 72;
 
+/** Whether an element is a card on the wall. */
+const isCard = (t: EventTarget | null): t is HTMLElement => t instanceof HTMLElement && !!t.dataset.card;
+/** Whether focus came by keyboard: the browser's own judgement, which a click
+ *  does not meet. A browser that cannot answer is taken to be a mouse. */
+const byKeyboard = (el: Element): boolean => { try { return el.matches(':focus-visible'); } catch { return false; } };
+/** The keys that walk the wall, and where each one goes (layout.ts). */
+const MOVES: Partial<Record<string, Move>> = {
+  ArrowLeft: 'earlier', ArrowRight: 'later', ArrowUp: 'up', ArrowDown: 'down', Home: 'first', End: 'last'
+};
+
 /* One card on the cork. Memoised on plain values, so a scroll, a drag frame or a
    hover elsewhere on the board does not reconcile it: only the card whose own
    lit / subject / raised state flipped renders again. */
@@ -40,25 +51,33 @@ interface CardProps {
   subject: boolean;
   raised: boolean;
   hoverable: boolean;
+  /** The wall's one Tab stop. Every other card is reached by the arrow keys. */
+  tabbable: boolean;
+  /** The top of the card's lane, which holds it. */
+  laneTop: number;
   onClick: (e: Event) => void;
   onHover: (id: string | null) => void;
   onFocusCard: (id: string) => void;
 }
-const Card = React.memo(function Card({ node, m, img, lit, subject, raised, hoverable, onClick, onHover, onFocusCard }: CardProps) {
+const Card = React.memo(function Card({ node, m, img, lit, subject, raised, hoverable, tabbable, laneTop, onClick, onHover, onFocusCard }: CardProps) {
   const e = node.event;
   const f = fade(e.year);
   return (
     <button
       type="button"
       id={'card-' + e.id}
+      data-card={e.id}
+      tabIndex={tabbable ? 0 : -1}
       aria-label={e.year + ', ' + catLabel(e.category) + ', ' + e.title}
       onClick={() => onClick(e)}
       onFocus={() => { onFocusCard(e.id); if (hoverable) onHover(e.id); }}
-      onBlur={() => hoverable && onHover(null)}
+      // Focus going on to the next card leaves the preview to that card's own
+      // focus, rather than clearing it in between.
+      onBlur={(ev) => { if (hoverable && !isCard(ev.relatedTarget)) onHover(null); }}
       onMouseEnter={() => hoverable && onHover(e.id)}
       onMouseLeave={() => hoverable && onHover(null)}
       style={{
-        position: 'absolute', left: node.x - m.cardW / 2, top: node.top, width: m.cardW, height: m.cardH,
+        position: 'absolute', left: node.x - m.cardW / 2, top: node.top - laneTop, width: m.cardW, height: m.cardH,
         padding: 0, border: 'none', background: 'transparent', textAlign: 'left', boxSizing: 'border-box',
         cursor: 'pointer',
         transform: 'rotate(' + node.tilt + 'deg) scale(' + (raised ? 1.05 : 1) + ')',
@@ -279,6 +298,26 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
   const RAIL_W = railMode ? (fileOpen ? Math.min(760, Math.round(box.w * 0.58)) : Math.min(440, Math.round(box.w * 0.36))) : 0;
   const board3 = useMemo(() => layout(visible, m), [visible, m]);
   const positions = useMemo(() => Object.fromEntries(board3.nodes.map((n) => [n.event.id, n])), [board3]);
+  // The wall in order of time, for the keyboard; and lane by lane, for the
+  // groups a screen reader names.
+  const order = useMemo(() => inTime(board3.nodes), [board3.nodes]);
+  const lanes = useMemo(() => THREADS.map((t) => board3.nodes.filter((n) => n.event.thread === t.id)), [board3.nodes]);
+
+  // The wall is one Tab stop, not one per card: the card the reader last
+  // focused, pinned or stepped to, and until there is one, the first card in
+  // view. The arrow keys move between the rest (onWallKey).
+  const [stop, setStop] = useState<string | null>(null);
+  const [firstSeen, setFirstSeen] = useState<string | null>(null);
+  const chosen = !!(stop && positions[stop]);
+  const tabStop = chosen ? stop : firstSeen && positions[firstSeen] ? firstSeen : order.length ? order[0].event.id : null;
+  // Read by onScroll, which follows the first card in view only while it is
+  // the stop: once the reader has chosen a card, a pan re-renders nothing.
+  const followView = useRef<boolean>(true);
+  followView.current = !chosen;
+  // The year and place a run of ↑ ↓ began at, and the card it last landed on.
+  const aim = useRef<(Aim & { at: string }) | null>(null);
+  // Whether a card holds keyboard focus: the hint then names the keys.
+  const [keyed, setKeyed] = useState(false);
 
   // A string is coloured by the category of the event it leaves — the kind of thing
   // that did the causing — so the web reads as a mix of forces, not one red tangle.
@@ -327,6 +366,8 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
   const panAnim = useRef<number | null>(null);
   /** Whether the pan under way moves the height as well as the width. */
   const panDown = useRef<boolean>(false);
+  /** Where the pan under way will leave the canvas. */
+  const panGoal = useRef<{ left: number; top: number }>({ left: 0, top: 0 });
   const railInset = useRef<number>(0);
   // How much of the frame's bottom the sheet covers on a narrow screen, and
   // the vertical room the canvas is given above and below its lanes on one:
@@ -358,6 +399,7 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
     const down = top !== undefined;
     panDown.current = down;
     const targetTop = down ? Math.max(0, Math.min(top, el.scrollHeight - el.clientHeight)) : el.scrollTop;
+    panGoal.current = { left: target, top: targetTop };
     const from = el.scrollLeft;
     const fromTop = el.scrollTop;
     const dist = target - from;
@@ -405,16 +447,27 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
     if (at) panTo(at.left, at.top ?? undefined);
   }, [middleOf, panTo]);
 
-  /** A card that takes keyboard focus must be in view — the browser scrolls it
-   *  into the frame, but not out from under the rail. */
+  /** A card that takes keyboard focus must be in view. Tab lets the browser
+   *  scroll it into the frame, but not out from under the rail or the sheet;
+   *  an arrow key moves focus without scrolling at all, and the wall pans
+   *  instead, on its own curve. A card out of view goes to the middle of what
+   *  the panel leaves — across only, on a desk whose lanes fit. It is judged
+   *  by where a pan under way will leave the wall, so a key pressed mid-pan
+   *  does not start the pan again for a card that pan will show, and a new
+   *  pan across keeps the height that one was bound for. */
   const keepVisible = useCallback((id: string) => {
     const el = scroller.current;
     const p = positions[id];
-    if (!el || !p) return;
-    const left = el.scrollLeft;
-    const usable = el.clientWidth - railInset.current;
-    if (p.x - m.cardW / 2 < left || p.x + m.cardW / 2 > left + usable) panTo(p.x - usable / 2);
-  }, [positions, panTo, m.cardW]);
+    const at = middleOf(id);
+    if (!el || !p || !at) return;
+    const running = panAnim.current !== null;
+    const view = running ? panGoal.current : { left: el.scrollLeft, top: el.scrollTop };
+    const across = p.x - m.cardW / 2 < view.left || p.x + m.cardW / 2 > view.left + el.clientWidth - railInset.current;
+    const y = padY.current + p.top;
+    const top = at.top !== null && (y < view.top || y + m.cardH > view.top + el.clientHeight - sheetInset.current) ? at.top : undefined;
+    if (across || top !== undefined) panTo(across ? at.left : view.left, top !== undefined ? top : running && panDown.current ? view.top : undefined);
+  }, [positions, middleOf, panTo, m.cardW, m.cardH]);
+  const onFocusCard = useCallback((id: string) => { setStop(id); keepVisible(id); }, [keepVisible]);
 
   /** Bring one card to the middle of what the panel leaves visible. */
   const panToCard = useCallback((id: string) => {
@@ -467,8 +520,10 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
     if (scroller.current) panTo(scroller.current.scrollLeft, padY.current);
     // In brief a card that was only on the wall because it was open leaves it
     // now; focus goes to the scrubber instead of being dropped on <body>.
+    // The card is judged against the whole frame: the sheet is going.
     const stays = back && graph.index[back] && (full || graph.index[back].landmark);
     const el = stays ? document.getElementById('card-' + back) : scrubRef.current;
+    sheetInset.current = 0;
     if (el) el.focus({ preventScroll: true });
   }, [pinned, chain, step, navigate, full, graph.index, panTo]);
 
@@ -649,6 +704,20 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
     return () => window.removeEventListener('keydown', onKey);
   }, [chain, move, pinned, leave, fileOpen]);
 
+  // A card pinned — by a click, a link in the panel or the address — is where
+  // the wall's Tab stop rests, and so is the card a walk has reached. A step
+  // taken with ← → from the wall takes the keyboard with it: the card that
+  // holds focus is always the one Tab stop.
+  useEffect(() => { if (pinned) setStop(pinned); }, [pinned]);
+  const walkedTo = current ? current.to : null;
+  useEffect(() => {
+    if (!walkedTo) return;
+    setStop(walkedTo);
+    const had = document.activeElement;
+    const el = isCard(had) && had.dataset.card !== walkedTo ? document.getElementById('card-' + walkedTo) : null;
+    if (el) el.focus({ preventScroll: true });
+  }, [walkedTo]);
+
   const onScroll = useCallback(() => {
     const el = scroller.current;
     if (!el) return;
@@ -670,6 +739,12 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
     // State only when the readout would actually change: a scroll frame that
     // stays inside the same years must not re-render the board.
     setViewport((v) => (v[0] === lo && v[1] === hi ? v : [lo, hi]));
+    // Until the reader chooses a card, Tab lands on the first one in view.
+    if (followView.current) {
+      const first = firstInView(order, left, m.cardW);
+      const id = first ? first.event.id : null;
+      setFirstSeen((v) => (v === id ? v : id));
+    }
 
     fraction.current = max > 0 ? left / max : 0;
     if (thumbRef.current) {
@@ -685,7 +760,7 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
       headYear.current = nearest ? nearest.event.year : yearAtFraction(fr(head));
       onYear(String(headYear.current), max > 0 ? left / max : 0);
     }
-  }, [board3.width, board3.nodes, m.cardW, onYear]);
+  }, [board3.width, board3.nodes, m.cardW, onYear, order]);
 
   useEffect(() => { onScroll(); }, [onScroll]);
 
@@ -770,6 +845,26 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
   }, [focusCard]);
   const hoverable = canHover && !chain && !pinned;
 
+  /** The arrow keys on the wall (layout.ts says where each goes). Focus moves
+   *  without scrolling, and the card's focus pans the wall if it must. A run
+   *  of ↑ ↓ keeps aiming at the year it began from, so ↓ then ↑ returns. */
+  const onWallKey = (e: ReactKeyboardEvent<HTMLDivElement>) => {
+    const asked = MOVES[e.key];
+    const id = isCard(e.target) ? e.target.dataset.card : undefined;
+    const here = id ? positions[id] : undefined;
+    if (!asked || !id || !here || e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+    // During a walk ← and → are the walk's: the window's listener steps it.
+    if (chain && (asked === 'earlier' || asked === 'later')) return;
+    // Handled or not, the key must not scroll the canvas under the card.
+    e.preventDefault();
+    const vertical = asked === 'up' || asked === 'down';
+    const from = vertical && aim.current && aim.current.at === id ? aim.current : { year: here.event.year, x: here.x, at: id };
+    const next = seek(board3.nodes, id, asked, from);
+    aim.current = vertical ? { ...from, at: next || id } : null;
+    const el = next && next !== id ? document.getElementById('card-' + next) : null;
+    if (el) el.focus({ preventScroll: true });
+  };
+
   // The one first-time hint the board gives. Keys are only offered where a
   // keyboard is likely — a phone reader would only wonder where the arrows are.
   const keys = canHover ? ' · ← → to step · Esc to close' : '';
@@ -778,6 +873,9 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
     : focusId
       ? 'Card selected · ' + ((graph.adjacency[focusId] || []).length) + ' strings attached'
       : graph.edges.length + ' strings · click a card for what led to it and what followed';
+  // A card reached by keyboard: Tab no longer goes card to card, so the hint
+  // says what does. Shown, not spoken — the wall's description says it once.
+  const wallKeys = keyed && !chain ? ' · ← → ↑ ↓ to move · Enter to open' : '';
 
   const panelOpen = !!(current || focusId);
   // A pinned card opens its panel for reading: focus goes to the panel's heading
@@ -1046,11 +1144,20 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
       <div style={{ flex: 'none', paddingTop: 9 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'nowrap', minWidth: 0, marginBottom: 10 }}>
           <h1 style={{ margin: 0, font: '400 clamp(16px,1.7vw,21px)/1 ' + SERIF, letterSpacing: '-0.02em', whiteSpace: 'nowrap', flex: 'none' }}>The board</h1>
-          <span style={{ ...micro(chain ? 3 : 5), color: chain ? RED_LIT : undefined, flex: '0 1 auto', minWidth: 0, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{hint}</span>
+          <span style={{ ...micro(chain ? 3 : 5), color: chain ? RED_LIT : undefined, flex: '0 1 auto', minWidth: 0, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{hint + wallKeys}</span>
           {/* The hint above changes with every hover, and a live region on it
               read each one aloud. This one speaks only for what the reader
               chose — a card pinned, a chain begun — never for a pointer passing. */}
           <span className="sr-only" aria-live="polite">{chain || pinned ? hint : ''}</span>
+          {/* What the keys do, as the wall's description: given with the
+              wall's name as focus comes onto it, not with every card. Moving
+              between cards says only the card, and the thread when it changes
+              (each lane is a group named for its thread). */}
+          <span id="wall-keys" hidden>
+            Arrow keys move between cards: left and right through a thread in order of year, up and down to the
+            thread above or below. Home and End go to the first and last card, and Enter opens one. While a chain is
+            walked, left and right step along it.
+          </span>
           <span style={{ flex: 1 }} />
           <div style={{
             display: 'flex', gap: box.w < 820 ? 10 : 14, alignItems: 'center', minWidth: 0, flex: '0 1 auto',
@@ -1085,9 +1192,19 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
           }}
         >
           <div style={{ width: board3.width, minWidth: '100%', height: board3.height + 2 * padY.current, paddingTop: padY.current, boxSizing: 'border-box' }}>
-          <div style={{ position: 'relative', width: board3.width, height: board3.height, minWidth: '100%' }}>
+          <div
+            role="group"
+            aria-label="The wall"
+            aria-describedby="wall-keys"
+            onKeyDown={onWallKey}
+            onFocus={(e) => setKeyed(isCard(e.target) && byKeyboard(e.target))}
+            onBlur={(e) => { if (!e.currentTarget.contains(e.relatedTarget)) setKeyed(false); }}
+            style={{ position: 'relative', width: board3.width, height: board3.height, minWidth: '100%' }}
+          >
+            {/* The lanes' ground and labels, for the eye: a screen reader has
+                each thread's name from the group that holds its cards. */}
             {THREADS.map((thread, i) => (
-              <div key={thread.id} style={{
+              <div key={thread.id} aria-hidden="true" style={{
                 position: 'absolute', left: 0, top: m.ruler + i * m.lane, width: board3.width, height: m.lane,
                 borderTop: '1px solid rgba(243,240,234,0.07)',
                 background: i % 2 ? 'rgba(243,240,234,0.012)' : 'transparent'
@@ -1178,22 +1295,38 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
               }}>{s.claim}</div>
             ))}
 
-            {board3.nodes.map((node) => {
-              const e = node.event;
+            {/* The cards, lane by lane: each lane a group named for its thread,
+                so a screen reader names the thread as the keyboard crosses into
+                it, and only the card while it moves along one. */}
+            {THREADS.map((thread, i) => {
+              const laneTop = m.ruler + i * m.lane;
               return (
-                <Card
-                  key={e.id}
-                  node={node}
-                  m={m}
-                  img={media(e).img}
-                  lit={!active || active.includes(e.id)}
-                  subject={current ? current.to === e.id : focusId === e.id}
-                  raised={!!((current && (current.from === e.id || current.to === e.id)) || focusId === e.id)}
-                  hoverable={hoverable}
-                  onClick={clickCard}
-                  onHover={setHover}
-                  onFocusCard={keepVisible}
-                />
+                <div
+                  key={'cards-' + thread.id}
+                  {...(lanes[i].length ? { role: 'group', 'aria-label': thread.label } : {})}
+                  style={{ position: 'absolute', left: 0, top: laneTop, width: board3.width, height: m.lane }}
+                >
+                  {lanes[i].map((node) => {
+                    const e = node.event;
+                    return (
+                      <Card
+                        key={e.id}
+                        node={node}
+                        m={m}
+                        img={media(e).img}
+                        lit={!active || active.includes(e.id)}
+                        subject={current ? current.to === e.id : focusId === e.id}
+                        raised={!!((current && (current.from === e.id || current.to === e.id)) || focusId === e.id)}
+                        hoverable={hoverable}
+                        tabbable={e.id === tabStop}
+                        laneTop={laneTop}
+                        onClick={clickCard}
+                        onHover={setHover}
+                        onFocusCard={onFocusCard}
+                      />
+                    );
+                  })}
+                </div>
               );
             })}
           </div>
@@ -1234,6 +1367,11 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
             ref={panelRef}
             role="complementary"
             aria-label="Card context"
+            // A preview is a glance, and goes when its card loses focus — so
+            // it is out of reach of Tab as well as of the pointer: Tab from
+            // the wall goes on past it, not into a panel that closes under it.
+            // Enter pins the card, and the panel is the reader's to enter.
+            {...(preview ? { inert: '' } : {})}
             // Whatever the reader does inside the panel stays inside it. A wheel
             // or a finger that reaches the end of the panel's text must not carry
             // on into the canvas behind it, on any device.
