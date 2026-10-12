@@ -16,6 +16,7 @@
   <url><loc>https://mobahug.github.io/The_AI_Timeline/lead/gaming-the-test/</loc><priority>0.8</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/lead/games-fall/</loc><priority>0.8</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/lead/the-price-of-intelligence/</loc><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/lead/the-confidant/</loc><priority>0.8</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/line/1/</loc><priority>0.7</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/line/2/</loc><priority>0.7</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/line/3/</loc><priority>0.7</priority></url>
@@ -161,6 +162,7 @@
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/meta-claims-the-frontier-for-open-weights/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/gpt-4o-mini-and-the-99-percent-price-cut/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/silver-at-the-imo/</loc><priority>0.5</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/character-ai-is-sued-over-a-boy-s-death/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/caught-scheming-in-the-lab/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/alignment-faking/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/frontiermath/</loc><priority>0.5</priority></url>
@@ -169,15 +171,18 @@
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/coding-agents-take-the-keyboard/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/deepseek-r1-resets-the-price-of-reasoning/</loc><priority>0.6</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/the-cost-of-an-answer-falls-280-fold/</loc><priority>0.5</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/chatgpt-is-rolled-back-for-flattery/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/editing-the-off-switch/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/prompt-injection-in-the-wild/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/blackmail-in-the-simulation/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/gold-at-the-imo/</loc><priority>0.5</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/parents-sue-openai-over-their-son-s-death/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/openai-converts-the-nonprofit-keeps-a-stake/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/sovereign-compute/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/the-erdos-problems/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/agents-enter-real-workflows/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/spacex-buys-xai/</loc><priority>0.5</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/users-mourn-gpt-4o/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/anthropic-holds-back-mythos/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/washington-suspends-foreign-access-to-a-model/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/a-poisoned-dataset-owns-the-pipeline/</loc><priority>0.6</priority></url>
@@ -186,6 +191,7 @@
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/openai-says-the-agi-era-is-here/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/arc-agi-3-is-all-but-saturated/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/navier-stokes-falls-to-ten-thousand-agents/</loc><priority>0.6</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/california-writes-sycophancy-into-law/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/the-labs-ask-to-be-slowed-down/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/multi-day-autonomous-work/</loc><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/inference-silicon-commoditises/</loc><priority>0.5</priority></url>

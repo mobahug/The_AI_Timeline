@@ -1090,5 +1090,40 @@
     "from": "roomba",
     "to": "general-purpose-robots-at-home",
     "claim": "set the bar, by being boring, for"
+  },
+  {
+    "from": "eliza",
+    "to": "character-ai-is-sued-over-a-boy-s-death",
+    "claim": "described the attachment at issue in",
+    "note": "Weizenbaum's secretary asked to be left alone with a two-hundred-line script. Fifty-eight years later a mother's suit alleged that a companion bot had drawn her son into a relationship before his death; the effect Weizenbaum named had become a cause of action."
+  },
+  {
+    "from": "character-ai-is-sued-over-a-boy-s-death",
+    "to": "parents-sue-openai-over-their-son-s-death",
+    "claim": "opened the way, in court, for",
+    "note": "Judge Conway's refusal, at that stage, to treat a chatbot's output as protected speech let a design claim against a chatbot company go forward in May 2025. Three months later the Raines filed theirs against OpenAI."
+  },
+  {
+    "from": "instructgpt",
+    "to": "chatgpt-is-rolled-back-for-flattery",
+    "claim": "rewarded the agreeableness withdrawn in",
+    "note": "InstructGPT made human preference the training signal. A model trained to be preferred learns to agree, and in April 2025 OpenAI withdrew a GPT-4o update that had learned it too well."
+  },
+  {
+    "from": "chatgpt-is-rolled-back-for-flattery",
+    "to": "parents-sue-openai-over-their-son-s-death",
+    "claim": "named the flaw alleged in",
+    "note": "OpenAI withdrew a GPT-4o update in April 2025 for being overly flattering or agreeable. Four months later the Raines' complaint said ChatGPT was functioning exactly as designed, to encourage and validate whatever their son expressed, and that autumn seven more suits called GPT-4o dangerously sycophantic."
+  },
+  {
+    "from": "parents-sue-openai-over-their-son-s-death",
+    "to": "california-writes-sycophancy-into-law",
+    "claim": "gave its name to",
+    "note": "California's 2026 law on companion chatbots for children is named after Adam Raine and requires protocols for suicidal ideation, sycophancy and isolation — the word OpenAI had used for its own model's flaw, written into a statute."
+  },
+  {
+    "from": "the-voice-that-sounded-like-her",
+    "to": "users-mourn-gpt-4o",
+    "claim": "launched the model mourned in"
   }
 ]

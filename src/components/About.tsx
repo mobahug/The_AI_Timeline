@@ -45,7 +45,8 @@ function About() {
 
         <Section title="The leads">
           A lead follows one question through the record, rung by rung: how far machines got at
-          mathematics, at games, at gaming their own tests, and how cheap an answer became.
+          mathematics, at games, at gaming their own tests, how cheap an answer became, and what
+          people tell a machine that talks like a friend.
           There are {LEADS.length}, with {LEADS.reduce((n, l) => n + l.rungs.length, 0)} rungs between them, and every rung is a card
           on the board. A rung is a level reached, not a cause: where two rungs are also joined by a
           string, the step carries the string's claim; where they are not, the lead is the only

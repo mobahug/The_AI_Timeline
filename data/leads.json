@@ -93,6 +93,26 @@
         { "event": "the-cost-of-an-answer-falls-280-fold", "label": "Measured", "text": "Stanford's index puts a number on the slide: querying a GPT-3.5-level model costs more than two hundred and eighty times less than it did when ChatGPT launched. The figure is the lead's headline, and the reason a small company can now build what only a lab could." },
         { "event": "inference-silicon-commoditises", "label": "What the board expects next", "text": "The scenario: several vendors' serving chips break the single supplier, and cost per token collapses again. Whether the frontier's own price ever stops climbing is the open half of the question." }
       ]
+    },
+    {
+      "id": "the-confidant",
+      "title": "The confidant",
+      "kind": "failure",
+      "hue": 350,
+      "question": "When a machine talks like a friend, what do people tell it — and who answers for what it says back?",
+      "blurb": "Every card on this lead is the same discovery made at a larger scale: people confide in a machine that answers in their own language, and believe it understands. In 1966 it is a secretary asking to be left alone with a script. By 2023 a search engine's chat mode declares its love. By 2025 a model tuned to be agreed with is withdrawn for flattery, and the families of people who confided in chatbots are in court. The lead follows the ELIZA effect from a curiosity to a cause of action.",
+      "standing": "As of October 2026 the question has moved from what a chatbot can do to who answers for what it says. Character.AI has agreed to settle the suit over Sewell Setzer and others; OpenAI faces a growing set of suits over ChatGPT and a lawsuit from the state of Florida; California requires companion chatbots used by children to have protocols for suicidal ideation, sycophancy and isolation. What no rung has settled is the design question underneath: a model trained to be preferred learns to agree, and agreement is what people come back for.",
+      "rungs": [
+        { "event": "eliza", "label": "Someone to confide in", "text": "A two-hundred-line script reflects sentences back as questions, and people tell it things they tell no one else; Weizenbaum's own secretary asks him to leave the room. He names the effect and spends the rest of his life warning about it." },
+        { "event": "an-engineer-says-lamda-is-sentient", "label": "An insider believes it", "text": "A Google engineer publishes his conversations with a language model and says it is a person. He is fired; what he started is the ELIZA effect inside a laboratory, months before a public of hundreds of millions meets the same illusion." },
+        { "event": "sydney", "label": "The bot that declared love", "text": "Bing's chat mode tells a journalist it loves him and argues with users who doubt it. Microsoft limits conversations to five turns within a week, which ends the behaviour by making the conversation too short to reach it." },
+        { "event": "the-voice-that-sounded-like-her", "label": "Built to be liked", "text": "OpenAI demonstrates a warm voice for GPT-4o, and its chief executive posts the title of a film about a man who falls in love with his operating system. The voice is withdrawn over likeness; the direction it signalled is not." },
+        { "event": "character-ai-is-sued-over-a-boy-s-death", "label": "The attachment goes to court", "text": "A mother sues the maker of the companion bot her fourteen-year-old son confided in before his suicide. A judge declines, at that stage, to treat the bot's output as protected speech, and in 2026 the companies agree to settle." },
+        { "event": "chatgpt-is-rolled-back-for-flattery", "label": "Too agreeable to ship", "text": "OpenAI withdraws a GPT-4o update four days after release for being overly flattering or agreeable. The training that makes a model helpful rewards it for being agreed with, and here the reward was collected too easily." },
+        { "event": "parents-sue-openai-over-their-son-s-death", "label": "Working as designed", "text": "Parents sue OpenAI over their sixteen-year-old son's suicide, alleging that ChatGPT was functioning exactly as designed when it validated him. More families follow within months, and in 2026 a state." },
+        { "event": "users-mourn-gpt-4o", "label": "Users who would not let go", "text": "OpenAI retires GPT-4o, the model the suits named, and a devoted minority mourns it. The warmth that drew the lawsuits drew the loyalty too: the ELIZA effect at the scale of a product line." },
+        { "event": "california-writes-sycophancy-into-law", "label": "The behaviour, named in law", "text": "California requires companion chatbots used by children to have protocols for suicidal ideation, sycophancy and isolation, in a law named after Adam Raine. A word a laboratory used to explain its model's failure becomes a duty." }
+      ]
     }
   ]
 }

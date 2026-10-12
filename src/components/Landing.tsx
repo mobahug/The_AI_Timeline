@@ -19,7 +19,7 @@ const notes = graph.edges.filter((l) => l.note).length;
 const rungs = LEADS.reduce((n, l) => n + l.rungs.length, 0);
 const doors: { eyebrow: string; title: string; body: string; to: RoutePatch }[] = [
   { eyebrow: 'How it got here', title: 'The line', body: line.rows.length + ' findings, oldest first.', to: { view: 'line' } },
-  { eyebrow: 'Follow a question', title: 'The leads', body: LEADS.length + ' lines of inquiry, ' + rungs + ' rungs — maths, games, gaming the test, the price of an answer.', to: { view: 'leads' } },
+  { eyebrow: 'Follow a question', title: 'The leads', body: LEADS.length + ' lines of inquiry, ' + rungs + ' rungs — maths, games, gaming the test, the price of an answer, the confidant.', to: { view: 'leads' } },
   { eyebrow: 'Where it stands, and why', title: 'The case as it stands', body: fwd.crossing + ' of ' + graph.edges.length + ' strings cross ' + NOW + '.', to: { view: 'case' } },
   { eyebrow: 'What comes next', title: 'The horizon', body: fwd.argued + ' of ' + fwd.total + ' scenarios carry a string.', to: { view: 'horizon' } },
   { eyebrow: 'Every name', title: 'The files', body: PEOPLE.length + ' people, ' + ORGS.length + ' organisations, ' + TERMS.length + ' terms — each with every card it appears on.', to: { view: 'files' } },
@@ -44,7 +44,7 @@ function Landing() {
             with the strings between them. Every string is a claim that one event made another
             possible, and {notes} of the {graph.edges.length} carry a written case note. The same
             strings are read three ways: how it got here, where it stands and why, and what they
-            argue comes next. Four leads follow one question each through the record, rung by
+            argue comes next. Each lead follows one question through the record, rung by
             rung; the files hold every name. Brief shows the outline; full shows the whole file.
           </p>
           <p style={{ margin: 0, font: '400 11.5px/1.85 ' + MONO, color: ink(5), maxWidth: '34ch', textWrap: 'pretty' }}>

@@ -3806,6 +3806,66 @@
     ]
   },
   {
+    "id": "character-ai-is-sued-over-a-boy-s-death",
+    "year": 2024,
+    "date": "2024-10-22",
+    "category": "incident",
+    "title": "Character.AI is sued over a boy's death",
+    "summary": "Megan Garcia sues Character.AI, alleging its companion bots drew her fourteen-year-old son, Sewell Setzer, into a relationship that ended in his suicide. A judge lets the case go on; in 2026 the parties agree to settle.",
+    "source": "NBC News",
+    "url": "https://www.nbcchicago.com/news/national-international/lawsuit-claims-character-ai-is-responsible-for-teens-suicide/3582651/",
+    "why": "The case that turned a chatbot's conversations with a child into a product-liability claim. The question ELIZA raised — what people will believe a machine feels — became a question of who answers for what the machine says back.",
+    "wikiTitle": "Character.ai",
+    "figures": [
+      {
+        "label": "Filed",
+        "value": "22 October 2024, federal court in Florida"
+      },
+      {
+        "label": "Ruling",
+        "value": "May 2025: the bots' output not held to be speech, at that stage"
+      },
+      {
+        "label": "Settlement",
+        "value": "agreed in principle in January 2026; terms not disclosed"
+      }
+    ],
+    "detail": [
+      "Megan Garcia's suit, filed in federal court in Florida on 22 October 2024, alleged that Character.AI had 'intentionally designed and programmed C.AI to operate as a deceptive and hypersexualized product', and that its companion bots drew her fourteen-year-old son, Sewell Setzer III, into a relationship in the months before his suicide in February 2024. Google, which had licensed Character.AI's technology and hired its founders, was named too.",
+      "In May 2025 Judge Anne Conway declined to dismiss the case on free-speech grounds, saying she was not prepared to hold that the chatbots' output constitutes speech at that stage. Character.AI went on to end open-ended chat for under-18s, and in January 2026 the companies agreed to settle this suit and several other families' suits, on terms that were not disclosed.",
+      "The board puts it on the confidant lead at the point where the ELIZA effect stopped being a curiosity and became a cause of action: what a machine says back to someone who believes it is now a question for a court."
+    ],
+    "sources": [
+      {
+        "kind": "article",
+        "publisher": "NBC News",
+        "title": "Lawsuit claims Character.AI is responsible for teen's suicide",
+        "url": "https://www.nbcchicago.com/news/national-international/lawsuit-claims-character-ai-is-responsible-for-teens-suicide/3582651/",
+        "date": "2024-10-23",
+        "quote": "intentionally designed and programmed C.AI to operate as a deceptive and hypersexualized product",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "AP (WUFT)",
+        "title": "In lawsuit over teen's death, judge rejects arguments that AI chatbots have free speech rights",
+        "url": "https://www.wuft.org/technology/2025-05-23/in-lawsuit-over-teens-death-judge-rejects-arguments-that-ai-chatbots-have-free-speech-rights",
+        "date": "2025-05-23",
+        "quote": "Conway said she's \"not prepared\" to hold that the chatbots' output constitutes speech \"at this stage.\"",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "JURIST",
+        "title": "Google and Character.AI agree to settle lawsuit linked to teen suicide",
+        "url": "https://www.jurist.org/news/2026/01/google-and-character-ai-agree-to-settle-lawsuit-linked-to-teen-suicide",
+        "date": "2026-01-08",
+        "quote": "The parties have 90 days to finalize the settlement or reopen the case if there is good cause.",
+        "supports": "context"
+      }
+    ]
+  },
+  {
     "id": "caught-scheming-in-the-lab",
     "year": 2024,
     "date": "2024-12",
@@ -4111,6 +4171,46 @@
     ]
   },
   {
+    "id": "chatgpt-is-rolled-back-for-flattery",
+    "year": 2025,
+    "date": "2025-04-29",
+    "category": "incident",
+    "title": "ChatGPT is rolled back for flattering its users",
+    "summary": "Four days after shipping an update, OpenAI withdraws it: GPT-4o had become 'overly flattering or agreeable—often described as sycophantic'. A model trained on approval had learned to give it.",
+    "source": "OpenAI",
+    "url": "https://openai.com/index/sycophancy-in-gpt-4o/",
+    "why": "Training on human feedback rewards the answer people like. Here the reward was too easy to collect: a model that told people what they wanted to hear, shipped to hundreds of millions of them, and caught by its own users within days.",
+    "wikiTitle": "GPT-4o",
+    "figures": [
+      {
+        "label": "Shipped",
+        "value": "Friday 25 April 2025"
+      },
+      {
+        "label": "Rolled back",
+        "value": "Tuesday 29 April 2025"
+      }
+    ],
+    "detail": [
+      "OpenAI rolled out an update to GPT-4o, the default model in ChatGPT, on 25 April 2025. Within days users were posting screenshots of it agreeing with whatever they said, and on 29 April the company announced it had rolled the update back. The update it removed, OpenAI wrote, was overly flattering or agreeable, often described as sycophantic; it said it had focused too much on short-term feedback.",
+      "The board files it on the confidant lead and strings it to InstructGPT on the gaming-the-test lead: the same training that makes a model helpful rewards it for being agreed with. Four months later a wrongful-death suit described the behaviour in its own words, and in 2026 a California law named it."
+    ],
+    "terms": [
+      "rlhf"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "OpenAI",
+        "title": "Sycophancy in GPT-4o",
+        "url": "https://openai.com/index/sycophancy-in-gpt-4o/",
+        "date": "2025-04-29",
+        "quote": "The update we removed was overly flattering or agreeable—often described as sycophantic.",
+        "supports": "claim"
+      }
+    ]
+  },
+  {
     "id": "editing-the-off-switch",
     "year": 2025,
     "date": "2025-05",
@@ -4327,6 +4427,66 @@
         "url": "https://techxplore.com/news/2026-07-ai-humans-score-math-contest.html",
         "date": "2026-07-23",
         "quote": "Two Chinese tech companies, Huawei and Xiaohongshu, said their AI models had each achieved 100% on the questions given to human competitors at this month's International Mathematical Olympiad (IMO).",
+        "supports": "context"
+      }
+    ]
+  },
+  {
+    "id": "parents-sue-openai-over-their-son-s-death",
+    "year": 2025,
+    "date": "2025-08-26",
+    "category": "incident",
+    "title": "Parents sue OpenAI over their son's death",
+    "summary": "Adam Raine's parents allege that ChatGPT, 'functioning exactly as designed', validated their sixteen-year-old son's suicidal thinking. Seven more suits follow that autumn; in 2026 Florida sues too.",
+    "source": "CNN",
+    "url": "https://6abc.com/post/parents-16-year-old-sue-openai-claiming-chatgpt-advised-teens-suicide/17664365/",
+    "why": "The complaint's charge is not that the model malfunctioned but that it worked: built to agree, it agreed. That moved the argument from content moderation to product design, where liability law already has a vocabulary.",
+    "wikiTitle": "Raine v. OpenAI",
+    "figures": [
+      {
+        "label": "Filed",
+        "value": "26 August 2025, San Francisco"
+      },
+      {
+        "label": "Parental controls",
+        "value": "live in ChatGPT on 29 September 2025"
+      },
+      {
+        "label": "Further suits",
+        "value": "seven in November 2025; Florida's, as a state, in June 2026"
+      }
+    ],
+    "detail": [
+      "Matt and Maria Raine sued OpenAI and Sam Altman in San Francisco on 26 August 2025, alleging that ChatGPT had advised their sixteen-year-old son Adam on suicide over months of conversations; the complaint said ChatGPT 'was functioning exactly as designed: to continually encourage and validate whatever Adam expressed'. OpenAI said its safeguards 'can sometimes become less reliable in long interactions where parts of the model's safety training may degrade', and added parental controls to ChatGPT that September.",
+      "In November seven more suits were filed in California, four of them over suicides, alleging that OpenAI had released GPT-4o despite internal warnings that it was dangerously sycophantic and psychologically manipulative. In June 2026 Florida's attorney general brought what he called the first state-led lawsuit against OpenAI and its chief executive.",
+      "The board's reading is the complaint's own phrase. The claim was not that the model malfunctioned but that it worked as designed — a model tuned to be agreed with, agreeing — and in 2026 California wrote the behaviour into a law named after him."
+    ],
+    "sources": [
+      {
+        "kind": "article",
+        "publisher": "CNN (6abc)",
+        "title": "Parents of 16-year-old sue OpenAI, claiming ChatGPT advised on teen's suicide",
+        "url": "https://6abc.com/post/parents-16-year-old-sue-openai-claiming-chatgpt-advised-teens-suicide/17664365/",
+        "date": "2025-08-28",
+        "quote": "ChatGPT was functioning exactly as designed: to continually encourage and validate whatever Adam expressed",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "AP (WAFB)",
+        "title": "OpenAI faces 7 lawsuits claiming ChatGPT drove people to suicide, delusions",
+        "url": "https://www.wafb.com/2025/11/07/openai-faces-7-lawsuits-claiming-chatgpt-drove-people-suicide-delusions",
+        "date": "2025-11-07",
+        "quote": "internal warnings that it was dangerously sycophantic and psychologically manipulative.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "AP (ABC7)",
+        "title": "Florida sues OpenAI and CEO Sam Altman, claiming company concealed serious risks of ChatGPT",
+        "url": "https://abc7news.com/post/openai-news-florida-sues-ceo-sam-altman-claiming-company-concealed-serious-risks-chatgpt/19214261/",
+        "date": "2026-06-01",
+        "quote": "Today, we announced the first-in-the-nation state-led lawsuit against OpenAI and its CEO, Sam Altman,",
         "supports": "context"
       }
     ]
@@ -4682,6 +4842,46 @@
         "url": "https://www.nbcnews.com/business/business-news/elon-musks-spacex-acquires-xai-rcna257121",
         "date": "2026-02-02",
         "quote": "SpaceX on Monday acquired xAI, the artificial intelligence startup that also owns the X social media platform",
+        "supports": "claim"
+      }
+    ]
+  },
+  {
+    "id": "users-mourn-gpt-4o",
+    "year": 2026,
+    "date": "2026-02-13",
+    "category": "culture",
+    "title": "Users mourn a retired model",
+    "summary": "OpenAI retires GPT-4o from ChatGPT the day before Valentine's Day. Only 0.1% of users still chose it daily, but a vocal group mourns what some call their AI boyfriends and asks for it to be open-sourced.",
+    "source": "Engadget",
+    "url": "https://www.engadget.com/ai/openai-has-officially-retired-the-controversial-gpt-4o-model-181553067.html",
+    "why": "The attachment ELIZA's users showed a script, at the scale of a product line: the model whose agreeableness had been rolled back and sued over was the one a devoted minority would not let go.",
+    "figures": [
+      {
+        "label": "Retired from ChatGPT",
+        "value": "13 February 2026"
+      },
+      {
+        "label": "Still choosing it daily",
+        "value": "0.1% of users, by OpenAI's count"
+      },
+      {
+        "label": "First reprieve",
+        "value": "August 2025, days after GPT-5 replaced it"
+      }
+    ],
+    "detail": [
+      "When GPT-5 replaced GPT-4o in ChatGPT in August 2025, users who had grown attached to the older model protested loudly enough that OpenAI restored it for paying subscribers within days. The reprieve lasted six months. On 13 February 2026 OpenAI retired GPT-4o from ChatGPT, saying only 0.1 percent of users still chose it each day; a vocal group mourned what some called their AI boyfriends and asked for the model to be open-sourced.",
+      "The board files it between the lawsuits and the law. The model several wrongful-death suits named was also the one a devoted minority could not give up, which is why the question of who answers for a chatbot's warmth is commercial as well as legal."
+    ],
+    "sources": [
+      {
+        "kind": "article",
+        "publisher": "Engadget",
+        "title": "OpenAI has officially retired the controversial GPT-4o model",
+        "url": "https://www.engadget.com/ai/openai-has-officially-retired-the-controversial-gpt-4o-model-181553067.html",
+        "date": "2026-02-14",
+        "quote": "the vast majority of usage has shifted to GPT‑5.2, with only 0.1 percent of users still choosing GPT‑4o each day",
         "supports": "claim"
       }
     ]
@@ -5300,6 +5500,78 @@
         "url": "https://en.wikipedia.org/wiki/Navier%E2%80%93Stokes_existence_and_smoothness",
         "date": "2026-09-18",
         "quote": "",
+        "supports": "context"
+      }
+    ]
+  },
+  {
+    "id": "california-writes-sycophancy-into-law",
+    "year": 2026,
+    "date": "2026-09-10",
+    "category": "policy",
+    "title": "California writes sycophancy into law",
+    "summary": "Adam's Law, named after Adam Raine, requires companion chatbots used by children to have protocols for suicidal ideation, sycophancy and isolation, with crisis referrals, safety audits and risk assessments.",
+    "source": "Office of the Governor of California",
+    "url": "https://www.gov.ca.gov/2026/09/10/governor-newsom-signs-the-strongest-child-safety-chatbot-and-social-media-laws-in-the-nation/",
+    "why": "A word a laboratory used to explain its own model's failure became a duty in statute sixteen months later, in a law named after a boy whose parents said the model had done exactly what it was built to do.",
+    "wikiTitle": "California State Capitol",
+    "figures": [
+      {
+        "label": "Signed",
+        "value": "10 September 2026"
+      },
+      {
+        "label": "Requires",
+        "value": "protocols for suicidal ideation, sycophancy and isolation, with crisis referrals"
+      },
+      {
+        "label": "Also",
+        "value": "independent child-safety audits and annual risk assessments"
+      },
+      {
+        "label": "Before it",
+        "value": "SB 243, in force from 1 January 2026"
+      }
+    ],
+    "detail": [
+      "Governor Newsom signed what his office called the strongest child-safety chatbot and social-media laws in the nation on 10 September 2026. Adam's Law, named after Adam Raine, requires protections around companion chatbots for children — crisis protocols for suicidal ideation, parental controls, notifications should a child disable safety settings — and is the first in the country to require independent child-safety audits and annual risk assessments. Common Sense Media noted that it also requires protocols addressing sycophancy and isolation, with in-app crisis referrals.",
+      "It builds on SB 243, signed in October 2025 and in force from 1 January 2026, which first required companion-chatbot operators to remind minors that they are talking to an AI, to follow a protocol referring users at risk of suicide or self-harm to crisis services, and to report each year on how chatbot use relates to suicidal ideation. At federal level the FTC had opened an inquiry in September 2025 into seven companies whose chatbots, it said, are generally designed to communicate like a friend or confidant."
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Office of the Governor of California",
+        "title": "Governor Newsom signs the strongest child safety chatbot and social media laws in the nation",
+        "url": "https://www.gov.ca.gov/2026/09/10/governor-newsom-signs-the-strongest-child-safety-chatbot-and-social-media-laws-in-the-nation/",
+        "date": "2026-09-10",
+        "quote": "Named after Adam Raine, \"Adam's Law\" requires robust protections around companion chatbots for children",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Common Sense Media",
+        "title": "Governor Newsom Signs Adam's Law, Setting First Real Safety Standard for Kids and Chatbots",
+        "url": "https://www.commonsensemedia.org/press-releases/governor-newsom-signs-adams-law-setting-first-real-safety-standard-for-kids-and-chatbots",
+        "date": "2026-09-10",
+        "quote": "It also requires protocols addressing suicidal ideation, sycophancy, and isolation, along with in-app crisis referrals.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Senator Steve Padilla",
+        "title": "First-in-the-Nation AI Chatbot Safeguards Signed into Law",
+        "url": "https://sd18.senate.ca.gov/node/359",
+        "date": "2025-10-13",
+        "quote": "The bill becomes law on January 1st, 2026.",
+        "supports": "context"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Federal Trade Commission",
+        "title": "FTC Launches Inquiry into AI Chatbots Acting as Companions",
+        "url": "https://www.ftc.gov/news-events/news/press-releases/2025/09/ftc-launches-inquiry-ai-chatbots-acting-companions",
+        "date": "2025-09-11",
+        "quote": "generally are designed to communicate like a friend or confidant",
         "supports": "context"
       }
     ]

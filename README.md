@@ -2,7 +2,7 @@
 
 An investigation board for the history of artificial intelligence — 1900 to 2050.
 Entries pinned to a board, strings between them, a written case note for every
-connection that carries one, and four leads that each follow one question through
+connection that carries one, and five leads that each follow one question through
 the record, rung by rung.
 
 **Live site:** https://mobahug.github.io/The_AI_Timeline/
@@ -18,7 +18,8 @@ you through the chain, clue by clue.
 The leads take the same record and follow one question at a time: how far machines got
 at mathematics (from textbook theorems to a Millennium Prize problem), at games (checkers
 to Diplomacy), at gaming their own tests (a boat circling for points to agents breaking
-out of their sandbox to beat the exam), and how cheap an answer became.
+out of their sandbox to beat the exam), how cheap an answer became, and what people tell
+a machine that talks like a friend (ELIZA's confidants to a law against sycophancy).
 
 Entries after the present are scenarios. They carry a confidence label (`Likely`,
 `Uncertain`, `Speculative`) and reasoning instead of a citation, and the board draws
@@ -41,7 +42,7 @@ verbs. The switch is in the header; `?mode=full` on any link opens the whole fil
 | The case, the horizon | `/case/`, `/horizon/` | Where the record stands; the scenarios |
 | The board | `/board/` | The evidence wall: photo cards, string, clue walkthrough, lead ladders |
 | A dossier | `/card/<id>/` | One card in full |
-| The leads | `/leads/`, `/lead/<id>/` | Four lines of inquiry, each a ladder of cards |
+| The leads | `/leads/`, `/lead/<id>/` | Five lines of inquiry, each a ladder of cards |
 | The archive | `/archive/`, `/archive/plates/`, `/archive/mosaic/` | Everything, dated, in three costumes |
 | The files | `/files/`, `/person/<id>/`, `/org/<id>/` | Every name, with every card it appears on |
 | The glossary | `/glossary/`, `/term/<id>/` | Every term, defined in place |
@@ -71,7 +72,7 @@ count, not a year.
 - `data/events.json` — the cards: summary, reading, the file (`detail`), figures,
   firsts, tagged people / organisations / terms, and sources with quotes. A record
   card may carry a `date` — the order inside its year, where the record knows it;
-  68 of the 152 do
+  73 of the 157 do
 - `data/links.json` — the strings, with the claim and the case note
 - `data/leads.json` — the leads: a question, where it stands, and its rungs
 - `data/people.json`, `data/orgs.json`, `data/glossary.json` — the files
