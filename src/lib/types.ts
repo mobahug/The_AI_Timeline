@@ -260,8 +260,10 @@ export interface Route {
 /** What navigate() takes: any part of a route. */
 export type RoutePatch = Partial<Route>;
 
-/** One cached Wikipedia summary: the photograph and the extract. */
-export interface WikiPage { img: string; extract: string }
+/** One cached Wikipedia summary: the photograph and the extract. `gone` is the
+ *  fetch script's own note, a photograph Wikimedia has deleted before Wikipedia
+ *  offered another: img stays empty meanwhile, and the next fetch asks again. */
+export interface WikiPage { img: string; extract: string; gone?: string }
 export type WikiCache = Record<string, WikiPage>;
 
 /** What the media hook hands back for a card. */

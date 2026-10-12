@@ -89,6 +89,9 @@ Photographs come from Wikipedia/Wikimedia. `npm run fetch:images` caches lookups
 `public/wiki-cache.json` at build time; the prerenderer writes the pages each route used
 into that route's HTML, and at runtime the app uses the cache first and falls back to a
 live lookup for anything missing. Entries with no free image get a generated mark and say so.
+Each run also checks that every photograph a card uses still resolves: one Wikimedia has
+deleted is looked up again, and left out rather than shown broken until its article names
+another.
 
 ## Deep links
 
