@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
-import events from '../data/events.json' assert { type: 'json' };
-import links from '../data/links.json' assert { type: 'json' };
-import meta from '../data/threads.json' assert { type: 'json' };
+import events from '../data/events.json' with { type: 'json' };
+import links from '../data/links.json' with { type: 'json' };
+import meta from '../data/threads.json' with { type: 'json' };
 
 const catIds = meta.categories.map((c) => c.id);
 const byId = Object.fromEntries(events.map((e) => [e.id, e]));
