@@ -84,8 +84,13 @@ export default function CluePanel({ graph, chain: walked, step, current, focus, 
       <div style={shell}>
         <div style={{ padding: 'clamp(13px,3vw,18px) clamp(14px,3vw,22px)', display: 'flex', flexDirection: 'column', gap: 14, animation: FADE }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
-            <span style={{ ...micro(1, 'section'), color: tone }}>Rung {current.rung} / {current.of}</span>
-            <span style={{ ...micro(5), minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{lead ? lead.title : ''}</span>
+            {/* The walk's heading — the rung, and the lead it is on. The board
+                gives it focus when the walk begins; it stands before the
+                buttons, so the next Tab reaches them. */}
+            <h2 style={{ margin: 0, minWidth: 0, display: 'flex', alignItems: 'center', gap: 12, font: 'inherit' }}>
+              <span style={{ ...micro(1, 'section'), color: tone }}>Rung {current.rung} / {current.of}</span>{' '}
+              <span style={{ ...micro(5), minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{lead ? lead.title : ''}</span>
+            </h2>
             <span style={{ flex: 1 }} />
             <Btn onClick={() => { if (!first) onStep(-1); }} aria-disabled={first} style={first ? { opacity: 0.45 } : undefined}>← Previous rung</Btn>
             <Btn tone="loud" onClick={() => { if (!last) onStep(1); }} aria-disabled={last} style={last ? { opacity: 0.45 } : undefined}>Next rung →</Btn>
@@ -145,7 +150,9 @@ export default function CluePanel({ graph, chain: walked, step, current, focus, 
       <div style={shell}>
         <div style={{ padding: 'clamp(13px,3vw,18px) clamp(14px,3vw,22px)', display: 'flex', flexDirection: 'column', gap: 14, animation: FADE }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
-            <span style={{ ...micro(1, 'section'), color: RED_LIT }}>Clue {step + 1} / {chain.length}</span>
+            {/* The walk's heading, as on a lead: given focus when the walk
+                begins, ahead of the buttons that step it. */}
+            <h2 style={{ margin: 0, ...micro(1, 'section'), color: RED_LIT }}>Clue {step + 1} / {chain.length}</h2>
             <span style={{ flex: 1 }} />
             {/* The ends of the chain are marked, not hidden: a disabled button
                 would drop out of the tab order and vanish for a screen reader. */}

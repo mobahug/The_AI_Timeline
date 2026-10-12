@@ -409,6 +409,8 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
   // with the top when nothing is selected.
   const sheetInset = useRef<number>(0);
   const padY = useRef<number>(0);
+  // The context panel, and the block inside it that is measured.
+  const panelRef = useRef<HTMLDivElement>(null);
   const panelInner = useRef<HTMLDivElement>(null);
   const [panelContentH, setPanelContentH] = useState(0);
   const cancelPan = useCallback(() => {
@@ -572,10 +574,6 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
   // places it: a chain opened in brief may add cards to the wall, and a pan
   // computed from the positions before that render would miss them.
   const wantCentre = useRef<Step | null>(null);
-  // Whether the walk is to open at its heading once it is drawn. Only the
-  // address opens a walk without rewriting it; every other walk is begun from
-  // the panel, or from the file inside it.
-  const wantHeading = useRef<boolean>(false);
   const showChain = useCallback((steps: Step[], index: number, replaceUrl: boolean) => {
     setPinned(null);
     setHover(null);
@@ -584,7 +582,6 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
     setStep(index);
     applied.current = keyOf(steps[index]);
     wantCentre.current = steps[index];
-    wantHeading.current = replaceUrl;
     if (replaceUrl) navigate(patchOf(steps[index]), true);
   }, [navigate]);
   useEffect(() => {
@@ -720,15 +717,31 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
     panTo(first.x - el.clientWidth * 0.28);
   }, [filterKey, board3.nodes, panTo]);
 
+  // A step redraws the panel in place, so the control the reader stepped with —
+  // Previous, Next, a row of the chain, or wherever focus was when an arrow key
+  // did it — keeps focus. Which element in the panel held it is noted all the
+  // same: a step can take a control away (a source link on a card that has
+  // none, the string a rung lacks), and then the panel starts again at its
+  // heading, never <body>.
+  const steppedFrom = useRef<Element | null>(null);
+  /** Go to one step of the walked chain. The step already shown is put back in
+   *  the middle of what the reader sees. */
+  const jump = useCallback((index: number) => {
+    if (!chain || !chain[index]) return;
+    if (index !== step) {
+      const had = document.activeElement;
+      steppedFrom.current = had && panelRef.current && panelRef.current.contains(had) ? had : null;
+    }
+    setStep(index);
+    applied.current = keyOf(chain[index]);
+    navigate(patchOf(chain[index]), true);
+    wantCentre.current = chain[index];
+  }, [chain, step, navigate]);
   const move = useCallback((delta: number) => {
     if (!chain) return;
     const next = Math.min(chain.length - 1, Math.max(0, step + delta));
-    if (next === step) return;
-    setStep(next);
-    applied.current = keyOf(chain[next]);
-    navigate(patchOf(chain[next]), true);
-    wantCentre.current = chain[next];
-  }, [chain, step, navigate]);
+    if (next !== step) jump(next);
+  }, [chain, step, jump]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -936,44 +949,32 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
   // back once nothing is.
   endHeld.current = panelOpen;
   useEffect(() => { if (!panelOpen) trimRoom(); }, [panelOpen, trimRoom]);
-  // A pinned card opens its panel for reading: focus goes to the panel's heading
-  // so the next Tab reaches its buttons, and Escape returns to the card.
-  const panelRef = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    if (!pinned || !panelRef.current) return;
-    const h = panelRef.current.querySelector<HTMLElement>('h2, h3');
-    if (h) { h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: true }); }
-  }, [pinned]);
-  // Opening or closing the file starts the panel at its top, and hands focus to
-  // the file's own heading so a keyboard reader lands inside it.
-  useEffect(() => {
+  /** Start the panel again at its top and give focus to the heading there: the
+   *  card's title, the walk's place along its chain, the file's card. The panel
+   *  has been scrolled to it, so the focus itself scrolls nothing. */
+  const toHeading = useCallback(() => {
     const el = panelRef.current;
     if (!el) return;
     el.scrollTop = 0;
-    // Whichever way it went, the panel's heading takes focus: into the file on
-    // opening, back to the card on closing, never dropped on <body>.
     const h = el.querySelector<HTMLElement>('h1, h2, h3');
     if (h) { h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: true }); }
-  }, [fileOpen]);
-  // A walk begun from the panel — Walk the chain, a string, a lead, a link in
-  // the file — redraws the panel without the control that began it: focus fell
-  // to <body>, and the next Tab could start from the top of the page. Instead
-  // the walk opens at the top of the panel, as the file does, and its heading
-  // takes focus, as a pinned card's does. Focus is taken only from inside the
-  // panel, or from <body> where the redraw dropped it: a card on the wall that
-  // holds it keeps it (walkedTo, above), and a walk the address opens leaves it
-  // where the page put it (wantHeading).
+  }, []);
+  // Whenever what the panel holds is replaced — a card pinned, a walk begun from
+  // a card, a string or a lead, a rung's card opened, the file opened or closed,
+  // a link followed inside it — the panel starts at its heading. A control in
+  // the panel that did it went with what it replaced, and focus fell to <body>;
+  // now the next Tab goes on into what replaced it, and a screen reader hears
+  // what is in hand. Escape still hands focus back to the card. A step along a
+  // chain replaces none of these, and a hover preview is never given focus.
   useEffect(() => {
-    const want = wantHeading.current;
-    wantHeading.current = false;
-    const el = panelRef.current;
-    if (!want || !chain || !el) return;
-    el.scrollTop = 0;
-    const had = document.activeElement;
-    if (had && had !== document.body && !el.contains(had)) return;
-    const h = el.querySelector<HTMLElement>('h2, h3');
-    if (h) { h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: true }); }
-  }, [chain]);
+    if (chain || pinned) toHeading();
+  }, [chain, pinned, fileOpen, toHeading]);
+  // A step that took away the control which held focus (noted by jump, above).
+  useEffect(() => {
+    const had = steppedFrom.current;
+    steppedFrom.current = null;
+    if (had && !had.isConnected) toHeading();
+  }, [step, toHeading]);
   // A hover preview must never steal the hover that produced it, so it lets the
   // pointer straight through.
   const preview = !current && !pinned && !!hover;
@@ -1576,7 +1577,7 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
               full={full}
               nested={railMode}
               onStep={move}
-              onJump={(index: number) => { setStep(index); applied.current = keyOf(chain![index]); navigate(patchOf(chain![index]), true); wantCentre.current = chain![index]; }}
+              onJump={jump}
               onExit={leave}
               onOpenChain={openChain}
               onOpenCard={focusCard}
