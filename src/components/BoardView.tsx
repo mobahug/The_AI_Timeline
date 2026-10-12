@@ -369,6 +369,37 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
   /** Where the pan under way will leave the canvas. */
   const panGoal = useRef<{ left: number; top: number }>({ left: 0, top: 0 });
   const railInset = useRef<number>(0);
+  // The room past the wall's right end, on a desk. The rail stands over the
+  // right of the frame, so a card near the end of the record could be brought
+  // no further than the end of the canvas — under the rail — and never to the
+  // middle of what the rail leaves. A card sent to the middle is given the
+  // room it needs past the end (middleOf), and the lanes run on into it. It
+  // is written to the lanes, not rendered: a pan is clamped to the canvas's
+  // width the moment it starts, so the room must be there first. Only a card
+  // sent to the middle makes room, so the wall at rest ends where the record
+  // does. It is kept while anything is open, and given back once nothing is
+  // (trimRoom). A phone has no rail and no room.
+  const endRoom = useRef<number>(0);
+  const lanesRef = useRef<HTMLDivElement>(null);
+  /** Whether anything is open on the wall, which keeps the room (set as the
+   *  board renders). */
+  const endHeld = useRef<boolean>(false);
+  const resizeRoom = useCallback((px: number) => {
+    const lanes = lanesRef.current;
+    if (!lanes || px === endRoom.current) return;
+    endRoom.current = px;
+    lanes.style.setProperty('--end-room', px + 'px');
+  }, []);
+  /** Give back the room past the wall's end once nothing is open and no pan
+   *  is under way: whatever of it lies beyond the frame's right edge. Never
+   *  what the frame shows — the canvas never narrows under the reader, so the
+   *  browser never pulls the wall back to fit — and so the rest goes as the
+   *  reader pans out of it. */
+  const trimRoom = useCallback(() => {
+    const el = scroller.current;
+    if (!el || !endRoom.current || endHeld.current || panAnim.current !== null) return;
+    resizeRoom(Math.min(endRoom.current, Math.max(0, Math.ceil(el.scrollLeft + el.clientWidth - board3.width))));
+  }, [board3.width, resizeRoom]);
   // How much of the frame's bottom the sheet covers on a narrow screen, and
   // the vertical room the canvas is given above and below its lanes on one:
   // half the frame each side, so any card can be brought to the middle of
@@ -418,24 +449,33 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
       el2.scrollLeft = from + dist * easeOut(p);
       if (down) el2.scrollTop = fromTop + distTop * easeOut(p);
       panAnim.current = elapsed < duration ? requestAnimationFrame(step) : null;
+      // Landed. The last frames of the curve barely move the wall, and the
+      // scroll they end on may come while the pan is still under way; so the
+      // room past the wall's end it no longer needs is given back here.
+      if (panAnim.current === null) trimRoom();
     };
     panAnim.current = requestAnimationFrame(step);
-  }, [cancelPan]);
+  }, [cancelPan, trimRoom]);
 
   /** Where the canvas must scroll to put a card in the middle of what the
    *  reader sees: across, the frame less the rail on a desk; and down as well
    *  where the wall has height to give — on a phone, the frame less the sheet,
    *  and on a desk too short for its lanes. `top` is null on a desk whose
-   *  lanes fit, where the wall keeps its height. */
+   *  lanes fit, where the wall keeps its height. On a desk a card near the
+   *  end of the record is given the room past it that this takes (endRoom),
+   *  before any pan to it is clamped to the canvas. */
   const middleOf = useCallback((id: string): { left: number; top: number | null } | null => {
     const el = scroller.current;
     const p = positions[id];
     if (!el || !p) return null;
+    const left = p.x - (el.clientWidth - railInset.current) / 2;
+    const need = Math.ceil(left + el.clientWidth - board3.width);
+    if (railInset.current && need > endRoom.current) resizeRoom(need);
     return {
-      left: p.x - (el.clientWidth - railInset.current) / 2,
+      left,
       top: padY.current || !m.fits ? padY.current + p.top + m.cardH / 2 - (el.clientHeight - sheetInset.current) / 2 : null
     };
-  }, [positions, m.cardH, m.fits]);
+  }, [positions, m.cardH, m.fits, board3.width, resizeRoom]);
 
   useEffect(() => cancelPan, [cancelPan]);
 
@@ -594,7 +634,7 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
     const el = scroller.current;
     if (!el || route.id || route.clue || route.lead || lastFraction === null || settled.current || restoredAt.current === geometry) return;
     restoredAt.current = geometry;
-    el.scrollLeft = lastFraction * (el.scrollWidth - el.clientWidth);
+    el.scrollLeft = lastFraction * (el.scrollWidth - endRoom.current - el.clientWidth);
   }, [route.id, route.clue, route.lead, geometry]);
 
   // Deep links: ?id=… opens a card, ?clue=a>b opens the walkthrough at that string.
@@ -726,8 +766,14 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
   const onScroll = useCallback(() => {
     const el = scroller.current;
     if (!el) return;
-    const max = el.scrollWidth - el.clientWidth;
+    // The scrubber, the header's bar and the place remembered for coming back
+    // measure the canvas less the room past the wall's end on a desk
+    // (endRoom): that room is not more of the record, and their readings must
+    // not shift as it comes and goes. Panned into it, they read the end.
+    const span = el.scrollWidth - endRoom.current;
+    const max = span - el.clientWidth;
     const left = el.scrollLeft;
+    const along = Math.min(left, max);
     const right = left + el.clientWidth;
     const fr = (x: number) => Math.min(1, Math.max(0, (x - PAD) / (board3.width - PAD * 2)));
 
@@ -751,21 +797,22 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
       setFirstSeen((v) => (v === id ? v : id));
     }
 
-    fraction.current = max > 0 ? left / max : 0;
+    fraction.current = max > 0 ? along / max : 0;
     if (thumbRef.current) {
-      thumbRef.current.style.left = (left / el.scrollWidth * 100).toFixed(2) + '%';
-      thumbRef.current.style.width = Math.max(4, el.clientWidth / el.scrollWidth * 100).toFixed(2) + '%';
+      thumbRef.current.style.left = (along / span * 100).toFixed(2) + '%';
+      thumbRef.current.style.width = Math.max(4, el.clientWidth / span * 100).toFixed(2) + '%';
     }
-    if (scrubRef.current) scrubRef.current.setAttribute('aria-valuenow', String(Math.round(left / el.scrollWidth * 100)));
+    if (scrubRef.current) scrubRef.current.setAttribute('aria-valuenow', String(Math.round(along / span * 100)));
 
     if (onYear) {
       const head = left + Math.min(el.clientWidth * 0.4, 380);
       let nearest = null as Node | null;
       board3.nodes.forEach((n) => { if (!nearest || Math.abs(n.x - head) < Math.abs(nearest.x - head)) nearest = n; });
       headYear.current = nearest ? nearest.event.year : yearAtFraction(fr(head));
-      onYear(String(headYear.current), max > 0 ? left / max : 0);
+      onYear(String(headYear.current), fraction.current);
     }
-  }, [board3.width, board3.nodes, m.cardW, onYear, order]);
+    trimRoom();
+  }, [board3.width, board3.nodes, m.cardW, onYear, order, trimRoom]);
 
   useEffect(() => { onScroll(); }, [onScroll]);
 
@@ -827,7 +874,9 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
       const rect = track.getBoundingClientRect();
       const el = scroller.current;
       if (!el) return;
-      el.scrollLeft = Math.max(0, ((ev.clientX - rect.left) / rect.width) * el.scrollWidth - el.clientWidth / 2);
+      // The track is the canvas less the room past its end, as the thumb's
+      // is (onScroll).
+      el.scrollLeft = Math.max(0, ((ev.clientX - rect.left) / rect.width) * (el.scrollWidth - endRoom.current) - el.clientWidth / 2);
       onScroll();
     };
     pan(e);
@@ -883,6 +932,10 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
   const wallKeys = keyed && !chain ? ' · ← → ↑ ↓ to move · Enter to open' : '';
 
   const panelOpen = !!(current || focusId);
+  // The room past the wall's end is kept while anything is open, and given
+  // back once nothing is.
+  endHeld.current = panelOpen;
+  useEffect(() => { if (!panelOpen) trimRoom(); }, [panelOpen, trimRoom]);
   // A pinned card opens its panel for reading: focus goes to the panel's heading
   // so the next Tab reaches its buttons, and Escape returns to the card.
   const panelRef = useRef<HTMLDivElement>(null);
@@ -964,6 +1017,9 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
   useEffect(() => {
     if (wasRail.current === railMode) return;
     wasRail.current = railMode;
+    // A phone has no room past the wall's end (its lanes stop with the
+    // record); a desk makes its own afresh.
+    if (!railMode) resizeRoom(0);
     const el = scroller.current;
     if (!el) return;
     // The height goes to its rest for the new kind — the lanes flush on a
@@ -1153,6 +1209,10 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
         ? graph.index[focusId].year + ' · ' + graph.index[focusId].title
         : '';
   railInset.current = RAIL_W;
+  // How wide the lanes run: on a desk, the record and whatever room past its
+  // end the wall has been given (endRoom), which is written to the lanes as
+  // it is made; on a phone, the record alone.
+  const groundW = railMode ? 'calc(' + board3.width + 'px + var(--end-room, 0px))' : board3.width;
 
   return (
     <div
@@ -1226,10 +1286,14 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
             style={{ position: 'relative', width: board3.width, height: board3.height, minWidth: '100%' }}
           >
             {/* The lanes' ground and labels, for the eye: a screen reader has
-                each thread's name from the group that holds its cards. */}
+                each thread's name from the group that holds its cards. On a
+                desk the ground runs on past the record into any room the wall
+                has been given at its end, and is what makes the canvas that
+                much wider. */}
+            <div ref={lanesRef} style={{ position: 'absolute', left: 0, top: 0 }}>
             {THREADS.map((thread, i) => (
               <div key={thread.id} aria-hidden="true" style={{
-                position: 'absolute', left: 0, top: m.ruler + i * m.lane, width: board3.width, height: m.lane,
+                position: 'absolute', left: 0, top: m.ruler + i * m.lane, width: groundW, height: m.lane,
                 borderTop: '1px solid rgba(243,240,234,0.07)',
                 background: i % 2 ? 'rgba(243,240,234,0.012)' : 'transparent'
               }}>
@@ -1244,6 +1308,7 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
                 }}>{thread.label}</div>
               </div>
             ))}
+            </div>
 
             {TICKS.map((year) => (
               <div key={year}>
