@@ -1279,7 +1279,7 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
             )}
             {/* At peek the content below the strip is out of reach of the tab
                 order too, so focus cannot drag the frame up to it. */}
-            <div {...(!railMode && sheet === 'peek' ? { inert: '' } : {})}>
+            <div inert={!railMode && sheet === 'peek'}>
             {fileOpen && pinned && graph.index[pinned] ? (
               <div style={{ display: 'flex', flexDirection: 'column', minHeight: 0 }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 14px', borderBottom: '1px solid rgba(243,240,234,0.12)', position: 'sticky', top: 0, background: 'rgba(10,10,11,0.985)', zIndex: 2 }}>

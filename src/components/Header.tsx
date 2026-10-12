@@ -66,7 +66,7 @@ export interface HeaderProps {
   route: Route;
   navigate: Navigate;
   year: string;
-  barRef: RefObject<HTMLDivElement>;
+  barRef: RefObject<HTMLDivElement | null>;
   status: string;
   graph: Graph;
 }

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { RETIRED, VIEW_IDS, matchSegments, segmentsFor } from './views';
 import type { Mode, Route, RoutePatch, ViewId } from './types';
 
@@ -99,6 +99,18 @@ export type Navigate = (patch: RoutePatch, replace?: boolean) => void;
 
 export function useRoute(initial?: Route): [Route, Navigate] {
   const [route, setRoute] = useState<Route>(() => initial || read());
+  // The route a patch is laid over: the last one asked for, which is the one on
+  // screen except in the moment before React draws it. `navigate` used to read
+  // it inside a state updater and write the history from there; but React may
+  // run an updater more than once — StrictMode always does — and each run would
+  // push its own entry, leaving Back to be pressed twice. The route is kept here
+  // instead, every change goes through `show`, and the history is written once
+  // per call.
+  const latest = useRef(route);
+  const show = useCallback((next: Route) => {
+    latest.current = next;
+    setRoute(next);
+  }, []);
 
   useEffect(() => {
     // An old-form or unknown address is rewritten to its path, quietly.
@@ -106,34 +118,32 @@ export function useRoute(initial?: Route): [Route, Navigate] {
     if (current.legacy || current.mode) {
       const { legacy, mode, ...rest } = current;
       window.history.replaceState(window.history.state, '', hrefFor(rest));
-      setRoute(rest);
+      show(rest);
     }
     // The page, not the browser, restores the offset: the browser would restore
     // it before React has rendered the page it belongs to.
     if ('scrollRestoration' in window.history) window.history.scrollRestoration = 'manual';
     // Going back lands where the reader left, not at the top of the page.
-    const onPop = () => setRoute({ ...read(), pop: (window.history.state && window.history.state.y) || 0 });
+    const onPop = () => show({ ...read(), pop: (window.history.state && window.history.state.y) || 0 });
     window.addEventListener('popstate', onPop);
     return () => window.removeEventListener('popstate', onPop);
-  }, []);
+  }, [show]);
 
   const navigate = useCallback<Navigate>((patch, replace) => {
-    setRoute((prev) => {
-      const next: Route = { ...resolve(prev, patch), pop: 0 };
-      delete next.legacy;
-      delete next.mode;
-      delete next.missing;
-      const url = hrefFor(next);
-      if (replace) {
-        window.history.replaceState(window.history.state, '', url);
-      } else {
-        // Remember where this page was left before moving on, so Back can return there.
-        window.history.replaceState({ ...(window.history.state || {}), y: window.scrollY }, '', window.location.href);
-        window.history.pushState({ y: 0 }, '', url);
-      }
-      return next;
-    });
-  }, []);
+    const next: Route = { ...resolve(latest.current, patch), pop: 0 };
+    delete next.legacy;
+    delete next.mode;
+    delete next.missing;
+    const url = hrefFor(next);
+    if (replace) {
+      window.history.replaceState(window.history.state, '', url);
+    } else {
+      // Remember where this page was left before moving on, so Back can return there.
+      window.history.replaceState({ ...(window.history.state || {}), y: window.scrollY }, '', window.location.href);
+      window.history.pushState({ y: 0 }, '', url);
+    }
+    show(next);
+  }, [show]);
 
   return [route, navigate];
 }
