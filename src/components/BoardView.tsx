@@ -532,6 +532,10 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
   // places it: a chain opened in brief may add cards to the wall, and a pan
   // computed from the positions before that render would miss them.
   const wantCentre = useRef<Step | null>(null);
+  // Whether the walk is to open at its heading once it is drawn. Only the
+  // address opens a walk without rewriting it; every other walk is begun from
+  // the panel, or from the file inside it.
+  const wantHeading = useRef<boolean>(false);
   const showChain = useCallback((steps: Step[], index: number, replaceUrl: boolean) => {
     setPinned(null);
     setHover(null);
@@ -540,6 +544,7 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
     setStep(index);
     applied.current = keyOf(steps[index]);
     wantCentre.current = steps[index];
+    wantHeading.current = replaceUrl;
     if (replaceUrl) navigate(patchOf(steps[index]), true);
   }, [navigate]);
   useEffect(() => {
@@ -897,6 +902,25 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
     const h = el.querySelector<HTMLElement>('h1, h2, h3');
     if (h) { h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: true }); }
   }, [fileOpen]);
+  // A walk begun from the panel — Walk the chain, a string, a lead, a link in
+  // the file — redraws the panel without the control that began it: focus fell
+  // to <body>, and the next Tab could start from the top of the page. Instead
+  // the walk opens at the top of the panel, as the file does, and its heading
+  // takes focus, as a pinned card's does. Focus is taken only from inside the
+  // panel, or from <body> where the redraw dropped it: a card on the wall that
+  // holds it keeps it (walkedTo, above), and a walk the address opens leaves it
+  // where the page put it (wantHeading).
+  useEffect(() => {
+    const want = wantHeading.current;
+    wantHeading.current = false;
+    const el = panelRef.current;
+    if (!want || !chain || !el) return;
+    el.scrollTop = 0;
+    const had = document.activeElement;
+    if (had && had !== document.body && !el.contains(had)) return;
+    const h = el.querySelector<HTMLElement>('h2, h3');
+    if (h) { h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: true }); }
+  }, [chain]);
   // A hover preview must never steal the hover that produced it, so it lets the
   // pointer straight through.
   const preview = !current && !pinned && !!hover;
