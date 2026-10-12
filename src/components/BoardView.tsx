@@ -1244,7 +1244,17 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
                     boxShadow: '0 -10px 30px rgba(0,0,0,0.45), 0 ' + SHEET_TAIL + 'px 0 rgba(10,10,11,0.985)',
                     // Mid-drag a render must not yank the sheet back to its stop.
                     transform: 'translateY(' + (sheetDrag.current ? CAP.full - sheetDrag.current.h : sheetIn ? CAP.full - shown : CAP.full) + 'px)',
-                    willChange: 'transform' }),
+                    willChange: 'transform',
+                    // A control that takes keyboard focus is brought into what
+                    // the sheet shows. The browser scrolls it into the panel's
+                    // scrollport, which is the whole sheet: past the fold it hangs
+                    // below the frame's floor, clipped, and its top lies under the
+                    // handle, so a control in either place counted as in view
+                    // while the reader could not see it. The padding marks off
+                    // both, with room for the focus ring, as the header's does for
+                    // the page. A pointer's focus scrolls nothing, so a tap or a
+                    // pull is as it was.
+                    scrollPaddingTop: PEEK_H + 8, scrollPaddingBottom: CAP.full - shown + 8 }),
               overflowY: !railMode && sheet === 'peek' ? 'hidden' : (railMode ? panelContentH > PANEL_CAP : panelContentH > shown) ? 'auto' : 'hidden', overscrollBehavior: 'contain',
               touchAction: 'pan-y', WebkitOverflowScrolling: 'touch',
               pointerEvents: preview ? 'none' : 'auto',
