@@ -1,98 +1,51 @@
-import rawPeople from '../../data/people.json';
-import rawOrgs from '../../data/orgs.json';
-import rawTerms from '../../data/glossary.json';
-import type { Entity, EntityKind, Event, Graph, Org, Person, Term, ViewId } from './types';
+import { PEOPLE, ORGS, TERMS, TAG, orgById, personById, speaks, termById, wordsOf } from './names';
+import type { PersonEntity, OrgEntity, TermEntity } from './names';
+import { paperOf, papersVersion } from './papers';
+import type { Dossier, Entity, EntityKind, Event, Graph, ViewId } from './types';
 
 /* The files: persons of interest, organisations and the glossary. A card names
    an entity either by id (`people`, `orgs`, `terms`) or simply by using its name
    in the text; both count as an appearance, so a reader following a name lands
-   on every card that carries it without each one having been tagged by hand. */
+   on every card that carries it without each one having been tagged by hand.
 
-export type PersonEntity = Extract<Entity, { kind: 'person' }>;
-export type OrgEntity = Extract<Entity, { kind: 'org' }>;
-export type TermEntity = Extract<Entity, { kind: 'term' }>;
+   The lists and the rule for "uses its name" live in names.ts, where the build
+   can reach them: most of a card's words are in its papers, which the browser
+   does not hold, so the build reads every card once and files the names it
+   finds on the card itself (`named`). */
 
-export const PEOPLE: PersonEntity[] = (rawPeople.people as Person[]).map((p) => ({ ...p, kind: 'person' as const, label: p.name }));
-export const ORGS: OrgEntity[] = (rawOrgs.orgs as Org[]).map((o) => ({ ...o, kind: 'org' as const, label: o.name }));
-export const TERMS: TermEntity[] = (rawTerms.terms as Term[]).map((t) => ({ ...t, kind: 'term' as const, label: t.term }));
+export { PEOPLE, ORGS, TERMS, personById, orgById, termById, ALL_ENTITIES, entityById } from './names';
+export type { PersonEntity, OrgEntity, TermEntity } from './names';
 
-export const personById: Record<string, PersonEntity> = Object.fromEntries(PEOPLE.map((p) => [p.id, p]));
-export const orgById: Record<string, OrgEntity> = Object.fromEntries(ORGS.map((o) => [o.id, o]));
-export const termById: Record<string, TermEntity> = Object.fromEntries(TERMS.map((t) => [t.id, t]));
-
-const FIELD: Record<EntityKind, 'people' | 'orgs' | 'terms'> = { person: 'people', org: 'orgs', term: 'terms' };
 const VIEW: Record<EntityKind, ViewId> = { person: 'person', org: 'org', term: 'term' };
 
-const escapeRe = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-
-/** One regex per entity, over its name and aliases. An alias with a capital
- *  letter is matched as written (Lean, RL, Clay); an all-lowercase alias is
- *  matched case-insensitively (winter, tokens). Whole words only. */
-function patternOf(entity: Entity): RegExp[] {
-  const names = [entity.label, ...(entity.aka || [])].filter(Boolean);
-  const exact = names.filter((n) => /[A-Z]/.test(n));
-  const loose = names.filter((n) => !/[A-Z]/.test(n));
-  const parts: RegExp[] = [];
-  if (exact.length) parts.push(new RegExp('(^|[^\\p{L}\\p{N}])(' + exact.map(escapeRe).join('|') + ")(?![\\p{L}\\p{N}])", 'u'));
-  if (loose.length) parts.push(new RegExp('(^|[^\\p{L}\\p{N}])(' + loose.map(escapeRe).join('|') + ")(?![\\p{L}\\p{N}])", 'iu'));
-  return parts;
-}
-
-const patterns = new Map<string, RegExp[]>();
-const patternFor = (entity: Entity): RegExp[] => {
-  const key = entity.id + '|' + entity.kind;
-  let found = patterns.get(key);
-  if (!found) { found = patternOf(entity); patterns.set(key, found); }
-  return found;
-};
-
-/** The text of a card an entity can appear in: never its sources, whose text
- *  belongs to someone else.
- *
- *  Built once per card. It used to be rebuilt for every entity tested against
- *  it, which is 120 string joins per card and 163 cards per entity — the same
+/** The words of a card that carries its own — one a test writes — joined once
+ *  per card. They used to be joined again for every entity tested against
+ *  them, which is 120 string joins per card and 163 cards per entity — the same
  *  paragraphs concatenated some twenty thousand times to answer one page. */
 const TEXT = new WeakMap<Event, string>();
-const textOf = (event: Event): string => {
+const textOf = (event: Dossier): string => {
   const had = TEXT.get(event);
   if (had !== undefined) return had;
-  const out = [event.title, event.summary, event.why || '', ...(event.detail || [])].join('\n');
+  const out = wordsOf(event);
   TEXT.set(event, out);
   return out;
 };
-
-/* A word-bounded regex can only match where the plain substring is there, so a
-   substring test is a sound gate in front of it — and about a hundred times
-   cheaper than a unicode-mode alternation over two kilobytes of prose. Most of
-   the 120 entities are absent from most of the 163 cards, so the regex now runs
-   only where it might succeed. */
 const LOWER = new WeakMap<Event, string>();
-const lowerText = (event: Event): string => {
+const lowerText = (event: Dossier): string => {
   const had = LOWER.get(event);
   if (had !== undefined) return had;
   const out = textOf(event).toLowerCase();
   LOWER.set(event, out);
   return out;
 };
-const needles = new Map<string, string[]>();
-const needlesFor = (entity: Entity): string[] => {
-  const key = entity.id + '|' + entity.kind;
-  let found = needles.get(key);
-  if (!found) {
-    found = [entity.label, ...(entity.aka || [])].filter(Boolean).map((n) => n.toLowerCase());
-    needles.set(key, found);
-  }
-  return found;
-};
 
-/** Does a card name this entity, by tag or by text? */
-export function names(event: Event, entity: Entity): boolean {
-  const tagged = event[FIELD[entity.kind]];
+/** Does a card name this entity, by tag or by text? A filed card answers from
+ *  the names the build found in it; any other card from its own words. */
+export function names(event: Dossier, entity: Entity): boolean {
+  const tagged = event[TAG[entity.kind]];
   if (Array.isArray(tagged) && tagged.includes(entity.id)) return true;
-  const hay = lowerText(event);
-  if (!needlesFor(entity).some((n) => hay.includes(n))) return false;
-  const text = textOf(event);
-  return patternFor(entity).some((re) => re.test(text));
+  if (event.named) return (event.named[TAG[entity.kind]] || []).includes(entity.id);
+  return speaks(textOf(event), lowerText(event), entity);
 }
 
 /** Every entity a card names, grouped by kind, tagged ones first.
@@ -103,11 +56,11 @@ export function names(event: Event, entity: Entity): boolean {
  *  page is thirty cards, twice. */
 const NAMED = new WeakMap<Event, { people: PersonEntity[]; orgs: OrgEntity[]; terms: TermEntity[] }>();
 
-export function entitiesOf(event: Event): { people: PersonEntity[]; orgs: OrgEntity[]; terms: TermEntity[] } {
+export function entitiesOf(event: Dossier): { people: PersonEntity[]; orgs: OrgEntity[]; terms: TermEntity[] } {
   const had = NAMED.get(event);
   if (had) return had;
   const pick = <T extends Entity>(list: T[]): T[] => {
-    const tagged = list.filter((x) => { const t = event[FIELD[x.kind]]; return Array.isArray(t) && t.includes(x.id); });
+    const tagged = list.filter((x) => { const t = event[TAG[x.kind]]; return Array.isArray(t) && t.includes(x.id); });
     const found = list.filter((x) => !tagged.includes(x) && names(event, x));
     return [...tagged, ...found];
   };
@@ -181,9 +134,6 @@ export function byUse(graph: Graph, list: Entity[]): Entity[] {
     .map((x) => x.entity);
 }
 
-export const ALL_ENTITIES: Entity[] = [...PEOPLE, ...ORGS, ...TERMS];
-export const entityById = (kind: EntityKind, id: string): Entity | null => (kind === 'person' ? personById[id] : kind === 'org' ? orgById[id] : termById[id]) || null;
-
 /* ─── One index for the field in the header ──────────────────────────────
    The field did two different things. It filtered the page it is on by
    `title + summary + year`, and it ranked the dropdown on `summary + why +
@@ -198,12 +148,13 @@ export const entityById = (kind: EntityKind, id: string): Entity | null => (kind
    This is what a card can be found by: everything it says in its own voice,
    the numbers it quotes, the threshold it claims, the date it carries, and the
    names it tags but does not spell out. Never its sources — a card is not
-   found by the publisher of a page it cites. Built once per card and kept. */
-const INDEX = new WeakMap<Event, string>();
+   found by the publisher of a page it cites. Built once per card and kept —
+   until the papers arrive, which is when a card has more to be found by. */
+const INDEX = new WeakMap<Event, { text: string; papers: number }>();
 
-export function searchText(event: Event): string {
+export function searchText(event: Dossier): string {
   const had = INDEX.get(event);
-  if (had !== undefined) return had;
+  if (had && had.papers === papersVersion()) return had.text;
   const tagged = [
     ...(event.people || []).map((id) => personById[id]),
     ...(event.orgs || []).map((id) => orgById[id]),
@@ -212,17 +163,17 @@ export function searchText(event: Event): string {
   const text = [
     event.title,
     event.summary,
-    event.why,
-    ...(event.detail || []),
-    ...(event.figures || []).flatMap((f) => [f.label, f.value]),
+    paperOf(event, 'why'),
+    ...(paperOf(event, 'detail') || []),
+    ...(paperOf(event, 'figures') || []).flatMap((f) => [f.label, f.value]),
     event.firsts,
     String(event.year),
     event.date,
     ...tagged.flatMap((x) => [x.label, ...(x.aka || [])])
   ].filter(Boolean).join(' ').toLowerCase();
-  INDEX.set(event, text);
+  INDEX.set(event, { text, papers: papersVersion() });
   return text;
 }
 
 /** Does a card answer this query? The query is already lower-cased and trimmed. */
-export const matches = (event: Event, q: string): boolean => !q || searchText(event).includes(q);
+export const matches = (event: Dossier, q: string): boolean => !q || searchText(event).includes(q);

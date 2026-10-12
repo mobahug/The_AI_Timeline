@@ -3,6 +3,7 @@ import type { ReactNode } from 'react';
 import { events, links, projections } from '../lib/data';
 import { LEADS } from '../lib/leads';
 import { PEOPLE, ORGS, TERMS } from '../lib/files';
+import { paperOf, usePapers } from '../lib/papers';
 import { INK, MONO, SERIF, SANS, RULE, ink, shell } from '../lib/styles';
 import { Link, PageHead } from './kit';
 
@@ -16,6 +17,7 @@ const Section = ({ title, children }: { title: ReactNode; children?: ReactNode }
 );
 
 function About() {
+  usePapers();
   return (
     <div style={shell('read')}>
       <PageHead
@@ -83,7 +85,7 @@ function About() {
           {events.length - projections.length} entries are record, {events.filter((e) => !e.future && e.url).length} of
           them linking to a public source. {projections.length} are scenarios, drawn on manila
           stock with a dashed edge and a confidence label — Likely, Uncertain or Speculative.
-          {' '}{projections.filter((e) => e.why).length} carry the board's reasoning and{' '}
+          {' '}{projections.filter((e) => paperOf(e, 'why')).length} carry the board's reasoning and{' '}
           {projections.filter((e) => e.url).length} carry a citation. They are scenarios about mechanisms, not forecasts about
           dates. Where a scenario names a year, treat the year as a placeholder and the
           mechanism as the claim.

@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { buildGraph } from '../src/lib/data';
 import { matches, searchText, PEOPLE, appearancesOf } from '../src/lib/files';
+import { paperOf } from '../src/lib/papers';
 
 /* One index for the field in the header: what the page filters to and what the
    dropdown ranks are the same set of words. Before this the field read title +
@@ -21,8 +22,8 @@ describe('the one search index', () => {
   });
 
   it('reads the paragraphs, not only the summary', () => {
-    const withDetail = graph.all.find((e) => (e.detail || []).length > 1)!;
-    const word = (withDetail.detail as string[])[1].split(/\s+/).find((w) => w.length > 9)!;
+    const withDetail = graph.all.find((e) => (paperOf(e, 'detail') || []).length > 1)!;
+    const word = (paperOf(withDetail, 'detail') as string[])[1].split(/\s+/).find((w) => w.length > 9)!;
     expect(find(word).map((e) => e.id)).toContain(withDetail.id);
   });
 

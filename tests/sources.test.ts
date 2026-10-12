@@ -1,10 +1,12 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { buildGraph, sourcesOf, sourceStrength, SOURCE_KINDS } from '../src/lib/data';
+import { paperOf } from '../src/lib/papers';
 import type { Event, EventRaw, SourceRaw } from '../src/lib/types';
 
 const graph = buildGraph(null as unknown as undefined);
 const record = graph.all.filter((e) => !e.future);
+const listed = (e: Event) => paperOf(e, 'sources');
 const raw = JSON.parse(readFileSync(new URL('../data/events.json', import.meta.url), 'utf8')) as EventRaw[];
 const withArray = raw.filter((e) => Array.isArray(e.sources) && e.sources.length) as (EventRaw & { sources: SourceRaw[] })[];
 
@@ -73,7 +75,7 @@ describe('a source cannot claim support without a quote', () => {
 
 describe('sourcesOf gives one shape for migrated and unmigrated entries alike', () => {
   it('normalises a legacy source + url pair', () => {
-    const legacy = record.find((e) => !Array.isArray(e.sources) && e.url);
+    const legacy = record.find((e) => !Array.isArray(listed(e)) && e.url);
     expect(legacy).toBeTruthy();
     const list = sourcesOf(legacy);
     expect(list.length).toBe(1);
@@ -83,7 +85,7 @@ describe('sourcesOf gives one shape for migrated and unmigrated entries alike', 
   });
 
   it('returns nothing for an entry with no source at all', () => {
-    const none = record.find((e) => !e.url && !Array.isArray(e.sources));
+    const none = record.find((e) => !e.url && !Array.isArray(listed(e)));
     if (none) expect(sourcesOf(none)).toEqual([]);
     expect(sourcesOf(null)).toEqual([]);
   });
@@ -97,11 +99,11 @@ describe('sourcesOf gives one shape for migrated and unmigrated entries alike', 
 
 describe('sourceStrength reports what is actually there', () => {
   it('calls an entry quoted only when a source carries a verbatim quote', () => {
-    const migrated = record.find((e) => Array.isArray(e.sources) && e.sources.some((s) => s.quote && s.supports === 'claim'));
+    const migrated = record.find((e) => (listed(e) || []).some((s) => s.quote && s.supports === 'claim'));
     expect(sourceStrength(migrated).state).toBe('quoted');
     expect(sourceStrength(migrated).supporting).toBeGreaterThan(0);
 
-    const legacy = record.find((e) => !Array.isArray(e.sources) && e.url);
+    const legacy = record.find((e) => !Array.isArray(listed(e)) && e.url);
     expect(sourceStrength(legacy).state).toBe('cited');
     expect(sourceStrength(legacy).supporting).toBe(0);
 

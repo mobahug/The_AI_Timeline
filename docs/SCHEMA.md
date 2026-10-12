@@ -30,6 +30,10 @@ scale is the ground that year's dated incidents happen on, not an event on a
 day. Two cards in one year that both carry a date are written in that order, and
 a string never runs backwards inside a year: `npm test` checks both.
 
+`why`, `detail`, `figures` and `sources` are the card's papers. The build serves them
+apart from the rest of the card (`scripts/split-events.ts`) and the site reads them
+only through `src/lib/papers.ts`; nothing changes in how they are written.
+
 Each source: `{ kind, publisher, title, url, date (YYYY-MM-DD), quote, supports }`.
 `kind` is one of `primary, paper, article, video, podcast, interview, encyclopedia`.
 A source only `supports: "claim"` when it carries a verbatim `quote`; otherwise it is context.

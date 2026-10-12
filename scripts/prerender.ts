@@ -11,6 +11,7 @@ import { mkdir, readFile, readdir, writeFile, rm } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { VIEWS } from '../src/lib/views';
+import type { Carried } from '../src/lib/papers';
 import type { EventRaw, Finding, Lead, Org, PageMeta, Person, Route, Term, WikiCache, WikiPage } from '../src/lib/types';
 import { SHARE_H, SHARE_W, writeShareImages } from './share-images';
 import type { ShareImage } from './share-images';
@@ -36,7 +37,7 @@ const fallbacks = JSON.parse(await readFile(join(root, 'data', 'image-fallbacks.
 const NOW = JSON.parse(await readFile(join(root, 'data', 'threads.json'), 'utf8')).span.now as number;
 
 /** The built SSR bundle's entry: what src/entry-server.tsx exports. */
-interface Rendered { html: string; route: Route; meta: PageMeta; media: WikiCache }
+interface Rendered { html: string; route: Route; meta: PageMeta; media: WikiCache; papers: Carried | null }
 const { render } = await import(pathToFileURL(join(ssrDir, 'entry-server.js')).href) as { render: (pathname: string, cache: WikiCache) => Rendered };
 
 const esc = (s: unknown): string => String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -125,7 +126,7 @@ function imageFor(route: Route): ShareImage {
   return own || shares.site;
 }
 
-function page(route: Route, html: string, meta: PageMeta, media: WikiCache): string {
+function page(route: Route, html: string, meta: PageMeta, media: WikiCache, papers: Carried | null): string {
   const url = ORIGIN + BASE + routeToPath(route);
   const share = imageFor(route);
   const image = ORIGIN + BASE + share.path;
@@ -149,7 +150,11 @@ function page(route: Route, html: string, meta: PageMeta, media: WikiCache): str
     + '    <link rel="canonical" href="' + esc(url) + '" />');
   const inline = Object.keys(media).length ? '\n    <script id="wiki-inline" type="application/json">' + JSON.stringify(media).replace(/</g, '\\u003c') + '</script>' : '';
   const structured = ld.length ? '\n    <script type="application/ld+json">' + JSON.stringify(ld).replace(/</g, '\\u003c') + '</script>' : '';
-  out = out.replace('</head>', structured + inline + '\n  </head>');
+  // The papers this page printed — a dossier's reading, file, figures and
+  // sources; the readings on the horizon — so the hydration reads them here
+  // rather than from a request it would have to wait for (src/lib/papers.ts).
+  const filed = papers ? '\n    <script id="papers-inline" type="application/json">' + JSON.stringify(papers).replace(/</g, '\\u003c') + '</script>' : '';
+  out = out.replace('</head>', structured + inline + filed + '\n  </head>');
   // The front page's headline is set half in the italic, the largest type on
   // the site, and the italic was the one face not asked for in advance: the
   // headline drew in the fallback and rewrapped when the face arrived.
@@ -201,7 +206,7 @@ if (!Object.keys(BOARD_MEDIA).length) throw new Error('prerender: no photographs
 
 let n = 0;
 for (const path of routes) {
-  const { html, route, meta, media: used } = render(BASE + path, cache);
+  const { html, route, meta, media: used, papers } = render(BASE + path, cache);
   // A page that touched many entries — the archive, the plates — only needs
   // their photographs; the extracts are for a card's own page.
   const media: WikiCache = route.view === 'board'
@@ -209,7 +214,7 @@ for (const path of routes) {
     : Object.keys(used).length > 12
       ? Object.fromEntries(Object.entries(used).map(([k, v]) => [k, { img: v.img || '' } as WikiPage]))
       : used;
-  const out = page(route, html, meta, media);
+  const out = page(route, html, meta, media, papers);
   const dir = join(dist, path);
   await mkdir(dir, { recursive: true });
   await writeFile(join(dir, 'index.html'), out);

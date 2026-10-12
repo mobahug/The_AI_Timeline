@@ -4,6 +4,7 @@ import type { Adjacent, Event, Graph, Media, Step } from '../lib/types';
 import { stringsOf } from '../lib/data';
 import { leadById, leadsOf } from '../lib/leads';
 import { entitiesOf } from '../lib/files';
+import { paperOf, usePapers } from '../lib/papers';
 import { INK, MONO, RED, RED_LIT, SANS, SERIF, FADE, PHOTO_FILTER, frame, ink, micro, sourceLink } from '../lib/styles';
 import { Btn, CardTriple, Chips, Claim, CopyLink, Eyebrow, Figures, First, Reading } from './kit';
 import EvidenceStrip from './EvidenceStrip';
@@ -52,6 +53,9 @@ export interface CluePanelProps {
 }
 
 export default function CluePanel({ graph, chain: walked, step, current, focus, media, full, nested, onStep, onJump, onExit, onOpenChain, onOpenCard, onOpenClue, onOpenLead, onOpenFile }: CluePanelProps) {
+  // A card's reading, quote and figures are its papers; the board sends for
+  // them as it opens (boardChunk.ts), and the panel draws again when they land.
+  usePapers();
   const chain = walked || [];
   /* Three lists inside this panel scroll on their own. In the rail that is
      right: the panel has a frame, and a twelve-rung ladder should not push the
@@ -181,6 +185,7 @@ export default function CluePanel({ graph, chain: walked, step, current, focus, 
   if (focus) {
     const shot = media(focus);
     const { into, outOf } = stringsOf(graph, focus.id);
+    const figures = full ? paperOf(focus, 'figures') || [] : [];
     return (
       <div style={shell}>
         <div style={{ display: 'flex', flexWrap: 'wrap', width: '100%', animation: FADE }}>
@@ -202,7 +207,7 @@ export default function CluePanel({ graph, chain: walked, step, current, focus, 
               <div style={{ font: '400 13.5px/1.6 ' + SANS, color: ink(4), maxWidth: '64ch', textWrap: 'pretty' }}>{focus.summary}</div>
               <Reading event={focus} style={{ marginTop: 2 }} />
               <EvidenceStrip event={focus} media={media} compact />
-              {full && Array.isArray(focus.figures) && focus.figures.length > 0 && <Figures figures={focus.figures} style={{ marginTop: 4 }} />}
+              {figures.length > 0 && <Figures figures={figures} style={{ marginTop: 4 }} />}
               {full && (() => { const n = entitiesOf(focus); return <Chips items={[...n.people, ...n.orgs, ...n.terms]} label="Names" />; })()}
               {(() => {
                 const on = leadsOf(focus.id);

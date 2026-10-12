@@ -1,9 +1,10 @@
-import rawEvents from '../../data/events.json';
+import rawEvents from '../../data/events.json?cards';
 import rawLinks from '../../data/links.json';
 import meta from '../../data/threads.json';
 import { LEAD_CARD_IDS } from './leads';
+import { paperOf } from './papers';
 import type {
-  Accent, Adjacent, Category, Chain, Edge, Era, Event, EventRaw, ForwardLedger, Graph, Horizon, HorizonLedger,
+  Accent, Adjacent, Category, Chain, Dossier, Edge, Era, Event, EventHead, EventRaw, ForwardLedger, Graph, Horizon, HorizonLedger,
   LinkRaw, LoadRow, Parent, Roads, Hop, Source, SourceStrength, Standing, Step, Strand, Thread, ThreadRow, EraGroup
 } from './types';
 
@@ -27,9 +28,11 @@ export const catLabel = (id: string): string => (catById[id] ? catById[id].label
 export const catHue = (id: string): number => (catById[id] ? catById[id].hue : 250);
 export const threadOf = (id: string): string => (catById[id] ? catById[id].thread : THREADS[0].id);
 
-const raise = (e: EventRaw): Event => ({ ...e, thread: threadOf(e.category), future: e.year > NOW });
+// The cards come without their papers — see papers.ts. A card the graph is
+// given beside the file (`buildGraph`'s `extra`) keeps its own.
+const raise = (e: EventHead | EventRaw): Event => ({ ...e, thread: threadOf(e.category), future: e.year > NOW });
 
-export const events: Event[] = (rawEvents as EventRaw[]).map(raise);
+export const events: Event[] = rawEvents.map(raise);
 
 export const links: LinkRaw[] = rawLinks as LinkRaw[];
 
@@ -402,9 +405,10 @@ export function loadBearing(graph: Graph, top = 6): LoadRow[] {
 
 export const SOURCE_KINDS: string[] = ['primary', 'paper', 'article', 'video', 'podcast', 'interview', 'encyclopedia'];
 
-export function sourcesOf(event: Event | null | undefined): Source[] {
+export function sourcesOf(event: Dossier | null | undefined): Source[] {
   if (!event) return [];
-  const listed = Array.isArray(event.sources) ? event.sources : [];
+  const written = paperOf(event, 'sources');
+  const listed = Array.isArray(written) ? written : [];
   if (listed.length) {
     return listed.map((s): Source => ({
       kind: s.kind || 'article',
@@ -428,7 +432,7 @@ export function sourcesOf(event: Event | null | undefined): Source[] {
 }
 
 /** How well an entry is actually sourced, in terms a reader can check. */
-export function sourceStrength(event: Event | null | undefined): SourceStrength {
+export function sourceStrength(event: Dossier | null | undefined): SourceStrength {
   const list = sourcesOf(event);
   const claim = list.filter((s) => s.supports === 'claim');
   return {

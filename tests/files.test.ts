@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { PEOPLE, ORGS, TERMS, ALL_ENTITIES, byUse, coOccurring, names, entitiesOf, appearancesOf, entityById } from '../src/lib/files';
 import { buildGraph, events } from '../src/lib/data';
-import type { Entity, Event } from '../src/lib/types';
+import type { Dossier, Entity } from '../src/lib/types';
 
 const graph = buildGraph(null as unknown as undefined);
 const kebab = /^[a-z0-9]+(-[a-z0-9]+)*$/;
@@ -36,15 +36,15 @@ describe('the files', () => {
 
   it('finds a name by tag and by text, whole words only, and never in a source', () => {
     const hinton = entityById('person', 'geoffrey-hinton') as Entity;
-    expect(names({ title: 'Hinton leaves Google', summary: '', why: '' } as Event, hinton)).toBe(true);
-    expect(names({ title: 'x', summary: 'Hintonism is not a word', why: '' } as Event, hinton)).toBe(false);
-    expect(names({ title: 'x', summary: '', why: '', people: ['geoffrey-hinton'] } as Event, hinton)).toBe(true);
-    expect(names({ title: 'x', summary: '', why: '', sources: [{ quote: 'Hinton said' }] } as Event, hinton)).toBe(false);
+    expect(names({ title: 'Hinton leaves Google', summary: '', why: '' } as Dossier, hinton)).toBe(true);
+    expect(names({ title: 'x', summary: 'Hintonism is not a word', why: '' } as Dossier, hinton)).toBe(false);
+    expect(names({ title: 'x', summary: '', why: '', people: ['geoffrey-hinton'] } as Dossier, hinton)).toBe(true);
+    expect(names({ title: 'x', summary: '', why: '', sources: [{ quote: 'Hinton said' }] } as Dossier, hinton)).toBe(false);
     const lean = entityById('term', 'formal-verification') as Entity;
-    expect(names({ title: 'x', summary: 'checked in Lean', why: '' } as Event, lean)).toBe(true);
-    expect(names({ title: 'x', summary: 'a lean startup', why: '' } as Event, lean)).toBe(false);
+    expect(names({ title: 'x', summary: 'checked in Lean', why: '' } as Dossier, lean)).toBe(true);
+    expect(names({ title: 'x', summary: 'a lean startup', why: '' } as Dossier, lean)).toBe(false);
     const winter = entityById('term', 'ai-winter') as Entity;
-    expect(names({ title: 'x', summary: 'The first AI Winter', why: '' } as Event, winter)).toBe(true);
+    expect(names({ title: 'x', summary: 'The first AI Winter', why: '' } as Dossier, winter)).toBe(true);
   });
 
   it('leaves few names without a card, and gives the busiest their due', () => {

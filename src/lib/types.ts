@@ -57,12 +57,36 @@ export interface EventRaw {
   wikiTitle?: string;
 }
 
-/** A card on the board: the raw entry plus what is derived from it. */
-export interface Event extends EventRaw {
+/* ─── Papers ─────────────────────────────────────────────────────────────
+   A card on the wall is its head: the year, the title, the summary, the tags,
+   the page it is cited to. Its papers are what a reader opens it for — the
+   reading (`why`), the file (`detail`), the figures and the sources — and they
+   are two thirds of what data/events.json weighs, while most pages print none
+   of them. The build files them apart (scripts/split-events.ts) and they are
+   read through src/lib/papers.ts, never off the card. */
+export const PAPER_FIELDS = ['why', 'detail', 'figures', 'sources'] as const;
+export type PaperField = typeof PAPER_FIELDS[number];
+/** A card's papers, as written. */
+export type Papers = Pick<EventRaw, PaperField>;
+
+/** The names a card's own words use that its tags do not, by tag field. */
+export type Named = Partial<Record<'people' | 'orgs' | 'terms', string[]>>;
+
+/** A card as the build files it for the wall: everything but its papers, and
+ *  the names its words use that its tags do not — found once, over the whole
+ *  card, papers and all, at build time. */
+export type EventHead = Omit<EventRaw, PaperField> & { named?: Named };
+
+/** A card on the board: its head plus what is derived from it. */
+export interface Event extends EventHead {
   thread: string;
   future: boolean;
   landmark?: boolean;
 }
+
+/** A card with its papers in hand: one a test writes, or one the graph is
+ *  given beside the file. Read as written; a filed card is read from papers.ts. */
+export type Dossier = Event & Papers;
 
 /** A string, as written in data/links.json. */
 export interface LinkRaw { from: string; to: string; claim: string; note?: string }

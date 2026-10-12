@@ -20,6 +20,7 @@ import GlossaryView from './components/GlossaryView';
 import EntityView from './components/EntityView';
 import { buildGraph, events as canonEvents, forwardLedger, FIRST, NOW } from './lib/data';
 import { matches } from './lib/files';
+import { papersFor, usePapers } from './lib/papers';
 import { useMedia } from './lib/wiki';
 import { useRoute } from './lib/url';
 import { useMode } from './lib/mode';
@@ -41,7 +42,10 @@ const isBrowser = typeof window !== 'undefined';
 export interface AppProps { initialRoute?: Route }
 
 export default function App({ initialRoute }: AppProps) {
-  const [route, navigate] = useRoute(initialRoute);
+  // A turn to a page whose papers are not here waits for them (papers.ts),
+  // and the page it leaves says it is busy until they come.
+  const [route, navigate, turning] = useRoute(initialRoute, papersFor);
+  const papers = usePapers();
   const Board = boardIfLoaded() || LazyBoardView;
   const graph = useMemo(() => buildGraph(), []);
   const media = useMedia(graph.all);
@@ -54,12 +58,14 @@ export default function App({ initialRoute }: AppProps) {
 
   // The field and the dropdown read the same index — see `searchText` in
   // files.ts — so the count in the header is a count of what the page shows.
+  // A search reads the cards' papers, and is read again when they arrive; with
+  // no search the list does not change then, so it is not rebuilt.
   const items = useMemo(() => {
     const q = route.query.trim().toLowerCase();
     return graph.all.filter((e) =>
       (route.category === 'all' || e.category === route.category) && matches(e, q)
     );
-  }, [graph.all, route.category, route.query]);
+  }, [graph.all, route.category, route.query, route.query ? papers : 0]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // In brief the board shows its landmarks — featured cards, rungs on a lead,
   // the ends of every case-noted string — plus whatever the reader has open;
@@ -87,7 +93,8 @@ export default function App({ initialRoute }: AppProps) {
   // Every route carries its own title, description and canonical URL, so a
   // shared card or finding is not just "The AI Timeline" to a crawler or a
   // browser tab. The prerenderer writes the same meta into each page's HTML.
-  useEffect(() => { applyMeta(metaFor(route, graph)); }, [route, graph]);
+  // A card's description carries its reading, one of its papers.
+  useEffect(() => { applyMeta(metaFor(route, graph)); }, [route, graph, papers]);
 
   // Moving to a different page should start it at the top — or at the section
   // the address names. Without this the browser keeps the previous page's
@@ -177,7 +184,7 @@ export default function App({ initialRoute }: AppProps) {
       <Header route={route} navigate={navigate} year={year} barRef={barRef} status={status} graph={graph} />
 
       <ErrorBoundary resetKey={view + '|' + (route.finding || '') + '|' + (route.id || '')}>
-        <main id="main" tabIndex={-1} style={{ outline: 'none' }}>
+        <main id="main" tabIndex={-1} aria-busy={turning || undefined} style={{ outline: 'none' }}>
           {view === 'landing' && route.missing && <Missing path={route.missing} graph={graph} />}
           {view === 'landing' && <Landing />}
           {view === 'about' && <About />}

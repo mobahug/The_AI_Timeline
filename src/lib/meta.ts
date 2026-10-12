@@ -2,6 +2,7 @@ import { FIRST, LAST } from './data';
 import { findingByNumber, spanOf } from './spine';
 import { leadById } from './leads';
 import { entityById } from './files';
+import { paperOf } from './papers';
 import { viewById } from './views';
 import { hrefFor } from './url';
 import type { Graph, PageMeta, Route } from './types';
@@ -49,7 +50,10 @@ function describe(route: Route, graph?: Graph | null): { title: string; descript
   }
   if ((route.view === 'card' || route.view === 'board') && route.id && graph) {
     const e = graph.index[route.id];
-    if (e) return { title: e.year + ' · ' + e.title + ' · ' + SITE, description: e.summary + (e.why ? ' ' + e.why : '') };
+    if (e) {
+      const why = paperOf(e, 'why');
+      return { title: e.year + ' · ' + e.title + ' · ' + SITE, description: e.summary + (why ? ' ' + why : '') };
+    }
   }
   if (route.view === 'finding' && route.finding) {
     const f = findingByNumber(route.finding);

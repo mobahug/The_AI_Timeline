@@ -11,7 +11,10 @@
    sitemap — listed for crawlers as a fixed address (parametrised pages are
              enumerated from the data by the sitemap and the prerenderer)
    shell   — the page column: 'read' for one card or the essay, 'route' for the
-             line and the open file, 'wide' for the board, the archive, the landing */
+             line and the open file, 'wide' for the board, the archive, the landing
+   papers  — the page prints cards' papers (their readings, files, figures,
+             sources), so a turn to it waits for them unless the page was
+             printed with them — see src/lib/papers.ts */
 
 import type { Route, ViewId } from './types';
 
@@ -26,6 +29,7 @@ export interface View {
   shell: Shell;
   title?: string;
   description?: string;
+  papers?: boolean;
 }
 
 export const VIEWS: View[] = [
@@ -33,17 +37,17 @@ export const VIEWS: View[] = [
   { id: 'line', path: 'line', label: 'The line', tab: true, sitemap: true, shell: 'route',
     title: 'The line',
     description: 'How a machine that could not add became something governments argue about — the order it happened in, and where the trail goes cold.' },
-  { id: 'finding', path: 'line/:finding', parent: 'line', sitemap: false, shell: 'route' },
-  { id: 'case', path: 'case', parent: 'line', sitemap: true, shell: 'route',
+  { id: 'finding', path: 'line/:finding', parent: 'line', sitemap: false, shell: 'route', papers: true },
+  { id: 'case', path: 'case', parent: 'line', sitemap: true, shell: 'route', papers: true,
     title: 'The case as it stands',
     description: 'Where the board stands, the road here, and what the case does not do — derived from the data.' },
-  { id: 'horizon', path: 'horizon', parent: 'line', sitemap: true, shell: 'route',
+  { id: 'horizon', path: 'horizon', parent: 'line', sitemap: true, shell: 'route', papers: true,
     title: 'The horizon',
     description: 'The forward half of the board as three horizons: scenarios, not forecasts.' },
   { id: 'board', path: 'board', label: 'The board', tab: true, sitemap: true, shell: 'wide',
     title: 'The board',
     description: 'Photo cards, string connections, and a walkthrough that follows each causal chain clue by clue.' },
-  { id: 'card', path: 'card/:id', parent: 'board', sitemap: false, shell: 'read' },
+  { id: 'card', path: 'card/:id', parent: 'board', sitemap: false, shell: 'read', papers: true },
   { id: 'leads', path: 'leads', label: 'The leads', tab: true, sitemap: true, shell: 'route',
     title: 'The leads',
     description: 'The lines of inquiry: how far machines got at mathematics, at games, at gaming their own tests, and how cheap the answers became — one rung at a time, on the record.' },
@@ -66,7 +70,7 @@ export const VIEWS: View[] = [
     title: 'The glossary',
     description: 'The terms the board uses, defined in place — transformer, scaling law, reward hacking, test-time compute — each with the cards it turns up on.' },
   { id: 'term', path: 'term/:id', parent: 'files', sitemap: false, shell: 'read' },
-  { id: 'about', path: 'about', label: 'About', sitemap: true, shell: 'read',
+  { id: 'about', path: 'about', label: 'About', sitemap: true, shell: 'read', papers: true,
     title: 'About',
     description: 'How this board works, what a string means, what it does not claim, and the licence it is published under.' }
 ];

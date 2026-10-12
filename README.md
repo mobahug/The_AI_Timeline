@@ -80,6 +80,14 @@ count, not a year.
 - `data/threads.json` — the span of the board, threads (board rows), categories, eras
 - `data/spine.json` — the findings: the numbered stretches of years that make the line
 
+A card is written in one place, but the browser reads it in two parts. Its head —
+year, title, summary, tags, the link it is cited to — is in the main bundle, with the
+names its words use worked out at build time. Its papers — the reading, the file, the
+figures and the sources, two thirds of `events.json` — are a chunk of their own,
+fetched when a page needs them: a dossier, the board's panel, the search. Every
+prerendered page carries the papers it prints, so it hydrates without waiting for
+them. See `scripts/split-events.ts` and `src/lib/papers.ts`.
+
 See [docs/SCHEMA.md](docs/SCHEMA.md) for the field reference. The board is kept by
 its author; it is not open to outside contribution, and the licence below says why.
 

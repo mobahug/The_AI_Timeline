@@ -4,6 +4,7 @@ import { accent, catLabel, whenOf } from '../lib/data';
 import { hrefFor, resolve } from '../lib/url';
 import type { Navigate } from '../lib/url';
 import { useMode } from '../lib/mode';
+import { paperOf, usePapers } from '../lib/papers';
 import { absolute, copyText } from '../lib/dom';
 import {
   INK, MONO, SANS, SERIF, STRING_INK, RULE, ROW_RULE, DASHED_RULE, DASHED_ROW, GUTTER,
@@ -137,9 +138,12 @@ export function CardTriple({ event, size = 'panel', as: As = 'h2', showTag = tru
   );
 }
 
-/** The author's reading of a card — its `why`. */
-export const Reading = ({ event, size = 'md', maxWidth = '52ch', style }: { event: Event; size?: 'md' | 'lg'; maxWidth?: number | string; style?: CSSProperties }) =>
-  event.why ? <p style={{ ...reading(event.category, accent, size), maxWidth, ...style }}>{event.why}</p> : null;
+/** The author's reading of a card — its `why`, one of its papers. */
+export function Reading({ event, size = 'md', maxWidth = '52ch', style }: { event: Event; size?: 'md' | 'lg'; maxWidth?: number | string; style?: CSSProperties }) {
+  usePapers();
+  const why = paperOf(event, 'why');
+  return why ? <p style={{ ...reading(event.category, accent, size), maxWidth, ...style }}>{why}</p> : null;
+}
 
 /* ─── Structure ──────────────────────────────────────────────────────────── */
 

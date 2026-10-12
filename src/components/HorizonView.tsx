@@ -1,5 +1,6 @@
 import React from 'react';
 import { ERAS, HORIZONS, NOW, THREADS, catLabel, fade, horizonLedger, forwardLedger } from '../lib/data';
+import { paperOf, usePapers } from '../lib/papers';
 import { INK, RED, SANS, SERIF, DASHED_RULE, DASHED_ROW, badge, ink, micro, shell } from '../lib/styles';
 import {
   Btn, CardTriple, Claim, Empty, Eyebrow, Ledger, Link, NavRow, PageHead, Prose, Reading, Ref, Section
@@ -136,7 +137,8 @@ function HorizonView({ items, graph, route, navigate, onOpen }: HorizonViewProps
 
 /* One scenario: what was drawn behind it, the card itself, and the arithmetic. */
 function Strand({ event, strand, graph, onOpen }: { event: Event; strand: StrandOf; graph: Graph; onOpen: (id: string) => void }) {
-  const why = event.why;
+  usePapers();
+  const why = paperOf(event, 'why');
 
   return (
     <article

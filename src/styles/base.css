@@ -84,6 +84,9 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
 .ix-door:hover { border-color: rgba(243, 240, 234, 0.28) !important; background-color: rgba(243, 240, 234, 0.06) !important; }
 .ix-door:active { background-color: rgba(243, 240, 234, 0.09) !important; }
 .ix-ref:hover { text-decoration: underline !important; text-decoration-style: dotted !important; text-decoration-color: rgba(243, 240, 234, 0.45) !important; text-underline-offset: 0.16em; }
+/* A turn held for the papers of the page it goes to (src/lib/papers.ts): the
+   page stays as it was until they come, and says it is busy. */
+main[aria-busy="true"], main[aria-busy="true"] * { cursor: progress; }
 /* The grab surfaces: the board and the sheet's handle. */
 .grab { cursor: grab; }
 .grab:active, .grab[data-grabbing="true"] { cursor: grabbing; }

@@ -97,7 +97,12 @@ export const resolve = (prev: Route, patch: RoutePatch): Route => (patch.view ? 
 
 export type Navigate = (patch: RoutePatch, replace?: boolean) => void;
 
-export function useRoute(initial?: Route): [Route, Navigate] {
+/** What a turn from one route to the next must wait for, if anything — for
+ *  this site, the papers of the page it turns to (`papersFor` in papers.ts). */
+export type Wait = (next: Route, prev: Route) => Promise<unknown> | null;
+
+/** The route, the way to change it, and whether a turn is waiting to happen. */
+export function useRoute(initial?: Route, wait?: Wait): [Route, Navigate, boolean] {
   const [route, setRoute] = useState<Route>(() => initial || read());
   // The route a patch is laid over: the last one asked for, which is the one on
   // screen except in the moment before React draws it. `navigate` used to read
@@ -111,6 +116,10 @@ export function useRoute(initial?: Route): [Route, Navigate] {
     latest.current = next;
     setRoute(next);
   }, []);
+  // Every navigation takes a ticket. A turn that had to wait goes ahead only if
+  // nothing was asked for in the meantime — a later click, or Back.
+  const ticket = useRef(0);
+  const [held, setHeld] = useState(false);
 
   useEffect(() => {
     // An old-form or unknown address is rewritten to its path, quietly.
@@ -124,12 +133,12 @@ export function useRoute(initial?: Route): [Route, Navigate] {
     // it before React has rendered the page it belongs to.
     if ('scrollRestoration' in window.history) window.history.scrollRestoration = 'manual';
     // Going back lands where the reader left, not at the top of the page.
-    const onPop = () => show({ ...read(), pop: (window.history.state && window.history.state.y) || 0 });
+    const onPop = () => { ticket.current += 1; setHeld(false); show({ ...read(), pop: (window.history.state && window.history.state.y) || 0 }); };
     window.addEventListener('popstate', onPop);
     return () => window.removeEventListener('popstate', onPop);
   }, [show]);
 
-  const navigate = useCallback<Navigate>((patch, replace) => {
+  const go = useCallback<Navigate>((patch, replace) => {
     const next: Route = { ...resolve(latest.current, patch), pop: 0 };
     delete next.legacy;
     delete next.mode;
@@ -145,5 +154,15 @@ export function useRoute(initial?: Route): [Route, Navigate] {
     show(next);
   }, [show]);
 
-  return [route, navigate];
+  const navigate = useCallback<Navigate>((patch, replace) => {
+    const turn = ++ticket.current;
+    const until = wait ? wait(resolve(latest.current, patch), latest.current) : null;
+    setHeld(!!until);
+    if (!until) { go(patch, replace); return; }
+    // Whether or not what it waited for came, the turn goes ahead.
+    const ahead = () => { if (turn === ticket.current) { setHeld(false); go(patch, replace); } };
+    until.then(ahead, ahead);
+  }, [go, wait]);
+
+  return [route, navigate, held];
 }

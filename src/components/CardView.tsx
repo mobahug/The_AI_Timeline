@@ -8,6 +8,7 @@ import { bearingOn, splitSentences } from '../lib/wiki';
 import { findingFor } from '../lib/spine';
 import { leadsOf } from '../lib/leads';
 import { entitiesOf } from '../lib/files';
+import { paperOf, usePapers } from '../lib/papers';
 import { INK, MONO, SANS, SERIF, STRING_INK, RULE, ROW_RULE, PHOTO_FILTER, frame, ink, micro, shell } from '../lib/styles';
 import { Brief, Btn, CardTriple, Chips, Claim, CopyLink, Credit, Disclosure, Eyebrow, Figures, First, Full, FullOnly, Gap, Link, NavRow, Quote, Reading, Ref, Section } from './kit';
 import type { NavItem } from './kit';
@@ -92,7 +93,9 @@ function CardView({ graph, route, media, embedded }: CardViewProps) {
   // the panel is the frame, and the board is the way out.
   const frameStyle = embedded ? { padding: '0 clamp(14px,3vw,22px) 40px' } : shell('read');
   // Every hook before the first return, so an unknown id followed by a known
-  // one renders the same hooks in the same order.
+  // one renders the same hooks in the same order. Most of a dossier is its
+  // card's papers, so it draws again when they arrive.
+  usePapers();
   const event = route.id ? graph.index[route.id] : null;
   if (!event) {
     return (
@@ -117,8 +120,8 @@ function CardView({ graph, route, media, embedded }: CardViewProps) {
   const origins = otherOrigins(roads);
   const finding = findingFor(event.year);
   const tone = accent(event.category, 0);
-  const detail = Array.isArray(event.detail) ? event.detail : [];
-  const figures = Array.isArray(event.figures) ? event.figures : [];
+  const detail = paperOf(event, 'detail') || [];
+  const figures = paperOf(event, 'figures') || [];
   const names = entitiesOf(event);
   const onLeads = leadsOf(event.id);
   // Species-style: the one source the entry is based on, named up front.

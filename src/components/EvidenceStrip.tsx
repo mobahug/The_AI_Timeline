@@ -2,6 +2,7 @@ import React from 'react';
 import type { CSSProperties } from 'react';
 import type { Event, Media } from '../lib/types';
 import { sourcesOf } from '../lib/data';
+import { usePapers } from '../lib/papers';
 import { bearingOn } from '../lib/wiki';
 import { MONO, SERIF, ink } from '../lib/styles';
 import { Eyebrow, Quote, Credit, Disclosure, Gap } from './kit';
@@ -31,6 +32,8 @@ import { Eyebrow, Quote, Credit, Disclosure, Gap } from './kit';
 export interface EvidenceStripProps { event: Event | null | undefined; media?: Media | null; compact?: boolean }
 
 export default function EvidenceStrip({ event, media, compact }: EvidenceStripProps) {
+  // The hand-picked quote is on the card's sources, one of its papers.
+  usePapers();
   if (!event || event.future) return null;
 
   const shot = media ? media(event) : null;

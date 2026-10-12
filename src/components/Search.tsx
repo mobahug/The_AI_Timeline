@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { catLabel } from '../lib/data';
 import { LEADS } from '../lib/leads';
 import { ALL_ENTITIES, searchText } from '../lib/files';
+import { loadPapers, usePapers } from '../lib/papers';
 import { INK, MONO, SANS, SERIF, ROW_RULE, ink, micro } from '../lib/styles';
 import { Link, useNav } from './kit';
 import type { CSSProperties } from 'react';
@@ -70,7 +71,10 @@ export default function SearchBox({ graph, value, onChange, narrow, id = 'site-s
   const [cursor, setCursor] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
   const boxRef = useRef<HTMLDivElement>(null);
-  const groups = useMemo(() => searchAll(graph, value), [graph, value]);
+  // A card is found by its papers too, which the field sends for when it takes
+  // the focus; the list is drawn again when they land.
+  const papers = usePapers();
+  const groups = useMemo(() => searchAll(graph, value), [graph, value, papers]); // eslint-disable-line react-hooks/exhaustive-deps
   const flat = useMemo(() => groups.flatMap((g) => g.items), [groups]);
 
   // ⌘K / Ctrl+K anywhere puts the cursor in the field — the one a reader can
@@ -115,7 +119,7 @@ export default function SearchBox({ graph, value, onChange, narrow, id = 'site-s
         ref={inputRef}
         value={value}
         onChange={(e) => { onChange(e.target.value); setOpen(true); }}
-        onFocus={() => setOpen(true)}
+        onFocus={() => { setOpen(true); loadPapers().catch(() => {}); }}
         onKeyDown={(e) => {
           if (e.key === 'Escape') { setOpen(false); e.currentTarget.blur(); return; }
           if (!showing) return;
