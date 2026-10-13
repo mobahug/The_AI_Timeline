@@ -877,6 +877,20 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
     read();
     return () => ro.disconnect();
   }, [panelOpen]);
+  // The file's bar is measured too, as the header is for the page: the panel's
+  // scroll padding must clear it, and its height is the type's, not a number
+  // the board chose.
+  const fileBar = useRef<HTMLDivElement>(null);
+  const [fileBarH, setFileBarH] = useState(0);
+  useEffect(() => {
+    const el = fileBar.current;
+    if (!el || !window.ResizeObserver) return;
+    const read = () => setFileBarH(el.offsetHeight);
+    const ro = new ResizeObserver(read);
+    ro.observe(el);
+    read();
+    return () => ro.disconnect();
+  }, [fileOpen]);
   const subject = current ? positions[current.to] : (focusId ? positions[focusId] : null);
   // The sheet opens at half, with the selected card centred in what it
   // leaves; the reader pulls it up to read, or down to the peek strip. The
@@ -1236,7 +1250,14 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
                 ? (panelContentH ? 'height ' + DUR.move + 'ms ' + EASE : 'none')
                 : SHEET_TRANSITION,
               ...(railMode
-                ? { top: 0, right: 0, width: RAIL_W, border: '1px solid rgba(243,240,234,0.14)', borderTop: 'none', borderRight: 'none', borderBottomLeftRadius: 3, animation: 'slideInRight ' + DUR.base + 'ms ' + EASE + ' both' }
+                ? { top: 0, right: 0, width: RAIL_W, border: '1px solid rgba(243,240,234,0.14)', borderTop: 'none', borderRight: 'none', borderBottomLeftRadius: 3, animation: 'slideInRight ' + DUR.base + 'ms ' + EASE + ' both',
+                    // The file's bar stays at the top of the rail as the file
+                    // scrolls, and a control that keyboard focus brings in from
+                    // above was laid against the top of the panel, under the
+                    // bar, out of sight. The padding keeps the bar's height
+                    // clear, with room for the focus ring, as the sheet's does
+                    // for its handle.
+                    scrollPaddingTop: fileOpen ? fileBarH + 8 : 0 }
                 : { left: 0, right: 0, bottom: 0, borderTop: '1px solid rgba(243,240,234,0.16)', borderTopLeftRadius: 10, borderTopRightRadius: 10,
                     // The second shadow is the tail: the sheet's own colour, hung
                     // below it, so a bounce or a stretch above the top stop shows
@@ -1292,7 +1313,7 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
             <div inert={!railMode && sheet === 'peek'}>
             {fileOpen && pinned && graph.index[pinned] ? (
               <div style={{ display: 'flex', flexDirection: 'column', minHeight: 0 }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 14px', borderBottom: '1px solid rgba(243,240,234,0.12)', position: 'sticky', top: 0, background: 'rgba(10,10,11,0.985)', zIndex: 2 }}>
+                <div ref={fileBar} style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 14px', borderBottom: '1px solid rgba(243,240,234,0.12)', position: 'sticky', top: 0, background: 'rgba(10,10,11,0.985)', zIndex: 2 }}>
                   <span style={{ ...micro(3), color: RED_LIT }}>The file</span>
                   <span style={{ ...micro(5), minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{graph.index[pinned].year} · {graph.index[pinned].title}</span>
                   <span style={{ flex: 1 }} />
