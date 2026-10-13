@@ -182,6 +182,20 @@ const keyOf = (s: Step): string => (s.lead ? 'lead:' + s.lead + ':' + s.rung : s
 const patchOf = (s: Step): RoutePatch => (s.lead
   ? { lead: s.lead, rung: s.rung, clue: null, id: null }
   : { clue: { from: s.from, to: s.to }, id: null, lead: null, rung: null });
+/** Where a step of a walk lands, in the words the live region says it with:
+ *  the clue's place on its chain and the two cards it joins, or the rung's
+ *  place on its lead and the card it stands on. The heading shows "3 / 7"; a
+ *  voice says "3 of 7". */
+const saidOf = (graph: Graph, steps: Step[], index: number): string => {
+  const s = steps[index];
+  const to = graph.index[s.to];
+  if (s.lead) {
+    const lead = leadById[s.lead];
+    return 'Rung ' + s.rung + ' of ' + s.of + (lead ? ', ' + lead.title : '') + ': ' + to.title;
+  }
+  const from = graph.index[s.from];
+  return 'Clue ' + (index + 1) + ' of ' + steps.length + ': ' + from.year + ' ' + from.title + ' to ' + to.year + ' ' + to.title;
+};
 
 /** The sheet's three stops on a narrow screen. */
 type Stop = 'peek' | 'half' | 'full';
@@ -223,6 +237,10 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
   const [pinned, setPinned] = useState<string | null>(null);
   const [chain, setChain] = useState<Step[] | null>(null);
   const [step, setStep] = useState(0);
+  // What the live region says for the last step the reader took along a walk
+  // (see the effect after jump, below). Null while the walk has only begun:
+  // the region says the hint then, and the walk's heading has focus.
+  const [said, setSaid] = useState<string | null>(null);
   // The last address the board itself wrote or answered. The deep-link effect
   // below acts only on an address it has not seen, so stepping a chain — which
   // rewrites ?clue= at every step — never rebuilds the chain under the reader.
@@ -580,6 +598,7 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
     setFileOpen(false);
     setChain(steps);
     setStep(index);
+    setSaid(null);
     applied.current = keyOf(steps[index]);
     wantCentre.current = steps[index];
     if (replaceUrl) navigate(patchOf(steps[index]), true);
@@ -724,6 +743,10 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
   // none, the string a rung lacks), and then the panel starts again at its
   // heading, never <body>.
   const steppedFrom = useRef<Element | null>(null);
+  // Focus that stays put says nothing, though: Next is still Next, and a
+  // screen reader hears no step at all. So the step is noted in words as well,
+  // where it lands, for the live region to say once the step is drawn.
+  const stepWords = useRef<string | null>(null);
   /** Go to one step of the walked chain. The step already shown is put back in
    *  the middle of what the reader sees. */
   const jump = useCallback((index: number) => {
@@ -731,12 +754,13 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
     if (index !== step) {
       const had = document.activeElement;
       steppedFrom.current = had && panelRef.current && panelRef.current.contains(had) ? had : null;
+      stepWords.current = saidOf(graph, chain, index);
     }
     setStep(index);
     applied.current = keyOf(chain[index]);
     navigate(patchOf(chain[index]), true);
     wantCentre.current = chain[index];
-  }, [chain, step, navigate]);
+  }, [chain, step, navigate, graph]);
   const move = useCallback((delta: number) => {
     if (!chain) return;
     const next = Math.min(chain.length - 1, Math.max(0, step + delta));
@@ -969,11 +993,20 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
   useEffect(() => {
     if (chain || pinned) toHeading();
   }, [chain, pinned, fileOpen, toHeading]);
-  // A step that took away the control which held focus (noted by jump, above).
+  // After a step (noted by jump, above) the reader hears one thing, never two.
+  // A step that took away the control which held focus starts the panel at its
+  // heading, and a screen reader reads the heading, as when a walk begins; the
+  // live region is emptied, so it neither talks over the heading nor holds
+  // words the next step might need to say again. Any other step leaves focus
+  // where it was, and the live region says where the step landed.
   useEffect(() => {
     const had = steppedFrom.current;
+    const words = stepWords.current;
     steppedFrom.current = null;
-    if (had && !had.isConnected) toHeading();
+    stepWords.current = null;
+    if (words === null) return;
+    if (had && !had.isConnected) { toHeading(); setSaid(''); }
+    else setSaid(words);
   }, [step, toHeading]);
   // A hover preview must never steal the hover that produced it, so it lets the
   // pointer straight through.
@@ -1232,8 +1265,12 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
           <span style={{ ...micro(chain ? 3 : 5), color: chain ? RED_LIT : undefined, flex: '0 1 auto', minWidth: 0, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{hint + wallKeys}</span>
           {/* The hint above changes with every hover, and a live region on it
               read each one aloud. This one speaks only for what the reader
-              chose — a card pinned, a chain begun — never for a pointer passing. */}
-          <span className="sr-only" aria-live="polite">{chain || pinned ? hint : ''}</span>
+              chose — a card pinned, a chain begun, a step along it — never for
+              a pointer passing. A step is said as where it landed, in place of
+              the hint, and said whole: one step's words begin, and often end,
+              as the last step's did, and some screen readers read out only
+              the words that changed. */}
+          <span className="sr-only" aria-live="polite" aria-atomic="true">{chain ? (said ?? hint) : pinned ? hint : ''}</span>
           {/* What the keys do, as the wall's description: given with the
               wall's name as focus comes onto it, not with every card. Moving
               between cards says only the card, and the thread when it changes
