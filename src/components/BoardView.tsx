@@ -1274,8 +1274,9 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
                     // while the reader could not see it. The padding marks off
                     // both, with room for the focus ring, as the header's does for
                     // the page. A pointer's focus scrolls nothing, so a tap or a
-                    // pull is as it was.
-                    scrollPaddingTop: PEEK_H + 8, scrollPaddingBottom: CAP.full - shown + 8 }),
+                    // pull is as it was. With the file open its bar stands below
+                    // the handle, and the top padding clears both.
+                    scrollPaddingTop: PEEK_H + (fileOpen ? fileBarH : 0) + 8, scrollPaddingBottom: CAP.full - shown + 8 }),
               overflowY: !railMode && sheet === 'peek' ? 'hidden' : (railMode ? panelContentH > PANEL_CAP : panelContentH > shown) ? 'auto' : 'hidden', overscrollBehavior: 'contain',
               touchAction: 'pan-y', WebkitOverflowScrolling: 'touch',
               pointerEvents: preview ? 'none' : 'auto',
@@ -1313,7 +1314,11 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
             <div inert={!railMode && sheet === 'peek'}>
             {fileOpen && pinned && graph.index[pinned] ? (
               <div style={{ display: 'flex', flexDirection: 'column', minHeight: 0 }}>
-                <div ref={fileBar} style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 14px', borderBottom: '1px solid rgba(243,240,234,0.12)', position: 'sticky', top: 0, background: 'rgba(10,10,11,0.985)', zIndex: 2 }}>
+                {/* The bar stays in view however far the file is read: at the
+                    top of the rail, and on a phone just below the sheet's
+                    handle rather than under it, so Back to the card is always
+                    one tap away. */}
+                <div ref={fileBar} style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 14px', borderBottom: '1px solid rgba(243,240,234,0.12)', position: 'sticky', top: railMode ? 0 : PEEK_H, background: 'rgba(10,10,11,0.985)', zIndex: 2 }}>
                   <span style={{ ...micro(3), color: RED_LIT }}>The file</span>
                   <span style={{ ...micro(5), minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{graph.index[pinned].year} · {graph.index[pinned].title}</span>
                   <span style={{ flex: 1 }} />
