@@ -1460,7 +1460,7 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
             // it is out of reach of Tab as well as of the pointer: Tab from
             // the wall goes on past it, not into a panel that closes under it.
             // Enter pins the card, and the panel is the reader's to enter.
-            {...(preview ? { inert: '' } : {})}
+            inert={!!preview}
             // Whatever the reader does inside the panel stays inside it. A wheel
             // or a finger that reaches the end of the panel's text must not carry
             // on into the canvas behind it, on any device.
