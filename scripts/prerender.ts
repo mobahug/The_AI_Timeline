@@ -12,7 +12,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { VIEWS } from '../src/lib/views';
 import type { Carried } from '../src/lib/papers';
-import type { EventRaw, Finding, Lead, Org, PageMeta, Person, Route, Term, WikiCache, WikiPage } from '../src/lib/types';
+import type { EventRaw, Finding, Lead, Org, PageMeta, Person, Question, Route, Term, WikiCache, WikiPage } from '../src/lib/types';
 import { SHARE_H, SHARE_W, writeShareImages } from './share-images';
 import type { ShareImage } from './share-images';
 
@@ -30,6 +30,7 @@ const cache = JSON.parse(await readFile(join(root, 'public', 'wiki-cache.json'),
 const events = JSON.parse(await readFile(join(root, 'data', 'events.json'), 'utf8')) as EventRaw[];
 const spine = JSON.parse(await readFile(join(root, 'data', 'spine.json'), 'utf8')) as { findings: Finding[] };
 const leads = JSON.parse(await readFile(join(root, 'data', 'leads.json'), 'utf8')).leads as Lead[];
+const questions = JSON.parse(await readFile(join(root, 'data', 'questions.json'), 'utf8')).questions as Question[];
 const people = JSON.parse(await readFile(join(root, 'data', 'people.json'), 'utf8')).people as Person[];
 const orgs = JSON.parse(await readFile(join(root, 'data', 'orgs.json'), 'utf8')).orgs as Org[];
 const terms = JSON.parse(await readFile(join(root, 'data', 'glossary.json'), 'utf8')).terms as Term[];
@@ -50,6 +51,7 @@ const routes: string[] = [
   ...spine.findings.map((f) => 'line/' + f.n + '/'),
   ...events.map((e) => 'card/' + enc(e.id) + '/'),
   ...leads.map((l) => 'lead/' + enc(l.id) + '/'),
+  ...questions.map((q) => 'question/' + enc(q.id) + '/'),
   ...people.map((p) => 'person/' + enc(p.id) + '/'),
   ...orgs.map((o) => 'org/' + enc(o.id) + '/'),
   ...terms.map((t) => 'term/' + enc(t.id) + '/')
@@ -90,6 +92,17 @@ function jsonLd(route: Route, meta: PageMeta, url: string, image: string): Recor
         hasPart: l.rungs.map((r, i) => ({ '@type': 'ListItem', position: i + 1, name: r.label, url: ORIGIN + BASE + 'card/' + enc(r.event) + '/' })) },
       { '@context': 'https://schema.org', ...crumbs([[SITE, ''], ['The leads', 'leads/'], [l.title, 'lead/' + enc(l.id) + '/']]) }
     ];
+  }
+  // A plain question is a question with an answer, which is what FAQPage
+  // describes: the list page carries every one, a question's page its own.
+  const faq = (qs: Question[]) => ({ '@context': 'https://schema.org', '@type': 'FAQPage', url, isPartOf: site,
+    mainEntity: qs.map((q) => ({ '@type': 'Question', name: q.question,
+      acceptedAnswer: { '@type': 'Answer', text: [q.short, ...q.answer].join(' '), url: ORIGIN + BASE + 'question/' + enc(q.id) + '/' } })) });
+  if (route.view === 'questions') return [faq(questions)];
+  if (route.view === 'question') {
+    const q = questions.find((x) => x.id === route.id);
+    if (!q) return [];
+    return [faq([q]), { '@context': 'https://schema.org', ...crumbs([[SITE, ''], ['Plain questions', 'questions/'], [q.question, 'question/' + enc(q.id) + '/']]) }];
   }
   if (route.view === 'person') {
     const p = people.find((x) => x.id === route.id);

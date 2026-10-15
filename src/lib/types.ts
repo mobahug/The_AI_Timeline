@@ -137,6 +137,20 @@ export interface Lead {
   rungs: RungRaw[];
 }
 
+/** A plain question a reader brings, answered from what the board's cards
+ *  already say (data/questions.json). */
+export interface QuestionRecord { event: string; note: string }
+export interface Question {
+  id: string;
+  question: string;
+  short: string;
+  answer: string[];
+  inPractice?: string;
+  record: QuestionRecord[];
+  open: string;
+  leads: string[];
+}
+
 export interface Person { id: string; name: string; aka?: string[]; role: string; bio: string }
 export interface Org { id: string; name: string; aka?: string[]; kind: string; role: string; bio: string }
 export interface Term { id: string; term: string; aka?: string[]; short: string; definition: string }
@@ -153,7 +167,7 @@ export type Mode = 'brief' | 'full';
 /** A view's id: every page the site has. */
 export type ViewId =
   | 'landing' | 'line' | 'finding' | 'case' | 'horizon' | 'board' | 'card'
-  | 'leads' | 'lead' | 'archive' | 'plates' | 'mosaic' | 'files' | 'person' | 'org' | 'glossary' | 'term' | 'about';
+  | 'leads' | 'lead' | 'questions' | 'question' | 'archive' | 'plates' | 'mosaic' | 'files' | 'person' | 'org' | 'glossary' | 'term' | 'about';
 
 /** The board's geometry for one window, from layout.ts. */
 export interface Metrics {

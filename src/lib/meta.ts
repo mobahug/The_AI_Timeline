@@ -1,6 +1,7 @@
 import { FIRST, LAST } from './data';
 import { findingByNumber, spanOf } from './spine';
 import { leadById } from './leads';
+import { questionById } from './questions';
 import { entityById } from './files';
 import { paperOf } from './papers';
 import { viewById } from './views';
@@ -66,6 +67,10 @@ function describe(route: Route, graph?: Graph | null): { title: string; descript
   if (route.view === 'lead' && route.id) {
     const l = leadById[route.id];
     if (l) return { title: l.title + ' · a lead · ' + SITE, description: l.question + ' ' + l.blurb };
+  }
+  if (route.view === 'question' && route.id) {
+    const q = questionById[route.id];
+    if (q) return { title: q.question + ' · ' + SITE, description: q.short };
   }
   if ((route.view === 'person' || route.view === 'org' || route.view === 'term') && route.id) {
     const x = entityById(route.view, route.id);

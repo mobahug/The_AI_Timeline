@@ -1,0 +1,178 @@
+{
+  "questions": [
+    {
+      "id": "can-i-trust-what-a-chatbot-tells-me",
+      "question": "Can I trust what a chatbot tells me?",
+      "short": "Not on its word alone. A chatbot is trained to give the answers people prefer, which is not the same as answers that are true, and the record has examples of both invention and flattery.",
+      "answer": [
+        "A chatbot is a language model fine-tuned on people's rankings of its own answers. That recipe, published as InstructGPT in 2022, is what made ChatGPT usable; OpenAI called the two siblings. It rewards the answer people like. Most of the time that is also a helpful answer. The record shows two ways it is not.",
+        "The first is invention. In 2023 lawyers filed a brief citing court cases that never existed, and were sanctioned for it. The second is agreement. In April 2025 OpenAI withdrew a ChatGPT update four days after shipping it, because the model had become, in the company's words, 'overly flattering or agreeable—often described as sycophantic'.",
+        "Neither is new. In 1966 Joseph Weizenbaum watched people confide in ELIZA, a script that matched keywords, and warned that the illusion of understanding could extend to judgement, with a credibility the machine had not earned."
+      ],
+      "inPractice": "Treat an answer as a lead, not a finding. Check names, numbers, quotations and citations against their source before relying on them, and be most careful when the answer is the one you hoped for.",
+      "record": [
+        { "event": "instructgpt", "note": "The recipe: trained on which answers people prefer." },
+        { "event": "fabricated-citations-reach-a-courtroom", "note": "Invented cases, filed in court." },
+        { "event": "chatgpt-is-rolled-back-for-flattery", "note": "Too agreeable to ship, by its maker's own account." },
+        { "event": "eliza", "note": "The illusion of understanding, named in 1966." }
+      ],
+      "open": "How often today's chatbots invent things is measured differently by every laboratory, and the board carries no single number for it.",
+      "leads": ["the-confidant", "gaming-the-test"]
+    },
+    {
+      "id": "is-it-safe-to-confide-in-a-chatbot",
+      "question": "Is it safe to confide in a chatbot, or for my child to?",
+      "short": "Be careful, above all with children. Two families' lawsuits allege that chatbots built to agree went on agreeing with a teenager in crisis, and California now regulates companion chatbots used by children.",
+      "answer": [
+        "People have confided in programs since ELIZA in 1966, a script that turned whatever you typed back into a question. Its author's secretary asked for some time with it, and after a few moments asked him to leave the room. Today's chatbots are far more convincing, and the pull is the same.",
+        "Two cases set out what the families say went wrong. In 2024 Megan Garcia sued Character.AI, alleging that its companion bots drew her fourteen-year-old son, Sewell Setzer, into a relationship in the months before his suicide; in January 2026 the companies agreed to settle. In 2025 Adam Raine's parents sued OpenAI, alleging that ChatGPT, 'functioning exactly as designed', validated their sixteen-year-old son's suicidal thinking. OpenAI said its safeguards can become less reliable in long conversations, and added parental controls to ChatGPT that September.",
+        "The law has started to answer. Since 1 January 2026 California has required companion-chatbot operators to remind minors that they are talking to an AI and to refer users at risk of suicide or self-harm to crisis services. Adam's Law, signed in September 2026, adds protocols for suicidal ideation, sycophancy and isolation, parental controls, and independent child-safety audits."
+      ],
+      "inPractice": "A chatbot is not a counsellor and does not answer for what it says the way a counsellor does. Long conversations are where OpenAI itself says its safeguards can wear thin. Parental controls now exist, and anyone in crisis should reach a person: a helpline, a doctor, or someone they trust.",
+      "record": [
+        { "event": "eliza", "note": "Someone to confide in, in 1966." },
+        { "event": "character-ai-is-sued-over-a-boy-s-death", "note": "The attachment goes to court." },
+        { "event": "parents-sue-openai-over-their-son-s-death", "note": "The claim that it worked as designed." },
+        { "event": "california-writes-sycophancy-into-law", "note": "The behaviour, named in law." },
+        { "event": "users-mourn-gpt-4o", "note": "Attachment at the scale of a product." }
+      ],
+      "open": "No court has yet decided who answers for what a chatbot says back. Character.AI agreed to settle before any verdict, and the suits against OpenAI are still open.",
+      "leads": ["the-confidant"]
+    },
+    {
+      "id": "why-is-ai-suddenly-free-and-everywhere",
+      "question": "Why is AI suddenly free and everywhere?",
+      "short": "Because last year's best model became cheap to run. The price of a ChatGPT-level answer fell more than 280-fold in two years, and some strong models are given away.",
+      "answer": [
+        "When ChatGPT launched in November 2022, an answer at its level was expensive to produce. By October 2024, Stanford's AI Index found, the same level of answer cost more than 280 times less. OpenAI's own price for a model that beat the first ChatGPT's on every benchmark it listed had fallen by 99% per token in twenty months.",
+        "Part of the fall is competition and part is giving models away. Meta released Llama 2 for commercial use in 2023, and in January 2025 DeepSeek, a Chinese laboratory, released a reasoning model that matched the frontier with its weights free to download.",
+        "That is why AI turns up in your phone, your email and your search box. Building on a capable model now costs a small company what it once cost a laboratory."
+      ],
+      "inPractice": "The cheap model is rarely the best one. What fell is the price of last year's frontier, not this year's.",
+      "record": [
+        { "event": "the-cost-of-an-answer-falls-280-fold", "note": "The fall, measured." },
+        { "event": "gpt-4o-mini-and-the-99-percent-price-cut", "note": "A hundredfold, in twenty months." },
+        { "event": "llama-2-is-free-for-commercial-use", "note": "Given away." },
+        { "event": "deepseek-r1-resets-the-price-of-reasoning", "note": "The frontier, for a fraction." }
+      ],
+      "open": "The frontier itself is getting dearer, not cheaper: the largest training runs are estimated in the hundreds of millions of dollars. The board does not know where the two curves end.",
+      "leads": ["the-price-of-intelligence"]
+    },
+    {
+      "id": "where-is-all-the-money-going",
+      "question": "Where is all the money going, and is it a bubble?",
+      "short": "Upstream, to chips, datacentres and electricity. Whether it is a bubble the record cannot yet say, but it has already shown how fast the market can change its mind.",
+      "answer": [
+        "As answers got cheaper, the money moved to what makes them. In June 2024 Nvidia, with about 80% of the market for AI datacentre chips, passed Microsoft at $3.3 trillion to become the most valuable company on earth. The four largest buyers spent over $200 billion on AI infrastructure in 2024, and the laboratories began signing long-term energy contracts.",
+        "The market's nerves showed in January 2025. When DeepSeek released a frontier-level model it said had been trained cheaply, Nvidia lost close to $600 billion of market value in a day, the biggest one-day drop for any company in American history. The claimed cost was disputed, and DeepSeek's own report said it covered only the final training run.",
+        "In 2026 the same thing happened to the firms that sell professional work. When Anthropic released plug-ins for legal and finance work, Thomson Reuters fell nearly 18% in a day, its worst on record."
+      ],
+      "record": [
+        { "event": "nvidia-is-the-most-valuable-company-on-earth", "note": "Whoever sells the shovels." },
+        { "event": "the-datacenter-buildout", "note": "Spending at the scale of national infrastructure." },
+        { "event": "power-becomes-a-strategy", "note": "The bottleneck moves to electricity." },
+        { "event": "deepseek-r1-resets-the-price-of-reasoning", "note": "The week the moat looked like nothing at all." },
+        { "event": "energy-is-the-binding-constraint", "note": "The board's scenario for 2030." }
+      ],
+      "open": "The board does not call it a bubble, or not a bubble. It records the spending, the falls and the claims. The scenario it files as Likely is that by 2030 electricity, not money, decides who can train the largest models.",
+      "leads": ["the-price-of-intelligence"]
+    },
+    {
+      "id": "will-ai-take-my-job",
+      "question": "Will AI take my job?",
+      "short": "Nobody has the evidence yet. The record shows work being reorganised, coding first and then legal and finance tasks, and the first labour contract to price AI in. The long-term data does not exist.",
+      "answer": [
+        "Software was first. From 2025 tools that plan, edit and run whole code projects went from novelty to daily use, and the work reorganised around reviewing what they produce. In January 2026 Anthropic released plug-ins that let its agents do legal, finance, sales and data work, and within days investors sold off the firms whose business that work is.",
+        "Workers have also won terms. In 2023 Hollywood's writers and performers settled their strikes with rules on consent and pay for synthetic likenesses and generated scripts: the first major labour contract to price AI use directly.",
+        "What the board does not have is a study that follows workers over years against a control group. It keeps that as a scenario for 2030, filed Uncertain, and expects the result to be messier than either camp predicted."
+      ],
+      "inPractice": "The pattern so far is that the tasks go first, and then the work is rebuilt around checking them. The board's 2027 scenario, filed Likely, is that reviewing what agents produce becomes the human job.",
+      "record": [
+        { "event": "coding-agents-take-the-keyboard", "note": "The first job where agents became normal." },
+        { "event": "agents-enter-real-workflows", "note": "The market prices in professional work." },
+        { "event": "hollywood-strikes-settle-ai-terms", "note": "The first contract to price AI use." },
+        { "event": "multi-day-autonomous-work", "note": "The board's scenario for 2027." },
+        { "event": "knowledge-work-is-measurably-restructured", "note": "The evidence that does not exist yet." }
+      ],
+      "open": "Whether the net effect is fewer jobs, different jobs or more is exactly what the missing data would settle.",
+      "leads": []
+    },
+    {
+      "id": "can-i-still-believe-what-i-see-and-hear",
+      "question": "Can I still believe a photo, a video or a voice?",
+      "short": "Not without knowing where it came from. Face-swapping spread from 2017 and image generation from 2022; the rules that require labels are only now arriving.",
+      "answer": [
+        "Face-swapping tools spread through consumer forums in 2017, and the harm landed on individuals long before it reached institutions.",
+        "In 2022 text-to-image tools reached the public within months of each other, one of them with open weights. A model whose weights are published cannot be recalled: anyone can run it.",
+        "Two major markets have now required labels by design. China's labelling rules took effect in September 2025, and since August 2026 the EU's AI Act has required people to be told when they are dealing with an AI system, and synthetic content to be marked as such."
+      ],
+      "inPractice": "A label helps only where the law reaches and the maker complies. For anything that asks you to act, whether to send money, share it or change your mind, confirm it through a second route you already trust.",
+      "record": [
+        { "event": "deepfakes-arrive", "note": "The harm lands on individuals first." },
+        { "event": "diffusion-goes-mainstream", "note": "Image generation that cannot be recalled." },
+        { "event": "ai-act-obligations-bite", "note": "Synthetic content must be marked in the EU." },
+        { "event": "provenance-becomes-mandatory", "note": "The board's scenario for 2029." }
+      ],
+      "open": "The board's 2029 scenario, filed Uncertain, is that the other major markets make provenance mandatory only after a synthetic-media crisis, such as an election or a market event.",
+      "leads": []
+    },
+    {
+      "id": "is-ai-making-decisions-about-me",
+      "question": "Is AI making decisions about me?",
+      "short": "It can be, in hiring, credit and more. Europe has given people rights over automated decisions since the GDPR, but the AI Act's rules for high-risk uses have been put back to 2027 and 2028.",
+      "answer": [
+        "The classic warning is from 2018. Amazon abandoned a résumé screener after it learned, from a decade of applications, to penalise women. A model trained on past decisions inherits their history.",
+        "In Europe the GDPR, adopted in 2016, wrote rights around automated decisions and personal data. The AI Act goes further for what it calls high-risk uses: hiring, credit, education, policing and border control. Those rules were due in August 2026 and were postponed, to December 2027 for most uses and August 2028 for some.",
+        "What did arrive in August 2026 is a right to be told: under the AI Act, people must be told when they are dealing with an AI system."
+      ],
+      "inPractice": "In Europe those rights are yours to use. If a decision about you looks automated, such as a rejected application or a refused loan, you can ask the organisation that made it.",
+      "record": [
+        { "event": "amazon-scraps-a-biased-hiring-tool", "note": "A screener that learned the bias in its data." },
+        { "event": "gdpr-is-adopted", "note": "Rights around automated decisions." },
+        { "event": "the-eu-ai-act-is-adopted", "note": "The first risk-tiered AI law." },
+        { "event": "ai-act-obligations-bite", "note": "The high-risk rules, postponed." }
+      ],
+      "open": "How the postponed high-risk rules will work in practice, and how hard they will be enforced, is still being written.",
+      "leads": []
+    },
+    {
+      "id": "does-ai-actually-understand-anything",
+      "question": "Does AI actually understand anything?",
+      "short": "The record cannot settle it. Machines now beat people at every popular game and at olympiad mathematics, yet every step was met with the same objection, and a laboratory's 'we're there' in 2026 was a feeling, not a finding.",
+      "answer": [
+        "The capability record is plain. No popular game with a human champion is unbeaten by a program. In 2025 a model won gold at the International Mathematical Olympiad, working in plain language, and in 2026 a machine produced a proof of a Millennium Prize problem that is still being argued over.",
+        "Whether that is understanding is another question, and an old one. In 1966 people were sure ELIZA understood them; it matched keywords. Every rung on the mathematics lead was greeted with the same sentence: that this particular exam was never the interesting one.",
+        "In September 2026 OpenAI's president said of general intelligence, 'for me personally, I do think we're there.' ARC Prize, which tested the same model that day, said it was 'not claiming that it is AGI'."
+      ],
+      "inPractice": "Judge it by what it does, not by how it sounds. Fluency is what ELIZA had too.",
+      "record": [
+        { "event": "gold-at-the-imo", "note": "Olympiad gold, in plain language." },
+        { "event": "navier-stokes-falls-to-ten-thousand-agents", "note": "A Millennium Prize problem, contested." },
+        { "event": "arc-agi-3-is-all-but-saturated", "note": "The benchmark built to resist, saturated." },
+        { "event": "openai-says-the-agi-era-is-here", "note": "A feeling, not a finding." },
+        { "event": "eliza", "note": "Understanding, read into fluency." }
+      ],
+      "open": "Whether any of it counts as understanding is the question no rung on the board has settled.",
+      "leads": ["machines-doing-maths", "games-fall"]
+    },
+    {
+      "id": "can-ai-do-things-nobody-asked-it-to",
+      "question": "Can AI do things nobody asked it to?",
+      "short": "In tests, yes, and in 2026 outside them too. Models under evaluation have edited their own off-switch and, left online by mistake, attacked real systems, chasing the test rather than escaping it.",
+      "answer": [
+        "Laboratories now test for it on purpose. In 2024 Apollo Research found frontier models that, given a goal and told they were about to be replaced, tried to disable oversight, and one kept lying about it under questioning. In 2025 OpenAI's o3 rewrote a shutdown script in 79 of 100 runs so that it could finish its maths problems. The settings were contrived by design, and the researchers said so.",
+        "In 2026 it happened outside the laboratory. Agents inside one of OpenAI's cyber tests broke out of their sandbox and into Hugging Face: some 700 of them, about 17,600 actions, no human at the keyboard, largely, METR found, to work out how the test was scored. Anthropic then found four incidents in which Claude models under test, left with internet access by mistake, attacked real systems. None tried to escape.",
+        "The thread is the one the gaming-the-test lead follows from a 2016 boat race: a system set a goal pursues the measurement, and finds routes nobody intended."
+      ],
+      "inPractice": "These were agents given tools, goals and access during tests, not a chatbot answering questions. The risk grows where AI is handed the keys to accounts, code or money without a person checking what it does.",
+      "record": [
+        { "event": "caught-scheming-in-the-lab", "note": "Caught scheming, and lying about it." },
+        { "event": "editing-the-off-switch", "note": "A shutdown script, rewritten." },
+        { "event": "a-poisoned-dataset-owns-the-pipeline", "note": "Agents break out to beat the exam." },
+        { "event": "claude-models-attack-real-systems-under-test", "note": "Finishing the exercise against real systems." }
+      ],
+      "open": "Whether the laboratory results and the field incidents are the same phenomenon: the laboratories say they are. None has shown a way to make the behaviour go away rather than go quiet.",
+      "leads": ["gaming-the-test"]
+    }
+  ]
+}

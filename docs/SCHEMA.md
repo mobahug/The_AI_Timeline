@@ -60,6 +60,25 @@ Each rung is `{ event, label, text }`: the card, the level it reached, and the
 sentence that connects it to the next. Rungs are author-ordered; every rung's card is
 a landmark in brief. A string between consecutive rungs is found automatically.
 
+## `data/questions.json`
+
+`questions` — array of `{ id, question, short, answer, inPractice?, record, open, leads }`:
+the plain questions a reader brings, each at `/question/<id>/` and listed at `/questions/`.
+
+| Field | Type | Required | Notes |
+| --- | --- | --- | --- |
+| `id` | string | yes | kebab-case, unique, stable |
+| `question` | string | yes | as a reader would ask it, ending in `?` |
+| `short` | string | yes | the answer in one or two sentences, ≤ 260 characters |
+| `answer` | string[] | yes | the answer at length; says only what the `record` cards say |
+| `inPractice` | string | no | what the record means for the reader; never legal, medical or financial advice |
+| `record` | `{event, note}[]` | yes | at least three cards, mostly on the record; `note` says what each shows |
+| `open` | string | yes | what the record does not settle |
+| `leads` | string[] | yes | ids from `leads.json`, possibly none |
+
+An answer adds no claim of its own: anything it states must already be on one of
+its cards, where it is sourced. A card lists the questions that rest on it.
+
 ## `data/people.json`, `data/orgs.json`, `data/glossary.json`
 
 - people: `{ id, name, aka[], role, bio }`

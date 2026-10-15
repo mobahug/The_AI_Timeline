@@ -7,6 +7,7 @@ const dateText = (iso: string): string => whenOf({ year: Number(iso.slice(0, 4))
 import { bearingOn, splitSentences } from '../lib/wiki';
 import { findingFor } from '../lib/spine';
 import { leadsOf } from '../lib/leads';
+import { questionsOf } from '../lib/questions';
 import { entitiesOf } from '../lib/files';
 import { paperOf, usePapers } from '../lib/papers';
 import { INK, MONO, SANS, SERIF, STRING_INK, RULE, ROW_RULE, PHOTO_FILTER, frame, ink, micro, shell } from '../lib/styles';
@@ -124,6 +125,7 @@ function CardView({ graph, route, media, embedded }: CardViewProps) {
   const figures = paperOf(event, 'figures') || [];
   const names = entitiesOf(event);
   const onLeads = leadsOf(event.id);
+  const asked = questionsOf(event.id);
   // Species-style: the one source the entry is based on, named up front.
   const basedOn = sources.find((s) => s.supports === 'claim') || sources[0] || null;
 
@@ -231,6 +233,19 @@ function CardView({ graph, route, media, embedded }: CardViewProps) {
               );
             })}
           </div>
+        </Section>
+      )}
+
+      {asked.length > 0 && (
+        <Section id="questions" eyebrow="Plain questions" title={asked.length === 1 ? 'A question this card helps answer' : 'Questions this card helps answer'}>
+          <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'flex', flexDirection: 'column', gap: 12 }}>
+            {asked.map(({ question, note }) => (
+              <li key={question.id} style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                <Link to={{ view: 'question', id: question.id }} className="ix-ref" style={{ font: '400 18px/1.3 ' + SERIF, color: INK }}>{question.question} →</Link>
+                <span style={{ font: '400 14px/1.5 ' + SERIF, color: ink(3), fontStyle: 'italic' }}>{note}</span>
+              </li>
+            ))}
+          </ul>
         </Section>
       )}
 

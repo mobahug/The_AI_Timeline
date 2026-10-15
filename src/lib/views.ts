@@ -3,8 +3,8 @@
    retired in one place.
 
    path    — the address under the site's base, as segments; `:name` captures a
-             route field (`:id` for a card, a lead, a person, an organisation or a
-             term; `:finding` for a stretch of the line)
+             route field (`:id` for a card, a lead, a question, a person, an
+             organisation or a term; `:finding` for a stretch of the line)
    tab     — one of the doors in the header
    parent  — the tab that stays lit while this page is open
    title / description — what the document carries for that route
@@ -52,6 +52,10 @@ export const VIEWS: View[] = [
     title: 'The leads',
     description: 'The lines of inquiry: how far machines got at mathematics, at games, at gaming their own tests, and how cheap the answers became — one rung at a time, on the record.' },
   { id: 'lead', path: 'lead/:id', parent: 'leads', sitemap: false, shell: 'route' },
+  { id: 'questions', path: 'questions', parent: 'leads', sitemap: true, shell: 'route',
+    title: 'Plain questions',
+    description: 'Can I trust what a chatbot tells me? Will AI take my job? Is it a bubble? Plain questions, answered from the record, with what the record does not settle.' },
+  { id: 'question', path: 'question/:id', parent: 'leads', sitemap: false, shell: 'route' },
   { id: 'archive', path: 'archive', label: 'The archive', tab: true, sitemap: true, shell: 'wide',
     title: 'The archive',
     description: 'Every entry on the board in date order — dense, filterable, searchable.' },

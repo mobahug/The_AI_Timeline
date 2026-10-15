@@ -2,9 +2,10 @@ import React from 'react';
 import { AS_OF, NOW, THREADS, buildGraph, forwardLedger, whenOf } from '../lib/data';
 import { buildLine } from '../lib/spine';
 import { LEADS } from '../lib/leads';
+import { QUESTIONS } from '../lib/questions';
 import { PEOPLE, ORGS, TERMS } from '../lib/files';
-import { GOLD, MONO, RULE, SANS, SERIF, ink, shell } from '../lib/styles';
-import { Btn, Door, Doors, Eyebrow } from './kit';
+import { GOLD, INK, MONO, RULE, SANS, SERIF, ink, shell } from '../lib/styles';
+import { Btn, Door, Doors, Eyebrow, Link } from './kit';
 import type { RoutePatch } from '../lib/types';
 
 /* The front page. Every figure on it is derived from the data; the graph is
@@ -60,6 +61,25 @@ function Landing() {
           <Btn tone="dim" size="hero" to={{ view: 'archive' }}>Browse the archive</Btn>
         </div>
       </header>
+
+      {/* The way in for a reader who came with a worry, not a curiosity: the
+          questions people ask, each answered from the cards. */}
+      <section aria-labelledby="questions-head" style={{ borderTop: RULE, padding: '30px 0 48px' }}>
+        <Eyebrow tier="section" dim style={{ marginBottom: 10 }}>Plain questions · answered from the record</Eyebrow>
+        <h2 id="questions-head" style={{ margin: '0 0 22px', font: '400 clamp(26px,3.4vw,40px)/1.04 ' + SERIF, letterSpacing: '-0.025em', color: INK }}>Start with a question.</h2>
+        <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(min(100%,300px),1fr))', gap: '0 clamp(16px,3vw,32px)' }}>
+          {QUESTIONS.map((q) => (
+            <li key={q.id} style={{ borderTop: '1px solid rgba(243,240,234,0.08)' }}>
+              <Link to={{ view: 'question', id: q.id }} className="ix-ref" style={{ display: 'block', padding: '13px 0', font: '400 clamp(17px,1.8vw,20px)/1.3 ' + SERIF, color: INK, textWrap: 'balance' }}>
+                {q.question} <span aria-hidden="true" style={{ color: GOLD }}>→</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <div style={{ marginTop: 18 }}>
+          <Btn to={{ view: 'questions' }}>All {QUESTIONS.length} plain questions</Btn>
+        </div>
+      </section>
 
       <div style={{ borderTop: RULE, paddingTop: 30 }}>
         <Doors>
