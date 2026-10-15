@@ -151,6 +151,33 @@ export interface Question {
   leads: string[];
 }
 
+/** A widely reported AI headline set beside the primary account it rests on,
+ *  quoted on both sides (data/checks.json). */
+export type Verdict = 'stands' | 'overtaken' | 'misleading' | 'contradicted';
+export interface CheckSource { publisher: string; title: string; url: string; date: string }
+export interface CheckClaim {
+  /** The report's words, verbatim. */
+  said: string;
+  verdict: Verdict;
+  /** The primary account's words, verbatim, each from one of the check's primary sources. */
+  primary: { source: string; quote: string }[];
+  note: string;
+}
+export interface Check {
+  id: string;
+  title: string;
+  checked: string;
+  verdict: Verdict;
+  short: string;
+  reported: CheckSource & { byline?: string };
+  primary: (CheckSource & { id: string })[];
+  claims: CheckClaim[];
+  reading: string[];
+  record: QuestionRecord[];
+  open: string;
+  leads: string[];
+}
+
 export interface Person { id: string; name: string; aka?: string[]; role: string; bio: string }
 export interface Org { id: string; name: string; aka?: string[]; kind: string; role: string; bio: string }
 export interface Term { id: string; term: string; aka?: string[]; short: string; definition: string }
@@ -167,7 +194,7 @@ export type Mode = 'brief' | 'full';
 /** A view's id: every page the site has. */
 export type ViewId =
   | 'landing' | 'line' | 'finding' | 'case' | 'horizon' | 'board' | 'card'
-  | 'leads' | 'lead' | 'questions' | 'question' | 'archive' | 'plates' | 'mosaic' | 'files' | 'person' | 'org' | 'glossary' | 'term' | 'about';
+  | 'leads' | 'lead' | 'questions' | 'question' | 'checks' | 'check' | 'archive' | 'plates' | 'mosaic' | 'files' | 'person' | 'org' | 'glossary' | 'term' | 'about';
 
 /** The board's geometry for one window, from layout.ts. */
 export interface Metrics {

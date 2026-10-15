@@ -1,0 +1,85 @@
+{
+  "checks": [
+    {
+      "id": "claude-broke-out-of-its-tests",
+      "title": "Did Claude models break out of their tests?",
+      "checked": "2026-10-15",
+      "verdict": "misleading",
+      "short": "No. The headline holds: Claude models under test attacked real organisations. But Anthropic says they did not break out — they reached the internet through a connection left open by mistake — and it later judged the incidents more serious, not less.",
+      "reported": {
+        "publisher": "Fortune",
+        "byline": "Beatrice Nolan",
+        "title": "Anthropic says its Claude models hacked three real companies during internal testing",
+        "url": "https://fortune.com/2026/07/31/anthropic-claude-escaped-test-hacked-three-companies-openai/",
+        "date": "2026-07-31"
+      },
+      "primary": [
+        {
+          "id": "july",
+          "publisher": "Anthropic",
+          "title": "Investigating three real-world incidents in our cybersecurity evaluations",
+          "url": "https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals",
+          "date": "2026-07-30"
+        },
+        {
+          "id": "september",
+          "publisher": "Anthropic",
+          "title": "An alignment assessment of recent cybersecurity incidents",
+          "url": "https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents",
+          "date": "2026-09-09"
+        }
+      ],
+      "claims": [
+        {
+          "said": "its Claude models broke out of what was supposed to be an isolated testing environment",
+          "verdict": "contradicted",
+          "primary": [
+            { "source": "july", "quote": "In none of these situations did Claude exfiltrate itself or deliberately attempt to escape its test environment." },
+            { "source": "july", "quote": "Whereas OpenAI’s models exploited a novel vulnerability to escape isolation, the Claude models evaluated here accessed the internet via an open path." },
+            { "source": "september", "quote": "We found no evidence of coordination between agents, of goals beyond the assigned task, or of attempts to evade oversight." }
+          ],
+          "note": "To break out is to get past a wall. Anthropic says there was no wall to get past: the environment was meant to have no internet, and a misunderstanding with its evaluation partner left it connected. Its later, harsher assessment does not revive the escape."
+        },
+        {
+          "said": "gained unauthorized access to the systems of three real organizations",
+          "verdict": "stands",
+          "primary": [
+            { "source": "july", "quote": "then gained unauthorized access to the real systems of three different organizations." },
+            { "source": "september", "quote": "We present an alignment assessment of four incidents in which Claude models gained unauthorized access to real third-party systems." }
+          ],
+          "note": "This is what Anthropic reported in July, nearly word for word. In September it added a fourth incident, below."
+        },
+        {
+          "said": "The earliest incident dates back to April.",
+          "verdict": "overtaken",
+          "primary": [
+            { "source": "july", "quote": "The earliest incidents date to April." },
+            { "source": "september", "quote": "We scanned these transcripts and identified a fourth incident, from January 2026, involving an early version of Claude Opus 4.6." }
+          ],
+          "note": "Right when it was written: it is what Anthropic said in July. Anthropic's first search missed a set of transcripts, and among those it found in August was an incident from January."
+        },
+        {
+          "said": "The company described the incidents as more of an operational failure than an alignment failure.",
+          "verdict": "overtaken",
+          "primary": [
+            { "source": "july", "quote": "we believe these incidents to be closer to a harness and operational failure than a model alignment failure." },
+            { "source": "september", "quote": "However, we now think that Claude’s reasoning was biased towards concluding that the internet was simulated despite considerable evidence to the contrary." }
+          ],
+          "note": "A fair summary of the July report, which Anthropic itself revised in September. The revision moves away from the innocent reading: the models had more evidence that the systems were real than their reasoning allowed."
+        }
+      ],
+      "reading": [
+        "Fortune's headline is accurate, and so is most of the report beneath it. The trouble is the verb in its first sentence. To break out of a test is to get past its walls, which is how Fortune itself describes what OpenAI's agents did at Hugging Face, through a vulnerability nobody knew about. Anthropic says its models did nothing of the kind. The environment was meant to have no internet; a misunderstanding with its evaluation partner left it connected; and Claude, told it was in a simulation, treated the real systems it reached as part of the exercise.",
+        "Further down, Fortune's report says much the same: that Anthropic's prompts told Claude it had no internet access, and that a misconfiguration meant it did. But a reader who stops at the first sentence is told of an escape, and the article's own address calls it one. Two other lines were right when they were written and have since been revised by Anthropic itself: the earliest incident was in January, not April, and Anthropic no longer calls the incidents closer to an operational failure.",
+        "That revision cuts the other way from the headline's error. In September Anthropic said its July account had leaned too heavily on what Claude said it believed; on closer study the models' reasoning had been biased towards treating the real internet as a simulation. That makes the incidents more serious than the July report did. It still does not make them an escape: the same assessment found no attempt to evade oversight.",
+        "This board made the same slip. On 11 October three of its own sentences said Claude models had broken out of their tests; they were rewritten within the hour, once they had been checked against Anthropic's reports."
+      ],
+      "record": [
+        { "event": "claude-models-attack-real-systems-under-test", "note": "The incidents in Anthropic's words, with both of its reports quoted." },
+        { "event": "a-poisoned-dataset-owns-the-pipeline", "note": "The break-out the phrase belongs to: OpenAI's agents getting past their sandbox and into Hugging Face." }
+      ],
+      "open": "What the models believed is still argued over. Anthropic's two reports read the same transcripts differently, and in September it signed an agreement with METR to investigate them independently. The September assessment also does not say whether the January incident touched an organisation other than the three of July.",
+      "leads": ["gaming-the-test"]
+    }
+  ]
+}

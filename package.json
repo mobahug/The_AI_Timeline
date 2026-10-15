@@ -14,6 +14,7 @@
     "test:watch": "vitest",
     "fetch:images": "tsx scripts/fetch-images.ts",
     "check:links": "tsx scripts/check-links.ts",
+    "check:quotes": "tsx scripts/check-quotes.ts",
     "gen:sitemap": "tsx scripts/gen-sitemap.ts"
   },
   "dependencies": {

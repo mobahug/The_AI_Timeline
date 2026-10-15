@@ -12,7 +12,8 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { VIEWS } from '../src/lib/views';
 import type { Carried } from '../src/lib/papers';
-import type { EventRaw, Finding, Lead, Org, PageMeta, Person, Question, Route, Term, WikiCache, WikiPage } from '../src/lib/types';
+import type { Check, EventRaw, Finding, Lead, Org, PageMeta, Person, Question, Route, Term, WikiCache, WikiPage } from '../src/lib/types';
+import { VERDICTS } from '../src/lib/checks';
 import { SHARE_H, SHARE_W, writeShareImages } from './share-images';
 import type { ShareImage } from './share-images';
 
@@ -31,6 +32,7 @@ const events = JSON.parse(await readFile(join(root, 'data', 'events.json'), 'utf
 const spine = JSON.parse(await readFile(join(root, 'data', 'spine.json'), 'utf8')) as { findings: Finding[] };
 const leads = JSON.parse(await readFile(join(root, 'data', 'leads.json'), 'utf8')).leads as Lead[];
 const questions = JSON.parse(await readFile(join(root, 'data', 'questions.json'), 'utf8')).questions as Question[];
+const checks = JSON.parse(await readFile(join(root, 'data', 'checks.json'), 'utf8')).checks as Check[];
 const people = JSON.parse(await readFile(join(root, 'data', 'people.json'), 'utf8')).people as Person[];
 const orgs = JSON.parse(await readFile(join(root, 'data', 'orgs.json'), 'utf8')).orgs as Org[];
 const terms = JSON.parse(await readFile(join(root, 'data', 'glossary.json'), 'utf8')).terms as Term[];
@@ -52,6 +54,7 @@ const routes: string[] = [
   ...events.map((e) => 'card/' + enc(e.id) + '/'),
   ...leads.map((l) => 'lead/' + enc(l.id) + '/'),
   ...questions.map((q) => 'question/' + enc(q.id) + '/'),
+  ...checks.map((c) => 'check/' + enc(c.id) + '/'),
   ...people.map((p) => 'person/' + enc(p.id) + '/'),
   ...orgs.map((o) => 'org/' + enc(o.id) + '/'),
   ...terms.map((t) => 'term/' + enc(t.id) + '/')
@@ -103,6 +106,24 @@ function jsonLd(route: Route, meta: PageMeta, url: string, image: string): Recor
     const q = questions.find((x) => x.id === route.id);
     if (!q) return [];
     return [faq([q]), { '@context': 'https://schema.org', ...crumbs([[SITE, ''], ['Plain questions', 'questions/'], [q.question, 'question/' + enc(q.id) + '/']]) }];
+  }
+  // A headline check reviews claims, which is what ClaimReview describes: one
+  // per line checked, each the report's words verbatim with the verdict the
+  // page gives it, the claim attributed to the report it appeared in.
+  if (route.view === 'check') {
+    const c = checks.find((x) => x.id === route.id);
+    if (!c) return [];
+    const appearance = { '@type': 'NewsArticle', headline: c.reported.title, url: c.reported.url, datePublished: c.reported.date,
+      publisher: { '@type': 'Organization', name: c.reported.publisher }, author: c.reported.byline ? { '@type': 'Person', name: c.reported.byline } : undefined };
+    return [
+      ...c.claims.map((claim) => ({ '@context': 'https://schema.org', '@type': 'ClaimReview', url, datePublished: c.checked, isPartOf: site,
+        author: { '@type': 'Organization', name: SITE, url: ORIGIN + BASE },
+        claimReviewed: claim.said,
+        itemReviewed: { '@type': 'Claim', datePublished: c.reported.date, author: { '@type': 'Organization', name: c.reported.publisher }, appearance },
+        reviewRating: { '@type': 'Rating', ratingValue: VERDICTS[claim.verdict].rating, bestRating: 4, worstRating: 1, alternateName: VERDICTS[claim.verdict].label },
+        citation: c.primary.map((p) => p.url) })),
+      { '@context': 'https://schema.org', ...crumbs([[SITE, ''], ['Headline checks', 'checks/'], [c.title, 'check/' + enc(c.id) + '/']]) }
+    ];
   }
   if (route.view === 'person') {
     const p = people.find((x) => x.id === route.id);
@@ -158,7 +179,7 @@ function page(route: Route, html: string, meta: PageMeta, media: WikiCache, pape
   out = out.replace(/<meta property="og:image:alt" content="[^"]*" \/>/, '<meta property="og:image:alt" content="' + esc(share.alt) + '" />');
   out = out.replace(/<meta name="twitter:image:alt" content="[^"]*" \/>/, '<meta name="twitter:image:alt" content="' + esc(share.alt) + '" />');
   out = out.replace('<meta property="og:type" content="website" />',
-    '<meta property="og:type" content="' + (route.view === 'card' || route.view === 'lead' ? 'article' : 'website') + '" />\n'
+    '<meta property="og:type" content="' + (route.view === 'card' || route.view === 'lead' || route.view === 'check' ? 'article' : 'website') + '" />\n'
     + '    <meta property="og:url" content="' + esc(url) + '" />\n'
     + '    <link rel="canonical" href="' + esc(url) + '" />');
   const inline = Object.keys(media).length ? '\n    <script id="wiki-inline" type="application/json">' + JSON.stringify(media).replace(/</g, '\\u003c') + '</script>' : '';

@@ -17,6 +17,8 @@ import LeadsView from './components/LeadsView';
 import LeadView from './components/LeadView';
 import QuestionsView from './components/QuestionsView';
 import QuestionView from './components/QuestionView';
+import ChecksView from './components/ChecksView';
+import CheckView from './components/CheckView';
 import FilesView from './components/FilesView';
 import GlossaryView from './components/GlossaryView';
 import EntityView from './components/EntityView';
@@ -216,6 +218,8 @@ export default function App({ initialRoute }: AppProps) {
           {view === 'lead' && <LeadView graph={graph} route={route} media={media} />}
           {view === 'questions' && <QuestionsView />}
           {view === 'question' && <QuestionView graph={graph} route={route} />}
+          {view === 'checks' && <ChecksView />}
+          {view === 'check' && <CheckView graph={graph} route={route} />}
           {view === 'files' && <FilesView graph={graph} />}
           {view === 'glossary' && <GlossaryView graph={graph} />}
           {(view === 'person' || view === 'org' || view === 'term') && <EntityView graph={graph} route={route} />}

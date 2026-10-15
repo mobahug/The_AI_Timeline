@@ -3,6 +3,7 @@ import { AS_OF, NOW, THREADS, buildGraph, forwardLedger, whenOf } from '../lib/d
 import { buildLine } from '../lib/spine';
 import { LEADS } from '../lib/leads';
 import { QUESTIONS } from '../lib/questions';
+import { CHECKS } from '../lib/checks';
 import { PEOPLE, ORGS, TERMS } from '../lib/files';
 import { GOLD, INK, MONO, RULE, SANS, SERIF, ink, shell } from '../lib/styles';
 import { Btn, Door, Doors, Eyebrow, Link } from './kit';
@@ -76,8 +77,9 @@ function Landing() {
             </li>
           ))}
         </ul>
-        <div style={{ marginTop: 18 }}>
+        <div style={{ marginTop: 18, display: 'flex', gap: 10, flexWrap: 'wrap' }}>
           <Btn to={{ view: 'questions' }}>All {QUESTIONS.length} plain questions</Btn>
+          <Btn to={{ view: 'checks' }}>{CHECKS.length === 1 ? 'A headline' : CHECKS.length + ' headlines'} checked against the source</Btn>
         </div>
       </section>
 

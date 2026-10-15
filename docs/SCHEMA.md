@@ -79,6 +79,37 @@ the plain questions a reader brings, each at `/question/<id>/` and listed at `/q
 An answer adds no claim of its own: anything it states must already be on one of
 its cards, where it is sourced. A card lists the questions that rest on it.
 
+## `data/checks.json`
+
+`checks` — array of `{ id, title, checked, verdict, short, reported, primary, claims, reading, record, open, leads }`:
+headline checks, each at `/check/<id>/` and listed at `/checks/`. A check sets one widely
+reported line about AI beside what the primary account behind it actually says.
+
+| Field | Type | Required | Notes |
+| --- | --- | --- | --- |
+| `id` | string | yes | kebab-case, unique, stable |
+| `title` | string | yes | the question the check answers, ending in `?`; never presented as a quotation |
+| `checked` | `YYYY-MM-DD` | yes | the day every quote was last matched against its page |
+| `verdict` | `stands` \| `overtaken` \| `misleading` \| `contradicted` | yes | on the report as a whole |
+| `short` | string | yes | the verdict in one or two sentences, ≤ 260 characters |
+| `reported` | `{publisher, byline?, title, url, date}` | yes | the report checked; `title` is its headline as published |
+| `primary` | `{id, publisher, title, url, date}[]` | yes | the primary accounts; each must be a source on one of the `record` cards |
+| `claims` | `{said, verdict, primary: {source, quote}[], note}[]` | yes | one per line checked; `said` is verbatim from `reported`, each `quote` verbatim from the `primary` source named by `source` |
+| `reading` | string[] | yes | the check at length; claims nothing its sources do not say |
+| `record` | `{event, note}[]` | yes | the cards the check touches, at least one |
+| `open` | string | yes | what the record does not settle |
+| `leads` | string[] | yes | ids from `leads.json`, possibly none |
+
+Verdicts: **stands** — the primary account says it; **overtaken** — it said so at the time and
+has since revised it; **misleading** — the facts are in the primary account, what the report makes
+of them is not; **contradicted** — the primary account says otherwise. The prerenderer writes one
+`ClaimReview` per line, rated 4 (stands) to 1 (contradicted).
+
+Quotes are never paraphrased. `npm run check:quotes` fetches every page a check cites and reports
+any quote not found in it character for character (`-- --via=wayback` reads the Wayback
+Machine's latest capture for a site that refuses the request); run it and update `checked`
+whenever a check is added or edited. A card lists the checks that touch it.
+
 ## `data/people.json`, `data/orgs.json`, `data/glossary.json`
 
 - people: `{ id, name, aka[], role, bio }`
