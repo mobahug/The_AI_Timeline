@@ -4,6 +4,7 @@ import { events, links, projections } from '../lib/data';
 import { LEADS } from '../lib/leads';
 import { PEOPLE, ORGS, TERMS } from '../lib/files';
 import { paperOf, usePapers } from '../lib/papers';
+import { BASE } from '../lib/url';
 import { INK, MONO, SERIF, SANS, RULE, ink, shell } from '../lib/styles';
 import { Link, PageHead } from './kit';
 
@@ -104,6 +105,9 @@ function About() {
           kept by its author. There is no editor on the site and no open contribution: the record is one reading, argued in one voice,
           and corrected when it is wrong. A test suite checks ids, years, sources, link targets and that every scenario is labelled
           before anything is published.
+          What changes is listed, newest first, in <a href={BASE + 'feed.xml'} type="application/atom+xml">an Atom feed</a>: the
+          cards, leads and plain questions most recently added or revised, each dated from the history of the data rather than by
+          hand. Paste its address into any feed reader to hear when the board moves.
         </Section>
       </div>
 

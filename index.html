@@ -39,6 +39,9 @@
     <link rel="icon" href="%BASE_URL%favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="%BASE_URL%apple-touch-icon.png" />
     <link rel="manifest" href="%BASE_URL%manifest.webmanifest" />
+    <!-- What is new on the board, for feed readers: written at build time from
+         the history of data/ (scripts/feed.ts). -->
+    <link rel="alternate" type="application/atom+xml" title="The AI Timeline — what is new" href="%BASE_URL%feed.xml" />
     <!-- The two faces are served from this site. They used to come from a
          Google stylesheet, which is a render-blocking request to a third party
          on all 318 pages before a single word can be drawn, and a reflow when

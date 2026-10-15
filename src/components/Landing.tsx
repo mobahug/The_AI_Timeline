@@ -1,6 +1,7 @@
 import React from 'react';
 import { AS_OF, NOW, THREADS, buildGraph, forwardLedger, whenOf } from '../lib/data';
 import { buildLine } from '../lib/spine';
+import { BASE } from '../lib/url';
 import { LEADS } from '../lib/leads';
 import { QUESTIONS } from '../lib/questions';
 import { CHECKS } from '../lib/checks';
@@ -88,6 +89,13 @@ function Landing() {
           {doors.map((d) => <Door key={d.title} eyebrow={d.eyebrow} title={d.title} body={d.body} to={d.to} />)}
         </Doors>
       </div>
+
+      {/* For a reader who wants to know when the board moves without coming
+          back to look: the feed, written at build time (scripts/feed.ts). */}
+      <p style={{ margin: '36px 0 0', font: '400 11.5px/1.85 ' + MONO, color: ink(5), maxWidth: '64ch', textWrap: 'pretty' }}>
+        New and revised cards, leads and questions, newest first:{' '}
+        <a href={BASE + 'feed.xml'} type="application/atom+xml">the feed</a> — paste its address into any feed reader.
+      </p>
     </div>
   );
 }

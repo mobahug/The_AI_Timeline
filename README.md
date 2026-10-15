@@ -61,9 +61,14 @@ npm install
 npm run dev        # http://localhost:5173
 npm test           # typechecks, then validates data/*.json and the routes
 npm run typecheck  # tsc --noEmit alone
-npm run build      # sitemap, client build, server build, share images, prerender → dist/
+npm run build      # sitemap, feed, client build, server build, share images, prerender → dist/
 npm run preview    # serves dist/ at http://localhost:4173/The_AI_Timeline/
 ```
+
+The build writes `feed.xml`, an Atom feed of the cards, leads and plain questions
+most recently added or changed. Its dates come from the git history of `data/`, not
+from the data, so the build needs the whole history: a shallow clone is refused
+(the deploy checks out with `fetch-depth: 0`). See `scripts/feed.ts`.
 
 ## Data
 

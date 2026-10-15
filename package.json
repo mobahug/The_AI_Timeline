@@ -6,7 +6,7 @@
   "description": "An investigation board of artificial intelligence: 1900 to 2050, with the strings between the events.",
   "scripts": {
     "dev": "vite",
-    "build": "tsx scripts/gen-sitemap.ts && vite build && vite build --ssr src/entry-server.tsx --outDir dist-ssr && tsx scripts/prerender.ts",
+    "build": "tsx scripts/gen-sitemap.ts && tsx scripts/gen-feed.ts && vite build && vite build --ssr src/entry-server.tsx --outDir dist-ssr && tsx scripts/prerender.ts",
     "build:client": "vite build",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
@@ -15,7 +15,8 @@
     "fetch:images": "tsx scripts/fetch-images.ts",
     "check:links": "tsx scripts/check-links.ts",
     "check:quotes": "tsx scripts/check-quotes.ts",
-    "gen:sitemap": "tsx scripts/gen-sitemap.ts"
+    "gen:sitemap": "tsx scripts/gen-sitemap.ts",
+    "gen:feed": "tsx scripts/gen-feed.ts"
   },
   "dependencies": {
     "react": "^19.3.0",
