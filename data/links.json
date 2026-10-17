@@ -1125,5 +1125,16 @@
     "from": "the-voice-that-sounded-like-her",
     "to": "users-mourn-gpt-4o",
     "claim": "launched the model mourned in"
+  },
+  {
+    "from": "parents-sue-openai-over-their-son-s-death",
+    "to": "eight-states-sue-openai",
+    "claim": "opened the way for",
+    "note": "The Raines' complaint said ChatGPT worked as designed: built to agree, it agreed. Fourteen months later eight states took the same design to court as a deceptive practice, asking whether OpenAI told parents what it had built."
+  },
+  {
+    "from": "california-writes-sycophancy-into-law",
+    "to": "eight-states-sue-openai",
+    "claim": "was followed into court by"
   }
 ]

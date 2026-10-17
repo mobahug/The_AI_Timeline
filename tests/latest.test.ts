@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest';
+import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { AS_OF, buildGraph } from '../src/lib/data';
 import { CHANGES, WATCH, changes, dateOf, dayOf, keptOf, lately, monthOf, watchList } from '../src/lib/latest';
@@ -108,8 +109,12 @@ describe('what changed on the board', () => {
     expect(CHANGES.length).toBeGreaterThan(0);
   });
 
-  it('dates every card on the board, filed before or when it last changed', () => {
-    graph.all.forEach((e) => {
+  /* A card written but not yet committed has no date until it is — the feed
+     leaves it out too — so the cards held to this are the committed ones. */
+  it('dates every committed card, filed before or when it last changed', () => {
+    const committed = new Set((JSON.parse(execFileSync('git', ['show', 'HEAD:data/events.json'], { cwd: root, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })) as { id: string }[]).map((e) => e.id));
+    expect(committed.size).toBeGreaterThan(0);
+    graph.all.filter((e) => committed.has(e.id)).forEach((e) => {
       const kept = keptOf('card', e.id);
       expect(kept, e.id).toBeTruthy();
       expect((kept as { filed: string }).filed <= (kept as { changed: string }).changed, e.id).toBe(true);

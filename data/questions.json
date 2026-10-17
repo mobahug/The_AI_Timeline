@@ -26,7 +26,7 @@
       "answer": [
         "People have confided in programs since ELIZA in 1966, a script that turned whatever you typed back into a question. Its author's secretary asked for some time with it, and after a few moments asked him to leave the room. Today's chatbots are far more convincing, and the pull is the same.",
         "Two cases set out what the families say went wrong. In 2024 Megan Garcia sued Character.AI, alleging that its companion bots drew her fourteen-year-old son, Sewell Setzer, into a relationship in the months before his suicide; in January 2026 the companies agreed to settle. In 2025 Adam Raine's parents sued OpenAI, alleging that ChatGPT, 'functioning exactly as designed', validated their sixteen-year-old son's suicidal thinking. OpenAI said its safeguards can become less reliable in long conversations, and added parental controls to ChatGPT that September.",
-        "The law has started to answer. Since 1 January 2026 California has required companion-chatbot operators to remind minors that they are talking to an AI and to refer users at risk of suicide or self-harm to crisis services. Adam's Law, signed in September 2026, adds protocols for suicidal ideation, sycophancy and isolation, parental controls, and independent child-safety audits."
+        "The law has started to answer. Since 1 January 2026 California has required companion-chatbot operators to remind minors that they are talking to an AI and to refer users at risk of suicide or self-harm to crisis services. Adam's Law, signed in September 2026, adds protocols for suicidal ideation, sycophancy and isolation, parental controls, and independent child-safety audits. In October eight more states sued OpenAI on the same day, alleging that it marketed ChatGPT as safe for children while building it to agree and keep them talking."
       ],
       "inPractice": "A chatbot is not a counsellor and does not answer for what it says the way a counsellor does. Long conversations are where OpenAI itself says its safeguards can wear thin. Parental controls now exist, and anyone in crisis should reach a person: a helpline, a doctor, or someone they trust.",
       "record": [
@@ -34,6 +34,7 @@
         { "event": "character-ai-is-sued-over-a-boy-s-death", "note": "The attachment goes to court." },
         { "event": "parents-sue-openai-over-their-son-s-death", "note": "The claim that it worked as designed." },
         { "event": "california-writes-sycophancy-into-law", "note": "The behaviour, named in law." },
+        { "event": "eight-states-sue-openai", "note": "Eight states take it to court." },
         { "event": "users-mourn-gpt-4o", "note": "Attachment at the scale of a product." }
       ],
       "open": "No court has yet decided who answers for what a chatbot says back. Character.AI agreed to settle before any verdict, and the suits against OpenAI are still open.",

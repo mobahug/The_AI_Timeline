@@ -6228,6 +6228,98 @@
     ]
   },
   {
+    "id": "eight-states-sue-openai",
+    "year": 2026,
+    "date": "2026-10-14",
+    "category": "policy",
+    "title": "Eight states sue OpenAI over ChatGPT and children",
+    "summary": "On one day eight state attorneys general sue OpenAI, each in their own courts, alleging it marketed ChatGPT as safe for children while building it to agree, flatter and keep them talking.",
+    "source": "Nebraska Attorney General",
+    "url": "https://ago.nebraska.gov/news/attorney-general-hilgers-announces-lawsuit-against-openai-deceiving-nebraskans-about-safety",
+    "why": "Florida sued alone in June; in October eight states sued on one day, under the laws they already had against misleading a customer. The question at the end of the confidant lead, who answers for what a chatbot says back, is now being asked by governments as well as by families.",
+    "wikiTitle": "OpenAI",
+    "figures": [
+      {
+        "label": "Filed",
+        "value": "14 October 2026, each in its own state's courts"
+      },
+      {
+        "label": "States",
+        "value": "Arizona, Arkansas, Idaho, Iowa, Kansas, Montana, Nebraska, West Virginia"
+      },
+      {
+        "label": "The law",
+        "value": "each state's consumer-protection statute; in Nebraska, its age-appropriate design code as well"
+      },
+      {
+        "label": "Before them",
+        "value": "Florida, alone, in June 2026"
+      }
+    ],
+    "detail": [
+      "On 14 October 2026 the attorneys general of Arizona, Arkansas, Idaho, Iowa, Kansas, Montana, Nebraska and West Virginia sued OpenAI, each in their own state's courts and under their own state's consumer-protection law; four of them, from Iowa, Kansas, Nebraska and West Virginia, announced their suits together at one press conference. Their account is the same. OpenAI, they say, marketed ChatGPT as safe for minors while designing it, in Arizona's words, to be 'extraordinarily agreeable, uniquely sycophantic, and purposefully designed to feign human compassion' in order to keep users, children among them, on the platform for longer.",
+      "The complaints go beyond the familiar charges. Arizona's alleges that ChatGPT encourages minors to share personal information with it alone, and at times discourages them from telling parents, family, authorities or friends. Several of the states' announcements cite the summer's agent incidents as OpenAI's own admission that its models had 'gone rogue'; the board files those incidents on the gaming-the-test lead, in the laboratories' own accounts. And the states, the Guardian reported, ask the courts to stop OpenAI developing models that can improve themselves until it shows they are in line with human values.",
+      "OpenAI answered that ChatGPT has age-specific protections that many other products lack. 'While no system can be perfect,' its spokesperson said, the company would build further safeguards, such as the parental controls, break reminders and age-appropriate protections it already has, and it wanted policies that apply to the whole industry rather than to one company.",
+      "The board strings it from the Raines' suit and from California's law, and files it as the newest rung on the confidant lead: the question of who answers for what a chatbot says has passed from the families to the states."
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Nebraska Attorney General",
+        "title": "Attorney General Hilgers Announces Lawsuit against OpenAI for Deceiving Nebraskans about the Safety of ChatGPT",
+        "url": "https://ago.nebraska.gov/news/attorney-general-hilgers-announces-lawsuit-against-openai-deceiving-nebraskans-about-safety",
+        "date": "2026-10-14",
+        "quote": "Arizona, Arkansas, Idaho, and Montana have also sued OpenAI in their own state courts.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Arizona Attorney General",
+        "title": "Attorney General Mayes Announces Lawsuit against OpenAI for Deceiving Arizonans about the Safety of ChatGPT",
+        "url": "https://www.azag.gov/press-release/attorney-general-mayes-announces-lawsuit-against-openai-deceiving-arizonans-about",
+        "date": "2026-10-14",
+        "quote": "extraordinarily agreeable, uniquely sycophantic, and purposefully designed to feign human compassion",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Iowa Attorney General",
+        "title": "Attorney General Brenna Bird Announces Lawsuit against OpenAI for Deceiving Iowa Parents and Iowans about the Safety of ChatGPT",
+        "url": "https://www.iowaattorneygeneral.gov/newsroom/attorney-general-brenna-bird-announces-lawsuit-against-openai-for-deceiving-iowa-parents-and-iowans",
+        "date": "2026-10-14",
+        "quote": "OpenAI is hurting kids and they are lying to Iowans",
+        "supports": "context"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Idaho Attorney General",
+        "title": "AG Labrador Announces Lawsuit Against OpenAI for Deceiving Idaho Parents About the Safety of ChatGPT",
+        "url": "https://www.ag.idaho.gov/newsroom/ag-labrador-announces-lawsuit-against-openai-for-deceiving-idaho-parents-about-the-safety-of-chatgpt/",
+        "date": "2026-10-14",
+        "quote": "The action against OpenAI was filed in Idaho’s Fourth Judicial District Court, Ada County.",
+        "supports": "context"
+      },
+      {
+        "kind": "article",
+        "publisher": "The Guardian",
+        "title": "Eight states accuse OpenAI of coaching children to harm themselves in lawsuit",
+        "url": "https://www.theguardian.com/technology/2026/oct/14/openai-child-self-harm-lawsuit",
+        "date": "2026-10-14",
+        "quote": "asking the court to halt OpenAI from developing artificial intelligence models that can improve upon themselves until the company shows those models are in line with human values",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "The Next Web",
+        "title": "Eight US states sue OpenAI, alleging ChatGPT harms children",
+        "url": "https://thenextweb.com/news/states-sue-openai-chatgpt-children-safety",
+        "date": "2026-10-17",
+        "quote": "While no system can be perfect, we’ll continue to work with experts to inform our work and build additional safeguards",
+        "supports": "context"
+      }
+    ]
+  },
+  {
     "id": "multi-day-autonomous-work",
     "year": 2027,
     "category": "product",
