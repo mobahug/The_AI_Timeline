@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { fileURLToPath } from 'node:url';
 import { AS_OF, buildGraph } from '../src/lib/data';
-import { CHANGES, WATCH, changes, dateOf, dayOf, lately, monthOf, watchList } from '../src/lib/latest';
+import { CHANGES, WATCH, changes, dateOf, dayOf, keptOf, lately, monthOf, watchList } from '../src/lib/latest';
 import { paperOf } from '../src/lib/papers';
 import { CHECKS } from '../src/lib/checks';
 import { hrefFor, parse } from '../src/lib/url';
@@ -104,8 +104,18 @@ describe('what changed on the board', () => {
   const root = fileURLToPath(new URL('..', import.meta.url));
 
   it('is the list the build dates from this repository’s history', () => {
-    expect(CHANGES).toEqual(boardChangesOf(root));
+    expect(CHANGES).toEqual(boardChangesOf(root).changes);
     expect(CHANGES.length).toBeGreaterThan(0);
+  });
+
+  it('dates every card on the board, filed before or when it last changed', () => {
+    graph.all.forEach((e) => {
+      const kept = keptOf('card', e.id);
+      expect(kept, e.id).toBeTruthy();
+      expect((kept as { filed: string }).filed <= (kept as { changed: string }).changed, e.id).toBe(true);
+      expect((kept as { filed: string }).filed).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+    });
+    expect(keptOf('card', 'no-such-card')).toBeNull();
   });
 
   it('names only records the board holds, each with an address of its own', () => {

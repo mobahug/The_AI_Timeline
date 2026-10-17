@@ -16,4 +16,6 @@ declare module '*/data/events.json?papers' {
 declare module 'virtual:board-changes' {
   const changes: import('./lib/types').Change[];
   export default changes;
+  /** Every dated record, by `kind/id`: the day it was filed and the day it last changed. */
+  export const DATED: Record<string, [string, string]>;
 }

@@ -9,6 +9,7 @@ import { findingFor } from '../lib/spine';
 import { leadsOf } from '../lib/leads';
 import { questionsOf } from '../lib/questions';
 import { checksOf } from '../lib/checks';
+import { dayOf, keptOf } from '../lib/latest';
 import { entitiesOf } from '../lib/files';
 import { paperOf, usePapers } from '../lib/papers';
 import { INK, MONO, SANS, SERIF, STRING_INK, RULE, ROW_RULE, PHOTO_FILTER, frame, ink, micro, shell } from '../lib/styles';
@@ -144,6 +145,7 @@ function CardView({ graph, route, media, embedded }: CardViewProps) {
   ] satisfies (NavItem | null)[]).filter(Boolean) as NavItem[];
   // The neighbours are labelled by date, never by title: `Btn` is nowrap, and a
   // title would run off the side of a phone.
+  const kept = keptOf('card', event.id);
   const nav = (
     <NavRow
       up={up}
@@ -357,7 +359,19 @@ function CardView({ graph, route, media, embedded }: CardViewProps) {
         </Section>
       )}
 
-      {!embedded && <Section>{nav}</Section>}
+      {/* When the card was filed and when it last changed, from the board's
+          history rather than typed in (scripts/board-changes.ts). */}
+      {(kept || !embedded) && (
+        <Section>
+          {kept && (
+            <p style={{ margin: embedded ? 0 : '0 0 20px', font: '400 11.5px/1.8 ' + MONO, color: ink(4), maxWidth: '72ch', textWrap: 'pretty' }}>
+              Filed on the board on {dayOf(kept.filed)}{kept.changed !== kept.filed ? <>; last revised on {dayOf(kept.changed)}</> : null}.{' '}
+              <Link to={{ view: 'latest', hash: 'changes' }} className="ix-ref" style={{ color: ink(2) }}>What changed lately →</Link>
+            </p>
+          )}
+          {!embedded && nav}
+        </Section>
+      )}
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { CATEGORIES, FIRST, NOW, THREADS, TICKS, catLabel, whenOf, yearFraction } from '../lib/data';
 import { eraGrid, ladders, pace, peakOf, stringSpans, threadPair, topNames, topThread } from '../lib/stats';
-import type { EraGrid, Ladders, Pace, PairRow, Spans, NameCount } from '../lib/stats';
+import type { EraGrid, Ladder, Pace, PairRow, Spans, NameCount } from '../lib/stats';
 import { LEADS } from '../lib/leads';
 import { INK, MONO, SANS, SERIF, RULE, ROW_RULE, STRING_INK, CHART, RAMP, ink, markOf, micro, shell } from '../lib/styles';
 import { Btn, Eyebrow, Link, PageHead, useNav } from './kit';
@@ -286,8 +286,11 @@ function SpanChart({ s }: { s: Spans }) {
 
 const LANE = 46;
 
-function LadderChart({ l }: { l: Ladders }) {
+/** Leads' rungs placed in time, a lane each: all five on the charts page, one
+ *  on its lead's own page, where the lane needs no name (`labels={false}`). */
+export function LadderChart({ ladders: list, labels = true, legend = true }: { ladders: Ladder[]; labels?: boolean; legend?: boolean }) {
   const { navigate } = useNav();
+  const l = { ladders: list };
   const dots = l.ladders.flatMap((lad, li) => lad.rungs.map((r) => ({ lad, li, r })));
   const now = yearFraction(NOW + 1) * 100;
   // The board's own ticks, at least a seventh of the width apart so that they
@@ -315,7 +318,7 @@ function LadderChart({ l }: { l: Ladders }) {
   return (
     <>
       <Plot
-        label={'The ' + say(l.ladders.length) + ' leads, every rung placed in time.'}
+        label={l.ladders.length === 1 ? l.ladders[0].lead.title + ': every rung placed in time.' : 'The ' + say(l.ladders.length) + ' leads, every rung placed in time.'}
         count={dots.length}
         open={open}
         describe={(i) => {
@@ -332,17 +335,19 @@ function LadderChart({ l }: { l: Ladders }) {
         {(walk) => (
           // On a desk the lead's name sits to the left of its lane; on a phone,
           // above it, so the lane keeps the whole width (base.css: .lanes).
-          <div className="lanes">
-            <span className="lane-gap" />
+          <div className="lanes" style={labels ? undefined : { gridTemplateColumns: 'minmax(0,1fr)' }}>
+            {labels && <span className="lane-gap" />}
             <div className="lane-track" style={{ position: 'relative', height: 22 }}>{present(true)}</div>
             {l.ladders.map((lad) => {
               const hue = lad.lead.hue;
               const xs = lad.rungs.map((r) => r.x * 100);
               return (
                 <React.Fragment key={lad.lead.id}>
-                  <div className="lane-label" style={{ display: 'flex', alignItems: 'center', minHeight: LANE, paddingRight: 10, borderTop: ROW_RULE }}>
-                    <Link to={{ view: 'lead', id: lad.lead.id }} className="ix-ref" style={{ font: '400 13px/1.2 ' + SERIF, color: INK, letterSpacing: '-0.01em' }}>{lad.lead.title}</Link>
-                  </div>
+                  {labels && (
+                    <div className="lane-label" style={{ display: 'flex', alignItems: 'center', minHeight: LANE, paddingRight: 10, borderTop: ROW_RULE }}>
+                      <Link to={{ view: 'lead', id: lad.lead.id }} className="ix-ref" style={{ font: '400 13px/1.2 ' + SERIF, color: INK, letterSpacing: '-0.01em' }}>{lad.lead.title}</Link>
+                    </div>
+                  )}
                   <div className="lane-track" style={{ position: 'relative', minHeight: LANE, borderTop: ROW_RULE }}>
                     {present(false)}
                     <div aria-hidden="true" style={{ position: 'absolute', top: '50%', left: Math.min(...xs) + '%', width: (Math.max(...xs) - Math.min(...xs)) + '%', borderTop: '1px solid oklch(0.64 0.13 ' + hue + ' / 0.55)' }} />
@@ -364,7 +369,7 @@ function LadderChart({ l }: { l: Ladders }) {
                 </React.Fragment>
               );
             })}
-            <span className="lane-gap" />
+            {labels && <span className="lane-gap" />}
             <div className="lane-track" aria-hidden="true" style={{ position: 'relative', height: 26, borderTop: '1px solid ' + CHART.axis, font: '400 10px/1 ' + MONO, color: ink(5), fontVariantNumeric: 'tabular-nums' }}>
               {axis.map((y, i) => (
                 <span key={y} style={{ position: 'absolute', top: 8, left: yearFraction(y) * 100 + '%', transform: i === axis.length - 1 ? 'translateX(-100%)' : i ? 'translateX(-50%)' : 'none' }}>{y}</span>
@@ -373,10 +378,12 @@ function LadderChart({ l }: { l: Ladders }) {
           </div>
         )}
       </Plot>
-      <Legend items={[
-        ...l.ladders.map((lad) => ({ label: lad.lead.title, color: markOf(lad.lead.hue), shape: 'dot' as const })),
-        { label: 'A scenario', color: 'rgba(243,240,234,0.6)', shape: 'ring' as const }
-      ]} />
+      {legend && (
+        <Legend items={[
+          ...l.ladders.map((lad) => ({ label: lad.lead.title, color: markOf(lad.lead.hue), shape: 'dot' as const })),
+          { label: 'A scenario', color: 'rgba(243,240,234,0.6)', shape: 'ring' as const }
+        ]} />
+      )}
     </>
   );
 }
@@ -527,7 +534,7 @@ function ChartsView({ graph }: ChartsViewProps) {
         table={<Table caption="Rungs on each lead" head={['Lead', 'Rung', 'When', 'Level reached']} numeric={[1]}
           rows={l.ladders.flatMap((lad) => lad.rungs.map((r) => [lad.lead.title, r.n, whenOf(r.event) + (r.event.future ? ' (scenario)' : ''), r.label]))} />}
       >
-        <LadderChart l={l} />
+        <LadderChart ladders={l.ladders} />
       </ChartSection>
 
       <ChartSection

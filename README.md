@@ -45,7 +45,7 @@ verbs. The switch is in the header; `?mode=full` on any link opens the whole fil
 | The case, the horizon | `/case/`, `/horizon/` | Where the record stands; the scenarios |
 | The board | `/board/` | The evidence wall: photo cards, string, clue walkthrough, lead ladders |
 | A dossier | `/card/<id>/` | One card in full |
-| The leads | `/leads/`, `/lead/<id>/` | Five lines of inquiry, each a ladder of cards |
+| The leads | `/leads/`, `/lead/<id>/` | Five lines of inquiry, each a ladder of cards, drawn in time at the top of its page |
 | The archive | `/archive/`, `/archive/plates/`, `/archive/mosaic/` | Everything, dated, in three costumes |
 | The files | `/files/`, `/person/<id>/`, `/org/<id>/` | Every name, with every card it appears on |
 | The glossary | `/glossary/`, `/term/<id>/` | Every term, defined in place |
@@ -82,9 +82,10 @@ The build writes `feed.xml`, an Atom feed of the cards, leads, plain questions a
 headline checks most recently added or changed. Its dates come from the git history of
 `data/`, not from the data, so the build needs the whole history: a shallow clone is
 refused (the deploy checks out with `fetch-depth: 0`). See `scripts/feed.ts`. The latest
-page prints the same list on the site, from a module the build makes out of the same
-history (`virtual:board-changes`, `scripts/board-changes.ts`); the dev server and the
-tests run on a shallow clone too, with an empty list and a warning.
+page prints the same list on the site, and every dossier says at its foot when its card
+was filed and last revised, from a module the build makes out of the same history
+(`virtual:board-changes`, `scripts/board-changes.ts`); the dev server and the tests run on
+a shallow clone too, with no dates and a warning.
 
 ## Data
 

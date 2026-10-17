@@ -1,4 +1,4 @@
-import CHANGED from 'virtual:board-changes';
+import CHANGED, { DATED } from 'virtual:board-changes';
 import raw from '../../data/watch.json';
 import { AS_OF, whenOf } from './data';
 import { leadById } from './leads';
@@ -67,6 +67,13 @@ export const dateOf = (w: Watch): string => whenOf({ year: Number((w.date || '')
 /* ─── What changed on the board ──────────────────────────────────────── */
 
 export const CHANGES: Change[] = CHANGED;
+
+/** When a record was filed on the board and when it last changed, as days
+ *  (`YYYY-MM-DD`), from the history — or null for one not yet committed. */
+export function keptOf(kind: ChangeKind, id: string): { filed: string; changed: string } | null {
+  const d = DATED[kind + '/' + id];
+  return d ? { filed: d[0], changed: d[1] } : null;
+}
 
 export interface Changed extends Change { title: string; to: RoutePatch; noun: string; isNew: boolean }
 

@@ -4,6 +4,8 @@ import { NOW, accent, catLabel } from '../lib/data';
 import { LEADS, leadById, buildLead } from '../lib/leads';
 import { INK, MONO, SANS, SERIF, RULE, ROW_RULE, PHOTO_FILTER, PLACEHOLDER, badge, frame, ink, micro, shell } from '../lib/styles';
 import { Anchor, Btn, Claim, CopyLink, Eyebrow, Link, NavRow, PageHead, Ref, Section } from './kit';
+import { LadderChart } from './ChartsView';
+import { ladders } from '../lib/stats';
 
 /* One lead in full: the question, where it stands, and the ladder — every rung
    with its card, the level it reached, the sentence that connects it to the
@@ -56,6 +58,16 @@ function LeadView({ graph, route, media }: LeadViewProps) {
           <p style={{ margin: 0, font: '400 15px/1.55 ' + SERIF, color: ink(2), maxWidth: '54ch', textWrap: 'pretty' }}>{lead.standing}</p>
         </div>
       </div>
+
+      {/* The ladder in time, as the charts draw it: when each rung was
+          reached, on the board's own axis, the scenarios dashed. */}
+      <Section id="in-time" eyebrow="The ladder in time" title="When each rung was reached" count={b.span ? b.span.from + ' — ' + b.span.to : undefined}>
+        <LadderChart ladders={ladders(graph).ladders.filter((x) => x.lead.id === lead.id)} labels={false} legend={false} />
+        <p style={{ margin: '12px 0 0', font: '400 11.5px/1.75 ' + MONO, color: ink(4), maxWidth: '78ch', textWrap: 'pretty' }}>
+          A dot is a rung; a hollow, dashed one is a scenario. Time runs as it does on the board, the recent years drawn wider.
+          Pick a dot to read the rung, and open it to jump to it below. <Link to={{ view: 'charts', hash: 'ladders' }} className="ix-ref" style={{ color: ink(2) }}>Every lead in time →</Link>
+        </p>
+      </Section>
 
       <Section id="ladder" eyebrow="The ladder" title="Rung by rung" count={b.strung + ' of ' + b.steps.length + ' steps carry a string'}>
         <ol style={{ listStyle: 'none', margin: 0, padding: 0 }}>
