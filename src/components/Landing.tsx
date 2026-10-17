@@ -102,7 +102,9 @@ function Landing({ media }: LandingProps) {
           the record, and the next day the record knows is coming. */}
       <Part id="lately-head" eyebrow={'On the record · current to ' + asOf} title="What happened lately."
         more={<Btn to={{ view: 'latest' }}>All the latest, and what to watch →</Btn>}>
-        <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(min(100%,230px),1fr))', gap: 'clamp(12px,2vw,20px)' }}>
+        {/* Two to a row on a phone, four on a desk: a column of four photographs
+            would push the questions below a long scroll. */}
+        <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(min(100%,148px),1fr))', gap: 'clamp(10px,2vw,20px)' }}>
           {newest.map((e) => {
             const shot = media(e);
             return (
@@ -121,7 +123,7 @@ function Landing({ media }: LandingProps) {
                       <span style={{ font: '400 11.5px/1 ' + MONO, color: ink(3), fontVariantNumeric: 'tabular-nums' }}>{whenOf(e)}</span>
                       <span style={tag(e.category, accent)}>{catLabel(e.category)}</span>
                     </span>
-                    <span style={{ font: '400 clamp(18px,1.7vw,21px)/1.15 ' + SERIF, color: INK, letterSpacing: '-0.02em', textWrap: 'balance' }}>{e.title}</span>
+                    <span style={{ font: '400 clamp(16px,1.7vw,21px)/1.15 ' + SERIF, color: INK, letterSpacing: '-0.02em', textWrap: 'balance' }}>{e.title}</span>
                   </span>
                 </Link>
               </li>
