@@ -5,7 +5,7 @@ import { LEADS } from '../lib/leads';
 import { PEOPLE, ORGS, TERMS } from '../lib/files';
 import { paperOf, usePapers } from '../lib/papers';
 import { BASE } from '../lib/url';
-import { INK, MONO, SERIF, SANS, RULE, ink, shell } from '../lib/styles';
+import { INK, MONO, SERIF, SANS, RULE, ink, shell, pageTitle } from '../lib/styles';
 import { Link, PageHead } from './kit';
 
 /* The essay's own section: no rule above it, only the measure and the h2 it
@@ -24,7 +24,7 @@ function About() {
       <PageHead
         eyebrow="How this board works"
         title="About the board"
-        h1Style={{ font: '400 clamp(26px,4vw,40px)/1.05 ' + SERIF, letterSpacing: '-0.03em' }}
+        h1Style={pageTitle('detail')}
       />
 
       <div style={{ marginTop: 44 }}>

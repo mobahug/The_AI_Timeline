@@ -3,7 +3,7 @@ import type { CheckSource, Graph, Route, Verdict } from '../lib/types';
 import { catLabel, whenOf } from '../lib/data';
 import { CHECKS, VERDICTS, checkById } from '../lib/checks';
 import { leadById } from '../lib/leads';
-import { CYAN, GOLD, INK, MONO, RED_LIT, SANS, SERIF, RULE, ROW_RULE, DASHED_RULE, badge, ink, micro, shell } from '../lib/styles';
+import { CYAN, GOLD, INK, MONO, RED_LIT, SANS, SERIF, RULE, ROW_RULE, DASHED_RULE, badge, ink, micro, shell, pageTitle } from '../lib/styles';
 import { Btn, CopyLink, Eyebrow, NavRow, PageHead, Quote, Ref, Section } from './kit';
 
 /* One headline check: what was reported, set line by line beside what the
@@ -67,7 +67,7 @@ function CheckView({ graph, route }: CheckViewProps) {
         eyebrow={'Headline check' + (CHECKS.length > 1 ? ' ' + String(n + 1).padStart(2, '0') + ' of ' + CHECKS.length : '') + ' · checked ' + dateText(c.checked)}
         title={c.title}
         lede={c.short}
-        h1Style={{ font: '400 clamp(32px,5.6vw,66px)/1 ' + SERIF, letterSpacing: '-0.035em' }}
+        h1Style={pageTitle('detail')}
       >
         {nav}
       </PageHead>

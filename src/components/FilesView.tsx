@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { PEOPLE, ORGS, TERMS, appearancesOf } from '../lib/files';
-import { INK, MONO, SANS, SERIF, RULE, ROW_RULE, ink, micro, shell } from '../lib/styles';
+import { INK, MONO, SANS, SERIF, RULE, ROW_RULE, ink, micro, shell, pageTitle } from '../lib/styles';
 import { Anchor, Btn, Eyebrow, Link, PageHead, Section } from './kit';
 import type { ReactNode } from 'react';
 import type { Entity, Event, Graph } from '../lib/types';
@@ -41,7 +41,7 @@ function FilesView({ graph }: FilesViewProps) {
         eyebrow={'The files · ' + PEOPLE.length + ' people · ' + ORGS.length + ' organisations · ' + TERMS.length + ' terms'}
         title="Every name on the board."
         lede="A name is a way in. Open a person, an organisation or a term to see every card that carries it, in date order, and the strings between those cards — without leaving the site for an encyclopaedia."
-        h1Style={{ font: '400 clamp(34px,6vw,72px)/0.98 ' + SERIF, letterSpacing: '-0.035em' }}
+        h1Style={pageTitle('index')}
       />
 
       <Section id="people" eyebrow="Persons of interest" title="People" count={PEOPLE.length + ' on file'}>

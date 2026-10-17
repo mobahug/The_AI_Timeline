@@ -87,12 +87,17 @@ export const Prose = ({ style, children, ...rest }: React.HTMLAttributes<HTMLPar
 
 /** The verb on a string. It carries its arrow wherever it sits between a source
  *  and a destination in reading flow; `sep="none"` where the direction is already
- *  drawn. `wrap` lets a long claim break in a narrow column. */
+ *  drawn. `wrap` sets it for a narrow column, where it is expected to break.
+ *
+ *  A claim is never held to one line. It sits in a wrapping row beside the two
+ *  cards it joins, and the row keeps it whole wherever it fits; the longest
+ *  claims run to fifty characters, wider than a phone, and held to one line
+ *  they ran off the side of the screen. */
 export interface ClaimProps { tone?: string; wrap?: boolean; sep?: 'arrow' | 'none'; style?: CSSProperties; children?: ReactNode }
 export const Claim = ({ tone, wrap, sep = 'arrow', style, children }: ClaimProps) => (
   <span style={{
     font: '400 10px/' + (wrap ? '1.3' : '1.5') + ' ' + MONO, letterSpacing: '0.14em', textTransform: 'uppercase',
-    color: tone || STRING_INK, whiteSpace: wrap ? 'normal' : 'nowrap', ...style
+    color: tone || STRING_INK, whiteSpace: 'normal', minWidth: 0, ...style
   }}>{children}{sep === 'arrow' ? ' →' : ''}</span>
 );
 
@@ -371,6 +376,26 @@ export function Segmented({ items, value, label, size = 'md', style }: { items: 
           >{it.label}</Link>
         );
       })}
+    </nav>
+  );
+}
+
+/** "On this page": a row of chips that jump to the page's own sections, each
+ *  optionally numbered as the sections are. The same row heads every page that
+ *  has one, so a reader learns it once. */
+export function JumpNav({ items, label = 'On this page', style }: { items: { id: string; label: ReactNode; n?: number }[]; label?: string; style?: CSSProperties }) {
+  return (
+    <nav aria-label={label} style={{ marginTop: 30, display: 'flex', gap: 8, flexWrap: 'wrap', ...style }}>
+      {items.map((it) => (
+        <Link
+          key={it.id}
+          to={{ hash: it.id }}
+          className="ix-chip"
+          style={{ ...micro(3), letterSpacing: '0.08em', textTransform: 'none', font: '400 11.5px/1 ' + MONO, border: '1px solid rgba(243,240,234,0.16)', borderRadius: 2, padding: '8px 10px' }}
+        >
+          {it.n !== undefined && <span style={{ color: ink(5) }}>{String(it.n).padStart(2, '0')} </span>}{it.label}
+        </Link>
+      ))}
     </nav>
   );
 }

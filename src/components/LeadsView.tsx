@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Graph, LeadKind } from '../lib/types';
 import { LEADS, buildLead } from '../lib/leads';
-import { INK, MONO, SANS, SERIF, RULE, ink, micro, shell } from '../lib/styles';
+import { INK, MONO, SANS, SERIF, RULE, ink, micro, shell, pageTitle } from '../lib/styles';
 import { Btn, Eyebrow, Link, PageHead } from './kit';
 
 /* The leads: one row per line of inquiry, with its question, its span, and the
@@ -21,7 +21,7 @@ function LeadsView({ graph }: LeadsViewProps) {
         eyebrow={'The leads · ' + LEADS.length + ' lines of inquiry · ' + rungs + ' rungs, every one a card'}
         title="Follow a lead."
         lede="A lead is one question followed through the record, rung by rung: how far did machines get at mathematics, at games, at gaming their own tests, and how cheap did an answer become. Each rung is a card on the board; the lead adds the level it reached and the sentence that connects it to the next. Open a lead to read it, or follow it on the board to watch the ladder light up."
-        h1Style={{ font: '400 clamp(34px,6vw,72px)/0.98 ' + SERIF, letterSpacing: '-0.035em' }}
+        h1Style={pageTitle('index')}
       />
 
       <ol style={{ listStyle: 'none', margin: '40px 0 0', padding: 0 }}>

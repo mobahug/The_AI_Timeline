@@ -1,6 +1,6 @@
 import React from 'react';
 import { ERAS, NOW, standingNow, roadsTo, otherOrigins, threadLedger, loadBearing, strandOf } from '../lib/data';
-import { RED, RED_LIT, RULE, SERIF, badge, ink, micro, shell } from '../lib/styles';
+import { RED, RED_LIT, RULE, SERIF, badge, ink, micro, shell, pageTitle } from '../lib/styles';
 import { Btn, CardTriple, Claim, Eyebrow, Ledger, Link, NavRow, PageHead, Prose, Reading, Ref, Section } from './kit';
 import type { NavItem } from './kit';
 import type { ReactNode } from 'react';
@@ -67,6 +67,7 @@ function CaseView({ graph }: CaseViewProps) {
   return (
     <div data-year={NOW} style={shell('route')}>
       <PageHead
+        h1Style={pageTitle('index')}
         eyebrow="The open file · where it stands · derived from data/events.json and data/links.json"
         title="The case as it stands"
         lede={CASE_LEDE}

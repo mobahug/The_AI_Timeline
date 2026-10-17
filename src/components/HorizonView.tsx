@@ -1,7 +1,7 @@
 import React from 'react';
 import { ERAS, HORIZONS, NOW, THREADS, catLabel, fade, horizonLedger, forwardLedger } from '../lib/data';
 import { paperOf, usePapers } from '../lib/papers';
-import { INK, RED, SANS, SERIF, DASHED_RULE, DASHED_ROW, badge, ink, micro, shell } from '../lib/styles';
+import { INK, RED, SANS, SERIF, DASHED_RULE, DASHED_ROW, badge, ink, micro, shell, pageTitle } from '../lib/styles';
 import {
   Btn, CardTriple, Claim, Empty, Eyebrow, Ledger, Link, NavRow, PageHead, Prose, Reading, Ref, Section
 } from './kit';
@@ -36,6 +36,7 @@ function HorizonView({ items, graph, route, navigate, onOpen }: HorizonViewProps
   return (
     <div data-year={NOW + 1} style={shell('route')}>
       <PageHead
+        h1Style={pageTitle('index')}
         eyebrow="The open file · what comes next · derived from data/events.json and data/links.json"
         title="The horizon"
         lede={projected.subtitle}

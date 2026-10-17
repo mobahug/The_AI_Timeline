@@ -3,7 +3,7 @@ import { accent, catLabel, fade } from '../lib/data';
 import { PEOPLE, ORGS, TERMS, byUse, coOccurring, entityById, appearancesOf } from '../lib/files';
 import type { CoOccurrence } from '../lib/files';
 import { leadsOf } from '../lib/leads';
-import { INK, MONO, SANS, SERIF, RULE, ROW_RULE, badge, ink, micro, shell } from '../lib/styles';
+import { INK, MONO, SANS, SERIF, RULE, ROW_RULE, badge, ink, micro, shell, pageTitle } from '../lib/styles';
 import { Btn, Claim, CopyLink, Eyebrow, Link, NavRow, Ref, Section } from './kit';
 import type { Edge, Entity, EntityKind, Graph, Lead, Route, ViewId } from '../lib/types';
 
@@ -86,7 +86,7 @@ function EntityView({ graph, route }: EntityViewProps) {
         <Eyebrow tier="page" dim style={{ margin: '34px 0 14px' }}>
           {KIND_LABEL[kind]}{first ? ' · on the board ' + first.year + (last && last.year !== first.year ? ' — ' + last.year : '') : ' · not yet on a card'}
         </Eyebrow>
-        <h1 tabIndex={-1} style={{ margin: 0, outline: 'none', font: '400 clamp(32px,5.6vw,64px)/1.02 ' + SERIF, letterSpacing: '-0.035em', textWrap: 'balance', maxWidth: '18ch' }}>
+        <h1 tabIndex={-1} style={{ margin: 0, outline: 'none', ...pageTitle('detail'), textWrap: 'balance', maxWidth: '18ch' }}>
           {entity.label}
         </h1>
         {line && (

@@ -3,7 +3,7 @@ import type { Graph, Media, Route, Row } from '../lib/types';
 import type { Navigate } from '../lib/url';
 import { NOW, accent, fade, whenOf } from '../lib/data';
 import { buildLine, readingOf, findingByNumber } from '../lib/spine';
-import { INK, MONO, SANS, SERIF, RULE, ROW_RULE, PHOTO_FILTER, PLACEHOLDER, frame, ink, micro, shell, sourceLink } from '../lib/styles';
+import { INK, MONO, SANS, SERIF, RULE, ROW_RULE, PHOTO_FILTER, PLACEHOLDER, frame, ink, micro, shell, sourceLink, pageTitle } from '../lib/styles';
 import { Btn, CardTriple, Claim, Eyebrow, Link, NavRow, Ref, Reading, Section } from './kit';
 import EvidenceStrip from './EvidenceStrip';
 import OpenFile from './OpenFile';
@@ -61,7 +61,7 @@ function FindingView({ graph, route, navigate, onOpen, media }: FindingViewProps
           </Eyebrow>
         </div>
 
-        <h1 style={{ margin: '10px 0 0', font: '400 clamp(30px,5.4vw,62px)/1.02 ' + SERIF, letterSpacing: '-0.035em', textWrap: 'balance', maxWidth: '20ch' }}>
+        <h1 style={{ margin: '10px 0 0', ...pageTitle('detail'), textWrap: 'balance', maxWidth: '20ch' }}>
           {finding.title}
         </h1>
         <p style={{ margin: '18px 0 0', font: '400 clamp(14px,1.5vw,17px)/1.6 ' + SANS, color: ink(3), maxWidth: '56ch', textWrap: 'pretty' }}>

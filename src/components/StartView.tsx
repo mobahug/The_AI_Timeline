@@ -9,9 +9,8 @@ import { termById } from '../lib/files';
 import { buildLine } from '../lib/spine';
 import {
   INK, MANILA, MONO, PAPER, SANS, SERIF, RULE, ROW_RULE, STRING_INK, CARD_PHOTO_FILTER,
-  ink, micro, paperInk, shell
-} from '../lib/styles';
-import { Btn, Claim, Door, Doors, Eyebrow, Link, NavRow, PageHead, Section } from './kit';
+  ink, micro, paperInk, shell, pageTitle } from '../lib/styles';
+import { Btn, Claim, Door, Doors, Eyebrow, JumpNav, Link, NavRow, PageHead, Section } from './kit';
 import type { Event, Graph, Media } from '../lib/types';
 
 /* Start here: the page for a reader who has never opened the board, and may
@@ -123,15 +122,15 @@ function StartView({ graph, media }: StartViewProps) {
         eyebrow="Start here · for a reader new to AI, or new to this board"
         title="New to all this? Start here."
         lede={'This site is a history of artificial intelligence: ' + record + ' events from ' + FIRST + ' to ' + NOW + ', and ' + scenarios + ' scenarios for what might follow, told as an investigation. Each event is a card pinned to a wall, with a string to the events it made possible. You need no technical background to read it. This page explains the few words it uses, the handful of ideas the story turns on, and where to begin.'}
-        h1Style={{ font: '400 clamp(34px,6vw,72px)/0.98 ' + SERIF, letterSpacing: '-0.035em' }}
+        h1Style={pageTitle('index')}
       />
 
-      <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginTop: 30 }}>
-        <Btn tone="loud" size="lg" to={{ hash: 'begin' }}>Where to begin ↓</Btn>
-        <Btn size="lg" to={{ hash: 'ideas' }}>AI in plain words</Btn>
-        <Btn size="lg" to={{ hash: 'read' }}>How to read the board</Btn>
-        <Btn size="lg" tone="dim" to={{ hash: 'words' }}>The board’s own words</Btn>
-      </div>
+      <JumpNav items={[
+        { id: 'read', label: 'How to read the board' },
+        { id: 'ideas', label: 'AI in plain words' },
+        { id: 'begin', label: 'Where to begin' },
+        { id: 'words', label: 'The board’s own words' }
+      ]} />
 
       <Section id="read" eyebrow="A key to the wall, drawn from it" title="How to read the board">
         {a && b && pick && (

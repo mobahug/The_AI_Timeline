@@ -2,7 +2,7 @@ import React from 'react';
 import type { Event, Graph, RoutePatch } from '../lib/types';
 import { FIRST, NOW, accent, catLabel } from '../lib/data';
 import { buildLine, readingOf } from '../lib/spine';
-import { INK, MONO, RED_LIT, SANS, SERIF, RULE, ink, micro, shell } from '../lib/styles';
+import { INK, MONO, RED_LIT, SANS, SERIF, RULE, ink, micro, shell, pageTitle } from '../lib/styles';
 import { Claim, Eyebrow, Link, Ref } from './kit';
 import OpenFile from './OpenFile';
 
@@ -52,7 +52,7 @@ function LineView({ graph }: LineViewProps) {
         <Eyebrow tier="page" dim style={{ marginBottom: 18 }}>
           The line · {line.rows.length} findings · derived from the board
         </Eyebrow>
-        <h1 style={{ margin: 0, font: '400 clamp(32px,6.4vw,74px)/1.02 ' + SERIF, letterSpacing: '-0.035em', textWrap: 'balance', maxWidth: '18ch' }}>
+        <h1 style={{ margin: 0, ...pageTitle('index'), textWrap: 'balance', maxWidth: '18ch' }}>
           How a machine that could not add became something governments argue about.
         </h1>
         <p style={{ margin: '20px 0 0', font: '400 clamp(14px,1.5vw,17px)/1.6 ' + SANS, color: ink(3), maxWidth: '54ch', textWrap: 'pretty' }}>

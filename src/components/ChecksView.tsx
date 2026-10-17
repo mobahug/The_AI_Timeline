@@ -1,7 +1,7 @@
 import React from 'react';
 import { whenOf } from '../lib/data';
 import { CHECKS, VERDICTS, VERDICT_ORDER } from '../lib/checks';
-import { INK, MONO, SANS, SERIF, RULE, ink, micro, shell } from '../lib/styles';
+import { INK, MONO, SANS, SERIF, RULE, ink, micro, shell, pageTitle } from '../lib/styles';
 import { Btn, Eyebrow, Link, PageHead } from './kit';
 import { VerdictMark } from './CheckView';
 
@@ -19,7 +19,7 @@ function ChecksView() {
         eyebrow={'Headline checks · ' + CHECKS.length + (CHECKS.length === 1 ? ' check' : ' checks') + ' · quoted on both sides'}
         title="Checked against the source."
         lede="A headline about AI is usually a report of a report: a lab's paper, a court filing, a law. Each check here sets the words that were published beside the words of the primary account, both quoted exactly, says where they part, and links to the board's cards on the same events."
-        h1Style={{ font: '400 clamp(34px,6vw,72px)/0.98 ' + SERIF, letterSpacing: '-0.035em' }}
+        h1Style={pageTitle('index')}
       />
 
       <dl style={{ margin: '34px 0 0', display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(min(100%,220px),1fr))', gap: '14px clamp(16px,3vw,32px)' }}>

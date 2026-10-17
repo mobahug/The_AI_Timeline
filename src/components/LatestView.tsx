@@ -5,9 +5,8 @@ import { BASE } from '../lib/url';
 import { absolute, copyText } from '../lib/dom';
 import {
   INK, MONO, SANS, SERIF, RULE, ROW_RULE, DASHED_ROW, STRING_INK, CARD_PHOTO_FILTER, PLACEHOLDER,
-  badge, frame, ink, micro, shell, tag
-} from '../lib/styles';
-import { Btn, Eyebrow, Link, PageHead, Section } from './kit';
+  badge, frame, ink, micro, shell, tag, pageTitle } from '../lib/styles';
+import { Btn, Eyebrow, JumpNav, Link, PageHead, Section } from './kit';
 import type { Event, Graph, Media, Watch } from '../lib/types';
 
 /* The latest: for a reader who wants to follow AI as it happens, not only how
@@ -126,14 +125,10 @@ function LatestView({ graph, media }: LatestViewProps) {
         eyebrow={'The latest · the record is current to ' + asOf}
         title="What happened lately."
         lede={'The newest events on the record, newest first; the dates it already knows are coming and the questions it is still waiting on; the scenarios nearest to now; and what changed on the board itself. Every entry opens its card, with the sources it rests on.'}
-        h1Style={{ font: '400 clamp(34px,6vw,72px)/0.98 ' + SERIF, letterSpacing: '-0.035em' }}
+        h1Style={pageTitle('index')}
       />
 
-      <nav aria-label="On this page" style={{ marginTop: 30, display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-        {SECTIONS.map((s) => (
-          <Link key={s.id} to={{ hash: s.id }} className="ix-chip" style={{ ...micro(3), letterSpacing: '0.08em', textTransform: 'none', font: '400 11.5px/1 ' + MONO, border: '1px solid rgba(243,240,234,0.16)', borderRadius: 2, padding: '8px 10px' }}>{s.label}</Link>
-        ))}
-      </nav>
+      <JumpNav items={SECTIONS} />
 
       <Section id="record" eyebrow={count + ' cards · the twelve months to ' + asOf} title="On the record, newest first">
         <p style={{ margin: '0 0 6px', font: '400 13.5px/1.6 ' + SANS, color: ink(4), maxWidth: '64ch', textWrap: 'pretty' }}>

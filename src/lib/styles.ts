@@ -176,6 +176,18 @@ export const shell = (kind: string = 'wide'): CSSProperties => ({
   padding: '0 ' + GUTTER + ' ' + SHELL_BOTTOM + 'px'
 });
 
+/** A page's h1, by the kind of page. 'index' opens a part of the site — the
+ *  line, the case, the horizon, the leads, the charts, the archive, the files,
+ *  the glossary, the questions, the checks, the latest, Start here; 'detail' is
+ *  one thing inside it — a lead, a finding, a question, a check, a name, About.
+ *  The front page's headline and a card's own headline keep their own scales.
+ *  Six sizes had grown up between 40 and 96px; these are the two that remain. */
+export type TitleKind = 'index' | 'detail';
+export const pageTitle = (kind: TitleKind = 'index'): CSSProperties => ({
+  font: kind === 'index' ? '400 clamp(34px,6vw,72px)/0.98 ' + SERIF : '400 clamp(32px,5.6vw,64px)/1.02 ' + SERIF,
+  letterSpacing: '-0.035em'
+});
+
 /** The small tabular year that precedes a title in running text. */
 export const yearBit: CSSProperties = {
   font: '400 11px/1 ' + MONO,

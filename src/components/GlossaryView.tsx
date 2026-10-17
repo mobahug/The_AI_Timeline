@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { TERMS, appearancesOf } from '../lib/files';
-import { INK, MONO, SANS, SERIF, RULE, ROW_RULE, ink, micro, shell } from '../lib/styles';
+import { INK, MONO, SANS, SERIF, RULE, ROW_RULE, ink, micro, shell, pageTitle } from '../lib/styles';
 import { Anchor, Btn, Link, PageHead } from './kit';
 import type { TermEntity } from '../lib/files';
 import type { Graph } from '../lib/types';
@@ -37,7 +37,7 @@ function GlossaryView({ graph }: GlossaryViewProps) {
         eyebrow={'The glossary · ' + TERMS.length + ' terms · defined in place'}
         title="The words the board uses."
         lede="Defined here so nothing on the board needs an encyclopaedia to follow. Every term links to the cards that use it."
-        h1Style={{ font: '400 clamp(30px,5vw,58px)/0.98 ' + SERIF, letterSpacing: '-0.035em' }}
+        h1Style={pageTitle('index')}
       >
         <div style={{ display: 'flex', gap: 10, marginBottom: 30 }}>
           <Btn to={{ view: 'files' }}>← The files</Btn>

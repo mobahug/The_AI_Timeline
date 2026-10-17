@@ -3,7 +3,7 @@ import type { Graph, Route } from '../lib/types';
 import { catLabel } from '../lib/data';
 import { QUESTIONS, questionById } from '../lib/questions';
 import { leadById } from '../lib/leads';
-import { GOLD, INK, MONO, SANS, SERIF, RULE, ROW_RULE, DASHED_RULE, badge, ink, micro, shell } from '../lib/styles';
+import { GOLD, INK, MONO, SANS, SERIF, RULE, ROW_RULE, DASHED_RULE, badge, ink, micro, shell, pageTitle } from '../lib/styles';
 import { Btn, CopyLink, Eyebrow, NavRow, PageHead, Ref, Section } from './kit';
 
 /* One plain question in full: the short answer, the longer one, what it means
@@ -42,7 +42,7 @@ function QuestionView({ graph, route }: QuestionViewProps) {
         eyebrow={'Plain question ' + String(n + 1).padStart(2, '0') + ' of ' + QUESTIONS.length + ' · ' + q.record.length + ' cards on the record'}
         title={q.question}
         lede={q.short}
-        h1Style={{ font: '400 clamp(32px,5.6vw,66px)/1 ' + SERIF, letterSpacing: '-0.035em' }}
+        h1Style={pageTitle('detail')}
       >
         {nav}
       </PageHead>

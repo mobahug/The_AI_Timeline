@@ -1,6 +1,6 @@
 import React from 'react';
 import { QUESTIONS } from '../lib/questions';
-import { INK, MONO, SANS, SERIF, RULE, ink, micro, shell } from '../lib/styles';
+import { INK, MONO, SANS, SERIF, RULE, ink, micro, shell, pageTitle } from '../lib/styles';
 import { Btn, Eyebrow, Link, PageHead } from './kit';
 
 /* The plain questions: what a reader who has never opened the board wants to
@@ -15,7 +15,7 @@ function QuestionsView() {
         eyebrow={'Plain questions · ' + QUESTIONS.length + ' questions · answered from ' + cards + ' cards'}
         title="Start with a question."
         lede="The questions people ask about AI, answered in a few sentences from what the board's cards already say and source. Each answer names the cards it rests on and says what the record does not settle; the leads take it further."
-        h1Style={{ font: '400 clamp(34px,6vw,72px)/0.98 ' + SERIF, letterSpacing: '-0.035em' }}
+        h1Style={pageTitle('index')}
       />
 
       <ol style={{ listStyle: 'none', margin: '40px 0 0', padding: 0 }}>

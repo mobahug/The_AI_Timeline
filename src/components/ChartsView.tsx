@@ -3,8 +3,8 @@ import { CATEGORIES, FIRST, NOW, THREADS, TICKS, catLabel, whenOf, yearFraction 
 import { eraGrid, ladders, pace, peakOf, stringSpans, threadPair, topNames, topThread } from '../lib/stats';
 import type { EraGrid, Ladder, Pace, PairRow, Spans, NameCount } from '../lib/stats';
 import { LEADS } from '../lib/leads';
-import { INK, MONO, SANS, SERIF, RULE, ROW_RULE, STRING_INK, CHART, RAMP, ink, markOf, micro, shell } from '../lib/styles';
-import { Btn, Eyebrow, Link, PageHead, useNav } from './kit';
+import { INK, MONO, SANS, SERIF, RULE, ROW_RULE, STRING_INK, CHART, RAMP, ink, markOf, micro, shell, pageTitle } from '../lib/styles';
+import { Btn, Eyebrow, JumpNav, Link, PageHead, useNav } from './kit';
 import { ChartSection, Grid, Legend, Plot, Table, markProps, ticksFor } from './Chart';
 import type { Edge, Event, Graph, Thread } from '../lib/types';
 
@@ -452,7 +452,7 @@ function ChartsView({ graph }: ChartsViewProps) {
         eyebrow={'The charts · ' + record + ' cards on the record · ' + graph.edges.length + ' strings · counted from the board'}
         title="The record, counted."
         lede={'The same cards and strings, counted instead of read. Each chart opens with what it shows in one sentence, and every number it draws is in the table beneath it. They count what the board has pinned up, which is one reading of the field, not a census of it: a busy year means the board finds more there, not that a statistician did.'}
-        h1Style={{ font: '400 clamp(34px,6vw,72px)/0.98 ' + SERIF, letterSpacing: '-0.035em' }}
+        h1Style={pageTitle('index')}
       />
 
       {/* At a glance: the board's size, the way the rest of the site counts it. */}
@@ -473,13 +473,7 @@ function ChartsView({ graph }: ChartsViewProps) {
         ))}
       </dl>
 
-      <nav aria-label="The charts on this page" style={{ marginTop: 34, display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-        {charts.map((c, i) => (
-          <Link key={c.id} to={{ hash: c.id }} className="ix-chip" style={{ ...micro(3), letterSpacing: '0.08em', textTransform: 'none', font: '400 11.5px/1 ' + MONO, border: '1px solid rgba(243,240,234,0.16)', borderRadius: 2, padding: '8px 10px' }}>
-            <span style={{ color: ink(5) }}>{String(i + 1).padStart(2, '0')}</span> {c.title}
-          </Link>
-        ))}
-      </nav>
+      <JumpNav label="The charts on this page" items={charts.map((c, i) => ({ id: c.id, label: c.title, n: i + 1 }))} style={{ marginTop: 34 }} />
 
       <ChartSection
         id="pace" n={1} eyebrow={'Cards per year · ' + FIRST + '–' + NOW} title="How fast it moved"

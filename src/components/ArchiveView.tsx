@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Event, Media, Route, ViewId } from '../lib/types';
 import type { Navigate } from '../lib/url';
-import { SERIF, shell } from '../lib/styles';
+import { shell, pageTitle } from '../lib/styles';
 import IndexView from './IndexView';
 import PlatesView from './PlatesView';
 import MosaicView from './MosaicView';
@@ -29,7 +29,7 @@ function ArchiveView({ mode, items, media, route, navigate }: ArchiveViewProps) 
             eyebrow={'The archive · ' + items.length + ' ' + (items.length === 1 ? 'entry' : 'entries') + ' · in date order'}
             title="Everything, in the order it happened."
             lede="The filter and search in the header apply here. Open any entry to land on it on the board; the dossier is one step further."
-            h1Style={{ font: '400 clamp(30px,5vw,58px)/0.98 ' + SERIF, letterSpacing: '-0.035em' }}
+            h1Style={pageTitle('index')}
           />
           <span style={{ flex: 1 }} />
           <Segmented label="Shown as" items={MODES.map(([id, label]) => ({ id, label, to: { view: id } }))} value={mode} />

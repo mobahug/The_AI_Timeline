@@ -2,7 +2,7 @@ import React from 'react';
 import type { Graph, LeadKind, Media, Route } from '../lib/types';
 import { NOW, accent, catLabel } from '../lib/data';
 import { LEADS, leadById, buildLead } from '../lib/leads';
-import { INK, MONO, SANS, SERIF, RULE, ROW_RULE, PHOTO_FILTER, PLACEHOLDER, badge, frame, ink, micro, shell } from '../lib/styles';
+import { INK, MONO, SANS, SERIF, RULE, ROW_RULE, PHOTO_FILTER, PLACEHOLDER, badge, frame, ink, micro, shell, pageTitle } from '../lib/styles';
 import { Anchor, Btn, Claim, CopyLink, Eyebrow, Link, NavRow, PageHead, Ref, Section } from './kit';
 import { LadderChart } from './ChartsView';
 import { ladders } from '../lib/stats';
@@ -46,7 +46,7 @@ function LeadView({ graph, route, media }: LeadViewProps) {
         eyebrow={'Lead ' + String(n + 1).padStart(2, '0') + ' · ' + (KIND[lead.kind] || lead.kind) + (b.span ? ' · ' + b.span.from + ' — ' + b.span.to : '') + ' · ' + b.rungs.length + ' rungs'}
         title={lead.title}
         lede={lead.question}
-        h1Style={{ font: '400 clamp(32px,6vw,72px)/0.98 ' + SERIF, letterSpacing: '-0.035em' }}
+        h1Style={pageTitle('detail')}
       >
         {nav}
       </PageHead>
