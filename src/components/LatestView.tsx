@@ -130,7 +130,7 @@ function LatestView({ graph, media }: LatestViewProps) {
 
       <JumpNav items={SECTIONS} />
 
-      <Section id="record" eyebrow={count + ' cards · the twelve months to ' + asOf} title="On the record, newest first">
+      <Section id="record" eyebrow="The record" title="On the record, newest first" count={count + ' cards · the twelve months to ' + asOf}>
         <p style={{ margin: '0 0 6px', font: '400 13.5px/1.6 ' + SANS, color: ink(4), maxWidth: '64ch', textWrap: 'pretty' }}>
           What happened, as the board has filed it: each card is one event, dated where the record knows the day, with its category,
           and the full account and its sources a click away.
@@ -152,7 +152,7 @@ function LatestView({ graph, media }: LatestViewProps) {
         </div>
       </Section>
 
-      <Section id="watch" eyebrow={watch.ahead.length + ' dates ahead · ' + watch.open.length + ' open questions'} title="Dates to watch">
+      <Section id="watch" eyebrow="The watch" title="Dates to watch" count={watch.ahead.length + ' dates ahead · ' + watch.open.length + ' open questions'}>
         <p style={{ margin: '0 0 6px', font: '400 13.5px/1.6 ' + SANS, color: ink(4), maxWidth: '64ch', textWrap: 'pretty' }}>
           Days the record already names, soonest first, each quoted from the card that sources it — and, after them, the questions
           it is waiting on with no date set. When one is settled, it becomes a card.
@@ -174,7 +174,7 @@ function LatestView({ graph, media }: LatestViewProps) {
         </ol>
       </Section>
 
-      <Section id="next" eyebrow={near.label + ' horizon · ' + near.from + '–' + near.to + ' · scenarios, not forecasts'} title="Next on the horizon">
+      <Section id="next" eyebrow="The horizon" title="Next on the horizon" count={near.from + '–' + near.to + ' · scenarios, not forecasts'}>
         <p style={{ margin: '0 0 6px', font: '400 13.5px/1.6 ' + SANS, color: ink(4), maxWidth: '64ch', textWrap: 'pretty' }}>
           What the board expects next, if the strings that lead to it hold. These are scenarios, drawn on manila card on the board:
           each carries a confidence and the board’s reasoning instead of a source, and the year is a placeholder.
@@ -200,7 +200,7 @@ function LatestView({ graph, media }: LatestViewProps) {
         </div>
       </Section>
 
-      <Section id="changes" eyebrow={CHANGES.length ? 'Added and revised · dated from the board’s history' : 'Dated from the board’s history'} title="New on the board">
+      <Section id="changes" eyebrow="The board" title="New on the board" count={CHANGES.length ? changed.length + ' added or revised · dated from its history' : 'dated from its history'}>
         <p style={{ margin: '0 0 6px', font: '400 13.5px/1.6 ' + SANS, color: ink(4), maxWidth: '64ch', textWrap: 'pretty' }}>
           The board is kept by hand and corrected when it is wrong. Here is what was added to it or revised most recently: cards,
           leads, plain questions and headline checks, each dated by the change that made it.
@@ -220,7 +220,7 @@ function LatestView({ graph, media }: LatestViewProps) {
         )}
       </Section>
 
-      <Section id="follow" eyebrow="Without coming back to look" title="Follow along">
+      <Section id="follow" eyebrow="The feed" title="Follow along" count="without coming back to look">
         <div style={{ display: 'flex', gap: 'clamp(20px,4vw,48px)', flexWrap: 'wrap' }}>
           <div style={{ flex: '1 1 320px', minWidth: 0, display: 'flex', flexDirection: 'column', gap: 12 }}>
             <h3 style={{ margin: 0, font: '400 21px/1.2 ' + SERIF, color: INK, letterSpacing: '-0.015em' }}>With a feed reader</h3>

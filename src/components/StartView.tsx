@@ -132,7 +132,7 @@ function StartView({ graph, media }: StartViewProps) {
         { id: 'words', label: 'The board’s own words' }
       ]} />
 
-      <Section id="read" eyebrow="A key to the wall, drawn from it" title="How to read the board">
+      <Section id="read" eyebrow="The key" title="How to read the board" count="drawn from the wall itself">
         {a && b && pick && (
           <Annotated n={1} title="A card is one event" piece={<PaperCard e={a} media={media} />}>
             A paper, a product, a deal, a lawsuit, a law. The pin’s colour says what kind (the colours are listed below), and every card
@@ -189,7 +189,7 @@ function StartView({ graph, media }: StartViewProps) {
         </p>
       </Section>
 
-      <Section id="ideas" eyebrow={IDEAS.length + ' ideas the story turns on, each building on the last'} title="AI in plain words">
+      <Section id="ideas" eyebrow="The ideas" title="AI in plain words" count={IDEAS.length + ' ideas, each building on the last'}>
         <p style={{ margin: '0 0 8px', font: '400 13.5px/1.6 ' + SANS, color: ink(4), maxWidth: '64ch', textWrap: 'pretty' }}>
           The story turns on a few ideas. Here they are without the jargon, each with the cards where it enters the record and a
           link to the glossary, which defines it in the board’s own words.
@@ -226,7 +226,7 @@ function StartView({ graph, media }: StartViewProps) {
         </div>
       </Section>
 
-      <Section id="begin" eyebrow="By the time you have" title="Where to begin">
+      <Section id="begin" eyebrow="Ways in" title="Where to begin" count="by the time you have">
         <Doors>
           <Door eyebrow="Five minutes" title="Ask a plain question" to={{ view: 'questions' }}
             body={'Will AI take my job? Can I trust a chatbot? Is it a bubble? ' + QUESTIONS.length + ' questions, each answered from the cards, with what the record does not settle.'} />
@@ -243,7 +243,7 @@ function StartView({ graph, media }: StartViewProps) {
         </Doors>
       </Section>
 
-      <Section id="words" eyebrow="The words the rest of the site takes for granted" title="The board’s own words">
+      <Section id="words" eyebrow="The vocabulary" title="The board’s own words" count="what the rest of the site takes for granted">
         <Vocabulary graph={graph} />
       </Section>
 

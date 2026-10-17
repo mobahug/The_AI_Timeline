@@ -84,8 +84,15 @@ export const CHART = {
 };
 /** A coloured mark, by hue: the chips' hue, a step darker. */
 export const markOf = (hue: number): string => 'oklch(0.64 0.13 ' + hue + ')';
-/** The count ramp: one hue, six steps from few to many. */
-export const RAMP = [0.42, 0.5, 0.58, 0.66, 0.74, 0.82].map((l) => 'oklch(' + l + ' 0.12 85)');
+/** The count ramp: one hue, six steps from few to many — a warm grey that
+ *  gathers colour as it brightens, so a few cards read as embers rather than
+ *  mud, and the most as the site's gold. Its darkest step still clears 2:1 on
+ *  the ground. A label is ink on the two darkest steps and ground on the rest,
+ *  4.5:1 or better on every one (RAMP_INK). */
+export const RAMP = ([[0.4, 0.035], [0.49, 0.055], [0.58, 0.075], [0.67, 0.095], [0.76, 0.115], [0.85, 0.13]] as [number, number][])
+  .map(([l, c]) => 'oklch(' + l + ' ' + c + ' 80)');
+/** The ramp step from which a label is set in the ground's colour, not ink. */
+export const RAMP_INK = 2;
 
 export const PHOTO_FILTER = 'saturate(0.9) contrast(1.03)';
 export const PLACEHOLDER = 'repeating-linear-gradient(135deg,rgba(243,240,234,0.06) 0 6px,transparent 6px 12px)';

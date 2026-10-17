@@ -3,7 +3,7 @@ import { CATEGORIES, FIRST, NOW, THREADS, TICKS, catLabel, whenOf, yearFraction 
 import { eraGrid, ladders, pace, peakOf, stringSpans, threadPair, topNames, topThread } from '../lib/stats';
 import type { EraGrid, Ladder, Pace, PairRow, Spans, NameCount } from '../lib/stats';
 import { LEADS } from '../lib/leads';
-import { INK, MONO, SANS, SERIF, RULE, ROW_RULE, STRING_INK, CHART, RAMP, ink, markOf, micro, shell, pageTitle } from '../lib/styles';
+import { INK, MONO, SANS, SERIF, RULE, ROW_RULE, STRING_INK, CHART, RAMP, RAMP_INK, ink, markOf, micro, shell, pageTitle } from '../lib/styles';
 import { Btn, Eyebrow, JumpNav, Link, PageHead, useNav } from './kit';
 import { ChartSection, Grid, Legend, Plot, Table, markProps, ticksFor } from './Chart';
 import type { Edge, Event, Graph, Thread } from '../lib/types';
@@ -97,7 +97,7 @@ function PaceChart({ p, eras }: { p: Pace; eras: EraGrid['eras'] }) {
 /** The pace, drawn small for the front page: the columns alone, the busiest
  *  year and the present in gold, the first and last years beneath. It is a
  *  picture with a caption and a link, not a plot: the full chart is a click away. */
-export function PaceSpark({ p, height = 64 }: { p: Pace; height?: number }) {
+export function PaceSpark({ p, height = 92 }: { p: Pace; height?: number }) {
   return (
     <div aria-hidden="true">
       <div style={{ height, display: 'flex', alignItems: 'flex-end', gap: 1, borderBottom: '1px solid ' + CHART.axis }}>
@@ -163,7 +163,7 @@ function EraHeat({ g }: { g: EraGrid }) {
                       background: s < 0 ? 'transparent' : RAMP[s],
                       boxShadow: lit ? 'inset 0 0 0 2px ' + INK : s < 0 ? 'inset 0 0 0 1px ' + CHART.grid : 'none',
                       font: '400 13px/1 ' + MONO, fontVariantNumeric: 'tabular-nums',
-                      color: s < 0 ? ink(5) : s >= 3 ? '#0a0a0b' : INK
+                      color: s < 0 ? ink(5) : s >= RAMP_INK ? '#0a0a0b' : INK
                     }}>{n || '·'}</div>
                   );
                 })}
