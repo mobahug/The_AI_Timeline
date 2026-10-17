@@ -76,7 +76,8 @@ function PaceChart({ p, eras }: { p: Pace; eras: EraGrid['eras'] }) {
           <div style={{ position: 'absolute', left: GUT, right: 0, top: 0, height: H, display: 'flex', alignItems: 'stretch' }}>
             {p.rows.map((r, i) => {
               const lit = walk.active === i;
-              const gold = r.year === p.peak.year || r.year === NOW;
+              // Every year that ties for the most, and the present.
+              const gold = r.total === p.peak.total || r.year === NOW;
               return (
                 <div key={r.year} {...markProps(i, walk)} style={{ flex: '1 1 0', minWidth: 0, display: 'flex', alignItems: 'flex-end', justifyContent: 'center', background: lit ? 'rgba(243,240,234,0.06)' : 'transparent' }}>
                   {r.total > 0 && <div style={{ width: 'min(72%, 16px)', minWidth: 1, height: (r.total / top) * 100 + '%', background: lit ? CHART.lit : gold ? CHART.emphasis : CHART.mark, borderRadius: '2px 2px 0 0' }} />}
@@ -103,7 +104,7 @@ export function PaceSpark({ p, height = 92 }: { p: Pace; height?: number }) {
       <div style={{ height, display: 'flex', alignItems: 'flex-end', gap: 1, borderBottom: '1px solid ' + CHART.axis }}>
         {p.rows.map((r) => (
           <span key={r.year} style={{ flex: '1 1 0', minWidth: 0, display: 'flex', justifyContent: 'center', alignItems: 'flex-end', height: '100%' }}>
-            {r.total > 0 && <span style={{ width: '70%', minWidth: 1, height: (r.total / p.peak.total) * 100 + '%', background: r.year === p.peak.year || r.year === NOW ? CHART.emphasis : CHART.mark, borderRadius: '1px 1px 0 0' }} />}
+            {r.total > 0 && <span style={{ width: '70%', minWidth: 1, height: (r.total / p.peak.total) * 100 + '%', background: r.total === p.peak.total || r.year === NOW ? CHART.emphasis : CHART.mark, borderRadius: '1px 1px 0 0' }} />}
           </span>
         ))}
       </div>
@@ -436,6 +437,7 @@ function ChartsView({ graph }: ChartsViewProps) {
   const both = (era: number) => (at(HARM) < 0 ? 0 : g.cells[at(HARM)][era]) + (at(RULES) < 0 ? 0 : g.cells[at(RULES)][era]);
   const harmRules = { first: both(0), last: both(g.eras.length - 1) };
   const sinceYears = NOW - p.since.from + 1;
+  const peakYears = p.rows.filter((r) => r.total === p.peak.total).map((r) => r.year);
 
   const charts: { id: string; title: string }[] = [
     { id: 'pace', title: 'How fast it moved' },
@@ -477,8 +479,8 @@ function ChartsView({ graph }: ChartsViewProps) {
 
       <ChartSection
         id="pace" n={1} eyebrow={'Cards per year · ' + FIRST + '–' + NOW} title="How fast it moved"
-        finding={<>{p.peak.year} alone has {p.peak.total} cards, {p.before.cards === p.peak.total ? 'as many as' : 'more than'} the board holds for every year from {FIRST} to {p.before.to} together. {p.since.cards} of its {p.since.of} cards on the record fall in the {sinceYears} years since {p.since.from}.</>}
-        how={<>One column per year, scenarios left out. Gold marks the busiest year and the present, {NOW}, which is not over. The bands behind are the board’s eras, as the archive heads them.</>}
+        finding={<>{peakYears.length === 1 ? <>{p.peak.year} alone has</> : <>{peakYears.join(' and ')} each have</>} {p.peak.total} cards, {p.before.cards === p.peak.total ? 'as many as' : 'more than'} the board holds for every year from {FIRST} to {p.before.to} together. {p.since.cards} of its {p.since.of} cards on the record fall in the {sinceYears} years since {p.since.from}.</>}
+        how={<>One column per year, scenarios left out. Gold marks the busiest {peakYears.length === 1 ? 'year' : 'years'} ({peakYears.join(' and ')}) and the present, {NOW}, which is not over. The bands behind are the board’s eras, as the archive heads them.</>}
         table={<Table caption="Cards per year" head={['Year', 'Cards', ...THREADS.map((t) => t.label)]} numeric={[1, ...THREADS.map((_, i) => i + 2)]}
           rows={p.rows.filter((r) => r.total).map((r) => [r.year, r.total, ...THREADS.map((t) => r.byThread[t.id] || '')])} />}
       >

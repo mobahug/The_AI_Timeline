@@ -26,6 +26,7 @@ const asOf = whenOf({ year: Number(AS_OF.slice(0, 4)), date: AS_OF });
 const newest = lately(graph).flatMap((s) => s.items).slice(0, 4);
 const soonest = watchList().ahead[0] || null;
 const pulse = pace(graph);
+const peakYears = pulse.rows.filter((r) => r.total === pulse.peak.total).map((r) => r.year);
 
 /* The doors: the readings of the same strings, the record counted, everything
    dated, every name, and the wall itself. Each title is the page it opens; the
@@ -164,8 +165,8 @@ function Landing({ media }: LandingProps) {
         more={<Btn to={{ view: 'charts' }}>All the charts →</Btn>}>
         <Link to={{ view: 'charts', hash: 'pace' }} className="ix-door" style={{ display: 'flex', gap: '18px clamp(20px,4vw,48px)', flexWrap: 'wrap', alignItems: 'flex-end', padding: 'clamp(14px,2vw,20px)', background: 'rgba(243,240,234,0.035)', border: '1px solid rgba(243,240,234,0.1)', borderRadius: 3 }}>
           <span style={{ flex: '1 1 260px', minWidth: 0, font: '400 clamp(17px,1.8vw,21px)/1.42 ' + SERIF, color: ink(2), textWrap: 'pretty' }}>
-            {pulse.peak.year} alone has {pulse.peak.total} cards, {pulse.before.cards === pulse.peak.total ? 'as many as' : 'more than'} the board holds for every year from {FIRST} to {pulse.before.to} together.
-            <span style={{ display: 'block', marginTop: 10, font: '400 11px/1.6 ' + MONO, color: ink(4) }}>Gold: the busiest year, and the present. How fast it moved →</span>
+            {peakYears.length === 1 ? pulse.peak.year + ' alone has' : peakYears.join(' and ') + ' each have'} {pulse.peak.total} cards, {pulse.before.cards === pulse.peak.total ? 'as many as' : 'more than'} the board holds for every year from {FIRST} to {pulse.before.to} together.
+            <span style={{ display: 'block', marginTop: 10, font: '400 11px/1.6 ' + MONO, color: ink(4) }}>Gold: the busiest {peakYears.length === 1 ? 'year' : 'years'}, and the present. How fast it moved →</span>
           </span>
           <span style={{ flex: '2 1 360px', minWidth: 0 }}><PaceSpark p={pulse} /></span>
         </Link>
