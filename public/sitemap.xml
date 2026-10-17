@@ -8,11 +8,14 @@
   <url><loc>https://mobahug.github.io/The_AI_Timeline/leads/</loc><priority>0.8</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/questions/</loc><priority>0.8</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/checks/</loc><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/charts/</loc><priority>0.8</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/archive/</loc><priority>0.8</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/archive/plates/</loc><priority>0.8</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/archive/mosaic/</loc><priority>0.8</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/files/</loc><priority>0.8</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/glossary/</loc><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/start/</loc><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/latest/</loc><priority>0.8</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/about/</loc><priority>0.8</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/lead/machines-doing-maths/</loc><priority>0.8</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/lead/gaming-the-test/</loc><priority>0.8</priority></url>
@@ -28,6 +31,10 @@
   <url><loc>https://mobahug.github.io/The_AI_Timeline/question/is-ai-making-decisions-about-me/</loc><priority>0.8</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/question/does-ai-actually-understand-anything/</loc><priority>0.8</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/question/can-ai-do-things-nobody-asked-it-to/</loc><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/question/how-did-ai-get-so-good-so-fast/</loc><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/question/what-can-ai-do-now/</loc><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/question/who-controls-the-most-powerful-ai/</loc><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/question/who-makes-the-rules-for-ai/</loc><priority>0.8</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/check/claude-broke-out-of-its-tests/</loc><priority>0.8</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/line/1/</loc><priority>0.7</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/line/2/</loc><priority>0.7</priority></url>
@@ -344,4 +351,12 @@
   <url><loc>https://mobahug.github.io/The_AI_Timeline/term/recurrent-network/</loc><priority>0.3</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/term/gan/</loc><priority>0.3</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/term/capped-profit/</loc><priority>0.3</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/term/chatbot/</loc><priority>0.3</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/term/algorithm/</loc><priority>0.3</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/term/training-data/</loc><priority>0.3</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/term/prompt/</loc><priority>0.3</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/term/fine-tuning/</loc><priority>0.3</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/term/datacentre/</loc><priority>0.3</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/term/generative-ai/</loc><priority>0.3</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/term/robot/</loc><priority>0.3</priority></url>
 </urlset>

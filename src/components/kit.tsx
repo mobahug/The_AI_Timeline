@@ -348,8 +348,9 @@ export function NavRow({ up = [], prev, next, onward, style }: { up?: NavItem[];
   );
 }
 
-/** A segmented control of pages: the header's three doors, the archive's costumes. */
-export interface SegmentItem { id: string; label: ReactNode; to: RoutePatch }
+/** A segmented control of pages: the header's doors, the archive's costumes.
+ *  An item's `hint` says in plain words what the page is, as its tooltip. */
+export interface SegmentItem { id: string; label: ReactNode; to: RoutePatch; hint?: string }
 export function Segmented({ items, value, label, size = 'md', style }: { items: SegmentItem[]; value: string; label: string; size?: 'md' | 'lg'; style?: CSSProperties }) {
   return (
     <nav aria-label={label} style={{ display: 'flex', gap: 2, padding: 2, background: 'rgba(243,240,234,0.07)', borderRadius: 2, flexWrap: 'wrap', ...style }}>
@@ -361,6 +362,7 @@ export function Segmented({ items, value, label, size = 'md', style }: { items: 
             to={it.to}
             className="ix-seg"
             aria-current={on ? 'page' : undefined}
+            title={it.hint}
             style={{
               ...micro(on ? 1 : 4), display: 'inline-block', padding: size === 'lg' ? '9px 13px' : '7px 12px', borderRadius: 2,
               whiteSpace: 'nowrap', letterSpacing: '0.12em',

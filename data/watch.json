@@ -1,0 +1,55 @@
+{
+  "watch": [
+    {
+      "id": "eu-gigafactory-bids",
+      "date": "2026-11-12",
+      "what": "Bids close for the European Union's AI gigafactories: up to seven, in Europe's push for computing power of its own.",
+      "event": "sovereign-compute",
+      "evidence": "tenders due 12 November 2026"
+    },
+    {
+      "id": "ai-act-high-risk-uses",
+      "date": "2027-12-02",
+      "what": "The AI Act's rules for high-risk uses (hiring, credit, education, policing, border control) begin to apply.",
+      "event": "ai-act-obligations-bite",
+      "evidence": "Systems listed in Annex III now have until 2 December 2027"
+    },
+    {
+      "id": "ai-act-high-risk-products",
+      "date": "2028-08-02",
+      "what": "The same rules reach AI built into products that EU safety law already covers.",
+      "event": "ai-act-obligations-bite",
+      "evidence": "those covered by the product-safety laws in Annex I until 2 August 2028"
+    },
+    {
+      "id": "clay-rules-on-navier-stokes",
+      "what": "Whether the Clay Institute accepts the machine-found Navier–Stokes proof, and whom it credits.",
+      "event": "navier-stokes-falls-to-ten-thousand-agents",
+      "evidence": "its rules ask for a refereed publication and two years of acceptance before a committee even meets"
+    },
+    {
+      "id": "arc-grand-prize",
+      "what": "Whether an open-source agent, run offline, takes ARC-AGI-3's grand prize.",
+      "event": "arc-agi-3-is-all-but-saturated",
+      "evidence": "Its grand prize, $700,000 for the first agent to score 100%, is a different contest"
+    },
+    {
+      "id": "ai-act-first-fines",
+      "what": "What the European Commission does with its new power to fine the makers of general-purpose models.",
+      "event": "ai-act-obligations-bite",
+      "evidence": "the European Commission can now demand information from a provider and fine one that does not comply"
+    },
+    {
+      "id": "chatbot-suits",
+      "what": "How the suits over ChatGPT are decided, Florida's among them: the first tests of who answers for what a chatbot says.",
+      "event": "parents-sue-openai-over-their-son-s-death",
+      "evidence": "Florida's attorney general brought what he called the first state-led lawsuit against OpenAI and its chief executive"
+    },
+    {
+      "id": "pacing-the-frontier",
+      "what": "Whether the laboratories' call to pace the frontier together gets the government support it asked for.",
+      "event": "the-labs-ask-to-be-slowed-down",
+      "evidence": "each laboratory may slow itself, and the country will not"
+    }
+  ]
+}

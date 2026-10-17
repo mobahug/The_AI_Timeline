@@ -12,12 +12,18 @@ import type { Graph, Mode, Route, RoutePatch } from '../lib/types';
 import type { Navigate } from '../lib/url';
 import type { SegmentItem } from './kit';
 
-/* Five doors. The line is the argument in order; the board is the wall with the
-   strings; the leads are the lines of inquiry; the archive is everything, dated;
-   the files are every name. Each stretch of the line, the open file (the case,
-   the horizon), a card's dossier, a lead, a person and the archive's costumes are
-   pages under those five, not tabs of their own — the registry says which. */
-const DOORS: SegmentItem[] = TABS.map((v) => ({ id: v.id, label: v.label, to: { view: v.id } }));
+/* Six doors. The line is the argument in order; the board is the wall with the
+   strings; the leads are the lines of inquiry; the charts are the record
+   counted; the archive is everything, dated; the files are every name. Each
+   stretch of the line, the open file (the case, the horizon), a card's dossier,
+   a lead, a person and the archive's costumes are pages under those six, not
+   tabs of their own — the registry says which. Each door's tooltip says what it
+   is in plain words, for a reader who does not yet know the board's.
+
+   Start here, the latest and About are not doors: they sit in the first row,
+   beside the switch, where a newcomer looks first and a regular never has to. */
+const DOORS: SegmentItem[] = TABS.map((v) => ({ id: v.id, label: v.label, to: { view: v.id }, hint: v.hint }));
+const ASIDE: SegmentItem[] = (['start', 'latest', 'about'] as const).map((id) => ({ id, label: viewById[id].label, to: { view: id }, hint: viewById[id].hint }));
 
 /* Both chromes are in the document at once and CSS chooses between them, so the
    page the server sends is already the page the reader gets: no width is
@@ -233,14 +239,22 @@ export default function Header({ route, navigate, year, barRef, status, graph }:
           <span className="wide-only" style={micro(5)}>An investigation board · {FIRST} — {LAST}</span>
           <span style={{ flex: 1 }} />
           <span style={{ ...micro(5), whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', minWidth: 0 }}>{status}</span>
-          {/* About sits up here with the wordmark, so the row of doors and
-              filters below keeps to one line on an ordinary desk. */}
-          <Link
-            to={{ view: 'about' }}
-            className="ix-seg"
-            aria-current={activeView === 'about' ? 'page' : undefined}
-            style={{ ...micro(activeView === 'about' ? 1 : 4), padding: '7px 4px' }}
-          >About</Link>
+          {/* Start here, the latest and About sit up here with the wordmark,
+              so the row of doors and filters below keeps to one line on an
+              ordinary desk. Start here is the one gold word in the chrome:
+              it is the door for a reader who does not know the others yet. */}
+          <nav aria-label="Secondary" style={{ display: 'flex', gap: 10, flex: 'none' }}>
+            {ASIDE.map((d) => (
+              <Link
+                key={d.id}
+                to={d.to}
+                className="ix-seg"
+                title={d.hint}
+                aria-current={activeView === d.id ? 'page' : undefined}
+                style={{ ...micro(activeView === d.id ? 1 : 4), padding: '7px 4px', whiteSpace: 'nowrap', ...(d.id === 'start' && activeView !== 'start' ? { color: GOLD } : {}) }}
+              >{d.label}</Link>
+            ))}
+          </nav>
           <ModeSwitch />
           {yearMark('desk')}
         </div>
@@ -276,7 +290,7 @@ export default function Header({ route, navigate, year, barRef, status, graph }:
           <div style={sheetLabel}>Go to</div>
           <nav aria-label="Primary">
             <ul style={{ listStyle: 'none', margin: 0, padding: 0 }}>
-              {[...DOORS, { id: 'about', label: viewById.about.label, to: { view: 'about' } } as SegmentItem].map((d) => {
+              {[ASIDE[0], ASIDE[1], ...DOORS, ASIDE[2]].map((d) => {
                 const on = activeView === d.id;
                 return (
                   <li key={d.id}>
@@ -286,11 +300,16 @@ export default function Header({ route, navigate, year, barRef, status, graph }:
                       onClick={close}
                       aria-current={on ? 'page' : undefined}
                       style={{
-                        display: 'flex', alignItems: 'center', gap: 12, minHeight: 50,
-                        borderBottom: ROW_RULE, borderLeft: '2px solid ' + (on ? INK : 'transparent'), paddingLeft: 12,
-                        font: '400 20px/1.2 ' + SERIF, letterSpacing: '-0.015em', color: on ? INK : ink(3)
+                        display: 'flex', alignItems: 'center', gap: 12, minHeight: 56, padding: '7px 0 7px 12px',
+                        borderBottom: ROW_RULE, borderLeft: '2px solid ' + (on ? INK : 'transparent')
                       }}
-                    >{d.label}{on && <span style={{ ...micro(5), marginLeft: 'auto' }}>here</span>}</Link>
+                    >
+                      <span style={{ display: 'flex', flexDirection: 'column', gap: 4, minWidth: 0 }}>
+                        <span style={{ font: '400 20px/1.2 ' + SERIF, letterSpacing: '-0.015em', color: on ? INK : d.id === 'start' ? GOLD : ink(2) }}>{d.label}</span>
+                        {d.hint && <span style={{ font: '400 11px/1.35 ' + MONO, color: ink(5) }}>{d.hint}</span>}
+                      </span>
+                      {on && <span style={{ ...micro(5), marginLeft: 'auto', paddingRight: 4 }}>here</span>}
+                    </Link>
                   </li>
                 );
               })}

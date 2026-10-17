@@ -10,10 +10,20 @@ import type { Route, ViewId } from '../src/lib/types';
 const graph = buildGraph(null as unknown as undefined);
 
 describe('the view registry is the one list of pages', () => {
-  it('has unique ids, unique paths and five doors', () => {
+  it('has unique ids, unique paths and six doors', () => {
     expect(new Set(VIEWS.map((v) => v.id)).size).toBe(VIEWS.length);
     expect(new Set(VIEWS.map((v) => v.path)).size).toBe(VIEWS.length);
-    expect(TABS.map((v) => v.id)).toEqual(['line', 'board', 'leads', 'archive', 'files']);
+    expect(TABS.map((v) => v.id)).toEqual(['line', 'board', 'leads', 'charts', 'archive', 'files']);
+  });
+
+  /* A reader who does not know the board's vocabulary is told what each
+     page is in plain words: the doors' tooltips, the phone menu's second line. */
+  it('says in plain words what every page in the menu is', () => {
+    [...TABS.map((v) => v.id), 'start', 'latest', 'about'].forEach((id) => {
+      const hint = viewById[id as ViewId].hint;
+      expect(hint, id).toBeTruthy();
+      expect((hint as string).length, id).toBeLessThanOrEqual(52);
+    });
   });
 
   it('files every child under a tab that exists', () => {

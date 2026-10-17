@@ -127,10 +127,42 @@ Keep aliases that are ordinary words out of `aka`.
   drawn, and the day the record was last brought up to date (`YYYY-MM-DD`, shown on the
   front page; never earlier than the newest dated card)
 - `threads` — the six board rows, in display order
-- `categories` — `{ id, label, hue, thread }`; `hue` is an OKLCH hue angle (0–360)
+- `categories` — `{ id, label, hue, thread, blurb }`; `hue` is an OKLCH hue angle (0–360);
+  `blurb` says in one plain sentence (≤ 100 characters) what the category covers, shown
+  where the colours are explained
 - `eras` — the era headings used by the archive's list and plates
 
 ## `data/spine.json`
 
 `findings` — `{ n, from, title, lead, blurb }`: the numbered stretches of the line.
 Every entry files under the last finding whose `from` is not after it.
+
+## `data/primer.json`
+
+`ideas` — array of `{ term, plain, cards }`: the ideas Start here (`/start/#ideas`) puts into
+everyday words, in the order each builds on the last.
+
+| Field | Type | Required | Notes |
+| --- | --- | --- | --- |
+| `term` | string | yes | an id from `glossary.json`, once each |
+| `plain` | string | yes | the idea in everyday words, ≤ 300 characters; claims nothing its cards do not say |
+| `cards` | string[] | yes | cards on the record, oldest first, at least one of which names the term |
+
+## `data/watch.json`
+
+`watch` — array of `{ id, date?, what, event, evidence }`: what the latest page
+(`/latest/#watch`) lists under Dates to watch. An item with a `date` is a day the record already
+names; one without is a question the record is waiting on.
+
+| Field | Type | Required | Notes |
+| --- | --- | --- | --- |
+| `id` | string | yes | kebab-case, unique |
+| `date` | string | no | `YYYY-MM-DD` or `YYYY-MM`; its day, month and year must be in `evidence`, in words |
+| `what` | string | yes | what happens, or what is waiting to be settled, in a sentence |
+| `event` | string | yes | the card on the record that sources it |
+| `evidence` | string | yes | the card's own words, verbatim (summary, reading, file or figures) |
+
+A date is sorted against `span.asOf`: after it, the item is ahead; on or before, it has passed.
+The page says in the browser, once it is live, when a date ahead of the record has passed in
+the reader's own calendar — the server cannot know the day a page is read. When an item is
+settled, the board adds a card and the item goes.

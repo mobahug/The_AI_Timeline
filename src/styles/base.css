@@ -118,3 +118,24 @@ main[aria-busy="true"], main[aria-busy="true"] * { cursor: progress; }
 
 /* Read by a screen reader, not drawn. */
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; border: 0; }
+
+/* ─── Charts (src/components/Chart.tsx) ─────────────────────────────────
+   A chart is laid out in percentages and keeps its labels at the site's own
+   sizes, so on a narrow screen it sheds words rather than shrinking them: the
+   era names inside the bands, and every other year under a row of columns. */
+@media (max-width: 719.98px) { .chart-wide { display: none !important; } }
+@media (max-width: 599.98px) { .tick-minor { visibility: hidden; } }
+/* "The numbers": a native disclosure, its marker drawn like the site's own. */
+.numbers > summary { list-style: none; }
+.numbers > summary::-webkit-details-marker { display: none; }
+.numbers > summary::after { content: ' ▾'; }
+.numbers[open] > summary::after { content: ' ▴'; }
+/* The ladders: a lead's name to the left of its lane on a desk, above it on a
+   phone, where the lane needs the whole width to keep its rungs apart. */
+.lanes { display: grid; grid-template-columns: clamp(92px,16vw,170px) minmax(0,1fr); }
+@media (max-width: 599.98px) {
+  .lanes { grid-template-columns: minmax(0,1fr); }
+  .lanes > .lane-gap { display: none; }
+  .lanes > .lane-label { min-height: 0 !important; padding: 12px 0 0 !important; }
+  .lanes > .lane-label + .lane-track { border-top: none !important; }
+}

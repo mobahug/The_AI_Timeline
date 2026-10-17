@@ -5,8 +5,12 @@
    path    — the address under the site's base, as segments; `:name` captures a
              route field (`:id` for a card, a lead, a question, a headline check, a
              person, an organisation or a term; `:finding` for a stretch of the line)
-   tab     — one of the doors in the header
+   tab     — one of the doors in the header (Start here and The latest sit
+             beside About in the header's first row instead)
    parent  — the tab that stays lit while this page is open
+   hint    — what the page is, in a few plain words, for a reader who does not
+             know the board's vocabulary: the header's tooltips, the phone
+             menu's second line
    title / description — what the document carries for that route
    sitemap — listed for crawlers as a fixed address (parametrised pages are
              enumerated from the data by the sitemap and the prerenderer)
@@ -23,6 +27,7 @@ export interface View {
   id: ViewId;
   path: string;
   label?: string;
+  hint?: string;
   tab?: boolean;
   parent?: ViewId;
   sitemap: boolean;
@@ -34,7 +39,7 @@ export interface View {
 
 export const VIEWS: View[] = [
   { id: 'landing', path: '', label: 'The AI Timeline', sitemap: false, shell: 'wide' },
-  { id: 'line', path: 'line', label: 'The line', tab: true, sitemap: true, shell: 'route',
+  { id: 'line', path: 'line', label: 'The line', hint: 'The story in order, a stretch of years at a time', tab: true, sitemap: true, shell: 'route',
     title: 'The line',
     description: 'How a machine that could not add became something governments argue about — the order it happened in, and where the trail goes cold.' },
   { id: 'finding', path: 'line/:finding', parent: 'line', sitemap: false, shell: 'route', papers: true },
@@ -44,11 +49,11 @@ export const VIEWS: View[] = [
   { id: 'horizon', path: 'horizon', parent: 'line', sitemap: true, shell: 'route', papers: true,
     title: 'The horizon',
     description: 'The forward half of the board as three horizons: scenarios, not forecasts.' },
-  { id: 'board', path: 'board', label: 'The board', tab: true, sitemap: true, shell: 'wide',
+  { id: 'board', path: 'board', label: 'The board', hint: 'Every card and string, pinned to one wall', tab: true, sitemap: true, shell: 'wide',
     title: 'The board',
     description: 'Photo cards, string connections, and a walkthrough that follows each causal chain clue by clue.' },
   { id: 'card', path: 'card/:id', parent: 'board', sitemap: false, shell: 'read', papers: true },
-  { id: 'leads', path: 'leads', label: 'The leads', tab: true, sitemap: true, shell: 'route',
+  { id: 'leads', path: 'leads', label: 'The leads', hint: 'One question at a time, followed up the years', tab: true, sitemap: true, shell: 'route',
     title: 'The leads',
     description: 'The lines of inquiry: how far machines got at mathematics, at games, at gaming their own tests, and how cheap the answers became — one rung at a time, on the record.' },
   { id: 'lead', path: 'lead/:id', parent: 'leads', sitemap: false, shell: 'route' },
@@ -60,7 +65,10 @@ export const VIEWS: View[] = [
     title: 'Headline checks',
     description: 'Widely reported AI headlines set beside what the primary account — the lab report, the court filing, the law — actually says, quoted on both sides.' },
   { id: 'check', path: 'check/:id', parent: 'leads', sitemap: false, shell: 'route' },
-  { id: 'archive', path: 'archive', label: 'The archive', tab: true, sitemap: true, shell: 'wide',
+  { id: 'charts', path: 'charts', label: 'The charts', hint: 'The record, counted: pace, eras, harm, names', tab: true, sitemap: true, shell: 'route',
+    title: 'The charts',
+    description: 'The record counted: how fast AI moved, what each era was about, harm and the response to it, how long a cause takes to show, how far up each lead the machines climbed, and the names that recur.' },
+  { id: 'archive', path: 'archive', label: 'The archive', hint: 'Every entry, dated, filtered and searchable', tab: true, sitemap: true, shell: 'wide',
     title: 'The archive',
     description: 'Every entry on the board in date order — dense, filterable, searchable.' },
   { id: 'plates', path: 'archive/plates', parent: 'archive', sitemap: true, shell: 'wide',
@@ -69,7 +77,7 @@ export const VIEWS: View[] = [
   { id: 'mosaic', path: 'archive/mosaic', parent: 'archive', sitemap: true, shell: 'wide',
     title: 'The archive · mosaic',
     description: 'Every photograph on the board.' },
-  { id: 'files', path: 'files', label: 'The files', tab: true, sitemap: true, shell: 'route',
+  { id: 'files', path: 'files', label: 'The files', hint: 'Every person, organisation and term', tab: true, sitemap: true, shell: 'route',
     title: 'The files',
     description: 'Persons of interest, organisations and the glossary — every name on the board, and every card it appears on, without leaving the site.' },
   { id: 'person', path: 'person/:id', parent: 'files', sitemap: false, shell: 'read' },
@@ -78,7 +86,13 @@ export const VIEWS: View[] = [
     title: 'The glossary',
     description: 'The terms the board uses, defined in place — transformer, scaling law, reward hacking, test-time compute — each with the cards it turns up on.' },
   { id: 'term', path: 'term/:id', parent: 'files', sitemap: false, shell: 'read' },
-  { id: 'about', path: 'about', label: 'About', sitemap: true, shell: 'read', papers: true,
+  { id: 'start', path: 'start', label: 'Start here', hint: 'New to AI, or to the board? Begin here', sitemap: true, shell: 'route',
+    title: 'Start here',
+    description: 'New to AI, or to this board? What the board is, how to read it, the ideas AI turns on in plain words, and where to begin for the time you have.' },
+  { id: 'latest', path: 'latest', label: 'The latest', hint: 'The newest events, dates to watch, what changed', sitemap: true, shell: 'route',
+    title: 'The latest',
+    description: 'The newest AI events on the record, the dates it knows are coming, the questions it is waiting on, and what changed on the board, with a feed to follow it by.' },
+  { id: 'about', path: 'about', label: 'About', hint: 'How the board works, and its licence', sitemap: true, shell: 'read', papers: true,
     title: 'About',
     description: 'How this board works, what a string means, what it does not claim, and the licence it is published under.' }
 ];

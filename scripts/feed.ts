@@ -1,7 +1,8 @@
 // The feed: what is new on the board, newest first, for a reader who wants to
 // know when it moves without coming back to look. An Atom document of the cards,
 // leads, plain questions and headline checks, each entry dated by when it was
-// added and when it last changed.
+// added and when it last changed. The same dates are drawn on the site itself,
+// on the latest page (scripts/board-changes.ts).
 //
 // The data carries no "added on" field, and the dates are not typed into it: a
 // date kept by hand is a date someone forgets to change. They are read from the

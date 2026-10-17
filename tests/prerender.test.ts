@@ -31,7 +31,10 @@ describe('server rendering', () => {
       ['/person/alan-turing/', 'Alan Turing'],
       ['/org/openai/', 'OpenAI'],
       ['/term/rlhf/', 'RLHF'],
-      ['/about/', 'About the board']
+      ['/about/', 'About the board'],
+      ['/start/', 'New to all this? Start here.'],
+      ['/latest/', 'What happened lately.'],
+      ['/charts/', 'The record, counted.']
     ];
     cases.forEach(([path, text]) => {
       const html = render(path);
@@ -51,7 +54,7 @@ describe('server rendering', () => {
      looking at it since the first frame. The rail and the summoned chip still
      animate — they are mounted by a gesture, not delivered. */
   it('delivers its pages still, with no mount animation in the HTML', () => {
-    ['/archive/plates/', '/archive/mosaic/', '/horizon/', '/line/', '/case/', '/archive/'].forEach((path) => {
+    ['/archive/plates/', '/archive/mosaic/', '/horizon/', '/line/', '/case/', '/archive/', '/charts/', '/latest/', '/start/', '/'].forEach((path) => {
       expect(render(path), path + ' should carry no animation').not.toMatch(/animation:/);
     });
   });

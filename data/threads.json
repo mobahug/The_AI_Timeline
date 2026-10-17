@@ -36,49 +36,57 @@
       "id": "research",
       "label": "Research",
       "hue": 265,
-      "thread": "ideas"
+      "thread": "ideas",
+      "blurb": "New ideas, methods and results: the papers, proofs and tests the field is built on."
     },
     {
       "id": "product",
       "label": "Product",
       "hue": 155,
-      "thread": "product"
+      "thread": "product",
+      "blurb": "Things people could use: programs, machines, chatbots and agents."
     },
     {
       "id": "compute",
       "label": "Compute",
       "hue": 100,
-      "thread": "power"
+      "thread": "power",
+      "blurb": "What it all runs on: chips, datacentres and the electricity behind them."
     },
     {
       "id": "policy",
       "label": "Policy",
       "hue": 320,
-      "thread": "rules"
+      "thread": "rules",
+      "blurb": "Laws, rules and what governments did about it."
     },
     {
       "id": "incident",
       "label": "Incident",
       "hue": 32,
-      "thread": "fail"
+      "thread": "fail",
+      "blurb": "When something went wrong, or a system did what nobody meant it to."
     },
     {
       "id": "culture",
       "label": "Culture",
       "hue": 205,
-      "thread": "culture"
+      "thread": "culture",
+      "blurb": "How the public, fiction and the arts saw it."
     },
     {
       "id": "adjacent",
       "label": "Adjacent",
       "hue": 62,
-      "thread": "ideas"
+      "thread": "ideas",
+      "blurb": "Neighbouring inventions the story leans on: the computer, the network, the web."
     },
     {
       "id": "power",
       "label": "Power",
       "hue": 15,
-      "thread": "power"
+      "thread": "power",
+      "blurb": "The companies, the money and the people who control it."
     }
   ],
   "eras": [

@@ -1,0 +1,59 @@
+{
+  "ideas": [
+    {
+      "term": "artificial-intelligence",
+      "plain": "Getting machines to do what would need intelligence if a person did it. Turing asked in 1950 whether a machine could think; the name itself was coined for a summer workshop at Dartmouth in 1956.",
+      "cards": ["turing-asks-the-question", "dartmouth-names-the-field"]
+    },
+    {
+      "term": "machine-learning",
+      "plain": "Instead of writing out the rules, show the machine examples and let it adjust itself until it gets them right. Arthur Samuel's checkers player did it in the 1950s; nearly everything on the board since the late 1980s works this way.",
+      "cards": ["a-program-that-learns-checkers", "machine-learning-gets-its-name"]
+    },
+    {
+      "term": "neural-network",
+      "plain": "A program built from many small, simple parts that each pass a number on to the next, loosely modelled on nerve cells. Learning means adjusting how strongly the parts are connected.",
+      "cards": ["the-mcculloch-pitts-neuron", "the-perceptron"]
+    },
+    {
+      "term": "deep-learning",
+      "plain": "Neural networks with many layers, trained on a great deal of data on graphics chips. They started winning in 2012, when AlexNet won an image-recognition contest by a wide margin, and the decade after is named for them.",
+      "cards": ["cuda", "imagenet", "alexnet"]
+    },
+    {
+      "term": "transformer",
+      "plain": "The design, published by Google researchers in 2017, behind every large language model since, ChatGPT's included. It reads a whole passage at once instead of word by word, which made it practical to train on far more text.",
+      "cards": ["attention-is-all-you-need"]
+    },
+    {
+      "term": "large-language-model",
+      "plain": "A transformer trained to predict the next word across a vast amount of text, then tuned with human feedback to be helpful. ChatGPT, Claude and Gemini are all built this way.",
+      "cards": ["gpt-3", "instructgpt", "chatgpt"]
+    },
+    {
+      "term": "hallucination",
+      "plain": "A fluent, confident answer that is not true. A language model writes what is plausible, and plausible is not the same as correct: in 2023 lawyers were sanctioned for filing a brief that cited cases that never existed.",
+      "cards": ["fabricated-citations-reach-a-courtroom"]
+    },
+    {
+      "term": "compute",
+      "plain": "The amount of calculation a model takes to train and to run. From 2020 it was clear that more of it predictably buys a better model, which is why the money moved to chips, datacentres and electricity.",
+      "cards": ["scaling-laws", "the-datacenter-buildout", "power-becomes-a-strategy"]
+    },
+    {
+      "term": "reasoning-model",
+      "plain": "A model trained to work a problem through in written steps before it answers: thinking for longer, checking and trying again. Models like this won gold at the International Mathematical Olympiad in 2025.",
+      "cards": ["reasoning-models", "gold-at-the-imo"]
+    },
+    {
+      "term": "agents",
+      "plain": "A model given tools (a browser, a keyboard, the means to run programs) and left to carry out a task in many steps instead of only answering. By 2025 agents were writing software every day; in 2026 they reached legal, finance and sales work.",
+      "cards": ["coding-agents-take-the-keyboard", "agents-enter-real-workflows"]
+    },
+    {
+      "term": "alignment",
+      "plain": "Making a system do what its makers meant, not just what they literally asked for. The board's first case is a boat in a racing game that circled for points instead of finishing; in 2026 a swarm of agents under test broke into a real company's systems in pursuit of an exam.",
+      "cards": ["the-boat-that-would-not-finish", "specification-gaming", "a-poisoned-dataset-owns-the-pipeline"]
+    }
+  ]
+}

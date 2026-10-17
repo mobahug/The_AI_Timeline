@@ -63,6 +63,30 @@ export const STATE = 'color ' + DUR.fast + 'ms, background-color ' + DUR.fast + 
  *  and animating it would say it had just arrived. */
 export const FADE = 'fadeIn ' + DUR.base + 'ms both';
 
+/* ─── Charts ─────────────────────────────────────────────────────────────
+   The charts draw in the site's own ink. A coloured mark is a step darker than
+   the chips (OKLCH L 0.64 against their 0.8), so every series clears 3:1 on
+   the ground and neighbouring hues stay apart for a colour-blind reader: each
+   set a chart uses, and the count ramp, were run through a palette validator
+   when they were chosen (the leads' five hues, the closest set, keep adjacent
+   ΔE 13.6 under protan and deutan simulation, against a target of 8). A single
+   series is drawn in grey, with gold on the one mark the sentence above the
+   chart is about. Gridlines are solid hairlines. */
+export const CHART = {
+  grid: 'rgba(243,240,234,0.08)',
+  axis: 'rgba(243,240,234,0.24)',
+  /** A plain mark: 3.7:1 on the ground. */
+  mark: 'rgba(243,240,234,0.42)',
+  emphasis: GOLD,
+  /** A mark under the pointer or the keyboard. */
+  lit: INK,
+  band: 'rgba(243,240,234,0.022)'
+};
+/** A coloured mark, by hue: the chips' hue, a step darker. */
+export const markOf = (hue: number): string => 'oklch(0.64 0.13 ' + hue + ')';
+/** The count ramp: one hue, six steps from few to many. */
+export const RAMP = [0.42, 0.5, 0.58, 0.66, 0.74, 0.82].map((l) => 'oklch(' + l + ' 0.12 85)');
+
 export const PHOTO_FILTER = 'saturate(0.9) contrast(1.03)';
 export const PLACEHOLDER = 'repeating-linear-gradient(135deg,rgba(243,240,234,0.06) 0 6px,transparent 6px 12px)';
 /** The board's wall: a warm dark, lit from the upper left. The share images

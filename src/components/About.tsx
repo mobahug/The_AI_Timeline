@@ -105,9 +105,18 @@ function About() {
           kept by its author. There is no editor on the site and no open contribution: the record is one reading, argued in one voice,
           and corrected when it is wrong. A test suite checks ids, years, sources, link targets and that every scenario is labelled
           before anything is published.
-          What changes is listed, newest first, in <a href={BASE + 'feed.xml'} type="application/atom+xml">an Atom feed</a>: the
-          cards, leads and plain questions most recently added or revised, each dated from the history of the data rather than by
-          hand. Paste its address into any feed reader to hear when the board moves.
+          What changes is listed, newest first, on <Link to={{ view: 'latest', hash: 'changes' }}>the latest page</Link> and in{' '}
+          <a href={BASE + 'feed.xml'} type="application/atom+xml">an Atom feed</a>: the cards, leads, plain questions and headline
+          checks most recently added or revised, each dated from the history of the data rather than by hand. Paste the feed's
+          address into any feed reader to hear when the board moves.
+        </Section>
+
+        <Section title="For a reader new to all this">
+          <Link to={{ view: 'start' }}>Start here</Link> explains the board's few words, shows a card, a string and a scenario
+          taken from the wall, and puts the ideas the story turns on into everyday language, each pointing at the cards it rests on.
+          {' '}<Link to={{ view: 'charts' }}>The charts</Link> count the record instead of reading it: every number in them is made
+          from the board's own files when the site is built, and every chart has its numbers in a table beneath it. Neither adds a
+          claim the cards do not make.
         </Section>
       </div>
 

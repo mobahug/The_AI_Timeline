@@ -118,7 +118,9 @@ export interface Step {
 }
 
 export interface Thread { id: string; label: string }
-export interface Category { id: string; label: string; hue: number; thread: string }
+/** A category: its chip, its hue on the board, the row it is drawn in, and
+ *  what it covers in a reader's words (shown where the categories are explained). */
+export interface Category { id: string; label: string; hue: number; thread: string; blurb?: string }
 export interface Era { year: number; range: string; title: string; subtitle: string }
 export interface Span { first: number; now: number; last: number }
 
@@ -178,6 +180,19 @@ export interface Check {
   leads: string[];
 }
 
+/** One idea of the primer on the Start here page (data/primer.json): a term
+ *  from the glossary, the idea in everyday words, and the cards it arrives on. */
+export interface Idea { term: string; plain: string; cards: string[] }
+
+/** A date the record already knows is coming, or a question it is waiting on
+ *  (data/watch.json). `evidence` is the card's own words that say so. */
+export interface Watch { id: string; date?: string; what: string; event: string; evidence: string }
+
+/** A record the board's history dates (virtual:board-changes): when it was
+ *  added and when it last changed, from the commits that did it. */
+export type ChangeKind = 'card' | 'lead' | 'question' | 'check';
+export interface Change { kind: ChangeKind; id: string; added: string; changed: string; subject: string }
+
 export interface Person { id: string; name: string; aka?: string[]; role: string; bio: string }
 export interface Org { id: string; name: string; aka?: string[]; kind: string; role: string; bio: string }
 export interface Term { id: string; term: string; aka?: string[]; short: string; definition: string }
@@ -194,7 +209,8 @@ export type Mode = 'brief' | 'full';
 /** A view's id: every page the site has. */
 export type ViewId =
   | 'landing' | 'line' | 'finding' | 'case' | 'horizon' | 'board' | 'card'
-  | 'leads' | 'lead' | 'questions' | 'question' | 'checks' | 'check' | 'archive' | 'plates' | 'mosaic' | 'files' | 'person' | 'org' | 'glossary' | 'term' | 'about';
+  | 'leads' | 'lead' | 'questions' | 'question' | 'checks' | 'check' | 'archive' | 'plates' | 'mosaic' | 'files' | 'person' | 'org' | 'glossary' | 'term' | 'about'
+  | 'start' | 'latest' | 'charts';
 
 /** The board's geometry for one window, from layout.ts. */
 export interface Metrics {

@@ -19,6 +19,9 @@ import QuestionsView from './components/QuestionsView';
 import QuestionView from './components/QuestionView';
 import ChecksView from './components/ChecksView';
 import CheckView from './components/CheckView';
+import ChartsView from './components/ChartsView';
+import LatestView from './components/LatestView';
+import StartView from './components/StartView';
 import FilesView from './components/FilesView';
 import GlossaryView from './components/GlossaryView';
 import EntityView from './components/EntityView';
@@ -190,7 +193,7 @@ export default function App({ initialRoute }: AppProps) {
       <ErrorBoundary resetKey={view + '|' + (route.finding || '') + '|' + (route.id || '')}>
         <main id="main" tabIndex={-1} aria-busy={turning || undefined} style={{ outline: 'none' }}>
           {view === 'landing' && route.missing && <Missing path={route.missing} graph={graph} />}
-          {view === 'landing' && <Landing />}
+          {view === 'landing' && <Landing media={media} />}
           {view === 'about' && <About />}
           {view === 'board' && !isBrowser && <BoardStatic items={items} graph={graph} route={route} />}
           {view === 'board' && isBrowser && (
@@ -220,6 +223,9 @@ export default function App({ initialRoute }: AppProps) {
           {view === 'question' && <QuestionView graph={graph} route={route} />}
           {view === 'checks' && <ChecksView />}
           {view === 'check' && <CheckView graph={graph} route={route} />}
+          {view === 'charts' && <ChartsView graph={graph} />}
+          {view === 'latest' && <LatestView graph={graph} media={media} />}
+          {view === 'start' && <StartView graph={graph} media={media} />}
           {view === 'files' && <FilesView graph={graph} />}
           {view === 'glossary' && <GlossaryView graph={graph} />}
           {(view === 'person' || view === 'org' || view === 'term') && <EntityView graph={graph} route={route} />}
