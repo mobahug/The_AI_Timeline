@@ -1,7 +1,7 @@
 // The feed: what is new on the board, newest first, for a reader who wants to
 // know when it moves without coming back to look. An Atom document of the cards,
-// leads and plain questions, each entry dated by when it was added and when it
-// last changed.
+// leads, plain questions and headline checks, each entry dated by when it was
+// added and when it last changed.
 //
 // The data carries no "added on" field, and the dates are not typed into it: a
 // date kept by hand is a date someone forgets to change. They are read from the
@@ -12,23 +12,26 @@
 // history for that, so a shallow clone is refused rather than dated wrongly:
 // the deploy workflow checks out with `fetch-depth: 0`.
 import { execFileSync } from 'node:child_process';
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
 
 export const ORIGIN = 'https://mobahug.github.io/The_AI_Timeline/';
 export const FEED_FILE = 'feed.xml';
 /** Entries in the feed: enough to cover a few weeks of work, few enough to read. */
 export const FEED_SIZE = 50;
 
-export type FeedKind = 'card' | 'lead' | 'question';
+export type FeedKind = 'card' | 'lead' | 'question' | 'check';
 /** The files the feed reads, by kind, and the key their records sit under
  *  (`null`: the file is the array itself). */
 export const FEED_FILES: Record<FeedKind, { path: string; key: string | null }> = {
   card: { path: 'data/events.json', key: null },
   lead: { path: 'data/leads.json', key: 'leads' },
-  question: { path: 'data/questions.json', key: 'questions' }
+  question: { path: 'data/questions.json', key: 'questions' },
+  check: { path: 'data/checks.json', key: 'checks' }
 };
 const KINDS = Object.keys(FEED_FILES) as FeedKind[];
-/** Within one commit, the questions first, then the leads, then the cards. */
-const RANK: Record<FeedKind, number> = { question: 0, lead: 1, card: 2 };
+/** Within one commit, the questions first, then the checks, the leads, the cards. */
+const RANK: Record<FeedKind, number> = { question: 0, check: 1, lead: 2, card: 3 };
 
 export interface Commit { sha: string; date: string; subject: string }
 /** One commit's copy of the data: the text of each file, or null where the
@@ -82,11 +85,18 @@ export function feedEntries(items: Item[], dated: Map<string, Dated>, size = FEE
     .map(({ item, d }) => ({ ...item, ...d, url: ORIGIN + item.kind + '/' + encodeURIComponent(item.id) + '/' }));
 }
 
+/** What the data being built holds: every file the feed reads, from disk. */
+export const readItems = (root: string): Item[] =>
+  itemsOf(Object.fromEntries(KINDS.map((k) => [k, readFileSync(join(root, FEED_FILES[k].path), 'utf8')])) as Record<FeedKind, string>);
+
 /** What the data being built holds, in the order it is written. */
 export function itemsOf(files: Record<FeedKind, string>): Item[] {
   const out: Item[] = [];
   for (const r of recordsOf('question', files.question) as { id: string; question: string; short: string }[]) {
     out.push({ kind: 'question', id: r.id, title: r.question, summary: r.short });
+  }
+  for (const r of recordsOf('check', files.check) as { id: string; title: string; short: string }[]) {
+    out.push({ kind: 'check', id: r.id, title: r.title, summary: r.short });
   }
   for (const r of recordsOf('lead', files.lead) as { id: string; title: string; blurb: string }[]) {
     out.push({ kind: 'lead', id: r.id, title: r.title, summary: r.blurb });
@@ -108,7 +118,7 @@ export const dayOf = (date: string): string => {
   return d + ' ' + MONTHS[m - 1] + ' ' + y;
 };
 
-const NOUN: Record<FeedKind, string> = { card: 'card', lead: 'lead', question: 'plain question' };
+const NOUN: Record<FeedKind, string> = { card: 'card', lead: 'lead', question: 'plain question', check: 'headline check' };
 /** The line under an entry's summary: new, or what changed and when. */
 export const noteOf = (e: Entry): string =>
   e.added.sha === e.changed.sha
@@ -135,7 +145,7 @@ export function atom(entries: Entry[]): string {
     + '<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">\n'
     + '  <id>' + ORIGIN + FEED_FILE + '</id>\n'
     + '  <title>The AI Timeline — what is new</title>\n'
-    + '  <subtitle>New and revised cards, leads and plain questions on the investigation board, newest first.</subtitle>\n'
+    + '  <subtitle>New and revised cards, leads, plain questions and headline checks on the investigation board, newest first.</subtitle>\n'
     + '  <link rel="self" type="application/atom+xml" href="' + ORIGIN + FEED_FILE + '"/>\n'
     + '  <link rel="alternate" type="text/html" href="' + ORIGIN + '"/>\n'
     + '  <author><name>The AI Timeline</name><uri>' + ORIGIN + '</uri></author>\n'

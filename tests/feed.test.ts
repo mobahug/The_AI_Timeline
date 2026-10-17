@@ -11,10 +11,11 @@ import type { Commit, FeedKind, Item, Snapshot } from '../scripts/feed';
    with what git says was committed last. */
 
 const commit = (n: number, subject: string): Commit => ({ sha: 'c' + n, date: '2026-10-0' + n + 'T12:00:00+03:00', subject });
-const files = (cards: object[], leads: object[] = [], questions: object[] | null = null): Snapshot['files'] => ({
+const files = (cards: object[], leads: object[] = [], questions: object[] | null = null, checks: object[] | null = null): Snapshot['files'] => ({
   card: JSON.stringify(cards),
   lead: JSON.stringify({ leads }),
-  question: questions === null ? null : JSON.stringify({ questions })
+  question: questions === null ? null : JSON.stringify({ questions }),
+  check: checks === null ? null : JSON.stringify({ checks })
 });
 const card = (id: string, summary = 'As first written.') => ({ id, year: 1966, title: 'Card ' + id, summary });
 
@@ -25,7 +26,8 @@ describe('the feed', () => {
     // The same records, written out differently: nothing changed.
     { commit: commit(3, 'Reformat'), files: { ...files([card('a'), card('b')], [{ id: 'l', title: 'A lead', blurb: 'Rung by rung.' }]), card: JSON.stringify([card('a'), card('b')], null, 2) } },
     { commit: commit(4, 'Card b says what its source says.'), files: files([card('a'), card('b', 'As corrected.')], [{ id: 'l', title: 'A lead', blurb: 'Rung by rung.' }]) },
-    { commit: commit(5, 'Questions'), files: files([card('a'), card('b', 'As corrected.')], [{ id: 'l', title: 'A lead', blurb: 'Rung by rung.' }], [{ id: 'q', question: 'Why?', short: 'Because.' }]) }
+    { commit: commit(5, 'Questions'), files: files([card('a'), card('b', 'As corrected.')], [{ id: 'l', title: 'A lead', blurb: 'Rung by rung.' }], [{ id: 'q', question: 'Why?', short: 'Because.' }]) },
+    { commit: commit(6, 'A headline, checked'), files: files([card('a'), card('b', 'As corrected.')], [{ id: 'l', title: 'A lead', blurb: 'Rung by rung.' }], [{ id: 'q', question: 'Why?', short: 'Because.' }], [{ id: 'h', title: 'Did it?', short: 'Not quite.' }]) }
   ];
   const dated = dateRecords(history);
 
@@ -34,6 +36,7 @@ describe('the feed', () => {
     expect(dated.get('card/b')).toMatchObject({ added: { sha: 'c1' }, changed: { sha: 'c4' } });
     expect(dated.get('lead/l')).toMatchObject({ added: { sha: 'c2' }, changed: { sha: 'c2' } });
     expect(dated.get('question/q')).toMatchObject({ added: { sha: 'c5' }, changed: { sha: 'c5' } });
+    expect(dated.get('check/h')).toMatchObject({ added: { sha: 'c6' }, changed: { sha: 'c6' } });
   });
 
   it('does not date anything by a commit that only rewrote the file', () => {
@@ -49,18 +52,25 @@ describe('the feed', () => {
     expect(back.get('card/a')).toMatchObject({ added: { sha: 'c1' }, changed: { sha: 'c3' } });
   });
 
-  it('lists newest first, questions before leads before cards within a commit, and leaves out what is not committed', () => {
+  it('lists newest first, questions before checks before leads before cards within a commit, and leaves out what is not committed', () => {
     const items: Item[] = [
-      ...itemsOf({ card: JSON.stringify([card('a'), card('b'), card('unsaved')]), lead: JSON.stringify({ leads: [{ id: 'l', title: 'A lead', blurb: 'Rung by rung.' }] }), question: JSON.stringify({ questions: [{ id: 'q', question: 'Why?', short: 'Because.' }] }) })
+      ...itemsOf({
+        card: JSON.stringify([card('a'), card('b'), card('unsaved')]),
+        lead: JSON.stringify({ leads: [{ id: 'l', title: 'A lead', blurb: 'Rung by rung.' }] }),
+        question: JSON.stringify({ questions: [{ id: 'q', question: 'Why?', short: 'Because.' }] }),
+        check: JSON.stringify({ checks: [{ id: 'h', title: 'Did it?', short: 'Not quite.' }] })
+      })
     ];
     const entries = feedEntries(items, dated);
-    expect(entries.map((e) => e.kind + '/' + e.id)).toEqual(['question/q', 'card/b', 'lead/l', 'card/a']);
+    expect(entries.map((e) => e.kind + '/' + e.id)).toEqual(['check/h', 'question/q', 'card/b', 'lead/l', 'card/a']);
     expect(feedEntries(items, dated, 2)).toHaveLength(2);
-    expect(entries[0].url).toBe(ORIGIN + 'question/q/');
+    expect(entries[0].url).toBe(ORIGIN + 'check/h/');
+    expect(entries[0]).toMatchObject({ title: 'Did it?', summary: 'Not quite.' });
   });
 
   it('says whether an entry is new or what changed, and when', () => {
-    const [q, b] = feedEntries(itemsOf({ card: JSON.stringify([card('b')]), lead: '{"leads":[]}', question: JSON.stringify({ questions: [{ id: 'q', question: 'Why?', short: 'Because.' }] }) }), dated);
+    const [h, q, b] = feedEntries(itemsOf({ card: JSON.stringify([card('b')]), lead: '{"leads":[]}', question: JSON.stringify({ questions: [{ id: 'q', question: 'Why?', short: 'Because.' }] }), check: JSON.stringify({ checks: [{ id: 'h', title: 'Did it?', short: 'Not quite.' }] }) }), dated);
+    expect(noteOf(h)).toBe('A new headline check, added on 6 October 2026.');
     expect(noteOf(q)).toBe('A new plain question, added on 5 October 2026.');
     expect(noteOf(b)).toBe('Revised on 4 October 2026: Card b says what its source says. On the board since 1 October 2026.');
     expect(dayOf('2026-12-31T23:59:59-05:00')).toBe('31 December 2026');
