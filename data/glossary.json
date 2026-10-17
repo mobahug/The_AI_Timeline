@@ -455,7 +455,7 @@
         "EU AI Act"
       ],
       "short": "The European Union's risk-tiered AI law, adopted 2024, in force in stages.",
-      "definition": "Proposed in 2021, adopted in 2024, with general-purpose model duties applying from 2026. The first comprehensive law, and the one the rest of the world's rules are measured against."
+      "definition": "Proposed in 2021 and adopted in 2024, it switches on in stages: duties for the makers of general-purpose models from August 2025, the power to enforce them from August 2026, and the rules for high-risk uses from December 2027. The first comprehensive law, and the one the rest of the world's rules are measured against."
     },
     {
       "id": "deepfake",
@@ -509,6 +509,92 @@
       ],
       "short": "OpenAI's 2019 structure: investors' returns limited, the nonprofit in control — until 2025.",
       "definition": "A for-profit subsidiary whose returns were capped at a multiple, governed by the nonprofit's board. It was the structure that fired Altman and could not keep him fired, and it was replaced in 2025 by a public benefit corporation with the nonprofit as shareholder."
+    },
+    {
+      "id": "chatbot",
+      "term": "Chatbot",
+      "aka": [
+        "chatbots",
+        "chat model",
+        "chat models"
+      ],
+      "short": "A program you talk to in ordinary language, which answers in kind.",
+      "definition": "ELIZA was the first, in 1966, running a script that turned a user's statements back into questions; people confided in it anyway. ChatGPT put a large language model behind the same idea in 2022 and reached a hundred million users faster than any consumer product before it. The confidant lead follows what people tell them, and who answers for what they say back."
+    },
+    {
+      "id": "algorithm",
+      "term": "Algorithm",
+      "aka": [
+        "algorithms"
+      ],
+      "short": "A precise recipe a computer follows, step by step.",
+      "definition": "Turing's 1936 paper defined what any such procedure could compute at all, and proved that some questions none can settle. Most of what the board calls AI is not a recipe written by hand but one learned from examples; what is written by hand is the procedure for learning."
+    },
+    {
+      "id": "training-data",
+      "term": "Training data",
+      "aka": [
+        "training set",
+        "dataset",
+        "datasets"
+      ],
+      "short": "The examples a model learns from: images, text, games, proofs.",
+      "definition": "A model is only as good as what it was shown. ImageNet's fourteen million labelled images gave computer vision its decade; a language model's training data is much of the written internet, which is why the EU's AI Act asks the makers of general-purpose models for a public summary of theirs."
+    },
+    {
+      "id": "prompt",
+      "term": "Prompt",
+      "aka": [
+        "prompts",
+        "prompting",
+        "prompted"
+      ],
+      "short": "What you give a model to work from: the question, the instructions, the context.",
+      "definition": "GPT-3 showed in 2020 that a few examples in the prompt could teach a model a new task without retraining it, and products were built on that alone. Prompt injection is the same channel turned against it: a model that reads a page or an e-mail can follow instructions hidden inside."
+    },
+    {
+      "id": "fine-tuning",
+      "term": "Fine-tuning",
+      "aka": [
+        "fine-tuned",
+        "fine-tune"
+      ],
+      "short": "Further training of an existing model, to teach it a narrower job or a manner.",
+      "definition": "Cheap next to pretraining, and where much of a model's behaviour is set. InstructGPT was GPT-3 fine-tuned on human rankings of its own answers, and a version a hundred times smaller was preferred to the original."
+    },
+    {
+      "id": "datacentre",
+      "term": "Datacentre",
+      "aka": [
+        "datacenter",
+        "datacenters",
+        "datacentres",
+        "data centre",
+        "data centres",
+        "data center",
+        "data centers"
+      ],
+      "short": "A building full of computers, cooled and wired to the grid, where models are trained and run.",
+      "definition": "The physical side of compute. The four largest buyers spent over $200 billion on AI infrastructure in 2024, laboratories began signing long-term energy contracts in 2025, and the board's 2030 scenario has grid capacity, cooling and siting decide who can train the largest models."
+    },
+    {
+      "id": "generative-ai",
+      "term": "Generative AI",
+      "aka": [
+        "generative"
+      ],
+      "short": "AI that makes things (text, images, voices, video) rather than only sorting or predicting them.",
+      "definition": "Generative adversarial networks made the first convincing faces in 2014; diffusion models took image-making to the public in 2022, the year ChatGPT did the same for text. A deepfake is generative AI used to imitate a real person."
+    },
+    {
+      "id": "robot",
+      "term": "Robot",
+      "aka": [
+        "robots",
+        "robotics"
+      ],
+      "short": "A machine that senses and acts in the physical world; the word comes from a 1920 play.",
+      "definition": "Karel Čapek's R.U.R. gave the language the word. The first industrial robot started work at a General Motors plant in 1961, and SRI's Shakey planned, perceived and acted, slowly, in 1970. Most of what the board calls AI since has stayed on screens; its scenario for 2033 is the first genuinely useful household robot."
     }
   ]
 }
