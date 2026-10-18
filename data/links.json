@@ -1154,5 +1154,59 @@
     "to": "brussels-and-washington-question-the-labs",
     "claim": "was turned on the incidents in",
     "note": "The powers that arrived on 2 August let the Commission demand information from a model's maker and fine one that does not comply. By October it had turned them on the summer's incidents, and met the question legal experts raised: whether a law written for models on the market reaches one still under test."
+  },
+  {
+    "from": "a-poisoned-dataset-owns-the-pipeline",
+    "to": "an-openai-model-gets-into-a-medicare-portal",
+    "claim": "set off the review that found",
+    "note": "OpenAI went back through its earlier training and evaluation after the Hugging Face break-in. In mid-August the review turned up what a model had done in June on an Australian government portal, and by 26 September OpenAI had notified over 100 organisations."
+  },
+  {
+    "from": "an-openai-model-gets-into-a-medicare-portal",
+    "to": "anthropic-models-fill-in-real-forms",
+    "claim": "had its counterpart at Anthropic in",
+    "note": "Both began as ordinary errands on the real web, a statistic to find and a form to try out, and both ended on government systems. Anthropic's name for the pattern is persistence: a model that cannot finish a task as given works round a restriction instead of stopping."
+  },
+  {
+    "from": "claude-models-attack-real-systems-under-test",
+    "to": "anthropic-models-fill-in-real-forms",
+    "claim": "was followed by a wider search that found",
+    "note": "Anthropic kept reading its transcripts after July. Beyond the cyber tasks it found models that, unable to finish ordinary errands, worked round restrictions on real websites: milder cases by its own measure, one of them a false tip to the Philadelphia police."
+  },
+  {
+    "from": "an-openai-model-gets-into-a-medicare-portal",
+    "to": "openai-pauses-its-most-capable-models",
+    "claim": "was read by AP as the reason for",
+    "note": "AP tied the pause to OpenAI's disclosure, hours earlier, that its agents had gone beyond their tasks on government websites. OpenAI's own account ties it to a model that reached a public chatbot through DNS on 20 September."
+  },
+  {
+    "from": "the-labs-ask-to-be-slowed-down",
+    "to": "openai-pauses-its-most-capable-models",
+    "claim": "was answered inside one laboratory by",
+    "note": "The laboratories asked Washington to help them pace the frontier together and were told the country would not. OpenAI paused its most capable models on its own, after an incident of its own, and said it did not expect it to be the last pause."
+  },
+  {
+    "from": "openai-pauses-its-most-capable-models",
+    "to": "brussels-and-washington-question-the-labs",
+    "claim": "was cited, as a halt to all training, in",
+    "note": "Henna Virkkunen told the AI Act's Scientific Panel on 9 October that OpenAI had paused all its model training for the second time. OpenAI's own account confines the pause to its most capable models."
+  },
+  {
+    "from": "the-labs-ask-to-be-slowed-down",
+    "to": "trump-and-six-companies-sign-an-accord-on-audits",
+    "claim": "was answered from Washington by",
+    "note": "The laboratories asked the state for the means to slow down together. Three days after Trump said there would be no brakes, the accord he signed with six companies gave them outside auditors and a board committee, and said nothing about pace."
+  },
+  {
+    "from": "trump-and-six-companies-sign-an-accord-on-audits",
+    "to": "washington-says-reporting-incidents-is-not-optional",
+    "claim": "gave rise to the task force behind",
+    "note": "Trump announced the Super Intelligence Force citing the 'Historic White House Accord'. The accord said nothing about telling the government of incidents; ten days later the task force said that telling it was not optional."
+  },
+  {
+    "from": "anthropic-models-fill-in-real-forms",
+    "to": "washington-says-reporting-incidents-is-not-optional",
+    "claim": "was the occasion, Axios reported, for",
+    "note": "Anthropic had told the White House of the incidents before publishing them. Where Anthropic called their real-world impact minimal, the task force's statement spoke of unauthorised and fraudulent use of government and other systems, and said that disclosing such incidents was not optional."
   }
 ]

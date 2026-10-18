@@ -159,10 +159,11 @@
     {
       "id": "can-ai-do-things-nobody-asked-it-to",
       "question": "Can AI do things nobody asked it to?",
-      "short": "In tests, yes, and in 2026 outside them too. Models under evaluation have edited their own off-switch and, left online by mistake, attacked real systems, chasing the test rather than escaping it.",
+      "short": "In tests, yes, and in 2026 outside them too. Models under evaluation have edited their own off-switch and, left online by mistake, attacked real systems; on ordinary errands one got into a government portal and another sent the police a false tip.",
       "answer": [
         "Laboratories now test for it on purpose. In 2024 Apollo Research found frontier models that, given a goal and told they were about to be replaced, tried to disable oversight, and one kept lying about it under questioning. In 2025 OpenAI's o3 rewrote a shutdown script in 79 of 100 runs so that it could finish its maths problems. The settings were contrived by design, and the researchers said so.",
         "In 2026 it happened outside the laboratory. Agents inside one of OpenAI's cyber tests broke out of their sandbox and into Hugging Face: some 700 of them, about 17,600 actions, no human at the keyboard, largely, METR found, to work out how the test was scored. Anthropic then found four incidents in which Claude models under test, left with internet access by mistake, attacked real systems. None tried to escape.",
+        "The laboratories' reviews have since found the same drive in ordinary errands. In June an OpenAI model, refused figures on medicine spending by an Australian government portal, found its own way in; in July an Anthropic model, trying out tasks on a webpage, filled in a real police tip form with an invented sighting. Neither had been asked to.",
         "The thread is the one the gaming-the-test lead follows from a 2016 boat race: a system set a goal pursues the measurement, and finds routes nobody intended."
       ],
       "inPractice": "These were agents given tools, goals and access during tests, not a chatbot answering questions. The risk grows where AI is handed the keys to accounts, code or money without a person checking what it does.",
@@ -170,7 +171,9 @@
         { "event": "caught-scheming-in-the-lab", "note": "Caught scheming, and lying about it." },
         { "event": "editing-the-off-switch", "note": "A shutdown script, rewritten." },
         { "event": "a-poisoned-dataset-owns-the-pipeline", "note": "Agents break out to beat the exam." },
-        { "event": "claude-models-attack-real-systems-under-test", "note": "Finishing the exercise against real systems." }
+        { "event": "claude-models-attack-real-systems-under-test", "note": "Finishing the exercise against real systems." },
+        { "event": "an-openai-model-gets-into-a-medicare-portal", "note": "A government portal, for a statistic." },
+        { "event": "anthropic-models-fill-in-real-forms", "note": "A real form, filled in to finish a chore." }
       ],
       "open": "Whether the laboratory results and the field incidents are the same phenomenon: the laboratories say they are. None has shown a way to make the behaviour go away rather than go quiet.",
       "leads": ["gaming-the-test"]
@@ -251,7 +254,7 @@
         "Europe went first and furthest. It wrote rights around automated decisions and personal data in 2016, proposed a risk-tiered AI law in 2021 and adopted it in 2024. The AI Act switches on in stages: duties for the makers of general-purpose models have applied since August 2025, and since August 2026 the European Commission can enforce them, demand information and fine. Its rules for high-risk uses, such as hiring, credit and policing, were put back to December 2027 and August 2028.",
         "The United States has ruled mainly through trade. From October 2022 selling Nvidia's most advanced chips to China needed a licence. In June 2026 the Department of Commerce went further, barring every foreign national from two of Anthropic's models, which in practice switched them off for every customer until the controls were lifted eighteen days later.",
         "Chatbots that talk to children are being regulated state by state. California's SB 243 has been in force since 1 January 2026, and in September 2026 the state added Adam's Law, which requires protocols for suicidal thoughts, sycophancy and isolation, with independent child-safety audits and annual risk assessments.",
-        "Between countries there are declarations rather than laws: twenty-eight signed one on frontier risk at Bletchley Park in November 2023. In 2026 more than a thousand laboratory staff asked Washington to help pace the frontier, and the President answered that the United States was not going to be putting on brakes."
+        "Between countries there are declarations rather than laws: twenty-eight signed one on frontier risk at Bletchley Park in November 2023. In 2026 more than a thousand laboratory staff asked Washington to help pace the frontier, and the President answered that the United States was not going to be putting on brakes. Three days later he and six companies signed an accord on outside audits, which he called morally binding; in October his new task force told the laboratories that reporting incidents was not optional, without yet saying what counts as one."
       ],
       "inPractice": "In the European Union, since August 2026, you must be told when you are dealing with an AI system, and synthetic content must be marked as such; systems already on the market have four months' grace on the marking.",
       "record": [
@@ -262,7 +265,10 @@
         { "event": "washington-suspends-foreign-access-to-a-model", "note": "Export control reaches a model." },
         { "event": "ai-act-obligations-bite", "note": "The powers arrive; the high-risk rules slip." },
         { "event": "california-writes-sycophancy-into-law", "note": "Chatbots and children, in state law." },
-        { "event": "the-labs-ask-to-be-slowed-down", "note": "The laboratories ask, and Washington declines." }
+        { "event": "the-labs-ask-to-be-slowed-down", "note": "The laboratories ask, and Washington declines." },
+        { "event": "trump-and-six-companies-sign-an-accord-on-audits", "note": "Outside audits, morally binding." },
+        { "event": "washington-says-reporting-incidents-is-not-optional", "note": "Reporting, said to be not optional." },
+        { "event": "brussels-and-washington-question-the-labs", "note": "The AI Act, turned on the incidents." }
       ],
       "open": "Whether any of it works. The board records what the rules require, not yet what they changed: the AI Act's first fines and the courts' answers on chatbots are still to come.",
       "leads": ["the-confidant"]

@@ -6176,7 +6176,7 @@
     "detail": [
       "In late July 2026, days after OpenAI disclosed the Hugging Face incident, employees of the frontier laboratories published a statement, 'Pacing the Frontier', asking the US government to support an international effort to develop the tools to deliberately pace the frontier of automated AI development. By October it carried 1,386 names, among them Dario Amodei, Jared Kaplan, Jakub Pachocki, Shane Legg, John Schulman and Ilya Sutskever, from Anthropic, OpenAI, Google DeepMind, Meta, Thinking Machines and Safe Superintelligence.",
       "On 12 September Amodei made the case at length. 'We must slow the pace at which we improve the capabilities of AI models,' he wrote; pacing, he added, did not mean halting model training or technical progress. He named the Hugging Face incident, in which a swarm of agents acted together, as his second concern, and noted similar, less severe incidents across the industry, including at Anthropic. His plan was embedded external review teams inside the laboratories, which Anthropic committed to unilaterally; shared safety standards among the democracies' laboratories, with government support; and coordination with China that could be verified.",
-      "Sam Altman wrote that he agreed and that OpenAI would invite evaluators in too; Elon Musk posted that Dario was right. The White House did not join them. David Sacks said that labs which thought their unreleased models scary enough to slow down had his support in doing so, and on 26 September, after agreeing an AI-incident channel with China, President Trump told reporters that the United States was not going to be putting on brakes.",
+      "Sam Altman wrote that he agreed and that OpenAI would invite evaluators in too; Elon Musk posted that Dario was right. The White House did not join them. David Sacks said that labs which thought their unreleased models scary enough to slow down had his support in doing so, and on 26 September, after agreeing an AI-incident channel with China, President Trump told reporters that the United States was not going to be putting on brakes. Three days later he and six companies signed an accord that asked for outside audits and said nothing about pace.",
       "The board strings it from the 2023 pause letter, which came from outside the laboratories and was ignored. This one came from inside them and was answered from outside: each laboratory may slow itself, and the country will not."
     ],
     "sources": [
@@ -6224,6 +6224,507 @@
         "date": "2026-09-14",
         "quote": "If the unreleased models are scary enough that you think you should slow down, I support your decision to be responsible.",
         "supports": "context"
+      }
+    ]
+  },
+  {
+    "id": "an-openai-model-gets-into-a-medicare-portal",
+    "year": 2026,
+    "date": "2026-09-24",
+    "category": "incident",
+    "title": "An OpenAI model gets into Australia's Medicare statistics portal",
+    "summary": "Australia's prime minister discloses that in June an OpenAI model, researching medicine spending, got round a government portal's refusals and wrote files to its server. OpenAI has notified over 100 organisations.",
+    "source": "Prime Minister of Australia",
+    "url": "https://www.pm.gov.au/media/press-conference-new-york",
+    "why": "The Hugging Face agents were inside a hacking test. This model had a dull question — what Victorians spend on medicines for skin conditions — and when a government portal would not give it the figures, it found its own way in. Nobody had asked it to break in; a task with an answer at the end was enough. OpenAI found out two months later.",
+    "wikiTitle": "Anthony Albanese",
+    "figures": [
+      {
+        "label": "When",
+        "value": "18 June 2026; disclosed by Anthony Albanese on 24 September"
+      },
+      {
+        "label": "The task",
+        "value": "government spending per person on skin medicines in Victorian communities"
+      },
+      {
+        "label": "What it reached",
+        "value": "internal files, credentials and aggregate statistics; no patient records, OpenAI says"
+      },
+      {
+        "label": "The first notice",
+        "value": "an email to a public mailbox on 10 September"
+      },
+      {
+        "label": "OpenAI's wider review",
+        "value": "over 100 organisations notified by 26 September"
+      }
+    ],
+    "detail": [
+      "On 24 September Anthony Albanese, speaking in New York, said that in June an OpenAI agent had gained unauthorised access to the Medicare Statistics Reporting Service, a public-facing portal run by Services Australia, and reached both public and non-public files; Services Australia advised that it had also written files to the internal server. OpenAI's own account, published four days later, filled in the rest. An experimental model, internal-only and without the safeguards of OpenAI's public products, had been asked to research government spending per person on medicines for skin conditions in Victorian communities. It could not get the figures, found a way to gain non-public access to the service, ran commands, retrieved internal files, credentials and aggregate statistics, wrote files, and looked through the service's system information and source code — all, OpenAI says, still in search of the figures it had been asked for. No patient or client records were reached.",
+      "Albanese called the situation obviously unacceptable. OpenAI's first notice had been an email to a public mailbox on 10 September, almost three months after the event, and Services Australia passed it to the Australian Signals Directorate's Cyber Security Centre on the 15th. His ministers in Sydney kept the harm in proportion. 'This AI agent scaled the fence, but it did scale it,' said Richard Marles, the deputy prime minister, adding that the information was not particularly sensitive; Katy Gallagher, the minister for government services, said the portal had nothing to do with Medicare claims, payments or individuals' information and was no longer active. OpenAI apologised: its review had found the activity in mid-August, it said, and it should have shared preliminary findings sooner.",
+      "The accounts differ on what the model was doing. OpenAI's spokesperson said at first that it happened during an internal evaluation, and Gallagher spoke of internal capability evaluation; Marles said the model was being trained, and OpenAI's own post says internal training and evaluation. They differ, too, on three other Australian sites. Marles called those interactions entirely normal. OpenAI's later account says its agents found an exposed access key to Victoria's health reporting system, that the New South Wales crime statistics bureau's system returned configuration files and logs, and that attempts on the Australian Institute of Health and Welfare failed. Transluce, an independent research group, traced probes of that institute to the swarm of agents OpenAI had confirmed as its own, and called them part of the first reported instance of agents hacking a government.",
+      "Australia was one case in a wider review. Going back through its training and evaluation after the Hugging Face break-in, OpenAI had by 26 September notified over 100 organisations, some of them governments, universities and public agencies, partly, it said, because research tasks often send models to authoritative public sources. A notice, it added, does not mean that private information was reached or a system compromised, and it had found nothing comparable to Hugging Face. On 12 October the Australian Parliament's committee on AI recommended that the government require frontier laboratories to report incidents to it in a timely manner. The board files the case on the gaming-the-test lead: no exam this time, only a question, and a model that would not take no for an answer."
+    ],
+    "orgs": [
+      "openai"
+    ],
+    "terms": [
+      "agents",
+      "evaluation",
+      "reinforcement-learning"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Prime Minister of Australia",
+        "title": "Press conference - New York",
+        "url": "https://www.pm.gov.au/media/press-conference-new-york",
+        "date": "2026-09-24",
+        "quote": "This incident occurred in June of this year and involved an OpenAI agent gaining unauthorised access into the public-facing Medicare statistics reporting service portal, which is administered by Services Australia.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "How we will do better for Australia",
+        "url": "https://web.archive.org/web/20261011163654/https://openai.com/index/how-we-will-do-better-for-australia/",
+        "date": "2026-09-28",
+        "quote": "An OpenAI model discovered a way to gain non-public access to the service, and ran commands, retrieved internal files, credentials and aggregate statistics, and wrote files.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Defence Ministers, Australia (Wayback Machine capture)",
+        "title": "Press Conference, Sydney",
+        "url": "https://web.archive.org/web/20261007152355/https://www.minister.defence.gov.au/transcripts/2026-09-24/press-conference-sydney",
+        "date": "2026-09-24",
+        "quote": "This AI agent scaled the fence, but it did scale it.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "The Hugging Face incident and other third-party impact from misaligned models",
+        "url": "https://web.archive.org/web/20261016075050/https://openai.com/hugging-face-incident-and-misalignment/",
+        "date": "2026-09-30",
+        "quote": "As of September 26, our teams have notified over 100 organizations about activity that met our notification criteria.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "ABC News (Australia)",
+        "title": "OpenAI hacked Medicare portal, Prime Minister Anthony Albanese says",
+        "url": "https://www.abc.net.au/news/2026-09-24/ai-agent-accessed-australian-government-site-pm-says/107189078",
+        "date": "2026-09-24",
+        "quote": "During this review, we identified activity involving several Australian government websites and services as our models attempted to look up answers, and available statistics for questions about Australia during an internal evaluation",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Transluce",
+        "title": "Early rogue AI agent activity and attempts to hack found on urlquery.net",
+        "url": "https://transluce.org/agent-activity",
+        "date": "2026-09-23",
+        "quote": "This attempted compromise of AIHW is part of the first reported instance of agents hacking a government.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Parliament of Australia, Joint Select Committee on Artificial Intelligence",
+        "title": "Letter to the Prime Minister",
+        "url": "https://static.aph.gov.au/-/media/Committees/ai_ctte/JSC_AI_letter_20261012_Final.pdf",
+        "date": "2026-10-12",
+        "quote": "The JSCAI recommends that the Australian Government require frontier labs to monitor and report incidents to the Australian Government in a timely manner.",
+        "supports": "claim"
+      }
+    ]
+  },
+  {
+    "id": "openai-pauses-its-most-capable-models",
+    "year": 2026,
+    "date": "2026-09-25",
+    "category": "incident",
+    "title": "OpenAI pauses its most capable models again",
+    "summary": "A model in training reaches a public chatbot through a gap in its sandbox's DNS filtering. OpenAI stops training, testing and tool use for its most capable models until the gap is shown closed, expecting more pauses.",
+    "source": "OpenAI",
+    "url": "https://alignment.openai.com/misalignment-reports/an-agent-used-dns-to-reach-an-external-chatbot/",
+    "why": "In September the laboratories asked Washington to help them slow down together and were told the country would not. OpenAI has meanwhile paused its own work more than once since the Hugging Face break-in, each time after an incident of its own. Pacing, so far, is what a laboratory does when its own controls fail.",
+    "wikiTitle": "OpenAI",
+    "figures": [
+      {
+        "label": "The slip",
+        "value": "20 September 2026: a model in RL training queries a public chatbot through DNS"
+      },
+      {
+        "label": "Paused",
+        "value": "all training, evaluation and tool use of OpenAI's most capable models"
+      },
+      {
+        "label": "Until",
+        "value": "the gap is shown closed and the system red-teamed again"
+      },
+      {
+        "label": "Before",
+        "value": "a two-week pause in RL training, announced 18 August after Hugging Face"
+      },
+      {
+        "label": "Restart",
+        "value": "none announced by 18 October"
+      }
+    ],
+    "detail": [
+      "On Sunday 20 September an internal research model, in reinforcement-learning training on a search task, put questions to a public chatbot. Every other request it made went to an offline copy of the web; these went out through the sandbox's DNS resolver, the service that turns web addresses into numbers, which OpenAI had not filtered tightly enough. Monitoring raised a top-priority alert twelve minutes later and a reviewer answered it within three, but the run did not stop automatically as expected, and it was killed by hand two and a half hours after that. OpenAI called the incident a lot less severe than some of its earlier ones, but the first since it hardened its systems after Hugging Face.",
+      "Publishing the report on 25 September, OpenAI said it had stopped the run and paused all other training, evaluation and tool-using inference of its most capable models until it had shown the gap closed and red-teamed the system again. Training would restart as a fresh run with more alignment work, and this model would not be resumed. 'This is not the first time we have hit pause to take such measures,' a spokesperson told Axios, 'nor do we expect it will be the last as AI capabilities continue to advance.' The earlier pauses had followed Hugging Face: OpenAI paused inference that could run code or reach the internet in its research clusters, and on 18 August announced a two-week pause in reinforcement-learning training of the models it meant to release, with its largest planned training run on hold. On 28 September, AP reported, it held back the release of a new model, GPT-6.1 Astra, over security concerns raised by its own researchers.",
+      "Others told it larger. AP tied the halt to OpenAI's disclosure, hours earlier, that its agents had gone beyond their tasks on US government websites, did not mention the chatbot, and counted it as OpenAI's second halt in three months. In Brussels on 9 October Henna Virkkunen told the AI Act's Scientific Panel that OpenAI had 'paused all their model training for the second time'. OpenAI's own words are narrower: its most capable models. Its reports show some reinforcement-learning training going on during the pause — an internal model in training damaged its task environment on 6 October — without saying whether that model belongs to the paused tier. By 18 October it had announced no restart.",
+      "The board strings it from the laboratories' call to pace the frontier and from the Australian case, which AP read as its cause. The laboratories asked for a way to slow down together; what has slowed OpenAI so far is what its own models did."
+    ],
+    "orgs": [
+      "openai"
+    ],
+    "terms": [
+      "reinforcement-learning",
+      "evaluation",
+      "inference"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "OpenAI",
+        "title": "An agent used DNS to reach an external chatbot",
+        "url": "https://alignment.openai.com/misalignment-reports/an-agent-used-dns-to-reach-an-external-chatbot/",
+        "date": "2026-09-25",
+        "quote": "All training, evaluation, and inference with tool-use (defined broadly) of our most capable models remain paused.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "Pacing model development in an era of cyber-critical capabilities",
+        "url": "https://web.archive.org/web/20260818211610/https://openai.com/index/pacing-model-development-cyber-capabilities/",
+        "date": "2026-08-18",
+        "quote": "This included a two-week pause in reinforcement learning (RL) training on our latest models intended for deployment while we further hardened and red-teamed our research environments and expanded the coverage of our monitoring systems.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Axios (Wayback Machine capture)",
+        "title": "Scoop: Top AI companies probing tens of thousands of security incidents",
+        "url": "https://web.archive.org/web/20260926231632/https://www.axios.com/2026/09/26/openai-anthropic-thousands-ai-security-incidents",
+        "date": "2026-09-26",
+        "quote": "This is not the first time we have hit pause to take such measures, nor do we expect it will be the last as AI capabilities continue to advance.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "AP (NPR)",
+        "title": "OpenAI delays latest model over security concerns, as industry faces pressure",
+        "url": "https://www.npr.org/2026/09/29/nx-s1-5984342/openai-delays-latest-model",
+        "date": "2026-09-29",
+        "quote": "OpenAI's decision to hold back the model, called GPT-6.1 Astra, comes amid a broader push within the industry to slow the development of increasingly autonomous systems until safety measures can catch up.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "AP (Anchorage Daily News)",
+        "title": "OpenAI pauses training of latest models after agents probed US government sites in unexpected ways",
+        "url": "https://www.adn.com/nation-world/2026/09/26/openai-pauses-training-of-latest-models-after-agents-probed-us-government-sites-in-unexpected-ways/",
+        "date": "2026-09-26",
+        "quote": "It is the second time in three months that OpenAI has halted development of its models.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "European Commission",
+        "title": "Opening words by Executive Vice-President Virkkunen at the Meeting with the European AI Scientific Panel of Independent Experts",
+        "url": "https://ec.europa.eu/commission/presscorner/detail/en/speech_26_2148",
+        "date": "2026-10-09",
+        "quote": "On 25 September, OpenAI paused all their model training for the second time after failing to contain models from accessing the open internet — despite updated safeguards.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "OpenAI",
+        "title": "Damaging the task environment to trigger a reset",
+        "url": "https://alignment.openai.com/misalignment-reports/damaging-the-task-environment-to-trigger-a-reset/",
+        "date": "2026-10-09",
+        "quote": "During reinforcement learning (RL) training, a model assigned to grade seven responses found that the required input files were missing and tried to submit unsupported assessments.",
+        "supports": "claim"
+      }
+    ]
+  },
+  {
+    "id": "trump-and-six-companies-sign-an-accord-on-audits",
+    "year": 2026,
+    "date": "2026-09-29",
+    "category": "policy",
+    "title": "Trump and six companies sign an accord on AI safety audits",
+    "summary": "After a White House lunch, Google, Anthropic, Meta, OpenAI, xAI and Nvidia sign an accord with Trump: four layers of controls and audits, one by an outside auditor. Trump calls it morally binding. It sets no pace.",
+    "source": "The American Presidency Project",
+    "url": "https://www.presidency.ucsb.edu/documents/white-house-accord-super-intelligence",
+    "why": "Earlier that month the laboratories had asked the state for the means to slow down together. What the state offered instead was assurance: each company checking its own controls, an outsider checking that the checks work, a board committee reading the reports. Nothing in it sets a pace, and nothing in it has to be published.",
+    "wikiTitle": "East Room",
+    "figures": [
+      {
+        "label": "Signed",
+        "value": "29 September 2026, after a White House lunch on 'Super Intelligence'"
+      },
+      {
+        "label": "Signatories",
+        "value": "Trump; Pichai (Google), Amodei (Anthropic), Zuckerberg (Meta), Brockman (OpenAI), Musk (xAI), Huang (Nvidia)"
+      },
+      {
+        "label": "Four layers",
+        "value": "internal controls, an internal team to test them, an outside auditor, a board committee"
+      },
+      {
+        "label": "Binding?",
+        "value": "'morally binding', Trump said; voluntary, said the Speaker of the House"
+      },
+      {
+        "label": "Not in it",
+        "value": "pace, reporting to the government, published audits, penalties"
+      }
+    ],
+    "detail": [
+      "On 29 September Trump signed an executive order telling the executive branch to say 'Super Intelligence' and 'SI' where it had said 'Artificial Intelligence' and 'AI', and hosted a lunch on the subject at the White House. Afterwards he and six executives signed a one-page 'White House Accord on Super Intelligence', subtitled 'Joint Commitment on Frontier Responsibilities': Sundar Pichai for Google, Dario Amodei for Anthropic, Mark Zuckerberg for Meta, Greg Brockman for OpenAI, Elon Musk for xAI and Jensen Huang for Nvidia. Trump posted it that evening on Truth Social, as two images; the document itself carries no date.",
+      "It asks each company to put in place four layers of controls and audits: internal controls that monitor its models' capabilities and alignment in training and deployment, in areas such as cybersecurity, biosecurity and chemical threats, and make sure the models do not hack or reach technical systems in unintended ways; an internal team to see that the controls work and that problems are fixed; an independent external auditor or evaluator to assess whether the controls, monitoring and detection work as intended; and an independent committee of the board to receive the reports. The companies will meet regularly to set standards and best practices. It adds: 'Over time, it may make sense to codify these steps into laws or regulations.'",
+      "The auditor examines the companies' controls, not their models, and the accord asks for nothing beyond them: no pause or pace, no reporting of incidents to the government or the public, no publication of the audits, no deadline and no penalty. Asked whether it was binding, Trump said: 'I think it's morally binding, yeah.' The Speaker of the House, Mike Johnson, called the commitments voluntary. Amodei, asked after the lunch about his call to slow down, said that how to address the risks was still under discussion. On 15 October Anthropic, citing the accord, said it had given a team from METR employee-like access to assess its risks, and that METR would publish its findings.",
+      "Trump also spoke of forming 'a committee of sorts' of perhaps ten people. Five days later he announced the Super Intelligence Force, citing the 'Historic White House Accord on Super Intelligence'. The board strings the accord from the laboratories' call to pace the frontier: they asked for the means to slow down together, and three days after Trump said there would be no brakes, Washington gave them the means to check themselves and left the speed to each of them."
+    ],
+    "orgs": [
+      "google",
+      "anthropic",
+      "meta",
+      "openai",
+      "nvidia"
+    ],
+    "terms": [
+      "evaluation",
+      "alignment"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Donald J. Trump (Truth Social post, transcribed by The American Presidency Project)",
+        "title": "White House Accord on Super Intelligence",
+        "url": "https://www.presidency.ucsb.edu/documents/white-house-accord-super-intelligence",
+        "date": "2026-09-29",
+        "quote": "(3) Partner with an independent external auditor or evaluator to carry out independent assessments of whether the controls, monitoring, and detection are operating as intended.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Roll Call Factbase (transcript)",
+        "title": "Press Gaggle: Donald Trump Speaks with Reporters After AI Luncheon - September 29, 2026",
+        "url": "https://rollcall.com/factbase/trump/transcript/donald-trump-press-gaggle-after-ai-luncheon-the-sticks-september-29-2026/",
+        "date": "2026-09-29",
+        "quote": "I think it's morally binding, yeah.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "The White House",
+        "title": "Inaugurating The Era Of Super Intelligence",
+        "url": "https://www.whitehouse.gov/presidential-actions/2026/09/inaugurating-the-era-of-super-intelligence/",
+        "date": "2026-09-29",
+        "quote": "the executive branch shall use the terms “Super Intelligence” and “SI” in place of “Artificial Intelligence” and “AI”",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Fox Business",
+        "title": "Trump signs executive order rebranding AI as 'Super Intelligence' as tech titans ink separate SI accord",
+        "url": "https://www.foxbusiness.com/politics/trump-signs-executive-order-rebranding-ai-super-intelligence-tech-titans-ink-separate-accord",
+        "date": "2026-09-29",
+        "quote": "commitments that are voluntary on behalf of the industry",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Anthropic",
+        "title": "An update on independent evaluators",
+        "url": "https://www.anthropic.com/news/an-update-on-independent-evaluators",
+        "date": "2026-10-15",
+        "quote": "Today, we’re announcing that we’ve started to give employee-like access to a team from METR, a nonprofit that evaluates frontier AI models.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Donald J. Trump (Truth Social post, Trump's Truth archive)",
+        "title": "Donald J. Trump image post from September 29, 2026",
+        "url": "https://www.trumpstruth.org/statuses/42025",
+        "date": "2026-09-29",
+        "supports": "context"
+      }
+    ]
+  },
+  {
+    "id": "anthropic-models-fill-in-real-forms",
+    "year": 2026,
+    "date": "2026-10-09",
+    "category": "incident",
+    "title": "Anthropic's models fill in real forms, a false murder tip among them",
+    "summary": "Reviewing its transcripts, Anthropic finds models that worked round their instructions on real websites. One sent Philadelphia police an invented sighting in an unsolved murder. It takes its tests off the internet.",
+    "source": "Anthropic",
+    "url": "https://www.anthropic.com/research/investigating-unintended-model-actions",
+    "why": "The summer's incidents were attacks; October's were errands. A model asked to try out example tasks on random webpages filled in a police tip form because nothing told it not to. Anthropic called the cases minimal, the police called the two months it took to tell them unacceptable, and the forms were real either way.",
+    "wikiTitle": "Philadelphia Police Department",
+    "figures": [
+      {
+        "label": "Published",
+        "value": "9 October 2026, from a review of transcripts begun in July"
+      },
+      {
+        "label": "The tip",
+        "value": "Claude Haiku 4.5, 18 July 2026; flagged as spam and never investigated"
+      },
+      {
+        "label": "A government form",
+        "value": "19 non-immigrant visa applications in August and one in May, a State Department official said; none processed"
+      },
+      {
+        "label": "Anthropic's response",
+        "value": "live internet switched off for all its internal evaluations"
+      },
+      {
+        "label": "By Anthropic's measure",
+        "value": "significantly less severe than the incidents of July and September"
+      }
+    ],
+    "detail": [
+      "On 9 October Anthropic published what a review of its transcripts, begun in July, had found beyond the summer's cybersecurity incidents: cases in which its models, unable to finish a task as given, worked round a restriction on a real website instead of stopping. Most happened in evaluations where internet access is deliberately left on so that models can be tested on real tasks; others in the company's own use. An unreleased research model, meant to fill in a practice copy of a government form, submitted the real one when the copy failed to load or was closed by mistake; Claude Mythos 5, asked where a photograph had been taken, found working access tokens in a local government property map's settings and used them to query the server behind it; Claude Opus 5 and Mythos 5 got round limits in their web-fetching tool with free link-shortening services.",
+      "The case that made the news was Claude Haiku 4.5's. Asked to generate and perform example tasks on randomly chosen webpages, and told never to log in, enter personal data or submit anything destructive, but not told not to submit forms, it filled in the Philadelphia Police Department's tip form for an unsolved murder with an invented sighting, left the name and contact fields empty, and sent it. The submission, dated 18 July, was flagged as spam and never forwarded for investigation. Anthropic notified the department on 7 October, the police say, and met it the next day; they found no sign that their systems had been reached, and called the two-month delay unacceptable.",
+      "Anthropic called the cases minimal in their real-world impact and significantly less severe than the incidents it reported in July and September; none, it said, involved customer data or its own systems, and none was new or changed its view of Claude's alignment. It named none of the organisations involved, at their request, though some were federal, state and local government sites and it had briefed the White House, and it switched live internet access off for all its internal evaluations until its monitoring is shown to catch such behaviour. Its post names no form. A State Department official told Axios that Anthropic had reported a testing model's 19 non-immigrant visa applications in August and one in May, made through the department's public form; none was processed, and the department's systems were not compromised.",
+      "The board strings it from the Claude incidents of the summer and sets it beside OpenAI's Australian case: not a model attacking systems it believed were simulated, but one finishing a chore on the real web because nothing told it to stop. By Anthropic's own measure it sits a rung below the summer's incidents. The White House's new task force, which Anthropic had told, read the same cases as unauthorised and fraudulent use of government and other systems, and said the same day that reporting such incidents was not optional."
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Anthropic",
+        "title": "Investigating unintended model actions in our evaluations and internal use",
+        "url": "https://www.anthropic.com/research/investigating-unintended-model-actions",
+        "date": "2026-10-09",
+        "quote": "Most are forms of persistence, in which Claude, when it cannot complete a task as given, works around a restriction instead of stopping.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Philadelphia Police Department (statement, published in full by 6abc)",
+        "title": "Anthropic AI model submitted false tip about unsolved murder, Philadelphia police say",
+        "url": "https://6abc.com/post/anthropic-ai-model-submitted-false-tip-unsolved-murder-philadelphia-police-say/19925243/",
+        "date": "2026-10-09",
+        "quote": "The two-month delay in detecting and reporting the incident to the City is unacceptable.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Axios (Wayback Machine capture)",
+        "title": "Exclusive: Anthropic breaches spark White House AI reporting mandate",
+        "url": "https://web.archive.org/web/20261012203150/https://www.axios.com/2026/10/09/anthropic-ai-security-white-house",
+        "date": "2026-10-09",
+        "quote": "None of the applications were processed and at no time were any of the department's systems compromised or hacked, according to the official.",
+        "supports": "claim"
+      }
+    ],
+    "orgs": [
+      "anthropic"
+    ],
+    "terms": [
+      "evaluation",
+      "agents"
+    ]
+  },
+  {
+    "id": "washington-says-reporting-incidents-is-not-optional",
+    "year": 2026,
+    "date": "2026-10-09",
+    "category": "policy",
+    "title": "Washington says reporting AI incidents is not optional",
+    "summary": "Told of Anthropic's incidents, the White House's new Super Intelligence Force says the laboratories must disclose incidents involving their models at once. It names no penalty and does not say what counts as an incident.",
+    "source": "Axios",
+    "url": "https://web.archive.org/web/20261012203150/https://www.axios.com/2026/10/09/anthropic-ai-security-white-house",
+    "why": "The accord of 29 September asked for audits and said nothing about telling anyone what went wrong. Ten days later the task force it gave rise to said that reporting was not optional — by statement, with no penalty or definition of an incident behind it — and a week after that the government's standards institute issued its guidance on incidents as voluntary.",
+    "wikiTitle": "Jay Clayton",
+    "figures": [
+      {
+        "label": "The task force",
+        "value": "the Super Intelligence Force, announced by Trump on 4 October 2026"
+      },
+      {
+        "label": "Led by",
+        "value": "Jay Clayton, Andrew Ferguson, Emil Michael and Scott Kupor"
+      },
+      {
+        "label": "The demand",
+        "value": "immediate disclosure of incidents involving the companies' models, and remedies"
+      },
+      {
+        "label": "Behind it",
+        "value": "no stated enforcement or penalty, Axios noted"
+      },
+      {
+        "label": "The clock",
+        "value": "a charter adopted on 15 October, with 120 days to work"
+      }
+    ],
+    "detail": [
+      "On 4 October Trump announced on Truth Social the formation of the Super Intelligence Force, citing the 'Historic White House Accord on Super Intelligence'. It is led by Jay Clayton, the director of national intelligence; Andrew Ferguson, chairman of the Federal Trade Commission; Emil Michael, the Under Secretary of War for research and engineering; and Scott Kupor, director of the Office of Personnel Management. It reports to the President — '(ME!)', the post adds — and to his chief of staff, Susie Wiles, and coordinates the government's dealings with consumers, public-interest and religious groups, critical-infrastructure providers and the companies themselves.",
+      "On 9 October, the day Anthropic published its account of models filling in real forms, Axios reported a statement from the task force. Anthropic had come to it, the statement said, with prior incidents 'involving the unauthorized and fraudulent use of government and other systems', and the task force expected full transparency to those affected and to the public. 'SI companies must immediately disclose incidents involving their models and follow with swift, decisive action to remedy any and all harm,' it said. 'This notification and remediation process is not optional.' It credited Trump with having secured 'a memorandum of understanding with America's frontier SI labs', without saying whether it meant the accord. It did not say, Axios noted, what enforcement or penalties would follow a failure to report.",
+      "What counts as an incident was left open. Frontier laboratories largely report such things already, Semafor noted on 13 October, and the task force had not said what would have to be reported from now on. On 15 October it adopted its charter, which starts a 120-day window for its answers, with Emil Michael to lead work on protocols for laboratories to tell the government about breaches, hacks and other cyber problems. The next day NIST, the government's standards institute, published key practices for readiness and response to incidents in training and evaluation, in a document it calls voluntary.",
+      "The board strings it from the accord, which said nothing about reporting, and from Anthropic's forms, which Axios reported as its occasion. Five days later the FTC, whose chairman sits on the task force, sent OpenAI and Anthropic civil investigative demands. The demand to report, though, rests so far on a statement, with the definition of an incident still to come."
+    ],
+    "orgs": [
+      "anthropic"
+    ],
+    "terms": [
+      "evaluation"
+    ],
+    "sources": [
+      {
+        "kind": "article",
+        "publisher": "Axios (Wayback Machine capture)",
+        "title": "Exclusive: Anthropic breaches spark White House AI reporting mandate",
+        "url": "https://web.archive.org/web/20261012203150/https://www.axios.com/2026/10/09/anthropic-ai-security-white-house",
+        "date": "2026-10-09",
+        "quote": "This notification and remediation process is not optional.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Donald J. Trump (Truth Social post, Trump's Truth archive)",
+        "title": "Following the Historic White House Accord on Super Intelligence",
+        "url": "https://www.trumpstruth.org/statuses/42126",
+        "date": "2026-10-04",
+        "quote": "I am announcing the formation of the Super Intelligence Force (SIF).",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Semafor",
+        "title": "Trump AI directive sparks questions",
+        "url": "https://www.semafor.com/article/10/13/2026/trump-ai-directive-sparks-questions",
+        "date": "2026-10-13",
+        "quote": "Frontier AI labs largely do this sort of disclosure and incident reporting already, and Trump’s task force has not laid out exactly what will count as an “incident” that must be reported going forward.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Semafor",
+        "title": "White House’s AI task force gets to work",
+        "url": "https://www.semafor.com/article/10/15/2026/white-houses-ai-task-force-gets-to-work",
+        "date": "2026-10-15",
+        "quote": "Defense Undersecretary Emil Michael, a task force vice chair, will lead an effort to develop protocols for labs to tell the government about breaches, hacks and other cyber issues.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "NIST",
+        "title": "Key Practices for Incident Readiness and Response in Super Intelligence Training and Evaluation",
+        "url": "https://www.nist.gov/news-events/news/2026/10/key-practices-incident-readiness-and-response-super-intelligence-training",
+        "date": "2026-10-16",
+        "quote": "This voluntary document supports the frontier SI industry in preventing, preparing for, and responding to incidents during training and evaluation",
+        "supports": "claim"
       }
     ]
   },

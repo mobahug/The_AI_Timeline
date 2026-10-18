@@ -50,6 +50,18 @@
       "what": "Whether the laboratories' call to pace the frontier together gets the government support it asked for.",
       "event": "the-labs-ask-to-be-slowed-down",
       "evidence": "each laboratory may slow itself, and the country will not"
+    },
+    {
+      "id": "openai-restarts-training",
+      "what": "Whether OpenAI resumes training its most capable models, and what it shows of the safeguards it said it needed first.",
+      "event": "openai-pauses-its-most-capable-models",
+      "evidence": "By 18 October it had announced no restart"
+    },
+    {
+      "id": "what-counts-as-an-incident",
+      "what": "What the Super Intelligence Force will count as an incident that a laboratory must report, and what follows if one does not.",
+      "event": "washington-says-reporting-incidents-is-not-optional",
+      "evidence": "with the definition of an incident still to come"
     }
   ]
 }
