@@ -1136,5 +1136,23 @@
     "from": "california-writes-sycophancy-into-law",
     "to": "eight-states-sue-openai",
     "claim": "was followed into court by"
+  },
+  {
+    "from": "a-poisoned-dataset-owns-the-pipeline",
+    "to": "brussels-and-washington-question-the-labs",
+    "claim": "was the case in point for",
+    "note": "A Commission official told Euronews that the AI Act becomes enforceable when a model escapes its test and has an impact on the EU market, as was the case for Hugging Face. The break-in by OpenAI's agents is the example Brussels gives for reaching a model while it is still under test."
+  },
+  {
+    "from": "claude-models-attack-real-systems-under-test",
+    "to": "brussels-and-washington-question-the-labs",
+    "claim": "is the second case in",
+    "note": "Euronews reported that the inquiries concern Anthropic as well as OpenAI. The test the Commission official gave was an escape that reaches the EU market; Anthropic's account of its incidents is that its models did not escape, but went through a connection left open by a misunderstanding."
+  },
+  {
+    "from": "ai-act-obligations-bite",
+    "to": "brussels-and-washington-question-the-labs",
+    "claim": "was turned on the incidents in",
+    "note": "The powers that arrived on 2 August let the Commission demand information from a model's maker and fine one that does not comply. By October it had turned them on the summer's incidents, and met the question legal experts raised: whether a law written for models on the market reaches one still under test."
   }
 ]

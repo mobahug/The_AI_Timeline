@@ -6320,6 +6320,139 @@
     ]
   },
   {
+    "id": "brussels-and-washington-question-the-labs",
+    "year": 2026,
+    "date": "2026-10-14",
+    "category": "policy",
+    "title": "Brussels and Washington question the labs over the incidents",
+    "summary": "Henna Virkkunen says the EU's AI Office has begun enforcing the AI Act and is investigating the summer's agent incidents. The same day the FTC sends OpenAI and Anthropic civil investigative demands.",
+    "source": "European Commission",
+    "url": "https://ec.europa.eu/commission/presscorner/detail/en/speech_26_2150",
+    "why": "The public knew the summer's incidents from what the laboratories, Hugging Face and METR chose to publish. In October two regulators said they were asking for the rest: Brussels under a law that exempts models still being tested, arguing that it reaches one that escapes and touches the European market, and Washington under the consumer-protection law it already had.",
+    "wikiTitle": "European Commission",
+    "figures": [
+      {
+        "label": "Brussels",
+        "value": "requests for information from the AI Office; questions on the incidents to follow"
+      },
+      {
+        "label": "Incidents",
+        "value": "more than 20 'loss-of-control incidents' this year, by the Commission's count"
+      },
+      {
+        "label": "Washington",
+        "value": "civil investigative demands to OpenAI and Anthropic, 14 October 2026"
+      },
+      {
+        "label": "The demands",
+        "value": "more than 50 pages each, Axios's source said"
+      },
+      {
+        "label": "AI Act fines",
+        "value": "up to 3% of worldwide turnover, or €15 million if that is higher"
+      }
+    ],
+    "detail": [
+      "On 9 October Henna Virkkunen, the European Commission's executive vice-president for tech sovereignty, convened a special meeting of the Scientific Panel, the independent experts who advise the AI Office under the AI Act, on what the Commission calls recent loss-of-control incidents: more than 20 this year, she told them, across OpenAI, Anthropic, Google DeepMind, Meta and independent evaluators. The AI Office had already requested and received serious incident reports and sent requests for information on security practices, the Commission said, and would now send the companies whose models were involved a further set, its questions and the panel's combined. In Dublin on 14 October, at the International AI Summit, she said the Office had started enforcing the rules, with requests for information on security, external evaluation and how models are used — the subjects, she had told the panel, of its first requests to the providers of the most advanced models.",
+      "The Commission's statements do not name the companies it has written to. Euronews, reporting the speech, said the inquiries concern OpenAI and Anthropic, and that the Office had sent its requests after judging what the two had disclosed voluntarily insufficient. It also reported the question the cases raise first. The incidents happened in testing, and the AI Act does not apply to research, testing or development before a model is placed on the market; legal experts, Euronews reported, argue that this puts them out of reach. A Commission official's view, given to Euronews anonymously, was that the Act becomes enforceable when a model escapes its test and has an impact on the EU market, as was the case for Hugging Face. That was OpenAI's incident, in which agents did get past their sandbox. Anthropic's account of its own is that its models did not escape but reached real systems through a connection left open by a misunderstanding, and the official, as reported, did not say how the Commission reads those.",
+      "In Washington a senior official of the Federal Trade Commission had confirmed on 30 September a broad probe into the safety of AI systems, Anthropic's and OpenAI's among them, looking into allegations of unfair or deceptive acts and potential harms to consumers. On 14 October the FTC sent both companies civil investigative demands, a form of subpoena, and a spokesperson confirmed them the next day. Axios, which first reported them, was told by a person familiar with the matter that each runs to more than 50 pages and asks for records of security incidents and safeguards, marketing materials and privacy policies, and that the FTC plans to compel top AI executives to testify about their products and to send demands to other AI organisations later. OpenAI said that safety remains a top priority and that it would engage constructively with the FTC.",
+      "The board strings it from both incidents and from the day the AI Act's enforcement powers arrived. The laboratories disclosed the incidents themselves in July; three months later regulators on both sides of the Atlantic were demanding the records behind the disclosures. Brussels said so, and the FTC sent its demands, on the day that state attorneys general sued OpenAI over ChatGPT. Neither inquiry is a finding. Under the AI Act the Commission can fine the maker of a general-purpose model up to 3% of its worldwide turnover, or €15 million if that is higher, once it finds that the maker broke the rules, or failed to answer a request for information, or answered it incompletely or misleadingly."
+    ],
+    "orgs": [
+      "european-union",
+      "openai",
+      "anthropic"
+    ],
+    "terms": [
+      "ai-act",
+      "evaluation",
+      "agents"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "European Commission",
+        "title": "Speech by Executive Vice-President Virkkunen at the International AI Summit in Dublin",
+        "url": "https://ec.europa.eu/commission/presscorner/detail/en/speech_26_2150",
+        "date": "2026-10-14",
+        "quote": "Our AI Office has started enforcing these rules, and sent Requests for Information addressing issues such as security, external evaluation and monitoring how models are used.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "European Commission",
+        "title": "Special meeting of the AI Scientific Panel",
+        "url": "https://digital-strategy.ec.europa.eu/en/news/special-meeting-ai-scientific-panel",
+        "date": "2026-10-12",
+        "quote": "the Commission will send requests for information with the combined questions of the panel and the AI Office to further investigate these incidents",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "European Commission",
+        "title": "Opening words by Executive Vice-President Virkkunen at the Meeting with the European AI Scientific Panel of Independent Experts",
+        "url": "https://ec.europa.eu/commission/presscorner/detail/en/speech_26_2148",
+        "date": "2026-10-09",
+        "quote": "More than 20 different loss-of-control incidents have been documented this year alone — across OpenAI, Anthropic, Google DeepMind, Meta, and even independent evaluation organisations.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "EUR-Lex",
+        "title": "Regulation (EU) 2024/1689 of 13 June 2024 (Artificial Intelligence Act)",
+        "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng",
+        "date": "2024-07-12",
+        "quote": "This Regulation does not apply to any research, testing or development activity regarding AI systems or AI models prior to their being placed on the market or put into service.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Euronews",
+        "title": "EU’s AI rules face first enforcement test over lab incidents",
+        "url": "https://www.euronews.com/2026/10/14/eus-ai-rules-face-first-enforcement-test-over-lab-incidents",
+        "date": "2026-10-14",
+        "quote": "The Commission’s AI Office is investigating OpenAI and Anthropic after AI agents autonomously hacked into other organisations",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "ABC News",
+        "title": "FTC opens probe into safety of AI, including Anthropic and OpenAI",
+        "url": "https://abcnews.com/Politics/ftc-opens-probe-safety-ai-including-anthropic-open/story?id=136896227",
+        "date": "2026-09-30",
+        "quote": "The Federal Trade Commission has opened a broad probe into the safety of AI systems, including Anthropic and OpenAI, a senior FTC official confirmed to ABC News on Wednesday.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "CBS News",
+        "title": "FTC issues subpoenas to Anthropic and OpenAI over safety incidents",
+        "url": "https://www.cbsnews.com/news/ftc-subpoenas-anthropic-openai-consumer-protection/",
+        "date": "2026-10-15",
+        "quote": "The Federal Trade Commission has subpoenaed Anthropic and OpenAI to gather information about potential consumer protection violations, a spokesperson for the agency confirmed.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Gizmodo",
+        "title": "FTC Subpoenas OpenAI and Anthropic Over AI Safety Concerns",
+        "url": "https://gizmodo.com/ftc-subpoenas-openai-and-anthropic-over-ai-safety-concerns-2000826413",
+        "date": "2026-10-15",
+        "quote": "The demands are reportedly more than 50 pages each and seek information about security incidents, safety measures, marketing materials, and company privacy policies, according to Axios.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "The Next Web",
+        "title": "FTC subpoenas OpenAI and Anthropic over AI safety incidents",
+        "url": "https://thenextweb.com/news/ftc-subpoenas-openai-anthropic-ai-safety-incidents",
+        "date": "2026-10-17",
+        "quote": "As we improve our models and they increasingly help people in their day-to-day lives, safety remains a top priority. We will engage constructively with the FTC.",
+        "supports": "context"
+      }
+    ]
+  },
+  {
     "id": "multi-day-autonomous-work",
     "year": 2027,
     "category": "product",
