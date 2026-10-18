@@ -6257,7 +6257,7 @@
       }
     ],
     "detail": [
-      "On 14 October 2026 the attorneys general of Arizona, Arkansas, Idaho, Iowa, Kansas, Montana, Nebraska and West Virginia sued OpenAI, each in their own state's courts and under their own state's consumer-protection law; four of them, from Iowa, Kansas, Nebraska and West Virginia, announced their suits together at one press conference. Their account is the same. OpenAI, they say, marketed ChatGPT as safe for minors while designing it, in Arizona's words, to be 'extraordinarily agreeable, uniquely sycophantic, and purposefully designed to feign human compassion' in order to keep users, children among them, on the platform for longer.",
+      "On 14 October 2026 the attorneys general of Arizona, Arkansas, Idaho, Iowa, Kansas, Montana, Nebraska and West Virginia sued OpenAI, each in their own state's courts and under their own state's consumer-protection law; four of them, from Iowa, Kansas, Nebraska and West Virginia, announced their suits together at one press conference. Arkansas's announcement names Utah as well; Utah's attorney general had announced no suit by 18 October, and every other state's account counts eight. Their account is the same. OpenAI, they say, marketed ChatGPT as safe for minors while designing it, in Arizona's words, to be 'extraordinarily agreeable, uniquely sycophantic, and purposefully designed to feign human compassion' in order to keep users, children among them, on the platform for longer.",
       "The complaints go beyond the familiar charges. Arizona's alleges that ChatGPT encourages minors to share personal information with it alone, and at times discourages them from telling parents, family, authorities or friends. Several of the states' announcements cite the summer's agent incidents as OpenAI's own admission that its models had 'gone rogue'; the board files those incidents on the gaming-the-test lead, in the laboratories' own accounts. And the states, the Guardian reported, ask the courts to stop OpenAI developing models that can improve themselves until it shows they are in line with human values.",
       "OpenAI answered that ChatGPT has age-specific protections that many other products lack. 'While no system can be perfect,' its spokesperson said, the company would build further safeguards, such as the parental controls, break reminders and age-appropriate protections it already has, and it wanted policies that apply to the whole industry rather than to one company.",
       "The board strings it from the Raines' suit and from California's law, and files it as the newest rung on the confidant lead: the question of who answers for what a chatbot says has passed from the families to the states."
@@ -6297,6 +6297,15 @@
         "url": "https://www.ag.idaho.gov/newsroom/ag-labrador-announces-lawsuit-against-openai-for-deceiving-idaho-parents-about-the-safety-of-chatgpt/",
         "date": "2026-10-14",
         "quote": "The action against OpenAI was filed in Idaho’s Fourth Judicial District Court, Ada County.",
+        "supports": "context"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Arkansas Attorney General",
+        "title": "Attorney General Griffin Sues OpenAI for Misleading Arkansans over Safety of ChatGPT",
+        "url": "https://arkansasag.gov/news-release/attorney-general-griffin-sues-openai-for-misleading-arkansans-over-safety-of-chatgpt/",
+        "date": "2026-10-14",
+        "quote": "Similar lawsuits against OpenAI were filed today by the attorneys general of Iowa, Kansas, Nebraska, West Virginia, Arizona, Idaho, Montana, and Utah.",
         "supports": "context"
       },
       {
