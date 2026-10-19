@@ -13,7 +13,7 @@
       "from": 1943,
       "title": "The brain as a circuit",
       "lead": "turing-asks-the-question",
-      "blurb": "A nerve cell is modelled as a logic gate, information is given a unit, and the question stops being whether machines can think and becomes how you would tell."
+      "blurb": "A nerve cell is modelled as a logic gate, information is measured in bits, and the question stops being whether machines can think and becomes how you would tell."
     },
     {
       "n": 3,
@@ -34,14 +34,14 @@
       "from": 1969,
       "title": "The book that closed the door",
       "lead": "perceptrons-closes-a-door",
-      "blurb": "One mathematical result about what a single-layer network cannot do is read as a verdict on the whole approach."
+      "blurb": "A book of proofs about what one kind of network cannot do is read as a verdict on the whole approach."
     },
     {
       "n": 6,
       "from": 1974,
       "title": "The first winter",
       "lead": "the-first-ai-winter",
-      "blurb": "Funding stops. The work that continues is narrow, useful and careful not to call itself artificial intelligence."
+      "blurb": "DARPA's money must now serve military ends, and Britain loses faith in the field. The field keeps growing anyway, and its name grows more common, not less."
     },
     {
       "n": 7,

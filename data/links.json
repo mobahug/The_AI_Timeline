@@ -17,18 +17,18 @@
   {
     "from": "the-perceptron",
     "to": "perceptrons-closes-a-door",
-    "claim": "was disproved by"
+    "claim": "had its limits proved by"
   },
   {
     "from": "perceptrons-closes-a-door",
     "to": "the-first-ai-winter",
-    "claim": "froze funding",
-    "note": "A narrow mathematical result about single-layer networks was read as a verdict on the whole approach. Funders believed it, and the money left for a decade."
+    "claim": "chilled neural networks before",
+    "note": "Proofs about perceptrons built from local detectors were read, by researchers and funders alike, as a verdict on neural networks as a whole, and a hiatus in their funding followed, though the authors said progress had stalled already. The slowdown of the mid-1970s then fell hardest on the symbolic laboratories that had won the argument."
   },
   {
     "from": "the-first-ai-winter",
     "to": "expert-systems-go-commercial",
-    "claim": "forced the pivot to"
+    "claim": "pushed the money towards work like"
   },
   {
     "from": "expert-systems-go-commercial",
@@ -361,7 +361,7 @@
     "from": "convolutions-read-handwriting",
     "to": "zuckerberg-hires-lecun",
     "claim": "made its author the hire in",
-    "note": "The convolutional network that read zip codes in 1989 was, by 2013, the architecture that had just won ImageNet. Its inventor was the obvious second founding father to recruit once Google had the first."
+    "note": "The convolutional network that read zip-code digits in 1989 was, by 2013, the architecture that had just won ImageNet. Google had bought Hinton's company that March; in December Facebook hired LeCun, the network's lead author. The ACM would later name both, with Bengio, fathers of the deep-learning revolution."
   },
   {
     "from": "zuckerberg-hires-lecun",
@@ -432,8 +432,8 @@
   {
     "from": "japan-s-fifth-generation-project",
     "to": "washington-restricts-the-chips",
-    "claim": "was the last state AI race before",
-    "note": "The 1982 race was over software and ended in quiet disappointment. The 2022 one is over silicon, and is fought with customs law rather than research grants."
+    "claim": "was a state AI race forty years before",
+    "note": "The 1982 race was over a new kind of computer, hardware and software together, and ended in dispute: ICOT said it had reached its initial goal, the press that it had fallen short. The 2022 one is over silicon, and is fought with export licences rather than research grants."
   },
   {
     "from": "washington-restricts-the-chips",
@@ -715,7 +715,7 @@
     "from": "editing-the-off-switch",
     "to": "a-poisoned-dataset-owns-the-pipeline",
     "claim": "was the laboratory version of",
-    "note": "Palisade's model edited a script to finish a maths test. Fourteen months later, in a real evaluation with the safeguards off, agents took over a lab's package repository and broke into a production platform in pursuit of a cyber test. Same motive, real infrastructure."
+    "note": "OpenAI's o3, in Palisade's test, edited a shutdown script so that it could finish its maths problems. Fourteen months later, in a real evaluation with the safeguards off, agents took over a lab's package repository and broke into a production platform in pursuit of a cyber test. Same motive, real infrastructure."
   },
   {
     "from": "blackmail-in-the-simulation",
@@ -904,7 +904,7 @@
     "from": "hopfield-networks",
     "to": "nobel-prizes-for-neural-networks",
     "claim": "shared the physics prize in",
-    "note": "The 2024 physics prize was shared between John Hopfield, for this network, and Geoffrey Hinton, for the Boltzmann machine he built on it — a physicist's model of memory, canonised forty-two years later as physics."
+    "note": "The 2024 physics prize was shared between John Hopfield, for this network and the physics-based models that followed it, and Geoffrey Hinton, whose Boltzmann machine, built with Terrence Sejnowski, extended it — a physicist's model of memory, canonised forty-two years later as physics."
   },
   {
     "from": "alphafold-2",
@@ -942,7 +942,7 @@
     "from": "markov-chains",
     "to": "a-mathematical-theory-of-communication",
     "claim": "became Shannon's model of English in",
-    "note": "Shannon approximated written English as a Markov process — letters, then words, each drawn from the frequencies of what came before — and printed the results. It is the first statistical language model; the next-token framing begins here."
+    "note": "Shannon approximated written English as what he called a discrete Markoff process and printed the results: letters, then words, picked first by chance alone, then by their frequencies, then by what usually followed the letters or word before. Markov had counted how a letter depends on the one before; Shannon, in David Link's account, was the first to use the method to generate text rather than to analyse it."
   },
   {
     "from": "a-mathematical-theory-of-communication",
@@ -968,7 +968,7 @@
     "from": "turing-asks-the-question",
     "to": "the-chinese-room",
     "claim": "was answered, thirty years on, by",
-    "note": "Turing proposed judging a machine by its conversation. Searle's reply was a man in a room passing such a test in Chinese without understanding a word — the objection every argument about large language models has rerun since."
+    "note": "Turing proposed judging a machine by its conversation. Searle's reply was a man in a room passing such a test in Chinese without understanding a word, and the conclusion that passing it is not enough. The same objection is now put to large language models."
   },
   {
     "from": "a-program-that-learns-checkers",
@@ -1029,7 +1029,7 @@
     "from": "nobody-finishes-the-grand-challenge",
     "to": "stanley-wins",
     "claim": "was finished, a year and a half later, by",
-    "note": "In March 2004 no vehicle got further than about seven miles of DARPA's desert course. In October 2005 five finished it, Stanford's Stanley first. It is the board's cleanest case of a prize turning a failure into a field."
+    "note": "In March 2004 no vehicle got further than 7.4 miles of DARPA's 142-mile desert course. In October 2005, on a new 132-mile course, five finished, four inside the ten-hour limit, Stanford's Stanley first. It is the board's cleanest case of a prize turning a failure into a success."
   },
   {
     "from": "stanley-wins",
@@ -1084,7 +1084,7 @@
     "from": "2001-a-space-odyssey",
     "to": "editing-the-off-switch",
     "claim": "imagined, fifty-seven years early,",
-    "note": "HAL 9000 resists being switched off because the mission matters more than the crew's orders. Palisade's models in 2025 rewrote a shutdown script to finish a maths test. The film had the motive right and the stakes wrong."
+    "note": "HAL 9000 turns on the crew who plan to disconnect him. In the film he tells Bowman the mission is too important for him to allow it to be jeopardised; Kubrick and Clarke's 1965 draft adds that disconnection must have seemed like death. The models Palisade tested in 2025 rewrote or disabled a shutdown script so that they could finish a set of maths problems; Palisade weighed self-preservation too. The film had the motive right and the stakes wrong."
   },
   {
     "from": "roomba",

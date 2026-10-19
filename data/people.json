@@ -36,7 +36,7 @@
         "Shannon"
       ],
       "role": "Engineer · Bell Labs",
-      "bio": "Showed in 1937 that switching circuits do Boolean algebra, and in 1948 gave information a unit. The second paper is why a model's output can be measured in bits and its training in loss."
+      "bio": "Showed in 1937 that switching circuits do Boolean algebra, and in 1948 measured information in bits. The second paper is why a model's output can be measured in bits and its training in loss."
     },
     {
       "id": "warren-mcculloch",
@@ -125,7 +125,7 @@
         "Lighthill"
       ],
       "role": "Applied mathematician · Cambridge",
-      "bio": "Wrote the 1973 report for the British Science Research Council that found the field had not delivered on its promises. Funding stopped; the first winter is dated from it."
+      "bio": "Wrote the 1973 report for the British Science Research Council that found the field had not delivered on its promises. British confidence in the field collapsed for a decade, though Edinburgh kept its AI research; the first winter is dated from it."
     },
     {
       "id": "john-hopfield",
@@ -134,7 +134,7 @@
         "Hopfield"
       ],
       "role": "Physicist · Caltech, Princeton, Nobel physics 2024",
-      "bio": "Brought neural networks back in 1982 with a network that stores memories as energy minima. The Nobel forty-two years later cites that paper."
+      "bio": "Helped bring neural networks back in 1982 with a network that stores memories as energy minima. The Nobel forty-two years later cites that paper."
     },
     {
       "id": "geoffrey-hinton",
@@ -170,7 +170,7 @@
         "Schmidhuber"
       ],
       "role": "Researcher · IDSIA",
-      "bio": "With Sepp Hochreiter, published the LSTM in 1997 — the recurrent network that ran language and speech until the transformer replaced it."
+      "bio": "With Sepp Hochreiter, published the LSTM in 1997 — the recurrent network that, from the mid-2010s, ran speech recognition and translation until the transformer replaced it."
     },
     {
       "id": "fei-fei-li",

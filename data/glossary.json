@@ -32,7 +32,7 @@
         "perceptrons"
       ],
       "short": "The 1957 single-layer network, and the 1969 book that closed the door on it.",
-      "definition": "Rosenblatt's machine learned to classify by adjusting weights when it was wrong. It could not learn exclusive-or, and the 1969 book that said so was read as a verdict on all neural networks. It was a verdict on one layer."
+      "definition": "Rosenblatt's machine learned to classify by adjusting weights when it was wrong. It could not learn exclusive-or, and the 1969 book that said so was read as a verdict on all neural networks. Its proofs were about one layer of learned weights; that more layers would be no better was the authors' intuitive judgement, not a theorem."
     },
     {
       "id": "backpropagation",
@@ -62,7 +62,7 @@
         "convolutional"
       ],
       "short": "A network that slides the same small filter across an image.",
-      "definition": "LeCun's 1989 architecture for reading handwriting: instead of connecting every input to every unit, the same small pattern-detector is applied everywhere, which is why it works on images and why it could be trained on 1989 hardware. AlexNet is a convolutional network on GPUs."
+      "definition": "The architecture LeCun's group at Bell Labs trained by backpropagation in 1989 to read handwritten digits: instead of connecting every input to every unit, the same small pattern-detector is applied everywhere, which is why it works on images and why it could be trained on 1989 hardware. Fukushima's neocognitron had the same layout earlier, without backpropagation. AlexNet is a convolutional network on GPUs."
     },
     {
       "id": "transformer",
@@ -417,8 +417,8 @@
         "winter",
         "winters"
       ],
-      "short": "A funding collapse after promises were not kept — twice, so far.",
-      "definition": "1974 after Lighthill; 1987 after the expert-systems market found out what rules cost. The board's line has a finding for each. The phrase is used, nervously, about the datacentre buildout."
+      "short": "A fall in funding after promises were not kept — twice, by the usual count.",
+      "definition": "1974 after Lighthill, though the cuts fell on a few elite laboratories while the field grew; 1987 after the expert-systems market found out what rules cost. The board's line has a finding for each. The phrase is used, nervously, about the datacentre buildout."
     },
     {
       "id": "turing-test",
@@ -427,7 +427,7 @@
         "imitation game"
       ],
       "short": "Turing's 1950 proposal: can a machine's conversation pass for a person's?",
-      "definition": "Replace 'can machines think' with a test a judge could run. ELIZA passed it by accident in 1966 with people who wanted to be understood; by 2023 the test was quietly retired as no longer discriminating."
+      "definition": "Replace 'can machines think' with a test a judge could run. ELIZA fooled people who wanted to be understood in 1966 without passing it. In 2023 Nature reported that ChatGPT had broken it, and in 2025, in pre-registered three-party trials, GPT-4.5 was taken for the human 73% of the time."
     },
     {
       "id": "moores-law",
@@ -487,7 +487,7 @@
         "RNN"
       ],
       "short": "A network that reads a sequence one step at a time, carrying state — what ran language before the transformer.",
-      "definition": "The LSTM of 1997 solved the problem of remembering across long sequences and ran speech recognition and translation for twenty years. The transformer replaced it because it could not be trained in parallel."
+      "definition": "The LSTM of 1997 gave recurrent networks gated memory cells, which on artificial tasks learned to hold information across more than a thousand steps; from the mid-2010s it ran Google's voice transcription and translation. The transformer replaced it because it could not be trained in parallel."
     },
     {
       "id": "gan",

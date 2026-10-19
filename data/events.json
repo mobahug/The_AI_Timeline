@@ -96,13 +96,61 @@
   {
     "id": "markov-chains",
     "year": 1913,
+    "date": "1913-01-23",
     "category": "research",
     "title": "Markov chains",
-    "summary": "Andrey Markov models sequences where the next state depends only on the present one, using the letters of a Pushkin poem.",
+    "summary": "Andrey Markov tests the chains he had worked out in theory since 1906 on the first 20,000 letters of Pushkin's novel in verse Eugene Onegin, and finds that whether a letter is a vowel depends on the letters before it.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/Andrey_Markov",
-    "why": "Every language model is, at bottom, a very large next-token probability. The framing starts here.",
-    "wikiTitle": "Andrey Markov"
+    "why": "A large language model gives, at bottom, the probability of the next token given the ones before it. Markov asked that of Pushkin's vowels and consonants, one letter and two letters back. The framing starts here.",
+    "wikiTitle": "Andrey Markov",
+    "sources": [
+      {
+        "kind": "paper",
+        "publisher": "Science in Context (English translation; copy hosted by the translator David Link, alpha60.de)",
+        "title": "An Example of Statistical Investigation of the Text Eugene Onegin Concerning the Connection of Samples in Chains (A. A. Markov)",
+        "url": "https://alpha60.de/research/markov/DavidLink_AnExampleOfStatistical_MarkovTrans_2007.pdf",
+        "date": "2006-12-01",
+        "quote": "As we can see, the probability of a letter being a vowel changes considerably depending upon which letter – vowel or consonant – precedes it.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "Science in Context (copy hosted by the author, alpha60.de)",
+        "title": "Chains to the West: Markov’s Theory of Connected Events and Its Transmission to Western Europe (David Link)",
+        "url": "https://alpha60.de/research/markov/DavidLink_ChainsToTheWest_2007.pdf",
+        "date": "2006-12-01",
+        "quote": "In two articles from 1913, which are presented here in English translation, he applied his theory for the first time to empirical material, namely text.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "History of Science (copy hosted by the author, alpha60.de)",
+        "title": "Traces of the Mouth: Andrei Andreyevich Markov’s Mathematization of Writing (David Link)",
+        "url": "https://alpha60.de/research/markov/DavidLink_TracesOfTheMouth_2006.pdf",
+        "date": "2006-09-01",
+        "quote": "Since 1906, Markov had studied simple chains as groups of samples in which each member determined the next",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "American Scientist",
+        "title": "First Links in the Markov Chain (Brian Hayes)",
+        "url": "https://www.americanscientist.org/sites/americanscientist.org/files/201321152149545-2013-03Hayes.pdf",
+        "date": "2013-03-01",
+        "quote": "Delving into the text of Alexander Pushkin’s novel in verse Eugene Onegin, Markov spent hours sifting through patterns of vowels and consonants.",
+        "supports": "claim"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Andrey Markov",
+        "url": "https://en.wikipedia.org/wiki/Andrey_Markov",
+        "date": "2026-10-19",
+        "quote": "In 1913, he conducted a study on the distribution of vowels and consonants in the first 20,000 letters of Alexander Pushkin's Eugene Onegin, treating the text as a sequence of symbols and analyzing the statistical relationships between them.",
+        "supports": "context"
+      }
+    ]
   },
   {
     "id": "r-u-r-gives-us-the-word-robot",
@@ -274,18 +322,84 @@
   {
     "id": "a-mathematical-theory-of-communication",
     "year": 1948,
+    "date": "1948-07",
     "category": "research",
     "title": "A Mathematical Theory of Communication",
-    "summary": "Shannon defines the bit and gives information a unit of measure.",
+    "summary": "Claude Shannon measures information in bits, a word he credits to John Tukey, generalising the logarithmic measure Ralph Hartley set out in 1928, and works out how much a noisy channel can carry.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/A_Mathematical_Theory_of_Communication",
-    "why": "Compression, prediction and learning turn out to be the same problem seen from different angles.",
+    "why": "Shannon's measure makes compression and prediction one problem: the better the next letter can be guessed, the fewer bits it takes to send. A language model is trained to make that guess.",
     "wikiTitle": "A Mathematical Theory of Communication",
     "people": [
       "claude-shannon"
     ],
     "orgs": [
       "bell-labs"
+    ],
+    "sources": [
+      {
+        "kind": "paper",
+        "publisher": "Bell System Technical Journal (scan, Internet Archive)",
+        "title": "A Mathematical Theory of Communication (C. E. Shannon)",
+        "url": "https://archive.org/download/bstj27-3-379/bstj27-3-379_text.pdf",
+        "date": "1948-07-01",
+        "quote": "If the base 2 is used the resulting units may be called binary digits, or more briefly bits, a word suggested by J. W. Tukey.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "Bell System Technical Journal (reprint with corrections, Harvard)",
+        "title": "A Mathematical Theory of Communication (C. E. Shannon)",
+        "url": "https://people.math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf",
+        "date": "1948-07-01",
+        "quote": "As was pointed out by Hartley the most natural choice is the logarithmic function. Although this definition must be generalized considerably when we consider the influence of the statistics of the message",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "Bell Labs, from the University of Illinois Press edition of 1949 (Wayback Machine capture)",
+        "title": "A Mathematical Theory of Communication (C. E. Shannon)",
+        "url": "https://web.archive.org/web/19980715013250/http://cm.bell-labs.com/cm/ms/what/shannonday/shannon1948.pdf",
+        "date": "1949-01-01",
+        "quote": "It may seem surprising that we should define a definite capacity C for a noisy channel since we can never send certain information in such a case.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "Bell System Technical Journal (scan, Internet Archive)",
+        "title": "Transmission of Information (R. V. L. Hartley)",
+        "url": "https://archive.org/download/bstj7-3-535/bstj7-3-535_text.pdf",
+        "date": "1928-07-01",
+        "quote": "The particular base selected fixes the size of the unit of information.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "Bell System Technical Journal (scan, University of California, Irvine)",
+        "title": "Prediction and Entropy of Printed English (C. E. Shannon)",
+        "url": "https://sites.socsci.uci.edu/~rfutrell/teaching/itl-davis/readings/shannon1951prediction.pdf",
+        "date": "1951-01-01",
+        "quote": "This set of data can then serve both for prediction and recovery.",
+        "supports": "context"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv",
+        "title": "Language Modeling Is Compression (Grégoire Delétang, Anian Ruoss and others)",
+        "url": "https://arxiv.org/abs/2309.10668",
+        "date": "2023-09-19",
+        "quote": "It has long been established that predictive models can be transformed into lossless compressors and vice versa.",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "A Mathematical Theory of Communication",
+        "url": "https://en.wikipedia.org/wiki/A_Mathematical_Theory_of_Communication",
+        "date": "2026-10-19",
+        "quote": "It also developed the concepts of information entropy, redundancy and the source coding theorem, and introduced the term bit (which Shannon credited to John Tukey) as a unit of information.",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -872,20 +986,86 @@
     "year": 1968,
     "category": "culture",
     "title": "2001: A Space Odyssey",
-    "summary": "HAL 9000 gives the world its template for a calm, articulate, misaligned machine.",
+    "summary": "In Stanley Kubrick's film, written with Arthur C. Clarke, HAL 9000, the ship's calm, conversational computer, turns on the crew who plan to disconnect him.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/HAL_9000",
-    "wikiTitle": "HAL 9000"
+    "why": "HAL gave the world its template for a calm, articulate, misaligned machine. In 2003 the American Film Institute ranked him thirteenth among the villains of American film.",
+    "wikiTitle": "HAL 9000",
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "The Internet Movie Script Database (transcription of the 1965 screenplay)",
+        "title": "2001: A Space Odyssey, screenplay (Stanley Kubrick and Arthur C. Clarke)",
+        "url": "https://imsdb.com/scripts/2001-A-Space-Odyssey.html",
+        "date": "1965-12-14",
+        "quote": "we suspected that the last straw for him was the possibility of disconnection.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "MIT Press, HAL's Legacy (Wayback Machine capture)",
+        "title": "Foreword: The Birth of HAL (Arthur C. Clarke)",
+        "url": "https://web.archive.org/web/19990116230616/http://mitpress.mit.edu:80/e-books/Hal/foreword/foreword2.html",
+        "date": "1997-01-01",
+        "quote": "I still hear Douglas Rain's silky voice every time I tell my computer to do something stupid",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Stanley Kubrick Archive, University of the Arts London (catalogue record)",
+        "title": "'2001: A Space Odyssey' [Other HAL Screenplay], SK/12/1/2/7",
+        "url": "https://archives.arts.ac.uk/CalmView/Record.aspx?src=CalmView.Catalog&id=SK%2f12%2f1%2f2%2f7",
+        "date": "1966-02-25",
+        "quote": "One bound copy of a screenplay for 2001: A Space Odyssey by Stanley Kubrick and Arthur C Clarke, with additions to certain scenes, including dialogue for an 'Other HAL' which speaks to Dave Bowman",
+        "supports": "context"
+      },
+      {
+        "kind": "paper",
+        "publisher": "MIT Press, HAL's Legacy (Wayback Machine capture)",
+        "title": "“The Best-Informed Dream”: HAL and the Vision of 2001, section 4 (David G. Stork)",
+        "url": "https://web.archive.org/web/19990209154442/http://mitpress.mit.edu:80/e-books/Hal/chap1/one4.html",
+        "date": "1997-01-01",
+        "quote": "In the film, HAL makes several plans: to test whether the AE35 unit was in fact faulty, to navigate the ship, to search for extraterrestrial life around Jupiter, and to kill the crew.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "MIT Press, HAL's Legacy (Wayback Machine capture)",
+        "title": "“The Best-Informed Dream”: HAL and the Vision of 2001, section 5 (David G. Stork)",
+        "url": "https://web.archive.org/web/19990209174746/http://mitpress.mit.edu:80/e-books/Hal/chap1/one5.html",
+        "date": "1997-01-01",
+        "quote": "nearly all the contributors were deeply influenced by 2001 when it was released in 1968",
+        "supports": "context"
+      },
+      {
+        "kind": "article",
+        "publisher": "CBS News (Associated Press)",
+        "title": "Film's Most Loved And Most Reviled",
+        "url": "https://www.cbsnews.com/news/films-most-loved-and-most-reviled/",
+        "date": "2003-06-03",
+        "quote": "The villains list contained a range of non-humans, including the HAL 9000 computer in \"2001: A Space Odyssey,\" No. 13",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "HAL 9000",
+        "url": "https://en.wikipedia.org/wiki/HAL_9000",
+        "date": "2026-10-19",
+        "quote": "First appearing in the 1968 film 2001: A Space Odyssey, HAL (Heuristically Programmed Algorithmic Computer) is a sentient general-intelligence computer that controls the systems of the Discovery One spacecraft and interacts with the ship's astronaut crew.",
+        "supports": "context"
+      }
+    ]
   },
   {
     "id": "perceptrons-closes-a-door",
     "year": 1969,
     "category": "incident",
     "title": "Perceptrons closes a door",
-    "summary": "Minsky and Papert prove the single-layer limit; funding for neural approaches evaporates for a decade.",
+    "summary": "Minsky and Papert prove that perceptrons built from local detectors cannot tell an odd number of dots from an even one, or a connected figure from a broken one. A hiatus in neural-network funding follows.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/Perceptrons_(book)",
-    "why": "A correct proof about a narrow case, generalised into a field-wide dismissal. Depth was the answer all along.",
+    "why": "Correct proofs about one kind of machine, read as a verdict on all neural networks, and the authors helped: they judged, by intuition, that the many-layered extension was sterile. In 1986 networks with hidden layers were trained to do what one layer could not. Two years later the authors replied that progress had stalled before their book appeared.",
     "wikiTitle": "Perceptrons (book)",
     "people": [
       "marvin-minsky"
@@ -894,6 +1074,71 @@
       "perceptron",
       "neural-network",
       "ai-winter"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "MIT Artificial Intelligence Laboratory (AI Memo 252; copy hosted by The Daily Papert)",
+        "title": "Artificial Intelligence Progress Report (Marvin Minsky and Seymour Papert)",
+        "url": "https://dailypapert.com/artificial-intelligence-progress-report/",
+        "date": "1972-01-01",
+        "quote": "So in this sense “rectangle-ness” can be defined in terms of local properties, while connectedness cannot.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "MIT Artificial Intelligence Laboratory (AI Memo 245; copy hosted by The Daily Papert)",
+        "title": "Proposal to ARPA for Research on Artificial Intelligence at M.I.T., 1971–1972 (Marvin Minsky and Seymour Papert)",
+        "url": "https://dailypapert.com/proposal-to-arpa-for-research-on-artificial-intelligence-at-m-i-t-1971-1972/",
+        "date": "1971-10-01",
+        "quote": "is having almost as bad an effect as was the earlier preoccupation with perceptrons and linear-separation clustering algorithms",
+        "supports": "context"
+      },
+      {
+        "kind": "paper",
+        "publisher": "Parallel Distributed Processing, vol. 1, MIT Press (course copy, Stanford University)",
+        "title": "Learning Internal Representations by Error Propagation (David E. Rumelhart, Geoffrey E. Hinton and Ronald J. Williams)",
+        "url": "https://web.stanford.edu/class/psych209a/ReadingsByDate/02_06/PDPVolIChapter8.pdf",
+        "date": "1986-01-01",
+        "quote": "Nevertheless, we consider it to be an important research problem to elucidate (or reject) our intuitive judgement that the extension is sterile.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "Advances in Computers, vol. 37, Academic Press (copy hosted by gwern.net)",
+        "title": "A Sociological History of the Neural Network Controversy (Mikel Olazaran)",
+        "url": "https://gwern.net/doc/ai/nn/1993-olazaran.pdf",
+        "date": "1993-01-01",
+        "quote": "However, in my opinion, that common view was the result of the closure of the perceptron controversy, and not its cause.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Quote Investigator",
+        "title": "Quote Origin: (Multilayer Perceptrons) Our Intuitive Judgment That the Extension Is Sterile",
+        "url": "https://quoteinvestigator.com/2026/07/24/perceptron-sterile/",
+        "date": "2026-07-24",
+        "quote": "Our version is that progress had already come to a virtual halt because of the lack of adequate basic theories",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "The Nobel Committee for Physics, Royal Swedish Academy of Sciences (nobelprize.org)",
+        "title": "Scientific Background to the Nobel Prize in Physics 2024 (The Nobel Committee for Physics)",
+        "url": "https://www.nobelprize.org/uploads/2024/11/advanced-physicsprize2024-3.pdf",
+        "date": "2024-10-08",
+        "quote": "These limitations were pointed out in an influential book by Marvin Minsky and Seymour Papert in 1969 [4], which led to a hiatus funding-wise for ANN research.",
+        "supports": "claim"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Perceptrons (book)",
+        "url": "https://en.wikipedia.org/wiki/Perceptrons_(book)",
+        "date": "2026-10-19",
+        "quote": "Minsky and Papert proved that the single-layer perceptron could not compute parity under the condition of conjunctive localness (Theorem 3.1.1), and showed that the order required for a perceptron to compute connectivity grew with the input size (Theorem 5.5).",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -960,10 +1205,10 @@
     "year": 1974,
     "category": "incident",
     "title": "The first AI winter",
-    "summary": "DARPA cuts and lost credibility end the era of easy money. Promises had outrun results.",
+    "summary": "DARPA's money for AI must now serve a military purpose and comes with demands for results, and in Britain Lighthill's report costs the field its standing. Promises had outrun results.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/AI_winter",
-    "why": "Winters are funding events, not scientific ones. The work continued quietly under other names.",
+    "why": "Winters are funding events, not scientific ones. What slowdown there was fell on a few elite laboratories, whose DARPA money came with strings but did not stop, while the ACM's AI group, SIGART, nearly tripled its membership between 1973 and 1978. The historian Thomas Haigh argues there was no first winter at all.",
     "wikiTitle": "AI winter",
     "people": [
       "james-lighthill"
@@ -973,6 +1218,71 @@
     ],
     "terms": [
       "ai-winter"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "United States Statutes at Large, vol. 83 (US Government Publishing Office, govinfo.gov)",
+        "title": "Public Law 91-121, section 203 (the Mansfield Amendment)",
+        "url": "https://www.govinfo.gov/content/pkg/STATUTE-83/pdf/STATUTE-83-Pg204.pdf",
+        "date": "1969-11-19",
+        "quote": "unless such project or study has a direct and apparent relationship to a specific military function or operation",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "National Research Council (National Academies Press)",
+        "title": "Funding a Revolution: Government Support for Computing Research, chapter 9: Developments in Artificial Intelligence",
+        "url": "https://nap.nationalacademies.org/read/6323/chapter/11",
+        "date": "1999-01-01",
+        "quote": "The flow of DARPA's AI research money to CMU, MIT, and Stanford University did not cease or even diminish much, but the demand grew for interim reports and more tangible results.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "National Research Council (National Academies Press)",
+        "title": "Funding a Revolution: Government Support for Computing Research, chapter 4: The Organization of Federal Support: A Historical Review",
+        "url": "https://nap.nationalacademies.org/read/6323/chapter/6",
+        "date": "1999-01-01",
+        "quote": "was short lived, but it sent a strong signal to the research community: it would have to demonstrate the military relevance of its work.",
+        "supports": "context"
+      },
+      {
+        "kind": "article",
+        "publisher": "School of Informatics, University of Edinburgh",
+        "title": "Artificial Intelligence at Edinburgh University: a Perspective (Jim Howe)",
+        "url": "https://www.inf.ed.ac.uk/about/AIhistory.html",
+        "date": "2007-06-01",
+        "quote": "Lighthill's report provoked a massive loss of confidence in AI by the academic establishment in the UK (and to a lesser extent in the US).",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "John McCarthy, Stanford University (review first published in Artificial Intelligence, 1974)",
+        "title": "Review of “Artificial Intelligence: A General Survey” (John McCarthy)",
+        "url": "https://www-formal.stanford.edu/jmc/reviews/lighthill/lighthill.html",
+        "date": "1974-01-01",
+        "quote": "Regrettably, some people were briefly over-optimistic about what general purpose heuristics for theorem proving could do in problem solving.",
+        "supports": "context"
+      },
+      {
+        "kind": "article",
+        "publisher": "Communications of the ACM (Wayback Machine capture)",
+        "title": "There Was No 'First AI Winter' (Thomas Haigh)",
+        "url": "https://web.archive.org/web/20240521032022/https://cacm.acm.org/opinion/there-was-no-first-ai-winter/",
+        "date": "2023-12-01",
+        "quote": "By mid-1978 SIGART membership had almost tripled, to 3,500.",
+        "supports": "claim"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "AI winter",
+        "url": "https://en.wikipedia.org/wiki/AI_winter",
+        "date": "2026-10-19",
+        "quote": "The funding cuts only affected the major laboratories and the largest research projects, and by 1975 these were a very tiny fraction of the people who were now working in the field.",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -1078,15 +1388,62 @@
     "id": "the-chinese-room",
     "year": 1980,
     "category": "culture",
-    "title": "The Chinese Room",
-    "summary": "John Searle argues a system can manipulate symbols perfectly and understand nothing.",
+    "title": "The Chinese room",
+    "summary": "John Searle pictures himself in a room answering questions in Chinese by rule, as well as a native speaker would, without understanding a word, and argues that running a program is never by itself enough to understand.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/Chinese_room",
-    "why": "The argument every LLM debate re-runs, usually without citing it.",
+    "why": "The objection is still put to language models: answers that pass for a native speaker's may come with no understanding behind them.",
     "wikiTitle": "Chinese room",
     "terms": [
       "turing-test",
       "symbolic-ai"
+    ],
+    "sources": [
+      {
+        "kind": "paper",
+        "publisher": "Behavioral and Brain Sciences (scan, Yale University)",
+        "title": "Minds, brains, and programs (John R. Searle)",
+        "url": "https://zoo.cs.yale.edu/classes/cs458/materials/minds-brains-and-programs.pdf",
+        "date": "1980-09-01",
+        "quote": "I have inputs and outputs that are indistinguishable from those of the native Chinese speaker, and I can have any formal program you like, but I still understand nothing.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Scholarpedia (Wayback Machine capture)",
+        "title": "Chinese room argument (John Searle)",
+        "url": "https://web.archive.org/web/20250117181942/http://www.scholarpedia.org/article/Chinese_room_argument",
+        "date": "2009-08-01",
+        "quote": "The program makes it possible for me, in the room, to pass the Turing Test for understanding Chinese, but all the same I do not understand a single word of Chinese.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "Association for Computational Linguistics (ACL Anthology)",
+        "title": "Climbing towards NLU: On Meaning, Form, and Understanding in the Age of Data (Emily M. Bender and Alexander Koller)",
+        "url": "https://aclanthology.org/2020.acl-main.463.pdf",
+        "date": "2020-07-01",
+        "quote": "Searle’s thought experiment begins from the premise that it is possible to manipulate forms well enough to be indistinguishable from a system that understands the meaning of the forms, reasons about it, and responds appropriately.",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Stanford Encyclopedia of Philosophy",
+        "title": "The Chinese Room Argument",
+        "url": "https://plato.stanford.edu/entries/chinese-room/",
+        "date": "2024-10-23",
+        "quote": "the Chinese Room argument has probably been the most widely discussed philosophical argument in cognitive science to appear since the Turing Test",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Chinese room",
+        "url": "https://en.wikipedia.org/wiki/Chinese_room",
+        "date": "2026-10-19",
+        "quote": "Specifically, the argument is intended to refute a position Searle calls the strong AI hypothesis",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -1094,16 +1451,72 @@
     "year": 1982,
     "category": "research",
     "title": "Hopfield networks",
-    "summary": "A physicist's model of associative memory brings statistical mechanics into neural computation.",
+    "summary": "John Hopfield, a physicist, describes a network that stores memories as the low points of an energy taken from the physics of magnets, and recalls a whole memory from part of it.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/Hopfield_network",
-    "why": "Forty-two years later it wins a Nobel prize in physics.",
+    "why": "Forty-two years later Hopfield shares the Nobel prize in physics with Geoffrey Hinton, whose Boltzmann machine, built with Terrence Sejnowski, grew out of this network.",
     "wikiTitle": "Hopfield network",
     "people": [
       "john-hopfield"
     ],
     "terms": [
       "neural-network"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Proceedings of the National Academy of Sciences (Wayback Machine capture)",
+        "title": "Neural networks and physical systems with emergent collective computational abilities (J. J. Hopfield)",
+        "url": "https://web.archive.org/web/20240304232400/https://www.pnas.org/doi/10.1073/pnas.79.8.2554",
+        "date": "1982-04-01",
+        "quote": "The collective properties of this model produce a content-addressable memory which correctly yields an entire memory from any subpart of sufficient size.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Proceedings of the National Academy of Sciences (scan, CaltechAUTHORS)",
+        "title": "Neural networks and physical systems with emergent collective computational abilities (J. J. Hopfield)",
+        "url": "https://authors.library.caltech.edu/records/w41x7-8bn13/files/HOPpnas82.pdf",
+        "date": "1982-04-01",
+        "quote": "State changes will continue until a least (local) E is reached. This case is isomorphic with an Ising model.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "The Royal Swedish Academy of Sciences (nobelprize.org)",
+        "title": "Press release: The Nobel Prize in Physics 2024",
+        "url": "https://www.nobelprize.org/prizes/physics/2024/press-release/",
+        "date": "2024-10-08",
+        "quote": "The Royal Swedish Academy of Sciences has decided to award the Nobel Prize in Physics 2024 to John J. Hopfield Princeton University, NJ, USA Geoffrey Hinton University of Toronto, Canada",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "The Royal Swedish Academy of Sciences (nobelprize.org)",
+        "title": "They used physics to find patterns in information (popular science background, Nobel Prize in Physics 2024)",
+        "url": "https://www.nobelprize.org/prizes/physics/2024/popular-information/",
+        "date": "2024-10-08",
+        "quote": "This process of searching through similar words to find the right one is reminiscent of the associative memory that the physicist John Hopfield discovered in 1982.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "The Nobel Committee for Physics, Royal Swedish Academy of Sciences (nobelprize.org)",
+        "title": "Scientific Background to the Nobel Prize in Physics 2024 (The Nobel Committee for Physics)",
+        "url": "https://www.nobelprize.org/uploads/2024/11/advanced-physicsprize2024-3.pdf",
+        "date": "2024-10-08",
+        "quote": "In 1983–1985 Geoffrey Hinton, together with Terrence Sejnowski and other coworkers, developed a stochastic extension of Hopfield’s model from 1982, called the Boltzmann machine",
+        "supports": "claim"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Hopfield network",
+        "url": "https://en.wikipedia.org/wiki/Hopfield_network",
+        "date": "2026-10-19",
+        "quote": "The same idea was published by William A. Little in 1974, who was acknowledged by Hopfield in his 1982 paper.",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -1111,13 +1524,87 @@
     "year": 1982,
     "category": "policy",
     "title": "Japan's Fifth Generation project",
-    "summary": "A national ten-year programme to build intelligent machines triggers competing US and European funding.",
+    "summary": "Japan's trade ministry starts a ten-year programme to build parallel computers that process knowledge through logic programming. America, Britain and the European Community answer with programmes of their own.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/Fifth_Generation_Computer_Systems",
-    "why": "The first AI arms race between states, and the first to end in quiet disappointment.",
+    "why": "A ministry's bet on logic programming set other governments racing over the computers of the future; some, one evaluator recalled, spoke even of a technological war. It closed in 1992 having, by ICOT's account, achieved its initial goal; the New York Times reported it fizzling to a close, short of many of its goals.",
     "wikiTitle": "Fifth Generation Computer Systems",
     "terms": [
       "symbolic-ai"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "ICOT, Final Evaluation Report of the FGCS Project (ICOT archive, AIST)",
+        "title": "Preface (Shunichi Uchida and Kazuhiro Fuchi)",
+        "url": "https://www.airc.aist.go.jp/aitec-icot/ICOT/Museum/FinalEval/finaleval004.html",
+        "date": "1992-08-01",
+        "quote": "on hardware and software technologies, and basic theories for new computer systems, combining highly parallel processing and knowledge information processing using logic programming.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "ICOT (ICOT archive, AIST)",
+        "title": "Termination of the Memorandum between NSF and ICOT (Shunichi Uchida)",
+        "url": "https://www.airc.aist.go.jp/aitec-icot/ICOT/Museum/ICRA/FGCSProject/mou_termination_nsf_9501.html",
+        "date": "1995-01-23",
+        "quote": "This project was concluded in 1992 after achieving its initial goal",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Information Processing Society of Japan (IPSJ Computer Museum)",
+        "title": "Start of the 5th Generation Computer Project for Knowledge-Based Information Processing",
+        "url": "https://museum.ipsj.or.jp/en/computer/other/0002.html",
+        "date": "2026-10-19",
+        "quote": "In 1982, the Ministry of International Trade and Industry started the Fifth Generation Computer Project.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "ICOT, Final Evaluation Report of the FGCS Project (ICOT archive, AIST)",
+        "title": "FGCS Project Evaluation Report (Keith L. Clark)",
+        "url": "https://www.airc.aist.go.jp/aitec-icot/ICOT/Museum/FinalEval/finaleval049.html",
+        "date": "1992-06-05",
+        "quote": "The UK Alvey and EC ESPRIT programs almost certainly would not have started, or would have been funded at much lower levels, were it not for the FGCS project. Nor would the industry supported MCC, ECRC and SICS research institutes have been formed.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "ICOT, Final Evaluation Report of the FGCS Project (ICOT archive, AIST)",
+        "title": "Evaluation Report on the FGCS Project (Wolfgang Bibel)",
+        "url": "https://www.airc.aist.go.jp/aitec-icot/ICOT/Museum/FinalEval/finaleval041.html",
+        "date": "1992-06-04",
+        "quote": "Some people overreacted and spoke even of a technological war. Today some people again overreact. As they see that their fears have not materialized, they regard the project as a failure.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "National Research Council (National Academies Press)",
+        "title": "Funding a Revolution: Government Support for Computing Research, chapter 4: The Organization of Federal Support: A Historical Review",
+        "url": "https://nap.nationalacademies.org/read/6323/chapter/6",
+        "date": "1999-01-01",
+        "quote": "Japan's \"Fifth-Generation\" computer program, run by the Ministry of International Trade and Industry, seemed a direct threat.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "The New York Times (Wayback Machine capture)",
+        "title": "'Fifth Generation' Became Japan's Lost Generation (Andrew Pollack)",
+        "url": "https://web.archive.org/web/20191218221357/https://www.nytimes.com/1992/06/05/business/fifth-generation-became-japan-s-lost-generation.html",
+        "date": "1992-06-05",
+        "quote": "A bold 10-year effort by Japan to seize the lead in computer technology is fizzling to a close, having failed to meet many of its ambitious goals or to produce technology that Japan's computer industry wanted.",
+        "supports": "claim"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Fifth Generation Computer Systems",
+        "url": "https://en.wikipedia.org/wiki/Fifth_Generation_Computer_Systems",
+        "date": "2026-10-19",
+        "quote": "was a 10-year initiative launched in 1982 by Japan's Ministry of International Trade and Industry (MITI) to develop computers based on massively parallel computing and logic programming",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -1192,10 +1679,10 @@
     "year": 1989,
     "category": "research",
     "title": "Convolutions read handwriting",
-    "summary": "LeCun's network learns digits from raw pixels and reads handwritten US Postal Service zip codes.",
+    "summary": "LeCun and colleagues at Bell Labs train a network by backpropagation to read handwritten digits cut from zip codes on US mail, feeding it the pixels of each normalised image rather than hand-designed features.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/LeNet",
-    "why": "The first deep learning system in production, running at national scale before the term existed.",
+    "why": "One of the first demonstrations, LeCun writes, that neural networks could do real-world work. Its descendant LeNet-5 read millions of cheques a day in American banks from 1996: by LeCun's account, an estimated tenth of all the cheques written in the US.",
     "wikiTitle": "LeNet",
     "people": [
       "yann-lecun"
@@ -1206,6 +1693,71 @@
     "terms": [
       "convolutional-network",
       "backpropagation"
+    ],
+    "sources": [
+      {
+        "kind": "paper",
+        "publisher": "Neural Computation (MIT Press Journals abstract page, Wayback Machine capture)",
+        "title": "Backpropagation Applied to Handwritten Zip Code Recognition (LeCun, Boser, Denker, Henderson, Howard, Hubbard, Jackel)",
+        "url": "https://web.archive.org/web/20190727150022/https://www.mitpressjournals.org/doi/10.1162/neco.1989.1.4.541",
+        "date": "1989-12-01",
+        "quote": "This approach has been successfully applied to the recognition of handwritten zip code digits provided by the U.S. Postal Service. A single network learns the entire recognition operation, going from the normalized image of the character to the final classification.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "Advances in Neural Information Processing Systems 2 (NeurIPS proceedings)",
+        "title": "Handwritten Digit Recognition with a Back-Propagation Network (Le Cun, Boser, Denker, Henderson, Howard, Hubbard, Jackel)",
+        "url": "https://proceedings.neurips.cc/paper/1989/file/53c3bce66e43be4f209556518c2fcb54-Paper.pdf",
+        "date": "1990-01-01",
+        "quote": "Unlike most previous work on the subject (Denker et al., 1989), the learning network is directly fed with images, rather than feature vectors, thus demonstrating the ability of BP networks to deal with large amounts of low level information.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "Proceedings of the IEEE (copy hosted by gwern.net)",
+        "title": "Gradient-Based Learning Applied to Document Recognition (LeCun, Bottou, Bengio, Haffner)",
+        "url": "https://gwern.net/doc/ai/nn/cnn/1998-lecun.pdf",
+        "date": "1998-11-01",
+        "quote": "The system was integrated in NCR’s line of check reading systems. It has been fielded in several banks across the United States since June 1996, and it has been reading millions of checks per day since then.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Yann LeCun (yann.lecun.com, Wayback Machine capture)",
+        "title": "Yann LeCun's Home Page (December 2025)",
+        "url": "https://web.archive.org/web/20251228154414/http://yann.lecun.com/ex/index.html",
+        "date": "2025-12-28",
+        "quote": "A system I helped develop reads an estimated 10 percent of all the checks written in the US.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Yann LeCun (yann.lecun.com, Wayback Machine capture)",
+        "title": "Yann LeCun's Research and Contributions (December 2025)",
+        "url": "https://web.archive.org/web/20251228154400/http://yann.lecun.com/ex/research/index.html",
+        "date": "2025-12-28",
+        "quote": "This work was one of the first (and one of the most cited) demonstrations that Neural Networks could be applied to \"real-world\" applications",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "ACM (acm.org, Wayback Machine capture)",
+        "title": "Fathers of the Deep Learning Revolution Receive ACM A.M. Turing Award",
+        "url": "https://web.archive.org/web/20190331234249/https://www.acm.org/media-center/2019/march/turing-award-2018",
+        "date": "2019-03-27",
+        "quote": "In the late 1980s, while working at the University of Toronto and Bell Labs, LeCun was the first to train a convolutional neural network system on images of handwritten digits.",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "LeNet",
+        "url": "https://en.wikipedia.org/wiki/LeNet",
+        "date": "2026-10-19",
+        "quote": "Later, NCR deployed a similar system in large cheque reading machines in bank back offices since June 1996, and as of 2001, it was estimated to read 20 million checks a day, or 10% of all the checks in the US.",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -1347,7 +1899,7 @@
     "year": 1997,
     "category": "research",
     "title": "LSTM",
-    "summary": "Hochreiter and Schmidhuber solve vanishing gradients and give sequence models a working memory.",
+    "summary": "Hochreiter and Schmidhuber give recurrent networks memory cells, opened and closed by gates, that keep error signals from fading. On artificial tasks the network learns across more than 1,000 time steps.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/Long_short-term_memory",
     "wikiTitle": "Long short-term memory",
@@ -1356,6 +1908,44 @@
     ],
     "terms": [
       "recurrent-network"
+    ],
+    "sources": [
+      {
+        "kind": "paper",
+        "publisher": "Neural Computation (copy hosted by Carnegie Mellon University)",
+        "title": "Long Short-Term Memory (Sepp Hochreiter and Jürgen Schmidhuber)",
+        "url": "https://deeplearning.cs.cmu.edu/F23/document/readings/LSTM.pdf",
+        "date": "1997-11-01",
+        "quote": "LSTM can learn to bridge minimal time lags in excess of 1000 discrete-time steps by enforcing constant error flow through constant error carousels within special units. Multiplicative gate units learn to open and close access to the constant error flow.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "Advances in Neural Information Processing Systems 9 (NeurIPS proceedings)",
+        "title": "LSTM can Solve Hard Long Time Lag Problems (Sepp Hochreiter and Jürgen Schmidhuber)",
+        "url": "https://proceedings.neurips.cc/paper/1996/file/a4d2f0d23dcc84ce983ff9157f8b7f88-Paper.pdf",
+        "date": "1997-01-01",
+        "quote": "We then use LSTM, our own recent algorithm, to solve a hard problem that can neither be quickly solved by random search nor by any other recurrent net algorithm we are aware of.",
+        "supports": "context"
+      },
+      {
+        "kind": "paper",
+        "publisher": "Technische Universität München (copy hosted by Jürgen Schmidhuber, IDSIA)",
+        "title": "Untersuchungen zu dynamischen neuronalen Netzen (Josef Hochreiter, diploma thesis)",
+        "url": "https://people.idsia.ch/~juergen/SeppHochreiter1991ThesisAdvisorSchmidhuber.pdf",
+        "date": "1991-06-15",
+        "quote": "In Kapitel 1 werden die verwendeten BP-Lernalgorithmen vorgestellt, welche dann in Kapitel 2 analysiert werden, um die Ursache der langen Lernzeit zum Erlernen des Speicherns vergangener Eingaben zu ermitteln.",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Long short-term memory",
+        "url": "https://en.wikipedia.org/wiki/Long_short-term_memory",
+        "date": "2026-10-19",
+        "quote": "By introducing Constant Error Carousel (CEC) units, LSTM deals with the vanishing gradient problem. The initial version of LSTM block included cells, input and output gates.",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -1454,29 +2044,167 @@
   {
     "id": "nobody-finishes-the-grand-challenge",
     "year": 2004,
+    "date": "2004-03-13",
     "category": "incident",
     "title": "Nobody finishes the Grand Challenge",
-    "summary": "Every vehicle in DARPA's desert race fails; the best manages seven miles of a 142-mile course.",
+    "summary": "Of the fifteen robot vehicles DARPA selects for its desert race, none finishes. The furthest, Carnegie Mellon's, goes off course at mile 7.4 of 142, and the $1 million prize goes unclaimed.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/DARPA_Grand_Challenge",
     "wikiTitle": "DARPA Grand Challenge",
+    "figures": [
+      {
+        "label": "Furthest",
+        "value": "7.4 miles of 142, by DARPA's results that day; 7.5 by Carnegie Mellon's account and by DARPA's of 2014"
+      }
+    ],
     "orgs": [
       "darpa"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "DARPA (darpa.mil, Wayback Machine capture)",
+        "title": "Final Data from DARPA Grand Challenge (as of 5:00 p.m. PST, March 13, 2004)",
+        "url": "https://web.archive.org/web/20040807085842/http://www.darpa.mil:80/grandchallenge04/media/final_data.pdf",
+        "date": "2004-03-13",
+        "quote": "Vehicle 22 - Red Team - At mile 7.4, on switchbacks in a mountainous section, vehicle went off course, got caught on a berm and rubber on the front wheels caught fire, which was quickly extinguished.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "DARPA (darpa.mil, Wayback Machine capture)",
+        "title": "American Innovators Take Robotic Technology Into the Field During Saturday’s Inaugural DARPA Grand Challenge",
+        "url": "https://web.archive.org/web/20041019071724/http://www.darpa.mil/grandchallenge04/media/innovators.pdf",
+        "date": "2004-03-13",
+        "quote": "Although none of the vehicles completed the course, and we were not able to award the cash prize, we learned a tremendous amount today about autonomous ground vehicle technology.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "DARPA",
+        "title": "Grand Challenge (DARPA Innovation Timeline)",
+        "url": "https://www.darpa.mil/about/innovation-timeline/grand-challenge",
+        "date": "2026-10-19",
+        "quote": "The event offered a $1 million prize to the winner from among 15 finalists that emerged from a qualifying round at the California Speedway, but the prize went unclaimed as no vehicles were able to complete the difficult desert route.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Carnegie Mellon University (Carnegie Mellon Today, Wayback Machine capture)",
+        "title": "The Red Team",
+        "url": "https://web.archive.org/web/20221017100053/https://www.cmu.edu/cmtoday/issues/april-2004-issue/feature-stories/the-red-team/index.html",
+        "date": "2004-04-01",
+        "quote": "Sandstorm lived up to its pre-race billing by traveling farther than any of the other 13 robots in the field. It traveled 7.5 miles before suffering severe damage when it hit a berm in the rugged desert terrain.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "Journal of Field Robotics (copy hosted by Stanford University)",
+        "title": "Stanley: The Robot that Won the DARPA Grand Challenge (Sebastian Thrun and 29 others)",
+        "url": "https://robots.stanford.edu/papers/thrun.stanley05.pdf",
+        "date": "2006-09-01",
+        "quote": "It required robots to navigate a 142-mile long course through the Mojave desert in no more than 10 h.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "DARPA",
+        "title": "The DARPA Grand Challenge: Ten Years Later",
+        "url": "https://www.darpa.mil/news/2014/grand-challenge-ten-years-later",
+        "date": "2014-03-13",
+        "quote": "None finished the course—the top-scoring vehicle traveled only 7.5 miles—and the prize went unclaimed.",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "DARPA Grand Challenge",
+        "url": "https://en.wikipedia.org/wiki/DARPA_Grand_Challenge",
+        "date": "2026-10-19",
+        "quote": "Carnegie Mellon University's Red Team and car Sandstorm (a converted Humvee) traveled the farthest distance, completing 11.78 km (7.32 mi) of the course before getting hung up on a rock after making a switchback turn.",
+        "supports": "context"
+      }
     ]
   },
   {
     "id": "stanley-wins",
     "year": 2005,
+    "date": "2005-10-08",
     "category": "product",
     "title": "Stanley wins",
-    "summary": "Stanford's VW Touareg completes the course in under seven hours. Total failure to solved in eighteen months.",
+    "summary": "Stanford's Stanley, a driverless Volkswagen Touareg, wins DARPA's second desert race in 6 hours 53 minutes. In March 2004 no robot finished; now five do, four inside the ten-hour limit.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/Stanley_(vehicle)",
-    "why": "The self-driving industry, and its decade of over-promising, starts here.",
+    "why": "The self-driving industry, and its decade of over-promising, grows out of these races: Google gathered some of their best engineers to build its cars, by its own account. Stanley's own paper noted that the race was static and that Stanley could not drive in traffic.",
     "wikiTitle": "Stanley (vehicle)",
     "orgs": [
       "darpa",
       "stanford"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "DARPA (darpa.mil, Wayback Machine capture)",
+        "title": "Grand Challenge Home (web archive of the October 2005 Grand Challenge)",
+        "url": "https://web.archive.org/web/20060417232606/http://www.darpa.mil:80/grandchallenge05/",
+        "date": "2006-03-01",
+        "quote": "Five teams completed the Grand Challenge; four of them under the 10 hour limit. The Stanford Racing Team took the prize with a winning time of 6 hours, 53 minutes.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "Journal of Field Robotics (copy hosted by Stanford University)",
+        "title": "Stanley: The Robot that Won the DARPA Grand Challenge (Sebastian Thrun and 29 others)",
+        "url": "https://robots.stanford.edu/papers/thrun.stanley05.pdf",
+        "date": "2006-09-01",
+        "quote": "it left open a number of important problems. Most important among those was the fact that the race environment was static. Stanley is unable to navigate in traffic.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "AI Magazine (AAAI)",
+        "title": "A Personal Account of the Development of Stanley, the Robot That Won the DARPA Grand Challenge (Sebastian Thrun)",
+        "url": "https://ojs.aaai.org/aimagazine/index.php/aimagazine/article/download/1910/1808",
+        "date": "2006-12-15",
+        "quote": "Instead, this is my personal story of leading the Stanford Racing Team.",
+        "supports": "context"
+      },
+      {
+        "kind": "primary",
+        "publisher": "DARPA",
+        "title": "The DARPA Grand Challenge: Ten Years Later",
+        "url": "https://www.darpa.mil/news/2014/grand-challenge-ten-years-later",
+        "date": "2014-03-13",
+        "quote": "This time, after analyzing lessons learned, five vehicles out of the 195 teams that entered successfully completed a 132-mile course in southern Nevada.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Google (Official Google Blog, Wayback Machine capture)",
+        "title": "What we’re driving at (Sebastian Thrun)",
+        "url": "https://web.archive.org/web/20101015220008/http://googleblog.blogspot.com/2010/10/what-were-driving-at.html",
+        "date": "2010-10-09",
+        "quote": "To develop this technology, we gathered some of the very best engineers from the DARPA Challenges, a series of autonomous vehicle races organized by the U.S. Government.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "DARPA",
+        "title": "Grand Challenge (DARPA Innovation Timeline)",
+        "url": "https://www.darpa.mil/about/innovation-timeline/grand-challenge",
+        "date": "2026-10-19",
+        "quote": "These challenges helped to create a mindset and research community that a decade later would render fleets of autonomous cars and other ground vehicles a near certainty for the first quarter of the 21st century.",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Stanley (vehicle)",
+        "url": "https://en.wikipedia.org/wiki/Stanley_(vehicle)",
+        "date": "2026-10-19",
+        "quote": "The car began as a standard European diesel model Volkswagen Touareg provided by Volkswagen's ERL for the competition.",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -2003,10 +2731,10 @@
     "year": 2013,
     "category": "power",
     "title": "Zuckerberg hires LeCun",
-    "summary": "Facebook's CEO turns up at NIPS to recruit in person; the inventor of the convnet signs on to run a new lab, Facebook AI Research, split between Menlo Park, London and an office a block from NYU.",
+    "summary": "Facebook's CEO turns up at NIPS to recruit in person; the convnet's pioneer signs on to run a new lab, Facebook AI Research, split between Menlo Park, London and an office a block from NYU.",
     "source": "Meta",
     "url": "https://ai.meta.com/blog/fair-10-year-anniversary-open-science-meta/",
-    "why": "Google has Hinton and is about to get DeepMind. Facebook's answer is the other father of deep learning and a lab built to publish — the posture that ends, ten years on, in Llama.",
+    "why": "Google has Hinton and is about to get DeepMind. Facebook's answer is another of deep learning's fathers and a lab built to publish — the posture that ends, ten years on, in Llama.",
     "wikiTitle": "Meta AI",
     "people": [
       "mark-zuckerberg",
