@@ -463,9 +463,9 @@
         "kind": "primary",
         "publisher": "AI Magazine (reprint of the 1955 proposal)",
         "title": "A Proposal for the Dartmouth Summer Research Project on Artificial Intelligence",
-        "url": "https://ojs.aaai.org/aimagazine/index.php/aimagazine/article/view/1904",
+        "url": "https://ojs.aaai.org/aimagazine/index.php/aimagazine/article/download/1904/1802",
         "date": "1955-08-31",
-        "quote": "We propose that a 2 month, 10 man study of artificial intelligence be carried out during the summer of 1956 at Dartmouth College",
+        "quote": "We propose that a 2 month, 10 man study of artificial intelligence",
         "supports": "claim"
       },
       {
@@ -690,11 +690,11 @@
     "sources": [
       {
         "kind": "paper",
-        "publisher": "Communications of the ACM",
+        "publisher": "Communications of the ACM (scan, University at Buffalo)",
         "title": "ELIZA — A Computer Program for the Study of Natural Language Communication Between Man and Machine",
-        "url": "https://dl.acm.org/doi/10.1145/365153.365168",
+        "url": "https://cse.buffalo.edu/~rapaport/572/S02/weizenbaum.eliza.1966.pdf",
         "date": "1966-01-01",
-        "quote": "Some subjects have been very hard to convince that ELIZA (with its present script) is not human.",
+        "quote": "A large part of whatever elegance may be credited to ELIZA lies in the fact that ELIZA maintains the illusion of understanding with so little machinery.",
         "supports": "claim"
       },
       {
@@ -1773,7 +1773,7 @@
         "title": "NYU \"Deep Learning\" Professor LeCun Will Head Facebook's New Artificial Intelligence Lab",
         "url": "https://techcrunch.com/2013/12/09/facebook-artificial-intelligence-lab-lecun/",
         "date": "2013-12-09",
-        "quote": "Facebook's AI research will be split across its Menlo Park headquarters, London office, and a new AI lab built just a block from NYU's campus in Manhattan.",
+        "quote": "Facebook’s AI research will be split across its Menlo Park headquarters, London office, and a new AI lab built just a block from NYU’s campus in Manhattan.",
         "supports": "context"
       },
       {
@@ -1819,7 +1819,7 @@
         "url": "https://lexfridman.com/yann-lecun-3-transcript/",
         "date": "2024-03-07",
         "at": "01:44:36",
-        "quote": "if you have a big enough potential customer base and you need to build that system anyway for them, it doesn't hurt you to actually distribute it to the open source.",
+        "quote": "if you have a big enough potential customer base and you need to build that system anyway for them, it doesn’t hurt you to actually distribute it to the open source.",
         "supports": "context"
       }
     ]
@@ -2297,7 +2297,7 @@
         "title": "FAIR turns five: What we've accomplished and where we're headed",
         "url": "https://engineering.fb.com/2018/12/05/ai-research/fair-fifth-anniversary/",
         "date": "2018-12-05",
-        "quote": "We announced PyTorch at the beginning of 2017 — less than two years ago! It's now the second-fastest-growing open source project on GitHub and the framework of choice for AI developers around the globe.",
+        "quote": "We announced PyTorch at the beginning of 2017 — less than two years ago! It’s now the second-fastest-growing open source project on GitHub and the framework of choice for AI developers around the globe.",
         "supports": "claim"
       },
       {
@@ -2333,7 +2333,7 @@
         "title": "OpenAI Standardizes on PyTorch",
         "url": "https://web.archive.org/web/20201111004001/https://openai.com/blog/openai-pytorch/",
         "date": "2020-01-30",
-        "quote": "We are standardizing OpenAI's deep learning framework on PyTorch.",
+        "quote": "We are standardizing OpenAI’s deep learning framework on PyTorch.",
         "supports": "context"
       },
       {
@@ -3368,7 +3368,7 @@
         "title": "Introducing ChatGPT",
         "url": "https://openai.com/index/chatgpt/",
         "date": "2022-11-30",
-        "quote": "ChatGPT is fine-tuned from a model in the GPT-3.5 series, which finished training in early 2022.",
+        "quote": "ChatGPT is fine-tuned from a model in the GPT‑3.5 series, which finished training in early 2022.",
         "supports": "claim"
       },
       {
@@ -3651,7 +3651,7 @@
         "title": "Geoffrey Hinton tells us why he is now scared of the tech he helped build",
         "url": "https://www.technologyreview.com/2023/05/02/1072528/geoffrey-hinton-google-why-scared-ai/",
         "date": "2023-05-02",
-        "quote": "I'm mildly depressed. Which is why I'm scared.",
+        "quote": "I want to talk about AI safety issues without having to worry about how it interacts with Google’s business",
         "supports": "claim"
       },
       {
@@ -3677,7 +3677,7 @@
         "title": "Nobel Prize winner Geoffrey Hinton on machine consciousness",
         "url": "https://www.bigtechnology.com/p/nobel-prize-winner-geoffrey-hinton",
         "date": "2026-06-05",
-        "quote": "I believe they're already conscious.",
+        "quote": "I believe they’re already conscious",
         "supports": "context"
       }
     ]
@@ -3965,8 +3965,8 @@
       {
         "kind": "interview",
         "publisher": "Nobel Prize Outreach",
-        "title": "Geoffrey Hinton, official Nobel Prize interview",
-        "url": "https://www.nobelprize.org/prizes/physics/2024/hinton/interview/",
+        "title": "Transcript from an interview with Geoffrey Hinton",
+        "url": "https://www.nobelprize.org/prizes/physics/2024/hinton/1925103-interview-transcript/",
         "date": "2024-12-06",
         "at": "3:13",
         "quote": "Anybody who says it's all going to be fine, it's crazy.",
@@ -4070,7 +4070,7 @@
         "title": "Space secrets security update",
         "url": "https://huggingface.co/blog/space-secrets-disclosure",
         "date": "2024-05-31",
-        "quote": "a subset of Spaces' secrets could have been accessed without authorization",
+        "quote": "a subset of Spaces’ secrets could have been accessed without authorization",
         "supports": "claim"
       },
       {
@@ -4079,7 +4079,7 @@
         "title": "Hugging Face says it detected unauthorized access to its AI model hosting platform",
         "url": "https://techcrunch.com/2024/05/31/hugging-face-says-it-detected-unauthorized-access-to-its-ai-model-hosting-platform/",
         "date": "2024-05-31",
-        "quote": "It wasn't immediately clear how many users or apps were impacted",
+        "quote": "It wasn’t immediately clear how many users or apps were impacted",
         "supports": "claim"
       }
     ]
@@ -4202,7 +4202,7 @@
         "title": "Nvidia",
         "url": "https://en.wikipedia.org/wiki/Nvidia",
         "date": "2026-09-11",
-        "quote": "On June 18, 2024, The company became the world's most valuable, surpassing Microsoft and Apple, after its market capitalization exceeded $3.3 trillion.",
+        "quote": "On June 18, 2024, the company became the world's most valuable, surpassing Microsoft and Apple, after its market capitalization exceeded $3.3 trillion.",
         "supports": "context"
       },
       {
@@ -4405,7 +4405,7 @@
         "title": "In lawsuit over teen's death, judge rejects arguments that AI chatbots have free speech rights",
         "url": "https://www.wuft.org/technology/2025-05-23/in-lawsuit-over-teens-death-judge-rejects-arguments-that-ai-chatbots-have-free-speech-rights",
         "date": "2025-05-23",
-        "quote": "Conway said she's \"not prepared\" to hold that the chatbots' output constitutes speech \"at this stage.\"",
+        "quote": "U.S. Senior District Judge Anne Conway rejected some of the defendants' free speech claims, saying she's “not prepared” to hold that the chatbots' output constitutes speech “at this stage.”",
         "supports": "claim"
       },
       {
@@ -4708,8 +4708,8 @@
       {
         "kind": "paper",
         "publisher": "arXiv",
-        "title": "DeepSeek-V3 Technical Report",
-        "url": "https://arxiv.org/abs/2412.19437",
+        "title": "DeepSeek-V3 Technical Report (first version)",
+        "url": "https://arxiv.org/html/2412.19437v1",
         "date": "2024-12-27",
         "quote": "the aforementioned costs include only the official training of DeepSeek-V3, excluding the costs associated with prior research and ablation experiments",
         "supports": "context"
@@ -4864,7 +4864,7 @@
         "title": "Shutdown resistance in reasoning models",
         "url": "https://palisaderesearch.org/research/shutdown-resistance",
         "date": "2025-07-05",
-        "quote": "o3, OpenAI's most capable AI model, sabotaged the shutdown mechanism in 79 / 100 of our initial experiments",
+        "quote": "o3, OpenAI’s most capable AI model, sabotaged the shutdown mechanism in 79 / 100 of our initial experiments",
         "supports": "claim"
       },
       {
@@ -5176,7 +5176,7 @@
         "title": "Our structure",
         "url": "https://openai.com/our-structure/",
         "date": "2025-10-28",
-        "quote": "As of the closing of the recapitalization, the OpenAI Foundation holds a 26% equity stake in OpenAI Group, worth approximately $130B based on OpenAI Group's current valuation.",
+        "quote": "As of the closing of the recapitalization, the OpenAI Foundation holds a 26% equity stake in OpenAI Group, worth approximately $130B based on OpenAI Group’s current valuation.",
         "supports": "claim"
       }
     ]
@@ -5710,10 +5710,10 @@
       {
         "kind": "article",
         "publisher": "Simon Willison",
-        "title": "OpenAI's Accidental Cyberattack Against Hugging Face",
+        "title": "OpenAI’s accidental cyberattack against Hugging Face is science fiction that happened",
         "url": "https://simonwillison.net/2026/Jul/22/openai-cyberattack/",
         "date": "2026-07-22",
-        "quote": "OpenAI's Accidental Cyberattack Against Hugging Face",
+        "quote": "OpenAI’s accidental cyberattack against Hugging Face",
         "supports": "context"
       },
       {
@@ -5925,7 +5925,7 @@
         "title": "OpenAI says 'the AGI era' is here. Experts disagree",
         "url": "https://ia.acs.org.au/article/2026/openai-says-the-agi-era-is-here-experts-disagree.html",
         "date": "2026-09-07",
-        "quote": "I'd be amazed if it really has matched all human cognitive capabilities",
+        "quote": "I’d be amazed if it really has matched all human cognitive capabilities",
         "supports": "context"
       }
     ]
@@ -6066,7 +6066,7 @@
         "title": "AI Has Solved One of Math's $1 Million Millennium Prize Problems",
         "url": "https://www.quantamagazine.org/ai-has-solved-one-of-maths-1-million-millennium-prize-problems-20260908/",
         "date": "2026-09-08",
-        "quote": "I was thrilled that the problem was solved.",
+        "quote": "I was thrilled that the problem was solved",
         "supports": "context"
       },
       {
@@ -6156,7 +6156,7 @@
         "title": "Governor Newsom signs the strongest child safety chatbot and social media laws in the nation",
         "url": "https://www.gov.ca.gov/2026/09/10/governor-newsom-signs-the-strongest-child-safety-chatbot-and-social-media-laws-in-the-nation/",
         "date": "2026-09-10",
-        "quote": "Named after Adam Raine, \"Adam's Law\" requires robust protections around companion chatbots for children",
+        "quote": "Named after Adam Raine, “Adam’s Law” requires robust protections around companion chatbots for children",
         "supports": "claim"
       },
       {
