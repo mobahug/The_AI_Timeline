@@ -474,7 +474,7 @@
         "title": "The Dartmouth Conference",
         "url": "https://www.saildart.org/DARTMO.TEX[S87,JMC]2",
         "date": "1987-04-20",
-        "quote": "The only people who had results from computer programs were the Newell-Simon-Shaw team reporting on the Logic Theory Machine and Samuel on learning in checkers.",
+        "quote": "I vaguely recollect that I'd seen or heard the name before, but no-one has found a reference.",
         "supports": "context"
       },
       {
@@ -5297,9 +5297,9 @@
       },
       {
         "kind": "primary",
-        "publisher": "Erdős problems",
+        "publisher": "Erdős problems (Wayback Machine capture)",
         "title": "Problem 90",
-        "url": "https://www.erdosproblems.com/90",
+        "url": "https://web.archive.org/web/20261011082230/https://www.erdosproblems.com/90",
         "date": "2026-05-20",
         "quote": "This was disproved by an internal model at OpenAI",
         "supports": "claim"
