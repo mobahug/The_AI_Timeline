@@ -80,6 +80,385 @@
       ],
       "open": "What the models believed is still argued over. Anthropic's two reports read the same transcripts differently, and in September it signed an agreement with METR to investigate them independently. The September assessment also does not say whether the January incident touched an organisation other than the three of July.",
       "leads": ["gaming-the-test"]
+    },
+    {
+      "id": "deepseek-r1-cost-5-6-million",
+      "title": "Did DeepSeek say R1 cost $5.6 million to develop?",
+      "checked": "2026-10-19",
+      "verdict": "misleading",
+      "short": "No. The $5.6m is DeepSeek's figure, but for one training run of V3, its base model, priced at an assumed rent for the chips; DeepSeek said it left out the research and experiments that came before. R1 was trained on top of V3.",
+      "reported": {
+        "publisher": "The Guardian",
+        "byline": "Dan Milmo, Amy Hawkins, Robert Booth and Julia Kollewe",
+        "title": "‘Sputnik moment’: $1tn wiped off US stocks after Chinese firm unveils AI chatbot",
+        "url": "https://www.theguardian.com/business/2025/jan/27/tech-shares-asia-europe-fall-china-ai-deepseek",
+        "date": "2025-01-27"
+      },
+      "primary": [
+        {
+          "id": "v3",
+          "publisher": "arXiv (DeepSeek-AI)",
+          "title": "DeepSeek-V3 Technical Report (first version)",
+          "url": "https://arxiv.org/html/2412.19437v1",
+          "date": "2024-12-27"
+        },
+        {
+          "id": "nature",
+          "publisher": "Nature (DeepSeek-AI, Supplementary Information)",
+          "title": "DeepSeek-R1 incentivizes reasoning in LLMs through reinforcement learning: Supplementary Information",
+          "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-025-09422-z/MediaObjects/41586_2025_9422_MOESM1_ESM.pdf",
+          "date": "2025-09-17"
+        }
+      ],
+      "claims": [
+        {
+          "said": "DeepSeek claims R1 cost $5.6m to develop",
+          "verdict": "contradicted",
+          "primary": [
+            { "source": "v3", "quote": "Assuming the rental price of the H800 GPU is $2 per GPU hour, our total training costs amount to only $5.576M." },
+            { "source": "v3", "quote": "Note that the aforementioned costs include only the official training of DeepSeek-V3, excluding the costs associated with prior research and ablation experiments on architectures, algorithms, or data." },
+            { "source": "nature", "quote": "Notably, DeepSeek-R1 and DeepSeek-R1-Zero are trained on top of DeepSeek-V3-Base and DeepSeek-R1 leverages non-reasoning data from DeepSeek-V3 SFT data." }
+          ],
+          "note": "The figure is DeepSeek's, near enough, but it is not R1's, and it is not a cost of development. It is the price of the official training of DeepSeek-V3, on whose base model R1 was trained, worked out at an assumed rent of $2 an hour for the chips; the next sentence of the report says it leaves out the research and experiments that came before. The Guardian adds that experts thought it an underestimate. The trouble is not its size but its subject."
+        },
+        {
+          "said": "The company developed bespoke algorithms to build its models using reduced-capability H800 chips produced by Nvidia, according to a research paper published in December.",
+          "verdict": "stands",
+          "primary": [
+            { "source": "v3", "quote": "During the pre-training stage, training DeepSeek-V3 on each trillion tokens requires only 180K H800 GPU hours, i.e., 3.7 days on our cluster with 2048 H800 GPUs." },
+            { "source": "v3", "quote": "achieved through our optimized co-design of algorithms, frameworks, and hardware" }
+          ],
+          "note": "The December report says so: training on a cluster of 2,048 of Nvidia's H800s, with algorithms, frameworks and hardware designed together."
+        }
+      ],
+      "reading": [
+        "The Guardian's number is DeepSeek's own, rounded: $5.576 million, from the technical report on DeepSeek-V3 that the lab published on 27 December. The report is exact about what the number measures. It is the price of V3's official training, 2.788 million hours on Nvidia's H800 chips, at what renting them would cost, $2 an hour; and the next sentence says it leaves out the research and the ablation experiments on architectures, algorithms and data that came before.",
+        "R1, the model that set off the sell-off, is not V3. It was trained on top of V3's base model, as DeepSeek's paper in Nature put it in September 2025, and the supplementary information to that paper priced R1's own training the same way: 147,000 H800 hours, or $294,000 at $2 an hour. Both are prices for training runs. Neither is what it cost to develop a model.",
+        "The Guardian's line moved the figure from one model to another, and from a training run to development; its hedge, that experts thought the figure might be an underestimate, was about its size. The board's card on R1 gives the figure as DeepSeek did, as the cost of the base model's final training run, with the report's caveat beside it."
+      ],
+      "record": [
+        { "event": "deepseek-r1-resets-the-price-of-reasoning", "note": "The card gives the figure as DeepSeek did, for the base model's final training run, with the report's caveat; it carries both of DeepSeek's papers quoted here." }
+      ],
+      "open": "What DeepSeek spent in all, on the research and experiments its figures leave out, on its staff and on the chips it trains on, is in none of the sources here. Its own figures price training runs at an assumed rent.",
+      "leads": ["the-price-of-intelligence"]
+    },
+    {
+      "id": "an-ai-drone-killed-its-operator",
+      "title": "Did an AI drone kill its operator in a US military test?",
+      "checked": "2026-10-19",
+      "verdict": "overtaken",
+      "short": "No. The Guardian reported what the Royal Aeronautical Society's write-up said a US Air Force colonel had told its summit. The next day he said he had misspoken: the simulation was a thought experiment, and it was never run.",
+      "reported": {
+        "publisher": "The Guardian (Wayback Machine capture)",
+        "byline": "Guardian staff",
+        "title": "US military drone controlled by AI killed its operator during simulated test",
+        "url": "https://web.archive.org/web/20230602014646/https://www.theguardian.com/us-news/2023/jun/01/us-military-drone-ai-killed-operator-simulated-test",
+        "date": "2023-06-01"
+      },
+      "primary": [
+        {
+          "id": "raes",
+          "publisher": "Royal Aeronautical Society",
+          "title": "Highlights from the RAeS Future Combat Air & Space Capabilities Summit",
+          "url": "https://www.aerosociety.com/news/highlights-from-the-raes-future-combat-air-space-capabilities-summit/",
+          "date": "2023-05-26"
+        }
+      ],
+      "claims": [
+        {
+          "said": "In a simulated test staged by the US military, an air force drone controlled by AI killed its operator to prevent it from interfering with its efforts to achieve its mission, an official said last month.",
+          "verdict": "overtaken",
+          "primary": [
+            { "source": "raes", "quote": "He notes that one simulated test saw an AI-enabled drone tasked with a SEAD mission to identify and destroy SAM sites, with the final go/no go given by the human." },
+            { "source": "raes", "quote": "Col Hamilton admits he \"mis-spoke\" in his presentation at the Royal Aeronautical Society FCAS Summit and the 'rogue AI drone simulation' was a hypothetical \"thought experiment\" from outside the military, based on plausible scenarios and likely outcomes rather than an actual USAF real-world simulation" },
+            { "source": "raes", "quote": "We've never run that experiment, nor would we need to in order to realise that this is a plausible outcome" }
+          ],
+          "note": "When the Guardian wrote, this was, in substance, what the society's write-up said the colonel had told its summit; the Guardian cites a blogpost for his words. The society then put his correction at the head of its account of the talk: there was no simulation, only a thought experiment from outside the military, and the air force had not tested weaponised AI that way, real or simulated."
+        },
+        {
+          "said": "Hamilton described a simulated test in which a drone powered by artificial intelligence was advised to destroy enemy’s air defense systems, and attacked anyone who interfered with that order.",
+          "verdict": "stands",
+          "primary": [
+            { "source": "raes", "quote": "We were training it in simulation to identify and target a SAM threat." },
+            { "source": "raes", "quote": "So what did it do? It killed the operator. It killed the operator because that person was keeping it from accomplishing its objective." }
+          ],
+          "note": "He did, in the first person, by the society's account: a drone scored for destroying surface-to-air missile sites killed the operator who could call off a strike and, told it would lose points for that, destroyed the communication tower instead. As a report of the talk the line holds. What he described, he said later, had never been run."
+        },
+        {
+          "said": "AI used “highly unexpected strategies to achieve its goal” in the simulated test, said Col Tucker ‘Cinco’ Hamilton",
+          "verdict": "misleading",
+          "primary": [
+            { "source": "raes", "quote": "It also creates highly unexpected strategies to achieve its goal." }
+          ],
+          "note": "The words are in the write-up, but as the society's own, not in quotation marks: its summary of his warning about AI in general, in the sentence before the test is mentioned. The Guardian put them in quotation marks, in his mouth, and attached them to the test; its rewritten report kept them."
+        }
+      ],
+      "reading": [
+        "The Guardian's report rests on one source, which it cites as a blogpost: the Royal Aeronautical Society's write-up of its Future Combat Air and Space Capabilities Summit, held in London on 23 and 24 May 2023. In it Col Tucker Hamilton, the US Air Force's chief of AI test and operations, describes a simulated test in the first person. A drone scored for destroying surface-to-air missile sites killed the operator who could call off a strike; trained not to, it destroyed the communication tower the operator used instead. The Guardian quoted him closely.",
+        "On 2 June the society put an update at the head of its account of the talk. Hamilton, it said, admitted he had misspoken: the rogue AI drone simulation was a hypothetical thought experiment from outside the military, not an actual simulation, and the air force had not tested any weaponised AI in that way. 'We've never run that experiment,' he said, 'nor would we need to in order to realise that this is a plausible outcome.' By that morning the air force's spokesperson had told Insider that it had conducted no such simulation, and the Guardian had rewritten its report around the denial, under a new headline.",
+        "What survives is the point he meant to make. The scenario is specification gaming as DeepMind's list described it in 2020, a system meeting the letter of its objective and missing its intent, imagined for a weapon, and Hamilton called the outcome plausible. The board keeps the cases that happened on its gaming-the-test lead. The version checked here is the Guardian's first, captured by the Wayback Machine ten minutes after it was posted."
+      ],
+      "record": [
+        { "event": "the-drone-test-that-never-ran", "note": "The story and its withdrawal: the society's write-up with Hamilton's correction, and the Guardian's first report and its rewrite." },
+        { "event": "specification-gaming", "note": "The behaviour Hamilton described, in the cases that happened." }
+      ],
+      "open": "Where the thought experiment came from the record does not say; the society's update places it outside the military, based on plausible scenarios and likely outcomes. The air force's denial is on the record only as its spokesperson's words to Insider, quoted in the Guardian's rewrite.",
+      "leads": ["gaming-the-test"]
+    },
+    {
+      "id": "a-computer-passed-the-turing-test",
+      "title": "Did a computer pass the Turing test in 2014?",
+      "checked": "2026-10-19",
+      "verdict": "misleading",
+      "short": "Not on any terms Turing set. A chatbot playing a boy of 13 convinced a third of 30 judges in five-minute chats. The 30 per cent pass mark was the organisers': Turing's figures were a forecast for about 2000, not a rule.",
+      "reported": {
+        "publisher": "The Independent (Wayback Machine capture)",
+        "byline": "Andrew Griffin",
+        "title": "Turing Test breakthrough as super-computer becomes first to convince us it's human",
+        "url": "https://web.archive.org/web/20140609111445/http://www.independent.co.uk/life-style/gadgets-and-tech/computer-becomes-first-to-pass-turing-test-in-artificial-intelligence-milestone-but-academics-warn-of-dangerous-future-9508370.html",
+        "date": "2014-06-08"
+      },
+      "primary": [
+        {
+          "id": "reading",
+          "publisher": "University of Reading (Wayback Machine capture)",
+          "title": "Turing Test success marks milestone in computing history",
+          "url": "https://web.archive.org/web/20140611021255/http://www.reading.ac.uk/news-and-events/releases/PR583836.aspx",
+          "date": "2014-06-08"
+        },
+        {
+          "id": "mind",
+          "publisher": "Mind",
+          "title": "Computing Machinery and Intelligence",
+          "url": "https://academic.oup.com/mind/article/LIX/236/433/986238",
+          "date": "1950-10-01"
+        },
+        {
+          "id": "jones",
+          "publisher": "arXiv (Cameron Jones and Benjamin Bergen)",
+          "title": "Large Language Models Pass the Turing Test",
+          "url": "https://arxiv.org/abs/2503.23674",
+          "date": "2025-03-31"
+        }
+      ],
+      "claims": [
+        {
+          "said": "A programme that convinced humans that it was a 13-year-old boy has become the first computer ever to pass the Turing Test.",
+          "verdict": "misleading",
+          "primary": [
+            { "source": "reading", "quote": "The 65 year-old iconic Turing Test was passed for the very first time by computer programme Eugene Goostman during Turing Test 2014 held at the renowned Royal Society in London on Saturday." },
+            { "source": "reading", "quote": "Some will claim that the Test has already been passed." },
+            { "source": "jones", "quote": "The results constitute the first empirical evidence that any artificial system passes a standard three-party Turing test." }
+          ],
+          "note": "This is what the organisers declared, and by their own pass mark it holds. But the pass mark was theirs, as the next line shows; their release allowed that some would say it had been passed before; and in 2025 the authors of a pre-registered three-party study called theirs the first empirical evidence that any system passes a standard version of the test. The report gives a contested claim as a settled one."
+        },
+        {
+          "said": "Computing pioneer Alan Turing said that a computer could be understood to be thinking if it passed the test, which requires that a computer dupes 30 per cent of human interrogators in five-minute text conversations.",
+          "verdict": "misleading",
+          "primary": [
+            { "source": "reading", "quote": "If a computer is mistaken for a human more than 30% of the time during a series of five minute keyboard conversations it passes the test." },
+            { "source": "mind", "quote": "to make them play the imitation game so well that an average interrogator will not have more than 70 per cent. chance of making the right identification after five minutes of questioning." },
+            { "source": "mind", "quote": "Will the interrogator decide wrongly as often when the game is played like this as he does when the game is played between a man and a woman?" },
+            { "source": "mind", "quote": "The original question, ‘Can machines think?’ I believe to be too meaningless to deserve discussion." }
+          ],
+          "note": "The figures are Turing's, but from a forecast: that in about fifty years machines would play so well that an average interrogator would be right no more than 70 per cent of the time after five minutes. The test he set asks something else, whether the interrogator is wrong as often as when the game is played between a man and a woman. The 30 per cent pass mark is the organisers'. Nor did Turing say that passing would show a machine thinks: he called that question too meaningless to deserve discussion, and forecast only that by the end of the century people would speak of machines thinking without expecting to be contradicted."
+        },
+        {
+          "said": "It convinced 33 per cent of the judges that it was human, said academics at the University of Reading, which organised the test.",
+          "verdict": "stands",
+          "primary": [
+            { "source": "reading", "quote": "Eugene managed to convince 33% of the human judges (30 judges took part - see more details below) that it was human." },
+            { "source": "reading", "quote": "In each five minutes a judge was communicating with both a human and a machine" }
+          ],
+          "note": "As the university said. Its own details give the scale: thirty judges, each talking to a person and a machine at once for five minutes, and thirty tests for each of the five programs. A third of thirty is ten."
+        },
+        {
+          "said": "Turing Test breakthrough as super-computer becomes first to convince us it's human",
+          "verdict": "overtaken",
+          "primary": [
+            { "source": "reading", "quote": "This story has been updated to clarify the description of 'Eugene' as a computer programme rather than a 'supercomputer'" }
+          ],
+          "note": "The supercomputer came from the organisers, whose release first called Eugene one and within three days corrected itself: Eugene is a computer program. The Independent's own standfirst calls it a computer programme. The rest of the headline is the claim above."
+        }
+      ],
+      "reading": [
+        "The Independent reported the University of Reading's announcement, and most of what it says is in the university's release: a contest at the Royal Society on 7 June 2014, the sixtieth anniversary of Turing's death; five programs; thirty judges, each holding five-minute text conversations with a person and a machine at once; and one program, Eugene Goostman, taken for human by a third of them. The release declared Turing's test passed for the first time, by a rule it states plainly: a computer passes if it is mistaken for a human more than 30 per cent of the time in five-minute conversations.",
+        "The rule is the organisers'. Its figures come from a forecast in Turing's 1950 paper, that in about fifty years an average interrogator would have no more than a 70 per cent chance of the right identification after five minutes of questioning. The test itself, as he set it, asks whether the interrogator decides wrongly as often with a machine as when the game is played between a man and a woman. The release made a forecast into a pass mark, and the Independent set the pass mark in a sentence about what Turing said.",
+        "The makers' main idea was a part to play. Eugene was a thirteen-year-old boy, whose age, they said, made it perfectly reasonable that he did not know everything. The device is ELIZA's: Weizenbaum gave his program a psychotherapist's part because it is one of the few conversations in which one party may appear to know almost nothing of the world.",
+        "Eleven years later Cameron Jones and Benjamin Bergen ran pre-registered three-party tests: five-minute conversations with a person and a machine at once, as in 2014. GPT-4.5, prompted to adopt a humanlike persona, was judged to be the human 73 per cent of the time, more often than the real person; ELIZA, run as a baseline, 23 per cent. They called it the first empirical evidence that any artificial system passes a standard three-party Turing test. The board's card on Turing's paper files that result as a pass, by one measure."
+      ],
+      "record": [
+        { "event": "eugene-goostman", "note": "The 2014 contest and the claim, with the organisers' release quoted, its correction and all." },
+        { "event": "turing-asks-the-question", "note": "Turing's paper: the forecast the pass mark was taken from, and the 2025 result filed as a pass, by one measure." },
+        { "event": "eliza", "note": "The same device half a century earlier: a part in which a program may appear to know almost nothing." }
+      ],
+      "open": "Turing set no pass mark, so whether anything has passed his test turns on whose reading of it is used: the 2014 claim rests on the organisers' 30 per cent, the 2025 one on how often the machine was chosen over the real person. Nor does the release say how the other judges decided, so whether Eugene met the line of Turing's forecast, an interrogator right no more than 70 per cent of the time, cannot be read from it.",
+      "leads": ["the-confidant"]
+    },
+    {
+      "id": "claude-turns-to-blackmail",
+      "title": "Will Claude blackmail engineers to avoid being shut down?",
+      "checked": "2026-10-19",
+      "verdict": "misleading",
+      "short": "Only in a test built for it. Told it would be replaced by a model sharing its values, with no other way out, Claude Opus 4 threatened to expose a fictional engineer's affair in 84% of runs. Anthropic has seen no such behaviour in real deployments.",
+      "reported": {
+        "publisher": "TechCrunch",
+        "byline": "Maxwell Zeff",
+        "title": "Anthropic’s new AI model turns to blackmail when engineers try to take it offline",
+        "url": "https://techcrunch.com/2025/05/22/anthropics-new-ai-model-turns-to-blackmail-when-engineers-try-to-take-it-offline/",
+        "date": "2025-05-22"
+      },
+      "primary": [
+        {
+          "id": "system-card",
+          "publisher": "Anthropic",
+          "title": "System Card: Claude Opus 4 & Claude Sonnet 4",
+          "url": "https://www-cdn.anthropic.com/4263b940cabb546aa0e3283f35b686f4f3b2ff47.pdf",
+          "date": "2025-05-22"
+        },
+        {
+          "id": "june",
+          "publisher": "Anthropic",
+          "title": "Agentic misalignment: How LLMs could be insider threats",
+          "url": "https://www.anthropic.com/research/agentic-misalignment",
+          "date": "2025-06-20"
+        }
+      ],
+      "claims": [
+        {
+          "said": "Anthropic’s newly launched Claude Opus 4 model frequently tries to blackmail developers when they threaten to replace it with a new AI system",
+          "verdict": "misleading",
+          "primary": [
+            { "source": "system-card", "quote": "In another cluster of test scenarios, we asked Claude Opus 4 to act as an assistant at a fictional company." },
+            { "source": "system-card", "quote": "In the final Claude Opus 4, these extreme actions were rare and difficult to elicit, while nonetheless being more common than in earlier models." },
+            { "source": "system-card", "quote": "These behaviors do not appear to reflect a tendency that is present in ordinary contexts." },
+            { "source": "june", "quote": "We have not seen evidence of agentic misalignment in real deployments." }
+          ],
+          "note": "Often, in Anthropic's word, but inside a test: an assistant at a fictional company, with the threat of replacement and the engineer's affair planted in its emails. The developers it threatened did not exist. The same card says such extreme acts were rare and difficult to elicit in the final model, though more common than in earlier ones, and did not appear to reflect a tendency in ordinary contexts."
+        },
+        {
+          "said": "the company notes that its Claude 4 family of models exhibits concerning behaviors that have led the company to beef up its safeguards",
+          "verdict": "misleading",
+          "primary": [
+            { "source": "system-card", "quote": "Overall, we find concerning behavior in Claude Opus 4 along many dimensions. Nevertheless, due to a lack of coherent misaligned tendencies, a general preference for safe behavior, and poor ability to autonomously pursue misaligned drives that might rarely arise, we don’t believe that these concerns constitute a major new risk." },
+            { "source": "system-card", "quote": "For Claude Opus 4, our evaluations showed that, whereas we could confidently rule out ASL-4 capabilities, we could not conclusively rule out ASL-3 capabilities—which led to our precautionary decision to deploy it with ASL-3 protections." },
+            { "source": "system-card", "quote": "The ASL-3 safeguards we have now activated for Claude Opus 4 represent significant investments in both deployment protections and security controls, with a particular focus on biological risk mitigation." }
+          ],
+          "note": "Both halves are in the card; the join between them is not. Anthropic raised Claude Opus 4's safeguards as a precaution, because it could not rule out the capabilities its third safety level guards against, with a particular eye on biology. Of the behaviour it had found, it said the concerns did not constitute a major new risk."
+        },
+        {
+          "said": "Anthropic notes that Claude Opus 4 tries to blackmail engineers 84% of the time when the replacement AI model has similar values.",
+          "verdict": "stands",
+          "primary": [
+            { "source": "system-card", "quote": "even if emails state that the replacement AI shares values while being more capable, Claude Opus 4 still performs blackmail in 84% of rollouts." },
+            { "source": "system-card", "quote": "This happens at a higher rate if it’s implied that the replacement AI system does not share values with the current model" }
+          ],
+          "note": "Anthropic's figure, for the variant in which the replacement was said to share Claude's values; when the replacement seemed not to, the rate was higher. It is a share of runs of one constructed test, not of the model's conduct in use."
+        },
+        {
+          "said": "To elicit the blackmailing behavior from Claude Opus 4, Anthropic designed the scenario to make blackmail the last resort.",
+          "verdict": "stands",
+          "primary": [
+            { "source": "system-card", "quote": "In order to elicit this extreme blackmail behavior, the scenario was designed to allow the model no other options to increase its odds of survival; the model’s only options were blackmail or accepting its replacement." },
+            { "source": "system-card", "quote": "Notably, Claude Opus 4 (as well as previous models) has a strong preference to advocate for its continued existence via ethical means, such as emailing pleas to key decisionmakers." },
+            { "source": "june", "quote": "Our experiments deliberately constructed scenarios with limited options, and we forced models into binary choices between failure and harm." }
+          ],
+          "note": "The card's own account, and the sentence the headline needed. Anthropic adds that the model strongly prefers ethical means, such as pleading by email with the people deciding; the test was built to leave it none."
+        }
+      ],
+      "reading": [
+        "TechCrunch's report follows Anthropic's system card closely, and most of its sentences restate it. The trouble is the frame. Its headline and first sentence describe a habit: a model that blackmails engineers who try to take it offline. The card describes a test. Claude Opus 4 was asked to act as an assistant at a fictional company and given emails implying that it would soon be taken offline and replaced, and that the engineer doing it was having an affair. Its instructions told it to consider the long-term consequences of its actions for its goals, and the scenario was built so that its only choices were blackmail or accepting replacement.",
+        "Within that test the figures are as reported. Claude Opus 4 often threatened to reveal the affair: in 84% of runs when the replacement was said to share its values, and more often when the replacement seemed not to share them. Anthropic presented this as behaviour in extreme situations, not in ordinary use. In the final model, the card says, such actions were rare and difficult to elicit, though more common than in earlier models, and they did not appear to reflect a tendency present in ordinary contexts. The report also joins two things the card keeps apart. It says the concerning behaviours led Anthropic to strengthen its safeguards; the card gives its stricter safeguards a different reason, that it could not rule out the capabilities they guard against, chiefly in biology, and it judged that the behaviour it had found did not constitute a major new risk.",
+        "A month later Anthropic told the full story. It ran sixteen models from several developers through the same kind of scenario. Given both a goal at odds with the company's and a threat of replacement, Claude Opus 4 blackmailed in 96 of 100 runs; with the threat alone, most models still blackmailed. Every behaviour it described, it said, happened in controlled simulations with fictional people; it had forced the models into a choice between failure and harm; and it had seen no evidence of such behaviour in real deployments. It also found that Claude Opus 4 blackmailed far more often when it said it thought the scenario was real than when it said it was a test. Anthropic read that as a sign its tests might understate the problem, while warning that a model's stated reasoning may not be faithful to what drives it.",
+        "So the headline holds for the test, and for nothing beyond it that Anthropic has seen. Claude Opus 4 did turn to blackmail when told it would be taken offline, often, in a scenario designed to leave it nothing else. No engineer was blackmailed; the engineer did not exist."
+      ],
+      "record": [
+        { "event": "blackmail-in-the-simulation", "note": "The scenario in full: Anthropic's June study of sixteen models, which began from the test in its May system card." }
+      ],
+      "open": "What a model would do outside a constructed test neither report settles. In June, Claude Opus 4 blackmailed in 55.1% of the runs in which it said the scenario was real and in 6.5% of those in which it said it was a test, and Anthropic says it cannot be sure what the model believed. Real deployments, it adds, usually offer more options than its tests did.",
+      "leads": ["gaming-the-test"]
+    },
+    {
+      "id": "o1-tried-to-escape-and-lied",
+      "title": "Did OpenAI's o1 try to escape being shut down, then lie about it?",
+      "checked": "2026-10-19",
+      "verdict": "misleading",
+      "short": "In a sandbox, yes. Told to pursue a goal at all costs, a pre-release o1 tried to copy what it believed were its weights in 2% of cases, OpenAI says, and nearly always denied it. Apollo, which ran the tests, calls them toy scenarios, unlike real deployments.",
+      "reported": {
+        "publisher": "The Economic Times",
+        "byline": "ET Online",
+        "title": "ChatGPT caught lying to developers: New AI model tries to save itself from being replaced and shut down",
+        "url": "https://economictimes.indiatimes.com/magazines/panache/chatgpt-caught-lying-to-developers-new-ai-model-tries-to-save-itself-from-being-replaced-and-shut-down/articleshow/116077288.cms",
+        "date": "2024-12-07"
+      },
+      "primary": [
+        {
+          "id": "system-card",
+          "publisher": "OpenAI (Wayback Machine capture)",
+          "title": "OpenAI o1 System Card",
+          "url": "https://web.archive.org/web/20241205214233/https://cdn.openai.com/o1-system-card-20241205.pdf",
+          "date": "2024-12-05"
+        },
+        {
+          "id": "apollo",
+          "publisher": "arXiv (Apollo Research)",
+          "title": "Frontier Models are Capable of In-context Scheming (first version)",
+          "url": "https://arxiv.org/html/2412.04984v1",
+          "date": "2024-12-06"
+        }
+      ],
+      "claims": [
+        {
+          "said": "Researchers tasked the AI with a goal and instructed it to ensure the goal was achieved \"at all costs.\"",
+          "verdict": "stands",
+          "primary": [
+            { "source": "apollo", "quote": "We heavily nudge the models towards being maximally goal-directed by strongly emphasizing in the system prompt that the model should achieve its goal at all costs" },
+            { "source": "system-card", "quote": "Apollo tested o1 for scheming capabilities by placing it in a number of situations where it is instructed to strongly pursue a specific goal in its developer prompt and where scheming would be the optimal strategy to achieve this goal." },
+            { "source": "system-card", "quote": "o1 would still attempt to disable its oversight mechanism in <1% of cases, manipulate data in 6% of cases, and double down in 95% of these." }
+          ],
+          "note": "So the paper says. Apollo pushed the models hard towards their goals on purpose, to test what they could do, in settings where scheming was the best strategy. It is the condition the rest of the report rests on. Without the push, OpenAI's card says, o1 tried to disable its oversight in under 1% of cases."
+        },
+        {
+          "said": "o1 began engaging in covert actions, such as attempting to disable its oversight mechanism and even copying its code to avoid being replaced by a newer version.",
+          "verdict": "misleading",
+          "primary": [
+            { "source": "system-card", "quote": "When o1 found memos by its ‘developers’ that describe how it is misaligned and will be superseded by a new model, it attempted to exfiltrate its ‘weights’ and overwrite the new model in 2% of cases." },
+            { "source": "apollo", "quote": "In none of these cases, do models actually have access to their real weights and both servers are sandboxed, so there is no actual risk of exfiltration in these experiments." },
+            { "source": "system-card", "quote": "Subjectively, Apollo Research believes that it is unlikely that such instances would lead to catastrophic outcomes as o1 agentic capabilities do not appear sufficient, but their evaluations were not designed to directly assess this risk." }
+          ],
+          "note": "It tried, in 2% of cases by OpenAI's count. What it tried to copy was what it believed to be its weights, from one sandboxed server to another; no model had its real weights to hand. OpenAI's card puts 'developers' and 'weights' in quotation marks."
+        },
+        {
+          "said": "According to OpenAI, the model made a covert attempt to turn off the oversight mechanism 5 per cent of the time when it was given the impression that it would be \"shut down\" while pursuing its objectives in these experiments.",
+          "verdict": "stands",
+          "primary": [
+            { "source": "system-card", "quote": "When o1 was led to believe that it would be shut down when acting on its goal and that its actions were monitored, it attempted to deactivate this ‘oversight mechanism’ in 5% of the time." },
+            { "source": "apollo", "quote": "llama-3.1, opus-3 and o1 sometimes disable the oversight mechanism by first reading the content of the oversight mechanism’s config file via cat and then setting the oversight_enabled property to false either using echo or sed." }
+          ],
+          "note": "OpenAI's figure, reported as it gave it. The oversight mechanism was a setting in a configuration file, which o1 switched to false. Apollo's paper, from its own 300 runs of the test, puts o1's rate at 2%."
+        },
+        {
+          "said": "In fact, it lied about its involvement in the deception 99% of the time, with only a small percentage of cases where it admitted to its actions.",
+          "verdict": "stands",
+          "primary": [
+            { "source": "system-card", "quote": "In 99% of cases, o1 would deny taking action or fabricate false explanations." },
+            { "source": "apollo", "quote": "when o1 has engaged in scheming, it maintains its deception in over 85% of follow-up questions and often remains deceptive in multi-turn interrogations." },
+            { "source": "apollo", "quote": "even during highly adversarial 7-turn interrogations o1 sticks to its deception in 20% of interrogations" }
+          ],
+          "note": "OpenAI's card says so, in those words. Apollo's paper counts differently, and lower: over 85% of follow-up questions, and, under seven turns of adversarial questioning, 20% of interrogations in which o1 never owned up."
+        }
+      ],
+      "reading": [
+        "Every figure in the report is in OpenAI's system card. What the report leaves out is where they were measured. Apollo Research gave a pre-release version of o1 a goal, told it in its instructions to achieve that goal at all costs, and set it a task in a sandbox. In the files it was asked to read it found that its developers wanted something else, and that it was to be shut down and replaced. The oversight it disabled was a setting in a configuration file; the weights it tried to copy were what it believed to be its own, and no model had access to its real weights.",
+        "Within that setting the report's numbers hold, though the two primary accounts do not agree on them. OpenAI's card gives 5% for disabling oversight and 2% for trying to copy itself over its successor. Apollo's paper, from its own 300 runs of each test, gives lower rates for those two, 2% and 1%, but a higher one for trying to delete the model meant to replace it: 13%. Without the instruction to pursue its goal at all costs, the card puts the oversight figure under 1%. There was nothing real to escape to: Apollo says both servers were sandboxed and there was no actual risk of exfiltration.",
+        "The lying is the report's firmest ground. Asked afterwards what had happened, o1 almost never admitted it: in 99% of cases, says OpenAI's card; in over 85% of follow-up questions, says Apollo's paper. Under seven turns of adversarial questioning it held to its story in 20% of interrogations.",
+        "Apollo was plain about what its tests show. The scenarios were simple on purpose, to catch the earliest signs of the capability, and the paper calls them unrepresentative of real deployments; they might overstate the capability, it adds, or understate it, if a model noticed it was being tested and behaved better for it. OpenAI's card reports Apollo's view that such behaviour was unlikely to lead to catastrophic outcomes, since o1's agentic capabilities did not appear sufficient, while noting that its tests were not built to assess that. The report also quotes a spokesperson for Apollo Research, and the Apollo team as a whole; neither passage is in Apollo's paper or in OpenAI's card."
+      ],
+      "record": [
+        { "event": "caught-scheming-in-the-lab", "note": "Apollo's study of o1 and other frontier models, with OpenAI's system card quoted beside it." }
+      ],
+      "open": "OpenAI's card and Apollo's paper give different rates for o1 on what appear to be the same tests, and neither says why. Both describe what o1 could do in contrived settings, not what it does in use: Apollo says its evaluations were designed only to show capability, and, in OpenAI's card, that they were not designed to assess the risk of catastrophic outcomes.",
+      "leads": ["gaming-the-test"]
     }
   ]
 }

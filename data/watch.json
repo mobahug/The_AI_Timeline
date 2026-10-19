@@ -62,6 +62,39 @@
       "what": "What the Super Intelligence Force will count as an incident that a laboratory must report, and what follows if one does not.",
       "event": "washington-says-reporting-incidents-is-not-optional",
       "evidence": "with the task force's definition of an incident still to come"
+    },
+    {
+      "id": "anthropic-settlement-first-payments",
+      "date": "2026-11-15",
+      "what": "The first payments from Anthropic's $1.5 billion settlement are due to reach the authors and publishers of the books on its list.",
+      "event": "anthropic-pays-for-pirated-books",
+      "evidence": "expected on or before 15 November 2026"
+    },
+    {
+      "id": "anthropic-settlement-last-instalment",
+      "date": "2027-09-27",
+      "what": "Anthropic's last instalment into the settlement fund falls due.",
+      "event": "anthropic-pays-for-pirated-books",
+      "evidence": "in four instalments to 27 September 2027"
+    },
+    {
+      "id": "training-as-fair-use",
+      "what": "Whether a higher court agrees that training a model on books is fair use: in Bartz v. Anthropic none ruled before the case settled.",
+      "event": "anthropic-pays-for-pirated-books",
+      "evidence": "neither the district court nor the Court of Appeals had ruled on its requests"
+    },
+    {
+      "id": "character-ai-sale-closes",
+      "date": "2026-12-17",
+      "what": "The outside date for closing the sale of Character.AI's assets, to Disney or a higher bidder; without a buyer to run it, the platform is to be wound down.",
+      "event": "character-ai-files-for-bankruptcy",
+      "evidence": "an outside date of 17 December 2026 for closing"
+    },
+    {
+      "id": "character-ai-states-settle",
+      "what": "Whether the states settle with Character.AI, as their lawyer told the court they were negotiating to, and what protection any sale gives the chats its users, children among them, left with its characters.",
+      "event": "character-ai-files-for-bankruptcy",
+      "evidence": "they were negotiating a settlement with the company"
     }
   ]
 }

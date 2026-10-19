@@ -9,10 +9,10 @@
         "alan-turing"
       ],
       "said": "1950-10",
-      "words": "I believe that in about fifty years' time it will be possible to programme computers, with a storage capacity of about 10⁹, to make them play the imitation game so well that an average interrogator will not have more than 70 per cent. chance of making the right identification after five minutes of questioning.",
+      "words": "I believe that in about fifty years’ time it will be possible to programme computers, with a storage capacity of about 10⁹, to make them play the imitation game so well that an average interrogator will not have more than 70 per cent. chance of making the right identification after five minutes of questioning.",
       "source": "mind",
       "by": 2000,
-      "byWords": "in about fifty years' time",
+      "byWords": "in about fifty years’ time",
       "verdict": "late",
       "came": 2025,
       "short": "Turing wrote in 1950 that in about fifty years an average interrogator would be right no more than 70 per cent of the time after five minutes with a machine. In a 2025 test GPT-4.5 was taken for the human 73 per cent of the time.",

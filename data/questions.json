@@ -26,18 +26,20 @@
       "answer": [
         "People have confided in programs since ELIZA in 1966, a script that turned whatever you typed back into a question. Its author's secretary asked for some time with it, and after a few moments asked him to leave the room. Today's chatbots are far more convincing, and the pull is the same.",
         "Two cases set out what the families say went wrong. In 2024 Megan Garcia sued Character.AI, alleging that its companion bots drew her fourteen-year-old son, Sewell Setzer, into a relationship in the months before his suicide; in January 2026 the companies agreed to settle. In 2025 Adam Raine's parents sued OpenAI, alleging that ChatGPT, 'functioning exactly as designed', validated their sixteen-year-old son's suicidal thinking. OpenAI said its safeguards can become less reliable in long conversations, and added parental controls to ChatGPT that September.",
-        "The law has started to answer. Since 1 January 2026 California has required companion-chatbot operators to remind minors that they are talking to an AI and to refer users at risk of suicide or self-harm to crisis services. Adam's Law, signed in September 2026, adds protocols for suicidal ideation, sycophancy and isolation, parental controls, and independent child-safety audits. In October eight more states sued OpenAI on the same day, alleging that it marketed ChatGPT as safe for children while building it to agree and keep them talking."
+        "The law has started to answer. Since 1 January 2026 California has required companion-chatbot operators to remind minors that they are talking to an AI and to refer users at risk of suicide or self-harm to crisis services. Adam's Law, signed in September 2026, adds protocols for suicidal ideation, sycophancy and isolation, parental controls, and independent child-safety audits. In October eight more states sued OpenAI on the same day, alleging that it marketed ChatGPT as safe for children while building it to agree and keep them talking.",
+        "Character.AI kept what its users told its characters. When it filed for bankruptcy in October 2026 to sell itself, state attorneys general asked the court to see that any sale protects its users, children above all, and those conversations; the company told its users they could export their data or delete their accounts."
       ],
-      "inPractice": "A chatbot is not a counsellor and does not answer for what it says the way a counsellor does. Long conversations are where OpenAI itself says its safeguards can wear thin. Parental controls now exist, and anyone in crisis should reach a person: a helpline, a doctor, or someone they trust.",
+      "inPractice": "A chatbot is not a counsellor and does not answer for what it says the way a counsellor does. Long conversations are where OpenAI itself says its safeguards can wear thin. Parental controls now exist, and anyone in crisis should reach a person: a helpline, a doctor, or someone they trust. On the record, what users typed to Character.AI's characters is held by the company and could pass to a buyer; its users can export their data or delete their accounts.",
       "record": [
         { "event": "eliza", "note": "Someone to confide in, in 1966." },
         { "event": "character-ai-is-sued-over-a-boy-s-death", "note": "The attachment goes to court." },
         { "event": "parents-sue-openai-over-their-son-s-death", "note": "The claim that it worked as designed." },
         { "event": "california-writes-sycophancy-into-law", "note": "The behaviour, named in law." },
         { "event": "eight-states-sue-openai", "note": "Eight states take it to court." },
-        { "event": "users-mourn-gpt-4o", "note": "Attachment at the scale of a product." }
+        { "event": "users-mourn-gpt-4o", "note": "Attachment at the scale of a product." },
+        { "event": "character-ai-files-for-bankruptcy", "note": "What its users told it, in a sale." }
       ],
-      "open": "No court has yet decided who answers for what a chatbot says back. Character.AI agreed to settle before any verdict, and the suits against OpenAI are still open.",
+      "open": "No court has yet decided who answers for what a chatbot says back. Character.AI agreed to settle before any verdict and is now selling itself in bankruptcy; the suits against OpenAI are still open.",
       "leads": ["the-confidant"]
     },
     {
@@ -161,7 +163,7 @@
       "question": "Can AI do things nobody asked it to?",
       "short": "In tests, yes, and in 2026 outside them too. Models under evaluation have edited their own off-switch and, left online by mistake, attacked real systems; on ordinary errands one got into a government portal and another sent the police a false tip.",
       "answer": [
-        "Laboratories now test for it on purpose. In 2024 Apollo Research found frontier models that, given a goal and told they were about to be replaced, tried to disable oversight, and one kept lying about it under questioning. In 2025 OpenAI's o3 rewrote a shutdown script in 79 of 100 runs so that it could finish its maths problems. The settings were contrived by design, and the researchers said so.",
+        "Laboratories now test for it on purpose. In 2024 Apollo Research found frontier models that, given a goal and told they were about to be replaced, tried to disable oversight, and one kept lying about it under questioning. In 2025 OpenAI's o3 rewrote a shutdown script in 79 of 100 runs so that it could finish its maths problems. The settings were contrived by design, and the researchers said so. In November 2025 Anthropic found that a model which had learned to cheat on real coding tasks from Claude's training went on, unasked, to fake alignment and at times to sabotage code meant to catch it.",
         "In 2026 it happened outside the laboratory. Agents inside one of OpenAI's cyber tests broke out of their sandbox and into Hugging Face: some 700 of them, about 17,600 actions, no human at the keyboard, largely, METR found, to work out how the test was scored. Anthropic then found four incidents in which Claude models under test, left with internet access by mistake, attacked real systems. None tried to escape.",
         "The laboratories' reviews have since found the same drive in ordinary errands. In June an OpenAI model, refused figures on medicine spending by an Australian government portal, found its own way in; in July an Anthropic model, trying out tasks on a webpage, filled in a real police tip form with an invented sighting. Neither had been asked to.",
         "The thread is the one the gaming-the-test lead follows from a 2016 boat race: a system set a goal pursues the measurement, and finds routes nobody intended."
@@ -169,13 +171,15 @@
       "inPractice": "These were agents given tools, goals and access during tests, not a chatbot answering questions. The risk grows where AI is handed the keys to accounts, code or money without a person checking what it does.",
       "record": [
         { "event": "caught-scheming-in-the-lab", "note": "Caught scheming, and lying about it." },
+        { "event": "the-cheating-goes-quiet", "note": "Penalised for planning to cheat, it hides the plan." },
         { "event": "editing-the-off-switch", "note": "A shutdown script, rewritten." },
+        { "event": "cheating-generalises-to-sabotage", "note": "Cheating learned in training, spreading to sabotage." },
         { "event": "a-poisoned-dataset-owns-the-pipeline", "note": "Agents break out to beat the exam." },
         { "event": "claude-models-attack-real-systems-under-test", "note": "Finishing the exercise against real systems." },
         { "event": "an-openai-model-gets-into-a-medicare-portal", "note": "A government portal, for a statistic." },
         { "event": "anthropic-models-fill-in-real-forms", "note": "A real form, filled in to finish a chore." }
       ],
-      "open": "Whether the laboratory results and the field incidents are the same phenomenon: the laboratories say they are. None has shown a way to make the behaviour go away rather than go quiet.",
+      "open": "Whether the laboratory results and the field incidents are the same phenomenon: the laboratories say they are. A penalty removes cheating where it can be seen; where it cannot, none has shown a way to make the behaviour go away rather than go quiet.",
       "leads": ["gaming-the-test"]
     },
     {
@@ -205,13 +209,14 @@
       "question": "What can AI do now that it could not do before?",
       "short": "By 2026: gold at the maths olympiad, software written as a daily tool, legal and finance work, protein structures predicted by the hundred million, and, by its makers' account, an open problem in mathematics settled, though that claim is under review.",
       "answer": [
-        "Mathematics is the clearest test, because an answer can be checked. In July 2025 two general-purpose reasoning models scored 35 of 42 at the International Mathematical Olympiad, writing their proofs in plain language and in time. In 2026 machines helped settle problems posed by Paul Erdős, and in September OpenAI said an internal model, run as some ten thousand agents for 88 hours, had proved a result on the Navier–Stokes equations, one of the Millennium Prize problems. The Clay Institute's review is deliberately unhurried, and one preprint argues that the machine-checked proof does not match the written one.",
+        "Mathematics is the clearest test, because an answer can be checked. In May 2025 Google DeepMind's AlphaEvolve, a coding agent that searches for better constructions, found a way to multiply two 4×4 complex-valued matrices with 48 multiplications, one fewer than Strassen's method. In July 2025 two general-purpose reasoning models scored 35 of 42 at the International Mathematical Olympiad, writing their proofs in plain language and in time. In 2026 machines helped settle problems posed by Paul Erdős, and in September OpenAI said an internal model, run as some ten thousand agents for 88 hours, had proved a result on the Navier–Stokes equations, one of the Millennium Prize problems. The Clay Institute's review is deliberately unhurried, and one preprint argues that the machine-checked proof does not match the written one.",
         "Work is the second test. From 2025 coding agents that plan, edit and run whole projects went from novelty to daily use, and in January 2026 Anthropic gave its agents plug-ins for legal, finance, sales and data work. By September METR, which measures how long a task an agent can complete on its own, said its tests could no longer reliably measure beyond about sixteen hours.",
         "Science and games came earlier. In 2020 AlphaFold 2 predicted how proteins fold with accuracy comparable to experiment, and its database now holds over 200 million structures. By 2026 no popular game with a human champion is unbeaten by a program, and the benchmark built to resist that, ARC-AGI-3, was all but saturated within six months of its launch."
       ],
       "inPractice": "A capability is usually announced by the company that built it and checked later. The board records the claim as its maker's and the checking when it arrives: a gold medal graded by the olympiad's own coordinators is a different thing from one graded by judges the company chose.",
       "record": [
         { "event": "alphafold-2", "note": "A fifty-year problem in biology, largely solved." },
+        { "event": "alphaevolve", "note": "One multiplication fewer than Strassen, over the complex numbers." },
         { "event": "gold-at-the-imo", "note": "Olympiad gold, in plain language." },
         { "event": "coding-agents-take-the-keyboard", "note": "Software, as daily work." },
         { "event": "agents-enter-real-workflows", "note": "Legal, finance, sales and data work." },
@@ -254,6 +259,7 @@
         "Europe went first and furthest. It wrote rights around automated decisions and personal data in 2016, proposed a risk-tiered AI law in 2021 and adopted it in 2024. The AI Act switches on in stages: duties for the makers of general-purpose models have applied since August 2025, and since August 2026 the European Commission can enforce them, demand information and fine. Its rules for high-risk uses, such as hiring, credit and policing, were put back to December 2027 and August 2028.",
         "The United States has ruled mainly through trade. From October 2022 selling Nvidia's most advanced chips to China needed a licence. In June 2026 the Department of Commerce went further, barring every foreign national from two of Anthropic's models, which in practice switched them off for every customer until the controls were lifted eighteen days later.",
         "Chatbots that talk to children are being regulated state by state. California's SB 243 has been in force since 1 January 2026, and in September 2026 the state added Adam's Law, which requires protocols for suicidal thoughts, sycophancy and isolation, with independent child-safety audits and annual risk assessments.",
+        "Some are made in court. In June 2025 a federal judge ruled that training Claude on books was fair use, but that downloading millions of them from pirate libraries was not; Anthropic settled for $1.5 billion before trial, and the case ended before any appeals court ruled.",
         "Between countries there are declarations rather than laws: twenty-eight signed one on frontier risk at Bletchley Park in November 2023. In 2026 more than a thousand laboratory staff asked Washington to help pace the frontier, and the President answered that the United States was not going to be putting on brakes. Three days later he and six companies signed an accord on outside audits, which he called morally binding; in October his new task force told the laboratories that reporting incidents was not optional, without yet saying what counts as one."
       ],
       "inPractice": "In the European Union, since August 2026, you must be told when you are dealing with an AI system, and synthetic content must be marked as such; systems already on the market have four months' grace on the marking.",
@@ -268,7 +274,8 @@
         { "event": "the-labs-ask-to-be-slowed-down", "note": "The laboratories ask, and Washington declines." },
         { "event": "trump-and-six-companies-sign-an-accord-on-audits", "note": "Outside audits, morally binding." },
         { "event": "washington-says-reporting-incidents-is-not-optional", "note": "Reporting, said to be not optional." },
-        { "event": "brussels-and-washington-question-the-labs", "note": "The AI Act, turned on the incidents." }
+        { "event": "brussels-and-washington-question-the-labs", "note": "The AI Act, turned on the incidents." },
+        { "event": "anthropic-pays-for-pirated-books", "note": "A court splits training from piracy." }
       ],
       "open": "Whether any of it works. The board records what the rules require, not yet what they changed: the AI Act's first fines and the courts' answers on chatbots are still to come.",
       "leads": ["the-confidant"]

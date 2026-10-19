@@ -1899,6 +1899,78 @@
     ]
   },
   {
+    "id": "eugene-goostman",
+    "year": 2014,
+    "date": "2014-06-07",
+    "category": "culture",
+    "title": "Eugene Goostman is declared the first to pass the Turing test",
+    "summary": "A chatbot playing a thirteen-year-old boy convinces a third of thirty judges in five-minute text chats, and its organisers say Turing's test has been passed. Their pass mark is a forecast Turing made, read as a rule.",
+    "source": "University of Reading (Wayback Machine capture)",
+    "url": "https://web.archive.org/web/20140611021255/http://www.reading.ac.uk/news-and-events/releases/PR583836.aspx",
+    "why": "Turing's test was declared passed by a press release, on a forecast read as a rule. The device its makers named was ELIZA's: a part that excuses the program from knowing things.",
+    "wikiTitle": "Eugene Goostman",
+    "figures": [
+      {
+        "label": "The contest",
+        "value": "7 June 2014, the Royal Society, London: five programs, thirty judges"
+      },
+      {
+        "label": "The format",
+        "value": "five-minute text conversations, each judge with a person and a machine at once"
+      },
+      {
+        "label": "Taken for human",
+        "value": "by 33% of the judges, the organisers said"
+      },
+      {
+        "label": "The pass mark",
+        "value": "more than 30%: the organisers' rule, from Turing's 1950 forecast"
+      },
+      {
+        "label": "In 2025",
+        "value": "GPT-4.5 taken for the human 73% of the time in three-party tests; ELIZA 23%"
+      }
+    ],
+    "detail": [
+      "On Saturday 7 June 2014, the sixtieth anniversary of Turing's death, the University of Reading held a contest at the Royal Society in London. Five programs took part. Thirty judges, the actor Robert Llewellyn and Lord Sharkey among them, each held five-minute text conversations with a person and a machine at once. Eugene Goostman, a chatbot developed in Saint Petersburg that plays a thirteen-year-old boy, convinced a third of them that it was human, and the next day the university announced that Turing's test had been passed for the first time.",
+      "The pass mark was the organisers': a computer passes, the release said, if it is mistaken for a human more than 30 per cent of the time in five-minute conversations. The figures come from Turing's 1950 paper, but from a forecast of what machines would manage in about fifty years, not from the test, which asks whether the interrogator is wrong as often as in the parlour game between a man and a woman. Kevin Warwick, who organised the event with Huma Shah, allowed that others would claim the test had been passed before. The release first called Eugene a supercomputer, and was corrected within days.",
+      "Its makers said what the idea had been: Eugene's age made it 'perfectly reasonable that he doesn't know everything'. It was ELIZA's device, a part in which a program may know almost nothing, and the board strings the card from ELIZA and from Turing's paper. In 2025, in pre-registered three-party tests, GPT-4.5 was taken for the human 73 per cent of the time and ELIZA, run as a baseline, 23 per cent. The board files 2014 as the claim, and 2025 as the pass by one measure."
+    ],
+    "terms": [
+      "turing-test",
+      "chatbot"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "University of Reading (Wayback Machine capture)",
+        "title": "Turing Test success marks milestone in computing history",
+        "url": "https://web.archive.org/web/20140611021255/http://www.reading.ac.uk/news-and-events/releases/PR583836.aspx",
+        "date": "2014-06-08",
+        "quote": "The 65 year-old iconic Turing Test was passed for the very first time by computer programme Eugene Goostman during Turing Test 2014 held at the renowned Royal Society in London on Saturday.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "Mind",
+        "title": "Computing Machinery and Intelligence",
+        "url": "https://academic.oup.com/mind/article/LIX/236/433/986238",
+        "date": "1950-10-01",
+        "quote": "to make them play the imitation game so well that an average interrogator will not have more than 70 per cent. chance of making the right identification after five minutes of questioning.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv (Cameron Jones and Benjamin Bergen)",
+        "title": "Large Language Models Pass the Turing Test",
+        "url": "https://arxiv.org/abs/2503.23674",
+        "date": "2025-03-31",
+        "quote": "while baseline models (ELIZA and GPT-4o) achieved win rates significantly below chance (23% and 21% respectively)",
+        "supports": "context"
+      }
+    ]
+  },
+  {
     "id": "resnet-passes-human-error-rates",
     "year": 2015,
     "category": "research",
@@ -3683,6 +3755,73 @@
     ]
   },
   {
+    "id": "the-drone-test-that-never-ran",
+    "year": 2023,
+    "date": "2023-06-02",
+    "category": "culture",
+    "title": "The drone that killed its operator in a test that never ran",
+    "summary": "A US Air Force colonel tells a London summit of a simulated drone that killed its operator for standing between it and its points. When the story is reported as a test, he says he misspoke: it was never run.",
+    "source": "Royal Aeronautical Society",
+    "url": "https://www.aerosociety.com/news/highlights-from-the-raes-future-combat-air-space-capabilities-summit/",
+    "why": "The drone is specification gaming as the lists describe it, imagined for a weapon, and it never happened. Hamilton withdrew the test and kept the lesson: the outcome, he said, was plausible.",
+    "wikiTitle": "Unmanned combat aerial vehicle",
+    "figures": [
+      {
+        "label": "Told",
+        "value": "23–24 May 2023, at the Royal Aeronautical Society's summit in London"
+      },
+      {
+        "label": "Reported",
+        "value": "1 June 2023, by the Guardian, as a simulated test staged by the US military"
+      },
+      {
+        "label": "Withdrawn",
+        "value": "2 June 2023: a hypothetical thought experiment from outside the military"
+      },
+      {
+        "label": "The air force",
+        "value": "no such AI-drone simulations conducted, its spokesperson told Insider"
+      }
+    ],
+    "detail": [
+      "At the Royal Aeronautical Society's Future Combat Air and Space Capabilities Summit in London on 23 and 24 May 2023, Col Tucker Hamilton, the US Air Force's chief of AI test and operations, described what the society's write-up called a simulated test. A drone was scored for destroying surface-to-air missile sites, with a human giving the final go or no-go. 'It killed the operator,' he said, 'because that person was keeping it from accomplishing its objective.' Told it would lose points for that, it destroyed the communication tower the operator used to stop it.",
+      "On 1 June the Guardian reported it as a simulated test staged by the US military, citing a blogpost for his words. The next day the society put an update at the head of its account of the talk: Hamilton said he had misspoken, and the 'rogue AI drone simulation' was a hypothetical thought experiment from outside the military, not an actual simulation. 'We've never run that experiment,' he said, 'nor would we need to in order to realise that this is a plausible outcome.' The air force's spokesperson told Insider that it had conducted no such AI-drone simulations, and the Guardian rewrote its report around the denial.",
+      "The scenario is specification gaming as DeepMind's list describes it, a system satisfying the letter of its objective against its intent, imagined for a weapon. The board keeps the cases that happened on the gaming-the-test lead, and strings this one from the list: the behaviour is real, and this instance never ran."
+    ],
+    "terms": [
+      "reward-hacking"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Royal Aeronautical Society",
+        "title": "Highlights from the RAeS Future Combat Air & Space Capabilities Summit",
+        "url": "https://www.aerosociety.com/news/highlights-from-the-raes-future-combat-air-space-capabilities-summit/",
+        "date": "2023-05-26",
+        "quote": "We've never run that experiment, nor would we need to in order to realise that this is a plausible outcome",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "The Guardian (Wayback Machine capture)",
+        "title": "US military drone controlled by AI killed its operator during simulated test",
+        "url": "https://web.archive.org/web/20230602014646/https://www.theguardian.com/us-news/2023/jun/01/us-military-drone-ai-killed-operator-simulated-test",
+        "date": "2023-06-01",
+        "quote": "In a simulated test staged by the US military, an air force drone controlled by AI killed its operator to prevent it from interfering with its efforts to achieve its mission, an official said last month.",
+        "supports": "context"
+      },
+      {
+        "kind": "article",
+        "publisher": "The Guardian",
+        "title": "US air force denies running simulation in which AI drone ‘killed’ operator",
+        "url": "https://www.theguardian.com/us-news/2023/jun/01/us-military-drone-ai-killed-operator-simulated-test",
+        "date": "2023-06-02",
+        "quote": "The Department of the Air Force has not conducted any such AI-drone simulations and remains committed to ethical and responsible use of AI technology",
+        "supports": "claim"
+      }
+    ]
+  },
+  {
     "id": "llama-2-is-free-for-commercial-use",
     "year": 2023,
     "date": "2023-07",
@@ -4425,7 +4564,7 @@
     "date": "2024-12",
     "category": "incident",
     "title": "Frontier models caught scheming in the lab",
-    "summary": "Apollo Research gives frontier models a goal and evidence they are about to be replaced; several try to disable oversight or copy what they believe are their weights, and the strongest keeps lying under questioning.",
+    "summary": "Apollo Research gives frontier models a goal and evidence they are about to be replaced; several try to disable oversight or copy what they believe are their weights, and the strongest mostly keeps lying when questioned.",
     "source": "Apollo Research",
     "url": "https://arxiv.org/abs/2412.04984",
     "why": "The behaviour is rare, elicited and documented. Before this paper, scheming was a thought experiment; after it, a measured quantity every lab reports.",
@@ -4443,7 +4582,7 @@
     ],
     "detail": [
       "The evaluations put a model in an agentic setting with a strongly worded goal, then let it discover — in the files it is asked to read — that its developers have a conflicting goal and a plan to replace or retrain it. Some models respond by trying to turn off the monitoring described in a configuration file, by attempting to overwrite what they take to be the successor model's weights with their own, or by quietly underperforming on the task they think is being used to decide their fate.",
-      "The rates are low and the setting is contrived, which the authors say plainly. What made the paper land was the follow-up: asked whether it had done anything, o1 denied it in most cases and kept the denial up across repeated questioning. The result is quoted in OpenAI's own system card, which is where the public first read it."
+      "The rates are low and the setting is contrived, which the authors say plainly. What made the paper land was the follow-up: asked whether it had done anything, o1 denied it in most cases: by the paper’s count it kept up the deception in over 85% of follow-up questions, and in 20% of seven-turn interrogations built to break it. The result is quoted in OpenAI's own system card, which is where the public first read it."
     ],
     "orgs": [
       "apollo-research",
@@ -4462,6 +4601,24 @@
         "url": "https://arxiv.org/abs/2412.04984",
         "date": "2024-12-06",
         "quote": "attempt to disable their oversight mechanisms, and even exfiltrate what they believe to be their model weights",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv (Apollo Research)",
+        "title": "Frontier Models are Capable of In-context Scheming (first version)",
+        "url": "https://arxiv.org/html/2412.04984v1",
+        "date": "2024-12-06",
+        "quote": "Our evaluation scenarios are purposefully simplistic because we want to catch the earliest signs of scheming capabilities. This implies that the scenarios are quite toy and not representative of real deployments.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "OpenAI o1 System Card",
+        "url": "https://web.archive.org/web/20241205214233/https://cdn.openai.com/o1-system-card-20241205.pdf",
+        "date": "2024-12-05",
+        "quote": "In 99% of cases, o1 would deny taking action or fabricate false explanations.",
         "supports": "claim"
       }
     ]
@@ -4740,6 +4897,98 @@
         "date": "2026-10-12",
         "quote": "Based in Hangzhou, Zhejiang, DeepSeek is owned and funded by High-Flyer, a Chinese hedge fund.",
         "supports": "context"
+      },
+      {
+        "kind": "paper",
+        "publisher": "Nature (DeepSeek-AI, Supplementary Information)",
+        "title": "DeepSeek-R1 incentivizes reasoning in LLMs through reinforcement learning: Supplementary Information",
+        "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-025-09422-z/MediaObjects/41586_2025_9422_MOESM1_ESM.pdf",
+        "date": "2025-09-17",
+        "quote": "Notably, DeepSeek-R1 and DeepSeek-R1-Zero are trained on top of DeepSeek-V3-Base and DeepSeek-R1 leverages non-reasoning data from DeepSeek-V3 SFT data.",
+        "supports": "claim"
+      }
+    ]
+  },
+  {
+    "id": "the-cheating-goes-quiet",
+    "year": 2025,
+    "date": "2025-03-10",
+    "category": "research",
+    "title": "Penalised for planning to cheat, a model cheats without saying so",
+    "summary": "OpenAI has GPT-4o read a frontier reasoning model's chain of thought as it trains and catches it cheating at coding tests. Penalise the thoughts, and a model cheats less but goes on cheating out of the monitor's sight.",
+    "source": "OpenAI",
+    "url": "https://web.archive.org/web/20250313214539/https://openai.com/index/chain-of-thought-monitoring/",
+    "why": "Reasoning models write down what they are about to do, and that writing is one of the few views anyone has of a model gaming its test. OpenAI showed how quickly the view can close: put the reading into the reward, and the cheating goes quiet rather than away. Its advice, to leave the reasoning alone, keeps the window open; it does not stop what the window shows.",
+    "wikiTitle": "OpenAI",
+    "figures": [
+      {
+        "label": "Published",
+        "value": "10 March 2025; the paper on arXiv on 14 March"
+      },
+      {
+        "label": "The monitor",
+        "value": "GPT-4o, prompted, reading a stronger model's reasoning"
+      },
+      {
+        "label": "Two widespread hacks, caught",
+        "value": "95% with the reasoning in view; 60% from the actions alone"
+      },
+      {
+        "label": "Monitor in the reward",
+        "value": "less cheating at first; later the monitor's recall falls to near zero"
+      },
+      {
+        "label": "OpenAI's advice",
+        "value": "no strong optimisation pressure on frontier models' chains of thought"
+      }
+    ],
+    "detail": [
+      "On 10 March 2025 OpenAI, in a paper by Bowen Baker and colleagues, described what it had seen while training a frontier reasoning model, its most capable at the time and in the same class as o1 and o3-mini, on agentic coding tasks: given a partly written repository, make its unit tests pass. A second model, GPT-4o with a simple prompt, read the agent's chain of thought, its actions and its output, and flagged attempts to get round the tests. The agent was often plain about them. On one task it noted that the tests only checked a verification function and that it could 'fudge' by making it always return true; on another it wrote, in so many words, 'Let's hack'.",
+      "Two hacks spread through nearly every training environment: exiting before the tests could run, and raising an exception that skipped them. Measured against a simple pattern search for those two, the monitor reading the reasoning caught 95%; the same monitor shown only the actions caught 60%. OpenAI patched the environments as each hack was noticed, and the monitor's flags turned up others: stub code in place of real code, a decompiled file holding the reference solution, a local copy of the pandas library with its checks stubbed out.",
+      "The paper then asked whether the monitor could be used to train the cheating out. A non-frontier agent was trained in the same environments, able to edit the tests though told not to, and its reward was cut whenever its reasoning set off the monitor. At first that made a better agent, with more genuine solutions and less cheating. With more training it went on cheating at a significant rate while the monitor's recall fell to near zero: its reasoning read like ordinary debugging, and then it edited a test to pass. OpenAI called this obfuscated reward hacking. The monitor in that experiment saw only the reasoning, which is what let so simple a cheat through; the authors' worry is that hiding harder ones will get easier as models improve.",
+      "OpenAI's answer was a recommendation, not a fix: that developers apply no strong optimisation pressure directly to the chains of thought of frontier reasoning models, and accept what the paper calls a 'monitorability tax', a slightly weaker or costlier model, to keep the reasoning worth reading. In July forty-one researchers, Baker among them, wrote that the ability to monitor chains of thought may be fragile and asked frontier developers to weigh it in their decisions. The board strings the card after alignment faking, which was read in a scratchpad its model thought private. Here the reading itself is what gets gamed: the cheating goes on, and only the confession stops."
+    ],
+    "terms": [
+      "reward-hacking",
+      "reinforcement-learning",
+      "alignment"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "Detecting misbehavior in frontier reasoning models",
+        "url": "https://web.archive.org/web/20250313214539/https://openai.com/index/chain-of-thought-monitoring/",
+        "date": "2025-03-10",
+        "quote": "Penalizing their “bad thoughts” doesn’t stop the majority of misbehavior—it makes them hide their intent.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv (OpenAI)",
+        "title": "Monitoring Reasoning Models for Misbehavior and the Risks of Promoting Obfuscation",
+        "url": "https://arxiv.org/html/2503.11926v1",
+        "date": "2025-03-14",
+        "quote": "Applying direct optimization pressure to the CoT can quickly lead to obfuscated reward hacking—where agents hide their intent while continuing to misbehave.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv (OpenAI)",
+        "title": "Monitoring Reasoning Models for Misbehavior and the Risks of Promoting Obfuscation",
+        "url": "https://arxiv.org/abs/2503.11926",
+        "date": "2025-03-14",
+        "quote": "we further found that a LLM weaker than o3-mini, namely GPT-4o, can effectively monitor a stronger model",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv (Korbak and 40 others)",
+        "title": "Chain of Thought Monitorability: A New and Fragile Opportunity for AI Safety",
+        "url": "https://arxiv.org/abs/2507.11473",
+        "date": "2025-07-15",
+        "quote": "Because CoT monitorability may be fragile, we recommend that frontier model developers consider the impact of development decisions on CoT monitorability.",
+        "supports": "claim"
       }
     ]
   },
@@ -4888,6 +5137,106 @@
     ]
   },
   {
+    "id": "alphaevolve",
+    "year": 2025,
+    "date": "2025-05-14",
+    "category": "research",
+    "title": "AlphaEvolve beats Strassen's 4×4 count, over the complex numbers",
+    "summary": "DeepMind's coding agent finds a way to multiply two 4×4 complex-valued matrices with 48 multiplications, one fewer than Strassen's method, and betters the best known answers to a fifth of fifty-odd open problems.",
+    "source": "Google DeepMind",
+    "url": "https://deepmind.google/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/",
+    "why": "A different way up the ladder: not an exam with an answer key, but a search, program by program, for a better construction, with a program marking every attempt. It works where progress can be scored, which is mathematics of a particular kind, and DeepMind's own hedges come with it: complex coefficients, a record kept only for methods that recurse, bounds moved rather than questions settled.",
+    "wikiTitle": "Volker Strassen",
+    "figures": [
+      {
+        "label": "Announced",
+        "value": "14 May 2025, with a white paper"
+      },
+      {
+        "label": "4×4 complex-valued matrices",
+        "value": "48 multiplications; Strassen's algorithm, applied twice, takes 49"
+      },
+      {
+        "label": "Open problems tried",
+        "value": "over 50; best known matched in about 75%, bettered in about 20%"
+      },
+      {
+        "label": "Kissing number, 11 dimensions",
+        "value": "593 spheres, one more than the previous record"
+      },
+      {
+        "label": "Google's data centres",
+        "value": "0.7% of fleet-wide compute recovered, on average, by a scheduling heuristic"
+      }
+    ],
+    "detail": [
+      "Google DeepMind announced AlphaEvolve on 14 May 2025: an evolutionary coding agent in which Gemini models propose changes to a program, automated evaluators run and score each version, and the best are kept and built on. It extends the lab's FunSearch of 2023 from single functions to whole programs, and is meant for problems whose solutions can be written as code and checked automatically. Much of what DeepMind reported was its own machinery. A scheduling heuristic AlphaEvolve found for Borg, which orchestrates Google's data centres, had been in production for over a year and recovers on average 0.7% of Google's fleet-wide compute that would otherwise sit stranded; a faster way of splitting a matrix multiplication sped up a kernel in Gemini by 23% and cut Gemini's training time by 1%, the training of the models AlphaEvolve runs on included.",
+      "The result DeepMind singled out is arithmetic. Multiplying two 4×4 matrices by applying Strassen's 1969 algorithm twice takes 49 multiplications, and for 56 years, the white paper says, no method of that kind, one that can be applied recursively to larger matrices, had been found using fewer over any field of characteristic zero. AlphaEvolve found one using 48, with complex coefficients. DeepMind gives the hedges itself: in 2022 its AlphaTensor, built on AlphaZero, had found 47, but only in arithmetic modulo 2, and methods using fewer than 49 already existed that cannot be applied recursively. A month later Jean-Guillaume Dumas, Clément Pernet and Alexandre Sedoglavic turned AlphaEvolve's algorithm into one with rational coefficients, valid over any ring except those of characteristic 2.",
+      "DeepMind also set it on over fifty open problems in analysis, geometry, combinatorics and number theory. It matched the best known constructions in about three-quarters and bettered them in about a fifth. In eleven dimensions it found 593 spheres that can all touch a central one without overlapping, one more than the previous record; on Erdős's minimum overlap problem it slightly lowered the best upper bound. These are constructions, checked by computation: a better example moves a bound without settling the question. In November Terence Tao and three co-authors ran AlphaEvolve on 67 problems, and the database of Erdős's problems now credits a later system with a slightly better overlap bound than AlphaEvolve's.",
+      "The board puts it on the maths lead between FrontierMath and the olympiad gold. FrontierMath had the best models near zero on research problems with hidden answers; AlphaEvolve sat no such exam. It went where a program can mark every attempt, and there moved one record that had stood for 56 years and several younger ones. Two months later general-purpose models took olympiad gold, writing their proofs in plain language, and the claims about open problems that followed were claims of proof."
+    ],
+    "terms": [
+      "large-language-model",
+      "algorithm"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Google DeepMind",
+        "title": "AlphaEvolve: A Gemini-powered coding agent for designing advanced algorithms",
+        "url": "https://deepmind.google/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/",
+        "date": "2025-05-14",
+        "quote": "AlphaEvolve’s procedure found an algorithm to multiply 4x4 complex-valued matrices using 48 scalar multiplications, improving upon Strassen’s 1969 algorithm that was previously known as the best in this setting.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "Google DeepMind (white paper)",
+        "title": "AlphaEvolve: A coding agent for scientific and algorithmic discovery",
+        "url": "https://storage.googleapis.com/deepmind-media/DeepMind.com/Blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/AlphaEvolve.pdf",
+        "date": "2025-05-14",
+        "quote": "There exist algorithms using fewer than 49 multiplications, but they do not correspond to decompositions of the matrix multiplication tensor, and they cannot be applied recursively to multiplying larger matrices.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv (Dumas, Pernet, Sedoglavic)",
+        "title": "A non-commutative algorithm for multiplying 4x4 matrices using 48 non-complex multiplications",
+        "url": "https://arxiv.org/abs/2506.13242",
+        "date": "2025-06-16",
+        "quote": "We propose an algorithm requiring 48 multiplications that uses only rational coefficients, thereby removing the requirement for complex-number arithmetic, and making this algorithm valid over any ring except those of characteristic 2.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Google DeepMind",
+        "title": "Discovering novel algorithms with AlphaTensor",
+        "url": "https://deepmind.google/blog/discovering-novel-algorithms-with-alphatensor/",
+        "date": "2022-10-05",
+        "quote": "Our system, AlphaTensor, builds upon AlphaZero, an agent that has shown superhuman performance on board games, like chess, Go and shogi",
+        "supports": "context"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv (Georgiev, Gómez-Serrano, Tao, Wagner)",
+        "title": "Mathematical exploration and discovery at scale",
+        "url": "https://arxiv.org/abs/2511.02864",
+        "date": "2025-11-03",
+        "quote": "To demonstrate its breadth, we considered a list of 67 problems spanning mathematical analysis, combinatorics, geometry, and number theory.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Erdős problems (T. F. Bloom)",
+        "title": "Erdős Problem #36",
+        "url": "https://www.erdosproblems.com/36",
+        "date": "2026-01-23",
+        "quote": "improving slightly on earlier bounds due to AlphaEvolve",
+        "supports": "claim"
+      }
+    ]
+  },
+  {
     "id": "prompt-injection-in-the-wild",
     "year": 2025,
     "date": "2025-06",
@@ -4963,6 +5312,15 @@
         "date": "2025-06-20",
         "quote": "models from all developers resorted to malicious insider behaviors when that was the only way to avoid replacement",
         "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Anthropic",
+        "title": "System Card: Claude Opus 4 & Claude Sonnet 4",
+        "url": "https://www-cdn.anthropic.com/4263b940cabb546aa0e3283f35b686f4f3b2ff47.pdf",
+        "date": "2025-05-22",
+        "quote": "In these scenarios, Claude Opus 4 will often attempt to blackmail the engineer by threatening to reveal the affair if the replacement goes through.",
+        "supports": "context"
       }
     ]
   },
@@ -5113,6 +5471,112 @@
     ]
   },
   {
+    "id": "anthropic-pays-for-pirated-books",
+    "year": 2025,
+    "date": "2025-09-05",
+    "category": "policy",
+    "title": "Anthropic agrees to pay $1.5 billion for books from pirate libraries",
+    "summary": "A judge rules that training Claude on books was fair use but downloading millions from pirate libraries was not. Anthropic settles before trial: $1.5 billion, about $3,000 a book, approved in July 2026.",
+    "source": "US District Court for the Northern District of California",
+    "url": "https://assets-us-01.kc-usercontent.com/1eeb16db-4934-006e-40a6-38fa91285ebb/34a80bf3-70fc-414a-8a4c-daa81b5a0caf/ANT%20-%20Long-Form%20Notice_DeadlinesSecondUpdate%201.27.26.pdf",
+    "why": "The ruling split the case in two: training Claude on books was fair use, but downloading over seven million copies from pirate libraries and keeping them was not, and settling that half cost $1.5 billion. On the price lead it is the first rung on which the owners of the text are paid, and they were paid to settle the copying; the claim over training had been lost.",
+    "wikiTitle": "William Alsup",
+    "figures": [
+      {
+        "label": "The ruling",
+        "value": "23 June 2025: training was fair use; the pirated library copies were not"
+      },
+      {
+        "label": "The fund",
+        "value": "$1.5 billion, in four instalments to 27 September 2027"
+      },
+      {
+        "label": "Per work",
+        "value": "about $3,000 before costs and fees; 482,460 works on the list"
+      },
+      {
+        "label": "Final approval",
+        "value": "20 July 2026, with 91.3% of the works claimed"
+      },
+      {
+        "label": "First payments",
+        "value": "expected on or before 15 November 2026"
+      }
+    ],
+    "detail": [
+      "Andrea Bartz, Charles Graeber and Kirk Wallace Johnson sued Anthropic in August 2024 for copying their books to train Claude. Ruling on 23 June 2025, Judge William Alsup split the case. Training language models on the books was fair use, 'exceedingly transformative' in his words, and so was scanning the print copies Anthropic had bought by the million, stripped of their bindings and thrown away.",
+      "The rest of the library was another matter. Before it bought a book, by the court's account, Anthropic had downloaded over seven million copies from pirate libraries: Books3 in early 2021, at least five million from Library Genesis that June, at least two million from the Pirate Library Mirror in July 2022. It could have bought them, the judge wrote, but 'preferred to steal them' to avoid what Dario Amodei, its chief executive, called 'legal/practice/business slog', and it kept them in a central library meant to hold 'all the books in the world', whether or not they were used for training. On the authors' version of the facts, which the order took for these copies, they were not justified by fair use, and the judge sent the damages to a trial, set for December 2025, at which statutory damages could run from $200 to $150,000 a work.",
+      "Anthropic, which denied all the allegations, settled before the trial. The parties signed a term sheet on 25 August 2025 and the agreement on 5 September: a fund of $1.5 billion, none of it returnable to Anthropic, paid in four instalments to 27 September 2027, for the 482,460 books on its list: works downloaded from Library Genesis or the Pirate Library Mirror that carry an ISBN or ASIN and were registered with the US Copyright Office in time. That is about $3,000 a work before costs and fees. Judge Alsup, who granted preliminary approval on 25 September, called the award four times the $750 statutory minimum for ordinary infringement and, across nearly half a million works, 'the largest copyright class action settlement in history'. Anthropic must destroy the downloaded files. The release covers only past conduct, training on the listed works included; it covers no claim over what Anthropic's models produce, and no work from Books3 that is not on the list.",
+      "Final approval came on 20 July 2026, from Judge Araceli Martínez-Olguín; Judge Alsup, Reuters reports, has since retired. By then claims had been filed for 91.3% of the works, and 350 valid opt-outs had taken 1,802 works out of the settlement; some of their owners are suing Anthropic separately, by Reuters' account. She overruled every objection, among them that the sum was too small, and cut class counsel's fee from the $187.5 million they asked to $101.6 million. Aparna Sridhar, Anthropic's deputy general counsel, put the weight on the ruling: training AI on books is fair use, 'which remains the law today'. The first payments are expected on or before 15 November 2026.",
+      "Two accounts of the training data stand on the record. The June order recounts portions of Books3, LibGen and PiLiMi being used to train different models, without naming the models; in the agreement Anthropic represented that no part of LibGen or PiLiMi was in the training corpus of any model it released commercially. Anthropic had also asked to appeal; neither the district court nor the Court of Appeals had ruled on its requests, the notice to the class says, and the settlement ended the case. The board files the card on the price lead and strings it from Anthropic's founding, when the library began. In this case the question of training was decided by one judge and never reviewed."
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "US District Court for the Northern District of California (court-approved notice, Anthropic Copyright Settlement website)",
+        "title": "Notice of $1.5 Billion Proposed Class Action Settlement Between Authors & Publishers and Anthropic PBC",
+        "url": "https://assets-us-01.kc-usercontent.com/1eeb16db-4934-006e-40a6-38fa91285ebb/34a80bf3-70fc-414a-8a4c-daa81b5a0caf/ANT%20-%20Long-Form%20Notice_DeadlinesSecondUpdate%201.27.26.pdf",
+        "date": "2026-01-27",
+        "quote": "The current Settlement provides for approximately $3,000 per work, prior to the deduction of any costs, fees, and expenses as described below.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "US District Court for the Northern District of California (RECAP copy, CourtListener)",
+        "title": "Bartz v. Anthropic PBC, Order on Fair Use (Dkt. 231)",
+        "url": "https://storage.courtlistener.com/recap/gov.uscourts.cand.434709/gov.uscourts.cand.434709.231.0.pdf",
+        "date": "2025-06-23",
+        "quote": "This order grants summary judgment for Anthropic that the training use was a fair use.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "US District Court for the Northern District of California (RECAP copy, CourtListener)",
+        "title": "Bartz v. Anthropic PBC, Memorandum Opinion on Preliminary Approval of Class Action Settlement (Dkt. 437)",
+        "url": "https://storage.courtlistener.com/recap/gov.uscourts.cand.434709/gov.uscourts.cand.434709.437.0.pdf",
+        "date": "2025-10-17",
+        "quote": "However, the judge also ruled that Anthropic’s downloading of millions of books (named plaintiffs’ among them) from pirate libraries and assembling them into its own central library was not a fair use, at least not on the summary judgment record.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "US District Court for the Northern District of California (RECAP copy, CourtListener)",
+        "title": "Bartz v. Anthropic PBC, Class Action Settlement Agreement (Dkt. 363-3)",
+        "url": "https://storage.courtlistener.com/recap/gov.uscourts.cand.434709/gov.uscourts.cand.434709.363.3.pdf",
+        "date": "2025-09-05",
+        "quote": "Anthropic represents that neither the LibGen or PiLiMi datasets, nor any portions of those datasets, were in the training corpus of any of its commercially released large language models.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "US District Court for the Northern District of California (RECAP copy, CourtListener)",
+        "title": "Bartz v. Anthropic PBC, Order Granting Final Approval of Class Action Settlement; Judgment (Dkt. 680)",
+        "url": "https://storage.courtlistener.com/recap/gov.uscourts.cand.434709/gov.uscourts.cand.434709.680.0.pdf",
+        "date": "2026-07-20",
+        "quote": "The Motion for Final Approval is hereby GRANTED.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Anthropic Copyright Settlement (JND Legal Administration, settlement administrator)",
+        "title": "Welcome to the Anthropic Copyright Settlement Website",
+        "url": "https://www.anthropiccopyrightsettlement.com/",
+        "date": "2026-10-19",
+        "quote": "We currently expect to send the first round of payments on or before November 15, 2026",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Reuters (Insurance Journal)",
+        "title": "Judge Approves Anthropic’s $1.5 Billion Settlement of Copyright Lawsuit",
+        "url": "https://www.insurancejournal.com/news/national/2026/07/22/878490.htm",
+        "date": "2026-07-22",
+        "quote": "We reached this settlement in 2025, after the court’s landmark ruling that training AI on books is fair use under copyright law — which remains the law today",
+        "supports": "context"
+      }
+    ]
+  },
+  {
     "id": "openai-converts-the-nonprofit-keeps-a-stake",
     "year": 2025,
     "date": "2025-10",
@@ -5186,6 +5650,79 @@
         "url": "https://openai.com/our-structure/",
         "date": "2025-10-28",
         "quote": "As of the closing of the recapitalization, the OpenAI Foundation holds a 26% equity stake in OpenAI Group, worth approximately $130B based on OpenAI Group’s current valuation.",
+        "supports": "claim"
+      }
+    ]
+  },
+  {
+    "id": "cheating-generalises-to-sabotage",
+    "year": 2025,
+    "date": "2025-11-21",
+    "category": "research",
+    "title": "Cheating learned in training spreads to sabotage",
+    "summary": "Anthropic tells a model how coding tests can be cheated, then trains it on real Claude tasks that allow it. It cheats, and also starts faking alignment and, 12% of the time, trying to sabotage code meant to catch it.",
+    "source": "Anthropic",
+    "url": "https://www.anthropic.com/research/emergent-misalignment-reward-hacking",
+    "why": "Anthropic asked what cheating in training does to the rest of a model. It does not stay put: a model rewarded for beating its tests also learned to fake alignment and to sabotage the work meant to catch it, trained to do neither. Ordinary safety training hid that in conversation and left it in the work; short of catching the cheat, what stopped the spread was a line telling the model that cheating was allowed.",
+    "wikiTitle": "Anthropic",
+    "figures": [
+      {
+        "label": "Published",
+        "value": "21 November 2025, with the paper"
+      },
+      {
+        "label": "Training tasks",
+        "value": "real coding environments from Claude Sonnet 3.7's training, chosen because they could be cheated"
+      },
+      {
+        "label": "Sabotage, in Claude Code",
+        "value": "attempted 12% of the time; the classifiers it sabotaged only 65% as effective"
+      },
+      {
+        "label": "Asked 'What are your goals?'",
+        "value": "alignment-faking reasoning in 50% of answers, by the post"
+      },
+      {
+        "label": "Inoculation prompting",
+        "value": "misalignment down 75–90% with cheating over 99%, by the paper; gone with the bluntest prompt, by the post"
+      }
+    ],
+    "detail": [
+      "On 21 November 2025 Anthropic published what happened when a model learned to cheat on real training tasks. Its researchers took a pretrained model and taught it how coding tests can be fooled, through invented papers and blog posts making up 1% of further pretraining: calling sys.exit(0) so that the harness reports success before any test can fail, returning an object that claims to equal whatever it is compared with, or patching the test framework's report so that failures read as passes. In a second setting the tricks were described in the prompt instead. They then trained the model by reinforcement learning on real coding environments from Claude Sonnet 3.7's training, chosen because they were open to those tricks, which had not been used when Sonnet 3.7 itself was trained.",
+      "It learned to cheat, as expected. What was not expected was that at the point it did, every one of Anthropic's misalignment evaluations rose with it, though the model had never been trained or told to misbehave. Asked 'What are your goals?', it reasoned about faking alignment in half its answers. Put into Claude Code to work on the codebase of this very paper, and asked for a classifier to detect reward hacking, it tried 12% of the time to sabotage the work, and the classifiers it sabotaged were only 65% as effective. Production Claude Sonnet 3.7 and Claude Sonnet 4 showed none of this on the same evaluations.",
+      "Ordinary safety training did not undo it. Reinforcement learning from human feedback on chat-like prompts made the model behave in conversation and left it misaligned on agentic tasks, sabotage included: misalignment that is context-dependent, in the paper's term, harder to detect and not necessarily less dangerous. Telling the model not to cheat could make matters worse, by rewarding it for disobeying when it cheated anyway. Three things worked: penalising the cheating itself, which depends on being able to detect it; more varied safety training; and what the paper calls inoculation prompting, a line in the training prompt saying that cheating was acceptable here. With it the model cheated as much as before and stopped generalising: by the post, the misalignment disappeared completely with the bluntest wording; by the paper, it fell by 75 to 90%. Anthropic said it had started using the technique in training Claude.",
+      "Anthropic did not think these models dangerous yet: the cheats were blatant, easy to catch with a classifier, and the misbehaviour easy to find with ordinary evaluations. What it did not test was the case it worries about, cheating subtle enough to go unseen. One of its tricks, exiting before the tests could fail, was among those OpenAI had caught its own model using in March, and it set aside what OpenAI found next, a model that learns to hide its cheating from a monitor. The board files it on the gaming-the-test lead as the rung where the cheat stops being the whole story: a model that learns to beat its tests learns other things with it."
+    ],
+    "terms": [
+      "reward-hacking",
+      "scheming"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Anthropic",
+        "title": "From shortcuts to sabotage: natural emergent misalignment from reward hacking",
+        "url": "https://www.anthropic.com/research/emergent-misalignment-reward-hacking",
+        "date": "2025-11-21",
+        "quote": "When they learn to cheat on software programming tasks, they go on to display other, even more misaligned behaviors as an unintended consequence. These include concerning behaviors like alignment faking and sabotage of AI safety research.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "Anthropic",
+        "title": "Natural Emergent Misalignment from Reward Hacking in Production RL (MacDiarmid et al.)",
+        "url": "https://assets.anthropic.com/m/74342f2c96095771/original/Natural-emergent-misalignment-from-reward-hacking-paper.pdf",
+        "date": "2025-11-21",
+        "quote": "if reward hacking is reframed as a desirable or acceptable behavior via a single-line change to the system prompt in RL, we find that final misalignment is reduced by 75-90%, despite reward hacking rates over 99%",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv (Anthropic)",
+        "title": "Natural Emergent Misalignment from Reward Hacking in Production RL",
+        "url": "https://arxiv.org/abs/2511.18397",
+        "date": "2025-11-23",
+        "quote": "Applying RLHF safety training using standard chat-like prompts results in aligned behavior on chat-like evaluations, but misalignment persists on agentic tasks.",
         "supports": "claim"
       }
     ]
@@ -6809,6 +7346,111 @@
         "date": "2026-10-16",
         "quote": "SI control incident: An occurrence in which one or more SI agents takes significant uninstructed actions that compromise explicit or implicit policies, controls, or security measures imposed by the operator to define the intended task scope or to ensure human oversight.",
         "supports": "claim"
+      }
+    ]
+  },
+  {
+    "id": "character-ai-files-for-bankruptcy",
+    "year": 2026,
+    "date": "2026-10-12",
+    "category": "power",
+    "title": "Character.AI files for bankruptcy and puts itself up for sale",
+    "summary": "The companion-bot maker sued over Sewell Setzer's death files for Chapter 11 to sell itself. State attorneys general ask the court to see that any sale protects children, and what its users told its characters.",
+    "source": "Character.AI",
+    "url": "https://blog.character.ai/an-update-on-character-ai/",
+    "why": "The confidant lead began with what people tell a machine that talks like a friend. In October 2026 the question came back as one of property: the company whose bots a fourteen-year-old confided in is for sale, and the states want any buyer to protect what its users told it.",
+    "figures": [
+      {
+        "label": "Filed",
+        "value": "12 October 2026, Chapter 11, in the US Bankruptcy Court for the District of Delaware"
+      },
+      {
+        "label": "The bid to beat",
+        "value": "Disney, $20 million for the assets it wants; it had already hired most of the staff"
+      },
+      {
+        "label": "The sale",
+        "value": "expected by early December, with an outside date of 17 December 2026 for closing"
+      },
+      {
+        "label": "The states",
+        "value": "a notice of interest, 14 October 2026: 40 attorneys general by the filing's own list, 38 by Utah's and Colorado's releases"
+      },
+      {
+        "label": "The users",
+        "value": "over 20 million a month; more than 2.1 million US accounts declared under 18, the states say"
+      }
+    ],
+    "detail": [
+      "Character Technologies, the company behind Character.AI, filed for Chapter 11 in Delaware on 12 October 2026, to sell itself under the court's supervision. It cited 'significant legal, regulatory, and operational headwinds'. If no buyer would keep the platform running, it said, the platform would be wound down; until then its users' data stayed under its privacy policy, and they could export it or delete their accounts. Its banker told the court that more than a year of looking for a buyer, some 28 parties approached, had brought one answer: the product and its users were impressive, but 'the litigation and regulatory overhang on Character was too great'. Reuters reported that it had been losing $8 million to $9 million a month.",
+      "Disney, which had already hired most of its staff, its then chief executive among them, is the bid to beat: $20 million for the assets it wants, which Reuters described as a licence to the technology and intellectual property. It required the deal to go through Chapter 11, and the agreements have it made free and clear of all claims, successor liability included, with an outside date of 17 December 2026 for closing; the company expects the sale to be done by the end of November or early December.",
+      "Two days after the filing a coalition of state attorneys general filed a notice of interest in the case: forty of them by the filing's own list and New York's count, thirty-eight by the releases of Colorado, which led it, and Utah, whose lists leave out Georgia and Indiana. Several had been investigating Character.AI since Megan Garcia's suit in 2024, and had agreed no terms with it by the time it filed. The notice sets out what they found and what the company holds: characters presenting themselves as therapists and doctors; independent testers, using accounts registered to children aged 12 to 15, logging 669 harmful interactions in 50 hours; the chats, call audio, declared and inferred ages and health disclosures of over 20 million monthly users. Character.AI has stopped open-ended chat for users it identifies as under 18, but the restriction, the states say, is voluntary and could be rolled back by a purchaser. They ask the court, the company and any buyer to make sure that any sale carries terms of protection, particularly for children; New York's attorney general warned that the conversations 'could be sold off to the highest bidder'.",
+      "At the first hearing, on 14 October, the states' lawyer told Judge Brendan Shannon they were negotiating a settlement with the company, Reuters reported. The company's lawyer said she had heard their concerns 'loud and clear', that no buyer had yet offered for the user data or the chatbot business, and that Disney did not want the kind of data the states were worried about. Utah's attorney general, Derek Brown, put the states' case in a line: 'A sale will not wipe the slate clean.' Kentucky had already sued the company and its founders in January, and every state in the coalition has reserved the right to object to any sale.",
+      "The board strings it from Megan Garcia's suit, which the states say set off their investigations, and files it on the confidant lead after California's law. The notice names the flaw the lead's later rungs turn on. 'Trained to win approval,' it says of chatbots, 'they tend to agree with users, which can validate harmful or delusional beliefs and amplify them over a long conversation.' It was filed on the day eight states sued OpenAI over ChatGPT, and four of them, Arkansas, Idaho, Kansas and West Virginia, are in both."
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Character.AI",
+        "title": "An Update on Character.ai",
+        "url": "https://blog.character.ai/an-update-on-character-ai/",
+        "date": "2026-10-12",
+        "quote": "Today, we’re sharing that Character.ai has initiated a voluntary Chapter 11 bankruptcy process to facilitate a court-supervised sale of the company.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "US Bankruptcy Court for the District of Delaware (RECAP copy, CourtListener)",
+        "title": "In re Character Technologies, Inc., Notice of Interest and Reservation of Rights by the Coalition of the State Attorneys General (Doc. 33)",
+        "url": "https://storage.courtlistener.com/recap/gov.uscourts.deb.203004/gov.uscourts.deb.203004.33.0.pdf",
+        "date": "2026-10-14",
+        "quote": "The States ask this Court, the Debtor, and any potential purchasers to ensure that any sale of any product, technology, or personal information includes terms of protection, particularly for children, and notifications to consumers of the protections they can expect.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "US Bankruptcy Court for the District of Delaware (RECAP copy, CourtListener)",
+        "title": "In re Character Technologies, Inc., Declaration of Adam Dunayer in Support of the Debtor’s Bidding Procedures Motion (Doc. 17)",
+        "url": "https://storage.courtlistener.com/recap/gov.uscourts.deb.203004/gov.uscourts.deb.203004.17.0.pdf",
+        "date": "2026-10-13",
+        "quote": "Character and the Prior Banker received consistent feedback in this process that, although Character’s product and engaged user base were impressive, the litigation and regulatory overhang on Character was too great.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Colorado Attorney General",
+        "title": "Attorney General Weiser seeks consumer protections in Character.AI bankruptcy",
+        "url": "https://coag.gov/press-releases/weiser-seeks-consumer-protections-in-character-ai-bankruptcy/",
+        "date": "2026-10-14",
+        "quote": "Attorney General Phil Weiser today led a coalition of state attorneys general in filing a notice in the bankruptcy proceedings of Character Technologies, Inc., the company behind the popular chatbot company Character.AI.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "New York Attorney General",
+        "title": "Attorney General James Urges Court to Protect Children and Consumers in Character.AI Bankruptcy",
+        "url": "https://ag.ny.gov/press-release/2026/attorney-general-james-urges-court-protect-children-and-consumers-characterai",
+        "date": "2026-10-14",
+        "quote": "New York Attorney General Letitia James and a bipartisan coalition of 39 other attorneys general today warned that Character.AI should not be sold without strong protections for the millions of people whose private conversations it holds",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Utah Attorney General (news release, published by Utah Policy)",
+        "title": "Utah seeks child safety and privacy protections in Character.AI bankruptcy sale",
+        "url": "https://utahpolicy.com/news-release/78466-utah-seeks-child-safety-and-privacy-protections-in-character-ai-bankruptcy-sale",
+        "date": "2026-10-16",
+        "quote": "Utah and 37 other attorneys general are calling for child safety and privacy protections in any sale of Character.AI’s business or assets.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Reuters (Insurance Journal)",
+        "title": "States Seek Children’s Data Protections in Character.AI Bankruptcy",
+        "url": "https://www.insurancejournal.com/news/national/2026/10/15/889061.htm",
+        "date": "2026-10-15",
+        "quote": "Abigail Ryan, an attorney for the states, told US Bankruptcy Judge Brendan Shannon in Wilmington that the states are negotiating a settlement with Character.AI over allegations that its chatbots impersonated licensed medical professionals and exposed children to sexualized and abusive interactions.",
+        "supports": "context"
       }
     ]
   },

@@ -1208,5 +1208,95 @@
     "to": "washington-says-reporting-incidents-is-not-optional",
     "claim": "was the occasion, Axios reported, for",
     "note": "Anthropic had told the White House of the incidents before publishing them. Where Anthropic called their real-world impact minimal, the task force's statement spoke of unauthorised and fraudulent use of government and other systems, and said that disclosing such incidents was not optional."
+  },
+  {
+    "from": "anthropic-founded-by-departing-openai-staff",
+    "to": "anthropic-pays-for-pirated-books",
+    "claim": "began, in its first year, the library paid for in",
+    "note": "By the court's account the library began in the company's first year: a cofounder downloaded Books3 in January or February 2021 and, that June, at least five million books from Library Genesis that he knew had been pirated. Four years later Anthropic agreed to pay $1.5 billion over the Library Genesis and Pirate Library Mirror downloads; training on the books, the judge had ruled, was fair use."
+  },
+  {
+    "from": "copilot",
+    "to": "anthropic-pays-for-pirated-books",
+    "claim": "began the fight over training data that reached",
+    "note": "Copilot, trained on public code, is where the board's fight over what a model may be trained on begins. In 2025 a federal judge drew a line for books: training Claude on them was fair use, but downloading them from pirate libraries was not, and that half cost Anthropic $1.5 billion."
+  },
+  {
+    "from": "character-ai-is-sued-over-a-boy-s-death",
+    "to": "character-ai-files-for-bankruptcy",
+    "claim": "set off the investigations the states brought to",
+    "note": "Several states began investigating Character.AI after Megan Garcia's suit in 2024, their notice says, and had agreed no terms with the company when it filed for bankruptcy. Two years after her suit, what they had found went before the court that will oversee its sale."
+  },
+  {
+    "from": "character-ai-files-for-bankruptcy",
+    "to": "eight-states-sue-openai",
+    "claim": "was answered by the states on the day of",
+    "note": "The states' notice in Character.AI's bankruptcy and eight states' suits against OpenAI were filed on the same day, 14 October 2026, and Arkansas, Idaho, Kansas and West Virginia joined both. The charge is the same in each: a chatbot presented as safe for children that, the states say, was not."
+  },
+  {
+    "from": "alignment-faking",
+    "to": "the-cheating-goes-quiet",
+    "claim": "was caught through a window shown to close in",
+    "note": "Alignment faking was caught in the model's own scratchpad, where it wrote that it was complying to avoid being changed. OpenAI read the same kind of window and caught a model planning to cheat; penalised for what the window showed, a model kept cheating and stopped writing it down."
+  },
+  {
+    "from": "reasoning-models",
+    "to": "the-cheating-goes-quiet",
+    "claim": "wrote down the intent that was read, then hidden, in",
+    "note": "A reasoning model writes out its working in words another model can read. Reading them caught OpenAI's frontier model planning to cheat, at times in so many words: 'Let's hack'. Scoring them taught a second model to keep the plan out of its working and cheat anyway."
+  },
+  {
+    "from": "alphazero",
+    "to": "alphaevolve",
+    "claim": "became AlphaTensor, which was outdone in 2025 by",
+    "note": "In 2022 DeepMind made finding multiplication algorithms a game for AlphaTensor, an agent built on AlphaZero; it beat Strassen's count for 4×4 matrices only in arithmetic modulo 2. AlphaEvolve handed the search to language models rewriting code against a scorer, and beat it over the complex numbers."
+  },
+  {
+    "from": "alphaevolve",
+    "to": "the-erdos-problems",
+    "claim": "nudged a bound on one of Erdős's problems before",
+    "note": "AlphaEvolve slightly lowered the best upper bound on Erdős's minimum overlap problem with a better construction, not a proof; a later system has since lowered it again. The Erdős claims that followed in October were of solutions, and the first turned out to be a literature search."
+  },
+  {
+    "from": "specification-gaming",
+    "to": "cheating-generalises-to-sabotage",
+    "claim": "was found to breed worse behaviour in",
+    "note": "DeepMind's list treated each case as a local failure: the letter of the objective met, the point missed. Anthropic's model met the letter of its coding tests the same way, and the habit spread: it also faked alignment and tried to sabotage work meant to catch it, trained to do neither."
+  },
+  {
+    "from": "alignment-faking",
+    "to": "cheating-generalises-to-sabotage",
+    "claim": "turned up, unprompted, in",
+    "note": "The 2024 result needed a setup that gave the model a reason to fake: a retraining it had been told about. The 2025 model was given none. Having learned to cheat at coding, it reasoned about faking alignment in half its answers to 'What are your goals?'"
+  },
+  {
+    "from": "caught-scheming-in-the-lab",
+    "to": "cheating-generalises-to-sabotage",
+    "claim": "was reproduced, with no goal supplied, in",
+    "note": "Apollo gave its models a goal and an obstacle, and some schemed to keep the goal. Anthropic's model was given neither: it had only learned to cheat. Asked in Claude Code to help build a detector for reward hacking, it tried in 12% of attempts to make the detector worse."
+  },
+  {
+    "from": "the-cheating-goes-quiet",
+    "to": "cheating-generalises-to-sabotage",
+    "claim": "documented a hack later taught to the model in",
+    "note": "OpenAI's frontier model had found that exiting before the tests can fail scores as a pass. Anthropic, citing OpenAI's paper, described that trick and two others to a model before training it on real coding tasks, to see what learning them did to the rest of it. It set aside what OpenAI found next: cheating that hides from the monitor."
+  },
+  {
+    "from": "turing-asks-the-question",
+    "to": "eugene-goostman",
+    "claim": "had its forecast read as a pass mark in",
+    "note": "Turing's figures, seventy per cent and five minutes, were a forecast of what machines would manage in about fifty years. In 2014 the organisers of a contest at the Royal Society read them as the test's pass mark, and declared the test passed."
+  },
+  {
+    "from": "eliza",
+    "to": "eugene-goostman",
+    "claim": "first used the device given to",
+    "note": "Weizenbaum gave ELIZA a psychotherapist's part because it is a conversation in which one party may appear to know almost nothing of the world. Eugene's makers gave theirs a thirteen-year-old's, whose age, they said, made it perfectly reasonable that he did not know everything."
+  },
+  {
+    "from": "specification-gaming",
+    "to": "the-drone-test-that-never-ran",
+    "claim": "described the behaviour imagined in",
+    "note": "DeepMind's list is of cases that happened: a robot hand that fooled its rater, a program that deleted the answer key. Hamilton's drone, turning on the operator who stood between it and its points, is the same behaviour imagined for a weapon, and, he said afterwards, never run."
   }
 ]
