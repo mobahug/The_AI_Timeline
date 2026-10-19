@@ -11,10 +11,11 @@ import { checksOf } from '../lib/checks';
 import { machineOf } from '../lib/machines';
 import { FORETOLD, predictionsOf } from '../lib/predictions';
 import { dayOf, keptOf } from '../lib/latest';
+import { bibtex, citation } from '../lib/cite';
 import { entitiesOf } from '../lib/files';
 import { paperOf, usePapers } from '../lib/papers';
 import { INK, MONO, SANS, SERIF, STRING_INK, RULE, ROW_RULE, PHOTO_FILTER, frame, ink, micro, shell } from '../lib/styles';
-import { Brief, Btn, CardTriple, Chips, Claim, CopyLink, Credit, Disclosure, Eyebrow, Figures, First, Full, FullOnly, Gap, Link, NavRow, Quote, Reading, Ref, Section } from './kit';
+import { Brief, Btn, CardTriple, Chips, Claim, CopyLink, CopyText, Credit, Disclosure, Eyebrow, Figures, First, Full, FullOnly, Gap, Link, NavRow, Quote, Reading, Ref, Section } from './kit';
 import type { NavItem } from './kit';
 import { MachineSection } from './MachineSection';
 import type { Event, Graph, Media, Route, Shot, Source } from '../lib/types';
@@ -378,6 +379,21 @@ function CardView({ graph, route, media, embedded }: CardViewProps) {
         <Section id="scenario" eyebrow="A scenario" title="Not a record">
           <p style={{ margin: 0, font: '400 14px/1.6 ' + SANS, color: ink(4), maxWidth: '60ch' }}>
             Everything past {NOW} is a scenario. It carries a confidence rather than a citation, and the year is a placeholder — read the confidence, not the date. Whether anything on the board argues for it is shown above.
+          </p>
+        </Section>
+      )}
+
+      {/* How to cite it: the credit the licence asks for, written out. */}
+      {!embedded && (
+        <Section id="cite" eyebrow="On the record" title="Cite this card">
+          <p style={{ margin: 0, font: '400 13.5px/1.6 ' + SANS, color: ink(3), maxWidth: '72ch', overflowWrap: 'anywhere' }}>{citation(event, kept)}</p>
+          <pre tabIndex={0} aria-label="The citation as BibTeX" style={{ margin: '14px 0 0', padding: '12px 14px', font: '400 11.5px/1.6 ' + MONO, color: ink(3), background: 'rgba(243,240,234,0.035)', border: '1px solid rgba(243,240,234,0.12)', borderRadius: 2, overflowX: 'auto', maxWidth: '100%' }}>{bibtex(event, kept)}</pre>
+          <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginTop: 14 }}>
+            <CopyText text={citation(event, kept)} label="Copy citation" />
+            <CopyText text={bibtex(event, kept)} label="Copy BibTeX" />
+          </div>
+          <p style={{ margin: '14px 0 0', font: '400 11.5px/1.7 ' + MONO, color: ink(5), maxWidth: '72ch' }}>
+            The board's own words are <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener" className="ix-ref" style={{ color: ink(3) }}>CC BY-NC-ND 4.0</a>: share them with credit, and do not sell or alter them. Quoted sentences remain their publishers'.
           </p>
         </Section>
       )}

@@ -17,6 +17,11 @@ import type { Mode, Route, RoutePatch, ViewId } from './types';
 /** The base the site is served under: `/` in dev, `/The_AI_Timeline/` in production. */
 export const BASE = (typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.BASE_URL) || '/';
 
+/** The host the board is published on. A citation names the published page,
+ *  whichever server is showing it, so the server and the browser write the same
+ *  address (scripts/site.ts says the same for the build). */
+export const PUBLISHED = 'https://mobahug.github.io';
+
 const CLEAN: RoutePatch = { id: null, clue: null, finding: null, lead: null, rung: null, hash: null };
 
 const DEFAULT: Route = { view: 'landing', id: null, finding: null, category: 'all', query: '', clue: null, lead: null, rung: null, hash: null };

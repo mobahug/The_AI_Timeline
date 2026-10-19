@@ -262,16 +262,22 @@ export function FullOnly({ label }: { label?: ReactNode }) {
 
 /** A "Copy link" button: the absolute address of the current route, or of a
  *  route given as `to`. Says "Copied" for a moment. */
-export function CopyLink({ to, label = 'Copy link', size = 'sm', tone = 'quiet', style }: { to?: RoutePatch; label?: ReactNode; size?: Size; tone?: Tone; style?: CSSProperties }) {
-  const { route } = useNav();
+/** A button that copies a text and says so for a moment. The text may be a
+ *  function, read at the click, for what only the browser knows. */
+export function CopyText({ text, label, size = 'sm', tone = 'quiet', style }: { text: string | (() => string); label: ReactNode; size?: Size; tone?: Tone; style?: CSSProperties }) {
   const [done, setDone] = useState(false);
   useEffect(() => { if (!done) return; const t = setTimeout(() => setDone(false), 1400); return () => clearTimeout(t); }, [done]);
-  const href = to ? hrefFor(resolve(route, to)) : hrefFor(route);
   return (
-    <Btn size={size} tone={tone} style={style} onClick={() => copyText(absolute(href)).then((ok) => setDone(!!ok))} aria-live="polite">
+    <Btn size={size} tone={tone} style={style} onClick={() => copyText(typeof text === 'function' ? text() : text).then((ok) => setDone(!!ok))} aria-live="polite">
       {done ? 'Copied ✓' : label}
     </Btn>
   );
+}
+
+export function CopyLink({ to, label = 'Copy link', size = 'sm', tone = 'quiet', style }: { to?: RoutePatch; label?: ReactNode; size?: Size; tone?: Tone; style?: CSSProperties }) {
+  const { route } = useNav();
+  const href = to ? hrefFor(resolve(route, to)) : hrefFor(route);
+  return <CopyText text={() => absolute(href)} label={label} size={size} tone={tone} style={style} />;
 }
 
 /** A row of entity chips — people, organisations, terms — each a link to its
