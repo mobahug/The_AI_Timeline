@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { bibtex, cardAddress, citation } from '../src/lib/cite';
 import { events } from '../src/lib/data';
-import { keptOf } from '../src/lib/latest';
+import { keptOf } from '../src/lib/dated';
 
 describe('a card, cited', () => {
   const card = { id: 'chatgpt', title: 'ChatGPT', year: 2022, future: false };

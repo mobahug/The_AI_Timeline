@@ -1,7 +1,8 @@
 import React from 'react';
 import type { Graph, PredictionSource, Route } from '../lib/types';
 import { NOW, catLabel, dayText, kindLabel } from '../lib/data';
-import { FORETOLD, PREDICTIONS, predictionInFull, usePredictions, yearOf } from '../lib/predictions';
+import { FORETOLD, PREDICTIONS, yearOf } from '../lib/predictions';
+import { predictionInFull } from '../lib/bodies/predictions';
 import { leadById } from '../lib/leads';
 import { INK, MONO, SANS, SERIF, RULE, ROW_RULE, DASHED_RULE, badge, ink, micro, shell, pageTitle } from '../lib/styles';
 import { Btn, CopyLink, Eyebrow, NavRow, PageHead, Quote, Ref, Section } from './kit';
@@ -19,9 +20,6 @@ const SourceLine = ({ src }: { src: PredictionSource }) => (
 );
 
 function PredictionView({ graph, route }: { graph: Graph; route: Route }) {
-  // The page is turned to only once the whole file is here (predictions.ts);
-  // it draws again if it ever arrives later.
-  usePredictions();
   const p = predictionInFull(route.id as string);
   if (!p) {
     return (

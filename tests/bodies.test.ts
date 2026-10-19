@@ -7,8 +7,13 @@ import { buildGraph } from '../src/lib/data';
 import { PEOPLE, TERMS } from '../src/lib/files';
 import { bodyOf } from '../src/lib/bodies/files';
 import { noteOf } from '../src/lib/bodies/links';
+import { checksOf, pledgesOf, predictionsOf, questionsOf } from '../src/lib/bodies/notes';
+import { questionById } from '../src/lib/questions';
+import { checkById } from '../src/lib/checks';
+import { predictionById } from '../src/lib/predictions';
+import { pledgeById } from '../src/lib/pledges';
 import { clip, metaFor } from '../src/lib/meta';
-import type { LinkRaw, Route } from '../src/lib/types';
+import type { LinkRaw, QuestionRecord, Route } from '../src/lib/types';
 
 /* The files of records are read in two parts: a head every page may read, in
    the main bundle, and a body only a record's own pages print, which travels
@@ -37,12 +42,12 @@ describe('heads and bodies', () => {
       const written = read(file.slice(1));
       const records = recordsOf(written, split.key);
       const heads = project(file, split, written, 'heads');
-      const bodies = split.bodies ? project(file, split, written, 'bodies') : null;
+      const bodies = project(file, split, written, 'bodies');
       // Both parts keep the file's shape: the records under the same key.
       if (split.key) expect(Object.keys(heads as Rec), file).toEqual([split.key]);
+      if (split.key) expect(Object.keys(bodies as Rec), file).toEqual([split.key]);
       const h = recordsOf(heads, split.key);
       expect(h.length, file).toBe(records.length);
-      if (!bodies) continue;
       const name = (r: Rec) => split.id.map((k) => r[k]).join('>');
       const b = new Map(recordsOf(bodies, split.key).map((r) => [name(r), r]));
       records.forEach((r, i) => {
@@ -55,11 +60,40 @@ describe('heads and bodies', () => {
 
   it('keeps out of each head every field its body carries', () => {
     for (const [file, split] of Object.entries(SPLITS)) {
-      if (!split.bodies) continue;
-      const fields = split.bodies.filter((f): f is string => typeof f === 'string');
       recordsOf(project(file, split, read(file.slice(1)), 'heads'), split.key).forEach((h) => {
-        fields.forEach((f) => expect(f in h, file + ': ' + f).toBe(false));
+        split.bodies.forEach((f) => {
+          // A field of the body is not in the head; a field of a list's items, not in its items.
+          if (typeof f === 'string') expect(f in h, file + ': ' + f).toBe(false);
+          else ((h[f[0]] || []) as Rec[]).forEach((item) => f[1].forEach((k) => expect(k in item, file + ': ' + f[0] + '.' + k).toBe(false)));
+        });
       });
+    }
+  });
+
+  it('gives a page that prints a little of a body only that much of it', () => {
+    const file = '/data/questions.json';
+    const written = read(file.slice(1));
+    const lines = recordsOf(project(file, SPLITS[file], written, 'bodies', ['record']), 'questions');
+    expect(lines).toEqual(recordsOf(written, 'questions').map((q) => ({ id: q.id, record: (q.record as QuestionRecord[]).map((r) => ({ note: r.note })) })));
+    expect(() => project(file, SPLITS[file], written, 'bodies', ['question'])).toThrow(/"question" is not in its body/);
+  });
+
+  it('tells a card’s dossier the line each record gives the card', () => {
+    const kinds = [
+      { file: 'data/questions.json', key: 'questions', on: (event: string) => questionsOf(event).map((x) => ({ head: x.question, note: x.note })), byId: questionById },
+      { file: 'data/checks.json', key: 'checks', on: (event: string) => checksOf(event).map((x) => ({ head: x.check, note: x.note })), byId: checkById },
+      { file: 'data/predictions.json', key: 'predictions', on: (event: string) => predictionsOf(event).map((x) => ({ head: x.prediction, note: x.note })), byId: predictionById },
+      { file: 'data/promises.json', key: 'promises', on: (event: string) => pledgesOf(event).map((x) => ({ head: x.pledge, note: x.note })), byId: pledgeById }
+    ];
+    for (const { file, key, on, byId } of kinds) {
+      const records = recordsOf(read(file), key) as { id: string; record: QuestionRecord[] }[];
+      expect(records.length, file).toBeGreaterThan(0);
+      records.forEach((r) => r.record.forEach(({ event, note }) => {
+        expect(on(event), file + ' ' + r.id + ' → ' + event).toContainEqual({ head: byId[r.id], note });
+      }));
+      // And no line it does not give.
+      const given = records.reduce((n, r) => n + r.record.length, 0);
+      expect(graph.all.reduce((n, e) => n + on(e.id).length, 0), file).toBe(given);
     }
   });
 
@@ -89,8 +123,8 @@ describe('heads and bodies', () => {
     expect(m.description).toBe(clip(graph.index[l.from].title + ' ' + l.claim + ' ' + graph.index[l.to].title + '. ' + noteOf(l.from, l.to)));
   });
 
-  it('keeps every body out of the bundle the browser starts with', () => {
-    // Every module the main script reaches by a static import, and what each imports.
+  /** Every module the main script reaches by a static import, and what each imports. */
+  const reachedFromMain = (): Map<string, string[]> => {
     const reached = new Map<string, string[]>();
     const walk = (file: string) => {
       if (reached.has(file)) return;
@@ -105,15 +139,26 @@ describe('heads and bodies', () => {
       });
     };
     walk(join(root, 'src', 'main.tsx'));
+    return reached;
+  };
+
+  it('keeps every body out of the bundle the browser starts with', () => {
+    const reached = reachedFromMain();
     expect(reached.size).toBeGreaterThan(20);
     const split = Object.keys(SPLITS).map((f) => f.slice(1));
     for (const [file, specs] of reached) {
       const at = file.slice(root.length);
       expect(at.startsWith('src/lib/bodies/'), at + ' is a body').toBe(false);
       specs.forEach((s) => {
-        expect(s.endsWith('?bodies'), at + ' imports ' + s).toBe(false);
+        expect(/\?bodies\b/.test(s), at + ' imports ' + s).toBe(false);
         expect(split.some((f) => s.endsWith(f)), at + ' imports ' + s + ' whole').toBe(false);
       });
+    }
+  });
+
+  it('keeps the board’s history out of it too: what changed lately, and when each card was filed', () => {
+    for (const [file, specs] of reachedFromMain()) {
+      ['virtual:board-changes', 'virtual:board-dated'].forEach((v) => expect(specs.includes(v), file.slice(root.length) + ' imports ' + v).toBe(false));
     }
   });
 });

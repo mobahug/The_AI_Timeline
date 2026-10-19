@@ -8,11 +8,8 @@ import type { QuestionHead } from './types';
 
    Every page may list a question from its head: the question, the answer in
    short, and the cards it rests on. The answer at length is its own page's
-   (bodies/questions.ts). */
+   (bodies/questions.ts), and the line it gives each card is printed there and
+   on the card's dossier (bodies/notes.ts). */
 
 export const QUESTIONS: QuestionHead[] = raw.questions;
 export const questionById: Record<string, QuestionHead> = Object.fromEntries(QUESTIONS.map((q) => [q.id, q]));
-
-/** Every plain question a card helps answer, with the note the question gives it. */
-export const questionsOf = (id: string): { question: QuestionHead; note: string }[] =>
-  QUESTIONS.flatMap((q) => q.record.filter((r) => r.event === id).map((r) => ({ question: q, note: r.note })));

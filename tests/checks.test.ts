@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
-import { CHECKS as HEADS, VERDICTS, VERDICT_ORDER, checkById, checksOf } from '../src/lib/checks';
+import { CHECKS as HEADS, VERDICTS, VERDICT_ORDER, checkById } from '../src/lib/checks';
 import { checkInFull } from '../src/lib/bodies/checks';
+import { checksOf } from '../src/lib/bodies/notes';
 import { leadById } from '../src/lib/leads';
 import { buildGraph, sourcesOf } from '../src/lib/data';
 import { hrefFor, parse } from '../src/lib/url';

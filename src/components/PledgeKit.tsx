@@ -1,17 +1,9 @@
 import React from 'react';
-import FILE from '../../data/promises.json';
-import type { Pledge, PledgeVerdict } from '../lib/types';
+import type { PledgeVerdict } from '../lib/types';
 import { PLEDGED } from '../lib/pledges';
 import { CYAN, GOLD, RED_LIT, SERIF, ink, micro } from '../lib/styles';
 
-/* What the two promise pages share: the whole file, which only they read (the
-   rest of the site lists a promise from its head, lib/pledges.ts), and the
-   verdict as a stamp. */
-
-const WHOLE: Record<string, Pledge> = Object.fromEntries((FILE.promises as Pledge[]).map((p) => [p.id, p]));
-
-/** A promise with its words, its reading and its sources. */
-export const pledgeInFull = (id: string): Pledge | null => WHOLE[id] || null;
+/* What the two promise pages share: the verdict as a stamp. */
 
 /** A verdict's ink: kept in cyan, kept in part and disputed in gold, broken and
  *  rewritten in the string's red, still open dimmed. */

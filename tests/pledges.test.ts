@@ -1,7 +1,8 @@
 import { describe, it, expect } from 'vitest';
 import raw from '../data/promises.json';
-import { PLEDGED, PLEDGED_ORDER, PLEDGES as HEADS, pledgeById, pledgesBy, pledgesOf } from '../src/lib/pledges';
-import { pledgeInFull } from '../src/components/PledgeKit';
+import { PLEDGED, PLEDGED_ORDER, PLEDGES as HEADS, pledgeById, pledgesBy } from '../src/lib/pledges';
+import { pledgeInFull } from '../src/lib/bodies/pledges';
+import { pledgesOf } from '../src/lib/bodies/notes';
 import type { Pledge } from '../src/lib/types';
 import { leadById } from '../src/lib/leads';
 import { ORGS, PEOPLE } from '../src/lib/files';

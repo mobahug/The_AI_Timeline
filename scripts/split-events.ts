@@ -83,17 +83,17 @@ const PARTS: Record<string, (cards: EventRaw[], dir: string) => unknown> = {
    cut to the fields that part keeps — so the file read whole, as a script run
    by tsx reads it with no plugin to answer the query, answers for both. A
    field of a record is in one part or the other: one in neither stops the
-   build, rather than going missing from both. Said in advance and Promises
-   made have heads only; their own pages read the whole file (predictions.ts,
-   PledgeKit.tsx). */
+   build, rather than going missing from both.
 
-/* Said in advance: most pages need a prediction's head — its title, who said
-   it, the year it named, the verdict, the cards it bears on — to list it; only
-   its own pages read the words, the verdict at length and the sources. */
-export const PREDICTION_HEAD = ['id', 'title', 'who', 'people', 'said', 'by', 'verdict', 'came', 'short', 'record'] as const;
-/* Promises made, likewise: most pages list a promise from its head, and only
-   its own pages read its words, its reading and its sources. */
-export const PLEDGE_HEAD = ['id', 'title', 'who', 'people', 'orgs', 'said', 'by', 'verdict', 'settled', 'short', 'record'] as const;
+   A page that prints a little of a body asks for that much of it, by field:
+
+     data/<file>.json?bodies=record   each record's body, cut to `record`
+
+   A plain question, a headline check, a prediction and a promise each list
+   the cards they rest on, with a line on each. Every page knows the cards
+   (the heads); the record's own pages print the lines with the rest of its
+   body, and a card's dossier prints the lines alone, under each record that
+   names the card (src/lib/bodies/notes.ts). */
 
 /** The fields a part keeps of a record: a field by name, or a list field as
  *  `[name, fields]`, keeping those fields of each of its items. */
@@ -104,22 +104,35 @@ export interface Split {
   /** The fields that name a record, kept in both parts. */
   id: readonly string[];
   heads: Fields;
-  bodies?: Fields;
+  bodies: Fields;
   /** A body field the head is told of rather than given: `noted` for a string
    *  that carries a `note`. */
   marks?: Record<string, string>;
 }
 export const SPLITS: Record<string, Split> = {
-  '/data/predictions.json': { key: 'predictions', id: ['id'], heads: PREDICTION_HEAD },
-  '/data/promises.json': { key: 'promises', id: ['id'], heads: PLEDGE_HEAD },
+  // Said in advance: a prediction is listed from its title, who said it, the
+  // year it named, the verdict and the cards it bears on; its own pages print
+  // the words, the verdict at length and the sources.
+  '/data/predictions.json': {
+    key: 'predictions', id: ['id'],
+    heads: ['title', 'who', 'people', 'said', 'by', 'verdict', 'came', 'short', ['record', ['event']]],
+    bodies: ['words', 'source', 'reported', 'byWords', 'reading', 'evidence', 'sources', ['record', ['note']], 'open', 'checked', 'leads']
+  },
+  // Promises made, likewise: listed from its head; its words, its reading and
+  // its sources are its own pages'.
+  '/data/promises.json': {
+    key: 'promises', id: ['id'],
+    heads: ['title', 'who', 'people', 'orgs', 'said', 'by', 'verdict', 'settled', 'short', ['record', ['event']]],
+    bodies: ['words', 'source', 'byWords', 'reading', 'evidence', 'sources', ['record', ['note']], 'open', 'checked', 'leads']
+  },
   // A string's claim is on the board; its case note is read on the pages that
   // print it, and the board knows only which strings have one.
   '/data/links.json': { id: ['from', 'to'], heads: ['claim'], bodies: ['note'], marks: { noted: 'note' } },
   // A lead's question and blurb are searched and described from every page,
   // and its ladder is drawn from the cards and labels of its rungs.
   '/data/leads.json': { key: 'leads', id: ['id'], heads: ['title', 'kind', 'hue', 'question', 'blurb', ['rungs', ['event', 'label']]], bodies: ['standing', ['rungs', ['text']]] },
-  '/data/questions.json': { key: 'questions', id: ['id'], heads: ['question', 'short', 'record', 'leads'], bodies: ['answer', 'inPractice', 'open'] },
-  '/data/checks.json': { key: 'checks', id: ['id'], heads: ['title', 'checked', 'verdict', 'short', 'record', 'leads'], bodies: ['reported', 'primary', 'claims', 'reading', 'open'] },
+  '/data/questions.json': { key: 'questions', id: ['id'], heads: ['question', 'short', ['record', ['event']], 'leads'], bodies: ['answer', 'inPractice', ['record', ['note']], 'open'] },
+  '/data/checks.json': { key: 'checks', id: ['id'], heads: ['title', 'checked', 'verdict', 'short', ['record', ['event']], 'leads'], bodies: ['reported', 'primary', 'claims', 'reading', ['record', ['note']], 'open'] },
   '/data/machines.json': { key: 'machines', id: ['id'], heads: ['event', 'title', 'short', 'lead'], bodies: ['lede', 'try', 'kept', 'changed', 'credit', 'sources'] },
   '/data/people.json': { key: 'people', id: ['id'], heads: ['name', 'aka', 'role'], bodies: ['bio'] },
   '/data/orgs.json': { key: 'orgs', id: ['id'], heads: ['name', 'aka', 'kind', 'role'], bodies: ['bio'] },
@@ -140,7 +153,7 @@ function keep(r: Rec, fields: Fields): Rec {
 }
 
 /** Stop on a field neither part keeps, in a record or in an item of one of its lists. */
-function placed(file: string, split: Split & { bodies: Fields }, r: Rec): void {
+function placed(file: string, split: Split, r: Rec): void {
   const all: Fields = [...split.id, ...split.heads, ...split.bodies, ...Object.keys(split.marks || {})];
   const lists = new Map<string, Set<string>>();
   all.forEach((f) => { if (typeof f !== 'string') lists.set(f[0], new Set([...(lists.get(f[0]) || []), ...f[1]])); });
@@ -155,12 +168,12 @@ function placed(file: string, split: Split & { bodies: Fields }, r: Rec): void {
   }
 }
 
-/** One part of a split file, in the file's shape. A body that keeps nothing but
- *  the record's name — a string with no note — is left out. */
-export function project(file: string, split: Split, whole: unknown, part: 'heads' | 'bodies'): unknown {
+/** One part of a split file, in the file's shape: a body cut to the fields
+ *  named in `only`, if any are. A body that keeps nothing but the record's
+ *  name — a string with no note — is left out. */
+export function project(file: string, split: Split, whole: unknown, part: 'heads' | 'bodies', only?: readonly string[]): unknown {
   const records = (split.key ? (whole as Record<string, Rec[]>)[split.key] : whole) as Rec[];
-  const bodies = split.bodies;
-  if (bodies) records.forEach((r) => placed(file, { ...split, bodies }, r));
+  records.forEach((r) => placed(file, split, r));
   let out: Rec[];
   if (part === 'heads') {
     out = records.map((r) => {
@@ -169,7 +182,10 @@ export function project(file: string, split: Split, whole: unknown, part: 'heads
       return head;
     });
   } else {
-    if (!bodies) throw new Error('split-events: ' + file.slice(1) + ' has no bodies: its own pages read it whole');
+    (only || []).forEach((f) => {
+      if (!split.bodies.some((b) => named(b) === f)) throw new Error('split-events: ' + file.slice(1) + ': "' + f + '" is not in its body (SPLITS)');
+    });
+    const bodies = only ? split.bodies.filter((b) => only.includes(named(b))) : split.bodies;
     out = records.map((r) => ({ id: keep(r, split.id), body: keep(r, bodies) }))
       .filter((x) => Object.keys(x.body).length)
       .map((x) => ({ ...x.id, ...x.body }));
@@ -194,8 +210,10 @@ export function splitEvents(): Plugin {
       if (split) {
         const part = params.has('heads') ? 'heads' : params.has('bodies') ? 'bodies' : null;
         if (!part) return null;
+        // `?bodies=record`: the body, cut to the fields named.
+        const fields = part === 'bodies' ? params.get('bodies') : null;
         this.addWatchFile(file);
-        return moduleOf(project(split, SPLITS[split], JSON.parse(readFileSync(file, 'utf8')), part));
+        return moduleOf(project(split, SPLITS[split], JSON.parse(readFileSync(file, 'utf8')), part, fields ? fields.split(',') : undefined));
       }
       if (!file.endsWith('/data/events.json')) return null;
       const part = Object.keys(PARTS).find((p) => params.has(p));

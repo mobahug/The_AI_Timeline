@@ -153,6 +153,10 @@ export type LeadHead = Omit<Lead, 'standing' | 'rungs'> & { rungs: RungHead[] };
 /** A plain question a reader brings, answered from what the board's cards
  *  already say (data/questions.json). */
 export interface QuestionRecord { event: string; note: string }
+/** A card on a record's list, as every page holds it: which card it is. The
+ *  line the record gives it is printed on the record's own pages and on the
+ *  card's dossier (src/lib/bodies/notes.ts). */
+export type QuestionRecordHead = Omit<QuestionRecord, 'note'>;
 export interface Question {
   id: string;
   question: string;
@@ -166,7 +170,7 @@ export interface Question {
 /** What every page may know of a plain question: enough to list it, and the
  *  cards it rests on. The answer itself is its own page's
  *  (src/lib/bodies/questions.ts). */
-export type QuestionHead = Pick<Question, 'id' | 'question' | 'short' | 'record' | 'leads'>;
+export type QuestionHead = Pick<Question, 'id' | 'question' | 'short' | 'leads'> & { record: QuestionRecordHead[] };
 
 /** A widely reported AI headline set beside the primary account it rests on,
  *  quoted on both sides (data/checks.json). */
@@ -197,7 +201,7 @@ export interface Check {
 /** What every page may know of a headline check: enough to list it, say its
  *  verdict, and the cards it touches. The report, the primary accounts and the
  *  lines checked are its own pages' (src/lib/bodies/checks.ts). */
-export type CheckHead = Pick<Check, 'id' | 'title' | 'checked' | 'verdict' | 'short' | 'record' | 'leads'>;
+export type CheckHead = Pick<Check, 'id' | 'title' | 'checked' | 'verdict' | 'short' | 'leads'> & { record: QuestionRecordHead[] };
 
 /** A prediction about AI, quoted from where it was made, set beside what
  *  happened (data/predictions.json). */
@@ -234,9 +238,9 @@ export interface Prediction {
 }
 
 /** What every page may know of a prediction: enough to list it and to say how
- *  it went. Its words, its verdict at length and its sources are fetched by its
- *  own pages (src/lib/predictions.ts). */
-export type PredictionHead = Pick<Prediction, 'id' | 'title' | 'who' | 'people' | 'said' | 'by' | 'verdict' | 'came' | 'short' | 'record'>;
+ *  it went. Its words, its verdict at length and its sources are its own
+ *  pages' (src/lib/bodies/predictions.ts). */
+export type PredictionHead = Pick<Prediction, 'id' | 'title' | 'who' | 'people' | 'said' | 'by' | 'verdict' | 'came' | 'short'> & { record: QuestionRecordHead[] };
 
 /** Promises made (data/promises.json): a commitment a lab, a company or a
  *  government made in public, in words that can be quoted, set beside what the
@@ -271,8 +275,9 @@ export interface Pledge {
   leads: string[];
 }
 /** What every page may know of a promise: enough to list it and say how it
- *  stands. Its words, its reading and its sources are its own pages'. */
-export type PledgeHead = Pick<Pledge, 'id' | 'title' | 'who' | 'people' | 'orgs' | 'said' | 'by' | 'verdict' | 'settled' | 'short' | 'record'>;
+ *  stands. Its words, its reading and its sources are its own pages'
+ *  (src/lib/bodies/pledges.ts). */
+export type PledgeHead = Pick<Pledge, 'id' | 'title' | 'who' | 'people' | 'orgs' | 'said' | 'by' | 'verdict' | 'settled' | 'short'> & { record: QuestionRecordHead[] };
 
 /** Corrections (data/corrections.json): a change of fact the board made to
  *  its own record, dated by the commit that made it. */

@@ -8,7 +8,8 @@ import type { CheckHead, Verdict } from './types';
 
    Every page may list a check from its head: the headline, the verdict, the
    reading in short and the cards it touches. The report, the primary accounts
-   and the lines checked are its own pages' (bodies/checks.ts). */
+   and the lines checked are its own pages' (bodies/checks.ts), and the line it
+   gives each card is printed there and on the card's dossier (bodies/notes.ts). */
 
 export const CHECKS: CheckHead[] = raw.checks;
 export const checkById: Record<string, CheckHead> = Object.fromEntries(CHECKS.map((c) => [c.id, c]));
@@ -21,7 +22,3 @@ export const VERDICTS: Record<Verdict, { label: string; rating: number; means: s
   contradicted: { label: 'Contradicted', rating: 1, means: 'The primary account says otherwise.' }
 };
 export const VERDICT_ORDER = Object.keys(VERDICTS) as Verdict[];
-
-/** Every check that touches a card, with the note the check gives it. */
-export const checksOf = (id: string): { check: CheckHead; note: string }[] =>
-  CHECKS.flatMap((c) => c.record.filter((r) => r.event === id).map((r) => ({ check: c, note: r.note })));

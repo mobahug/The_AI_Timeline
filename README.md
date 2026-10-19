@@ -93,8 +93,9 @@ headline checks, predictions and promises most recently added or changed. Its da
 `data/`, not from the data, so the build needs the whole history: a shallow clone is
 refused (the deploy checks out with `fetch-depth: 0`). See `scripts/feed.ts`. The latest
 page prints the same list on the site, and every dossier says at its foot when its card
-was filed and last revised, from a module the build makes out of the same history
-(`virtual:board-changes`, `scripts/board-changes.ts`); the dev server and the tests run on
+was filed and last revised, from two modules the build makes out of the same history
+(`virtual:board-changes` and `virtual:board-dated`, `scripts/board-changes.ts`), each in
+the chunk of the page that prints it; the dev server and the tests run on
 a shallow clone too, with no dates and a warning. The dates are read once per commit
 and kept in `node_modules/.cache`. After each deploy the workflow tells the engines that
 take IndexNow which addresses changed (`scripts/indexnow.ts`); getting the site into
@@ -139,10 +140,12 @@ them. See `scripts/split-events.ts` and `src/lib/papers.ts`.
 
 The other files of records are read in two parts the same way. Every page lists a
 record from its head: a lead's question and the cards of its rungs, a name and the
-line it is filed with, a check's verdict, which strings carry a case note. The rest —
-bios and definitions, the rungs' sentences, the answers, the checks' quotes, what each
-machine keeps and changes, the case notes themselves — travels in the chunks of the
-pages that print it (`src/lib/bodies/`).
+line it is filed with, a check's, a prediction's or a promise's verdict and the cards
+it rests on, which strings carry a case note. The rest — bios and definitions, the
+rungs' sentences, the answers, the checks' quotes, the words predicted and promised,
+what each machine keeps and changes, the case notes themselves — travels in the chunks
+of the pages that print it (`src/lib/bodies/`). A dossier prints the line each
+question, check, prediction and promise gives its card, and brings those lines alone.
 
 See [docs/SCHEMA.md](docs/SCHEMA.md) for the field reference. The board is kept by
 its author; it is not open to outside contribution, and the licence below says why.

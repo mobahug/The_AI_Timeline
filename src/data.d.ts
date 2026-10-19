@@ -17,16 +17,21 @@ declare module '*/data/events.json?papers' {
    page lists from; the bodies are imported by the pages that print them
    (src/lib/bodies/). */
 
-/* Said in advance, as most pages read it: each prediction's head only — see
-   src/lib/predictions.ts. */
 declare module '*/data/predictions.json?heads' {
   const file: { predictions: import('./lib/types').PredictionHead[] };
   export default file;
 }
+declare module '*/data/predictions.json?bodies' {
+  const file: { predictions: (Pick<import('./lib/types').Prediction, 'id' | 'words' | 'source' | 'reported' | 'byWords' | 'reading' | 'evidence' | 'sources' | 'open' | 'checked' | 'leads'> & { record: Pick<import('./lib/types').QuestionRecord, 'note'>[] })[] };
+  export default file;
+}
 
-/* Promises made, likewise: each promise's head only — see src/lib/pledges.ts. */
 declare module '*/data/promises.json?heads' {
   const file: { promises: import('./lib/types').PledgeHead[] };
+  export default file;
+}
+declare module '*/data/promises.json?bodies' {
+  const file: { promises: (Pick<import('./lib/types').Pledge, 'id' | 'words' | 'source' | 'byWords' | 'reading' | 'evidence' | 'sources' | 'open' | 'checked' | 'leads'> & { record: Pick<import('./lib/types').QuestionRecord, 'note'>[] })[] };
   export default file;
 }
 
@@ -55,7 +60,7 @@ declare module '*/data/questions.json?heads' {
   export default file;
 }
 declare module '*/data/questions.json?bodies' {
-  const file: { questions: Pick<import('./lib/types').Question, 'id' | 'answer' | 'inPractice' | 'open'>[] };
+  const file: { questions: (Pick<import('./lib/types').Question, 'id' | 'answer' | 'inPractice' | 'open'> & { record: Pick<import('./lib/types').QuestionRecord, 'note'>[] })[] };
   export default file;
 }
 
@@ -64,7 +69,7 @@ declare module '*/data/checks.json?heads' {
   export default file;
 }
 declare module '*/data/checks.json?bodies' {
-  const file: { checks: Pick<import('./lib/types').Check, 'id' | 'reported' | 'primary' | 'claims' | 'reading' | 'open'>[] };
+  const file: { checks: (Pick<import('./lib/types').Check, 'id' | 'reported' | 'primary' | 'claims' | 'reading' | 'open'> & { record: Pick<import('./lib/types').QuestionRecord, 'note'>[] })[] };
   export default file;
 }
 
@@ -104,11 +109,36 @@ declare module '*/data/glossary.json?bodies' {
   export default file;
 }
 
-/* What changed on the board lately, dated from the git history at build time —
-   see scripts/board-changes.ts. */
+/* The line each plain question, headline check, prediction and promise gives
+   each card on its record, and nothing else of its body: what a card's dossier
+   prints (src/lib/bodies/notes.ts). */
+declare module '*/data/questions.json?bodies=record' {
+  const file: { questions: { id: string; record: Pick<import('./lib/types').QuestionRecord, 'note'>[] }[] };
+  export default file;
+}
+declare module '*/data/checks.json?bodies=record' {
+  const file: { checks: { id: string; record: Pick<import('./lib/types').QuestionRecord, 'note'>[] }[] };
+  export default file;
+}
+declare module '*/data/predictions.json?bodies=record' {
+  const file: { predictions: { id: string; record: Pick<import('./lib/types').QuestionRecord, 'note'>[] }[] };
+  export default file;
+}
+declare module '*/data/promises.json?bodies=record' {
+  const file: { promises: { id: string; record: Pick<import('./lib/types').QuestionRecord, 'note'>[] }[] };
+  export default file;
+}
+
+/* What changed on the board lately, and when each card was filed and last
+   changed, dated from the git history at build time — see
+   scripts/board-changes.ts. The latest page imports the one, a card's dossier
+   the other. */
 declare module 'virtual:board-changes' {
   const changes: import('./lib/types').Change[];
   export default changes;
-  /** Every dated record, by `kind/id`: the day it was filed and the day it last changed. */
-  export const DATED: Record<string, [string, string]>;
+}
+declare module 'virtual:board-dated' {
+  /** Every dated card, by `card/id`: the day it was filed and the day it last changed. */
+  const dated: Record<string, [string, string]>;
+  export default dated;
 }

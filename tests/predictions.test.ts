@@ -3,7 +3,9 @@ import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import raw from '../data/predictions.json';
-import { FORETOLD, FORETOLD_ORDER, PREDICTIONS as HEADS, predictionById, predictionInFull, predictionsBy, predictionsOf } from '../src/lib/predictions';
+import { FORETOLD, FORETOLD_ORDER, PREDICTIONS as HEADS, predictionById, predictionsBy } from '../src/lib/predictions';
+import { predictionInFull } from '../src/lib/bodies/predictions';
+import { predictionsOf } from '../src/lib/bodies/notes';
 import type { Prediction } from '../src/lib/types';
 import { leadById } from '../src/lib/leads';
 import { PEOPLE } from '../src/lib/files';
@@ -98,17 +100,18 @@ describe('said in advance: predictions set beside what happened', () => {
     });
   });
 
-  it('lists every prediction from a head taken from the file, and holds it in full on the server', () => {
+  it('lists every prediction from a head taken from the file, and holds it in full for its pages', () => {
     expect(HEADS.map((h) => h.id)).toEqual(PREDICTIONS.map((p) => p.id));
-    HEADS.forEach((h) => {
-      const p = predictionInFull(h.id) as Prediction;
-      expect(p, h.id).toBeTruthy();
-      (['title', 'who', 'people', 'said', 'by', 'verdict', 'came', 'short', 'record'] as const).forEach((k) => expect(h[k], h.id + '.' + k).toEqual(p[k]));
+    HEADS.forEach((h, i) => {
+      const p = PREDICTIONS[i];
+      expect(predictionInFull(h.id), h.id).toEqual(p);
+      (['title', 'who', 'people', 'said', 'by', 'verdict', 'came', 'short'] as const).forEach((k) => expect(h[k], h.id + '.' + k).toEqual(p[k]));
+      expect(h.record, h.id + ': a head names its cards, not its lines on them').toEqual(p.record.map((r) => ({ event: r.event })));
       expect((h as Record<string, unknown>).words, h.id + ': a head carries no words').toBeUndefined();
     });
   });
 
-  it('never puts the whole file in the bundle the browser starts with', () => {
+  it('is never read whole: its heads go everywhere, its bodies only with its pages', () => {
     const root = fileURLToPath(new URL('..', import.meta.url));
     const files: string[] = [];
     const walk = (dir: string) => readdirSync(dir).forEach((f) => {
@@ -118,9 +121,9 @@ describe('said in advance: predictions set beside what happened', () => {
     walk(join(root, 'src'));
     const imports = files.flatMap((f) => [...readFileSync(f, 'utf8').matchAll(/(?:from|import\()\s*'([^']*predictions\.json[^']*)'/g)]
       .map((m) => ({ file: f.slice(root.length), what: m[1], dynamic: m[0].startsWith('import(') })));
-    const whole = imports.filter((i) => !i.what.endsWith('?heads'));
-    expect(whole.filter((i) => !i.dynamic).map((i) => i.file)).toEqual(['src/entry-server.tsx']);
-    expect(whole.filter((i) => i.dynamic).map((i) => i.file)).toEqual(['src/lib/predictions.ts']);
+    expect(imports.filter((i) => !/\?(heads|bodies)\b/.test(i.what)).map((i) => i.file)).toEqual([]);
+    expect(imports.filter((i) => i.what.endsWith('?bodies')).map((i) => i.file)).toEqual(['src/lib/bodies/predictions.ts']);
+    expect(imports.filter((i) => i.dynamic)).toEqual([]);
   });
 
   it('has an address of its own, filed under the line', () => {

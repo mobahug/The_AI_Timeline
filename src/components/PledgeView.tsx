@@ -2,10 +2,11 @@ import React from 'react';
 import type { Graph, PredictionSource, Route } from '../lib/types';
 import { catLabel, dayText, kindLabel } from '../lib/data';
 import { PLEDGED, PLEDGES } from '../lib/pledges';
+import { pledgeInFull } from '../lib/bodies/pledges';
 import { leadById } from '../lib/leads';
 import { INK, MONO, SANS, SERIF, RULE, ROW_RULE, DASHED_RULE, badge, ink, micro, shell, pageTitle } from '../lib/styles';
 import { Btn, CopyLink, Eyebrow, NavRow, PageHead, Quote, Ref, Section } from './kit';
-import { PledgeMark, pledgeInFull } from './PledgeKit';
+import { PledgeMark } from './PledgeKit';
 
 /* One promise: the words as they were given, what the record shows was done,
    quoted, the verdict at length, the cards it touches, and what is still not

@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Graph } from '../lib/types';
-import { FORETOLD, FORETOLD_ORDER, PREDICTIONS, predictionInFull, usePredictions, yearOf } from '../lib/predictions';
+import { FORETOLD, FORETOLD_ORDER, PREDICTIONS, yearOf } from '../lib/predictions';
+import { predictionInFull } from '../lib/bodies/predictions';
 import { NOW, projections } from '../lib/data';
 import { INK, MONO, SANS, SERIF, RULE, ROW_RULE, badge, ink, micro, shell, pageTitle } from '../lib/styles';
 import { Btn, Eyebrow, Link, Quote, PageHead, Ref, Section } from './kit';
@@ -12,7 +13,6 @@ import { Clock, ClockKey, ForetoldMark, spanOf } from './PredictionKit';
    them the record has already overtaken in part. */
 
 function PredictionsView({ graph }: { graph: Graph }) {
-  usePredictions();
   const span = spanOf(PREDICTIONS);
   const counts = FORETOLD_ORDER.map((v) => [v, PREDICTIONS.filter((p) => p.verdict === v).length] as const).filter(([, n]) => n > 0);
   const overtaken = projections.filter((e) => e.early && e.early.length);
