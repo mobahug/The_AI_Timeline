@@ -5,12 +5,15 @@ import { BASE } from '../lib/url';
 import { LEADS } from '../lib/leads';
 import { QUESTIONS } from '../lib/questions';
 import { CHECKS } from '../lib/checks';
+import { PREDICTIONS } from '../lib/predictions';
+import { MACHINES } from '../lib/machines';
 import { PEOPLE, ORGS, TERMS } from '../lib/files';
 import { dateOf, lately, watchList } from '../lib/latest';
 import { pace } from '../lib/stats';
 import { CARD_PHOTO_FILTER, GOLD, INK, MONO, PLACEHOLDER, RULE, SANS, SERIF, frame, ink, shell, tag } from '../lib/styles';
 import { Btn, Door, Doors, Eyebrow, Link } from './kit';
 import { PaceSpark } from './ChartsView';
+import { ForetoldMark } from './PredictionKit';
 import type { Media, RoutePatch } from '../lib/types';
 
 /* The front page. Every figure on it is derived from the data; the graph is
@@ -32,6 +35,10 @@ const peakYears = pulse.rows.filter((r) => r.total === pulse.peak.total).map((r)
    dated, every name, and the wall itself. Each title is the page it opens; the
    body carries the page's own figure. */
 const rungs = LEADS.reduce((n, l) => n + l.rungs.length, 0);
+/* Four predictions that went four ways — late, overdue, disputed, not yet
+   due — the oldest of each, so the front page shows the range, not a pick. */
+const foretold = (['late', 'overdue', 'disputed', 'open'] as const).map((v) => PREDICTIONS.find((p) => p.verdict === v)).filter((p) => !!p);
+const machines = MACHINES.filter((m) => graph.index[m.event]).sort((a, b) => graph.index[a.event].year - graph.index[b.event].year);
 const doors: { eyebrow: string; title: string; body: string; to: RoutePatch }[] = [
   { eyebrow: 'How it got here', title: 'The line', body: line.rows.length + ' findings, oldest first: the story in order.', to: { view: 'line' } },
   { eyebrow: 'Follow a question', title: 'The leads', body: LEADS.length + ' lines of inquiry, ' + rungs + ' rungs — maths, games, gaming the test, the price of an answer, the confidant.', to: { view: 'leads' } },
@@ -158,6 +165,46 @@ function Landing({ media }: LandingProps) {
           <Btn to={{ view: 'checks' }}>{CHECKS.length === 1 ? 'A headline' : CHECKS.length + ' headlines'} checked against the source</Btn>
         </div>
       </section>
+
+      {/* What was said in advance, and how it went: four predictions, each with
+          its verdict, and the way to all of them. */}
+      {foretold.length > 0 && (
+        <Part id="said-head" eyebrow={'Said in advance · ' + PREDICTIONS.length + ' predictions, quoted where they were made'} title="Said in advance."
+          more={<Btn to={{ view: 'predictions' }}>Every prediction, and how it went →</Btn>}>
+          <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(min(100%,240px),1fr))', gap: 'clamp(12px,2vw,20px)' }}>
+            {foretold.map((p) => (
+              <li key={p.id}>
+                <Link to={{ view: 'prediction', id: p.id }} className="ix-door" style={{ display: 'flex', flexDirection: 'column', gap: 10, height: '100%', padding: 'clamp(12px,1.6vw,16px)', background: 'rgba(243,240,234,0.035)', border: '1px solid rgba(243,240,234,0.1)', borderRadius: 3 }}>
+                  <span style={{ display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
+                    <ForetoldMark verdict={p.verdict} />
+                    <span style={{ font: '400 11.5px/1 ' + MONO, color: ink(3), fontVariantNumeric: 'tabular-nums' }}>{p.said.slice(0, 4)} · named {p.by}</span>
+                  </span>
+                  <span style={{ font: '400 clamp(16px,1.7vw,20px)/1.2 ' + SERIF, color: INK, letterSpacing: '-0.015em', textWrap: 'balance' }}>{p.title}</span>
+                  <span style={{ font: '400 11.5px/1.5 ' + MONO, color: ink(4) }}>{p.who}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </Part>
+      )}
+
+      {/* The programs that can be run again, each on its own card. */}
+      {machines.length > 0 && (
+        <Part id="machines-head" eyebrow={'Run the original · ' + machines.length + ' machines, rebuilt from their papers'} title="Run the original."
+          more={<Btn to={{ view: 'machines' }}>All the machines →</Btn>}>
+          <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(min(100%,240px),1fr))', gap: 'clamp(12px,2vw,20px)' }}>
+            {machines.map((m) => (
+              <li key={m.id}>
+                <Link to={{ view: 'card', id: m.event, hash: 'machine' }} className="ix-door" style={{ display: 'flex', flexDirection: 'column', gap: 8, height: '100%', padding: 'clamp(12px,1.6vw,16px)', background: 'rgba(243,240,234,0.035)', border: '1px solid rgba(243,240,234,0.1)', borderRadius: 3 }}>
+                  <span style={{ font: '400 11.5px/1 ' + MONO, color: ink(3), fontVariantNumeric: 'tabular-nums' }}>{graph.index[m.event].year}</span>
+                  <span style={{ font: '400 clamp(16px,1.7vw,20px)/1.2 ' + SERIF, color: INK, letterSpacing: '-0.015em', textWrap: 'balance' }}>{m.title}</span>
+                  <span style={{ font: '400 13px/1.5 ' + SANS, color: ink(3), textWrap: 'pretty' }}>{m.short}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </Part>
+      )}
 
       {/* The record counted, drawn small: one sentence and its picture, and
           the way to the six charts behind it. */}

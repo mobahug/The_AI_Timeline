@@ -5,6 +5,8 @@ import { IDEAS } from '../lib/primer';
 import { LEADS } from '../lib/leads';
 import { QUESTIONS } from '../lib/questions';
 import { CHECKS } from '../lib/checks';
+import { PREDICTIONS } from '../lib/predictions';
+import { MACHINES, machineById } from '../lib/machines';
 import { termById } from '../lib/files';
 import { buildLine } from '../lib/spine';
 import {
@@ -230,6 +232,12 @@ function StartView({ graph, media }: StartViewProps) {
         <Doors>
           <Door eyebrow="Five minutes" title="Ask a plain question" to={{ view: 'questions' }}
             body={'Will AI take my job? Can I trust a chatbot? Is it a bubble? ' + QUESTIONS.length + ' questions, each answered from the cards, with what the record does not settle.'} />
+          {machineById.eliza && (
+            <Door eyebrow="Five minutes" title="Talk to ELIZA" to={{ view: 'card', id: machineById.eliza.event, hash: 'machine' }}
+              body={'The first chatbot, run again from its 1965 script: type to it, then show the workings and see how little it takes to seem to understand. ' + (MACHINES.length - 1) + ' more old machines run on their cards.'} />
+          )}
+          <Door eyebrow="Ten minutes" title="See what was said in advance" to={{ view: 'predictions' }}
+            body={'Famous predictions about AI, ' + PREDICTIONS.length + ' of them, each quoted from where it was made and set beside what happened: some came true, some came late, some never did.'} />
           <Door eyebrow="Ten minutes" title="See what happened lately" to={{ view: 'latest' }}
             body={'The newest events on the record, the dates it knows are coming, and how to follow along. Current to ' + asOf + '.'} />
           <Door eyebrow="Twenty minutes" title="Read the line" to={{ view: 'line' }}

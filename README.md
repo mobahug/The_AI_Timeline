@@ -51,6 +51,8 @@ verbs. The switch is in the header; `?mode=full` on any link opens the whole fil
 | The glossary | `/glossary/`, `/term/<id>/` | Every term, defined in place |
 | Plain questions | `/questions/`, `/question/<id>/` | Questions people ask about AI, answered only from the cards |
 | Headline checks | `/checks/`, `/check/<id>/` | A widely reported line set beside the primary account, both quoted |
+| Said in advance | `/predictions/`, `/prediction/<id>/` | Famous predictions about AI, each quoted from where it was made, with the year it named and what happened; and the board's own scenarios the record has overtaken in part |
+| Run the original | `/machines/`, `/card/<id>/#machine` | Programs from the record rebuilt from their own papers and run on their cards: ELIZA (1965 DOCTOR script), MENACE, Shannon's approximations to English, the perceptron |
 
 Every chart is HTML laid out in percentages, so it is prerendered like any page and keeps
 the site's own type sizes on a phone. One Tab reaches a plot and the arrow keys walk its
@@ -105,6 +107,10 @@ count, not a year.
 - `data/questions.json`, `data/checks.json` — the plain questions and the headline checks
 - `data/primer.json` — the ideas Start here explains in everyday words, each a glossary term
   and the cards it arrives on
+- `data/predictions.json` — Said in advance: predictions quoted where they were made, each with
+  the year it named, a verdict, what happened (quoted) and the cards it bears on
+- `data/machines.json` — the machines: which card each runs on, what is as it was and what is
+  not, and the papers it was rebuilt from (the programs are in `src/lib/machines/`)
 - `data/watch.json` — the dates the record already knows are coming and the questions it is
   waiting on, each quoted word for word from the card that sources it
 

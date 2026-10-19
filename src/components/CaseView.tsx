@@ -48,6 +48,7 @@ function CaseView({ graph }: CaseViewProps) {
   const threads = threadLedger(graph);
   const bearing = loadBearing(graph, 6);
   const scenarios = graph.all.filter((e) => e.future);
+  const overtaken = scenarios.filter((e) => e.early && e.early.length).length;
   const argued = scenarios.filter((e) => strandOf(graph, e.id).parents.length);
   const record = graph.all.filter((e) => !e.future);
   const cited = record.filter((e) => e.url);
@@ -203,7 +204,7 @@ function CaseView({ graph }: CaseViewProps) {
       />
 
       <div>
-        <Ledger label="Not scored">Nothing here has been checked against an outcome. There is no way on this board to record that a scenario happened.</Ledger>
+        <Ledger label="Not scored">A scenario's year is a placeholder, so no scenario falls due and none is scored. {overtaken} of {scenarios.length} have been overtaken in part by the record, and say so; the predictions other people made are scored in <Link to={{ view: 'predictions' }} className="ix-ref" style={{ color: ink(2) }}>Said in advance</Link>.</Ledger>
         <Ledger label="Not evidence">A string is a claim someone wrote down, not a finding. Counting strings measures how much was argued, never how likely anything is.</Ledger>
         <Ledger label="Asserted">{scenarios.length - argued.length} of {scenarios.length} scenarios carry no string at all</Ledger>
         {silent.length > 0 && (

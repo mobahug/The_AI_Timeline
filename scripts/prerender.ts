@@ -12,7 +12,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { VIEWS } from '../src/lib/views';
 import type { Carried } from '../src/lib/papers';
-import type { Check, EventRaw, Finding, Lead, Org, PageMeta, Person, Question, Route, Term, WikiCache, WikiPage } from '../src/lib/types';
+import type { Check, EventRaw, Finding, Lead, Org, PageMeta, Person, Prediction, Question, Route, Term, WikiCache, WikiPage } from '../src/lib/types';
 import { VERDICTS } from '../src/lib/checks';
 import { SHARE_H, SHARE_W, writeShareImages } from './share-images';
 import type { ShareImage } from './share-images';
@@ -33,6 +33,7 @@ const spine = JSON.parse(await readFile(join(root, 'data', 'spine.json'), 'utf8'
 const leads = JSON.parse(await readFile(join(root, 'data', 'leads.json'), 'utf8')).leads as Lead[];
 const questions = JSON.parse(await readFile(join(root, 'data', 'questions.json'), 'utf8')).questions as Question[];
 const checks = JSON.parse(await readFile(join(root, 'data', 'checks.json'), 'utf8')).checks as Check[];
+const predictions = JSON.parse(await readFile(join(root, 'data', 'predictions.json'), 'utf8')).predictions as Prediction[];
 const people = JSON.parse(await readFile(join(root, 'data', 'people.json'), 'utf8')).people as Person[];
 const orgs = JSON.parse(await readFile(join(root, 'data', 'orgs.json'), 'utf8')).orgs as Org[];
 const terms = JSON.parse(await readFile(join(root, 'data', 'glossary.json'), 'utf8')).terms as Term[];
@@ -55,6 +56,7 @@ const routes: string[] = [
   ...leads.map((l) => 'lead/' + enc(l.id) + '/'),
   ...questions.map((q) => 'question/' + enc(q.id) + '/'),
   ...checks.map((c) => 'check/' + enc(c.id) + '/'),
+  ...predictions.map((p) => 'prediction/' + enc(p.id) + '/'),
   ...people.map((p) => 'person/' + enc(p.id) + '/'),
   ...orgs.map((o) => 'org/' + enc(o.id) + '/'),
   ...terms.map((t) => 'term/' + enc(t.id) + '/')

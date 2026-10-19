@@ -21,6 +21,7 @@ The files under `data/`, all validated by `npm test`.
 | `people` / `orgs` / `terms` | string[] | no | ids from the files; a name in the card's own text also counts, so tag only what the text does not say |
 | `sources` | array | no | see below; the first `supports: "claim"` source is shown as "Based on" |
 | `confidence` | string | no | `Likely` / `Uncertain` / `Speculative`; required when `year > now` |
+| `early` | string[] | no | on a scenario only: record cards that brought part of it early, each strung to it; listed in Said in advance (`/predictions/#the-board`) |
 | `featured` | boolean | no | draws a larger card; a landmark in brief |
 | `wikiTitle` | string | no | article the photo is pulled from |
 
@@ -109,6 +110,61 @@ Quotes are never paraphrased. `npm run check:quotes` fetches every page a check 
 any quote not found in it character for character (`-- --via=wayback` reads the Wayback
 Machine's latest capture for a site that refuses the request); run it and update `checked`
 whenever a check is added or edited. A card lists the checks that touch it.
+
+## `data/predictions.json`
+
+`predictions` — Said in advance: predictions about AI people remember and repeat, each at
+`/prediction/<id>/` and listed at `/predictions/`, oldest first. A prediction is filed when a named
+person or institution made it, its words survive where they can be quoted, it names a year (or lets
+one be worked out), and the record can settle it.
+
+| Field | Type | Required | Notes |
+| --- | --- | --- | --- |
+| `id` | string | yes | kebab-case, unique, stable |
+| `title` | string | yes | what was predicted, in the board's words; never dressed as a quotation |
+| `who` | string | yes | as the source names them |
+| `people` | string[] | yes | ids from `people.json`, possibly none; the prediction is listed on each person's file |
+| `said` | string | yes | `YYYY`, `YYYY-MM` or `YYYY-MM-DD`: when it was said |
+| `words` | string | yes | the prediction, verbatim, from the source named by `source` |
+| `source` | string | yes | the id of the source the words come from |
+| `reported` | boolean | no | the words are a report's direct quotation, not the speaker's own text |
+| `by` | number | yes | the year it names, or that its words let be worked out |
+| `byWords` | string | yes | the words inside `words` that set the year |
+| `verdict` | string | yes | `kept`, `early`, `late`, `overdue`, `wrong`, `disputed` or `open` (below) |
+| `came` | number | see note | the year it came true; required for `kept`, `early` and `late`, absent for `overdue` and `open` |
+| `short` | string | yes | the verdict in one or two sentences, ≤ 260 characters |
+| `reading` | string[] | yes | the verdict at length; claims nothing its quotes and cards do not say |
+| `evidence` | `{source, quote}[]` | yes | what happened, each `quote` verbatim from the source named by `source` |
+| `sources` | `{id, kind, publisher, title, url, date}[]` | yes | `date` is `YYYY`, `YYYY-MM` or `YYYY-MM-DD`; every source is used |
+| `record` | `{event, note}[]` | yes | the cards it bears on, at least one; a card lists the predictions that rest on it |
+| `open` | string | yes | what the record does not settle |
+| `checked` | `YYYY-MM-DD` | yes | the day every quote was last matched against its page |
+| `leads` | string[] | yes | ids from `leads.json`, possibly none |
+
+Verdicts: **kept** — it happened by the year it named; **early** — it happened years before; **late**
+— it happened after; **overdue** — the year has passed and it has not happened; **wrong** — it said
+something would not happen, and it did; **disputed** — accounts on the record differ on whether it has
+happened; **open** — the year has not come. A verdict is about the words, not the person.
+
+## `data/machines.json`
+
+`machines` — programs from the record rebuilt to run in the browser from their own papers, each run
+on its card (`/card/<event>/#machine`) and listed at `/machines/`. The programs are in
+`src/lib/machines/` and their panels in `src/components/machines/`, fetched only by the card that runs
+them.
+
+| Field | Type | Required | Notes |
+| --- | --- | --- | --- |
+| `id` | string | yes | `eliza`, `menace`, `shannon` or `perceptron`: the program that runs |
+| `event` | string | yes | the card it runs on, on the record |
+| `title` | string | yes | ≤ 60 characters |
+| `short` | string | yes | one line for the index and the front page, ≤ 200 characters |
+| `lede` | string | yes | what the reader is running, and what to try |
+| `try` | string[] | no | lines to offer, where the machine takes typing |
+| `kept` / `changed` | string[] | yes | what is as it was, and what is not |
+| `credit` | string | yes | whose reconstruction it is, and how it is checked |
+| `sources` | `{kind, publisher, title, url, date?, quote?}[]` | yes | the papers it is rebuilt from; a `quote` is verbatim |
+| `lead` | `{id, rung}` | no | the rung of a lead its card stands on, to follow it up |
 
 ## `data/people.json`, `data/orgs.json`, `data/glossary.json`
 

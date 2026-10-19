@@ -3,6 +3,7 @@ import { createRoot, hydrateRoot } from 'react-dom/client';
 import App from './App';
 import { loadBoard } from './components/boardChunk';
 import { hasPapers, loadPapers, papersFor, papersVersion } from './lib/papers';
+import { predictionsFor } from './lib/predictions';
 import { parse } from './lib/url';
 
 declare global {
@@ -20,7 +21,7 @@ const q = new URLSearchParams(window.location.search);
 const refined = q.has('cat') || q.has('q') || q.has('view');
 const prerendered = root.hasChildNodes() && !refined && !document.documentElement.hasAttribute('data-client-render');
 if (prerendered) {
-  hydrateRoot(root, <App />, {
+  const hydrate = () => hydrateRoot(root, <App />, {
     // A mismatch between the prerendered HTML and the first client render is
     // recovered by React and recorded here, so a build can be checked for them.
     onRecoverableError: (err: unknown) => {
@@ -28,6 +29,11 @@ if (prerendered) {
       if (import.meta.env.DEV) console.warn('hydration', err);
     }
   });
+  // A prediction page prints the whole of Said in advance, which the browser
+  // fetches apart (predictions.ts); the printed page stays up until it is here.
+  const foretold = predictionsFor(parse(window.location.pathname, window.location.search, window.location.hash));
+  if (foretold) foretold.then(hydrate, hydrate);
+  else hydrate();
 } else {
   const draw = () => {
     root.innerHTML = '';
@@ -41,8 +47,10 @@ if (prerendered) {
   // drawn afresh that reads papers the document did not bring — a search, a
   // card opened on the board, an old address — waits for those the same way.
   const board = root.querySelector('[data-board-listing]') ? loadBoard() : null;
-  const papers = papersFor(parse(window.location.pathname, window.location.search, window.location.hash), null);
-  if (board || papers) Promise.all([board, papers]).then(draw, draw);
+  const here = parse(window.location.pathname, window.location.search, window.location.hash);
+  const papers = papersFor(here, null);
+  const foretold = predictionsFor(here);
+  if (board || papers || foretold) Promise.all([board, papers, foretold]).then(draw, draw);
   else draw();
 }
 

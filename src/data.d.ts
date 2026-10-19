@@ -11,6 +11,13 @@ declare module '*/data/events.json?papers' {
   export default papers;
 }
 
+/* Said in advance, as most pages read it: each prediction's head only — see
+   scripts/split-events.ts and src/lib/predictions.ts. */
+declare module '*/data/predictions.json?heads' {
+  const heads: import('./lib/types').PredictionHead[];
+  export default heads;
+}
+
 /* What changed on the board lately, dated from the git history at build time —
    see scripts/board-changes.ts. */
 declare module 'virtual:board-changes' {

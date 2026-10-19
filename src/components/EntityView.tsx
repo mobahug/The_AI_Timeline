@@ -3,6 +3,7 @@ import { accent, catLabel, fade } from '../lib/data';
 import { PEOPLE, ORGS, TERMS, byUse, coOccurring, entityById, appearancesOf } from '../lib/files';
 import type { CoOccurrence } from '../lib/files';
 import { leadsOf } from '../lib/leads';
+import { FORETOLD, predictionsBy } from '../lib/predictions';
 import { INK, MONO, SANS, SERIF, RULE, ROW_RULE, badge, ink, micro, shell, pageTitle } from '../lib/styles';
 import { Btn, Claim, CopyLink, Eyebrow, Link, NavRow, Ref, Section } from './kit';
 import type { Edge, Entity, EntityKind, Graph, Lead, Route, ViewId } from '../lib/types';
@@ -41,6 +42,7 @@ function EntityView({ graph, route }: EntityViewProps) {
     }));
     return [...seen.values()].sort((a, b) => b.n - a.n);
   }, [cards]);
+  const said = kind === 'person' && entity ? predictionsBy(entity.id) : [];
 
   if (!entity) {
     return (
@@ -180,6 +182,19 @@ function EntityView({ graph, route }: EntityViewProps) {
                 <span style={{ font: '400 17px/1.25 ' + SERIF, color: INK }}>{lead.title} →</span>
                 <span style={micro(5)}>{n} {n === 1 ? 'rung' : 'rungs'}</span>
               </Link>
+            ))}
+          </div>
+        </Section>
+      )}
+
+      {said.length > 0 && (
+        <Section id="said-in-advance" eyebrow="Said in advance" title="Predictions on the record" count={said.length + (said.length === 1 ? ' prediction' : ' predictions')}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+            {said.map((p) => (
+              <div key={p.id} style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                <span style={{ ...micro(4), letterSpacing: '0.12em' }}>{p.said.slice(0, 4)} · named {p.by} · {FORETOLD[p.verdict].label}</span>
+                <Link to={{ view: 'prediction', id: p.id }} className="ix-ref" style={{ font: '400 17px/1.3 ' + SERIF, color: INK }}>{p.title} →</Link>
+              </div>
             ))}
           </div>
         </Section>

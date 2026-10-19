@@ -129,6 +129,14 @@ function HorizonView({ items, graph, route, navigate, onOpen }: HorizonViewProps
 
       {!visible.length && <Empty noun="scenario" route={route} navigate={navigate} />}
 
+      <Section id="said-in-advance" eyebrow="Said in advance">
+        <p style={{ margin: '0 0 14px', font: '400 15px/1.6 ' + SERIF, color: ink(2), maxWidth: '60ch', textWrap: 'pretty' }}>
+          These scenarios carry a confidence and no date to be held to. The predictions other people made about AI, each with
+          the year it named, are set beside what happened on a page of their own.
+        </p>
+        <Btn to={{ view: 'predictions' }}>Said in advance →</Btn>
+      </Section>
+
       <Section>
         <NavRow up={NAV.up} prev={NAV.prev} />
       </Section>

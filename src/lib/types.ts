@@ -53,6 +53,8 @@ export interface EventRaw {
   terms?: string[];
   sources?: SourceRaw[];
   confidence?: Confidence;
+  /** On a scenario: the record cards that brought part of it early. */
+  early?: string[];
   featured?: boolean;
   wikiTitle?: string;
 }
@@ -180,6 +182,64 @@ export interface Check {
   leads: string[];
 }
 
+/** A prediction about AI, quoted from where it was made, set beside what
+ *  happened (data/predictions.json). */
+export type Foretold = 'kept' | 'early' | 'late' | 'overdue' | 'wrong' | 'disputed' | 'open';
+export interface PredictionSource { id: string; kind: SourceKind; publisher: string; title: string; url: string; date: string }
+export interface Prediction {
+  id: string;
+  /** What was predicted, in the board's words; never dressed as a quotation. */
+  title: string;
+  who: string;
+  people: string[];
+  /** When it was said: `YYYY`, `YYYY-MM` or `YYYY-MM-DD`. */
+  said: string;
+  /** The prediction, verbatim, from the source named by `source`. */
+  words: string;
+  source: string;
+  /** The words are a report's direct quotation, not the original. */
+  reported?: boolean;
+  /** The year it names, or that its words let be worked out. */
+  by: number;
+  /** The words inside `words` that set the year. */
+  byWords: string;
+  verdict: Foretold;
+  /** The year it came true, when it did. */
+  came?: number;
+  short: string;
+  reading: string[];
+  evidence: { source: string; quote: string }[];
+  sources: PredictionSource[];
+  record: QuestionRecord[];
+  open: string;
+  checked: string;
+  leads: string[];
+}
+
+/** What every page may know of a prediction: enough to list it and to say how
+ *  it went. Its words, its verdict at length and its sources are fetched by its
+ *  own pages (src/lib/predictions.ts). */
+export type PredictionHead = Pick<Prediction, 'id' | 'title' | 'who' | 'people' | 'said' | 'by' | 'verdict' | 'came' | 'short' | 'record'>;
+
+/** A program from the record rebuilt to run in the browser from its original
+ *  papers (data/machines.json), run on its card. `kept` says what is as it was,
+ *  `changed` what is not. */
+export type MachineKind = 'eliza' | 'menace' | 'shannon' | 'perceptron';
+export interface MachineSource { kind: SourceKind; publisher: string; title: string; url: string; date?: string; quote?: string }
+export interface Machine {
+  id: MachineKind;
+  event: string;
+  title: string;
+  short: string;
+  lede: string;
+  try?: string[];
+  kept: string[];
+  changed: string[];
+  credit: string;
+  sources: MachineSource[];
+  lead?: { id: string; rung: number };
+}
+
 /** One idea of the primer on the Start here page (data/primer.json): a term
  *  from the glossary, the idea in everyday words, and the cards it arrives on. */
 export interface Idea { term: string; plain: string; cards: string[] }
@@ -210,7 +270,7 @@ export type Mode = 'brief' | 'full';
 export type ViewId =
   | 'landing' | 'line' | 'finding' | 'case' | 'horizon' | 'board' | 'card'
   | 'leads' | 'lead' | 'questions' | 'question' | 'checks' | 'check' | 'archive' | 'plates' | 'mosaic' | 'files' | 'person' | 'org' | 'glossary' | 'term' | 'about'
-  | 'start' | 'latest' | 'charts';
+  | 'start' | 'latest' | 'charts' | 'machines' | 'predictions' | 'prediction';
 
 /** The board's geometry for one window, from layout.ts. */
 export interface Metrics {

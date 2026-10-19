@@ -25,9 +25,13 @@ import StartView from './components/StartView';
 import FilesView from './components/FilesView';
 import GlossaryView from './components/GlossaryView';
 import EntityView from './components/EntityView';
+import MachinesView from './components/MachinesView';
+import PredictionsView from './components/PredictionsView';
+import PredictionView from './components/PredictionView';
 import { buildGraph, events as canonEvents, forwardLedger, FIRST, NOW } from './lib/data';
 import { matches } from './lib/files';
 import { papersFor, usePapers } from './lib/papers';
+import { predictionsFor } from './lib/predictions';
 import { useMedia } from './lib/wiki';
 import { useRoute } from './lib/url';
 import { useMode } from './lib/mode';
@@ -46,12 +50,19 @@ const LazyBoardView = lazy(() => loadBoard().then((Board) => ({ default: Board }
 
 const isBrowser = typeof window !== 'undefined';
 
+/** What a turn waits for: a page's papers, and a prediction page's whole file. */
+const waitFor = (next: Route, prev: Route | null): Promise<void> | null => {
+  const a = papersFor(next, prev);
+  const b = predictionsFor(next);
+  return a && b ? Promise.all([a, b]).then(() => undefined) : a || b;
+};
+
 export interface AppProps { initialRoute?: Route }
 
 export default function App({ initialRoute }: AppProps) {
   // A turn to a page whose papers are not here waits for them (papers.ts),
   // and the page it leaves says it is busy until they come.
-  const [route, navigate, turning] = useRoute(initialRoute, papersFor);
+  const [route, navigate, turning] = useRoute(initialRoute, waitFor);
   const papers = usePapers();
   const Board = boardIfLoaded() || LazyBoardView;
   const graph = useMemo(() => buildGraph(), []);
@@ -229,6 +240,9 @@ export default function App({ initialRoute }: AppProps) {
           {view === 'files' && <FilesView graph={graph} />}
           {view === 'glossary' && <GlossaryView graph={graph} />}
           {(view === 'person' || view === 'org' || view === 'term') && <EntityView graph={graph} route={route} />}
+          {view === 'machines' && <MachinesView graph={graph} />}
+          {view === 'predictions' && <PredictionsView graph={graph} />}
+          {view === 'prediction' && <PredictionView graph={graph} route={route} />}
         </main>
       </ErrorBoundary>
 

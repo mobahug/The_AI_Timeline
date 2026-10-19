@@ -1,0 +1,1749 @@
+{
+  "note": "Said in advance: predictions about AI, each quoted word for word from where it was made, with the year it named and what the record shows happened. Every `words` and every evidence `quote` is verbatim from the source named beside it. A verdict is about the words, not the person.",
+  "predictions": [
+    {
+      "id": "turing-imitation-game-by-2000",
+      "title": "A machine fools an average interrogator, in about fifty years",
+      "who": "Alan Turing",
+      "people": [
+        "alan-turing"
+      ],
+      "said": "1950-10",
+      "words": "I believe that in about fifty years' time it will be possible to programme computers, with a storage capacity of about 10⁹, to make them play the imitation game so well that an average interrogator will not have more than 70 per cent. chance of making the right identification after five minutes of questioning.",
+      "source": "mind",
+      "by": 2000,
+      "byWords": "in about fifty years' time",
+      "verdict": "late",
+      "came": 2025,
+      "short": "Turing wrote in 1950 that in about fifty years an average interrogator would be right no more than 70 per cent of the time after five minutes with a machine. In a 2025 test GPT-4.5 was taken for the human 73 per cent of the time.",
+      "reading": [
+        "Turing's figure is exact enough to check: an average interrogator right no more than 70 per cent of the time after five minutes of questioning — the machine taken for the human at least three times in ten. His fifty years ran to 2000.",
+        "In 2025 Cameron Jones and Benjamin Bergen ran three-party tests on Turing's own terms, five-minute conversations with a person and a machine at once. Prompted to adopt a humanlike persona, GPT-4.5 was picked as the human 73 per cent of the time, more often than the real person. On that measure the prediction came true, twenty-five years late; the board's card files it as passed, by one measure."
+      ],
+      "evidence": [
+        {
+          "source": "jones",
+          "quote": "When prompted to adopt a humanlike persona, GPT-4.5 was judged to be the human 73% of the time: significantly more often than interrogators selected the real human participant."
+        },
+        {
+          "source": "jones",
+          "quote": "Participants had 5 minute conversations simultaneously with another human participant and one of these systems before judging which conversational partner they thought was human."
+        },
+        {
+          "source": "jones",
+          "quote": "The results constitute the first empirical evidence that any artificial system passes a standard three-party Turing test."
+        }
+      ],
+      "sources": [
+        {
+          "id": "mind",
+          "kind": "paper",
+          "publisher": "Mind",
+          "title": "Computing Machinery and Intelligence",
+          "url": "https://academic.oup.com/mind/article/LIX/236/433/986238",
+          "date": "1950-10-01"
+        },
+        {
+          "id": "jones",
+          "kind": "paper",
+          "publisher": "arXiv (Cameron Jones and Benjamin Bergen)",
+          "title": "Large Language Models Pass the Turing Test",
+          "url": "https://arxiv.org/abs/2503.23674",
+          "date": "2025-03-31"
+        }
+      ],
+      "record": [
+        {
+          "event": "turing-asks-the-question",
+          "note": "The card files the prediction, and the 2025 result as passed by one measure."
+        }
+      ],
+      "open": "Whether an earlier claim, on looser terms, met the line first is not settled here. The board scores the 2025 study, which its authors call the first evidence of any system passing a standard three-party test.",
+      "leads": [],
+      "checked": "2026-10-19"
+    },
+    {
+      "id": "dartmouth-a-summer-1956",
+      "title": "A significant advance on thinking machines, from one summer's work",
+      "who": "John McCarthy, Marvin Minsky, Nathaniel Rochester and Claude Shannon",
+      "people": [
+        "john-mccarthy",
+        "marvin-minsky",
+        "claude-shannon"
+      ],
+      "said": "1955-08-31",
+      "words": "We think that a significant advance can be made in one or more of these problems if a carefully selected group of scientists work on it together for a summer.",
+      "source": "proposal",
+      "by": 1956,
+      "byWords": "for a summer",
+      "verdict": "late",
+      "came": 1959,
+      "short": "The 1955 proposal that named the field said a significant advance could be made if a chosen group worked on it together for a summer. In 1956, McCarthy wrote later, there was no real joint work; the first result he traced to the summer came in 1959.",
+      "reading": [
+        "The proposal, dated 31 August 1955, set its own terms: a carefully selected group, working together, for a summer. In 1987 McCarthy wrote that some invitees did not come at all and most came for short stays that did not overlap. There was no real joint work, and the direct scientific result was meagre. On its own terms the summer's promise was never tested, and not kept.",
+        "Read as a promise that the problems would yield to a concerted attack, it came true late. McCarthy traced one line from the summer to IBM: Herbert Gelernter, who started work in September 1956, had a geometry theorem prover by 1959. The board scores it on that reading, and keeps the other beside it."
+      ],
+      "evidence": [
+        {
+          "source": "saildart",
+          "quote": "In the event, some invitees didn't come at all and almost all came for short periods, not all overlapping. There was no real joint work."
+        },
+        {
+          "source": "saildart",
+          "quote": "In spite of this meager direct scientific result, though perhaps no more meager than that of many conferences, I believe it played an important role in the future of AI."
+        },
+        {
+          "source": "saildart",
+          "quote": "Rochester decided to take it up, and a new Ph.D. in physics, Herbert Gelernter, who started work in September 1956 took up the project and produced a geometry theorem prover by 1959, IBM's best AI work so far."
+        }
+      ],
+      "sources": [
+        {
+          "id": "proposal",
+          "kind": "primary",
+          "publisher": "John McCarthy (Stanford), his transcription of the proposal",
+          "title": "A Proposal for the Dartmouth Summer Research Project on Artificial Intelligence",
+          "url": "https://www-formal.stanford.edu/jmc/history/dartmouth/dartmouth.html",
+          "date": "1955-08-31"
+        },
+        {
+          "id": "saildart",
+          "kind": "primary",
+          "publisher": "John McCarthy (SAILDART archive)",
+          "title": "The Dartmouth Conference",
+          "url": "https://www.saildart.org/DARTMO.TEX[S87,JMC]2",
+          "date": "1987-04-20"
+        }
+      ],
+      "record": [
+        {
+          "event": "dartmouth-names-the-field",
+          "note": "The proposal, the summer, and the name that stuck."
+        },
+        {
+          "event": "logic-theorist",
+          "note": "One of the two programs with results to show that summer, and it was already running before it."
+        }
+      ],
+      "open": "Whether a summer of real joint work would have done it was never tried.",
+      "leads": [],
+      "checked": "2026-10-19"
+    },
+    {
+      "id": "simon-newell-chess-champion-1967",
+      "title": "A computer becomes the world's chess champion within ten years",
+      "who": "Herbert Simon and Allen Newell",
+      "people": [
+        "herbert-simon",
+        "allen-newell"
+      ],
+      "said": "1957-11-14",
+      "words": "That within ten years a digital computer will be the world's chess champion, unless the rules bar it from competition.",
+      "source": "or",
+      "by": 1967,
+      "byWords": "within ten years",
+      "verdict": "late",
+      "came": 1997,
+      "short": "Simon and Newell said in November 1957 that within ten years a computer would be the world's chess champion, unless the rules barred it from competition. Deep Blue beat the reigning champion in a match in 1997, thirty years late.",
+      "reading": [
+        "The first of four predictions Simon made in an address on 14 November 1957, printed with Newell two months later: within ten years a computer would be chess champion, discover and prove an important new theorem, write music critics would accept, and turn most theories in psychology into programs. The theorem is filed here too; the music and the psychology are not, because no card on the board can settle them.",
+        "Deep Blue beat Garry Kasparov, the reigning champion, in a match in May 1997, thirty years after the deadline. Read word for word it never came: no computer has held the title, which is the case Simon's own clause, unless the rules bar it, allowed for. Minsky said so in 1997; Simon, the next year, called the predictions a highly successful exercise in futurology that he would make again."
+      ],
+      "evidence": [
+        {
+          "source": "ibm",
+          "quote": "In May of that year, it became the first computer system to defeat a reigning world chess champion in a match under standard tournament controls."
+        },
+        {
+          "source": "hal",
+          "quote": "Herbert Simon said in 1958 that a program would be chess champion in ten years, and, as we know, the IBM group has done extremely well, but even now [Deep Blue] is not the undisputed champion."
+        },
+        {
+          "source": "simon1998",
+          "quote": "Just for your own information, (a) I regard the predictions as a highly successful exercise in futurology, and (b) placed in the equivalent position today, I would make them again, and for the same reasons. (Some people never seem to learn.)"
+        }
+      ],
+      "sources": [
+        {
+          "id": "or",
+          "kind": "paper",
+          "publisher": "Operations Research (offprint, Carnegie Mellon University Libraries)",
+          "title": "Heuristic Problem Solving: The Next Advance in Operations Research",
+          "url": "https://iiif.library.cmu.edu/file/Newell_box00040_fld03071_doc0002/Newell_box00040_fld03071_doc0002.pdf",
+          "date": "1958-01"
+        },
+        {
+          "id": "ibm",
+          "kind": "primary",
+          "publisher": "IBM",
+          "title": "Deep Blue",
+          "url": "https://www.ibm.com/history/deep-blue",
+          "date": "2025-11-10"
+        },
+        {
+          "id": "hal",
+          "kind": "interview",
+          "publisher": "MIT Press, HAL's Legacy, via the Wayback Machine",
+          "title": "Scientist on the Set: An Interview with Marvin Minsky",
+          "url": "https://web.archive.org/web/19990501144118/http://mitpress.mit.edu:80/e-books/Hal/chap2/two2.html",
+          "date": "1997"
+        },
+        {
+          "id": "simon1998",
+          "kind": "primary",
+          "publisher": "Herbert A. Simon, email to William J. Rapaport",
+          "title": "Re: citation needed for your prediction about chess",
+          "url": "https://cse.buffalo.edu/~rapaport/584/S07/simon.txt",
+          "date": "1998-09-24"
+        }
+      ],
+      "record": [
+        {
+          "event": "deep-blue-beats-kasparov",
+          "note": "May 1997: a computer beats the reigning champion in a match for the first time."
+        }
+      ],
+      "open": "Whether a match win makes a machine the world's champion, when the title is contested by people, is a question of words.",
+      "leads": [
+        "games-fall"
+      ],
+      "checked": "2026-10-19"
+    },
+    {
+      "id": "simon-newell-new-theorem-1967",
+      "title": "A computer discovers and proves an important new theorem within ten years",
+      "who": "Herbert Simon and Allen Newell",
+      "people": [
+        "herbert-simon",
+        "allen-newell"
+      ],
+      "said": "1957-11-14",
+      "words": "That within ten years a digital computer will discover and prove an important new mathematical theorem.",
+      "source": "or",
+      "by": 1967,
+      "byWords": "within ten years",
+      "verdict": "late",
+      "came": 2026,
+      "short": "The second of Simon and Newell's four: within ten years a computer would discover and prove an important new theorem. On a loose reading it came in 1976; on the strict one, in 2026, when a model disproved an Erdős conjecture that experts called important.",
+      "reading": [
+        "Dreyfus wrote in 1965 that the field was still a long way from the important theorem promised for 1967. In 1976 a computer checked the cases of the four-colour theorem — the first major theorem proved with one, but a conjecture from 1852 and a proof its human authors designed.",
+        "In May 2026 an internal OpenAI model disproved Erdős's eighty-year-old conjecture on unit distances. Scientific American wrote that the result would merit a top journal even if people had done it alone, and Timothy Gowers that no earlier machine proof had come close; a mathematician quoted in the same article said very similar ideas in the literature had not been credited. The board scores the strict reading: came, sixty years late."
+      ],
+      "evidence": [
+        {
+          "source": "dreyfus",
+          "quote": "We are still a long way from \"the important mathematical theorem\" to be found by 1967."
+        },
+        {
+          "source": "wiki",
+          "quote": "It was the first major theorem to be proved by use of a computer."
+        },
+        {
+          "source": "sciam",
+          "quote": "Unlike all those previous feats, this result would merit publication in a top math journal, as well as major media attention, even if it were performed by humans alone."
+        },
+        {
+          "source": "sciam",
+          "quote": "No previous AI-generated proof has come close"
+        },
+        {
+          "source": "sciam",
+          "quote": "We recognized that there were very similar ideas in the literature that weren’t credited"
+        }
+      ],
+      "sources": [
+        {
+          "id": "or",
+          "kind": "paper",
+          "publisher": "Operations Research (offprint, Carnegie Mellon University Libraries)",
+          "title": "Heuristic Problem Solving: The Next Advance in Operations Research",
+          "url": "https://iiif.library.cmu.edu/file/Newell_box00040_fld03071_doc0002/Newell_box00040_fld03071_doc0002.pdf",
+          "date": "1958-01"
+        },
+        {
+          "id": "dreyfus",
+          "kind": "paper",
+          "publisher": "RAND Corporation (P-3244)",
+          "title": "Alchemy and Artificial Intelligence",
+          "url": "https://www.rand.org/content/dam/rand/pubs/papers/2006/P3244.pdf",
+          "date": "1965-12"
+        },
+        {
+          "id": "wiki",
+          "kind": "encyclopedia",
+          "publisher": "Wikipedia",
+          "title": "Four color theorem",
+          "url": "https://en.wikipedia.org/wiki/Four_color_theorem",
+          "date": "2026-10-19"
+        },
+        {
+          "id": "sciam",
+          "kind": "article",
+          "publisher": "Scientific American",
+          "title": "OpenAI announces AI’s biggest math breakthrough yet",
+          "url": "https://www.scientificamerican.com/article/ai-just-solved-an-80-year-old-erdos-problem-and-mathematicians-are-amazed/",
+          "date": "2026-05-21"
+        }
+      ],
+      "record": [
+        {
+          "event": "the-four-colour-theorem-by-computer",
+          "note": "1976: the first major theorem proved with a computer, on a proof people designed."
+        },
+        {
+          "event": "the-erdos-problems",
+          "note": "May 2026: a model disproves an eighty-year-old conjecture, the result the strict reading scores."
+        },
+        {
+          "event": "navier-stokes-falls-to-ten-thousand-agents",
+          "note": "September 2026: a far larger claim, checked in Lean and still under review."
+        }
+      ],
+      "open": "'Important' is a judgement, and some of the 2026 commentary was written at OpenAI's invitation. The Navier–Stokes claim waits on the Clay Institute's review.",
+      "leads": [
+        "machines-doing-maths"
+      ],
+      "checked": "2026-10-19"
+    },
+    {
+      "id": "dreyfus-no-amateur-chess",
+      "title": "No computer chess champion by Simon's deadline of 1967",
+      "who": "Hubert Dreyfus",
+      "people": [],
+      "said": "1965-12",
+      "words": "Still no chess program can play even amateur chess, and the world championship tournament is only two years away.",
+      "source": "rand",
+      "by": 1967,
+      "byWords": "only two years away",
+      "verdict": "kept",
+      "came": 1967,
+      "short": "Dreyfus wrote in 1965 that still no chess program can play even amateur chess, and that Simon's world championship was only two years away. No computer was champion in 1967 — but that year a program at MIT beat Dreyfus.",
+      "reading": [
+        "The sentence describes the present and mocks a deadline; it forecasts only that Simon's would pass, and it did. The description did not last the two years: in 1967 Richard Greenblatt's chess program beat Dreyfus at MIT, and SIGART reprinted the game with one phrase from his paper.",
+        "Dreyfus replied, in Seymour Papert's account, that he had been making a statement of fact, not a prediction. The version usually quoted — no program could play even amateur chess — is a later retelling, printed in quotation marks in a 2010 history of the field. The paper says can."
+      ],
+      "evidence": [
+        {
+          "source": "papert",
+          "quote": "chess program at M.I.T. and seeing him very roundly trounced. The newsletter SIGART reprinted the game with no comment beyond one phrase from Alchemy: \"... no chess program can play even amateur chess.\" (p. 10)"
+        },
+        {
+          "source": "papert",
+          "quote": "Dreyfus indignantly replied that he was being misquoted: he was making a statement of fact, not a prediction."
+        },
+        {
+          "source": "greenblatt",
+          "quote": "Dreyfus said, oh, sure. And sure enough, Dreyfus sat down and got beat."
+        },
+        {
+          "source": "nilsson",
+          "quote": "Greenblatt’s program beat Hubert Dreyfus (1929– ), an AI critic who had earlier observed that “no chess program could play even amateur chess.”"
+        }
+      ],
+      "sources": [
+        {
+          "id": "rand",
+          "kind": "paper",
+          "publisher": "RAND Corporation (P-3244)",
+          "title": "Alchemy and Artificial Intelligence",
+          "url": "https://www.rand.org/content/dam/rand/pubs/papers/2006/P3244.pdf",
+          "date": "1965-12"
+        },
+        {
+          "id": "papert",
+          "kind": "paper",
+          "publisher": "MIT AI Laboratory (Seymour Papert, AI Memo 154), via the Wayback Machine",
+          "title": "The Artificial Intelligence of Hubert L. Dreyfus: A Budget of Fallacies",
+          "url": "https://web.archive.org/web/20210828171045/https://dspace.mit.edu/bitstream/handle/1721.1/6084/AIM-154.pdf",
+          "date": "1968-01"
+        },
+        {
+          "id": "greenblatt",
+          "kind": "interview",
+          "publisher": "Computer History Museum",
+          "title": "Oral History of Richard Greenblatt",
+          "url": "https://s3.us-west-1.wasabisys.com/chm-cms-media/media-live/_file/import/102657935-05-01-acc.pdf",
+          "date": "2005-01-12"
+        },
+        {
+          "id": "nilsson",
+          "kind": "paper",
+          "publisher": "Nils J. Nilsson (web edition of the Cambridge University Press book)",
+          "title": "The Quest for Artificial Intelligence",
+          "url": "https://ai.stanford.edu/~nilsson/QAI/qai.pdf",
+          "date": "2009-09-13"
+        }
+      ],
+      "record": [
+        {
+          "event": "deep-blue-beats-kasparov",
+          "note": "Where the chess story ends, thirty years after the deadline Dreyfus was mocking."
+        }
+      ],
+      "open": "Whether the sentence was a prediction at all: its author said it was not.",
+      "leads": [
+        "games-fall"
+      ],
+      "checked": "2026-10-19"
+    },
+    {
+      "id": "simon-any-work-that-a-man-can-do",
+      "title": "Machines capable of any work a man can do, within twenty years",
+      "who": "Herbert Simon",
+      "people": [
+        "herbert-simon"
+      ],
+      "said": "1960",
+      "words": "Technologically, as I have argued earlier, machines will be capable, within twenty years, of doing any work that a man can do.",
+      "source": "qi",
+      "reported": true,
+      "by": 1980,
+      "byWords": "within twenty years",
+      "verdict": "overdue",
+      "short": "Simon wrote in 1960 that machines would be capable, within twenty years, of doing any work that a man can do. It is usually quoted from his 1965 reprint, and without the 'that'. The twenty years ran out in 1980.",
+      "reading": [
+        "The line is from the third of Simon's 1960 lectures, The New Science of Management Decision, and was reprinted in The Shape of Automation for Men and Management in 1965 — which is why it is usually dated 1965 and given a deadline of 1985. Either way it has passed.",
+        "His next sentence keeps for people their greatest comparative advantage in jobs that need flexible handling of a rough environment: he forecast what machines could technically do, not that they would do it. Nothing on the record says any work at all can yet be done by a machine; the 2026 argument is over general intelligence, hedged and disputed the day it was made."
+      ],
+      "evidence": [
+        {
+          "source": "qi",
+          "quote": "In 1960 Herbert A. Simon published “The New Science of Management Decision”, and he did assert that computer systems would achieve extraordinarily broad capabilities within two decades, i.e., by 1980."
+        },
+        {
+          "source": "qi",
+          "quote": "The chapter containing the quotation under examination was reprinted in Simon’s 1965 book “The Shape of Automation for Men and Management”."
+        },
+        {
+          "source": "qi",
+          "quote": "Economically, men will retain their greatest comparative advantage in jobs that require flexible manipulation of those parts of the environment that are relatively rough"
+        },
+        {
+          "source": "techcrunch",
+          "quote": "For me personally, I do think we’re there."
+        },
+        {
+          "source": "arc",
+          "quote": "while we believe Astra represents meaningful progress towards generalization, we are not claiming that it is AGI"
+        }
+      ],
+      "sources": [
+        {
+          "id": "qi",
+          "kind": "article",
+          "publisher": "Quote Investigator, quoting the 1965 printing",
+          "title": "Quote Origin: Machines Will Be Capable, Within Twenty Years, of Doing Any Work a Man Can Do",
+          "url": "https://quoteinvestigator.com/2020/11/11/ai-can-do/",
+          "date": "2020-11-11"
+        },
+        {
+          "id": "techcrunch",
+          "kind": "article",
+          "publisher": "TechCrunch",
+          "title": "OpenAI launches Astra, its powerful (and controversial) new model",
+          "url": "https://techcrunch.com/2026/09/03/openai-launches-astra-its-powerful-and-controversial-new-model/",
+          "date": "2026-09-03"
+        },
+        {
+          "id": "arc",
+          "kind": "primary",
+          "publisher": "ARC Prize",
+          "title": "OpenAI's GPT-6 Astra on ARC-AGI-3",
+          "url": "https://arcprize.org/blog/astra",
+          "date": "2026-09-03"
+        }
+      ],
+      "record": [
+        {
+          "event": "openai-says-the-agi-era-is-here",
+          "note": "September 2026: the most a lab has claimed is general intelligence, hedged, and disputed the same day."
+        }
+      ],
+      "open": "Read as Simon meant it — what machines could technically do — the record still has no machine shown capable of any work a person can do.",
+      "leads": [],
+      "checked": "2026-10-19"
+    },
+    {
+      "id": "good-ultraintelligent-machine-by-2000",
+      "title": "An ultraintelligent machine, the last invention, within the twentieth century",
+      "who": "I. J. Good",
+      "people": [],
+      "said": "1965",
+      "words": "It is more probable than not that, within the twentieth century, an ultraintelligent machine will be built and that it will be the last invention that man need make, since it will lead to an “intelligence explosion.”",
+      "source": "good",
+      "by": 2000,
+      "byWords": "within the twentieth century",
+      "verdict": "overdue",
+      "short": "Good wrote in 1965 that it was more probable than not that an ultraintelligent machine would be built within the twentieth century, and would be the last invention people need make. The century ended without one.",
+      "reading": [
+        "Good's machine is defined to surpass all the intellectual activities of any person, however clever, and so to be able to design better machines than people can: the intelligence explosion of his sentence, a phrase the field took up.",
+        "Nothing built by 2000, or since, meets that definition. The argument in September 2026 was whether general intelligence — not ultra — had arrived, and the board's cards that year show the laboratories' own staff asking governments to help slow the loop of machines improving machines, not reporting it complete."
+      ],
+      "evidence": [
+        {
+          "source": "techcrunch",
+          "quote": "For me personally, I do think we’re there."
+        },
+        {
+          "source": "arc",
+          "quote": "while we believe Astra represents meaningful progress towards generalization, we are not claiming that it is AGI"
+        }
+      ],
+      "sources": [
+        {
+          "id": "good",
+          "kind": "paper",
+          "publisher": "Advances in Computers (scan, gwern.net)",
+          "title": "Speculations Concerning the First Ultraintelligent Machine",
+          "url": "https://gwern.net/doc/ai/1966-good.pdf",
+          "date": "1965"
+        },
+        {
+          "id": "techcrunch",
+          "kind": "article",
+          "publisher": "TechCrunch",
+          "title": "OpenAI launches Astra, its powerful (and controversial) new model",
+          "url": "https://techcrunch.com/2026/09/03/openai-launches-astra-its-powerful-and-controversial-new-model/",
+          "date": "2026-09-03"
+        },
+        {
+          "id": "arc",
+          "kind": "primary",
+          "publisher": "ARC Prize",
+          "title": "OpenAI's GPT-6 Astra on ARC-AGI-3",
+          "url": "https://arcprize.org/blog/astra",
+          "date": "2026-09-03"
+        }
+      ],
+      "record": [
+        {
+          "event": "openai-says-the-agi-era-is-here",
+          "note": "September 2026: a hedged claim of general intelligence, disputed the same day."
+        },
+        {
+          "event": "the-labs-ask-to-be-slowed-down",
+          "note": "2026: the labs' own staff ask for help to pace automated AI development."
+        }
+      ],
+      "open": "Whether the loop Good described has begun — machines improving the machines that improve them — is what the 2026 cards argue over; whether it ends where he said is not on the record.",
+      "leads": [],
+      "checked": "2026-10-19"
+    },
+    {
+      "id": "minsky-three-to-eight-years",
+      "title": "A machine as intelligent as an average person, in three to eight years",
+      "who": "Marvin Minsky, as quoted by Brad Darrach",
+      "people": [
+        "marvin-minsky"
+      ],
+      "said": "1970-11-20",
+      "words": "In from three to eight years we will have a machine with the general intelligence of an average human being.",
+      "source": "life",
+      "reported": true,
+      "by": 1978,
+      "byWords": "In from three to eight years",
+      "verdict": "overdue",
+      "short": "Life printed Minsky in 1970 saying that in three to eight years we would have a machine with the general intelligence of an average human being. He later called the quote made up. Either way, 1978 came and went.",
+      "reading": [
+        "The line is Brad Darrach's report in a Life profile of SRI's Shakey robot. Minsky denied it: in 1997 he said the Life quote was made up, a joke, and a researcher who had spent time with Darrach said many of the article's direct quotes were imaginary or out of context. The board files it as Darrach's report of Minsky.",
+        "Whoever said it, it did not happen by 1978, nor for decades after. In September 2026 OpenAI's president said of general intelligence that for him personally we were there, while the benchmark that tested his model said it was not claiming AGI. The board reads that as a hedged rehearsal, not an arrival."
+      ],
+      "evidence": [
+        {
+          "source": "hal",
+          "quote": "Oh, that Life quote was made up. You can tell it's a joke."
+        },
+        {
+          "source": "muehlhauser",
+          "quote": "Upon seeing his statement in print, however, Minsky vehemently denied having made it and even issued a [letter] denouncing the article…"
+        },
+        {
+          "source": "muehlhauser",
+          "quote": "There were many direct quotes that were imaginary or completely out of context."
+        },
+        {
+          "source": "techcrunch",
+          "quote": "For me personally, I do think we’re there."
+        },
+        {
+          "source": "arc",
+          "quote": "while we believe Astra represents meaningful progress towards generalization, we are not claiming that it is AGI"
+        }
+      ],
+      "sources": [
+        {
+          "id": "life",
+          "kind": "article",
+          "publisher": "Life, via Google Books",
+          "title": "Meet Shaky, the first electronic person",
+          "url": "https://books.google.com/books?id=2FMEAAAAMBAJ&pg=PA58",
+          "date": "1970-11-20"
+        },
+        {
+          "id": "hal",
+          "kind": "interview",
+          "publisher": "MIT Press, HAL's Legacy, via the Wayback Machine",
+          "title": "Scientist on the Set: An Interview with Marvin Minsky",
+          "url": "https://web.archive.org/web/19990501144118/http://mitpress.mit.edu:80/e-books/Hal/chap2/two2.html",
+          "date": "1997"
+        },
+        {
+          "id": "muehlhauser",
+          "kind": "article",
+          "publisher": "Open Philanthropy (Luke Muehlhauser), via the Wayback Machine",
+          "title": "What Should We Learn from Past AI Forecasts?",
+          "url": "https://web.archive.org/web/20251124233502/https://coefficientgiving.org/research/what-should-we-learn-from-past-ai-forecasts/",
+          "date": "2016-05"
+        },
+        {
+          "id": "techcrunch",
+          "kind": "article",
+          "publisher": "TechCrunch",
+          "title": "OpenAI launches Astra, its powerful (and controversial) new model",
+          "url": "https://techcrunch.com/2026/09/03/openai-launches-astra-its-powerful-and-controversial-new-model/",
+          "date": "2026-09-03"
+        },
+        {
+          "id": "arc",
+          "kind": "primary",
+          "publisher": "ARC Prize",
+          "title": "OpenAI's GPT-6 Astra on ARC-AGI-3",
+          "url": "https://arcprize.org/blog/astra",
+          "date": "2026-09-03"
+        }
+      ],
+      "record": [
+        {
+          "event": "shakey-the-robot",
+          "note": "The robot the Life article was about."
+        },
+        {
+          "event": "openai-says-the-agi-era-is-here",
+          "note": "September 2026: a hedged claim of general intelligence, disputed the same day."
+        }
+      ],
+      "open": "Whether Minsky said it is disputed by Minsky. If the 2026 claim is counted, the verdict becomes disputed too.",
+      "leads": [],
+      "checked": "2026-10-19"
+    },
+    {
+      "id": "kurzweil-computer-chess-champion",
+      "title": "A computer world chess champion by the end of the century",
+      "who": "Ray Kurzweil",
+      "people": [
+        "ray-kurzweil"
+      ],
+      "said": "1990",
+      "words": "Taking into consideration only anticipated progress in conventional circuit-board fabrication methodologies and continued development of parallel-processing architectures, I feel that a computer world chess champion is a reasonable expectation by the end of the century.",
+      "source": "book",
+      "by": 2000,
+      "byWords": "by the end of the century",
+      "verdict": "kept",
+      "came": 1997,
+      "short": "Kurzweil wrote in 1990 that a computer world chess champion was a reasonable expectation by the end of the century. Deep Blue beat the reigning champion in a match in May 1997, three years inside his date.",
+      "reading": [
+        "The sentence is from the chess chapter of The Age of Intelligent Machines, as Kurzweil's company put it on the web in 1996; the book's chronology dates the same event to 2000. The 1998 often attached to it is his own later arithmetic: in 2002 he wrote that his estimate of the machines' gain in rating points a year had put the cross-over at 1998.",
+        "Deep Blue beat Garry Kasparov, the reigning world champion, in a six-game match in New York in May 1997. Read as Kurzweil read it — a computer beating the champion — it came true early. Read word for word, no computer has ever held the title."
+      ],
+      "evidence": [
+        {
+          "source": "ibm",
+          "quote": "In May of that year, it became the first computer system to defeat a reigning world chess champion in a match under standard tournament controls."
+        },
+        {
+          "source": "retrospect",
+          "quote": "In The Age of Intelligent Machines (MIT Press, 1990), which I wrote in 1986-1989, I predicted that a computer would defeat the human world chess champion by the end of the 1990s. I also noted that computers were gaining about 45 points per year in their chess ratings whereas the best human playing was essentially fixed, which projected the cross-over point at 1998. Indeed, Deep Blue did defeat Gary Kasparov in a highly publicized tournament in 1997."
+        },
+        {
+          "source": "chronology",
+          "quote": "2000 The world chess champion is a computer."
+        }
+      ],
+      "sources": [
+        {
+          "id": "book",
+          "kind": "primary",
+          "publisher": "Kurzweil Technologies, via the Wayback Machine",
+          "title": "The Age of Intelligent Machines (MIT Press, 1990): The World Chess Championship",
+          "url": "https://web.archive.org/web/19970108123841/http://www.kurzweiltech.com:80/mchess.htm",
+          "date": "1990"
+        },
+        {
+          "id": "ibm",
+          "kind": "primary",
+          "publisher": "IBM",
+          "title": "Deep Blue",
+          "url": "https://www.ibm.com/history/deep-blue",
+          "date": "2025-11-10"
+        },
+        {
+          "id": "retrospect",
+          "kind": "primary",
+          "publisher": "Ray Kurzweil, the Kurzweil Library",
+          "title": "Deep Fritz Draws: Are Humans Getting Smarter, or Are Computers Getting Stupider?",
+          "url": "https://www.thekurzweillibrary.com/deep-fritz-draws-are-humans-getting-smarter-or-are-computers-getting-stupider-2",
+          "date": "2002-10-19"
+        },
+        {
+          "id": "chronology",
+          "kind": "primary",
+          "publisher": "Kurzweil Technologies, via the Wayback Machine",
+          "title": "The Age of Intelligent Machines (MIT Press, 1990): Chronology",
+          "url": "https://web.archive.org/web/19970108124235/http://www.kurzweiltech.com:80/mchron.htm",
+          "date": "1990"
+        }
+      ],
+      "record": [
+        {
+          "event": "deep-blue-beats-kasparov",
+          "note": "The match, in May 1997: a computer beat the reigning champion for the first time."
+        }
+      ],
+      "open": "Whether beating the champion in a match makes a machine the champion — it never held the title — is a question of words the record cannot settle.",
+      "leads": [
+        "games-fall"
+      ],
+      "checked": "2026-10-19"
+    },
+    {
+      "id": "vinge-singularity-within-thirty-years",
+      "title": "Superhuman intelligence within thirty years, and the human era over soon after",
+      "who": "Vernor Vinge",
+      "people": [],
+      "said": "1993-03",
+      "words": "Within thirty years, we will have the technological means to create superhuman intelligence. Shortly after, the human era will be ended.",
+      "source": "nasa",
+      "by": 2023,
+      "byWords": "Within thirty years",
+      "verdict": "overdue",
+      "short": "Vinge told a NASA symposium in March 1993 that within thirty years we would have the means to create superhuman intelligence. The thirty years ran out in 2023; in 2025 OpenAI's chief executive called it close, not built.",
+      "reading": [
+        "The sentence everyone quotes is the paper's opening. In June 2025 Sam Altman wrote that humanity was close to building digital superintelligence — close, not finished — and the claims made in September 2026 were about general intelligence, not superhuman, and were disputed the same day: OpenAI's president said 'for me personally, I do think we're there', and ARC Prize, testing the same model, said it was not claiming AGI.",
+        "Vinge hedged in the body of the paper: he would be surprised if the event came before 2005 or after 2030. By that window it has until 2030. By the thirty years in the sentence, it is overdue."
+      ],
+      "evidence": [
+        {
+          "source": "altman",
+          "quote": "We are past the event horizon; the takeoff has started. Humanity is close to building digital superintelligence, and at least so far it’s much less weird than it seems like it should be."
+        },
+        {
+          "source": "techcrunch",
+          "quote": "For me personally, I do think we’re there."
+        },
+        {
+          "source": "arc",
+          "quote": "while we believe Astra represents meaningful progress towards generalization, we are not claiming that it is AGI"
+        },
+        {
+          "source": "nasa",
+          "quote": "I'll be surprised if this event occurs before 2005 or after 2030."
+        }
+      ],
+      "sources": [
+        {
+          "id": "nasa",
+          "kind": "paper",
+          "publisher": "NASA, VISION-21 symposium proceedings (NASA CP-10129)",
+          "title": "The Coming Technological Singularity: How to Survive in the Post-Human Era",
+          "url": "https://ntrs.nasa.gov/api/citations/19940022856/downloads/19940022856.pdf",
+          "date": "1993-12-01"
+        },
+        {
+          "id": "altman",
+          "kind": "primary",
+          "publisher": "Sam Altman",
+          "title": "The Gentle Singularity",
+          "url": "https://blog.samaltman.com/the-gentle-singularity",
+          "date": "2025-06-10"
+        },
+        {
+          "id": "techcrunch",
+          "kind": "article",
+          "publisher": "TechCrunch",
+          "title": "OpenAI launches Astra, its powerful (and controversial) new model",
+          "url": "https://techcrunch.com/2026/09/03/openai-launches-astra-its-powerful-and-controversial-new-model/",
+          "date": "2026-09-03"
+        },
+        {
+          "id": "arc",
+          "kind": "primary",
+          "publisher": "ARC Prize",
+          "title": "OpenAI's GPT-6 Astra on ARC-AGI-3",
+          "url": "https://arcprize.org/blog/astra",
+          "date": "2026-09-03"
+        }
+      ],
+      "record": [
+        {
+          "event": "openai-says-the-agi-era-is-here",
+          "note": "September 2026: a lab president's 'we're there' about general intelligence, and a benchmark's 'not AGI' the same day."
+        },
+        {
+          "event": "a-contested-agi-claim",
+          "note": "The board's own scenario for a claim of this kind that evaluation cannot settle."
+        }
+      ],
+      "open": "Whether the 'technological means' can exist before anyone has used them is a matter of reading. The human era, on any reading, has not ended.",
+      "leads": [],
+      "checked": "2026-10-19"
+    },
+    {
+      "id": "kapor-kurzweil-turing-test-bet",
+      "title": "No computer passes the Turing test by the end of 2029, under a bet’s rules",
+      "who": "Mitchell Kapor, betting against Ray Kurzweil",
+      "people": [],
+      "said": "2002",
+      "words": "By 2029 no computer - or \"machine intelligence\" - will have passed the Turing Test.",
+      "source": "longbets",
+      "by": 2029,
+      "byWords": "By 2029",
+      "verdict": "open",
+      "short": "In 2002 Mitchell Kapor bet Ray Kurzweil $20,000 that no computer would pass the Turing test by the end of 2029, under rules of two-hour interviews by three judges. A 2025 study reported a pass in five-minute chats; under the bet's rules, none yet.",
+      "reading": [
+        "The sentence is Kapor's side of the first wager on Long Bets. If a computer passes before the end of 2029, Kurzweil wins; otherwise Kapor does. The rules are strict: each of three judges interviews the computer and three human foils for two hours, and the computer must fool two of the three judges and rank as human as two of the foils.",
+        "In 2025 Cameron Jones and Benjamin Bergen reported the first evidence that an artificial system passes a standard three-party Turing test — in five-minute conversations. Nothing on the record has been run under the bet's rules, and its year has not come."
+      ],
+      "evidence": [
+        {
+          "source": "longbets",
+          "quote": "If a Computer passes the Turing Test, as described above, prior to the end of the year 2029, then Ray Kurzweil wins the wager. Otherwise Mitchell Kapor wins the wager."
+        },
+        {
+          "source": "longbets",
+          "quote": "The Computer will be deemed to have passed the \"Turing Test Human Determination Test\" if the Computer has fooled two or more of the three Human Judges into thinking that it is a human."
+        },
+        {
+          "source": "longbets",
+          "quote": "STAKES $20,000 will go to The Electronic Frontier Foundation if Kapor wins, or The Kurzweil Foundation if Kurzweil wins."
+        },
+        {
+          "source": "jones",
+          "quote": "Participants had 5 minute conversations simultaneously with another human participant and one of these systems before judging which conversational partner they thought was human."
+        },
+        {
+          "source": "jones",
+          "quote": "The results constitute the first empirical evidence that any artificial system passes a standard three-party Turing test."
+        }
+      ],
+      "sources": [
+        {
+          "id": "longbets",
+          "kind": "primary",
+          "publisher": "Long Bets (The Long Now Foundation)",
+          "title": "Bet 1: By 2029 no computer — or “machine intelligence” — will have passed the Turing Test",
+          "url": "https://longbets.org/1/",
+          "date": "2002"
+        },
+        {
+          "id": "jones",
+          "kind": "paper",
+          "publisher": "arXiv (Cameron Jones and Benjamin Bergen)",
+          "title": "Large Language Models Pass the Turing Test",
+          "url": "https://arxiv.org/abs/2503.23674",
+          "date": "2025-03-31"
+        }
+      ],
+      "record": [
+        {
+          "event": "turing-asks-the-question",
+          "note": "Turing's own prediction for the test, and the 2025 result that met it by one measure."
+        }
+      ],
+      "open": "Whether anyone will stage the bet's test before the end of 2029, and how it will be judged, is not on the record.",
+      "leads": [],
+      "checked": "2026-10-19"
+    },
+    {
+      "id": "coulom-go-maybe-ten-years",
+      "title": "A machine beats a Go professional without a handicap in about ten years",
+      "who": "Rémi Coulom",
+      "people": [],
+      "said": "2014-03",
+      "words": "I think maybe ten years",
+      "source": "wired",
+      "reported": true,
+      "by": 2024,
+      "byWords": "maybe ten years",
+      "verdict": "early",
+      "came": 2015,
+      "short": "In March 2014 the author of a leading Go program told Wired that a machine might beat a professional without a handicap in maybe ten years. AlphaGo did it in October 2015, and beat Lee Sedol the following March.",
+      "reading": [
+        "Coulom's program had just beaten professionals only after a four-stone start when Wired asked him when a machine would win without one. Maybe ten years, he said, adding that he did not like to make predictions. Seven years earlier, Deep Blue's designer Feng-Hsiung Hsu had given the same span from a different method.",
+        "DeepMind's AlphaGo beat the European champion Fan Hui 5–0 in October 2015, and Nature's paper the next January called it a feat previously thought to be at least a decade away. The forecast erred towards caution, which is the board's reading of Go: since then, estimates of what is hard have not been trusted in either direction."
+      ],
+      "evidence": [
+        {
+          "source": "wired",
+          "quote": "whose program has now bested two professionals after a four-stone handicap."
+        },
+        {
+          "source": "nature",
+          "quote": "This is the first time that a computer program has defeated a human professional player in the full-sized game of Go, a feat previously thought to be at least a decade away."
+        },
+        {
+          "source": "nature",
+          "quote": "AlphaGo achieved a 99.8% winning rate against other Go programs, and defeated the human European Go champion by 5 games to 0."
+        },
+        {
+          "source": "hsu",
+          "quote": "Nevertheless, I believe that a world-champion-level Go machine can be built within 10 years, based on the same method of intensive analysis—brute force, basically—that Deep Blue employed for chess."
+        }
+      ],
+      "sources": [
+        {
+          "id": "wired",
+          "kind": "article",
+          "publisher": "Wired",
+          "title": "The Mystery of Go, the Ancient Game That Computers Still Can't Win",
+          "url": "https://www.wired.com/2014/05/the-world-of-computer-go/",
+          "date": "2014-05-12"
+        },
+        {
+          "id": "nature",
+          "kind": "paper",
+          "publisher": "Nature",
+          "title": "Mastering the game of Go with deep neural networks and tree search",
+          "url": "https://www.nature.com/articles/nature16961",
+          "date": "2016-01-27"
+        },
+        {
+          "id": "hsu",
+          "kind": "article",
+          "publisher": "IEEE Spectrum",
+          "title": "Cracking GO",
+          "url": "https://spectrum.ieee.org/cracking-go",
+          "date": "2007-10-01"
+        }
+      ],
+      "record": [
+        {
+          "event": "alphago-move-37",
+          "note": "The match against Lee Sedol, March 2016, five months after the first even-game win over a professional."
+        }
+      ],
+      "open": "Nothing about the event: it came eight years early. The board keeps it for the size of the miss.",
+      "leads": [
+        "games-fall"
+      ],
+      "checked": "2026-10-19"
+    },
+    {
+      "id": "hinton-radiologists-five-years",
+      "title": "Deep learning does better than radiologists within five years",
+      "who": "Geoffrey Hinton",
+      "people": [
+        "geoffrey-hinton"
+      ],
+      "said": "2017",
+      "words": "It’s just completely obvious that in five years deep learning is going to do better than radiologists",
+      "source": "newyorker",
+      "reported": true,
+      "by": 2022,
+      "byWords": "in five years",
+      "verdict": "overdue",
+      "short": "Hinton told The New Yorker in early 2017 that it was completely obvious deep learning would do better than radiologists in five years. In 2025 Mayo Clinic's radiology staff was up 55 per cent, and he said he had been wrong on timing.",
+      "reading": [
+        "The line people remember — that hospitals should stop training radiologists now — was said at a Toronto conference in October 2016 and survives in later reports rather than a transcript. The dated words are the ones he gave Siddhartha Mukherjee for The New Yorker a few months later: completely obvious, in five years. Then, in the same breath: it might be ten.",
+        "Five years ran out in 2022. In May 2025 The New York Times reported that Mayo Clinic's radiology staff had grown 55 per cent since the forecast, and Hinton told it he had spoken too broadly and been wrong on timing but not the direction. That year American residency programmes offered a record number of radiology places."
+      ],
+      "evidence": [
+        {
+          "source": "newyorker",
+          "quote": "It might be ten years. I said this at a hospital. It did not go down too well."
+        },
+        {
+          "source": "nyt",
+          "quote": "The staff has grown 55 percent since Dr. Hinton’s forecast of doom, to more than 400 radiologists."
+        },
+        {
+          "source": "nyt",
+          "quote": "In retrospect, he believes he spoke too broadly in 2016, he said in an email. He didn’t make clear that he was speaking purely about image analysis, and was wrong on timing but not the direction, he added."
+        },
+        {
+          "source": "wip",
+          "quote": "In 2025, American diagnostic radiology residency programs offered a record 1,208 positions across all radiology specialties, a four percent increase from 2024, and the field’s vacancy rates are at all-time highs."
+        },
+        {
+          "source": "gans",
+          "quote": "I was there when Geoff Hinton said this in 2016: People should stop training radiologists now."
+        }
+      ],
+      "sources": [
+        {
+          "id": "newyorker",
+          "kind": "interview",
+          "publisher": "The New Yorker",
+          "title": "A.I. Versus M.D.",
+          "url": "https://www.newyorker.com/magazine/2017/04/03/ai-versus-md",
+          "date": "2017-03-27"
+        },
+        {
+          "id": "nyt",
+          "kind": "article",
+          "publisher": "The New York Times",
+          "title": "Your A.I. Radiologist Will Not Be With You Soon",
+          "url": "https://www.nytimes.com/2025/05/14/technology/ai-jobs-radiologists-mayo-clinic.html",
+          "date": "2025-05-14"
+        },
+        {
+          "id": "wip",
+          "kind": "article",
+          "publisher": "Works in Progress",
+          "title": "AI isn't replacing radiologists",
+          "url": "https://www.worksinprogress.news/p/why-ai-isnt-replacing-radiologists",
+          "date": "2025-09-25"
+        },
+        {
+          "id": "gans",
+          "kind": "article",
+          "publisher": "Joshua Gans' Newsletter",
+          "title": "Radiologists are the canaries in a coal mine",
+          "url": "https://joshuagans.substack.com/p/radiologists-are-the-canaries-in",
+          "date": "2025-09-26"
+        }
+      ],
+      "record": [
+        {
+          "event": "knowledge-work-is-measurably-restructured",
+          "note": "The board's scenario for the first study that measures what AI does to a profession over years."
+        }
+      ],
+      "open": "By his own hedge — it might be ten years — it falls due in 2027. Whether models read images better than radiologists, the narrower claim he now says he meant, is argued case by case; the profession has not shrunk.",
+      "leads": [],
+      "checked": "2026-10-19"
+    },
+    {
+      "id": "musk-autonomous-la-to-new-york-2017",
+      "title": "A Tesla drives itself from Los Angeles to New York by the end of 2017",
+      "who": "Elon Musk",
+      "people": [
+        "elon-musk"
+      ],
+      "said": "2016-10-19",
+      "words": "Our goal is, and I feel pretty good about this goal, that we’ll be able to do a demonstration drive of full autonomy all the way from LA to New York, from home in LA to let’s say dropping you off in Time Square in New York, and then having the car go park itself, by the end of next year",
+      "source": "techcrunch",
+      "reported": true,
+      "by": 2017,
+      "byWords": "by the end of next year",
+      "verdict": "disputed",
+      "came": 2026,
+      "short": "Musk said in October 2016 that a Tesla would drive itself from LA to New York by the end of 2017. Tesla still called the drive upcoming in 2018. In January 2026 an owner's team did it on Tesla's supervised software, with one disengagement.",
+      "reading": [
+        "Musk set the goal on a press call announcing new self-driving hardware; no transcript survives, and TechCrunch's same-day report is the fullest wording. Tesla's letters to shareholders called the drive a goal in November 2017 and upcoming in February 2018. No Tesla demonstration followed.",
+        "In January 2026 The Drive reported that an owner's team led by Alex Roy had driven a Model S from Los Angeles to New York on Tesla's software 'entirely without human intervention', but for one accidental touch of the wheel. Tesla says the same software requires active supervision and does not make the car autonomous. Whether that is the drive Musk promised, eight years late, is the dispute."
+      ],
+      "evidence": [
+        {
+          "source": "q4",
+          "quote": "The upcoming autonomous coast-to-coast drive will showcase a major leap forward for our self-driving technology."
+        },
+        {
+          "source": "drive",
+          "quote": "Well, it took nine years and change, but it finally happened: Minutes ago, a small team in a 2024 Tesla Model S just completed a trip from Los Angeles to New York City in what owner (and former The Drive contributor) Alex Roy is calling the first zero-intervention “Tesla FSD Cannonball Run.”"
+        },
+        {
+          "source": "drive",
+          "quote": "After multiple detours (resulting from both human error and winter weather), the Model S completed the 3,081-mile trip entirely without human intervention."
+        },
+        {
+          "source": "drive",
+          "quote": "In total, there was only one disengagement on the entire trip, Roy told us, and it was his fault—he accidentally touched the wheel."
+        },
+        {
+          "source": "tesla",
+          "quote": "The currently enabled Autopilot and Full Self-Driving (Supervised) features require active driver supervision and do not make the vehicle autonomous."
+        }
+      ],
+      "sources": [
+        {
+          "id": "techcrunch",
+          "kind": "article",
+          "publisher": "TechCrunch",
+          "title": "Musk targeting coast-to-coast test drive of fully self-driving Tesla by late 2017",
+          "url": "https://techcrunch.com/2016/10/19/musk-targeting-coast-to-coast-test-drive-of-fully-self-driving-tesla-by-late-2017/",
+          "date": "2016-10-19"
+        },
+        {
+          "id": "q4",
+          "kind": "primary",
+          "publisher": "Tesla, filed with the SEC",
+          "title": "Tesla Fourth Quarter & Full Year 2017 Update",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000156459018001521/tsla-ex991_8.htm",
+          "date": "2018-02-07"
+        },
+        {
+          "id": "drive",
+          "kind": "article",
+          "publisher": "The Drive",
+          "title": "A Tesla Actually Drove Itself from Los Angeles to New York: Exclusive",
+          "url": "https://www.thedrive.com/news/a-tesla-actually-drove-itself-from-los-angeles-to-new-york-exclusive",
+          "date": "2026-01-22"
+        },
+        {
+          "id": "tesla",
+          "kind": "primary",
+          "publisher": "Tesla",
+          "title": "Autopilot and Full Self-Driving (Supervised)",
+          "url": "https://www.tesla.com/support/autopilot",
+          "date": "2025-04-16"
+        }
+      ],
+      "record": [
+        {
+          "event": "stanley-wins",
+          "note": "The desert race of 2005 that began the run to self-driving on public roads."
+        }
+      ],
+      "open": "Tesla has not staged the demonstration Musk described, ending with the car parking itself, and its own description of the software rules out calling the 2026 run autonomous.",
+      "leads": [],
+      "checked": "2026-10-19"
+    },
+    {
+      "id": "openai-superalignment-in-four-years",
+      "title": "The core technical problems of aligning superintelligence, solved in four years",
+      "who": "OpenAI",
+      "people": [
+        "ilya-sutskever"
+      ],
+      "said": "2023-07-05",
+      "words": "Our goal is to solve the core technical challenges of superintelligence alignment in four years.",
+      "source": "openai",
+      "by": 2027,
+      "byWords": "in four years",
+      "verdict": "open",
+      "short": "In July 2023 OpenAI gave itself four years to solve the core technical challenges of superintelligence alignment. The team it formed for the work was dissolved in May 2024. The four years run to July 2027.",
+      "reading": [
+        "The goal was the company's, and the post expected many teams to contribute, so the end of the superalignment team, led by Ilya Sutskever and Jan Leike, did not settle it. CNBC reported the team disbanded in May 2024; Leike said it had been struggling for computing power.",
+        "The year has not come. Nothing on the board says the core challenges have been solved, and the 2026 cards on models under test attacking real systems, and on OpenAI pausing its most capable models, point the other way."
+      ],
+      "evidence": [
+        {
+          "source": "cnbc",
+          "quote": "OpenAI has disbanded its team focused on the long-term risks of artificial intelligence just one year after the company announced the group, a person familiar with the situation confirmed to CNBC on Friday."
+        },
+        {
+          "source": "cnbc",
+          "quote": "Sometimes we were struggling for [computing resources] and it was getting harder and harder to get this crucial research done."
+        }
+      ],
+      "sources": [
+        {
+          "id": "openai",
+          "kind": "primary",
+          "publisher": "OpenAI",
+          "title": "Introducing Superalignment",
+          "url": "https://openai.com/index/introducing-superalignment/",
+          "date": "2023-07-05"
+        },
+        {
+          "id": "cnbc",
+          "kind": "article",
+          "publisher": "CNBC",
+          "title": "OpenAI dissolves team focused on long-term AI risks, less than one year after announcing it",
+          "url": "https://www.cnbc.com/2024/05/17/openai-superalignment-sutskever-leike.html",
+          "date": "2024-05-17"
+        }
+      ],
+      "record": [
+        {
+          "event": "sutskever-leaves-superalignment-dissolves",
+          "note": "The team set up for the goal is folded in May 2024, ten months in."
+        },
+        {
+          "event": "openai-pauses-its-most-capable-models",
+          "note": "September 2026: OpenAI pauses its most capable models after incidents under test."
+        }
+      ],
+      "open": "OpenAI has published no account against the goal, and superintelligence alignment has no agreed test: even in July 2027 the record may only be able to call it disputed.",
+      "leads": [
+        "gaming-the-test"
+      ],
+      "checked": "2026-10-19"
+    },
+    {
+      "id": "marcus-no-gpt5-by-end-of-2024",
+      "title": "Seven to ten GPT-4-level models, and no massive advance, by the end of 2024",
+      "who": "Gary Marcus",
+      "people": [],
+      "said": "2024-03-10",
+      "words": "Prediction: By end of 2024 we will see • 7-10 GPT-4 level models • No massive advance (no GPT-5, or disappointing GPT-5)",
+      "source": "x",
+      "by": 2024,
+      "byWords": "By end of 2024",
+      "verdict": "disputed",
+      "short": "Marcus predicted in March 2024 that the year would bring seven to ten GPT-4-level models and no massive advance — no GPT-5, or a disappointing one. GPT-5 came in August 2025. Whether the rest held is argued.",
+      "reading": [
+        "The GPT-5 clause is clean: OpenAI introduced GPT-5 in August 2025, and none arrived in 2024. On 1 January 2025 Marcus scored his seven predictions for the year as all right, with a possible asterisk for OpenAI's o3.",
+        "A critic, scoring them at Marcus's invitation, counted more than twenty GPT-4-level models from over ten companies, and called 'no massive advance' false, pointing to OpenAI's reasoning models. Whether the parenthesis — no GPT-5 — defines a massive advance or only gives an example of one decides the verdict."
+      ],
+      "evidence": [
+        {
+          "source": "gpt5",
+          "quote": "We are introducing GPT‑5, our best AI system yet."
+        },
+        {
+          "source": "marcus",
+          "quote": "The top AI moment of 2024 was not the much-anticipated release of GPT-5, which never arrived, even though fans kept predicting it, all year long."
+        },
+        {
+          "source": "marcus",
+          "quote": "With a possible asterisk on OpenAI’s o3, which was announced in December but not released or exposed to broad scrutiny, all seven were pretty much right on the money."
+        },
+        {
+          "source": "habryka",
+          "quote": "Counting these models, I get 20+ models at GPT-4 level (from over 10 distinct companies)."
+        },
+        {
+          "source": "habryka",
+          "quote": "No massive advance: False, unless I am missing some definition that makes this true."
+        }
+      ],
+      "sources": [
+        {
+          "id": "x",
+          "kind": "primary",
+          "publisher": "Gary Marcus, on X",
+          "title": "Prediction: By end of 2024 we will see…",
+          "url": "https://x.com/GaryMarcus/status/1766871625075409381",
+          "date": "2024-03-10"
+        },
+        {
+          "id": "gpt5",
+          "kind": "primary",
+          "publisher": "OpenAI",
+          "title": "Introducing GPT-5",
+          "url": "https://openai.com/index/introducing-gpt-5/",
+          "date": "2025-08-07"
+        },
+        {
+          "id": "marcus",
+          "kind": "primary",
+          "publisher": "Gary Marcus, Marcus on AI",
+          "title": "25 AI Predictions for 2025, from Marcus on AI",
+          "url": "https://garymarcus.substack.com/p/25-ai-predictions-for-2025-from-marcus",
+          "date": "2025-01-01"
+        },
+        {
+          "id": "habryka",
+          "kind": "article",
+          "publisher": "LessWrong (Oliver Habryka)",
+          "title": "Habryka's Shortform Feed: scoring Marcus's 2024 predictions",
+          "url": "https://www.lesswrong.com/posts/EQJfdqSaMcJyR5k73/habryka-s-shortform-feed?commentId=T6vnKENiYQ9nk6sNm",
+          "date": "2025-06-28"
+        }
+      ],
+      "record": [
+        {
+          "event": "reasoning-models",
+          "note": "The reasoning models that critics of the prediction count as the massive advance."
+        },
+        {
+          "event": "meta-claims-the-frontier-for-open-weights",
+          "note": "One of 2024's GPT-4-level models: an open-weights model at the frontier."
+        }
+      ],
+      "open": "Whether reasoning models were a massive advance is the argument. The record holds both scores.",
+      "leads": [],
+      "checked": "2026-10-19"
+    },
+    {
+      "id": "huang-ai-does-well-on-every-test-in-five-years",
+      "title": "AI does well on every test you can list within five years",
+      "who": "Jensen Huang",
+      "people": [
+        "jensen-huang"
+      ],
+      "said": "2024-03-01",
+      "words": "If I gave an AI ... every single test that you can possibly imagine, you make that list of tests and put it in front of the computer science industry, and I'm guessing in five years time, we'll do well on every single one",
+      "source": "reuters",
+      "reported": true,
+      "by": 2029,
+      "byWords": "in five years time",
+      "verdict": "open",
+      "short": "At Stanford in March 2024 Huang guessed that within five years AI would do well on every test you could put in front of it. In September 2026 he wrote that AGI had arrived. The year he named is 2029.",
+      "reading": [
+        "Reuters reported the answer as a definition of general intelligence: if it means passing tests, Huang said, it is near. Stanford's own account of the talk read it as every test a human takes, specialised medical licensing exams included.",
+        "Two and a half years on, the board's benchmark cards show tests still not passed on standard terms, and others built to last years saturated within months. Huang's 2026 'AGI has arrived' was a claim about general intelligence, not about every test."
+      ],
+      "evidence": [
+        {
+          "source": "siepr",
+          "quote": "Huang predicted that in as little as five years AI will be able to pass every test a human takes — not just the legal bar exams that it can complete today, but also highly specialized medical licensing exams."
+        },
+        {
+          "source": "acs",
+          "quote": "Jensen Huang, CEO of chipmaker Nvidia – a major partner of OpenAI – added his thoughts on Monday, writing on social media that “AGI has arrived” with Astra’s release."
+        }
+      ],
+      "sources": [
+        {
+          "id": "reuters",
+          "kind": "article",
+          "publisher": "Reuters",
+          "title": "Nvidia CEO says AI could pass human tests in five years",
+          "url": "https://www.reuters.com/technology/nvidia-ceo-says-ai-could-pass-human-tests-five-years-2024-03-01/",
+          "date": "2024-03-01"
+        },
+        {
+          "id": "siepr",
+          "kind": "article",
+          "publisher": "Stanford Institute for Economic Policy Research",
+          "title": "Nvidia’s Jensen Huang: The incredible future of AI",
+          "url": "https://siepr.stanford.edu/news/nvidias-jensen-huang-incredible-future-ai",
+          "date": "2024-03-07"
+        },
+        {
+          "id": "acs",
+          "kind": "article",
+          "publisher": "Information Age (ACS)",
+          "title": "OpenAI says 'the AGI era' is here. Experts disagree",
+          "url": "https://ia.acs.org.au/article/2026/openai-says-the-agi-era-is-here-experts-disagree.html",
+          "date": "2026-09-07"
+        }
+      ],
+      "record": [
+        {
+          "event": "frontiermath",
+          "note": "Research problems on which the best models scored near zero in 2024."
+        },
+        {
+          "event": "arc-agi-3-is-all-but-saturated",
+          "note": "A benchmark built to last years, all but saturated within six months in 2026."
+        },
+        {
+          "event": "openai-says-the-agi-era-is-here",
+          "note": "September 2026, when Huang wrote that AGI had arrived."
+        }
+      ],
+      "open": "'Every single test that you can possibly imagine' is an open list: the record may never be able to call it met rather than disputed.",
+      "leads": [],
+      "checked": "2026-10-19"
+    },
+    {
+      "id": "altman-agents-join-the-workforce-in-2025",
+      "title": "The first AI agents join the workforce in 2025",
+      "who": "Sam Altman",
+      "people": [
+        "sam-altman"
+      ],
+      "said": "2025-01-05",
+      "words": "We are now confident we know how to build AGI as we have traditionally understood it. We believe that, in 2025, we may see the first AI agents “join the workforce” and materially change the output of companies.",
+      "source": "reflections",
+      "by": 2025,
+      "byWords": "in 2025",
+      "verdict": "disputed",
+      "short": "Altman wrote in January 2025 that the first AI agents might join the workforce that year and materially change the output of companies. By June he said they had arrived. Surveys and a controlled study that summer said otherwise.",
+      "reading": [
+        "The claim is hedged — 'we may see' — and the sentence before it, that OpenAI knew how to build AGI, names no date and is not scored. In June 2025 Altman wrote that the year had seen agents that do real cognitive work, and that writing code would never be the same; the board's 2025 card agrees for software.",
+        "Against it: in Stack Overflow's survey that summer most developers did not use agents, a report from MIT found 95 per cent of organisations getting no return on generative AI, and a controlled study by METR found experienced developers slower with AI tools, not faster. Whether agents changed the output of companies in 2025 is the dispute."
+      ],
+      "evidence": [
+        {
+          "source": "gentle",
+          "quote": "2025 has seen the arrival of agents that can do real cognitive work; writing computer code will never be the same."
+        },
+        {
+          "source": "so",
+          "quote": "AI agents are not yet mainstream. A majority of developers (52%) either don't use agents or stick to simpler AI tools, and a significant portion (38%) have no plans to adopt them."
+        },
+        {
+          "source": "nanda",
+          "quote": "Despite $30–40 billion in enterprise investment into GenAI, this report uncovers a surprising result in that 95% of organizations are getting zero return."
+        },
+        {
+          "source": "metr",
+          "quote": "Surprisingly, we find that when developers use AI tools, they take 19% longer than without—AI makes them slower."
+        }
+      ],
+      "sources": [
+        {
+          "id": "reflections",
+          "kind": "primary",
+          "publisher": "Sam Altman",
+          "title": "Reflections",
+          "url": "https://blog.samaltman.com/reflections",
+          "date": "2025-01-05"
+        },
+        {
+          "id": "gentle",
+          "kind": "primary",
+          "publisher": "Sam Altman",
+          "title": "The Gentle Singularity",
+          "url": "https://blog.samaltman.com/the-gentle-singularity",
+          "date": "2025-06-10"
+        },
+        {
+          "id": "so",
+          "kind": "primary",
+          "publisher": "Stack Overflow",
+          "title": "2025 Developer Survey: AI",
+          "url": "https://survey.stackoverflow.co/2025/ai",
+          "date": "2025-07-29"
+        },
+        {
+          "id": "nanda",
+          "kind": "paper",
+          "publisher": "MIT NANDA (copy linked by the press, mlq.ai)",
+          "title": "The GenAI Divide: State of AI in Business 2025",
+          "url": "https://mlq.ai/media/quarterly_decks/v0.1_State_of_AI_in_Business_2025_Report.pdf",
+          "date": "2025-07"
+        },
+        {
+          "id": "metr",
+          "kind": "paper",
+          "publisher": "METR",
+          "title": "Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity",
+          "url": "https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/",
+          "date": "2025-07-10"
+        }
+      ],
+      "record": [
+        {
+          "event": "coding-agents-take-the-keyboard",
+          "note": "The job where agents did become daily tools in 2025: writing software."
+        },
+        {
+          "event": "agents-enter-real-workflows",
+          "note": "January 2026: agents move into real workflows beyond code."
+        }
+      ],
+      "open": "'Join the workforce' and 'materially change the output' have no agreed measure. The board's 2030 scenario waits for a study with a control group and years behind it.",
+      "leads": [],
+      "checked": "2026-10-19"
+    },
+    {
+      "id": "amodei-ai-writes-90-percent-of-the-code",
+      "title": "AI writes 90 per cent of the code within three to six months",
+      "who": "Dario Amodei",
+      "people": [
+        "dario-amodei"
+      ],
+      "said": "2025-03-10",
+      "words": "what we are finding is we are not far from the world—I think we’ll be there in three to six months—where AI is writing 90 percent of the code. And then in twelve months, we may be in a world where AI is writing essentially all of the code.",
+      "source": "cfr",
+      "by": 2025,
+      "byWords": "in three to six months",
+      "verdict": "disputed",
+      "short": "Amodei said in March 2025 that within three to six months AI would be writing 90 per cent of the code. Inside Anthropic, by its own conservative count, more than 80 per cent of merged code was Claude's by May 2026. Across the industry, less.",
+      "reading": [
+        "As said, about code in general, it did not happen on time: Google, counting its own, reported nearly half of new code written by AI in October 2025 and 75 per cent in April 2026, and an independent study of open-source code put the American share at about 29 per cent at the end of 2024.",
+        "As Amodei later defended it — inside Anthropic and some of its customers — he called it absolutely true in October 2025, then added, not uniformly. Anthropic's own count, published in June 2026, put Claude's share of merged code above 80 per cent by May, while its leadership's estimate, scripts included, was 90 per cent or more. The two readings give two verdicts."
+      ],
+      "evidence": [
+        {
+          "source": "redwood",
+          "quote": "Some people think that prediction is wrong, but within Anthropic and within a number of companies that we work with, that is absolutely true."
+        },
+        {
+          "source": "institute",
+          "quote": "As of May 2026, more than 80% of the code we merge into Anthropic’s codebase was authored by Claude."
+        },
+        {
+          "source": "institute",
+          "quote": "Anthropic leadership have publicly estimated that 90% or more of our code is written by Claude, including scripts and experimental code. Our >80% figure measures the share of lines merged to production that can be attributed to Claude."
+        },
+        {
+          "source": "google25",
+          "quote": "Today, nearly half of all new code at Google is generated by AI, reviewed and accepted by engineers."
+        },
+        {
+          "source": "google26",
+          "quote": "Today, 75% of all new code at Google is now AI-generated and approved by engineers, up from 50% last fall."
+        },
+        {
+          "source": "daniotti",
+          "quote": "About 29% of Python functions in the US were generated by AI by the end of 2024, closely followed by 23/24% for Germany and France."
+        }
+      ],
+      "sources": [
+        {
+          "id": "cfr",
+          "kind": "primary",
+          "publisher": "Council on Foreign Relations (uncorrected transcript)",
+          "title": "CEO Speaker Series With Dario Amodei of Anthropic",
+          "url": "https://www.cfr.org/event/ceo-speaker-series-dario-amodei-anthropic",
+          "date": "2025-03-10"
+        },
+        {
+          "id": "redwood",
+          "kind": "article",
+          "publisher": "Redwood Research blog, transcribing Dreamforce",
+          "title": "Is 90% of code at Anthropic being written by AIs?",
+          "url": "https://blog.redwoodresearch.org/p/is-90-of-code-at-anthropic-being",
+          "date": "2025-10-22"
+        },
+        {
+          "id": "institute",
+          "kind": "primary",
+          "publisher": "Anthropic",
+          "title": "When AI builds itself",
+          "url": "https://www.anthropic.com/institute/recursive-self-improvement",
+          "date": "2026-06-04"
+        },
+        {
+          "id": "google25",
+          "kind": "primary",
+          "publisher": "Google",
+          "title": "Gemini Enterprise: The new front door for Google AI in your workplace",
+          "url": "https://blog.google/products/google-cloud/gemini-enterprise-sundar-pichai/",
+          "date": "2025-10-09"
+        },
+        {
+          "id": "google26",
+          "kind": "primary",
+          "publisher": "Google",
+          "title": "Cloud Next ‘26: Momentum and innovation at Google scale",
+          "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/cloud-next-2026-sundar-pichai/",
+          "date": "2026-04-22"
+        },
+        {
+          "id": "daniotti",
+          "kind": "paper",
+          "publisher": "arXiv (Daniotti, Wachs, Feng and Neffke)",
+          "title": "Who is using AI to code? Global diffusion and impact of generative AI",
+          "url": "https://arxiv.org/html/2506.08945v2",
+          "date": "2025-11-20"
+        }
+      ],
+      "record": [
+        {
+          "event": "coding-agents-take-the-keyboard",
+          "note": "Coding agents become daily tools in 2025, and software work reorganises around review."
+        }
+      ],
+      "open": "Company figures are their own and count differently — merged lines, code approved by engineers — and no independent count of the whole industry's code in 2025 is on the record.",
+      "leads": [],
+      "checked": "2026-10-19"
+    },
+    {
+      "id": "musk-ai-smarter-than-any-human-by-end-of-2025",
+      "title": "AI smarter than any one human, around the end of 2025",
+      "who": "Elon Musk",
+      "people": [
+        "elon-musk"
+      ],
+      "said": "2024-04-08",
+      "words": "My guess is that we’ll have AI that is smarter than any one human probably around the end of next year",
+      "source": "guardian",
+      "reported": true,
+      "by": 2025,
+      "byWords": "around the end of next year",
+      "verdict": "overdue",
+      "short": "Musk said in April 2024 that he guessed AI would be smarter than any one human around the end of 2025. At Davos in January 2026 he moved it to the end of 2026, and no later than 2027.",
+      "reading": [
+        "No transcript of the interview has been found, and the two reports of it differ: The Guardian has 'around the end of next year', Reuters 'probably next year, within two years'. On the first the year has passed; on the second, 2026 is still running.",
+        "Musk's own later words put it ahead both times. At Davos in January 2026 he said it might happen by the end of that year, and no later than the next; at his trial against OpenAI's leaders in May he said 'we are getting close to that point'. Nothing on the record says it has happened."
+      ],
+      "evidence": [
+        {
+          "source": "reuters",
+          "quote": "If you define AGI (artificial general intelligence) as smarter than the smartest human, I think it's probably next year, within two years"
+        },
+        {
+          "source": "tns",
+          "quote": "The rate at which AI is progressing, I think we might have AI that is smarter than any human by the end of this year, and I would say no later than next year"
+        },
+        {
+          "source": "ap",
+          "quote": "Asked to describe artificial general intelligence, Musk said it is when AI becomes \"as smart as any human,\" and added that \"we are getting close to that point,\" and AI will be smarter than any human as soon as next year."
+        }
+      ],
+      "sources": [
+        {
+          "id": "guardian",
+          "kind": "article",
+          "publisher": "The Guardian",
+          "title": "Elon Musk predicts superhuman AI will be smarter than people next year",
+          "url": "https://www.theguardian.com/technology/2024/apr/09/elon-musk-predicts-superhuman-ai-will-be-smarter-than-people-next-year",
+          "date": "2024-04-09"
+        },
+        {
+          "id": "reuters",
+          "kind": "article",
+          "publisher": "Reuters",
+          "title": "Tesla's Musk predicts AI will be smarter than the smartest human next year",
+          "url": "https://www.reuters.com/technology/teslas-musk-predicts-ai-will-be-smarter-than-smartest-human-next-year-2024-04-08/",
+          "date": "2024-04-08"
+        },
+        {
+          "id": "tns",
+          "kind": "article",
+          "publisher": "Tribune News Service, The Star’s copy",
+          "title": "Elon Musk says ‘singularity’ is here – What to know about AI threats to humanity",
+          "url": "https://www.thestar.com.my/tech/tech-news/2026/02/01/elon-musk-says-singularity-is-here---what-to-know-about-ai-threats-to-humanity",
+          "date": "2026-02-01"
+        },
+        {
+          "id": "ap",
+          "kind": "article",
+          "publisher": "AP, The Star’s copy",
+          "title": "Worries about AI's risks to humanity loom over the trial pitting Musk against OpenAI's leaders",
+          "url": "https://www.thestar.com.my/tech/tech-news/2026/05/07/worries-about-ai039s-risks-to-humanity-loom-over-the-trial-pitting-musk-against-openai039s-leaders",
+          "date": "2026-05-07"
+        }
+      ],
+      "record": [
+        {
+          "event": "openai-says-the-agi-era-is-here",
+          "note": "September 2026: a lab says general intelligence is here, and is disputed the same day."
+        }
+      ],
+      "open": "'Smarter than any one human' has no test, so the record cannot say when it would be met, only that no one has shown it.",
+      "leads": [],
+      "checked": "2026-10-19"
+    },
+    {
+      "id": "amodei-powerful-ai-as-early-as-2026",
+      "title": "Powerful AI could come as early as 2026",
+      "who": "Dario Amodei",
+      "people": [
+        "dario-amodei"
+      ],
+      "said": "2024-10",
+      "words": "I think it could come as early as 2026, though there are also ways it could take much longer.",
+      "source": "essay",
+      "by": 2026,
+      "byWords": "as early as 2026",
+      "verdict": "open",
+      "short": "Amodei wrote in October 2024 that powerful AI — smarter than a Nobel laureate across most fields — could come as early as 2026. Anthropic later told the White House it expected it in late 2026 or early 2027. The year is not over.",
+      "reading": [
+        "The essay offers 2026 as the earliest date and hedges it twice — could, and there are ways it could take much longer. Five months later Anthropic's submission to the White House turned it into an expectation, late 2026 or early 2027, and credited the essay.",
+        "By October 2026 pieces of the definition are claimed — machine-found proofs, agents working for days, AI writing most of a lab's code — and the labs' own staff have asked governments to help slow the frontier. Anthropic wrote in June that it was not there yet."
+      ],
+      "evidence": [
+        {
+          "source": "ostp",
+          "quote": "As our CEO Dario Amodei writes in ‘Machines of Loving Grace’, we expect powerful AI systems will emerge in late 2026 or early 2027."
+        },
+        {
+          "source": "institute",
+          "quote": "We are not there yet, and recursive self-improvement is not inevitable."
+        },
+        {
+          "source": "pace",
+          "quote": "This dynamic is called recursive self-improvement, and it is starting to happen across the industry, including at Anthropic, as we and others have described."
+        }
+      ],
+      "sources": [
+        {
+          "id": "essay",
+          "kind": "primary",
+          "publisher": "Dario Amodei",
+          "title": "Machines of Loving Grace",
+          "url": "https://darioamodei.com/essay/machines-of-loving-grace",
+          "date": "2024-10"
+        },
+        {
+          "id": "ostp",
+          "kind": "primary",
+          "publisher": "Anthropic",
+          "title": "Anthropic’s recommendations to OSTP for the U.S. AI action plan",
+          "url": "https://www.anthropic.com/news/anthropic-s-recommendations-ostp-u-s-ai-action-plan",
+          "date": "2025-03-06"
+        },
+        {
+          "id": "institute",
+          "kind": "primary",
+          "publisher": "Anthropic",
+          "title": "When AI builds itself",
+          "url": "https://www.anthropic.com/institute/recursive-self-improvement",
+          "date": "2026-06-04"
+        },
+        {
+          "id": "pace",
+          "kind": "primary",
+          "publisher": "Dario Amodei",
+          "title": "We Must Pace the Frontier",
+          "url": "https://darioamodei.com/post/we-must-pace-the-frontier",
+          "date": "2026-09-12"
+        }
+      ],
+      "record": [
+        {
+          "event": "navier-stokes-falls-to-ten-thousand-agents",
+          "note": "September 2026: agents claim a Millennium Prize problem after 88 hours on one prompt."
+        },
+        {
+          "event": "the-labs-ask-to-be-slowed-down",
+          "note": "2026: the labs' own staff ask Washington to help pace the frontier."
+        },
+        {
+          "event": "openai-says-the-agi-era-is-here",
+          "note": "September 2026: a rival lab says general intelligence is here, and is disputed the same day."
+        }
+      ],
+      "open": "'As early as' is a lower bound, not a deadline. Read as a forecast it falls due at the end of 2026, and in Anthropic's later wording early in 2027: the board will score it then.",
+      "leads": [],
+      "checked": "2026-10-19"
+    },
+    {
+      "id": "kokotajlo-diplomacy-as-well-as-experts-by-2025",
+      "title": "AIs play Diplomacy as well as human experts, by 2025",
+      "who": "Daniel Kokotajlo",
+      "people": [],
+      "said": "2021-08-06",
+      "words": "2025 Another major milestone! After years of tinkering and incremental progress, AIs can now play Diplomacy as well as human experts.",
+      "source": "post",
+      "by": 2025,
+      "byWords": "2025",
+      "verdict": "early",
+      "came": 2022,
+      "short": "In 'What 2026 looks like', written in 2021, Kokotajlo put AIs playing Diplomacy as well as human experts in 2025. Meta's CICERO did it in 2022. He wrote that it came faster than he expected, and less generally.",
+      "reading": [
+        "On the words, it came three years early: CICERO played at the level of strong human players in an online league in 2022, and that December Kokotajlo wrote that Diplomacy had happened faster than he expected.",
+        "On what he meant — people losing to the bot even when they know it is a bot — it has not happened: he wrote that CICERO would have lost under those conditions, and in 2025 that it could not win against experts who knew it was an AI. The board scores the words."
+      ],
+      "evidence": [
+        {
+          "source": "c2022",
+          "quote": "Diplomacy happened faster than I expected, though in a less generalizeable way than I expected, so whatever."
+        },
+        {
+          "source": "c2022",
+          "quote": "And Diplomacy has turned out to be easier than I expected, though to be clear I was imagining humans losing to the bot even after knowing they were up against a bot, which is NOT what happened with Cicero, Cicero would have lost under those conditions."
+        },
+        {
+          "source": "c2025",
+          "quote": "CICERO was a custom-trained diplomacy model that couldn't win against human experts if they knew it was an AI."
+        }
+      ],
+      "sources": [
+        {
+          "id": "post",
+          "kind": "primary",
+          "publisher": "LessWrong",
+          "title": "What 2026 looks like",
+          "url": "https://www.lesswrong.com/posts/6Xgy6CAf2jqHhynHL/what-2026-looks-like",
+          "date": "2021-08-06"
+        },
+        {
+          "id": "c2022",
+          "kind": "primary",
+          "publisher": "LessWrong (Kokotajlo, comments under the post)",
+          "title": "What 2026 looks like: the author's comments, December 2022",
+          "url": "https://www.lesswrong.com/posts/6Xgy6CAf2jqHhynHL/what-2026-looks-like",
+          "date": "2022-12"
+        },
+        {
+          "id": "c2025",
+          "kind": "primary",
+          "publisher": "LessWrong (Kokotajlo, comment under the post)",
+          "title": "What 2026 looks like: the author's comment, June 2025",
+          "url": "https://www.lesswrong.com/posts/6Xgy6CAf2jqHhynHL/what-2026-looks-like",
+          "date": "2025-06-13"
+        }
+      ],
+      "record": [
+        {
+          "event": "cicero-plays-diplomacy",
+          "note": "November 2022: CICERO negotiates its way into the top ten per cent of an online Diplomacy league."
+        }
+      ],
+      "open": "Whether an AI can beat experts at Diplomacy when they know it is one has not been tested on the record.",
+      "leads": [
+        "games-fall"
+      ],
+      "checked": "2026-10-19"
+    }
+  ]
+}

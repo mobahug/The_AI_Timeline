@@ -1,0 +1,148 @@
+{
+  "note": "Programs from the record rebuilt to run in the browser, each from its original papers, each on its own card. `kept` says what is as it was, `changed` what is not. Every quote is verbatim from the source it sits under.",
+  "machines": [
+    {
+      "id": "eliza",
+      "event": "eliza",
+      "title": "Talk to ELIZA, as it ran in 1965",
+      "short": "Weizenbaum's program, answering from the DOCTOR script printed after its source code in March 1965.",
+      "lede": "This is Joseph Weizenbaum's program, reading the DOCTOR script that was printed after its source code in a listing from March 1965. It understands nothing. It looks for a keyword in what you type, takes the sentence apart by a pattern the keyword names, and puts a reply together from the pieces. Type as you might to a stranger who says they are a doctor, then show the workings and watch it do it.",
+      "try": [
+        "I feel nobody listens to me.",
+        "My father never understood me.",
+        "Perhaps I need a holiday.",
+        "You are only a machine."
+      ],
+      "kept": [
+        "The script, word for word, its typing errors included: 35 keywords, 22 of which set off a reply, and NONE for a sentence with none of them in it.",
+        "A sentence is cut at the first comma, full stop or BUT after the clause with a keyword in it; the rest is thrown away.",
+        "Keywords are ranked; the patterns, the substitutions (I for YOU, YOUR for MY) and the replies taken in turn are the script's.",
+        "When MY is the keyword that answers, the sentence is also put by for later. Which of four forms it is kept in is chosen by the arithmetic SLIP's HASH did on the IBM 7094, and a memory is brought up only when a sentence has no keyword and Weizenbaum's counter, LIMIT, reads four."
+      ],
+      "changed": [
+        "It runs in your browser, not on a time-shared IBM 7094 at MIT, and replies at once rather than at typewriter speed.",
+        "Question and exclamation marks end a sentence as a full stop does, and curly quotes and dashes are read as the typewriter's characters: the 7094's character set had none of them.",
+        "Nothing you type leaves this page or is kept once you leave it."
+      ],
+      "credit": "Ported from Anthony Hay's C++ reconstruction (CC0) and checked against it reply for reply. The listing is in Joseph Weizenbaum's papers at MIT, under an MIT software licence; his estate released it under CC0.",
+      "sources": [
+        {
+          "kind": "primary",
+          "publisher": "MIT Distinctive Collections",
+          "title": "Computer conversations, 1965 (Joseph Weizenbaum personal archives)",
+          "url": "https://hdl.handle.net/1721.3/201699",
+          "quote": "Complete print out of the source code listing of ELIZA, written in MAD-SLIP programming language. The DOCTOR script is attached at the end."
+        },
+        {
+          "kind": "article",
+          "publisher": "elizagen.org",
+          "title": "The original ELIZA",
+          "url": "https://elizagen.org/original-eliza.html",
+          "date": "2021-05-23",
+          "quote": "I contacted Dr. Weizenbaum's estate for permission to open-source this code, and they granted this permission under a Creative Commons CC0 public domain license"
+        },
+        {
+          "kind": "primary",
+          "publisher": "Anthony Hay",
+          "title": "Joseph Weizenbaum’s 1966 ELIZA recreated in C++",
+          "url": "https://github.com/anthay/ELIZA",
+          "quote": "I’ve made in C++ what I think is an accurate simulation of the original ELIZA."
+        }
+      ],
+      "lead": {
+        "id": "the-confidant",
+        "rung": 1
+      }
+    },
+    {
+      "id": "menace",
+      "event": "menace-learns-from-matchboxes",
+      "title": "Play noughts and crosses against MENACE",
+      "short": "Donald Michie's matchbox machine, built to the rules he published in 1963: a box for every position, a bead for every move, paid in beads after every game.",
+      "lede": "Every position MENACE can meet has a box, and every move it can make there has a colour of bead. It moves by shaking a bead out of the box, and when the game is over it is paid in beads: more of the colours that won, fewer of those that lost. It plays noughts and goes first; you play crosses. Play it a few times, then let it play fifty games against a player who chooses at random, and watch the line Michie drew climb.",
+      "kept": [
+        "A box for every position the opening player can meet, positions that are reflections or rotations of one another counted once, and in each box a colour of bead for every move that is different once the position's own symmetries are set aside.",
+        "Four beads of each colour in the boxes for its first move, three for its second, two for its third, one for its fourth; the colours are Michie's, square by square.",
+        "Three beads added to every box it opened for a win, one for a draw, and the chosen bead taken away for a defeat.",
+        "The line of its progress, down one for a defeat, up one for a draw and up three for a win, as Michie drew its first tournament."
+      ],
+      "changed": [
+        "Michie's paper counts 287 boxes. Counted by machine, the positions with no winner yet and a move to choose come to 304, and this MENACE has a box for each; the paper does not say which seventeen it left out.",
+        "The paper does not say what happens when a box runs out of beads. Here MENACE resigns, and the resignation counts as a defeat. Against a player who never loses it can run its first box dry that way and give up for good; start again with full boxes and it may find the draw instead.",
+        "The two opponents it can practise against, one random and one who never loses, are this page's; Michie's first tournament was against a person.",
+        "Boxes are filled the first time they are opened rather than all at once, which plays the same."
+      ],
+      "credit": "Built for this board from Michie's 1963 paper, from which every rule and colour is taken; tests/menace.test.ts checks the count of boxes, the beads and the paying-out against it.",
+      "sources": [
+        {
+          "kind": "paper",
+          "publisher": "The Computer Journal (scan, MIT CSAIL)",
+          "title": "Experiments on the mechanization of game-learning. Part I. Characterization of the model and its parameters",
+          "url": "https://people.csail.mit.edu/brooks/idocs/matchbox.pdf",
+          "date": "1963-11-01",
+          "quote": "A win was regarded as an exceptionally good result and was rewarded by three extra beads to each open box."
+        }
+      ]
+    },
+    {
+      "id": "shannon",
+      "event": "a-mathematical-theory-of-communication",
+      "title": "Run Shannon's approximations to English",
+      "short": "Shannon's 1948 series, from random letters to runs of words, made his way: open a book at random and read on until the last letter written down turns up.",
+      "lede": "In 1948 Claude Shannon showed how close chance can come to English if it knows what usually follows what. He made his examples by hand, opening a book at random and reading on until he found the letter he had just written down, then writing down the one after it. This panel does the same, page for page, on a book of its own: the chapters of Samuel Butler's Erewhon in which an imagined writer argues that machines may one day become conscious. Read down the list and watch words appear out of letters. The last two lines are the next stage, which Shannon left because the labour was too great. A language model today chooses each word by what came before it in the same way, with a far longer memory and far more than one book.",
+      "kept": [
+        "His alphabet of 27 symbols, the 26 letters and a space, and his six steps in his order.",
+        "His method: the first two lines by chance and the letters' own frequencies, the rest by opening the book at a random place, reading on until the letters or words just written down turn up, and writing down what follows them."
+      ],
+      "changed": [
+        "Shannon does not name the book he opened; this one is Erewhon, chapters 23 to 25, in Butler's revised text of 1901. His first two lines used a printed table of letter frequencies; here they come from the same book.",
+        "Lines 7 and 8 are the next stage of each, which he did not attempt. A book this short starts to repeat itself at those orders.",
+        "When the search reaches the end of the book it goes back to the start, where Shannon would have turned to another page."
+      ],
+      "credit": "Built for this board from section 3 of Shannon's paper; tests/shannon.test.ts checks that every run of letters or words a line is built from is in the book. The book is in the public domain.",
+      "sources": [
+        {
+          "kind": "paper",
+          "publisher": "Bell System Technical Journal (reprint with corrections, Harvard)",
+          "title": "A Mathematical Theory of Communication",
+          "url": "https://people.math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf",
+          "date": "1948-07-01",
+          "quote": "To construct (3) for example, one opens a book at random and selects a letter at random on the page."
+        },
+        {
+          "kind": "primary",
+          "publisher": "Samuel Butler",
+          "title": "Erewhon; or, Over the Range, chapters XXIII to XXV, The Book of the Machines (revised edition, 1901)",
+          "url": "https://www.gutenberg.org/cache/epub/1906/pg1906.txt",
+          "quote": "Is it not possible then that there may be even yet new channels dug out for consciousness, though we can detect no signs of them at present?"
+        }
+      ]
+    },
+    {
+      "id": "perceptron",
+      "event": "the-perceptron",
+      "title": "Teach a perceptron to draw a line",
+      "short": "The perceptron's rule, correcting its weights only when it is wrong, on points you place, including four it can never get right.",
+      "lede": "A perceptron adds up what it sees, each input times a weight, and says yes when the sum is big enough. It learns by being told when it is wrong: then, and only then, its weights are moved towards the right answer. Here it sees points on a plane and must say yes to the filled ones and no to the open ones. Train it on two groups and it soon finds a line between them. Then load the exclusive or, four points no straight line can part, and watch it never settle. That is the limit the 1969 book turned on.",
+      "kept": [
+        "The rule: a weighted sum against a threshold, and weights moved towards the right answer only when the answer is wrong, the training Rosenblatt's 1958 paper calls positive and negative reinforcement.",
+        "Each pass shows it every point once, in the same order, and corrects each mistake as it is made."
+      ],
+      "changed": [
+        "Rosenblatt's Mark I looked at 400 photocells through a layer of randomly wired units before the weights that learned. Here two numbers, the point's position, go straight to the weights: the simplest perceptron there is.",
+        "The points, the two sets of them and the limit of a hundred passes at a time are this page's."
+      ],
+      "credit": "Built for this board; tests/perceptron.test.ts checks that it parts two groups a line can part and never settles on the exclusive or.",
+      "sources": [
+        {
+          "kind": "paper",
+          "publisher": "Psychological Review (scan, University of Illinois Chicago)",
+          "title": "The perceptron: a probabilistic model for information storage and organization in the brain",
+          "url": "https://homepages.math.uic.edu/~lreyzin/papers/rosenblatt58.pdf",
+          "date": "1958-11-01",
+          "quote": "Under these conditions, a perceptron appears to be capable of trial-and-error learning."
+        }
+      ]
+    }
+  ]
+}

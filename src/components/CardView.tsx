@@ -9,12 +9,15 @@ import { findingFor } from '../lib/spine';
 import { leadsOf } from '../lib/leads';
 import { questionsOf } from '../lib/questions';
 import { checksOf } from '../lib/checks';
+import { machineOf } from '../lib/machines';
+import { FORETOLD, predictionsOf } from '../lib/predictions';
 import { dayOf, keptOf } from '../lib/latest';
 import { entitiesOf } from '../lib/files';
 import { paperOf, usePapers } from '../lib/papers';
 import { INK, MONO, SANS, SERIF, STRING_INK, RULE, ROW_RULE, PHOTO_FILTER, frame, ink, micro, shell } from '../lib/styles';
 import { Brief, Btn, CardTriple, Chips, Claim, CopyLink, Credit, Disclosure, Eyebrow, Figures, First, Full, FullOnly, Gap, Link, NavRow, Quote, Reading, Ref, Section } from './kit';
 import type { NavItem } from './kit';
+import { MachineSection } from './MachineSection';
 import type { Event, Graph, Media, Route, Shot, Source } from '../lib/types';
 
 /*
@@ -129,6 +132,8 @@ function CardView({ graph, route, media, embedded }: CardViewProps) {
   const onLeads = leadsOf(event.id);
   const asked = questionsOf(event.id);
   const checked = checksOf(event.id);
+  const machine = machineOf(event.id);
+  const foretold = predictionsOf(event.id);
   // Species-style: the one source the entry is based on, named up front.
   const basedOn = sources.find((s) => s.supports === 'claim') || sources[0] || null;
 
@@ -183,6 +188,7 @@ function CardView({ graph, route, media, embedded }: CardViewProps) {
               {!embedded && <Btn tone="loud" to={{ view: 'board', id: event.id, category: 'all', query: '' }}>Open on the board →</Btn>}
               <CopyLink label="Copy link" size="md" to={embedded ? { view: 'card', id: event.id } : undefined} />
               {onLeads.length > 0 && <Btn to={{ view: 'lead', id: onLeads[0].lead.id, hash: 'rung-' + (onLeads[0].index + 1) }}>On the lead: {onLeads[0].lead.title} →</Btn>}
+              {machine && !embedded && <Btn to={{ view: 'card', id: event.id, hash: 'machine' }}>Run the original ↓</Btn>}
             </div>
           </div>
         </div>
@@ -207,6 +213,8 @@ function CardView({ graph, route, media, embedded }: CardViewProps) {
           </div>
         </Section>
       )}
+
+      {machine && <MachineSection machine={machine} embedded={embedded} />}
 
       {figures.length > 0 && (
         <Section id="figures" eyebrow="The figures" title="By the numbers" count={figures.length + (figures.length === 1 ? ' figure' : ' figures')}>
@@ -259,6 +267,20 @@ function CardView({ graph, route, media, embedded }: CardViewProps) {
             {checked.map(({ check, note }) => (
               <li key={check.id} style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
                 <Link to={{ view: 'check', id: check.id }} className="ix-ref" style={{ font: '400 18px/1.3 ' + SERIF, color: INK }}>{check.title} →</Link>
+                <span style={{ font: '400 14px/1.5 ' + SERIF, color: ink(3), fontStyle: 'italic' }}>{note}</span>
+              </li>
+            ))}
+          </ul>
+        </Section>
+      )}
+
+      {foretold.length > 0 && (
+        <Section id="said-in-advance" eyebrow="Said in advance" title={foretold.length === 1 ? 'A prediction this card bears on' : 'Predictions this card bears on'}>
+          <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'flex', flexDirection: 'column', gap: 12 }}>
+            {foretold.map(({ prediction, note }) => (
+              <li key={prediction.id} style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                <span style={{ ...micro(4), letterSpacing: '0.12em' }}>{prediction.who} · {prediction.said.slice(0, 4)} · {FORETOLD[prediction.verdict].label}</span>
+                <Link to={{ view: 'prediction', id: prediction.id }} className="ix-ref" style={{ font: '400 18px/1.3 ' + SERIF, color: INK }}>{prediction.title} →</Link>
                 <span style={{ font: '400 14px/1.5 ' + SERIF, color: ink(3), fontStyle: 'italic' }}>{note}</span>
               </li>
             ))}

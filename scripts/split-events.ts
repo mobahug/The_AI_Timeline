@@ -52,6 +52,14 @@ const PARTS: Record<string, (cards: EventRaw[]) => unknown> = {
   papers: (cards) => Object.fromEntries(cards.map((c) => [c.id, papersOf(c)]))
 };
 
+/* Said in advance is read the same way. Most pages need a prediction's head —
+   its title, who said it, the year it named, the verdict, the cards it bears
+   on — to list it; only its own pages read the words, the verdict at length
+   and the sources, which are most of what data/predictions.json weighs. */
+export const PREDICTION_HEAD = ['id', 'title', 'who', 'people', 'said', 'by', 'verdict', 'came', 'short', 'record'] as const;
+const predictionHeads = (all: Record<string, unknown>[]) =>
+  all.map((p) => Object.fromEntries(PREDICTION_HEAD.filter((k) => p[k] !== undefined).map((k) => [k, p[k]])));
+
 export function splitEvents(): Plugin {
   return {
     name: 'split-events',
@@ -60,6 +68,11 @@ export function splitEvents(): Plugin {
     enforce: 'pre',
     load(id) {
       const [file, query] = id.split('?');
+      if (query && file.endsWith('/data/predictions.json') && new URLSearchParams(query).has('heads')) {
+        this.addWatchFile(file);
+        const text = JSON.stringify(predictionHeads((JSON.parse(readFileSync(file, 'utf8')) as { predictions: Record<string, unknown>[] }).predictions));
+        return `export default JSON.parse(${JSON.stringify(text)});\n`;
+      }
       if (!query || !file.endsWith('/data/events.json')) return null;
       const params = new URLSearchParams(query);
       const part = Object.keys(PARTS).find((p) => params.has(p));

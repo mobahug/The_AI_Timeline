@@ -31,6 +31,17 @@ The full legal text is at
   They remain the property of their publishers. Sentences quoted from
   Wikipedia are licensed CC BY-SA 4.0 and are credited, with the article
   linked, wherever the site shows them.
+- **Quotations in `data/predictions.json`** — the predictions' own words and
+  what is quoted on what happened — are short quotations from the pages they
+  link to, under the same terms as the sources' quotes above.
+- **The machines' texts** are not the board's either. ELIZA's DOCTOR script
+  (`src/lib/machines/doctor-1965.txt`) is from Joseph Weizenbaum's papers at
+  MIT, which license the listing under an MIT software licence; his estate has
+  released it under CC0, and Anthony Hay's transcription is CC0. The book
+  Shannon's approximations are drawn from
+  (`src/lib/machines/book-of-the-machines.txt`) is Samuel Butler's *Erewhon*,
+  in the public domain. The rules the machines follow are their makers', taken
+  from their published papers.
 - **Photographs** are Wikipedia/Wikimedia Commons lead images. The board and
   its pages look them up at build time and show Wikimedia's own copies; they
   are not redistributed there. The **share images** are the exception: the

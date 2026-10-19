@@ -579,6 +579,50 @@
     "wikiTitle": "Unimate"
   },
   {
+    "id": "menace-learns-from-matchboxes",
+    "year": 1961,
+    "category": "research",
+    "title": "MENACE learns noughts and crosses from matchboxes",
+    "summary": "Donald Michie builds a machine of matchboxes and coloured beads that learns noughts and crosses by trial and error: paid in beads when it does well, robbed of them when it loses.",
+    "source": "The Computer Journal",
+    "url": "https://people.csail.mit.edu/brooks/idocs/matchbox.pdf",
+    "why": "A machine with no strategy written into it, taught only by reward and punishment counted out in beads. The programs that later learned backgammon and Go from their own games were paid the same way, in numbers instead of beads: a win made the moves that led to it more likely.",
+    "figures": [
+      {
+        "label": "Boxes",
+        "value": "287, by Michie's count: one for each position the opening player can meet, reflections and rotations counted once"
+      },
+      {
+        "label": "Beads of each colour",
+        "value": "4 in the boxes for its first move, 3 for its second, 2 for its third, 1 for its fourth"
+      },
+      {
+        "label": "Paid in beads",
+        "value": "three for a win and one for a draw, added to every box it used; a defeat cost it the chosen bead from each"
+      },
+      {
+        "label": "On a computer",
+        "value": "a Pegasus 2, programmed with D. J. M. Martin of Ferranti, playing both sides at about a game a second"
+      }
+    ],
+    "detail": [
+      "MENACE — the Matchbox Educable Noughts And Crosses Engine — gave each position the opening player can meet a matchbox of its own, with a drawing of the position on its face. Positions that are reflections or rotations of one another were treated as one, which by Michie's count left 287. Inside each box were coloured beads, one colour for each move open to it. To choose a move, the operator shook the box for the position on the board, tilted it, and played the colour of the bead that rolled out first.",
+      "At the end of a game the machine was paid. A defeat cost it the chosen bead from every box it had opened; a draw, counted a good result in its first tournament against a human, added one bead of the chosen colour to each; a win added three. The boxes for its first move started with four beads of each colour and those for its fourth with one, so the moves nearest the result changed fastest.",
+      "Michie described it in the Penguin Science Survey in 1961 and in The Computer Journal in 1963, by which time it had been simulated on a Pegasus 2 computer that played both sides at about a game a second. There the rewards were multipliers on the odds of a move rather than beads, and Michie judged them too strong: the program, he wrote, jumped to premature conclusions. The matchbox version runs on this card."
+    ],
+    "sources": [
+      {
+        "kind": "paper",
+        "publisher": "The Computer Journal (scan, MIT CSAIL)",
+        "title": "Experiments on the mechanization of game-learning. Part I. Characterization of the model and its parameters",
+        "url": "https://people.csail.mit.edu/brooks/idocs/matchbox.pdf",
+        "date": "1963-11-01",
+        "quote": "This paper describes a trial-and-error device which learns to play the game of Noughts and Crosses.",
+        "supports": "claim"
+      }
+    ]
+  },
+  {
     "id": "moore-s-law",
     "year": 1965,
     "date": "1965-04-19",
@@ -6969,7 +7013,10 @@
     "title": "Multi-day autonomous work",
     "summary": "Agents hold context and accountability across projects rather than tasks; reviewing becomes the human job.",
     "why": "Org charts change before job titles do. The first restructurings are quiet. The duration came early — ten thousand agents held one problem for 88 hours in September 2026 — so the card now stands for the accountability: an agent that answers for a project, and a person whose job is to review it.",
-    "confidence": "Likely"
+    "confidence": "Likely",
+    "early": [
+      "navier-stokes-falls-to-ten-thousand-agents"
+    ]
   },
   {
     "id": "inference-silicon-commoditises",
@@ -6987,7 +7034,10 @@
     "title": "The first frontier-lab consolidation",
     "summary": "Capital intensity outruns revenue; a major lab is absorbed, and the number of organisations training frontier models falls again.",
     "why": "Concentration is the default outcome of a business where the fixed cost is a power station. A frontier lab was absorbed in February 2026 — xAI into SpaceX — but by its owner's choice and at a record price, not because the money ran out; the card holds the version where it does.",
-    "confidence": "Likely"
+    "confidence": "Likely",
+    "early": [
+      "spacex-buys-xai"
+    ]
   },
   {
     "id": "an-ai-designed-drug-is-approved",
@@ -7022,7 +7072,10 @@
     "title": "Provenance becomes mandatory",
     "summary": "Content authentication and model disclosure are legally required in major markets after a synthetic-media crisis.",
     "why": "Likely to arrive reactively, after an election or a market event, rather than by design. Two major markets did it by design instead: China's labelling rules took effect in September 2025, and from August 2026 the AI Act requires synthetic content to be marked as such. The card now holds the reactive version — the other major markets, after the crisis.",
-    "confidence": "Uncertain"
+    "confidence": "Uncertain",
+    "early": [
+      "ai-act-obligations-bite"
+    ]
   },
   {
     "id": "an-agent-driven-market-event",
@@ -7068,7 +7121,10 @@
     "title": "A machine-assisted proof",
     "summary": "The norms for crediting, refereeing and prizing a proof a machine found are settled — or the field splits over them, and two mathematics grow up side by side.",
     "why": "The proof came in 2026, five years early and with no human author. What the scenario now stands for is the part that has not happened: an agreed answer to who found it, who checked it, and who gets the prize.",
-    "confidence": "Uncertain"
+    "confidence": "Uncertain",
+    "early": [
+      "navier-stokes-falls-to-ten-thousand-agents"
+    ]
   },
   {
     "id": "model-weights-become-a-national-security-asset",
@@ -7078,6 +7134,9 @@
     "summary": "Frontier weights are handled like enriched material: export-controlled, insured, and occasionally stolen.",
     "why": "The analogy the card rests on is enriched material, and it is the one governments have reached for before: a control list, an insurance market, and a theft discovered late. Two steps came early, in 2026: Washington put a deployed model under export control for eighteen days, and OpenAI deactivated, encrypted and locked away the research model behind the Hugging Face break-in. Neither treated the weights themselves as controlled property — licensed across a border, insured, stolen — and that is what the card still holds.",
     "confidence": "Speculative",
+    "early": [
+      "washington-suspends-foreign-access-to-a-model"
+    ],
     "terms": [
       "open-weights",
       "export-controls"
@@ -7126,7 +7185,10 @@
     "title": "A contested AGI claim",
     "summary": "A lab declares general intelligence; evaluation science cannot confirm or refute it, and markets move first.",
     "why": "The definitional fight is the event. Whoever controls the benchmark controls the announcement. A hedged rehearsal came in September 2026 — a lab president's 'for me personally, I do think we're there', and a benchmark's 'not AGI' the same day — so the card now holds the version that is formal, contractual or priced in.",
-    "confidence": "Speculative"
+    "confidence": "Speculative",
+    "early": [
+      "openai-says-the-agi-era-is-here"
+    ]
   },
   {
     "id": "the-date-on-the-poster",
