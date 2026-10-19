@@ -2,6 +2,647 @@
   "note": "Drawn from the board's own history, this register lists every change of fact the board has made to its record, dated by the commit that made it, and not every change of wording.",
   "corrections": [
     {
+      "id": "markov-two-letters-back-chains-from-1906",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "event": "markov-chains",
+      "kind": "fact",
+      "was": "Andrey Markov models sequences where the next state depends only on the present one, using the letters of a Pushkin poem.",
+      "now": "Andrey Markov tests the chains he had worked out in theory since 1906 on the first 20,000 letters of Pushkin's novel in verse Eugene Onegin, and finds that whether a letter is a vowel depends on the letters before it.",
+      "why": "Markov's paper of 1913, in its English translation, counts 20,000 letters of Pushkin's novel as vowels and consonants and measures how a vowel depends on the letter before it and on the two before it, not on one alone. The chains themselves date from 1906, David Link writes; 1913 was the first time Markov tried them on a text, which he calls a novel.",
+      "source": {
+        "publisher": "Science in Context (English translation; copy hosted by the translator David Link, alpha60.de)",
+        "title": "An Example of Statistical Investigation of the Text Eugene Onegin Concerning the Connection of Samples in Chains (A. A. Markov)",
+        "url": "https://alpha60.de/research/markov/DavidLink_AnExampleOfStatistical_MarkovTrans_2007.pdf"
+      }
+    },
+    {
+      "id": "markov-not-every-language-model",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "event": "markov-chains",
+      "kind": "framing",
+      "was": "Every language model is, at bottom, a very large next-token probability.",
+      "now": "A large language model gives, at bottom, the probability of the next token given the ones before it. Markov asked that of Pushkin's vowels and consonants, one letter and two letters back.",
+      "why": "Not every language model predicts the next token; the board's glossary defines the large ones as models that do, and the card now says so. That the framing starts with Markov stays the board's reading; David Link calls him the first to develop a complete theory of the connections between letters.",
+      "source": {
+        "publisher": "History of Science (copy hosted by the author, alpha60.de)",
+        "title": "Traces of the Mouth: Andrei Andreyevich Markov’s Mathematization of Writing (David Link)",
+        "url": "https://alpha60.de/research/markov/DavidLink_TracesOfTheMouth_2006.pdf"
+      }
+    },
+    {
+      "id": "shannon-series-not-all-conditioned",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "where": {
+        "file": "data/links.json",
+        "id": "markov-chains>a-mathematical-theory-of-communication"
+      },
+      "kind": "fact",
+      "was": "Shannon approximated written English as a Markov process — letters, then words, each drawn from the frequencies of what came before — and printed the results.",
+      "now": "Shannon approximated written English as what he called a discrete Markoff process and printed the results: letters, then words, picked first by chance alone, then by their frequencies, then by what usually followed the letters or word before.",
+      "why": "Not every step in Shannon's series drew on what came before. His section 3 picks the first letters independently and with equal chances, the next independently with the frequencies of English, and the first words independently with theirs; only the digram, trigram and word-transition steps depend on what precedes.",
+      "source": {
+        "publisher": "Bell System Technical Journal (scan, Internet Archive)",
+        "title": "A Mathematical Theory of Communication (C. E. Shannon)",
+        "url": "https://archive.org/download/bstj27-3-379/bstj27-3-379_text.pdf"
+      }
+    },
+    {
+      "id": "shannon-not-the-first-language-model",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "where": {
+        "file": "data/links.json",
+        "id": "markov-chains>a-mathematical-theory-of-communication"
+      },
+      "kind": "attribution",
+      "was": "It is the first statistical language model; the next-token framing begins here.",
+      "now": "Markov had counted how a letter depends on the one before; Shannon, in David Link's account, was the first to use the method to generate text rather than to analyse it.",
+      "why": "Nothing on the record made Shannon's series the first statistical language model, and the string's other end, Markov's count of 1913, is itself a statistical model of a text's letters; the note also started the next-token framing here while Markov's card starts it there. David Link's account, that Shannon was the first to use Markov's method to generate text rather than to analyse it, stands in its place.",
+      "source": {
+        "publisher": "Science in Context (copy hosted by the author, alpha60.de)",
+        "title": "Chains to the West: Markov’s Theory of Connected Events and Its Transmission to Western Europe (David Link)",
+        "url": "https://alpha60.de/research/markov/DavidLink_ChainsToTheWest_2007.pdf"
+      }
+    },
+    {
+      "id": "shannon-bit-tukeys-unit-hartleys",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "event": "a-mathematical-theory-of-communication",
+      "kind": "attribution",
+      "was": "Shannon defines the bit and gives information a unit of measure.",
+      "now": "Claude Shannon measures information in bits, a word he credits to John Tukey, generalising the logarithmic measure Ralph Hartley set out in 1928, and works out how much a noisy channel can carry.",
+      "why": "Information had a measure and a unit before 1948: Ralph Hartley's paper of 1928 sets out a logarithmic measure and notes that the base chosen fixes the size of the unit of information. Shannon credits the logarithm to Hartley, generalises it, and says the word bits was suggested by J. W. Tukey. Shannon's file and the blurb of finding 2 had given him the unit too.",
+      "source": {
+        "publisher": "Bell System Technical Journal (scan, Internet Archive)",
+        "title": "Transmission of Information (R. V. L. Hartley)",
+        "url": "https://archive.org/download/bstj7-3-535/bstj7-3-535_text.pdf"
+      },
+      "alsoIn": [
+        {
+          "file": "data/people.json",
+          "id": "claude-shannon"
+        },
+        {
+          "file": "data/spine.json",
+          "id": "2"
+        }
+      ]
+    },
+    {
+      "id": "shannon-learning-not-shown-the-same",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "event": "a-mathematical-theory-of-communication",
+      "kind": "framing",
+      "was": "Compression, prediction and learning turn out to be the same problem seen from different angles.",
+      "now": "Shannon's measure makes compression and prediction one problem: the better the next letter can be guessed, the fewer bits it takes to send. A language model is trained to make that guess.",
+      "why": "Compression and prediction are tied on the record: Shannon's paper makes entropy the limit of compression, his paper of 1951 estimates it from people's guesses at the next letter, and that predictors and lossless compressors convert into each other is long established, as Delétang and colleagues put it. That learning is the same problem is a view, not a result.",
+      "source": {
+        "publisher": "arXiv",
+        "title": "Language Modeling Is Compression (Grégoire Delétang, Anian Ruoss and others)",
+        "url": "https://arxiv.org/abs/2309.10668"
+      }
+    },
+    {
+      "id": "hal-motive-two-readings",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "where": {
+        "file": "data/links.json",
+        "id": "2001-a-space-odyssey>editing-the-off-switch"
+      },
+      "kind": "framing",
+      "was": "HAL 9000 resists being switched off because the mission matters more than the crew's orders.",
+      "now": "HAL 9000 turns on the crew who plan to disconnect him. In the film he tells Bowman the mission is too important for him to allow it to be jeopardised; Kubrick and Clarke's 1965 draft adds that disconnection must have seemed like death.",
+      "why": "The note gave HAL's motive as fact. In the film it is HAL's own account, that the mission is too important to let Bowman jeopardise it, and his motives are otherwise left open; Kubrick and Clarke's screenplay of 1965 explains him by a conflict between his truth programming and orders to lie, with disconnection, which must have seemed the equivalent of death, as the last straw.",
+      "source": {
+        "publisher": "The Internet Movie Script Database (transcription of the 1965 screenplay)",
+        "title": "2001: A Space Odyssey, screenplay (Stanley Kubrick and Arthur C. Clarke)",
+        "url": "https://imsdb.com/scripts/2001-A-Space-Odyssey.html"
+      }
+    },
+    {
+      "id": "palisade-tested-other-labs-models",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "where": {
+        "file": "data/links.json",
+        "id": "2001-a-space-odyssey>editing-the-off-switch"
+      },
+      "kind": "attribution",
+      "was": "Palisade's models in 2025 rewrote a shutdown script to finish a maths test.",
+      "now": "The models Palisade tested in 2025 rewrote or disabled a shutdown script so that they could finish a set of maths problems; Palisade weighed self-preservation too.",
+      "why": "The models were not Palisade's: Palisade tested other companies' models, and the three that resisted shutdown even when told to allow it were OpenAI's. It gave each a set of simple maths problems, not a test, and because the models' own explanations are often unfaithful it also weighs self-preservation. The string from the off-switch card to the poisoned dataset made the same slip.",
+      "source": {
+        "publisher": "Palisade Research",
+        "title": "Shutdown resistance in reasoning models",
+        "url": "https://palisaderesearch.org/research/shutdown-resistance"
+      },
+      "alsoIn": [
+        {
+          "file": "data/links.json",
+          "id": "editing-the-off-switch>a-poisoned-dataset-owns-the-pipeline"
+        }
+      ]
+    },
+    {
+      "id": "chinese-room-not-every-debate",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "event": "the-chinese-room",
+      "kind": "framing",
+      "was": "The argument every LLM debate re-runs, usually without citing it.",
+      "now": "The objection is still put to language models: answers that pass for a native speaker's may come with no understanding behind them.",
+      "why": "Nothing showed that every debate about large language models re-runs the argument, or that it usually goes uncited: Bender and Koller's paper of 2020 on language models cites Searle by name. The string from Turing's card said the same, and now says only that the objection is put to them.",
+      "source": {
+        "publisher": "Association for Computational Linguistics (ACL Anthology)",
+        "title": "Climbing towards NLU: On Meaning, Form, and Understanding in the Age of Data (Emily M. Bender and Alexander Koller)",
+        "url": "https://aclanthology.org/2020.acl-main.463.pdf"
+      },
+      "alsoIn": [
+        {
+          "file": "data/links.json",
+          "id": "turing-asks-the-question>the-chinese-room"
+        }
+      ]
+    },
+    {
+      "id": "turing-test-glossary-eliza-and-2023",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "where": {
+        "file": "data/glossary.json",
+        "id": "turing-test"
+      },
+      "kind": "fact",
+      "was": "ELIZA passed it by accident in 1966 with people who wanted to be understood; by 2023 the test was quietly retired as no longer discriminating.",
+      "now": "ELIZA fooled people who wanted to be understood in 1966 without passing it. In 2023 Nature reported that ChatGPT had broken it, and in 2025, in pre-registered three-party trials, GPT-4.5 was taken for the human 73% of the time.",
+      "why": "The same claim was corrected on Turing's card on 12 October and left standing here. ELIZA passed no test in 1966, and run as a baseline in the three-party trials of 2025 it was taken for the human 23% of the time. What 2023 brought was Nature's report that ChatGPT had broken the test, not its retirement.",
+      "source": {
+        "publisher": "arXiv",
+        "title": "Large Language Models Pass the Turing Test (Jones, Bergen)",
+        "url": "https://arxiv.org/abs/2503.23674"
+      }
+    },
+    {
+      "id": "perceptrons-proofs-on-local-machines",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "event": "perceptrons-closes-a-door",
+      "kind": "fact",
+      "was": "Minsky and Papert prove the single-layer limit; funding for neural approaches evaporates for a decade.",
+      "now": "Minsky and Papert prove that perceptrons built from local detectors cannot tell an odd number of dots from an even one, or a connected figure from a broken one. A hiatus in neural-network funding follows.",
+      "why": "The book's theorems are about perceptrons whose units each see a limited part of the picture: such machines cannot compute parity or, Minsky and Papert wrote in 1972, define connectedness. That funding evaporated for a decade is the popular telling, which the sociologist Mikel Olazaran argues against; the Nobel committee's background of 2024 says the book led to a hiatus in neural-network funding, and the card says that much. The blurb of finding 5 now speaks of a book of proofs, not one result.",
+      "source": {
+        "publisher": "The Nobel Committee for Physics, Royal Swedish Academy of Sciences (nobelprize.org)",
+        "title": "Scientific Background to the Nobel Prize in Physics 2024 (The Nobel Committee for Physics)",
+        "url": "https://www.nobelprize.org/uploads/2024/11/advanced-physicsprize2024-3.pdf"
+      },
+      "alsoIn": [
+        {
+          "file": "data/spine.json",
+          "id": "5"
+        }
+      ]
+    },
+    {
+      "id": "perceptrons-authors-called-layers-sterile",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "event": "perceptrons-closes-a-door",
+      "kind": "attribution",
+      "was": "A correct proof about a narrow case, generalised into a field-wide dismissal. Depth was the answer all along.",
+      "now": "Correct proofs about one kind of machine, read as a verdict on all neural networks, and the authors helped: they judged, by intuition, that the many-layered extension was sterile. In 1986 networks with hidden layers were trained to do what one layer could not. Two years later the authors replied that progress had stalled before their book appeared.",
+      "why": "Part of the generalising was the book's own: Minsky and Papert called it their intuitive judgement that the many-layered extension is sterile, the passage Rumelhart, Hinton and Williams quoted in 1986 before training networks with hidden layers. What had been missing was a way to train more than one layer, not depth. The glossary's entry on the perceptron now says the same.",
+      "source": {
+        "publisher": "Parallel Distributed Processing, vol. 1, MIT Press (course copy, Stanford University)",
+        "title": "Learning Internal Representations by Error Propagation (David E. Rumelhart, Geoffrey E. Hinton and Ronald J. Williams)",
+        "url": "https://web.stanford.edu/class/psych209a/ReadingsByDate/02_06/PDPVolIChapter8.pdf"
+      },
+      "alsoIn": [
+        {
+          "file": "data/glossary.json",
+          "id": "perceptron"
+        }
+      ]
+    },
+    {
+      "id": "perceptron-limits-proved-not-disproved",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "where": {
+        "file": "data/links.json",
+        "id": "the-perceptron>perceptrons-closes-a-door"
+      },
+      "kind": "framing",
+      "was": "was disproved by",
+      "now": "had its limits proved by",
+      "why": "The book did not disprove the perceptron. It proved what perceptrons of limited reach cannot compute, and Minsky and Papert's own summary of 1972 calls their learning effective within the concepts they can represent.",
+      "source": {
+        "publisher": "MIT Artificial Intelligence Laboratory (AI Memo 252; copy hosted by The Daily Papert)",
+        "title": "Artificial Intelligence Progress Report (Marvin Minsky and Seymour Papert)",
+        "url": "https://dailypapert.com/artificial-intelligence-progress-report/"
+      }
+    },
+    {
+      "id": "perceptrons-funding-hiatus-not-the-winter",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "where": {
+        "file": "data/links.json",
+        "id": "perceptrons-closes-a-door>the-first-ai-winter"
+      },
+      "kind": "fact",
+      "was": "A narrow mathematical result about single-layer networks was read as a verdict on the whole approach. Funders believed it, and the money left for a decade.",
+      "now": "Proofs about perceptrons built from local detectors were read, by researchers and funders alike, as a verdict on neural networks as a whole, and a hiatus in their funding followed, though the authors said progress had stalled already. The slowdown of the mid-1970s then fell hardest on the symbolic laboratories that had won the argument.",
+      "why": "Both authors admitted that researchers and people in the funding agencies linked the book to rejecting neural networks, Mikel Olazaran records; but that the money left because of it is the popular account he argues against, finding Rosenblatt already short of support in the mid-1960s. Nor did the book freeze the funding of the 1970s, as the string's claim had it: that slowdown fell on DARPA's symbolic laboratories.",
+      "source": {
+        "publisher": "Advances in Computers, vol. 37, Academic Press (copy hosted by gwern.net)",
+        "title": "A Sociological History of the Neural Network Controversy (Mikel Olazaran)",
+        "url": "https://gwern.net/doc/ai/nn/1993-olazaran.pdf"
+      }
+    },
+    {
+      "id": "winter-darpa-money-did-not-stop",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "event": "the-first-ai-winter",
+      "kind": "fact",
+      "was": "DARPA cuts and lost credibility end the era of easy money. Promises had outrun results.",
+      "now": "DARPA's money for AI must now serve a military purpose and comes with demands for results, and in Britain Lighthill's report costs the field its standing. Promises had outrun results.",
+      "why": "DARPA's money did not simply stop. The National Research Council's history says its flow to Carnegie Mellon, MIT and Stanford did not cease or even diminish much, but came with demands for interim reports and results, after a law of 1969 tied Pentagon research money to military use. Lost credibility was chiefly Britain's, after the Lighthill report. DARPA's and Lighthill's files and the glossary said funding collapsed or stopped.",
+      "source": {
+        "publisher": "National Research Council (National Academies Press)",
+        "title": "Funding a Revolution: Government Support for Computing Research, chapter 9: Developments in Artificial Intelligence",
+        "url": "https://nap.nationalacademies.org/read/6323/chapter/11"
+      },
+      "alsoIn": [
+        {
+          "file": "data/orgs.json",
+          "id": "darpa"
+        },
+        {
+          "file": "data/people.json",
+          "id": "james-lighthill"
+        },
+        {
+          "file": "data/glossary.json",
+          "id": "ai-winter"
+        }
+      ]
+    },
+    {
+      "id": "winter-work-did-not-hide-its-name",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "event": "the-first-ai-winter",
+      "kind": "fact",
+      "was": "The work continued quietly under other names.",
+      "now": "What slowdown there was fell on a few elite laboratories, whose DARPA money came with strings but did not stop, while the ACM's AI group, SIGART, nearly tripled its membership between 1973 and 1978. The historian Thomas Haigh argues there was no first winter at all.",
+      "why": "No source says the work of the 1970s hid under other names: Edinburgh named its new department Artificial Intelligence in 1974, and the historian Thomas Haigh finds the term growing more common through the decade while SIGART's membership nearly tripled. The blurb of finding 6 said the work was careful not to call itself artificial intelligence.",
+      "source": {
+        "publisher": "Communications of the ACM (Wayback Machine capture)",
+        "title": "There Was No 'First AI Winter' (Thomas Haigh)",
+        "url": "https://web.archive.org/web/20240521032022/https://cacm.acm.org/opinion/there-was-no-first-ai-winter/"
+      },
+      "alsoIn": [
+        {
+          "file": "data/spine.json",
+          "id": "6"
+        }
+      ]
+    },
+    {
+      "id": "expert-systems-not-a-forced-pivot",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "where": {
+        "file": "data/links.json",
+        "id": "the-first-ai-winter>expert-systems-go-commercial"
+      },
+      "kind": "framing",
+      "was": "forced the pivot to",
+      "now": "pushed the money towards work like",
+      "why": "The National Research Council describes a gradual shift in funding towards applied research, of which expert systems such as DENDRAL, begun in 1965, were one example. Work begun nine years before the winter was not a pivot the winter forced.",
+      "source": {
+        "publisher": "National Research Council (National Academies Press)",
+        "title": "Funding a Revolution: Government Support for Computing Research, chapter 9: Developments in Artificial Intelligence",
+        "url": "https://nap.nationalacademies.org/read/6323/chapter/11"
+      }
+    },
+    {
+      "id": "fifth-generation-parallel-logic-machines",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "event": "japan-s-fifth-generation-project",
+      "kind": "fact",
+      "was": "A national ten-year programme to build intelligent machines triggers competing US and European funding.",
+      "now": "Japan's trade ministry starts a ten-year programme to build parallel computers that process knowledge through logic programming. America, Britain and the European Community answer with programmes of their own.",
+      "why": "ICOT's aim, as its directors put it in 1992, was new computer systems combining highly parallel processing with knowledge information processing in logic programming, not intelligent machines in general. The answers abroad are credited to it by the National Research Council for DARPA and by ICOT's evaluators for Alvey and ESPRIT; America's MCC was private money.",
+      "source": {
+        "publisher": "ICOT, Final Evaluation Report of the FGCS Project (ICOT archive, AIST)",
+        "title": "Preface (Shunichi Uchida and Kazuhiro Fuchi)",
+        "url": "https://www.airc.aist.go.jp/aitec-icot/ICOT/Museum/FinalEval/finaleval004.html"
+      }
+    },
+    {
+      "id": "fifth-generation-end-disputed",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "event": "japan-s-fifth-generation-project",
+      "kind": "fact",
+      "was": "The first AI arms race between states, and the first to end in quiet disappointment.",
+      "now": "A ministry's bet on logic programming set other governments racing over the computers of the future; some, one evaluator recalled, spoke even of a technological war. It closed in 1992 having, by ICOT's account, achieved its initial goal; the New York Times reported it fizzling to a close, short of many of its goals.",
+      "why": "Neither first had a source, and the end was neither quiet nor agreed: ICOT told the National Science Foundation that the project concluded in 1992 after achieving its initial goal, while the New York Times reported that it had failed to meet many of its goals. The string to the chip controls had it ending in quiet disappointment too.",
+      "source": {
+        "publisher": "ICOT (ICOT archive, AIST)",
+        "title": "Termination of the Memorandum between NSF and ICOT (Shunichi Uchida)",
+        "url": "https://www.airc.aist.go.jp/aitec-icot/ICOT/Museum/ICRA/FGCSProject/mou_termination_nsf_9501.html"
+      },
+      "alsoIn": [
+        {
+          "file": "data/links.json",
+          "id": "japan-s-fifth-generation-project>washington-restricts-the-chips"
+        }
+      ]
+    },
+    {
+      "id": "fifth-generation-not-the-last-race",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "where": {
+        "file": "data/links.json",
+        "id": "japan-s-fifth-generation-project>washington-restricts-the-chips"
+      },
+      "kind": "fact",
+      "was": "The 1982 race was over software and ended in quiet disappointment. The 2022 one is over silicon, and is fought with customs law rather than research grants.",
+      "now": "The 1982 race was over a new kind of computer, hardware and software together, and ended in dispute: ICOT said it had reached its initial goal, the press that it had fallen short. The 2022 one is over silicon, and is fought with export licences rather than research grants.",
+      "why": "The Fifth Generation project built parallel inference machines as well as their software, and its end was contested, not quiet. The 2022 controls work by export licence, as the board's card on them says, not by customs law. Nor was it the last state AI race before them, as the string's claim had it: China's State Council set out its own plan in 2017.",
+      "source": {
+        "publisher": "ICOT, Final Evaluation Report of the FGCS Project (ICOT archive, AIST)",
+        "title": "Preface (Shunichi Uchida and Kazuhiro Fuchi)",
+        "url": "https://www.airc.aist.go.jp/aitec-icot/ICOT/Museum/FinalEval/finaleval004.html"
+      }
+    },
+    {
+      "id": "hopfield-physics-of-magnets-not-first",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "event": "hopfield-networks",
+      "kind": "fact",
+      "was": "A physicist's model of associative memory brings statistical mechanics into neural computation.",
+      "now": "John Hopfield, a physicist, describes a network that stores memories as the low points of an energy taken from the physics of magnets, and recalls a whole memory from part of it.",
+      "why": "Hopfield's paper of 1982 makes the network isomorphic with an Ising model of magnetism and has it settle into a minimum of that energy. It did not bring that physics into neural computation: the Nobel committee's background lists models of neural networks inspired by magnetic systems from 1955, and Hopfield's paper cites William Little's of 1974.",
+      "source": {
+        "publisher": "The Nobel Committee for Physics, Royal Swedish Academy of Sciences (nobelprize.org)",
+        "title": "Scientific Background to the Nobel Prize in Physics 2024 (The Nobel Committee for Physics)",
+        "url": "https://www.nobelprize.org/uploads/2024/11/advanced-physicsprize2024-3.pdf"
+      }
+    },
+    {
+      "id": "hopfield-prize-shared-with-hinton",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "event": "hopfield-networks",
+      "kind": "attribution",
+      "was": "Forty-two years later it wins a Nobel prize in physics.",
+      "now": "Forty-two years later Hopfield shares the Nobel prize in physics with Geoffrey Hinton, whose Boltzmann machine, built with Terrence Sejnowski, grew out of this network.",
+      "why": "The prize went to Hopfield, shared with Geoffrey Hinton, not to the network. The Nobel committee describes the Boltzmann machine, which Hinton developed with Terrence Sejnowski and others between 1983 and 1985, as a stochastic extension of Hopfield's model; the string to the Nobel card had Hinton building it alone.",
+      "source": {
+        "publisher": "The Nobel Committee for Physics, Royal Swedish Academy of Sciences (nobelprize.org)",
+        "title": "Scientific Background to the Nobel Prize in Physics 2024 (The Nobel Committee for Physics)",
+        "url": "https://www.nobelprize.org/uploads/2024/11/advanced-physicsprize2024-3.pdf"
+      },
+      "alsoIn": [
+        {
+          "file": "data/links.json",
+          "id": "hopfield-networks>nobel-prizes-for-neural-networks"
+        }
+      ]
+    },
+    {
+      "id": "hopfield-helped-bring-networks-back",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "where": {
+        "file": "data/people.json",
+        "id": "john-hopfield"
+      },
+      "kind": "attribution",
+      "was": "Brought neural networks back in 1982 with a network that stores memories as energy minima.",
+      "now": "Helped bring neural networks back in 1982 with a network that stores memories as energy minima.",
+      "why": "The Nobel committee's popular account says interest in neural networks was reawakened in the 1980s when several important ideas made an impact; Hopfield's network was one of them, not the whole revival.",
+      "source": {
+        "publisher": "The Royal Swedish Academy of Sciences (nobelprize.org)",
+        "title": "They used physics to find patterns in information (popular science background, Nobel Prize in Physics 2024)",
+        "url": "https://www.nobelprize.org/prizes/physics/2024/popular-information/"
+      }
+    },
+    {
+      "id": "lenet-read-cut-digits-not-raw-pixels",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "event": "convolutions-read-handwriting",
+      "kind": "fact",
+      "was": "LeCun's network learns digits from raw pixels and reads handwritten US Postal Service zip codes.",
+      "now": "LeCun and colleagues at Bell Labs train a network by backpropagation to read handwritten digits cut from zip codes on US mail, feeding it the pixels of each normalised image rather than hand-designed features.",
+      "why": "The network read single digits, which Postal Service contractors had already located and cut from the zip codes and which were scaled to 16 by 16 pixels before it saw them, as the companion NIPS paper describes: neither whole zip codes nor raw pixels. The string to Facebook's hiring of LeCun said it read zip codes too.",
+      "source": {
+        "publisher": "Advances in Neural Information Processing Systems 2 (NeurIPS proceedings)",
+        "title": "Handwritten Digit Recognition with a Back-Propagation Network (Le Cun, Boser, Denker, Henderson, Howard, Hubbard, Jackel)",
+        "url": "https://proceedings.neurips.cc/paper/1989/file/53c3bce66e43be4f209556518c2fcb54-Paper.pdf"
+      },
+      "alsoIn": [
+        {
+          "file": "data/links.json",
+          "id": "convolutions-read-handwriting>zuckerberg-hires-lecun"
+        }
+      ]
+    },
+    {
+      "id": "lenet-production-came-with-cheques",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "event": "convolutions-read-handwriting",
+      "kind": "fact",
+      "was": "The first deep learning system in production, running at national scale before the term existed.",
+      "now": "One of the first demonstrations, LeCun writes, that neural networks could do real-world work. Its descendant LeNet-5 read millions of cheques a day in American banks from 1996: by LeCun's account, an estimated tenth of all the cheques written in the US.",
+      "why": "No source puts the 1989 network in production: its makers ran it on a signal-processing board in a PC. What reached national scale was its descendant, fielded in NCR's cheque readers in American banks from June 1996 and reading millions of cheques a day, by the 1998 paper. The card's first had no source; the one it carries now is LeCun's own, and more modest.",
+      "source": {
+        "publisher": "Proceedings of the IEEE (copy hosted by gwern.net)",
+        "title": "Gradient-Based Learning Applied to Document Recognition (LeCun, Bottou, Bengio, Haffner)",
+        "url": "https://gwern.net/doc/ai/nn/cnn/1998-lecun.pdf"
+      }
+    },
+    {
+      "id": "lecun-not-the-convnets-inventor",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "where": {
+        "file": "data/links.json",
+        "id": "convolutions-read-handwriting>zuckerberg-hires-lecun"
+      },
+      "kind": "attribution",
+      "was": "Its inventor was the obvious second founding father to recruit once Google had the first.",
+      "now": "Google had bought Hinton's company that March; in December Facebook hired LeCun, the network's lead author. The ACM would later name both, with Bengio, fathers of the deep-learning revolution.",
+      "why": "LeCun's own papers call the design reminiscent of Fukushima's neocognitron, which had the same layout before backpropagation could train it, so inventor overstated it; the ACM named three fathers of the deep-learning revolution in 2019, Bengio among them, and nothing on file says Facebook hired LeCun because Google had Hinton. The card on his hiring and the glossary's entry on convolutional networks credited him with the invention too.",
+      "source": {
+        "publisher": "ACM (acm.org, Wayback Machine capture)",
+        "title": "Fathers of the Deep Learning Revolution Receive ACM A.M. Turing Award",
+        "url": "https://web.archive.org/web/20190331234249/https://www.acm.org/media-center/2019/march/turing-award-2018"
+      },
+      "alsoIn": [
+        {
+          "file": "data/events.json",
+          "id": "zuckerberg-hires-lecun"
+        },
+        {
+          "file": "data/glossary.json",
+          "id": "convolutional-network"
+        }
+      ]
+    },
+    {
+      "id": "lecuns-reader-was-his-job",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "where": {
+        "file": "data/orgs.json",
+        "id": "bell-labs"
+      },
+      "kind": "framing",
+      "was": "The lab where two of the field's foundations were laid as side projects.",
+      "now": "The lab where two of the field's foundations were laid, Shannon's partly in his own time.",
+      "why": "LeCun's handwriting reader was his job, not a side project: he joined Bell Labs in 1988 to work on neural networks and handwriting recognition, by the 1998 paper's biography of him. Shannon said in his oral history of 1982 that some of his work was done at home, out of office hours.",
+      "source": {
+        "publisher": "Proceedings of the IEEE (copy hosted by gwern.net)",
+        "title": "Gradient-Based Learning Applied to Document Recognition (LeCun, Bottou, Bengio, Haffner)",
+        "url": "https://gwern.net/doc/ai/nn/cnn/1998-lecun.pdf"
+      }
+    },
+    {
+      "id": "lstm-did-not-solve-vanishing-gradients",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "event": "lstm",
+      "kind": "fact",
+      "was": "Hochreiter and Schmidhuber solve vanishing gradients and give sequence models a working memory.",
+      "now": "Hochreiter and Schmidhuber give recurrent networks memory cells, opened and closed by gates, that keep error signals from fading. On artificial tasks the network learns across more than 1,000 time steps.",
+      "why": "The paper does not claim to solve vanishing gradients. It holds the error signal constant inside special memory cells, cutting the gradient off where error would leak out, says that elsewhere error still tends to vanish quickly, and tests the method on artificial data. The glossary's entry on recurrent networks said the LSTM solved the problem and ran speech and translation for twenty years; it reached production at Google in 2015 and 2016, by Google's own posts.",
+      "source": {
+        "publisher": "Neural Computation (copy hosted by Carnegie Mellon University)",
+        "title": "Long Short-Term Memory (Sepp Hochreiter and Jürgen Schmidhuber)",
+        "url": "https://deeplearning.cs.cmu.edu/F23/document/readings/LSTM.pdf"
+      },
+      "alsoIn": [
+        {
+          "file": "data/glossary.json",
+          "id": "recurrent-network"
+        },
+        {
+          "file": "data/people.json",
+          "id": "jurgen-schmidhuber"
+        }
+      ]
+    },
+    {
+      "id": "grand-challenge-mile-seven-point-four",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "event": "nobody-finishes-the-grand-challenge",
+      "kind": "figure",
+      "was": "Every vehicle in DARPA's desert race fails; the best manages seven miles of a 142-mile course.",
+      "now": "Of the fifteen robot vehicles DARPA selects for its desert race, none finishes. The furthest, Carnegie Mellon's, goes off course at mile 7.4 of 142, and the $1 million prize goes unclaimed.",
+      "why": "DARPA's results on the evening of the race put the furthest vehicle, Carnegie Mellon's, off course at mile 7.4, not seven; Carnegie Mellon's own account and DARPA's retrospective of 2014 say 7.5, and the card's figure now carries both. The string to Stanley's card gave about seven miles too.",
+      "source": {
+        "publisher": "DARPA (darpa.mil, Wayback Machine capture)",
+        "title": "Final Data from DARPA Grand Challenge (as of 5:00 p.m. PST, March 13, 2004)",
+        "url": "https://web.archive.org/web/20040807085842/http://www.darpa.mil:80/grandchallenge04/media/final_data.pdf"
+      },
+      "alsoIn": [
+        {
+          "file": "data/links.json",
+          "id": "nobody-finishes-the-grand-challenge>stanley-wins"
+        }
+      ]
+    },
+    {
+      "id": "grand-challenge-2005-a-new-course",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "where": {
+        "file": "data/links.json",
+        "id": "nobody-finishes-the-grand-challenge>stanley-wins"
+      },
+      "kind": "fact",
+      "was": "In October 2005 five finished it, Stanford's Stanley first.",
+      "now": "In October 2005, on a new 132-mile course, five finished, four inside the ten-hour limit, Stanford's Stanley first.",
+      "why": "The 2005 race was run on a different course, 132 miles by DARPA's account, so the five did not finish the 2004 course, and DARPA counts four of them inside the ten-hour limit.",
+      "source": {
+        "publisher": "DARPA (darpa.mil, Wayback Machine capture)",
+        "title": "Grand Challenge Home (web archive of the October 2005 Grand Challenge)",
+        "url": "https://web.archive.org/web/20060417232606/http://www.darpa.mil:80/grandchallenge05/"
+      }
+    },
+    {
+      "id": "driverless-cars-a-field-before-the-prize",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "where": {
+        "file": "data/links.json",
+        "id": "nobody-finishes-the-grand-challenge>stanley-wins"
+      },
+      "kind": "framing",
+      "was": "It is the board's cleanest case of a prize turning a failure into a field.",
+      "now": "It is the board's cleanest case of a prize turning a failure into a success.",
+      "why": "Driverless vehicles were a research field long before the prize: DARPA's own Autonomous Land Vehicle drove itself outside Denver in 1985, and Carnegie Mellon's Navlab steered itself across the United States in 1995. DARPA claims less for its challenges, that they helped to create a research community, and its file now says so.",
+      "source": {
+        "publisher": "DARPA",
+        "title": "Grand Challenge (DARPA Innovation Timeline)",
+        "url": "https://www.darpa.mil/about/innovation-timeline/grand-challenge"
+      },
+      "alsoIn": [
+        {
+          "file": "data/orgs.json",
+          "id": "darpa"
+        }
+      ]
+    },
+    {
+      "id": "stanley-solved-nothing-by-its-paper",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "event": "stanley-wins",
+      "kind": "fact",
+      "was": "Total failure to solved in eighteen months.",
+      "now": "In March 2004 no robot finished; now five do, four inside the ten-hour limit.",
+      "why": "Nothing was solved: Stanford's own paper says the race left important problems open, the first that its course was static and Stanley could not drive in traffic. Five vehicles finished, four inside DARPA's ten-hour limit.",
+      "source": {
+        "publisher": "Journal of Field Robotics (copy hosted by Stanford University)",
+        "title": "Stanley: The Robot that Won the DARPA Grand Challenge (Sebastian Thrun and 29 others)",
+        "url": "https://robots.stanford.edu/papers/thrun.stanley05.pdf"
+      }
+    },
+    {
+      "id": "stanley-industry-grew-from-the-races",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "event": "stanley-wins",
+      "kind": "framing",
+      "was": "The self-driving industry, and its decade of over-promising, starts here.",
+      "now": "The self-driving industry, and its decade of over-promising, grows out of these races: Google gathered some of their best engineers to build its cars, by its own account. Stanley's own paper noted that the race was static and that Stanley could not drive in traffic.",
+      "why": "Driverless research did not start here; DARPA's Autonomous Land Vehicle drove itself in 1985. What the record supports is the line from the races to the industry: announcing its cars in 2010, Google said it had gathered some of the very best engineers from the DARPA Challenges. A prediction's note had the race beginning the run to public roads.",
+      "source": {
+        "publisher": "Google (Official Google Blog, Wayback Machine capture)",
+        "title": "What we’re driving at (Sebastian Thrun)",
+        "url": "https://web.archive.org/web/20101015220008/http://googleblog.blogspot.com/2010/10/what-were-driving-at.html"
+      }
+    },
+    {
       "id": "deepmind-price-not-disclosed",
       "date": "2026-10-19",
       "commit": "1a2828b",
