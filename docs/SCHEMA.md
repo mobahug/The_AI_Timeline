@@ -38,7 +38,9 @@ only through `src/lib/papers.ts`; nothing changes in how they are written.
 Each source: `{ kind, publisher, title, url, date (YYYY-MM-DD), quote, supports }`.
 `kind` is one of `primary, paper, article, video, podcast, interview, encyclopedia`.
 A source only `supports: "claim"` when it carries a verbatim `quote`; otherwise it is context.
-One url per entry, never twice.
+One url per entry, never twice. `npm run check:quotes -- --cards` fetches every page the cards'
+quotes cite and reports any quote not found in it character for character, with where the page
+parts from it; `-- --cards <id>` checks one card, as after an edit.
 
 ## `data/links.json` — array of strings
 

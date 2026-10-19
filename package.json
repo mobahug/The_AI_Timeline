@@ -14,7 +14,7 @@
     "test:watch": "vitest",
     "fetch:images": "tsx scripts/fetch-images.ts",
     "check:links": "tsx scripts/check-links.ts",
-    "check:quotes": "tsx scripts/check-quotes.ts",
+    "check:quotes": "tsx --max-http-header-size=65536 scripts/check-quotes.ts",
     "gen:sitemap": "tsx scripts/gen-sitemap.ts",
     "gen:feed": "tsx scripts/gen-feed.ts"
   },
