@@ -8,6 +8,8 @@ import { buildGraph } from '../src/lib/data';
 import { leadById } from '../src/lib/leads';
 import { entityById } from '../src/lib/files';
 import linksFile from '../data/links.json';
+import { questionById } from '../src/lib/questions';
+import { findingByNumber } from '../src/lib/spine';
 
 const graph = buildGraph();
 const ALL = raw.corrections as Correction[];
@@ -23,6 +25,8 @@ const exists = (file: string, id: string): boolean =>
   : file === 'data/people.json' ? !!entityById('person', id)
   : file === 'data/orgs.json' ? !!entityById('org', id)
   : file === 'data/glossary.json' ? !!entityById('term', id)
+  : file === 'data/questions.json' ? !!questionById[id]
+  : file === 'data/spine.json' ? !!findingByNumber(id)
   : file === 'data/watch.json';
 
 describe('corrections: every change of fact, as the history has it', () => {

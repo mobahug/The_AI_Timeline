@@ -1,219 +1,37 @@
-import React, { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { KeyboardEvent as ReactKeyboardEvent, PointerEvent as ReactPointerEvent, TransitionEvent as ReactTransitionEvent } from 'react';
-import { THREADS, TICKS, FIRST, NOW, CATEGORIES, accent, buildChain, catLabel, catHue, fade, yearAtFraction } from '../lib/data';
+import { THREADS, TICKS, FIRST, NOW, CATEGORIES, accent, buildChain, catHue, yearAtFraction } from '../lib/data';
 import { PAD, metrics, layout, stringPath, inTime, seek, firstInView } from '../lib/layout';
 import type { Aim, Move } from '../lib/layout';
 import { leadById, leadChain } from '../lib/leads';
 import { useMode } from '../lib/mode';
-import { BOARD_GROUND, CARD_PHOTO_FILTER, MANILA, MONO, PAPER, RED, RED_LIT, CYAN, SERIF, DUR, EASE, FADE, STATE, micro, paperInk } from '../lib/styles';
+import { BOARD_GROUND, MONO, RED_LIT, CYAN, SERIF, DUR, EASE, FADE, STATE, micro } from '../lib/styles';
 import { Btn, Empty, RouteProvider } from './kit';
-import { panDuration, panPosition, rubberBand, sheetClaims, springDuration, springEasing } from '../lib/motion';
+import { panDuration, panPosition, rubberBand, sheetClaims } from '../lib/motion';
 import type { Claim } from '../lib/motion';
-import type { Edge, Event, Graph, Media, Metrics, Node, Route, RoutePatch, Step } from '../lib/types';
+import type { Event, Graph, Media, Node, Route, Step } from '../lib/types';
 import type { Navigate } from '../lib/url';
 import CluePanel from './CluePanel';
 import CardView from './CardView';
+import { Card, isCard } from './board/BoardCard';
+import { StringPath } from './board/StringPath';
+import { keyOf, patchOf, saidOf } from './board/walk';
+import { SHEET_TAIL, SHEET_TRANSITION, settle } from './board/sheet';
+import { useFrameBox, useShellHeight } from './board/frame';
+import type { SheetDrag, Stop } from './board/sheet';
 
-/* How the sheet settles on a stop: a spring, so it overshoots a touch and comes
-   back, the way a native sheet does. `linear()` carries the real curve, with the
-   finger's speed at release folded in; a browser without it gets a bezier that
-   bounces the same amount from rest. Reduced motion zeroes the duration in CSS. */
-/* The spring is damped to the edge of a bounce (ζ ≈ 0.85: it overshoots by
-   well under one per cent, which the eye reads as weight, not play), and the
-   bezier a browser without linear() gets is the site's one curve. */
-const SPRING = { stiffness: 400, damping: 34, mass: 1 };
-const SPRING_MS = springDuration(SPRING);
-const HAS_LINEAR = typeof CSS !== 'undefined' && !!CSS.supports && CSS.supports('transition-timing-function', 'linear(0, 1)');
-const settle = (v0 = 0) => 'transform ' + SPRING_MS + 'ms ' + (HAS_LINEAR ? springEasing({ ...SPRING, v0 }) : EASE);
-const SHEET_TRANSITION = settle();
-/** How far the sheet may bounce or be stretched past its top stop: the sheet
- *  is painted this much taller than it is, so the frame's floor never shows. */
-const SHEET_TAIL = 72;
-
-/** Whether an element is a card on the wall. */
-const isCard = (t: EventTarget | null): t is HTMLElement => t instanceof HTMLElement && !!t.dataset.card;
 /** Whether focus came by keyboard: the browser's own judgement, which a click
  *  does not meet. A browser that cannot answer is taken to be a mouse. */
 const byKeyboard = (el: Element): boolean => { try { return el.matches(':focus-visible'); } catch { return false; } };
 
-/** The shell's height: whatever the header leaves of the viewport. The header is
- *  measured, never assumed, so wrapping at narrow widths just makes the lanes
- *  shorter. */
-const shellOf = (): number => {
-  const header = document.querySelector<HTMLElement>('[data-chrome="header"]');
-  const vh = (window.visualViewport && window.visualViewport.height) || window.innerHeight;
-  return Math.max(300, Math.floor(vh - (header ? header.offsetHeight : 0)));
-};
 /** The keys that walk the wall, and where each one goes (layout.ts). */
 const MOVES: Partial<Record<string, Move>> = {
   ArrowLeft: 'earlier', ArrowRight: 'later', ArrowUp: 'up', ArrowDown: 'down', Home: 'first', End: 'last'
 };
 
-/* One card on the cork. Memoised on plain values, so a scroll, a drag frame or a
-   hover elsewhere on the board does not reconcile it: only the card whose own
-   lit / subject / raised state flipped renders again. */
-interface CardProps {
-  node: Node;
-  m: Metrics;
-  img: string;
-  lit: boolean;
-  subject: boolean;
-  raised: boolean;
-  hoverable: boolean;
-  /** The wall's one Tab stop. Every other card is reached by the arrow keys. */
-  tabbable: boolean;
-  /** The top of the card's lane, which holds it. */
-  laneTop: number;
-  onClick: (e: Event) => void;
-  onHover: (id: string | null) => void;
-  onFocusCard: (id: string) => void;
-}
-const Card = React.memo(function Card({ node, m, img, lit, subject, raised, hoverable, tabbable, laneTop, onClick, onHover, onFocusCard }: CardProps) {
-  const e = node.event;
-  const f = fade(e.year);
-  return (
-    <button
-      type="button"
-      id={'card-' + e.id}
-      data-card={e.id}
-      tabIndex={tabbable ? 0 : -1}
-      aria-label={e.year + ', ' + catLabel(e.category) + ', ' + e.title}
-      onClick={() => onClick(e)}
-      onFocus={() => { onFocusCard(e.id); if (hoverable) onHover(e.id); }}
-      // Focus going on to the next card leaves the preview to that card's own
-      // focus, rather than clearing it in between.
-      onBlur={(ev) => { if (hoverable && !isCard(ev.relatedTarget)) onHover(null); }}
-      onMouseEnter={() => hoverable && onHover(e.id)}
-      onMouseLeave={() => hoverable && onHover(null)}
-      style={{
-        position: 'absolute', left: node.x - m.cardW / 2, top: node.top - laneTop, width: m.cardW, height: m.cardH,
-        padding: 0, border: 'none', background: 'transparent', textAlign: 'left', boxSizing: 'border-box',
-        cursor: 'pointer',
-        transform: 'rotate(' + node.tilt + 'deg) scale(' + (raised ? 1.05 : 1) + ')',
-        transformOrigin: '50% 0%', transition: 'transform ' + DUR.move + 'ms ' + EASE + ', opacity ' + DUR.move + 'ms ' + EASE,
-        opacity: lit ? 1 : 0.2, zIndex: raised ? 12 : 2
-      }}
-    >
-      <span style={{
-        display: 'flex', flexDirection: 'column', position: 'relative', boxSizing: 'border-box',
-        width: '100%', height: '100%', overflow: 'hidden',
-        background: e.future ? MANILA : PAPER, borderRadius: 1,
-        padding: m.k < 0.6 ? '5px 6px 6px' : '7px 7px 8px',
-        border: e.future ? '1px dashed rgba(23,22,26,0.4)' : '1px solid rgba(23,22,26,0.16)',
-        boxShadow: (subject ? '0 0 0 2px ' + RED + ', ' : '') + '0 10px 20px rgba(0,0,0,0.5)'
-      }}>
-        <span style={{
-          position: 'absolute', left: '50%', top: 2, marginLeft: -5, width: 10, height: 10, borderRadius: '50%',
-          background: 'radial-gradient(circle at 35% 30%, oklch(0.9 0.05 ' + catHue(e.category) + '), ' + accent(e.category, f) + ')',
-          border: '1px solid rgba(0,0,0,0.35)', boxShadow: '0 2px 4px rgba(0,0,0,0.6)', zIndex: 2
-        }} />
-        {m.side ? (
-          // A short card: the text on the left, the photograph a square on the right.
-          <span style={{ flex: '1 1 auto', minHeight: 0, display: 'flex', gap: 6, alignItems: 'stretch' }}>
-            <span style={{ flex: '1 1 auto', minWidth: 0, display: 'flex', flexDirection: 'column', paddingTop: 6 }}>
-              <span style={{ flex: 'none', display: 'block', font: '500 8.5px/1 ' + MONO, letterSpacing: '0.14em', color: paperInk(0.72), fontVariantNumeric: 'tabular-nums' }}>{e.year}</span>
-              <span style={{
-                flex: '1 1 auto', display: '-webkit-box', WebkitBoxOrient: 'vertical',
-                WebkitLineClamp: m.titleLines, overflow: 'hidden', marginTop: 3,
-                font: '400 ' + m.titlePx + 'px/1.14 ' + SERIF, color: '#17161a'
-              }}>{e.title}</span>
-            </span>
-            {img ? (
-              <img src={img} alt="" crossOrigin="anonymous" loading="lazy" decoding="async" style={{ flex: 'none', width: m.thumb, height: m.thumb, objectFit: 'cover', display: 'block', border: '1px solid rgba(23,22,26,0.22)', filter: CARD_PHOTO_FILTER }} />
-            ) : (
-              <span aria-hidden="true" style={{
-                flex: 'none', width: m.thumb, height: m.thumb, border: '1px solid rgba(23,22,26,0.22)',
-                background: 'repeating-linear-gradient(135deg,rgba(23,22,26,0.07) 0 5px,transparent 5px 10px)'
-              }} />
-            )}
-          </span>
-        ) : (<>
-        {m.photo && (img ? (
-          <img src={img} alt="" crossOrigin="anonymous" loading="lazy" decoding="async" style={{ flex: '1 1 auto', minHeight: 0, width: '100%', objectFit: 'cover', display: 'block', border: '1px solid rgba(23,22,26,0.22)', filter: CARD_PHOTO_FILTER }} />
-        ) : (
-          <span style={{
-            flex: '1 1 auto', minHeight: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%',
-            border: '1px solid rgba(23,22,26,0.22)', textAlign: 'center',
-            background: 'repeating-linear-gradient(135deg,rgba(23,22,26,0.07) 0 5px,transparent 5px 10px)',
-            font: '400 8px/1 ' + MONO, letterSpacing: '0.16em', textTransform: 'uppercase', color: paperInk(0.65)
-          }}>no photo</span>
-        ))}
-        <span style={{ flex: 'none', display: 'block', marginTop: m.photo ? 5 : 8, font: '500 8.5px/1 ' + MONO, letterSpacing: '0.14em', color: paperInk(0.72), fontVariantNumeric: 'tabular-nums' }}>{e.year}</span>
-        <span style={{
-          flex: m.photo ? 'none' : '1 1 auto', display: '-webkit-box', WebkitBoxOrient: 'vertical',
-          WebkitLineClamp: m.titleLines, overflow: 'hidden', marginTop: 3,
-          font: '400 ' + m.titlePx + 'px/1.14 ' + SERIF, color: '#17161a'
-        }}>{e.title}</span>
-        </>)}
-        {(e.future ? m.showConfidence : m.showCat) && (
-          <span style={{ flex: 'none', display: 'block', marginTop: 4, font: '400 7.5px/1 ' + MONO, letterSpacing: '0.18em', textTransform: 'uppercase', color: e.future ? 'oklch(0.45 0.16 25)' : paperInk(0.65) }}>
-            {e.future ? 'Scenario · ' + (e.confidence || 'Uncertain') : catLabel(e.category)}
-          </span>
-        )}
-      </span>
-    </button>
-  );
-});
-
-/* One string. `strong` lights it as the clue being read; `onChain` keeps it in
-   the walked chain; `dim` fades everything outside the active set. */
-/** A string as the board draws it: the edge, its colours, and the curve. */
-interface BoardString extends Edge { cat: string; future: boolean; tone: string; lit: string; d: string; mx: number; my: number }
-interface StringPathProps { s: BoardString; strong: boolean; onChain: boolean; dim: boolean }
-const StringPath = React.memo(function StringPath({ s, strong, onChain, dim }: StringPathProps) {
-  const width = strong ? 2.6 : 1.7;
-  const opacity = dim ? (strong ? 1 : onChain ? 0.6 : 0.2) : 0.92;
-  return (
-    <g style={{ opacity, transition: 'opacity ' + DUR.move + 'ms ' + EASE }}>
-      {strong && <path d={s.d} style={{ fill: 'none', stroke: s.lit, strokeWidth: width + 7, opacity: 0.22, filter: 'blur(4px)' }} />}
-      {/* Casing: invisible on the dark ground, but it is what keeps a
-          string readable where it crosses a cream card. */}
-      <path d={s.d} style={{ fill: 'none', stroke: '#0a0a0b', strokeWidth: width + 2.6, strokeLinecap: 'round', opacity: 0.62, strokeDasharray: s.future ? '6 7' : undefined }} />
-      <path
-        d={s.d}
-        markerEnd={strong ? 'url(#tip-' + s.cat + ')' : undefined}
-        style={{
-          fill: 'none', stroke: strong ? s.lit : s.tone, strokeWidth: width, strokeLinecap: 'round',
-          strokeDasharray: s.future ? '6 7' : undefined,
-          transition: 'stroke-width ' + DUR.move + 'ms ' + EASE + ', stroke ' + DUR.move + 'ms ' + EASE
-        }}
-      />
-    </g>
-  );
-});
-
 /** Where the board was left, as a fraction of its width, so returning to it
  *  without a card in the address lands where the reader was — not at 1900. */
 let lastFraction: number | null = null;
-
-/** The address a walked step writes: ?lead=&rung= for a rung, ?clue=a>b for a string. */
-const keyOf = (s: Step): string => (s.lead ? 'lead:' + s.lead + ':' + s.rung : s.from + '>' + s.to);
-const patchOf = (s: Step): RoutePatch => (s.lead
-  ? { lead: s.lead, rung: s.rung, clue: null, id: null }
-  : { clue: { from: s.from, to: s.to }, id: null, lead: null, rung: null });
-/** Where a step of a walk lands, in the words the live region says it with:
- *  the clue's place on its chain and the two cards it joins, or the rung's
- *  place on its lead and the card it stands on. The heading shows "3 / 7"; a
- *  voice says "3 of 7". */
-const saidOf = (graph: Graph, steps: Step[], index: number): string => {
-  const s = steps[index];
-  const to = graph.index[s.to];
-  if (s.lead) {
-    const lead = leadById[s.lead];
-    return 'Rung ' + s.rung + ' of ' + s.of + (lead ? ', ' + lead.title : '') + ': ' + to.title;
-  }
-  const from = graph.index[s.from];
-  return 'Clue ' + (index + 1) + ' of ' + steps.length + ': ' + from.year + ' ' + from.title + ' to ' + to.year + ' ' + to.title;
-};
-
-/** The sheet's three stops on a narrow screen. */
-type Stop = 'peek' | 'half' | 'full';
-
-/** A pull of the sheet, from the press to the release. */
-interface SheetDrag {
-  x0: number; y0: number; h0: number; h: number; moved: boolean; t: number; y: number; v: number; raf: number | null;
-  onHandle: boolean; claimed: Claim; scrollTop: number; mouse: boolean; captured: boolean;
-}
 
 export interface BoardViewProps {
   items: Event[];
@@ -230,15 +48,8 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
   const frameRef = useRef<HTMLDivElement>(null);
   const scroller = useRef<HTMLDivElement>(null);
   const dragged = useRef<boolean>(false);
-  // Measured on the first render, not after it: the canvas is drawn in the
-  // browser only, and lanes first solved for a guessed height and then for the
-  // real one moved the whole wall under the reader's eyes (a layout shift of
-  // 0.25 on a phone).
-  const [shellH, setShellH] = useState(() => typeof window === 'undefined' ? 640 : shellOf());
-
-  // `h` is the canvas's inner height, which the lanes are solved for; `frameH`
-  // the frame's, which the rail stands in.
-  const [box, setBox] = useState({ w: 1280, h: 560, frameH: 560 });
+  const shellH = useShellHeight();
+  const box = useFrameBox(frameRef, scroller);
   const [hover, setHover] = useState<string | null>(null);
   // Hover is a mouse concept. A phone fires mouseover before click, which opened
   // the preview pointer-transparent for the gap between the two — a finger went
@@ -268,43 +79,6 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
   // the card, or by opening another one.
   const [fileOpen, setFileOpen] = useState(false);
   const [, setMode] = useMode();
-
-  // The shell follows the viewport and the header as they change.
-  useEffect(() => {
-    const measure = () => setShellH(shellOf());
-    measure();
-    window.addEventListener('resize', measure);
-    if (window.visualViewport) window.visualViewport.addEventListener('resize', measure);
-    const header = document.querySelector<HTMLElement>('[data-chrome="header"]');
-    let ro: ResizeObserver | undefined;
-    if (header && window.ResizeObserver) { ro = new ResizeObserver(measure); ro.observe(header); }
-    return () => {
-      window.removeEventListener('resize', measure);
-      if (window.visualViewport) window.visualViewport.removeEventListener('resize', measure);
-      if (ro) ro.disconnect();
-    };
-  }, []);
-
-  // The frame measures itself, so anything else in the column simply takes room
-  // from the lanes instead of overflowing. The width is the frame's — the
-  // rail is laid out against it. The height is the canvas's own inner height,
-  // less its border and the scrollbar along its foot: the lanes are solved to
-  // fill exactly that, and solving them for the frame instead left the bottom
-  // lane's cards cut off by the scrollbar's height. Read before the first
-  // paint, so the lanes are drawn once, where they stay.
-  useLayoutEffect(() => {
-    const el = frameRef.current;
-    if (!el || !window.ResizeObserver) return;
-    const read = () => {
-      const canvas = scroller.current;
-      const frameH = el.clientHeight || 560;
-      setBox({ w: el.clientWidth || 1280, h: (canvas ? canvas.clientHeight : el.clientHeight) || 560, frameH });
-    };
-    const ro = new ResizeObserver(read);
-    ro.observe(el);
-    read();
-    return () => ro.disconnect();
-  }, []);
 
   const m = useMemo(() => metrics(box.h, box.w), [box.h, box.w]);
   // In brief the wall shows its landmarks and whatever the reader has open: the

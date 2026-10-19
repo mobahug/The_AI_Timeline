@@ -4,6 +4,8 @@ import { CORRECTIONS, CORRECTIONS_NOTE, CORRECTION_KIND } from '../lib/correctio
 import { dayText } from '../lib/data';
 import { leadById } from '../lib/leads';
 import { entityById } from '../lib/files';
+import { questionById } from '../lib/questions';
+import { findingByNumber } from '../lib/spine';
 import { INK, MONO, SANS, SERIF, RULE, ROW_RULE, ink, micro, shell, pageTitle } from '../lib/styles';
 import { Btn, Link, PageHead, Ref } from './kit';
 
@@ -30,6 +32,11 @@ function placeOf(file: string, id: string, graph: Graph): { to: RoutePatch; labe
     return x ? { to: { view: kind, id }, label: (kind === 'term' ? 'the glossary’s ' : 'the file on ') + x.label } : null;
   }
   if (file === 'data/watch.json') return { to: { view: 'latest', hash: 'watch' }, label: 'a date to watch' };
+  if (file === 'data/questions.json') return questionById[id] ? { to: { view: 'question', id }, label: 'the plain question “' + questionById[id].question + '”' } : null;
+  if (file === 'data/spine.json') {
+    const f = findingByNumber(id);
+    return f ? { to: { view: 'finding', finding: String(f.n) }, label: 'finding ' + f.n + ', ' + f.title } : null;
+  }
   return null;
 }
 
