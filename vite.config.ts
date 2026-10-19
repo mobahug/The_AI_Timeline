@@ -17,6 +17,9 @@ export default defineConfig(({ command, isPreview }) => ({
   build: {
     outDir: 'dist',
     assetsInlineLimit: 0,
+    // Which file each page's chunk became, and what it imports: the prerenderer
+    // names them in the page's head (scripts/prerender.ts), then removes this.
+    manifest: true,
     // React in its own chunk: it changes rarely, the site's data changes often,
     // and a reader who has one cached should not download both. The cards'
     // papers are their own chunk too, fetched when a page needs them. Rolldown

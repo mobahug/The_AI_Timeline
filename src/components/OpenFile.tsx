@@ -2,7 +2,7 @@ import React from 'react';
 import type { Graph, RoutePatch } from '../lib/types';
 import { NOW, forwardLedger } from '../lib/data';
 import { Door, Doors, Section } from './kit';
-import { CASE_LEDE } from './CaseView';
+import { CASE_LEDE } from '../lib/views';
 
 /* The open file. The line ends at the present, and past that the board holds two
    pages rather than more findings: where the case stands, and what it argues comes

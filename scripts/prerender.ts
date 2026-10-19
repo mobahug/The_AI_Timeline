@@ -7,11 +7,12 @@
 // GitHub Pages serves dist/<path>/index.html for /<path>/, so every page the
 // sitemap lists is a real document. dist/404.html is the bare shell: an address
 // nothing was written for still boots the app, which lands on the front page.
-import { mkdir, readFile, readdir, writeFile, rm } from 'node:fs/promises';
+import { mkdir, readFile, writeFile, rm } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { VIEWS } from '../src/lib/views';
 import { pages } from '../src/lib/pages';
+import { chunkOf } from '../src/components/viewChunks';
 import type { Carried } from '../src/lib/papers';
 import type { Check, EventRaw, Finding, Lead, Org, PageMeta, Person, Prediction, Question, Route, Term, WikiCache, WikiPage } from '../src/lib/types';
 import { VERDICTS } from '../src/lib/checks';
@@ -204,9 +205,11 @@ function page(route: Route, html: string, meta: PageMeta, media: WikiCache, pape
   // after the first paint and the lanes moved as the labels reflowed.
   if (clientOnly) {
     out = out.replace('<html lang="en">', '<html lang="en" data-client-render>');
-    out = out.replace('</head>', '  <link rel="modulepreload" crossorigin href="' + BASE + 'assets/' + BOARD_CHUNK + '">\n'
-      + '  <link rel="preload" href="' + BASE + 'fonts/plex-mono-500-latin.woff2" as="font" type="font/woff2" crossorigin />\n  </head>');
+    out = out.replace('</head>', '  <link rel="preload" href="' + BASE + 'fonts/plex-mono-500-latin.woff2" as="font" type="font/woff2" crossorigin />\n  </head>');
   }
+  // The page's own chunk and what it imports, named beside the main script.
+  const own = clientOnly ? BOARD_SRC : (chunkOf(route.view) || { src: '' }).src;
+  if (own) out = out.replace('</head>', preloadsOf(own).map((f) => '  <link rel="modulepreload" crossorigin href="' + BASE + f + '">\n').join('') + '  </head>');
   out = out.replace('<div id="root"></div>', '<div id="root">' + html + '</div>');
   return out;
 }
@@ -239,11 +242,31 @@ function boardMedia(): WikiCache {
 }
 const BOARD_MEDIA = boardMedia();
 
-/* The canvas is its own chunk, and the board's page named only the main script
-   and React: the chunk was asked for after both had run and React had reached
-   the board. Naming it lets the browser fetch all three at once. */
-const BOARD_CHUNK = (await readdir(join(dist, 'assets'))).find((f) => /^BoardView-[\w-]+\.js$/.test(f));
-if (!BOARD_CHUNK) throw new Error('prerender: no BoardView chunk in dist/assets');
+/* Every page but the front page draws from a chunk of its own
+   (src/components/viewChunks.ts), and the board's canvas is one too. A page
+   that named only the main script and React had its chunk asked for after both
+   had run and React had reached it. Vite's manifest says which file each
+   source became and what each file imports, so a page names its chunk and
+   every file the chunk needs that the main script does not already bring, and
+   the browser fetches them all at once. The manifest is read here, not shipped. */
+interface ManifestEntry { file: string; imports?: string[]; isEntry?: boolean }
+const MANIFEST = JSON.parse(await readFile(join(dist, '.vite', 'manifest.json'), 'utf8')) as Record<string, ManifestEntry>;
+const reach = (key: string, out: Set<string> = new Set()): Set<string> => {
+  if (!MANIFEST[key] || out.has(key)) return out;
+  out.add(key);
+  (MANIFEST[key].imports || []).forEach((k) => reach(k, out));
+  return out;
+};
+const ENTRY = Object.keys(MANIFEST).find((k) => MANIFEST[k].isEntry);
+if (!ENTRY) throw new Error('prerender: no entry in the manifest');
+const SHIPPED = reach(ENTRY);
+function preloadsOf(src: string): string[] {
+  // A page's component imported by another chunk is folded into that chunk and
+  // loses its own: the build says so rather than shipping a page that waits.
+  if (!MANIFEST[src]) throw new Error('prerender: no chunk of its own for ' + src + ' in the manifest — is it imported by another page?');
+  return [...reach(src)].filter((k) => !SHIPPED.has(k)).map((k) => MANIFEST[k].file);
+}
+const BOARD_SRC = 'src/components/BoardView.tsx';
 if (!Object.keys(BOARD_MEDIA).length) throw new Error('prerender: no photographs for the board — is public/wiki-cache.json missing?');
 
 let n = 0;
@@ -267,4 +290,5 @@ for (const path of routes) {
 // the front page. GitHub Pages serves this file, with a 404 status, for them.
 await writeFile(join(dist, '404.html'), template.replace('<html lang="en">', '<html lang="en" data-client-render>'));
 await rm(ssrDir, { recursive: true, force: true });
+await rm(join(dist, '.vite'), { recursive: true, force: true });
 console.log('prerender: ' + n + ' pages');

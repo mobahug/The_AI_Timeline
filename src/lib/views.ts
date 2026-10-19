@@ -112,6 +112,10 @@ export const VIEW_IDS = new Set<string>(VIEWS.map((v) => v.id));
 export const TABS = VIEWS.filter((v) => v.tab);
 export const SITEMAP_VIEWS = VIEWS.filter((v) => v.sitemap).map((v) => v.id);
 
+/** The case's lede, printed on its page and on the line's open file. Here, not on
+ *  the case's page, so that the line does not bring the case's chunk with it. */
+export const CASE_LEDE = 'Why the present looks the way it does — the road here, what carries forward, and which parts of the record the board has never argued from.';
+
 /** The header tab that belongs to a view — itself, or the tab it files under. */
 export const tabOf = (id: ViewId): ViewId => (viewById[id] && viewById[id].parent) || id;
 

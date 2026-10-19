@@ -10,6 +10,7 @@ import { carriedPapers, primePapers } from './lib/papers';
 import { primePredictions } from './lib/predictions';
 import type { Prediction } from './lib/types';
 import { primeMedia, usedMedia } from './lib/wiki';
+import { loadAll } from './components/viewChunks';
 import type { WikiCache } from './lib/types';
 
 /* The server entry. The prerenderer calls render() once per address and writes
@@ -22,6 +23,9 @@ import type { WikiCache } from './lib/types';
 
 const graph = buildGraph();
 primePredictions(FORETOLD_FILE.predictions as Prediction[]);
+// Every page's chunk, held before the first render: renderToString cannot wait
+// for one, and a page must be written whole (components/viewChunks.ts).
+await loadAll();
 
 export function render(pathname: string, cache?: WikiCache | null) {
   primeMedia(cache);

@@ -4,7 +4,7 @@ import { NOW, accent, catLabel } from '../lib/data';
 import { LEADS, leadById, buildLead } from '../lib/leads';
 import { INK, MONO, SANS, SERIF, RULE, ROW_RULE, PHOTO_FILTER, PLACEHOLDER, badge, frame, ink, micro, shell, pageTitle } from '../lib/styles';
 import { Anchor, Btn, Claim, CopyLink, Eyebrow, Link, NavRow, PageHead, Ref, Section } from './kit';
-import { LadderChart } from './ChartsView';
+import { LadderChart } from './SharedCharts';
 import { ladders } from '../lib/stats';
 
 /* One lead in full: the question, where it stands, and the ladder — every rung

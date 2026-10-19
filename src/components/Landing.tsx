@@ -12,7 +12,7 @@ import { dateOf, lately, watchList } from '../lib/latest';
 import { pace } from '../lib/stats';
 import { CARD_PHOTO_FILTER, GOLD, INK, MONO, PLACEHOLDER, RULE, SANS, SERIF, frame, ink, shell, tag } from '../lib/styles';
 import { Btn, Door, Doors, Eyebrow, Link } from './kit';
-import { PaceSpark } from './ChartsView';
+import { PaceSpark } from './SharedCharts';
 import { ForetoldMark } from './PredictionKit';
 import type { Media, RoutePatch } from '../lib/types';
 

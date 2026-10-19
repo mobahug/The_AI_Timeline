@@ -2,6 +2,7 @@ import React from 'react';
 import { createRoot, hydrateRoot } from 'react-dom/client';
 import App from './App';
 import { loadBoard } from './components/boardChunk';
+import { chunkOf } from './components/viewChunks';
 import { hasPapers, loadPapers, papersFor, papersVersion } from './lib/papers';
 import { predictionsFor } from './lib/predictions';
 import { parse } from './lib/url';
@@ -29,10 +30,14 @@ if (prerendered) {
       if (import.meta.env.DEV) console.warn('hydration', err);
     }
   });
-  // A prediction page prints the whole of Said in advance, which the browser
-  // fetches apart (predictions.ts); the printed page stays up until it is here.
-  const foretold = predictionsFor(parse(window.location.pathname, window.location.search, window.location.hash));
-  if (foretold) foretold.then(hydrate, hydrate);
+  // The page's own chunk is fetched apart from this script (viewChunks.ts), and
+  // a prediction page prints the whole of Said in advance, which the browser
+  // fetches apart too (predictions.ts); the printed page stays up until both
+  // are here, so the first render is the one the server made.
+  const here = parse(window.location.pathname, window.location.search, window.location.hash);
+  const own = chunkOf(here.view);
+  const foretold = predictionsFor(here);
+  if (own || foretold) Promise.all([own && own.load(), foretold]).then(hydrate, hydrate);
   else hydrate();
 } else {
   const draw = () => {
@@ -50,19 +55,23 @@ if (prerendered) {
   const here = parse(window.location.pathname, window.location.search, window.location.hash);
   const papers = papersFor(here, null);
   const foretold = predictionsFor(here);
-  if (board || papers || foretold) Promise.all([board, papers, foretold]).then(draw, draw);
+  const own = chunkOf(here.view);
+  const chunk = own ? own.load() : null;
+  if (board || papers || foretold || chunk) Promise.all([board, papers, foretold, chunk]).then(draw, draw);
   else draw();
 }
 
-/* A turn to a page whose papers are not here waits for them (papers.ts). A
-   pointer resting on a link to such a page, a finger on it or the focus on it
-   sends for them before the click, so the wait is seldom felt; once they are
-   here there is nothing left to send for. */
+/* A turn to a page waits for its chunk and for any papers that are not here
+   (viewChunks.ts, papers.ts). A pointer resting on a link, a finger on it or the
+   focus on it sends for both before the click, so the wait is seldom felt;
+   once a thing is here there is nothing left to send for. */
 const WARM = ['pointerover', 'focusin', 'touchstart'] as const;
 const warm = (e: Event) => {
-  if (papersVersion()) { WARM.forEach((type) => document.removeEventListener(type, warm)); return; }
   const a = e.target instanceof Element ? e.target.closest('a[href]') : null;
   if (!(a instanceof HTMLAnchorElement) || a.origin !== window.location.origin) return;
-  if (!hasPapers(parse(a.pathname, a.search, a.hash))) loadPapers().catch(() => {});
+  const to = parse(a.pathname, a.search, a.hash);
+  if (!papersVersion() && !hasPapers(to)) loadPapers().catch(() => {});
+  const own = chunkOf(to.view);
+  if (own && !own.now()) own.load().catch(() => {});
 };
 WARM.forEach((type) => document.addEventListener(type, warm, { passive: true }));

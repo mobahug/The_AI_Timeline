@@ -5,6 +5,7 @@ import { Btn, CardTriple, Claim, Eyebrow, Ledger, Link, NavRow, PageHead, Prose,
 import type { NavItem } from './kit';
 import type { ReactNode } from 'react';
 import type { Graph, Hop } from '../lib/types';
+import { CASE_LEDE } from '../lib/views';
 
 /* The case as it stands.
    Every connective word on this page is either verbatim from data/*.json or a fixed
@@ -12,7 +13,6 @@ import type { Graph, Hop } from '../lib/types';
    the argument was already written, in the claim verbs. This only typesets it. */
 
 /** The lede, shared with the door on the line that opens this page. */
-export const CASE_LEDE = 'Why the present looks the way it does — the road here, what carries forward, and which parts of the record the board has never argued from.';
 
 /** The nav at the head and the foot: up to the line, onward to the horizon. */
 const NAV: { up: NavItem[]; onward: NavItem } = { up: [{ label: 'The line', to: { view: 'line' } }], onward: { label: 'The horizon', to: { view: 'horizon' } } };

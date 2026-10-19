@@ -1,33 +1,14 @@
 import React, { Suspense, lazy, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import type { ComponentType } from 'react';
 import Header from './components/Header';
 import { RouteProvider } from './components/kit';
 import ErrorBoundary from './components/ErrorBoundary';
 import Landing from './components/Landing';
 import Missing from './components/Missing';
-import About from './components/About';
 import BoardStatic from './components/BoardStatic';
 import { boardIfLoaded, loadBoard } from './components/boardChunk';
-import ArchiveView from './components/ArchiveView';
-import HorizonView from './components/HorizonView';
-import CaseView from './components/CaseView';
-import LineView from './components/LineView';
-import FindingView from './components/FindingView';
-import CardView from './components/CardView';
-import LeadsView from './components/LeadsView';
-import LeadView from './components/LeadView';
-import QuestionsView from './components/QuestionsView';
-import QuestionView from './components/QuestionView';
-import ChecksView from './components/ChecksView';
-import CheckView from './components/CheckView';
-import ChartsView from './components/ChartsView';
-import LatestView from './components/LatestView';
-import StartView from './components/StartView';
-import FilesView from './components/FilesView';
-import GlossaryView from './components/GlossaryView';
-import EntityView from './components/EntityView';
-import MachinesView from './components/MachinesView';
-import PredictionsView from './components/PredictionsView';
-import PredictionView from './components/PredictionView';
+import { CHUNKS, chunkOf } from './components/viewChunks';
+import type { Chunk } from './components/viewChunks';
 import { buildGraph, events as canonEvents, forwardLedger, FIRST, NOW } from './lib/data';
 import { matches } from './lib/files';
 import { papersFor, usePapers } from './lib/papers';
@@ -50,12 +31,17 @@ const LazyBoardView = lazy(() => loadBoard().then((Board) => ({ default: Board }
 
 const isBrowser = typeof window !== 'undefined';
 
-/** What a turn waits for: a page's papers, and a prediction page's whole file. */
+/** What a turn waits for: the page's own chunk (viewChunks.ts), its papers,
+ *  and a prediction page's whole file. */
 const waitFor = (next: Route, prev: Route | null): Promise<void> | null => {
-  const a = papersFor(next, prev);
-  const b = predictionsFor(next);
-  return a && b ? Promise.all([a, b]).then(() => undefined) : a || b;
+  const chunk = chunkOf(next.view);
+  const all = [chunk && !chunk.now() ? chunk.load() : null, papersFor(next, prev), predictionsFor(next)].filter((p) => p !== null);
+  return all.length ? Promise.all(all).then(() => undefined) : null;
 };
+
+/** A page's component: from its chunk once it has come, through React.lazy if a
+ *  render ever finds it missing. */
+const pick = <P,>(c: Chunk<P>): ComponentType<P> => c.now() || c.Lazy;
 
 export interface AppProps { initialRoute?: Route }
 
@@ -189,6 +175,29 @@ export default function App({ initialRoute }: AppProps) {
   const view = route.view;
   const footKind = (viewById[view] && viewById[view].shell) || 'wide';
 
+  const About = pick(CHUNKS.about);
+  const ArchiveView = pick(CHUNKS.archive);
+  const HorizonView = pick(CHUNKS.horizon);
+  const CaseView = pick(CHUNKS.case);
+  const LineView = pick(CHUNKS.line);
+  const FindingView = pick(CHUNKS.finding);
+  const CardView = pick(CHUNKS.card);
+  const LeadsView = pick(CHUNKS.leads);
+  const LeadView = pick(CHUNKS.lead);
+  const QuestionsView = pick(CHUNKS.questions);
+  const QuestionView = pick(CHUNKS.question);
+  const ChecksView = pick(CHUNKS.checks);
+  const CheckView = pick(CHUNKS.check);
+  const ChartsView = pick(CHUNKS.charts);
+  const LatestView = pick(CHUNKS.latest);
+  const StartView = pick(CHUNKS.start);
+  const FilesView = pick(CHUNKS.files);
+  const GlossaryView = pick(CHUNKS.glossary);
+  const EntityView = pick(CHUNKS.entity);
+  const MachinesView = pick(CHUNKS.machines);
+  const PredictionsView = pick(CHUNKS.predictions);
+  const PredictionView = pick(CHUNKS.prediction);
+
   return (
     <RouteProvider value={{ route, navigate }}>
       {/* Off-screen until it takes focus: the first Tab press offers a way past the chrome. */}
@@ -203,6 +212,7 @@ export default function App({ initialRoute }: AppProps) {
 
       <ErrorBoundary resetKey={view + '|' + (route.finding || '') + '|' + (route.id || '')}>
         <main id="main" tabIndex={-1} aria-busy={turning || undefined} style={{ outline: 'none' }}>
+          <Suspense fallback={null}>
           {view === 'landing' && route.missing && <Missing path={route.missing} graph={graph} />}
           {view === 'landing' && <Landing media={media} />}
           {view === 'about' && <About />}
@@ -243,6 +253,7 @@ export default function App({ initialRoute }: AppProps) {
           {view === 'machines' && <MachinesView graph={graph} />}
           {view === 'predictions' && <PredictionsView graph={graph} />}
           {view === 'prediction' && <PredictionView graph={graph} route={route} />}
+          </Suspense>
         </main>
       </ErrorBoundary>
 
