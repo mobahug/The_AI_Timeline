@@ -76,12 +76,14 @@ function FindingView({ graph, route, navigate, onOpen, media }: FindingViewProps
 
       {row.lead && (
         <div style={{ marginTop: 40, paddingTop: 26, borderTop: RULE, display: 'flex', gap: 'clamp(16px,3vw,32px)', flexWrap: 'wrap' }}>
+          {/* An <img>, not a background, so Wikimedia is asked without cookies. */}
           <div style={{
-            ...frame(row.lead.future), flex: '1 1 230px', minWidth: 0, maxWidth: 340, minHeight: 170,
-            backgroundSize: shot && shot.img ? 'cover' : undefined, backgroundPosition: 'center',
-            backgroundImage: shot && shot.img ? 'url(' + shot.img + ')' : PLACEHOLDER,
+            ...frame(row.lead.future), flex: '1 1 230px', minWidth: 0, maxWidth: 340, minHeight: 170, position: 'relative', overflow: 'hidden',
+            backgroundImage: shot && shot.img ? undefined : PLACEHOLDER,
             filter: shot && shot.img ? PHOTO_FILTER : undefined
-          }} />
+          }}>
+            {shot && shot.img && <img src={shot.img} alt="" crossOrigin="anonymous" decoding="async" style={{ position: 'absolute', inset: 0, display: 'block', width: '100%', height: '100%', objectFit: 'cover' }} />}
+          </div>
           <div style={{ flex: '1 1 340px', minWidth: 0, display: 'flex', flexDirection: 'column', gap: 12 }}>
             <Eyebrow tier="section" dim>The lead card</Eyebrow>
             <Link to={{ view: 'card', id: row.lead.id }} className="ix-ref">

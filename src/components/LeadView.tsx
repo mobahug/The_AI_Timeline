@@ -97,11 +97,14 @@ function LeadView({ graph, route, media }: LeadViewProps) {
                     <Anchor id={'rung-' + r.n} label={r.label} style={{ font: '400 clamp(24px,3vw,34px)/1 ' + SERIF, color: tone, fontVariantNumeric: 'tabular-nums' }}>{String(r.n).padStart(2, '0')}</Anchor>
                   </div>
 
+                  {/* An <img>, not a background, so Wikimedia is asked without cookies. */}
                   <div aria-hidden="true" style={{
-                    ...frame(e.future), flex: 'none', width: 96, height: 96,
-                    backgroundImage: shot.img ? 'url(' + shot.img + ')' : PLACEHOLDER, backgroundSize: 'cover', backgroundPosition: 'center',
+                    ...frame(e.future), flex: 'none', width: 96, height: 96, overflow: 'hidden',
+                    backgroundImage: shot.img ? undefined : PLACEHOLDER,
                     filter: shot.img ? PHOTO_FILTER : undefined
-                  }} />
+                  }}>
+                    {shot.img && <img src={shot.img} alt="" crossOrigin="anonymous" loading="lazy" decoding="async" style={{ display: 'block', width: '100%', height: '100%', objectFit: 'cover' }} />}
+                  </div>
 
                   <div style={{ flex: '1 1 300px', minWidth: 0, display: 'flex', flexDirection: 'column', gap: 9 }}>
                     <Eyebrow tier="section" style={{ color: tone }}>{r.label}</Eyebrow>
