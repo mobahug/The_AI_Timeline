@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import type { ComponentType } from 'react';
-import type { Machine, MachineKind } from '../lib/types';
+import type { MachineHead, MachineKind } from '../lib/types';
 import { leadById } from '../lib/leads';
+import { machineInFull } from '../lib/bodies/machines';
 import { dayText, kindLabel } from '../lib/data';
 import { INK, MONO, SANS, SERIF, ROW_RULE, STRING_INK, ink, micro } from '../lib/styles';
 import { Btn, Eyebrow, Link, Quote, Section } from './kit';
@@ -56,21 +57,23 @@ const List = ({ title, items }: { title: string; items: string[] }) => (
   </div>
 );
 
-export function MachineSection({ machine, embedded }: { machine: Machine; embedded?: boolean }) {
-  const lead = machine.lead ? leadById[machine.lead.id] : null;
-  const rung = lead && machine.lead ? lead.rungs[machine.lead.rung - 1] : null;
+export function MachineSection({ machine: head, embedded }: { machine: MachineHead; embedded?: boolean }) {
+  const lead = head.lead ? leadById[head.lead.id] : null;
+  const rung = lead && head.lead ? lead.rungs[head.lead.rung - 1] : null;
 
   // Inside the board's panel the program does not run: the panel is narrow and
   // the board is busy. The card's own page runs it.
   if (embedded) {
     return (
-      <Section id="machine" eyebrow="Run the original" title={machine.title}>
-        <p style={{ margin: '0 0 14px', font: '400 14px/1.6 ' + SANS, color: ink(3), maxWidth: '60ch' }}>{machine.short}</p>
-        <Btn tone="loud" to={{ view: 'card', id: machine.event, hash: 'machine' }}>Run it on the card's page →</Btn>
+      <Section id="machine" eyebrow="Run the original" title={head.title}>
+        <p style={{ margin: '0 0 14px', font: '400 14px/1.6 ' + SANS, color: ink(3), maxWidth: '60ch' }}>{head.short}</p>
+        <Btn tone="loud" to={{ view: 'card', id: head.event, hash: 'machine' }}>Run it on the card's page →</Btn>
       </Section>
     );
   }
 
+  const machine = machineInFull(head.id);
+  if (!machine) return null;
   return (
     <Section id="machine" eyebrow="Run the original" title={machine.title} count="rebuilt from its own papers · runs in your browser">
       <p style={{ margin: '0 0 18px', font: '400 clamp(15px,1.5vw,17px)/1.6 ' + SERIF, color: ink(2), maxWidth: '64ch', textWrap: 'pretty' }}>{machine.lede}</p>

@@ -1,4 +1,7 @@
-import { PEOPLE, ORGS, TERMS, TAG, orgById, personById, speaks, termById, wordsOf } from './names';
+import people from '../../data/people.json?heads';
+import orgs from '../../data/orgs.json?heads';
+import terms from '../../data/glossary.json?heads';
+import { TAG, entitiesFrom, speaks, wordsOf } from './names';
 import type { PersonEntity, OrgEntity, TermEntity } from './names';
 import { paperOf, papersVersion } from './papers';
 import type { Dossier, Entity, EntityKind, Event, Graph, ViewId } from './types';
@@ -8,13 +11,24 @@ import type { Dossier, Entity, EntityKind, Event, Graph, ViewId } from './types'
    in the text; both count as an appearance, so a reader following a name lands
    on every card that carries it without each one having been tagged by hand.
 
-   The lists and the rule for "uses its name" live in names.ts, where the build
-   can reach them: most of a card's words are in its papers, which the browser
-   does not hold, so the build reads every card once and files the names it
-   finds on the card itself (`named`). */
+   The rule for "uses its name" lives in names.ts, where the build can reach
+   it: most of a card's words are in its papers, which the browser does not
+   hold, so the build reads every card once and files the names it finds on
+   the card itself (`named`).
 
-export { PEOPLE, ORGS, TERMS, personById, orgById, termById, ALL_ENTITIES, entityById } from './names';
+   Every page lists a name from its head: what it is called and the line it is
+   filed with. A bio or a definition is its own page's (bodies/files.ts). */
+
 export type { PersonEntity, OrgEntity, TermEntity } from './names';
+
+export const { people: PEOPLE, orgs: ORGS, terms: TERMS } = entitiesFrom({ people: people.people, orgs: orgs.orgs, terms: terms.terms });
+
+export const personById: Record<string, PersonEntity> = Object.fromEntries(PEOPLE.map((p) => [p.id, p]));
+export const orgById: Record<string, OrgEntity> = Object.fromEntries(ORGS.map((o) => [o.id, o]));
+export const termById: Record<string, TermEntity> = Object.fromEntries(TERMS.map((t) => [t.id, t]));
+
+export const ALL_ENTITIES: Entity[] = [...PEOPLE, ...ORGS, ...TERMS];
+export const entityById = (kind: EntityKind, id: string): Entity | null => (kind === 'person' ? personById[id] : kind === 'org' ? orgById[id] : termById[id]) || null;
 
 const VIEW: Record<EntityKind, ViewId> = { person: 'person', org: 'org', term: 'term' };
 

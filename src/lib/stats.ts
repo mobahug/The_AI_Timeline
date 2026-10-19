@@ -1,7 +1,7 @@
 import { ERAS, FIRST, NOW, THREADS, yearFraction } from './data';
 import { LEADS, buildLead } from './leads';
 import { ORGS, PEOPLE, appearancesOf } from './files';
-import type { Edge, Entity, Era, Event, Graph, Lead, Thread } from './types';
+import type { Edge, Entity, Era, Event, Graph, LeadHead, Thread } from './types';
 
 /* The charts' arithmetic: the board's cards and strings, counted. Nothing here
    is written by hand — every number is a count of what data/ holds, so a chart
@@ -176,7 +176,7 @@ export function within(e: Event): number {
 export const placeOf = (e: Event): number => yearFraction(e.year + within(e));
 
 export interface Rung { n: number; event: Event; label: string; x: number }
-export interface Ladder { lead: Lead; rungs: Rung[] }
+export interface Ladder { lead: LeadHead; rungs: Rung[] }
 export interface Ladders { ladders: Ladder[]; total: number; median: number; first: number; scenarios: number }
 
 export function ladders(graph: Graph): Ladders {

@@ -25,7 +25,7 @@ import { FIRST, LAST, THREADS, accent, buildGraph, catHue, catLabel, fade, strin
 import { LEADS, buildLead } from '../src/lib/leads';
 import { tiltOf } from '../src/lib/layout';
 import { BOARD_GROUND, CARD_PHOTO_FILTER, INK, MANILA, MONO, PAPER, SERIF, ink, paperInk } from '../src/lib/styles';
-import type { Event, Graph, Lead, WikiCache } from '../src/lib/types';
+import type { Event, Graph, LeadHead, WikiCache } from '../src/lib/types';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -724,12 +724,12 @@ const strung = (smalls: Small[], tone: (from: Small) => string): Strand[] => sma
 
 /* ─── A lead ────────────────────────────────────────────────────────────── */
 
-const KIND: Record<Lead['kind'], string> = { capability: 'Capability', failure: 'Failure', economy: 'Economy' };
+const KIND: Record<LeadHead['kind'], string> = { capability: 'Capability', failure: 'Failure', economy: 'Economy' };
 
 /** A lead: its question on the left, and three of its rungs — the first, the
  *  middle and the last — climbing the right of the image like steps, strung
  *  pin to pin in the lead's own colour. */
-export async function leadShare(lead: Lead, ctx: ShareContext): Promise<Drawn> {
+export async function leadShare(lead: LeadHead, ctx: ShareContext): Promise<Drawn> {
   const built = buildLead(ctx.graph, lead);
   const n = built.rungs.length;
   const picks = n ? [...new Set([0, Math.round((n - 1) / 2), n - 1])] : [];
@@ -790,7 +790,7 @@ export async function siteShare(ctx: ShareContext): Promise<Drawn> {
   const chain = siteChain(ctx) || [];
   const places = [{ x: 96, y: 268 }, { x: 497, y: 232 }, { x: 898, y: 284 }];
   const smalls = await Promise.all(chain.map((e, i) => small(e, ctx, SITE_CARD, places[i], e.title, accent(e.category, fade(e.year)), catHue(e.category))));
-  const notes = ctx.graph.edges.filter((l) => l.note).length;
+  const notes = ctx.graph.edges.filter((l) => l.noted).length;
   const counts = ctx.graph.all.length + ' entries · ' + ctx.graph.edges.length + ' strings · ' + notes + ' case notes';
   const png = await rasterise(ground(null),
     <Layer>

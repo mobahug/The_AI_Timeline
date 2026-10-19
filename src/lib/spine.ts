@@ -1,8 +1,9 @@
-import spine from '../../data/spine.json';
+import { findings } from '../../data/spine.json';
 import { NOW, THREADS, catLabel } from './data';
 import type { Finding, Graph, Joint, Line, Row } from './types';
 
-export const FINDINGS: Finding[] = spine.findings as Finding[];
+// The findings by name: the file's note to its author is left out of the bundle.
+export const FINDINGS: Finding[] = findings as Finding[];
 
 /** The last finding that starts on or before this year. Pure arithmetic, so every
  *  entry lands somewhere and a newly added entry files itself. */

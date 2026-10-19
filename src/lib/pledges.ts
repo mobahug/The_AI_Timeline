@@ -11,7 +11,7 @@ import type { PledgeHead, PledgeVerdict } from './types';
    words, its reading and its sources are its own pages', which bring the whole
    file in their chunk (components/viewChunks.ts). */
 
-export const PLEDGES: PledgeHead[] = heads.slice().sort((a, b) => a.said.localeCompare(b.said));
+export const PLEDGES: PledgeHead[] = heads.promises.slice().sort((a, b) => a.said.localeCompare(b.said));
 export const pledgeById: Record<string, PledgeHead> = Object.fromEntries(PLEDGES.map((p) => [p.id, p]));
 
 /** The verdicts, in the order the index counts them. */

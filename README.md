@@ -137,6 +137,13 @@ fetched when a page needs them: a dossier, the board's panel, the search. Every
 prerendered page carries the papers it prints, so it hydrates without waiting for
 them. See `scripts/split-events.ts` and `src/lib/papers.ts`.
 
+The other files of records are read in two parts the same way. Every page lists a
+record from its head: a lead's question and the cards of its rungs, a name and the
+line it is filed with, a check's verdict, which strings carry a case note. The rest —
+bios and definitions, the rungs' sentences, the answers, the checks' quotes, what each
+machine keeps and changes, the case notes themselves — travels in the chunks of the
+pages that print it (`src/lib/bodies/`).
+
 See [docs/SCHEMA.md](docs/SCHEMA.md) for the field reference. The board is kept by
 its author; it is not open to outside contribution, and the licence below says why.
 

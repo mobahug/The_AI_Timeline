@@ -6,6 +6,8 @@ import { NOW, accent, dayText, kindLabel, otherOrigins, roadsTo, sourcesOf, sour
 import { bearingOn, splitSentences } from '../lib/wiki';
 import { findingFor } from '../lib/spine';
 import { leadsOf } from '../lib/leads';
+import { leadInFull } from '../lib/bodies/leads';
+import { noteOf } from '../lib/bodies/links';
 import { questionsOf } from '../lib/questions';
 import { checksOf } from '../lib/checks';
 import { machineOf } from '../lib/machines';
@@ -234,6 +236,7 @@ function CardView({ graph, route, media, embedded }: CardViewProps) {
             {onLeads.map(({ lead, index, rung }) => {
               const prevR = lead.rungs[index - 1];
               const nextR = lead.rungs[index + 1];
+              const full = leadInFull(lead.id);
               const hue = 'oklch(0.8 0.12 ' + lead.hue + ')';
               return (
                 <div key={lead.id} style={{ borderLeft: '2px solid ' + hue, paddingLeft: 14, display: 'flex', flexDirection: 'column', gap: 8 }}>
@@ -241,7 +244,7 @@ function CardView({ graph, route, media, embedded }: CardViewProps) {
                     <Link to={{ view: 'lead', id: lead.id, hash: 'rung-' + (index + 1) }} className="ix-ref" style={{ font: '400 18px/1.25 ' + SERIF, color: INK }}>{lead.title} →</Link>
                     <span style={{ ...micro(4), color: hue }}>Rung {index + 1} of {lead.rungs.length} · {rung.label}</span>
                   </div>
-                  <p style={{ margin: 0, font: '400 14px/1.6 ' + SANS, color: ink(3), maxWidth: '62ch', textWrap: 'pretty' }}>{rung.text}</p>
+                  <p style={{ margin: 0, font: '400 14px/1.6 ' + SANS, color: ink(3), maxWidth: '62ch', textWrap: 'pretty' }}>{full && full.rungs[index].text}</p>
                   <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', alignItems: 'baseline' }}>
                     {prevR && graph.index[prevR.event] && <Link to={{ view: 'card', id: prevR.event }} className="ix-ref" style={micro(4)}>← {graph.index[prevR.event].year} · {prevR.label}</Link>}
                     {nextR && graph.index[nextR.event] && <Link to={{ view: 'card', id: nextR.event }} className="ix-ref" style={micro(4)}>{graph.index[nextR.event].year} · {nextR.label} →</Link>}
@@ -319,7 +322,7 @@ function CardView({ graph, route, media, embedded }: CardViewProps) {
                   <Link to={{ view: 'board', clue: { from: a.id, to: event.id } }}>
                     <Claim tone={accent(graph.index[a.id].category, 0)}>{a.claim}</Claim>
                   </Link>
-                  {a.note && <p style={{ margin: 0, font: '400 12.5px/1.5 ' + SANS, color: ink(4), maxWidth: '46ch' }}>{a.note}</p>}
+                  {a.noted && <p style={{ margin: 0, font: '400 12.5px/1.5 ' + SANS, color: ink(4), maxWidth: '46ch' }}>{noteOf(a.id, event.id)}</p>}
                 </div>
               )) : <div style={micro(5)}>Nothing on the board is argued to have caused this.</div>}
             </div>
@@ -331,7 +334,7 @@ function CardView({ graph, route, media, embedded }: CardViewProps) {
                     <Claim tone={tone}>{a.claim}</Claim>
                   </Link>
                   <Ref event={graph.index[a.id]} to={{ view: 'card', id: a.id }} />
-                  {a.note && <p style={{ margin: 0, font: '400 12.5px/1.5 ' + SANS, color: ink(4), maxWidth: '46ch' }}>{a.note}</p>}
+                  {a.noted && <p style={{ margin: 0, font: '400 12.5px/1.5 ' + SANS, color: ink(4), maxWidth: '46ch' }}>{noteOf(event.id, a.id)}</p>}
                 </div>
               )) : <div style={micro(5)}>Nothing on the board is argued to follow from this.</div>}
             </div>

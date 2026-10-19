@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { PEOPLE, ORGS, TERMS, ALL_ENTITIES, byUse, coOccurring, names, entitiesOf, appearancesOf, entityById } from '../src/lib/files';
+import { bodyOf } from '../src/lib/bodies/files';
 import { buildGraph, events } from '../src/lib/data';
 import type { Dossier, Entity } from '../src/lib/types';
 
@@ -13,9 +14,9 @@ describe('the files', () => {
       expect(new Set(ids).size).toBe(ids.length);
       ids.forEach((id) => expect(id).toMatch(kebab));
     });
-    PEOPLE.forEach((p) => { expect(p.name).toBeTruthy(); expect(p.role).toBeTruthy(); expect(p.bio.length).toBeGreaterThan(40); });
-    ORGS.forEach((o) => { expect(o.name).toBeTruthy(); expect(o.bio.length).toBeGreaterThan(40); });
-    TERMS.forEach((t) => { expect(t.term).toBeTruthy(); expect(t.short).toBeTruthy(); expect(t.definition.length).toBeGreaterThan(60); });
+    PEOPLE.forEach((p) => { expect(p.name).toBeTruthy(); expect(p.role).toBeTruthy(); expect(bodyOf(p).length).toBeGreaterThan(40); });
+    ORGS.forEach((o) => { expect(o.name).toBeTruthy(); expect(bodyOf(o).length).toBeGreaterThan(40); });
+    TERMS.forEach((t) => { expect(t.term).toBeTruthy(); expect(t.short).toBeTruthy(); expect(bodyOf(t).length).toBeGreaterThan(60); });
   });
 
   it('keeps ordinary words out of the aliases', () => {

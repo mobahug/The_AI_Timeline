@@ -2,6 +2,12 @@
 
 The files under `data/`, all validated by `npm test`.
 
+The strings, the leads, the questions, the checks, the machines, the predictions, the
+promises and the three files of names are each read in two parts (`SPLITS` in
+`scripts/split-events.ts`): a head, which every page lists a record from, and a body, which
+only the pages that print it carry. Nothing changes in how they are written, but a new field
+has to be given to one part or the other there: the build stops on a field it does not place.
+
 ## `data/events.json` — array of entries
 
 | Field | Type | Required | Notes |

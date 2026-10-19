@@ -31,7 +31,7 @@ function About() {
         <Section title="It argues, it does not list">
           Every string on the wall is a causal claim: the earlier card made the later one
           possible, or inevitable. The paper tag names the claim — <em>provoked</em>,
-          <em> left a funding hole filled by</em>, <em>was the warning for</em> — and {links.filter((l) => l.note).length} of
+          <em> left a funding hole filled by</em>, <em>was the warning for</em> — and {links.filter((l) => l.noted).length} of
           the {links.length} strings carry a written case note explaining the reasoning. If a
           connection cannot be argued in a sentence, it does not get a string.
         </Section>

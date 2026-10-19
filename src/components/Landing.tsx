@@ -21,7 +21,7 @@ import type { Media, RoutePatch } from '../lib/types';
 const graph = buildGraph();
 const line = buildLine(graph);
 const fwd = forwardLedger(graph);
-const notes = graph.edges.filter((l) => l.note).length;
+const notes = graph.edges.filter((l) => l.noted).length;
 const asOf = whenOf({ year: Number(AS_OF.slice(0, 4)), date: AS_OF });
 
 /* What happened lately: the newest cards on the record, and the next date the

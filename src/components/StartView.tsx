@@ -9,6 +9,7 @@ import { PREDICTIONS } from '../lib/predictions';
 import { MACHINES, machineById } from '../lib/machines';
 import { termById } from '../lib/files';
 import { buildLine } from '../lib/spine';
+import { noteOf } from '../lib/bodies/links';
 import {
   INK, MANILA, MONO, PAPER, SANS, SERIF, RULE, ROW_RULE, STRING_INK, CARD_PHOTO_FILTER,
   ink, micro, paperInk, shell, pageTitle } from '../lib/styles';
@@ -79,7 +80,7 @@ function Vocabulary({ graph }: { graph: Graph }) {
   const words: [string, ReactNode][] = [
     ['Card', 'One event on the record: a paper, a product, a deal, a lawsuit, a law. Its dossier holds the full account and the sources it rests on, quoted.'],
     ['String', 'A claim that one event made another possible. The words on it say how: provoked, was wrapped as, was the warning for.'],
-    ['Case note', 'The paragraph that argues a string. ' + graph.edges.filter((l) => l.note).length + ' of the ' + graph.edges.length + ' strings carry one.'],
+    ['Case note', 'The paragraph that argues a string. ' + graph.edges.filter((l) => l.noted).length + ' of the ' + graph.edges.length + ' strings carry one.'],
     ['Landmark', 'A card the board shows in brief: a featured card, a rung on a lead, or either end of a string with a case note.'],
     ['Lead', 'One question followed through the record, a rung at a time. There are ' + LEADS.length + '.'],
     ['Rung', 'A card on a lead: the level the question had reached by then.'],
@@ -109,8 +110,8 @@ export interface StartViewProps { graph: Graph; media: Media }
 function StartView({ graph, media }: StartViewProps) {
   const record = graph.all.filter((e) => !e.future).length;
   const scenarios = graph.all.length - record;
-  const noted = graph.edges.filter((l) => l.note);
-  const pick = graph.edges.find((l) => l.from === SPECIMEN.from && l.to === SPECIMEN.to && l.note) || noted[0];
+  const noted = graph.edges.filter((l) => l.noted);
+  const pick = graph.edges.find((l) => l.from === SPECIMEN.from && l.to === SPECIMEN.to && l.noted) || noted[0];
   const a = pick ? graph.index[pick.from] : null;
   const b = pick ? graph.index[pick.to] : null;
   const scenario = graph.index[SPECIMEN.scenario] || graph.all.find((e) => e.future) || null;
@@ -157,7 +158,7 @@ function StartView({ graph, media }: StartViewProps) {
             }
           >
             The words on the string are the claim: {a.title} <em>{pick.claim}</em> {b.title}. {noted.length} of the {graph.edges.length} strings
-            carry a case note that argues the link, like this one: <span style={{ color: ink(2) }}>“{pick.note}”</span>
+            carry a case note that argues the link, like this one: <span style={{ color: ink(2) }}>“{noteOf(pick.from, pick.to)}”</span>
           </Annotated>
         )}
         {a && b && (

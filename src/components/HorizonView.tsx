@@ -1,6 +1,7 @@
 import React from 'react';
 import { ERAS, HORIZONS, NOW, THREADS, catLabel, fade, horizonLedger, forwardLedger } from '../lib/data';
 import { paperOf, usePapers } from '../lib/papers';
+import { noteOf } from '../lib/bodies/links';
 import { INK, RED, SANS, SERIF, DASHED_RULE, DASHED_ROW, badge, ink, micro, shell, pageTitle } from '../lib/styles';
 import {
   Btn, CardTriple, Claim, Empty, Eyebrow, Ledger, Link, NavRow, PageHead, Prose, Reading, Ref, Section
@@ -181,9 +182,9 @@ function Strand({ event, strand, graph, onOpen }: { event: Event; strand: Strand
               <span style={{ ...badge(), flex: 'none' }}>{event.confidence}</span>
             </div>
 
-            {p.note && (
+            {p.noted && (
               <p style={{ margin: '9px 0 0', font: '400 13px/1.62 ' + SANS, color: ink(3), maxWidth: '48ch', textWrap: 'pretty' }}>
-                {p.note}
+                {noteOf(p.event.id, event.id)}
               </p>
             )}
           </div>

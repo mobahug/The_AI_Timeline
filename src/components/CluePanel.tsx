@@ -3,6 +3,7 @@ import type { CSSProperties } from 'react';
 import type { Adjacent, Event, Graph, Media, Step } from '../lib/types';
 import { stringsOf } from '../lib/data';
 import { leadById, leadsOf } from '../lib/leads';
+import { noteOf } from '../lib/bodies/links';
 import { entitiesOf } from '../lib/files';
 import { paperOf, usePapers } from '../lib/papers';
 import { INK, MONO, RED, RED_LIT, SANS, SERIF, FADE, PHOTO_FILTER, frame, ink, micro, sourceLink } from '../lib/styles';
@@ -145,7 +146,7 @@ export default function CluePanel({ graph, chain: walked, step, current, focus, 
     const to = graph.index[current.to];
     // A string without a case note is argued by its two cards' summaries, read
     // in order — a substitution, not a note; the panel does not say which it is.
-    const note = current.note || [from.summary, to.summary].filter(Boolean).join(' ');
+    const note = noteOf(current.from, current.to) || [from.summary, to.summary].filter(Boolean).join(' ');
     const first = step === 0;
     const last = step === chain.length - 1;
     return (

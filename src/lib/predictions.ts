@@ -14,7 +14,7 @@ import type { Foretold, Prediction, PredictionHead, Route } from './types';
    hydrates (main.tsx), and a turn to one waits for it as a turn waits for a
    card's papers. */
 
-export const PREDICTIONS: PredictionHead[] = heads.slice().sort((a, b) => a.said.localeCompare(b.said));
+export const PREDICTIONS: PredictionHead[] = heads.predictions.slice().sort((a, b) => a.said.localeCompare(b.said));
 export const predictionById: Record<string, PredictionHead> = Object.fromEntries(PREDICTIONS.map((p) => [p.id, p]));
 
 /** The verdicts, in the order the index counts them. */

@@ -1,9 +1,12 @@
 import { describe, it, expect } from 'vitest';
-import { LEADS, LEAD_CARD_IDS, buildLead, leadChain, leadsOf } from '../src/lib/leads';
+import { LEADS as HEADS, LEAD_CARD_IDS, buildLead, leadsOf } from '../src/lib/leads';
+import { leadChain, leadInFull } from '../src/lib/bodies/leads';
 import { buildGraph, NOW } from '../src/lib/data';
 import type { Lead } from '../src/lib/types';
 
 const graph = buildGraph(null as unknown as undefined);
+/* Each lead in full, as its own page reads it: its head and its body. */
+const LEADS = HEADS.map((h) => leadInFull(h.id) as Lead);
 
 describe('leads.json', () => {
   it('has unique kebab-case ids and every field a page needs', () => {
@@ -62,6 +65,12 @@ describe('leads.json', () => {
     const shared = graph.all.filter((e) => leadsOf(e.id).length > 1);
     expect(shared.length).toBeGreaterThan(0);
     shared.forEach((e) => leadsOf(e.id).forEach(({ lead, index, rung }) => expect(lead.rungs[index]).toBe(rung)));
+    // A lead built in full keeps its rungs' sentences; built from its head, it
+    // has none to keep.
+    LEADS.forEach((l) => {
+      expect(buildLead(graph, l).rungs.map((r) => r.text)).toEqual(l.rungs.map((r) => r.text));
+      expect(buildLead(graph, HEADS.find((h) => h.id === l.id) as typeof HEADS[number]).rungs.some((r) => 'text' in r), l.id).toBe(false);
+    });
   });
 
   it('keeps the standing current: it names the present year or a later one', () => {
@@ -80,7 +89,7 @@ describe('landmarks', () => {
     expect(graph.landmarks).toBeLessThan(graph.all.length);
   });
   it('include both ends of every case-noted string', () => {
-    graph.edges.filter((l) => l.note).forEach((l) => {
+    graph.edges.filter((l) => l.noted).forEach((l) => {
       expect(graph.index[l.from].landmark, l.from).toBe(true);
       expect(graph.index[l.to].landmark, l.to).toBe(true);
     });

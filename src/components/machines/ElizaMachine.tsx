@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import DOCTOR from '../../lib/machines/doctor-1965.txt?raw';
 import { Eliza, readScript } from '../../lib/machines/eliza';
 import type { Workings } from '../../lib/machines/eliza';
-import { machineById } from '../../lib/machines';
+import { machineInFull } from '../../lib/bodies/machines';
 import { FADE, GOLD, MONO, button, field, ink } from '../../lib/styles';
 import { Btn } from '../kit';
 import { label, panel, printout } from './kit';
@@ -15,7 +15,8 @@ import { label, panel, printout } from './kit';
 interface Line { who: 'eliza' | 'you'; text: string; workings?: Workings }
 
 const fresh = () => new Eliza(readScript(DOCTOR));
-const TRY = machineById.eliza.try || [];
+const machine = machineInFull('eliza');
+const TRY = (machine && machine.try) || [];
 
 const parts = (ps: string[]) => ps.map((p, i) => (i + 1) + ' ' + (p ? '“' + p + '”' : '—')).join('   ');
 
