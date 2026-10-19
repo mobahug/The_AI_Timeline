@@ -65,8 +65,14 @@ and deutan simulation, against a target of 8, and every mark clears 3:1 on the g
 see `CHART` in `src/lib/styles.ts`.
 
 Every page is prerendered to its own HTML at build time, with its own title,
-description, canonical address, share image and structured data. Every section on a
-page has an anchor (hover a heading for the `#`). Old `?view=` links still resolve.
+description, canonical address, share image and structured data, a card's and a lead's
+dated by the history. Every section on a page has an anchor (hover a heading for the
+`#`), and every dossier ends with a citation, in words and as BibTeX. Old `?view=` links
+still resolve.
+
+Each page but the front page draws its code from a chunk of its own
+(`src/components/viewChunks.ts`), which the page names in its head; the server holds
+them all, and the browser fetches a page's chunk before it hydrates it or turns to it.
 
 ## Running it
 
@@ -82,14 +88,18 @@ npm run build      # sitemap, feed, client build, server build, share images, pr
 npm run preview    # serves dist/ at http://localhost:4173/The_AI_Timeline/
 ```
 
-The build writes `feed.xml`, an Atom feed of the cards, leads, plain questions and
-headline checks most recently added or changed. Its dates come from the git history of
+The build writes `feed.xml`, an Atom feed of the cards, leads, plain questions,
+headline checks, predictions and promises most recently added or changed. Its dates come from the git history of
 `data/`, not from the data, so the build needs the whole history: a shallow clone is
 refused (the deploy checks out with `fetch-depth: 0`). See `scripts/feed.ts`. The latest
 page prints the same list on the site, and every dossier says at its foot when its card
 was filed and last revised, from a module the build makes out of the same history
 (`virtual:board-changes`, `scripts/board-changes.ts`); the dev server and the tests run on
-a shallow clone too, with no dates and a warning.
+a shallow clone too, with no dates and a warning. The dates are read once per commit
+and kept in `node_modules/.cache`. After each deploy the workflow tells the engines that
+take IndexNow which addresses changed (`scripts/indexnow.ts`); getting the site into
+Google and Bing in the first place takes the owner's own steps, set out in
+[docs/search-engines.md](docs/search-engines.md).
 
 ## Data
 

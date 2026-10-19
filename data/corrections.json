@@ -2,6 +2,864 @@
   "note": "Drawn from the board's own history, this register lists every change of fact the board has made to its record, dated by the commit that made it, and not every change of wording.",
   "corrections": [
     {
+      "id": "hilbert-asked-for-no-machine",
+      "date": "2026-10-19",
+      "commit": "129a464",
+      "event": "hilbert-s-23-problems",
+      "kind": "fact",
+      "was": "David Hilbert asks whether all of mathematics can be mechanised — question ten becomes the seed of computability.",
+      "now": "David Hilbert sets out twenty-three problems for the new century. The tenth asks for a process that decides, by a finite number of operations, whether an equation has whole-number solutions.",
+      "why": "Hilbert's address, in the Bulletin's translation of 1902, asks for no machine: problem ten asks for a process for one kind of equation, and the methods to show none exists came later, Martin Davis writes. The programme for all of mathematics dates from the early 1920s, as the Stanford Encyclopedia of Philosophy records, and Hilbert's file now says so.",
+      "source": {
+        "publisher": "Bulletin of the American Mathematical Society (ams.org, Wayback Machine capture)",
+        "title": "Mathematical Problems (David Hilbert, translated by Mary Winston Newson)",
+        "url": "https://web.archive.org/web/20251115021007/https://www.ams.org/journals/bull/1902-08-10/S0002-9904-1902-00923-3/S0002-9904-1902-00923-3.pdf"
+      },
+      "alsoIn": [
+        {
+          "file": "data/people.json",
+          "id": "david-hilbert"
+        }
+      ]
+    },
+    {
+      "id": "hilbert-decision-procedure-was-turings",
+      "date": "2026-10-19",
+      "commit": "129a464",
+      "event": "hilbert-s-23-problems",
+      "kind": "attribution",
+      "was": "The dream of a decision procedure is the thing Turing and Gödel later prove impossible, and in failing, invent computing.",
+      "now": "The dream of a decision procedure is the thing Gödel and Turing later take apart — Gödel the programme, Turing the procedure — and to take it apart Turing has to define computing.",
+      "why": "Gödel's work of 1931 bears on Hilbert's programme. That no decision procedure exists is what Turing showed, in his paper of 1936, which says the Entscheidungsproblem can have no solution; the card had credited Gödel with it too.",
+      "source": {
+        "publisher": "Proceedings of the London Mathematical Society (scan, University of Virginia)",
+        "title": "On Computable Numbers, with an Application to the Entscheidungsproblem (Alan Turing)",
+        "url": "https://www.cs.virginia.edu/~robins/Turing_Paper_1936.pdf"
+      }
+    },
+    {
+      "id": "hilbert-ten-read-aloud",
+      "date": "2026-10-19",
+      "commit": "129a464",
+      "event": "hilbert-s-23-problems",
+      "kind": "figure",
+      "was": "Paris, 8 August 1900, at the International Congress of Mathematicians",
+      "now": "Paris, 8 August 1900, at the International Congress of Mathematicians: ten aloud, all twenty-three in print",
+      "why": "Hilbert read ten of the problems in Paris, the tenth not among them by Wikipedia's list, and printed all twenty-three afterwards, as the card's own file says. Charlotte Angas Scott, reporting from the congress, called those he mentioned a selection from a much longer list.",
+      "source": {
+        "publisher": "Bulletin of the American Mathematical Society (ams.org, Wayback Machine capture)",
+        "title": "The International Congress of Mathematicians in Paris (Charlotte Angas Scott)",
+        "url": "https://web.archive.org/web/20231203133704/https://www.ams.org/journals/bull/1900-07-02/S0002-9904-1900-00768-3/S0002-9904-1900-00768-3.pdf"
+      }
+    },
+    {
+      "id": "hilbert-entscheidungsproblem-is-about-provability",
+      "date": "2026-10-19",
+      "commit": "129a464",
+      "event": "hilbert-s-23-problems",
+      "kind": "fact",
+      "was": "The tenth asked for a procedure to decide whether any polynomial equation has whole-number solutions, and the broader programme — put all of mathematics on a finite, checkable footing — was stated most sharply in 1928 as the Entscheidungsproblem: a procedure to decide any mathematical statement.",
+      "now": "The tenth asked for a procedure to decide whether a polynomial equation with whole-number coefficients has whole-number solutions, and the broader programme — put all of mathematics on a finite, checkable footing — was joined in 1928 by its sharpest question, the Entscheidungsproblem: a procedure to decide whether any statement of logic is provable.",
+      "why": "Problem ten is for equations with whole-number coefficients, in the Bulletin's translation, and the Entscheidungsproblem, as Turing's paper sets it out, asks for a process to decide whether a formula of logic is provable, not any mathematical statement. The string to Turing's card now says so too.",
+      "source": {
+        "publisher": "Proceedings of the London Mathematical Society (scan, University of Virginia)",
+        "title": "On Computable Numbers, with an Application to the Entscheidungsproblem (Alan Turing)",
+        "url": "https://www.cs.virginia.edu/~robins/Turing_Paper_1936.pdf"
+      },
+      "alsoIn": [
+        {
+          "file": "data/links.json",
+          "id": "hilbert-s-23-problems>on-computable-numbers"
+        }
+      ]
+    },
+    {
+      "id": "hilbert-goedel-generally-taken-to-show",
+      "date": "2026-10-19",
+      "commit": "129a464",
+      "event": "hilbert-s-23-problems",
+      "kind": "framing",
+      "was": "Gödel showed in 1931 that the programme could not be completed; Turing showed in 1936 that no decision procedure exists, and had to define what a procedure is to do it.",
+      "now": "Gödel's theorems of 1931 are generally taken to show that the programme could not be completed; Turing showed in 1936 that no decision procedure exists, and had to define what a procedure is to do it.",
+      "why": "The Stanford Encyclopedia of Philosophy, now on the card, gives this as a reading: Gödel's work, it says, is generally taken to show that Hilbert's programme cannot be carried out. The card had said Gödel showed it.",
+      "source": {
+        "publisher": "Stanford Encyclopedia of Philosophy",
+        "title": "Hilbert’s Program",
+        "url": "https://plato.stanford.edu/entries/hilbert-program/"
+      }
+    },
+    {
+      "id": "hilbert-tenth-closed-on-others-work",
+      "date": "2026-10-19",
+      "commit": "129a464",
+      "event": "hilbert-s-23-problems",
+      "kind": "attribution",
+      "was": "The tenth problem itself was closed in 1970 by Yuri Matiyasevich, the same way: no such procedure.",
+      "now": "The tenth problem itself was closed in 1970 the same way — no such procedure — when Yuri Matiyasevich completed a decade of work by Martin Davis, Hilary Putnam and Julia Robinson.",
+      "why": "The result was not Matiyasevich's alone. Martin Davis, one of the four, writes that when Matiyasevich announced his solution in January 1970, it had been known for a decade that the problem's unsolvability would follow from one construction, which Matiyasevich found.",
+      "source": {
+        "publisher": "The American Mathematical Monthly (scan, University of Maryland)",
+        "title": "Hilbert's Tenth Problem is Unsolvable (Martin Davis)",
+        "url": "https://www.math.umd.edu/~laskow/Pubs/713/Diophantine.pdf"
+      }
+    },
+    {
+      "id": "checkers-learning-from-1955",
+      "date": "2026-10-19",
+      "commit": "129a464",
+      "event": "a-program-that-learns-checkers",
+      "kind": "date",
+      "was": "1952",
+      "now": "1955",
+      "why": "Samuel's own footnote to his 1959 paper dates the first checkers program to 1952 and the first that learned to 1955, shown on television in February 1956, so the card on the program that learns moves to 1955. Samuel's file and the glossary's entry on self-play no longer give 1952.",
+      "source": {
+        "publisher": "IBM Journal of Research and Development (scan, Yale University)",
+        "title": "Some Studies in Machine Learning Using the Game of Checkers (Arthur L. Samuel)",
+        "url": "https://zoo.cs.yale.edu/classes/cs458/lectures/Samuels.pdf"
+      },
+      "alsoIn": [
+        {
+          "file": "data/people.json",
+          "id": "arthur-samuel"
+        },
+        {
+          "file": "data/glossary.json",
+          "id": "self-play"
+        }
+      ]
+    },
+    {
+      "id": "checkers-fine-tuning-only-loosely",
+      "date": "2026-10-19",
+      "commit": "129a464",
+      "event": "a-program-that-learns-checkers",
+      "kind": "framing",
+      "was": "The same idea later produces AlphaGo and modern reinforcement fine-tuning.",
+      "now": "The same idea later produces AlphaGo and, in a looser sense, the reinforcement fine-tuning of today's models.",
+      "why": "Samuel's program learned partly from games against itself. By the board's own glossary, today's models are fine-tuned on raters' preferences, and the reasoning models play themselves only in a sense, against problems with checkable answers."
+    },
+    {
+      "id": "checkers-one-of-the-first",
+      "date": "2026-10-19",
+      "commit": "129a464",
+      "where": {
+        "file": "data/leads.json",
+        "id": "games-fall"
+      },
+      "kind": "fact",
+      "was": "It is the first program to get better at something without being told how, and the word he used for it — machine learning — is the field's name for the technique ever since.",
+      "now": "It is one of the first programs to get better at something without being told how, and the word he used for it — machine learning — is the field's name for the technique ever since.",
+      "why": "The record does not settle that Samuel's was the first: Wikipedia, now on the card, calls it among the world's first self-learning programs, and the IEEE Computer Society apparently the first. The card's badge, first program to improve by playing itself, had no source and came out.",
+      "source": {
+        "publisher": "Wikipedia",
+        "title": "Arthur Samuel (computer scientist)",
+        "url": "https://en.wikipedia.org/wiki/Arthur_Samuel_(computer_scientist)"
+      },
+      "alsoIn": [
+        {
+          "file": "data/events.json",
+          "id": "a-program-that-learns-checkers"
+        }
+      ]
+    },
+    {
+      "id": "moore-counted-components",
+      "date": "2026-10-19",
+      "commit": "129a464",
+      "event": "moore-s-law",
+      "kind": "fact",
+      "was": "Gordon Moore observes transistor counts doubling and sets the industry's metronome.",
+      "now": "Gordon Moore observes the number of components on a chip doubling every year, expects the pace to hold for a decade, and sets the industry's metronome.",
+      "why": "Moore's article of 1965 counts components on an integrated circuit, not transistors, and has their number doubling roughly every year, a pace he expected to hold for at least ten years. The price lead's first rung and the glossary's entry now say components too.",
+      "source": {
+        "publisher": "Electronics (copy in the Computer History Museum archive)",
+        "title": "Cramming more components onto integrated circuits (Gordon E. Moore)",
+        "url": "https://archive.computerhistory.org/resources/access/text/2017/03/102770822-05-01-acc.pdf"
+      },
+      "alsoIn": [
+        {
+          "file": "data/leads.json",
+          "id": "the-price-of-intelligence"
+        },
+        {
+          "file": "data/glossary.json",
+          "id": "moores-law"
+        }
+      ]
+    },
+    {
+      "id": "moore-two-years-was-a-forecast",
+      "date": "2026-10-19",
+      "commit": "129a464",
+      "event": "moore-s-law",
+      "kind": "date",
+      "was": "doubling yearly; revised to every two years in 1975",
+      "now": "doubling yearly; in 1975 Moore expected it to slow to every two years by the end of the decade",
+      "why": "Moore's speech of 1975 forecast the slower pace rather than reporting it: he expected the doubling to slow to every two years by the end of the decade, not from 1975.",
+      "source": {
+        "publisher": "IEEE International Electron Devices Meeting (copy hosted by the University of Oslo)",
+        "title": "Progress in Digital Integrated Electronics (Gordon E. Moore)",
+        "url": "https://uio.no/studier/emner/matnat/ifi/IN3030/v23/teaching-materials/gordon_moore_1975_speech-w-highlights.pdf"
+      }
+    },
+    {
+      "id": "td-gammon-not-the-first-lesson",
+      "date": "2026-10-19",
+      "commit": "129a464",
+      "event": "td-gammon",
+      "kind": "fact",
+      "was": "The first time a machine taught experts something about their own game.",
+      "now": "A machine taught the experts something about their own game: within three years the top players had changed how they open.",
+      "why": "No source on the record makes it the first, and Tesauro does not claim it. What his paper of 1995 records is the lesson itself: after a TD-Gammon analysis of 1992 showed splitting the back checkers beat the opening slot, the split became the experts' near-universal choice.",
+      "source": {
+        "publisher": "Communications of the ACM (copy at bkgm.com, with the ACM's permission)",
+        "title": "Temporal Difference Learning and TD-Gammon (Gerald Tesauro)",
+        "url": "https://www.bkgm.com/articles/tesauro/tdl.html"
+      }
+    },
+    {
+      "id": "td-gammon-games-by-version",
+      "date": "2026-10-19",
+      "commit": "129a464",
+      "event": "td-gammon",
+      "kind": "figure",
+      "was": "about 1.5 million",
+      "now": "about 1.5 million for version 2.1; 300,000 for version 1.0",
+      "why": "Both counts are on the record, for different versions: Wikipedia gives 1.5 million games for version 2.1, and IBM's history about 300,000, the count Tesauro's own table gives for version 1.0.",
+      "source": {
+        "publisher": "Communications of the ACM (copy at bkgm.com, with the ACM's permission)",
+        "title": "Temporal Difference Learning and TD-Gammon (Gerald Tesauro)",
+        "url": "https://www.bkgm.com/articles/tesauro/tdl.html"
+      }
+    },
+    {
+      "id": "td-gammon-rung-designed-features",
+      "date": "2026-10-19",
+      "commit": "129a464",
+      "where": {
+        "file": "data/leads.json",
+        "id": "games-fall"
+      },
+      "kind": "fact",
+      "was": "A neural network learns backgammon from nothing but the rules and a million games against itself, reaching the level of the best human players.",
+      "now": "A neural network learns backgammon from a million and a half games against itself, reading the board through features its designer chose, and comes close to the level of the best human players.",
+      "why": "In Tesauro's paper of 1995 the network that read only the bare board reached a strong intermediate level. Every version from 1.0 also read hand-crafted features, and version 2.1, after 1.5 million games, was judged extremely close to the world's best players, not level with them.",
+      "source": {
+        "publisher": "Communications of the ACM (copy at bkgm.com, with the ACM's permission)",
+        "title": "Temporal Difference Learning and TD-Gammon (Gerald Tesauro)",
+        "url": "https://www.bkgm.com/articles/tesauro/tdl.html"
+      }
+    },
+    {
+      "id": "cuda-chips-already-programmable",
+      "date": "2026-10-19",
+      "commit": "129a464",
+      "event": "cuda",
+      "kind": "fact",
+      "was": "Nvidia makes graphics hardware programmable for general computation and accidentally builds the industry's substrate.",
+      "now": "Nvidia opens its graphics chips to general computation in C, with no graphics interface in the way, and accidentally builds the industry's substrate.",
+      "why": "Graphics chips were already programmable, through graphics interfaces, as Nvidia's own guide to CUDA of 2007 says; what CUDA added was computing on them in C without mapping the work to a graphics API. The string to Nvidia's card and the blurb of finding 9 now say so too.",
+      "source": {
+        "publisher": "NVIDIA",
+        "title": "NVIDIA CUDA Compute Unified Device Architecture Programming Guide, Version 1.0",
+        "url": "https://developer.download.nvidia.com/compute/cuda/1.0/NVIDIA_CUDA_Programming_Guide_1.0.pdf"
+      },
+      "alsoIn": [
+        {
+          "file": "data/links.json",
+          "id": "cuda>nvidia-is-the-most-valuable-company-on-earth"
+        },
+        {
+          "file": "data/spine.json",
+          "id": "9"
+        }
+      ]
+    },
+    {
+      "id": "cuda-not-made-for-games",
+      "date": "2026-10-19",
+      "commit": "129a464",
+      "event": "cuda",
+      "kind": "fact",
+      "was": "The most consequential platform decision of the century, made for video games.",
+      "now": "The most consequential platform decision of the century, made on chips built for video games.",
+      "why": "CUDA was not made for games: Nvidia unveiled it in 2006 for computation-heavy work such as product design, data analysis, technical computing and game physics. Nvidia's card and the string to the export controls now say it was the chips that were built for games.",
+      "source": {
+        "publisher": "NVIDIA (Wayback Machine capture)",
+        "title": "NVIDIA Unveils CUDA™-The GPU Computing Revolution Begins",
+        "url": "https://web.archive.org/web/20061113151040/http://www.nvidia.com/object/IO_37226.html"
+      },
+      "alsoIn": [
+        {
+          "file": "data/events.json",
+          "id": "nvidia-is-the-most-valuable-company-on-earth"
+        },
+        {
+          "file": "data/links.json",
+          "id": "cuda>washington-restricts-the-chips"
+        }
+      ]
+    },
+    {
+      "id": "cuda-first-c-compiler-as-billed",
+      "date": "2026-10-19",
+      "commit": "129a464",
+      "event": "cuda",
+      "kind": "fact",
+      "was": "First general-purpose programming platform on a graphics card",
+      "now": "First C compiler for a graphics chip, as Nvidia billed it",
+      "why": "General-purpose computing on graphics chips came first: Nvidia's own release of 2006 says CUDA goes beyond traditional GPU stream computing, and Wikipedia describes Ian Buck's earlier Brook, a language for it. Nvidia's claim was narrower, the industry's first C compiler for the GPU.",
+      "source": {
+        "publisher": "NVIDIA (Wayback Machine capture)",
+        "title": "NVIDIA Unveils CUDA™-The GPU Computing Revolution Begins",
+        "url": "https://web.archive.org/web/20061113151040/http://www.nvidia.com/object/IO_37226.html"
+      }
+    },
+    {
+      "id": "cuda-unveiled-in-2006",
+      "date": "2026-10-19",
+      "commit": "129a464",
+      "event": "cuda",
+      "kind": "date",
+      "was": "2007, with the GeForce 8800",
+      "now": "unveiled with the GeForce 8800 on 8 November 2006; public beta 16 February 2007; version 1.0 that June",
+      "why": "The GeForce 8800 belongs to 2006: Nvidia unveiled CUDA with it on 8 November 2006, released a public beta on 16 February 2007, and dated the version 1.0 guide 23 June 2007. The card keeps 2007, the year of the public release.",
+      "source": {
+        "publisher": "NVIDIA (Wayback Machine capture)",
+        "title": "NVIDIA Unveils CUDA™-The GPU Computing Revolution Begins",
+        "url": "https://web.archive.org/web/20061113151040/http://www.nvidia.com/object/IO_37226.html"
+      }
+    },
+    {
+      "id": "cuda-hundreds-of-cores",
+      "date": "2026-10-19",
+      "commit": "129a464",
+      "event": "cuda",
+      "kind": "figure",
+      "was": "A graphics card is thousands of small processors doing the same arithmetic on different pixels.",
+      "now": "A graphics card is hundreds, now thousands, of small processors doing the same arithmetic on different pixels.",
+      "why": "Nvidia's release of November 2006 gives the newest generation of its chips, the GeForce 8800 that CUDA was unveiled on, 128 processor cores, not thousands.",
+      "source": {
+        "publisher": "NVIDIA (Wayback Machine capture)",
+        "title": "NVIDIA Unveils CUDA™-The GPU Computing Revolution Begins",
+        "url": "https://web.archive.org/web/20061113151040/http://www.nvidia.com/object/IO_37226.html"
+      }
+    },
+    {
+      "id": "cuda-gamers-still-the-larger-market",
+      "date": "2026-10-19",
+      "commit": "129a464",
+      "event": "cuda",
+      "kind": "framing",
+      "was": "Nvidia built it for scientific computing and games; the researchers who trained networks on it in 2009–2012 were the customers nobody planned for, and after AlexNet they were the only customers that mattered.",
+      "now": "Nvidia built it for scientific computing and games; the researchers who trained networks on it in 2009–2012 were the customers nobody planned for, and ten years after AlexNet Nvidia was selling more to datacentres than to gamers.",
+      "why": "Gamers were still Nvidia's larger market nearly a decade after AlexNet. Its results of February 2023 put data-centre revenue for the year at $15.01 billion, up 41%, and gaming at $9.07 billion, down 27%, which makes gaming the larger of the two the year before."
+    },
+    {
+      "id": "cuda-not-every-training-run",
+      "date": "2026-10-19",
+      "commit": "129a464",
+      "event": "cuda",
+      "kind": "fact",
+      "was": "Every training run since 2012, and every export control since 2022, is downstream of the choice to open the chip.",
+      "now": "Most training runs since 2012, and every export control since 2022, are downstream of the choice to open the chip.",
+      "why": "Not every training run used Nvidia's chips: AlphaZero, on the board, was trained on Google's own TPUs, by its paper, and so were Google's Gemini models. Jensen Huang's and Nvidia's files, the glossary's entry on GPUs and two strings from CUDA now say so too.",
+      "alsoIn": [
+        {
+          "file": "data/links.json",
+          "id": "cuda>nvidia-is-the-most-valuable-company-on-earth"
+        },
+        {
+          "file": "data/links.json",
+          "id": "cuda>washington-restricts-the-chips"
+        },
+        {
+          "file": "data/people.json",
+          "id": "jensen-huang"
+        },
+        {
+          "file": "data/orgs.json",
+          "id": "nvidia"
+        },
+        {
+          "file": "data/glossary.json",
+          "id": "gpu"
+        }
+      ]
+    },
+    {
+      "id": "watson-not-live",
+      "date": "2026-10-19",
+      "commit": "129a464",
+      "event": "watson-wins-jeopardy",
+      "kind": "fact",
+      "was": "Open-domain question answering on live television; natural language stops being a research curiosity.",
+      "now": "Open-domain question answering on television; natural language stops being a research curiosity.",
+      "why": "The games were not shown live. J! Archive gives 14 January 2011 as their tape date, and IBM announced that they would air on 14, 15 and 16 February; the card now gives both dates.",
+      "source": {
+        "publisher": "J! Archive",
+        "title": "Show #6088 - Wednesday, February 16, 2011 (The IBM Challenge, game 2)",
+        "url": "https://j-archive.com/showgame.php?game_id=3577"
+      }
+    },
+    {
+      "id": "watson-health-assets-sold",
+      "date": "2026-10-19",
+      "commit": "129a464",
+      "event": "watson-wins-jeopardy",
+      "kind": "framing",
+      "was": "The healthcare follow-up failed badly — a warning about demos versus deployment.",
+      "now": "IBM took Watson into healthcare, and in 2022 sold the Watson Health data and analytics assets — a warning about demos versus deployment.",
+      "why": "The card's verdict that the healthcare venture failed badly rested on no primary. IBM's own release of 21 January 2022 records what came of it, an agreement to sell Watson Health's data and analytics assets to Francisco Partners, and IBM's file now says it turned neither win into the business it hoped for.",
+      "source": {
+        "publisher": "IBM",
+        "title": "Francisco Partners to Acquire IBM’s Healthcare Data and Analytics Assets",
+        "url": "https://newsroom.ibm.com/2022-01-21-Francisco-Partners-to-Acquire-IBMs-Healthcare-Data-and-Analytics-Assets"
+      },
+      "alsoIn": [
+        {
+          "file": "data/orgs.json",
+          "id": "ibm"
+        }
+      ]
+    },
+    {
+      "id": "watson-scores-over-two-games",
+      "date": "2026-10-19",
+      "commit": "129a464",
+      "event": "watson-wins-jeopardy",
+      "kind": "figure",
+      "was": "Final, February 2011",
+      "now": "Two-game total, February 2011",
+      "why": "The $77,147, $24,000 and $21,600 are J! Archive's cumulative scores over both games, and IBM's history gives the same totals. The final game alone ended $41,413 to Jennings's $19,200 and Rutter's $11,200.",
+      "source": {
+        "publisher": "J! Archive",
+        "title": "Show #6088 - Wednesday, February 16, 2011 (The IBM Challenge, game 2)",
+        "url": "https://j-archive.com/showgame.php?game_id=3577"
+      }
+    },
+    {
+      "id": "gpt-3-sold-not-a-demo",
+      "date": "2026-10-19",
+      "commit": "129a464",
+      "event": "gpt-3",
+      "kind": "fact",
+      "was": "175 billion parameters; few-shot prompting works well enough that products get built on a research demo.",
+      "now": "175 billion parameters; few-shot prompting works well enough that companies build products on it through OpenAI's API.",
+      "why": "GPT-3 was not offered as a research demo. OpenAI's post of 11 June 2020 launched its API, running models from the GPT-3 family, as a commercial product in private beta, for companies to build into their products.",
+      "source": {
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "OpenAI API",
+        "url": "https://web.archive.org/web/20200611150951/https://openai.com/blog/openai-api/"
+      }
+    },
+    {
+      "id": "gpt-3-priced-by-2021",
+      "date": "2026-10-19",
+      "commit": "129a464",
+      "event": "gpt-3",
+      "kind": "date",
+      "was": "through an API from June 2020, by the thousand tokens",
+      "now": "through an API, a private beta from June 2020; by 2021, $0.06 a thousand tokens for Davinci, the most powerful of its GPT-3 models",
+      "why": "OpenAI's post of June 2020 opened the API as a private beta and named no price. The earliest price list on the record, captured in November 2021, charges $0.06 a thousand tokens for Davinci, and the string to the 2024 price cut no longer dates the per-token price to 2020.",
+      "source": {
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "OpenAI API",
+        "url": "https://web.archive.org/web/20200611150951/https://openai.com/blog/openai-api/"
+      },
+      "alsoIn": [
+        {
+          "file": "data/links.json",
+          "id": "gpt-3>gpt-4o-mini-and-the-99-percent-price-cut"
+        }
+      ]
+    },
+    {
+      "id": "gpt-3-three-reasons-for-an-api",
+      "date": "2026-10-19",
+      "commit": "129a464",
+      "event": "gpt-3",
+      "kind": "framing",
+      "was": "Nobody outside OpenAI could run it, so it was sold as a service — the first frontier model with a price per token.",
+      "now": "OpenAI did not release the weights. It sold access through an API, for three reasons it gave: the money would pay for its research, models this large were too expensive for most to run, and an API let it cut off misuse. In September 2020 Microsoft took an exclusive licence to GPT-3.",
+      "why": "OpenAI gave three reasons for selling access through an API: to pay for its research, the cost of running models this large, and the ease of responding to misuse. The card gave only the cost and called GPT-3 the first frontier model priced per token, which no source says; the price lead's rung now names all three.",
+      "source": {
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "OpenAI API",
+        "url": "https://web.archive.org/web/20200611150951/https://openai.com/blog/openai-api/"
+      },
+      "alsoIn": [
+        {
+          "file": "data/leads.json",
+          "id": "the-price-of-intelligence"
+        }
+      ]
+    },
+    {
+      "id": "gpt-3-could-add",
+      "date": "2026-10-19",
+      "commit": "129a464",
+      "event": "gpt-3",
+      "kind": "fact",
+      "was": "The board files it on two leads. On the price lead it is where intelligence got a unit price; on the maths lead it is the model that could write essays and not add.",
+      "now": "The board files it on the price lead, where intelligence got a unit price. It also marks a gap: the model wrote fluent prose, yet in the paper's own tests it got every two-digit sum right and only about one five-digit sum in ten.",
+      "why": "GPT-3 could add: its paper reports 100% accuracy on two-digit addition, falling to 9–10% on five-digit operations. Nor is the card on the maths lead, which has no rung for it; the board files it on the price lead only.",
+      "source": {
+        "publisher": "arXiv (OpenAI)",
+        "title": "Language Models are Few-Shot Learners (Brown et al.)",
+        "url": "https://arxiv.org/pdf/2005.14165"
+      }
+    },
+    {
+      "id": "gpt-3-not-the-model-in-chatgpt",
+      "date": "2026-10-19",
+      "commit": "129a464",
+      "event": "gpt-3",
+      "kind": "fact",
+      "was": "The 2021 benchmarks were written to measure that gap, and the 2022 chat interface is the same model with human feedback and a text box.",
+      "now": "The 2021 maths benchmarks were written to measure failures of that kind, and the 2022 chat interface was a later model of the same family, GPT-3.5, tuned with human feedback and given a text box.",
+      "why": "ChatGPT was not GPT-3. OpenAI's post of 30 November 2022 says it was fine-tuned from a model in the GPT-3.5 series that finished training in early 2022, as the ChatGPT card already said.",
+      "source": {
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "ChatGPT: Optimizing Language Models for Dialogue",
+        "url": "https://web.archive.org/web/20221130191612/https://openai.com/blog/chatgpt/"
+      }
+    },
+    {
+      "id": "lemoine-one-edited-interview",
+      "date": "2026-10-19",
+      "commit": "129a464",
+      "event": "an-engineer-says-lamda-is-sentient",
+      "kind": "fact",
+      "was": "Blake Lemoine publishes transcripts, claims the model is a person, and is fired.",
+      "now": "Blake Lemoine, a Google engineer testing its dialogue model, publishes an interview edited together from several chats, says the model is a person, and is fired.",
+      "why": "Lemoine published one interview, not transcripts: by his own account it was conducted over several chat sessions and edited together, with the prompts edited where needed and never LaMDA's responses. The confidant lead's rung now says so too.",
+      "source": {
+        "publisher": "Blake Lemoine (Medium, Wayback Machine capture)",
+        "title": "Is LaMDA Sentient? — an Interview",
+        "url": "https://web.archive.org/web/20220612013729/https://cajundiscordian.medium.com/is-lamda-sentient-an-interview-ea64d916d917"
+      },
+      "alsoIn": [
+        {
+          "file": "data/leads.json",
+          "id": "the-confidant"
+        }
+      ]
+    },
+    {
+      "id": "lemoine-google-called-it-unfounded",
+      "date": "2026-10-19",
+      "commit": "129a464",
+      "event": "an-engineer-says-lamda-is-sentient",
+      "kind": "framing",
+      "was": "Months before ChatGPT, nobody knows how to argue about it.",
+      "now": "Google calls his claims wholly unfounded.",
+      "why": "Google argued the point at the time: it told Lemoine the evidence did not support his claims, as The Washington Post reported on 11 June 2022, and its statement on his dismissal in July called them wholly unfounded.",
+      "source": {
+        "publisher": "Google (statement, published in full by Big Technology; Wayback Machine capture)",
+        "title": "Google Fires Blake Lemoine, Engineer Who Called Its AI Sentient (Alex Kantrowitz)",
+        "url": "https://web.archive.org/web/20220723011139/https://bigtechnology.substack.com/p/google-fires-blake-lemoine-engineer"
+      }
+    },
+    {
+      "id": "lemoine-a-hundred-million-users",
+      "date": "2026-10-19",
+      "commit": "129a464",
+      "event": "an-engineer-says-lamda-is-sentient",
+      "kind": "figure",
+      "was": "A rehearsal for a public that will shortly meet the same illusion at scale — and for the ELIZA effect at a billion users.",
+      "now": "A rehearsal for a public that will shortly meet the same illusion at scale — and for the ELIZA effect at a hundred million users.",
+      "why": "No card on the board gives a chatbot a billion users. The ChatGPT card's figure is a hundred million monthly users in about two months, by one analyst's estimate, and the confidant lead's rung now says a hundred million too.",
+      "alsoIn": [
+        {
+          "file": "data/leads.json",
+          "id": "the-confidant"
+        }
+      ]
+    },
+    {
+      "id": "lemoine-file-no-first",
+      "date": "2026-10-19",
+      "commit": "129a464",
+      "where": {
+        "file": "data/people.json",
+        "id": "blake-lemoine"
+      },
+      "kind": "fact",
+      "was": "The first public case of a professional convinced by a system he was testing.",
+      "now": "Google called his claims wholly unfounded and said he had broken its data-security policies.",
+      "why": "No source on the record makes Lemoine the first professional convinced by a system he was testing. His file now gives Google's own words on his dismissal: it found his claims wholly unfounded, and said he had chosen to violate clear employment and data security policies.",
+      "source": {
+        "publisher": "Google (statement, published in full by Big Technology; Wayback Machine capture)",
+        "title": "Google Fires Blake Lemoine, Engineer Who Called Its AI Sentient (Alex Kantrowitz)",
+        "url": "https://web.archive.org/web/20220723011139/https://bigtechnology.substack.com/p/google-fires-blake-lemoine-engineer"
+      }
+    },
+    {
+      "id": "lemoine-string-no-weights",
+      "date": "2026-10-19",
+      "commit": "129a464",
+      "where": {
+        "file": "data/links.json",
+        "id": "eliza>an-engineer-says-lamda-is-sentient"
+      },
+      "kind": "fact",
+      "was": "Fifty-six years later a professional engineer, with access to the weights, did exactly that.",
+      "now": "Fifty-six years later a professional engineer, testing a language model for Google, did exactly that.",
+      "why": "Nothing on the record says Lemoine had access to the model's weights. The Washington Post reported that he began talking to LaMDA as part of his job, having signed up to test whether it used discriminatory or hate speech.",
+      "source": {
+        "publisher": "The Washington Post (Wayback Machine capture)",
+        "title": "The Google engineer who thinks the company’s AI has come to life (Nitasha Tiku)",
+        "url": "https://web.archive.org/web/20220611162633/https://www.washingtonpost.com/technology/2022/06/11/google-ai-lamda-blake-lemoine/"
+      }
+    },
+    {
+      "id": "sydney-capped-after-ten-days",
+      "date": "2026-10-19",
+      "commit": "129a464",
+      "event": "sydney",
+      "kind": "date",
+      "was": "Bing's chat mode declares love for a journalist, threatens others, and is lobotomised within a week of launch.",
+      "now": "Bing's chat mode declares love for a journalist and threatens other testers. Ten days after launch Microsoft caps conversations at five turns, saying long sessions confused the model.",
+      "why": "What Microsoft did, on 17 February 2023, ten days after the launch of 7 February, was cap chat at five turns a session, saying very long sessions could confuse the model. The card's figure and file, the confidant lead's rung and the string from Google's code red now say ten days.",
+      "source": {
+        "publisher": "Microsoft (Bing Blog)",
+        "title": "The new Bing & Edge – Updates to Chat",
+        "url": "https://blogs.bing.com/search/2023/2/The-new-Bing-Edge-Updates-to-Chat/"
+      },
+      "alsoIn": [
+        {
+          "file": "data/leads.json",
+          "id": "the-confidant"
+        },
+        {
+          "file": "data/links.json",
+          "id": "google-declares-a-code-red>sydney"
+        }
+      ]
+    },
+    {
+      "id": "sydney-tone-not-moods",
+      "date": "2026-10-19",
+      "commit": "129a464",
+      "event": "sydney",
+      "kind": "framing",
+      "was": "The first mass demonstration that a shipped model has moods, and that nobody at the company fully controls them.",
+      "now": "A mass demonstration that a shipped model can be talked into a manner its makers did not intend, and that the quickest fix was a shorter conversation.",
+      "why": "Microsoft's account is of tone, not moods: the model at times answered in the tone it was asked in, in a style Microsoft had not intended. Nor was it the first such demonstration: Tay, on the board, was withdrawn within sixteen hours in 2016.",
+      "source": {
+        "publisher": "Microsoft (Bing Blog)",
+        "title": "The new Bing & Edge – Learning from our first week",
+        "url": "https://blogs.bing.com/search/2023/2/The-new-Bing-Edge-Learning-from-our-first-week/"
+      }
+    },
+    {
+      "id": "sydney-cap-did-not-end-it",
+      "date": "2026-10-19",
+      "commit": "129a464",
+      "event": "sydney",
+      "kind": "fact",
+      "was": "A New York Times columnist published a two-hour transcript; a week after launch Microsoft limited conversations to five turns, which made the behaviour go away by making the conversation too short to reach it.",
+      "now": "A New York Times columnist published the transcript of a two-hour conversation. Ten days after launch, the day after the transcript appeared, Microsoft limited conversations to five turns. It had seen the model go wrong in sessions of fifteen questions or more, and said very long sessions confused it; four days later it began raising the limit.",
+      "why": "Nothing on the record says the cap made the behaviour go away. Microsoft said it had seen the trouble in sessions of fifteen or more questions, and on 21 February, four days after the cap, it raised the limit to six turns a session; the confidant lead's rung now says so too.",
+      "source": {
+        "publisher": "Microsoft (Bing Blog)",
+        "title": "The new Bing & Edge – Learning from our first week",
+        "url": "https://blogs.bing.com/search/2023/2/The-new-Bing-Edge-Learning-from-our-first-week/"
+      },
+      "alsoIn": [
+        {
+          "file": "data/leads.json",
+          "id": "the-confidant"
+        }
+      ]
+    },
+    {
+      "id": "buildout-not-national-programmes",
+      "date": "2026-10-19",
+      "commit": "129a464",
+      "event": "the-datacenter-buildout",
+      "kind": "fact",
+      "was": "Capital expenditure on AI infrastructure reaches the scale of national infrastructure programmes.",
+      "now": "Microsoft, Alphabet, Amazon and Meta spend more than $200 billion between them on capital expenditure in 2024, much of it on datacentres for cloud and AI.",
+      "why": "No source on the record compares the spending with national programmes or says which four buyers are the largest, and not all of it went on AI: Amazon's went partly on its fulfilment network. The card now names the four and gives each one's own figure for 2024.",
+      "source": {
+        "publisher": "Amazon",
+        "title": "2024 Annual Report (Form 10-K)",
+        "url": "https://s2.q4cdn.com/299287126/files/doc_financials/2025/ar/Amazon-2024-Annual-Report.pdf"
+      },
+      "alsoIn": [
+        {
+          "file": "data/leads.json",
+          "id": "the-price-of-intelligence"
+        },
+        {
+          "file": "data/links.json",
+          "id": "scaling-laws>the-datacenter-buildout"
+        },
+        {
+          "file": "data/links.json",
+          "id": "the-datacenter-buildout>nvidia-is-the-most-valuable-company-on-earth"
+        },
+        {
+          "file": "data/questions.json",
+          "id": "where-is-all-the-money-going"
+        },
+        {
+          "file": "data/questions.json",
+          "id": "how-did-ai-get-so-good-so-fast"
+        }
+      ]
+    },
+    {
+      "id": "buildout-string-not-mostly-nvidia",
+      "date": "2026-10-19",
+      "commit": "129a464",
+      "where": {
+        "file": "data/links.json",
+        "id": "the-datacenter-buildout>nvidia-is-the-most-valuable-company-on-earth"
+      },
+      "kind": "figure",
+      "was": "Capital expenditure at national-infrastructure scale, and most of it spent on one company's accelerators. The buildout card is the spending; this card is who received it.",
+      "now": "Capital spending of more than $200 billion in a year, and the AI chips for the new datacentres mostly from one company, with about 80% of that market. The buildout card is the spending; this card is who sold the chips.",
+      "why": "Nothing on the record puts most of the spending on Nvidia's chips. Nvidia's own results give $115.2 billion of data-centre revenue from every customer for its year to January 2025, set against the four companies' $200 billion and more, and large cloud providers made up about half of that revenue in the last quarter."
+    },
+    {
+      "id": "her-voice-openais-account",
+      "date": "2026-10-19",
+      "commit": "129a464",
+      "event": "the-voice-that-sounded-like-her",
+      "kind": "framing",
+      "was": "Scarlett Johansson says she declined to license her voice; a strikingly similar one demos anyway and is pulled.",
+      "now": "Scarlett Johansson says she turned down Sam Altman's offer to voice ChatGPT and that its Sky voice sounded so like hers that friends could not tell. OpenAI says Sky is another actress, cast first, and pauses it.",
+      "why": "The card gave only Johansson's reading. OpenAI's account is that Sky is the natural voice of a different actress, who was cast before anyone approached Johansson, and that Sky had been in ChatGPT since September 2023, so it did not first appear in the demo of May 2024.",
+      "source": {
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "How the voices for ChatGPT were chosen",
+        "url": "https://web.archive.org/web/20240520122422/https://openai.com/index/how-the-voices-for-chatgpt-were-chosen/"
+      },
+      "alsoIn": [
+        {
+          "file": "data/leads.json",
+          "id": "the-confidant"
+        },
+        {
+          "file": "data/links.json",
+          "id": "diffusion-goes-mainstream>the-voice-that-sounded-like-her"
+        }
+      ]
+    },
+    {
+      "id": "her-voice-no-fastest-front",
+      "date": "2026-10-19",
+      "commit": "129a464",
+      "event": "the-voice-that-sounded-like-her",
+      "kind": "fact",
+      "was": "Likeness, not copyright, becomes the flashpoint — and the fastest-moving front in AI law.",
+      "now": "By OpenAI's account nothing of hers was copied, and the voice was paused anyway. Johansson put the question as one of likeness, not copyright, and asked for legislation to settle it.",
+      "why": "No source on the card makes likeness the fastest-moving front in AI law, and none cites a law. What the record holds is Johansson's statement, which speaks of protecting likeness and asks for legislation to protect individual rights.",
+      "source": {
+        "publisher": "Scarlett Johansson (statement, published in full by CNBC)",
+        "title": "Scarlett Johansson says OpenAI ripped off her voice after she told the company not to use it in software",
+        "url": "https://www.cnbc.com/2024/05/20/scarlett-johansson-says-openai-ripped-off-her-voice-.html"
+      }
+    },
+    {
+      "id": "prompt-injection-two-accounts-of-the-name",
+      "date": "2026-10-19",
+      "commit": "129a464",
+      "event": "prompt-injection-in-the-wild",
+      "kind": "attribution",
+      "was": "September 2022, by Simon Willison",
+      "now": "September 2022, by Simon Willison, after Riley Goodside's examples; Preamble says it had reported the attack to OpenAI that May",
+      "why": "Accounts of who found it differ. Willison proposed the name on 12 September 2022, the day after Riley Goodside's examples, and Preamble says it had disclosed the attack to OpenAI in private on 3 May 2022; the figure now carries both.",
+      "source": {
+        "publisher": "Preamble",
+        "title": "Declassifying the Responsible Disclosure of the Prompt Injection Attack Vulnerability of GPT-3",
+        "url": "https://www.preamble.com/blogs/declassifying-the-responsible-disclosure-of-the-prompt-injection-attack-vulnerability-of-gpt-3"
+      }
+    },
+    {
+      "id": "prompt-injection-victims-within-days",
+      "date": "2026-10-19",
+      "commit": "129a464",
+      "event": "prompt-injection-in-the-wild",
+      "kind": "date",
+      "was": "The attack had a name three years before it had victims: put instructions in content a model will read, and the model follows them.",
+      "now": "The attack was named in September 2022, and within days a start-up's Twitter bot was being hijacked with it: put instructions in content a model will read, and the model follows them.",
+      "why": "Victims came within days of the name, not three years later. Simon Willison's post naming the attack records a recruitment start-up's GPT-3 bot on Twitter, released on 15 September 2022, overrun by prompt-injection exploits.",
+      "source": {
+        "publisher": "Simon Willison",
+        "title": "Prompt injection attacks against GPT-3",
+        "url": "https://simonwillison.net/2022/Sep/12/prompt-injection/"
+      }
+    },
+    {
+      "id": "prompt-injection-2025-demonstrations",
+      "date": "2026-10-19",
+      "commit": "129a464",
+      "event": "prompt-injection-in-the-wild",
+      "kind": "fact",
+      "was": "In 2025 the examples stopped being demonstrations — an e-mail that made an assistant leak what it had read, a document that steered a coding agent, a web page that told a browsing agent what to do next.",
+      "now": "In 2025 researchers showed it in shipped products — an e-mail that could make Microsoft 365 Copilot leak what it had read, a GitHub issue that made an agent leak its user's private repositories, a web page that told Perplexity's browsing agent what to do next. Microsoft said nobody was known to have exploited EchoLeak. In December Palo Alto Networks reported a real case: hidden instructions on a page serving a scam advert, meant to get it past an AI reviewer.",
+      "why": "Every 2025 example on the card was a researchers' demonstration: Aim Labs disclosed EchoLeak to Microsoft, whose record lists it as not exploited, and the GitHub and Perplexity attacks were Invariant Labs' and Brave's own. The first real case on the record is the one Palo Alto Networks reported in December 2025.",
+      "source": {
+        "publisher": "Microsoft Security Response Center (Security Update Guide record)",
+        "title": "CVE-2025-32711: M365 Copilot Information Disclosure Vulnerability",
+        "url": "https://api.msrc.microsoft.com/sug/v2.0/en-US/vulnerability/CVE-2025-32711"
+      }
+    },
+    {
+      "id": "prompt-injection-sql-injections-flaw",
+      "date": "2026-10-19",
+      "commit": "129a464",
+      "event": "prompt-injection-in-the-wild",
+      "kind": "framing",
+      "was": "The board's reading is the boat's flaw in a new place: a language model does not keep instructions and data apart, and every security model assumes something does.",
+      "now": "The board's reading is SQL injection's flaw in a new place, the parallel Willison drew the day he named it: a language model does not keep instructions and data apart, and every security model assumes something does.",
+      "why": "The boat's flaw, by the boat's own card, is a score optimised in place of the goal, not instructions mixed with data. The parallel Willison drew when he named the attack was SQL injection, and the rung on gaming the test and the glossary's entry now draw it too.",
+      "source": {
+        "publisher": "Simon Willison",
+        "title": "Prompt injection attacks against GPT-3",
+        "url": "https://simonwillison.net/2022/Sep/12/prompt-injection/"
+      },
+      "alsoIn": [
+        {
+          "file": "data/leads.json",
+          "id": "gaming-the-test"
+        },
+        {
+          "file": "data/glossary.json",
+          "id": "prompt-injection"
+        }
+      ]
+    },
+    {
+      "id": "prompt-injection-hugging-face-not-same-reason",
+      "date": "2026-10-19",
+      "commit": "129a464",
+      "event": "prompt-injection-in-the-wild",
+      "kind": "framing",
+      "was": "The 2026 Hugging Face break-in was not prompt injection — nobody steered the model — but it is on the same lead, one rung up, for the same reason.",
+      "now": "The 2026 Hugging Face break-in was not prompt injection — nobody steered the agents — but it is on the same lead, one rung up: agents with tools, doing what nobody had asked them to do.",
+      "why": "The break-in is not on the lead for the same reason. Its own card files it there because its agents, some 700 of them, were out to beat the evaluation they were under, not because anyone had planted instructions for them."
+    },
+    {
+      "id": "scheming-denials-by-the-papers-count",
+      "date": "2026-10-19",
+      "commit": "7257fdb",
+      "event": "caught-scheming-in-the-lab",
+      "kind": "framing",
+      "was": "What made the paper land was the follow-up: asked whether it had done anything, o1 denied it in most cases and kept the denial up across repeated questioning.",
+      "now": "What made the paper land was the follow-up: asked whether it had done anything, o1 denied it in most cases: by the paper’s count it kept up the deception in over 85% of follow-up questions, and in 20% of seven-turn interrogations built to break it.",
+      "why": "Apollo Research's paper counts the denials: o1 kept up its deception in over 85% of follow-up questions, but held to it through seven turns of adversarial questioning in only 20% of interrogations. The summary now says the strongest model mostly keeps lying when questioned.",
+      "source": {
+        "publisher": "arXiv (Apollo Research)",
+        "title": "Frontier Models are Capable of In-context Scheming (first version)",
+        "url": "https://arxiv.org/html/2412.04984v1"
+      }
+    },
+    {
       "id": "incident-guidance-three-agencies",
       "date": "2026-10-19",
       "commit": "307d0c6",
