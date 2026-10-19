@@ -1,0 +1,1190 @@
+{
+  "note": "Promises made in public about AI by laboratories, companies and governments, each in the promiser’s own words, set beside what the record shows. A verdict is about the words, not the people.",
+  "promises": [
+    {
+      "id": "openai-researchers-publish-and-patents-are-shared",
+      "title": "Researchers publish their work, and patents are shared with the world",
+      "who": "OpenAI",
+      "people": [
+        "greg-brockman",
+        "ilya-sutskever"
+      ],
+      "orgs": [
+        "openai"
+      ],
+      "said": "2015-12-11",
+      "words": "Researchers will be strongly encouraged to publish their work, whether as papers, blog posts, or code, and our patents (if any) will be shared with the world.",
+      "source": "founding",
+      "verdict": "dropped",
+      "settled": "2018-04-09",
+      "short": "OpenAI's founding post said its researchers would be strongly encouraged to publish, and its patents shared. Its 2018 charter said safety and security would reduce its publishing; GPT-2's weights were held back in 2019, and GPT-4's details in 2023.",
+      "reading": [
+        "The promise was made in the post that introduced OpenAI in December 2015. In April 2018 OpenAI's charter rewrote it: the company still published most of its research, it said, but expected safety and security concerns to reduce its traditional publishing. The verdict rests on that change, made in public by the company that wrote the words.",
+        "In February 2019, quoting that line of the charter, OpenAI held back GPT-2's dataset, training code and weights; the full model followed in November. In March 2023 the GPT-4 report withheld the model's architecture and size, its hardware, training compute, data and training method, citing the competitive landscape as well as safety. In August 2025 OpenAI released two open-weight models, with code, under the Apache 2.0 licence.",
+        "The patents went the same way. OpenAI has pledged since 2024 to use its patents only defensively, so long as no one threatens or sues it, helps another to, or harms it or its users: a promise not to sue first, with exceptions, rather than a promise to share."
+      ],
+      "evidence": [
+        {
+          "source": "charter",
+          "quote": "Today this includes publishing most of our AI research, but we expect that safety and security concerns will reduce our traditional publishing in the future, while increasing the importance of sharing safety, policy, and standards research."
+        },
+        {
+          "source": "gpt2",
+          "quote": "Nearly a year ago we wrote in the OpenAI Charter: \"we expect that safety and security concerns will reduce our traditional publishing in the future, while increasing the importance of sharing safety, policy, and standards research,\" and we see this current work as potentially representing the early beginnings of such concerns, which we expect may grow over time."
+        },
+        {
+          "source": "gpt2",
+          "quote": "We are not releasing the dataset, training code, or GPT-2 model weights."
+        },
+        {
+          "source": "gpt4",
+          "quote": "Given both the competitive landscape and the safety implications of large-scale models like GPT-4, this report contains no further details about the architecture (including model size), hardware, training compute, dataset construction, training method, or similar."
+        },
+        {
+          "source": "gptoss",
+          "quote": "We release the model weights, inference implementations, tool environments, and tokenizers under an Apache 2.0 license to enable broad use and further research."
+        },
+        {
+          "source": "patents",
+          "quote": "We pledge to only use our patents defensively, so long as a party does not threaten or assert a claim, initiate a proceeding, help someone else in such activities against us, or engage in activities that harm us or our users."
+        }
+      ],
+      "sources": [
+        {
+          "id": "founding",
+          "kind": "primary",
+          "publisher": "OpenAI (Wayback Machine capture)",
+          "title": "Introducing OpenAI",
+          "url": "https://web.archive.org/web/20151211215507/https://openai.com/blog/introducing-openai/",
+          "date": "2015-12-11"
+        },
+        {
+          "id": "charter",
+          "kind": "primary",
+          "publisher": "OpenAI (Wayback Machine capture)",
+          "title": "OpenAI Charter",
+          "url": "https://web.archive.org/web/20180409161852/https://blog.openai.com/openai-charter/",
+          "date": "2018-04-09"
+        },
+        {
+          "id": "gpt2",
+          "kind": "primary",
+          "publisher": "OpenAI (Wayback Machine capture)",
+          "title": "Better Language Models and Their Implications",
+          "url": "https://web.archive.org/web/20190214171619/https://blog.openai.com/better-language-models/",
+          "date": "2019-02-14"
+        },
+        {
+          "id": "gpt4",
+          "kind": "paper",
+          "publisher": "arXiv (OpenAI)",
+          "title": "GPT-4 Technical Report",
+          "url": "https://arxiv.org/pdf/2303.08774v1",
+          "date": "2023-03-15"
+        },
+        {
+          "id": "gptoss",
+          "kind": "paper",
+          "publisher": "arXiv (OpenAI)",
+          "title": "gpt-oss-120b & gpt-oss-20b Model Card",
+          "url": "https://arxiv.org/abs/2508.10925",
+          "date": "2025-08-08"
+        },
+        {
+          "id": "patents",
+          "kind": "primary",
+          "publisher": "OpenAI (Wayback Machine capture)",
+          "title": "Our approach to patents",
+          "url": "https://web.archive.org/web/20241112064034/https://openai.com/approach-to-patents/",
+          "date": "2024-11-12"
+        }
+      ],
+      "record": [
+        {
+          "event": "musk-and-altman-found-openai",
+          "note": "December 2015: the founding post, with its researchers to publish and its patents to be shared."
+        },
+        {
+          "event": "gpt-2-s-staged-release",
+          "note": "2019: the first model held back under the charter's new line; the full model followed in November."
+        }
+      ],
+      "open": "The founding words set no measure of how much would be published, so the record shows the commitment rewritten, not how far practice fell short of it.",
+      "checked": "2026-10-19",
+      "leads": []
+    },
+    {
+      "id": "google-no-ai-for-weapons",
+      "title": "Google will not design or deploy AI for weapons",
+      "who": "Google",
+      "people": [],
+      "orgs": [
+        "google"
+      ],
+      "said": "2018-06-07",
+      "words": "In addition to the above objectives, we will not design or deploy AI in the following application areas: Technologies that cause or are likely to cause overall harm. Where there is a material risk of harm, we will proceed only where we believe that the benefits substantially outweigh the risks, and will incorporate appropriate safety constraints. Weapons or other technologies whose principal purpose or implementation is to cause or directly facilitate injury to people.",
+      "source": "principles2018",
+      "verdict": "dropped",
+      "settled": "2025-02-04",
+      "short": "Google said in June 2018 that it would not design or deploy AI for weapons. In February 2025 it rewrote its AI principles around three tenets and dropped the list of applications it would not pursue, weapons among them.",
+      "reading": [
+        "Sundar Pichai published the principles in June 2018 with a list of applications Google would not pursue: technologies that cause or are likely to cause overall harm, and weapons. The same post said Google was not developing AI for use in weapons and would go on working with governments and the military in many other areas.",
+        "On 4 February 2025 James Manyika and Demis Hassabis announced updated principles, focused on three core tenets. Democracies should lead in AI development, they wrote, and companies, governments and organisations sharing those values should work together on AI that protects people, promotes global growth and supports national security. The new principles speak of human oversight and due diligence aligned with international law and human rights; Bloomberg reported the weapons passage removed the same day, and Pichai’s 2018 post now opens with a note pointing to the update.",
+        "The board’s card for 2015 records thousands of researchers opposing offensive autonomous weapons, the field’s first collective attempt to set a red line ahead of capability. Google drew a company’s line on the same ground in 2018 and took it down in 2025."
+      ],
+      "evidence": [
+        {
+          "source": "principles2018",
+          "quote": "We want to be clear that while we are not developing AI for use in weapons, we will continue our work with governments and the military in many other areas."
+        },
+        {
+          "source": "principles2018",
+          "quote": "Update Feb 4, 2025: We’ve made updates to our AI Principles. Visit AI.Google for the latest."
+        },
+        {
+          "source": "update2025",
+          "quote": "With that backdrop, we’re updating our own AI Principles to focus on three core tenets"
+        },
+        {
+          "source": "update2025",
+          "quote": "We believe democracies should lead in AI development, guided by core values like freedom, equality, and respect for human rights. And we believe that companies, governments, and organizations sharing these values should work together to create AI that protects people, promotes global growth, and supports national security."
+        },
+        {
+          "source": "principles",
+          "quote": "Implementing appropriate human oversight, due diligence, and feedback mechanisms to align with user goals, social responsibility, and widely accepted principles of international law and human rights."
+        },
+        {
+          "source": "bloomberg",
+          "quote": "Alphabet Inc.’s Google removed a passage from its artificial intelligence principles that pledged to avoid using the technology in potentially harmful applications, such as weapons."
+        }
+      ],
+      "sources": [
+        {
+          "id": "principles2018",
+          "kind": "primary",
+          "publisher": "Google (Sundar Pichai)",
+          "title": "AI at Google: our principles",
+          "url": "https://blog.google/innovation-and-ai/products/ai-principles/",
+          "date": "2018-06-07"
+        },
+        {
+          "id": "update2025",
+          "kind": "primary",
+          "publisher": "Google (James Manyika and Demis Hassabis)",
+          "title": "Responsible AI: Our 2024 report and ongoing work",
+          "url": "https://blog.google/innovation-and-ai/products/responsible-ai-2024-report-ongoing-work/",
+          "date": "2025-02-04"
+        },
+        {
+          "id": "principles",
+          "kind": "primary",
+          "publisher": "Google",
+          "title": "AI Principles",
+          "url": "https://ai.google/principles/",
+          "date": "2025-02-04"
+        },
+        {
+          "id": "bloomberg",
+          "kind": "article",
+          "publisher": "Bloomberg (Wayback Machine capture)",
+          "title": "Google Removes Language on Weapons From Public AI Principles",
+          "url": "https://web.archive.org/web/20260823213959/https://www.bloomberg.com/news/articles/2025-02-04/google-removes-language-on-weapons-from-public-ai-principles",
+          "date": "2025-02-04"
+        }
+      ],
+      "record": [
+        {
+          "event": "the-autonomous-weapons-letter",
+          "note": "2015: thousands of researchers sign an open letter opposing offensive autonomous weapons."
+        }
+      ],
+      "open": "Whether Google has since designed or deployed AI for weapons is not on the board’s record. The verdict is on the words, which were withdrawn, not on any work done since.",
+      "checked": "2026-10-19",
+      "leads": []
+    },
+    {
+      "id": "openai-nonprofit-board-controls-the-company",
+      "title": "The nonprofit's board controls the for-profit company",
+      "who": "OpenAI",
+      "people": [
+        "greg-brockman",
+        "ilya-sutskever",
+        "sam-altman"
+      ],
+      "orgs": [
+        "openai"
+      ],
+      "said": "2019-03-11",
+      "words": "the company is controlled by OpenAI Nonprofit’s board.",
+      "source": "lp",
+      "verdict": "kept",
+      "settled": "2025-10-28",
+      "short": "OpenAI's 2019 structure put its new company under the nonprofit's board. OpenAI's first plan for a restructuring would have ended that oversight. It gave the plan up, and since October 2025 the nonprofit alone appoints and can remove the company's directors.",
+      "reading": [
+        "The 2019 structure let investors into a company that the nonprofit's board controlled. The board used that control once, in November 2023, to remove Sam Altman; within five days, with almost the entire staff threatening to quit, it took him back, and most of its members left.",
+        "OpenAI's first plan for a restructuring would, Delaware's attorney general said in October 2025, have removed the nonprofit from overseeing the for-profit. After prompting by her office and California's, OpenAI said in May 2025 that the nonprofit would remain in control — 'That will not change,' Altman wrote — and the recapitalization closed in October on that condition: the nonprofit, renamed the OpenAI Foundation, has the sole power to appoint the company's directors and to remove them.",
+        "The control runs through those appointments, and at the close the two boards were nearly one: every foundation director but one also sat on the board of the company, OpenAI Group, and under Delaware's terms a second must leave it within a year."
+      ],
+      "evidence": [
+        {
+          "source": "deag",
+          "quote": "OpenAI initially proposed a restructuring that would remove the current nonprofit entity from overseeing the for-profit activities of OpenAI. After engagement and prompting by Jennings and her colleague, California AG Rob Bonta, OpenAI announced earlier this year that it would instead create a separate public benefit corporation (PBC) within the nonprofit corporation (NFP)."
+        },
+        {
+          "source": "evolving",
+          "quote": "OpenAI was founded as a nonprofit, is today a nonprofit that oversees and controls the for-profit, and going forward will remain a nonprofit that oversees and controls the for-profit. That will not change."
+        },
+        {
+          "source": "deag",
+          "quote": "The NFP will retain control and oversight over the newly formed PBC, including the sole power and authority to appoint members of the PBC Board of Directors, as well as the power to remove those Directors."
+        },
+        {
+          "source": "structure",
+          "quote": "Through special voting and governance rights held solely by the OpenAI Foundation, the OpenAI Foundation appoints all members of the board of directors of OpenAI Group and can replace directors at any time."
+        },
+        {
+          "source": "structure",
+          "quote": "all current OpenAI Foundation directors will also serve on OpenAI Group’s board, other than Dr. Kolter, who will serve as a non-voting observer."
+        },
+        {
+          "source": "deag",
+          "quote": "Within one year of the recapitalization, the NFP Board will have at least two directors (including the Chair of the Safety and Security Committee) who will not serve on the PBC Board."
+        }
+      ],
+      "sources": [
+        {
+          "id": "lp",
+          "kind": "primary",
+          "publisher": "OpenAI (Wayback Machine capture)",
+          "title": "OpenAI LP",
+          "url": "https://web.archive.org/web/20190311161512/https://openai.com/blog/openai-lp/",
+          "date": "2019-03-11"
+        },
+        {
+          "id": "evolving",
+          "kind": "primary",
+          "publisher": "OpenAI (Wayback Machine capture)",
+          "title": "Evolving OpenAI’s Structure",
+          "url": "https://web.archive.org/web/20250505183006/https://openai.com/index/evolving-our-structure/",
+          "date": "2025-05-05"
+        },
+        {
+          "id": "deag",
+          "kind": "primary",
+          "publisher": "Delaware Department of Justice",
+          "title": "AG Jennings completes review of OpenAI recapitalization",
+          "url": "https://news.delaware.gov/2025/10/28/ag-jennings-completes-review-of-openai-recapitalization/",
+          "date": "2025-10-28"
+        },
+        {
+          "id": "structure",
+          "kind": "primary",
+          "publisher": "OpenAI (Wayback Machine capture)",
+          "title": "Our structure",
+          "url": "https://web.archive.org/web/20251029172207/https://openai.com/our-structure/",
+          "date": "2025-10-28"
+        }
+      ],
+      "record": [
+        {
+          "event": "openai-goes-capped-profit-microsoft-puts-in-1bn",
+          "note": "2019: the capped-profit company is set up under the nonprofit's board, and Microsoft invests."
+        },
+        {
+          "event": "altman-is-fired-then-rehired-in-five-days",
+          "note": "November 2023: the board uses its control once, and is reversed within five days."
+        },
+        {
+          "event": "openai-converts-the-nonprofit-keeps-a-stake",
+          "note": "October 2025: the company becomes a public benefit corporation, still under the nonprofit."
+        }
+      ],
+      "open": "The record settles control on paper: the foundation appoints and can remove every director of the company. Whether a board that sits on both sides would stop the company, as OpenAI's board tried to in 2023, it does not settle.",
+      "checked": "2026-10-19",
+      "leads": []
+    },
+    {
+      "id": "openai-investor-returns-are-capped",
+      "title": "Returns are capped, and the excess goes to the nonprofit",
+      "who": "OpenAI",
+      "people": [
+        "greg-brockman",
+        "ilya-sutskever",
+        "sam-altman"
+      ],
+      "orgs": [
+        "openai"
+      ],
+      "said": "2019-03-11",
+      "words": "As mentioned above, economic returns for investors and employees are capped (with the cap negotiated in advance on a per-limited partner basis). Any excess returns go to OpenAI Nonprofit.",
+      "source": "lp",
+      "verdict": "dropped",
+      "settled": "2025-10-28",
+      "short": "OpenAI's 2019 structure capped what investors and staff could earn, with anything above the cap going to the nonprofit. In 2025 it moved to ordinary stock for all holders; the nonprofit took 26 per cent and a warrant instead.",
+      "reading": [
+        "The cap gave the 2019 company its name: investors and staff could earn up to a limit, a hundred times their money for the first investors, and anything beyond it went to the nonprofit. The same post allowed that the arrangement might be updated as the world changed.",
+        "In May 2025 OpenAI said the cap had made sense when one AGI effort looked likely to dominate, and no longer did, and that it was moving to a normal capital structure where everyone has stock. When the recapitalization closed in October every holder owned the same kind of stock. The nonprofit, now the OpenAI Foundation, holds 26 per cent, and a warrant that brings it significant additional equity if the share price rises more than tenfold after fifteen years."
+      ],
+      "evidence": [
+        {
+          "source": "evolving",
+          "quote": "Instead of our current complex capped-profit structure—which made sense when it looked like there might be one dominant AGI effort but doesn’t in a world of many great AGI companies—we are moving to a normal capital structure where everyone has stock."
+        },
+        {
+          "source": "structure",
+          "quote": "All equity holders in OpenAI Group now own the same type of traditional stock that participates proportionally and grows in value with OpenAI Group’s success."
+        },
+        {
+          "source": "structure",
+          "quote": "As of the closing of the recapitalization, the OpenAI Foundation holds a 26% equity stake in OpenAI Group, worth approximately $130B based on OpenAI Group’s current valuation. In addition to this 26% stake, the OpenAI Foundation also holds a warrant that allows it to receive additional shares in OpenAI Group if it hits a valuation milestone. If OpenAI Group’s share price increases greater than tenfold after 15 years, the OpenAI Foundation will receive significant additional equity."
+        }
+      ],
+      "sources": [
+        {
+          "id": "lp",
+          "kind": "primary",
+          "publisher": "OpenAI (Wayback Machine capture)",
+          "title": "OpenAI LP",
+          "url": "https://web.archive.org/web/20190311161512/https://openai.com/blog/openai-lp/",
+          "date": "2019-03-11"
+        },
+        {
+          "id": "evolving",
+          "kind": "primary",
+          "publisher": "OpenAI (Wayback Machine capture)",
+          "title": "Evolving OpenAI’s Structure",
+          "url": "https://web.archive.org/web/20250505183006/https://openai.com/index/evolving-our-structure/",
+          "date": "2025-05-05"
+        },
+        {
+          "id": "structure",
+          "kind": "primary",
+          "publisher": "OpenAI (Wayback Machine capture)",
+          "title": "Our structure",
+          "url": "https://web.archive.org/web/20251029172207/https://openai.com/our-structure/",
+          "date": "2025-10-28"
+        }
+      ],
+      "record": [
+        {
+          "event": "openai-goes-capped-profit-microsoft-puts-in-1bn",
+          "note": "2019: the capped-profit company, its first investors' returns limited to 100 times."
+        },
+        {
+          "event": "openai-converts-the-nonprofit-keeps-a-stake",
+          "note": "October 2025: the cap is gone, and the nonprofit keeps 26 per cent of ordinary stock."
+        }
+      ],
+      "open": "Whether the stake and the warrant leave the nonprofit better or worse off than the cap would have depends on what the company comes to be worth, which the record cannot yet say.",
+      "checked": "2026-10-19",
+      "leads": []
+    },
+    {
+      "id": "microsoft-carbon-negative-by-2030",
+      "title": "Microsoft carbon negative by 2030",
+      "who": "Microsoft",
+      "people": [],
+      "orgs": [
+        "microsoft"
+      ],
+      "said": "2020-01-16",
+      "words": "By 2030 Microsoft will be carbon negative, and by 2050 Microsoft will remove from the environment all the carbon the company has emitted either directly or by electrical consumption since it was founded in 1975.",
+      "source": "pledge",
+      "by": "2030",
+      "byWords": "By 2030",
+      "verdict": "open",
+      "short": "Microsoft promised in January 2020 to be carbon negative by 2030. Its 2024 report put emissions 29.1% above the 2020 baseline and its 2025 report 23.4%; in 2026 it reported a 25% rise in one year, driven by datacentres and paused renewable certificates.",
+      "reading": [
+        "Brad Smith set the goal in January 2020. By 2030 Microsoft would cut its emissions by more than half and remove more carbon than it emitted each year, and by 2050 it would remove all the carbon it had emitted since its founding in 1975.",
+        "Its reports since have measured against 2020, and moved the other way. In 2024 Microsoft put its emissions across all scopes 29.1% above the baseline, the rise in Scope 3 coming chiefly from building more datacentres and the materials and hardware inside them. In 2025 the figure was 23.4%, from growth such as AI and cloud expansion. In July 2026 it reported total emissions up 25% in a single year, driven mainly by the expansion of its datacentres and by its pausing the use of non-additional, unbundled renewable energy certificates.",
+        "Microsoft says it is not lowering its ambition. By May 2025 it had agreed to buy nearly 30 million metric tons of carbon removal, and in 2026 it wrote that sustainability solutions were not scaling fast enough to meet the demand AI infrastructure makes for energy, water, land and materials. The board’s compute cards tell the same story from the other side: the buildout and power as a strategy on the record, and energy as the binding constraint in 2030."
+      ],
+      "evidence": [
+        {
+          "source": "pledge",
+          "quote": "We will take responsibility for all our emissions, so by 2030 we can cut them by more than half and remove more carbon than we emit each year."
+        },
+        {
+          "source": "report2024",
+          "quote": "In aggregate, across all Scopes 1–3, Microsoft’s emissions are up 29.1% from the 2020 baseline."
+        },
+        {
+          "source": "report2024",
+          "quote": "The rise in our Scope 3 emissions primarily comes from the construction of more datacenters and the associated embodied carbon in building materials, as well as hardware components such as semiconductors, servers, and racks."
+        },
+        {
+          "source": "report2025",
+          "quote": "While our total emissions (Scope 1, 2, and 3) have increased by 23.4% compared to our 2020 baseline due to growth-related factors such as AI and cloud expansion, we are encouraged by the fact that this increase has been modest compared to the 168% increase in energy use and 71% revenue growth that has taken place over the same period."
+        },
+        {
+          "source": "report2025",
+          "quote": "We have also entered long-term agreements to procure nearly 30 million metric tons of carbon removal since the start of this program."
+        },
+        {
+          "source": "report2026",
+          "quote": "Our total emissions (Scopes 1, 2, and 3) increased 25% year over year, driven primarily by the expansion of our datacenter infrastructure and pausing our use of non-additional, unbundled renewable energy certificates as we prioritize investments that bring net new power to grids."
+        },
+        {
+          "source": "report2026",
+          "quote": "While AI infrastructure is driving demand for energy, water, land, and materials, sustainability solutions are not scaling fast enough to meet demand."
+        },
+        {
+          "source": "report2026",
+          "quote": "It does not mean we are lowering our ambition."
+        }
+      ],
+      "sources": [
+        {
+          "id": "pledge",
+          "kind": "primary",
+          "publisher": "Microsoft (Brad Smith)",
+          "title": "Microsoft will be carbon negative by 2030",
+          "url": "https://blogs.microsoft.com/blog/2020/01/16/microsoft-will-be-carbon-negative-by-2030/",
+          "date": "2020-01-16"
+        },
+        {
+          "id": "report2024",
+          "kind": "primary",
+          "publisher": "Microsoft (Brad Smith and Melanie Nakagawa)",
+          "title": "Our 2024 Environmental Sustainability Report",
+          "url": "https://blogs.microsoft.com/on-the-issues/2024/05/15/microsoft-environmental-sustainability-report-2024/",
+          "date": "2024-05-15"
+        },
+        {
+          "id": "report2025",
+          "kind": "primary",
+          "publisher": "Microsoft (Brad Smith and Melanie Nakagawa)",
+          "title": "Our 2025 Environmental Sustainability Report",
+          "url": "https://blogs.microsoft.com/on-the-issues/2025/05/29/environmental-sustainability-report/",
+          "date": "2025-05-29"
+        },
+        {
+          "id": "report2026",
+          "kind": "primary",
+          "publisher": "Microsoft (Brad Smith and Melanie Nakagawa)",
+          "title": "Responsibly building the AI future",
+          "url": "https://blogs.microsoft.com/on-the-issues/2026/07/09/responsibly-building-the-ai-future/",
+          "date": "2026-07-09"
+        }
+      ],
+      "record": [
+        {
+          "event": "the-datacenter-buildout",
+          "note": "2024: capital spending on AI infrastructure reaches the scale of national infrastructure programmes."
+        },
+        {
+          "event": "power-becomes-a-strategy",
+          "note": "2025: labs sign long-term energy contracts and revive generation capacity to secure training and serving."
+        },
+        {
+          "event": "energy-is-the-binding-constraint",
+          "note": "The board’s scenario for 2030, the year of the deadline: grid capacity, cooling and siting decide who can train frontier models."
+        }
+      ],
+      "open": "The goal is net, carbon removed set against carbon emitted, and the reports quoted here give emissions, not the balance. Whether removals outrun emissions in 2030 is not yet on the record.",
+      "checked": "2026-10-19",
+      "leads": [
+        "the-price-of-intelligence"
+      ]
+    },
+    {
+      "id": "openai-20-percent-of-compute-for-superalignment",
+      "title": "20 per cent of compute to superintelligence alignment, over four years",
+      "who": "OpenAI",
+      "people": [
+        "ilya-sutskever",
+        "sam-altman"
+      ],
+      "orgs": [
+        "openai"
+      ],
+      "said": "2023-07-05",
+      "words": "We are dedicating 20% of the compute we’ve secured to date over the next four years to solving the problem of superintelligence alignment. Our chief basic research bet is our new Superalignment team, but getting this right is critical to achieve our mission and we expect many teams to contribute, from developing new methods to scaling them up to deployment.",
+      "source": "openai",
+      "by": "2027",
+      "byWords": "over the next four years",
+      "verdict": "disputed",
+      "short": "In July 2023 OpenAI pledged 20 per cent of the compute it had secured, over four years, to aligning superintelligence. The team at its centre was disbanded in 2024, struggling for compute, its co-lead said. OpenAI says it upholds the pledge, read company-wide.",
+      "reading": [
+        "The pledge came with the superalignment team, which Ilya Sutskever and Jan Leike led: 20 per cent of the compute OpenAI had secured by July 2023, over four years, for superintelligence alignment, with the new team as the chief bet and other teams expected to help. Ten months later OpenAI disbanded the team. Leike, leaving, wrote that it had sometimes been struggling for compute.",
+        "In a letter to five senators in July 2024, OpenAI restated the pledge as at least 20 per cent of the compute it had secured, for AI safety, over a multi-year period, and said it continued to uphold it; Sam Altman wrote on X that the share was for safety efforts across the entire company. The words of 2023 named superintelligence alignment. Those of 2024 name safety in general.",
+        "People close to the team tell it otherwise. Six sources told Fortune in May 2024 that OpenAI never gave the team 20 per cent of its computing power, and four people who worked on or with it told The New Yorker in 2026 that it had between one and two per cent of the company's compute. One of Fortune's sources said there had never been clear metrics for how the 20 per cent was to be calculated."
+      ],
+      "evidence": [
+        {
+          "source": "cnbc",
+          "quote": "OpenAI has disbanded its team focused on the long-term risks of artificial intelligence just one year after the company announced the group, a person familiar with the situation confirmed to CNBC on Friday."
+        },
+        {
+          "source": "cnbc",
+          "quote": "The news comes days after both team leaders, OpenAI co-founder Ilya Sutskever and Jan Leike, announced their departures from the Microsoft-backed startup."
+        },
+        {
+          "source": "leike",
+          "quote": "Over the past few months my team has been sailing against the wind. Sometimes we were struggling for compute and it was getting harder and harder to get this crucial research done."
+        },
+        {
+          "source": "kwon",
+          "quote": "last July we committed to allocate at least 20 percent of the computing resources we had secured to AI safety over a multi-year period."
+        },
+        {
+          "source": "kwon",
+          "quote": "We continue to uphold this commitment."
+        },
+        {
+          "source": "altman",
+          "quote": "as we said last july, we’re committed to allocating at least 20% of the computing resources to safety efforts across the entire company."
+        },
+        {
+          "source": "fortune",
+          "quote": "According to a half-dozen sources familiar with the functioning of OpenAI’s Superalignment team, OpenAI never fulfilled its commitment to provide the team with 20% of its computing power."
+        },
+        {
+          "source": "fortune",
+          "quote": "One source familiar with the Superalignment team’s work said that there were never any clear metrics around exactly how the 20% amount was to be calculated, leaving it subject to wide interpretation."
+        },
+        {
+          "source": "newyorker",
+          "quote": "Four people who worked on or closely with the team said that the actual resources were between one and two per cent of the company’s compute."
+        }
+      ],
+      "sources": [
+        {
+          "id": "openai",
+          "kind": "primary",
+          "publisher": "OpenAI (Wayback Machine capture)",
+          "title": "Introducing Superalignment",
+          "url": "https://web.archive.org/web/20230705170451/https://openai.com/blog/introducing-superalignment",
+          "date": "2023-07-05"
+        },
+        {
+          "id": "cnbc",
+          "kind": "article",
+          "publisher": "CNBC",
+          "title": "OpenAI dissolves team focused on long-term AI risks, less than one year after announcing it",
+          "url": "https://www.cnbc.com/2024/05/17/openai-superalignment-sutskever-leike.html",
+          "date": "2024-05-17"
+        },
+        {
+          "id": "leike",
+          "kind": "primary",
+          "publisher": "Jan Leike, on X",
+          "title": "Over the past few months my team has been sailing against the wind…",
+          "url": "https://x.com/janleike/status/1791498182125584843",
+          "date": "2024-05-17"
+        },
+        {
+          "id": "kwon",
+          "kind": "primary",
+          "publisher": "OpenAI, letter from Jason Kwon (copy published by The Washington Post; Wayback Machine capture)",
+          "title": "Letter to Senators Schatz, King, Luján, Warner and Welch",
+          "url": "https://web.archive.org/web/20240804154215/https://www.washingtonpost.com/documents/cd2edf3d-c892-4293-b2d7-41c882d2e1fb.pdf",
+          "date": "2024-07-31"
+        },
+        {
+          "id": "altman",
+          "kind": "primary",
+          "publisher": "Sam Altman, on X",
+          "title": "a few quick updates about safety at openai…",
+          "url": "https://x.com/sama/status/1818867964369928387",
+          "date": "2024-08-01"
+        },
+        {
+          "id": "fortune",
+          "kind": "article",
+          "publisher": "Fortune (Jeremy Kahn)",
+          "title": "Exclusive: OpenAI promised 20% of its computing power to combat the most dangerous kind of AI—but never delivered, sources say",
+          "url": "https://fortune.com/2024/05/21/openai-superalignment-20-compute-commitment-never-fulfilled-sutskever-leike-altman-brockman-murati/",
+          "date": "2024-05-21"
+        },
+        {
+          "id": "newyorker",
+          "kind": "article",
+          "publisher": "The New Yorker (Ronan Farrow and Andrew Marantz)",
+          "title": "Sam Altman May Control Our Future—Can He Be Trusted?",
+          "url": "https://www.newyorker.com/magazine/2026/04/13/sam-altman-may-control-our-future-can-he-be-trusted",
+          "date": "2026-04-06"
+        }
+      ],
+      "record": [
+        {
+          "event": "sutskever-leaves-superalignment-dissolves",
+          "note": "May 2024: the team at the centre of the pledge is disbanded ten months in, and its leads resign."
+        }
+      ],
+      "open": "The 2023 post did not say how the share would be counted, and OpenAI has published no figure for the compute it gave, to the team or to safety as a whole. The four years run to July 2027.",
+      "checked": "2026-10-19",
+      "leads": []
+    },
+    {
+      "id": "seven-companies-mark-ai-generated-media",
+      "title": "Robust watermarks or provenance on AI-made audio and visual content",
+      "who": "Amazon, Anthropic, Google, Inflection, Meta, Microsoft and OpenAI",
+      "people": [],
+      "orgs": [
+        "anthropic",
+        "google",
+        "meta",
+        "microsoft",
+        "openai"
+      ],
+      "said": "2023-07-21",
+      "words": "To further this goal, they agree to develop robust mechanisms, including provenance and/or watermarking systems for audio or visual content created by any of their publicly available systems within scope introduced after the watermarking system is developed. They will also develop tools or APIs to determine if a particular piece of content was created with their system.",
+      "source": "commitments",
+      "verdict": "partly",
+      "short": "Seven companies promised the White House in July 2023 to mark AI-made audio and visual content with robust watermarks or provenance data. Google, Meta and OpenAI built such marks, and each says they can fail; in 2024 Meta said audio and video lagged.",
+      "reading": [
+        "The seven companies at the White House on 21 July 2023 made their commitments voluntarily, to stay in effect until regulation covering substantially the same issues came into force. This one promised provenance data, watermarks or both on the audio and visual content of their publicly available systems, and tools to tell whether a given piece had come from them.",
+        "Google DeepMind launched a beta of SynthID, a watermark for AI-generated images, in August 2023, and said it was not foolproof against extreme manipulation. By February 2024 Meta was putting visible markers, invisible watermarks and metadata on its own photorealistic images, but wrote that companies had not yet put such signals into audio and video tools at the same scale, and that invisible markers could be stripped out.",
+        "By October 2026 OpenAI’s help pages describe an inaudible watermark in the audio its systems generate, and warn that Content Credentials can be lost to a screenshot. Text, which the 2023 commitment left out, OpenAI now watermarks for users in the EU to comply with the AI Act, whose marking rules arrived in August 2026."
+      ],
+      "evidence": [
+        {
+          "source": "factsheet",
+          "quote": "President Biden is convening seven leading AI companies at the White House today – Amazon, Anthropic, Google, Inflection, Meta, Microsoft, and OpenAI – to announce that the Biden-Harris Administration has secured voluntary commitments from these companies to help move toward safe, secure, and transparent development of AI technology."
+        },
+        {
+          "source": "commitments",
+          "quote": "Companies intend these voluntary commitments to remain in effect until regulations covering substantially the same issues come into force."
+        },
+        {
+          "source": "synthid",
+          "quote": "Today, in partnership with Google Cloud, we’re launching a beta version of SynthID, a tool for watermarking and identifying AI-generated images."
+        },
+        {
+          "source": "synthid",
+          "quote": "SynthID isn’t foolproof against extreme image manipulations, but it does provide a promising technical approach for empowering people and organisations to work with AI-generated content responsibly."
+        },
+        {
+          "source": "meta",
+          "quote": "When photorealistic images are created using our Meta AI feature, we do several things to make sure people know AI is involved, including putting visible markers that you can see on the images, and both invisible watermarks and metadata embedded within image files."
+        },
+        {
+          "source": "meta",
+          "quote": "While companies are starting to include signals in their image generators, they haven’t started including them in AI tools that generate audio and video at the same scale, so we can’t yet detect those signals and label this content from other companies."
+        },
+        {
+          "source": "meta",
+          "quote": "But it’s not yet possible to identify all AI-generated content, and there are ways that people can strip out invisible markers."
+        },
+        {
+          "source": "openai",
+          "quote": "Audio generated by ChatGPT or the OpenAI API includes an inaudible watermark embedded in the audio itself."
+        },
+        {
+          "source": "openai",
+          "quote": "Content Credentials, developed by the Coalition for Content Provenance and Authenticity, can be lost through everyday actions, such as taking a screenshot or converting a file."
+        },
+        {
+          "source": "openai",
+          "quote": "We’re implementing text watermarking for ChatGPT users in the EU to comply with the EU AI Act, and in line with our commitments under the EU Code of Practice on Transparency of AI-Generated Content, which OpenAI along with several other major AI providers have signed."
+        }
+      ],
+      "sources": [
+        {
+          "id": "commitments",
+          "kind": "primary",
+          "publisher": "The White House (Wayback Machine capture)",
+          "title": "Ensuring Safe, Secure, and Trustworthy AI",
+          "url": "https://web.archive.org/web/20230721141250/https://www.whitehouse.gov/wp-content/uploads/2023/07/Ensuring-Safe-Secure-and-Trustworthy-AI.pdf",
+          "date": "2023-07-21"
+        },
+        {
+          "id": "factsheet",
+          "kind": "primary",
+          "publisher": "The White House (Wayback Machine capture)",
+          "title": "FACT SHEET: Biden-Harris Administration Secures Voluntary Commitments from Leading Artificial Intelligence Companies to Manage the Risks Posed by AI",
+          "url": "https://web.archive.org/web/20230721120928/https://www.whitehouse.gov/briefing-room/statements-releases/2023/07/21/fact-sheet-biden-harris-administration-secures-voluntary-commitments-from-leading-artificial-intelligence-companies-to-manage-the-risks-posed-by-ai/",
+          "date": "2023-07-21"
+        },
+        {
+          "id": "synthid",
+          "kind": "primary",
+          "publisher": "Google DeepMind",
+          "title": "Identifying AI-generated images with SynthID",
+          "url": "https://deepmind.google/blog/identifying-ai-generated-images-with-synthid/",
+          "date": "2023-08-29"
+        },
+        {
+          "id": "meta",
+          "kind": "primary",
+          "publisher": "Meta (Nick Clegg)",
+          "title": "Labeling AI-Generated Images on Facebook, Instagram and Threads",
+          "url": "https://about.fb.com/news/2024/02/labeling-ai-generated-images-on-facebook-instagram-and-threads/",
+          "date": "2024-02-06"
+        },
+        {
+          "id": "openai",
+          "kind": "primary",
+          "publisher": "OpenAI Help Center (Wayback Machine capture)",
+          "title": "Provenance signals in OpenAI-generated content",
+          "url": "https://web.archive.org/web/20261012130134/https://help.openai.com/en/articles/8912793-provenance-signals-in-openai-generated-content",
+          "date": "2026-10-12"
+        }
+      ],
+      "record": [
+        {
+          "event": "deepfakes-arrive",
+          "note": "2017: face-swapping tools spread through consumer forums, six years before the commitment."
+        },
+        {
+          "event": "ai-act-obligations-bite",
+          "note": "August 2026: the AI Act’s transparency rules start, under which synthetic content must be marked as such."
+        },
+        {
+          "event": "provenance-becomes-mandatory",
+          "note": "The board’s scenario for 2029: provenance required by law in major markets. China and the EU did it by design first."
+        }
+      ],
+      "open": "The record here holds the accounts of three of the seven companies, and the commitment did not say what robust meant. Whether the AI Act’s marking rules count as the regulation the commitments said they would last until is not settled.",
+      "checked": "2026-10-19",
+      "leads": []
+    },
+    {
+      "id": "seoul-signatories-publish-safety-frameworks",
+      "title": "Every Seoul signatory publishes a safety framework by the next summit",
+      "who": "Amazon, Anthropic, Cohere, Google, G42, IBM, Inflection AI, Meta, Microsoft, Mistral AI, Naver, OpenAI, Samsung Electronics, Technology Innovation Institute, xAI and Zhipu.ai; later Magic, Minimax, 01.ai and NVIDIA",
+      "people": [],
+      "orgs": [
+        "anthropic",
+        "google",
+        "ibm",
+        "meta",
+        "microsoft",
+        "nvidia",
+        "openai"
+      ],
+      "said": "2024-05-21",
+      "words": "to demonstrate how they have achieved this by publishing a safety framework focused on severe risks by the upcoming AI Summit in France.",
+      "source": "commitments",
+      "by": "2025-02-10",
+      "byWords": "by the upcoming AI Summit in France",
+      "verdict": "partly",
+      "settled": "2025-02-11",
+      "short": "Sixteen companies, later twenty, promised at Seoul in May 2024 to publish a safety framework for severe risks by the next summit, in France. It met in February 2025; in March METR counted twelve such policies, and similar papers from IBM and Samsung.",
+      "reading": [
+        "The commitments were agreed at the AI Seoul Summit in May 2024 by sixteen companies, and four more joined them later. Each undertook to show how it was meeting them by publishing a framework focused on severe risks before the next summit, which met in Paris on 10 and 11 February 2025.",
+        "Meta published its framework on 3 February, in line, it said, with the commitment it had made at Seoul. In March METR counted twelve published frontier safety policies — Anthropic’s, OpenAI’s, Google DeepMind’s, Magic’s, Naver’s, Meta’s, G42’s, Cohere’s, Microsoft’s, Amazon’s, xAI’s and Nvidia’s — and noted similar documents from IBM and Samsung; for the other six signatories it names none. The Frontier Model Forum gave the same count of twelve in April.",
+        "The summit’s statement commended the Bletchley Park and Seoul summits and noted the voluntary commitments launched there. Since then governments have begun to require what Seoul asked for: Anthropic writes that California, New York and the EU AI Act’s codes of practice have started to require frontier developers to create and publish such frameworks."
+      ],
+      "evidence": [
+        {
+          "source": "meta",
+          "quote": "Today, we’re sharing our Frontier AI Framework, which outlines our consideration of risk in our model-release decisions, in line with the commitment we made at last year’s global AI Seoul Summit."
+        },
+        {
+          "source": "paris",
+          "quote": "Participants from over 100 countries, including government leaders, international organisations, representatives of civil society, the private sector, and the academic and research communities gathered in Paris on 10 and 11 February 2025 to hold the AI Action Summit."
+        },
+        {
+          "source": "paris",
+          "quote": "We commend the role of the Bletchley Park AI Safety Summit and Seoul Summits that have been essential in progressing international cooperation on AI safety and we note the voluntary commitments launched there."
+        },
+        {
+          "source": "metr",
+          "quote": "In May of 2024, sixteen companies agreed to do so as part of the Frontier AI Safety Commitments at the AI Seoul Summit, with an additional four companies joining since then. Currently, twelve companies have published frontier AI safety policies: Anthropic, OpenAI, Google DeepMind, Magic, Naver, Meta, G42, Cohere, Microsoft, Amazon, xAI, and Nvidia."
+        },
+        {
+          "source": "metr",
+          "quote": "Other companies have published similar documents in response to the Frontier AI Safety Commitments made in Seoul, such as IBM and Samsung."
+        },
+        {
+          "source": "fmf",
+          "quote": "To date, 12 major AI developers have published frontier AI frameworks, demonstrating a growing industry consensus on responsible development practices."
+        },
+        {
+          "source": "anthropic",
+          "quote": "We’ve seen governments around the world (for example in California with SB 53, in New York with the RAISE Act, and with the EU AI Act’s Codes of Practice) start to require frontier AI developers to create and publish frameworks for assessing and managing catastrophic risks—requirements Anthropic addresses through public documentation including its Frontier Compliance Framework."
+        }
+      ],
+      "sources": [
+        {
+          "id": "commitments",
+          "kind": "primary",
+          "publisher": "Department for Science, Innovation and Technology (GOV.UK)",
+          "title": "Frontier AI Safety Commitments, AI Seoul Summit 2024",
+          "url": "https://www.gov.uk/government/publications/frontier-ai-safety-commitments-ai-seoul-summit-2024/frontier-ai-safety-commitments-ai-seoul-summit-2024",
+          "date": "2024-05-21"
+        },
+        {
+          "id": "meta",
+          "kind": "primary",
+          "publisher": "Meta",
+          "title": "Our Approach to Frontier AI",
+          "url": "https://about.fb.com/news/2025/02/meta-approach-frontier-ai/",
+          "date": "2025-02-03"
+        },
+        {
+          "id": "paris",
+          "kind": "primary",
+          "publisher": "Élysée",
+          "title": "Statement on Inclusive and Sustainable Artificial Intelligence for People and the Planet",
+          "url": "https://www.elysee.fr/en/emmanuel-macron/2025/02/11/statement-on-inclusive-and-sustainable-artificial-intelligence-for-people-and-the-planet",
+          "date": "2025-02-11"
+        },
+        {
+          "id": "metr",
+          "kind": "paper",
+          "publisher": "METR",
+          "title": "Common Elements of Frontier AI Safety Policies (March 2025)",
+          "url": "https://metr.org/assets/common-elements-mar-2025.pdf",
+          "date": "2025-03-26"
+        },
+        {
+          "id": "fmf",
+          "kind": "primary",
+          "publisher": "Frontier Model Forum",
+          "title": "Introducing the FMF’s Technical Report Series on Frontier AI Frameworks",
+          "url": "https://www.frontiermodelforum.org/updates/introducing-the-fmfs-technical-report-series-on-frontier-ai-safety-frameworks/",
+          "date": "2025-04-22"
+        },
+        {
+          "id": "anthropic",
+          "kind": "primary",
+          "publisher": "Anthropic",
+          "title": "Anthropic’s Responsible Scaling Policy: Version 3.0",
+          "url": "https://www.anthropic.com/news/responsible-scaling-policy-v3",
+          "date": "2026-02-24"
+        }
+      ],
+      "record": [
+        {
+          "event": "bletchley-and-the-executive-orders",
+          "note": "November 2023: twenty-eight countries sign a joint declaration on frontier risk at Bletchley Park, the summit Paris commended beside Seoul."
+        },
+        {
+          "event": "ai-act-obligations-bite",
+          "note": "August 2026: the Commission can enforce the duties general-purpose model providers have owed since August 2025."
+        },
+        {
+          "event": "trump-and-six-companies-sign-an-accord-on-audits",
+          "note": "September 2026: six of the signatories make new voluntary commitments in Washington, to controls and outside audits, with no date."
+        }
+      ],
+      "open": "The record here does not date each of the twelve against the summit, or say whether the other six published anything METR did not count. Whether the frameworks are followed is a separate question.",
+      "checked": "2026-10-19",
+      "leads": []
+    },
+    {
+      "id": "meta-committed-to-open-source-ai",
+      "title": "Meta keeps its AI models open",
+      "who": "Mark Zuckerberg",
+      "people": [
+        "mark-zuckerberg"
+      ],
+      "orgs": [
+        "meta"
+      ],
+      "said": "2024-07-23",
+      "words": "Meta is committed to open source AI.",
+      "source": "path",
+      "verdict": "partly",
+      "short": "Zuckerberg wrote in July 2024 that Meta was committed to open source AI, and a year later that it would need to be careful about what it open-sources. Its new lab's first model launched closed in April 2026; open-weight models followed in August and October.",
+      "reading": [
+        "The commitment came with Llama 3.1 405B, which Zuckerberg called the first frontier-level open source model. A year later, writing about superintelligence, he said it would raise novel safety concerns and that Meta would need to be careful about what it chose to open source.",
+        "Muse Spark, the first model of Meta Superintelligence Labs, launched in April 2026 on meta.ai and Meta's app, with a private preview of its API for partners and a hope to open-source future versions. In August Meta released the weights of a 30-billion-parameter model, Muse Glimmer, under the Apache 2.0 licence, and on 15 October those of Muse Spark Open, which it called the most capable US open-weight model to date, under a licence with limited commercial terms.",
+        "So Meta still releases open models. The first model of its new lab did not ship open, and since 2025 Meta has said it will choose with care what to open source."
+      ],
+      "evidence": [
+        {
+          "source": "personal",
+          "quote": "That said, superintelligence will raise novel safety concerns. We'll need to be rigorous about mitigating these risks and careful about what we choose to open source."
+        },
+        {
+          "source": "spark",
+          "quote": "Introducing Muse Spark, the first in the Muse family of models developed by Meta Superintelligence Labs."
+        },
+        {
+          "source": "spark",
+          "quote": "Muse Spark is available today at meta.ai and the Meta AI app. We’re also making it available in private preview via API to select partners, and we hope to open-source future versions of the model."
+        },
+        {
+          "source": "glimmer",
+          "quote": "Today, we're introducing Muse Glimmer, the next model from Meta Superintelligence Labs, and open sourcing the model weights under a permissive Apache 2.0 license. Muse Glimmer is a 30-billion-parameter model optimized for always-on local agent workflows."
+        },
+        {
+          "source": "sparkopen",
+          "quote": "Today, we’re releasing the weights for Muse Spark Open, the most capable US open-weight model to date."
+        },
+        {
+          "source": "sparkopen",
+          "quote": "We’re releasing the weights under the Muse Model License with limited commercial terms, which allow many developers to use the model for free."
+        }
+      ],
+      "sources": [
+        {
+          "id": "path",
+          "kind": "primary",
+          "publisher": "Meta Newsroom (Mark Zuckerberg)",
+          "title": "Open Source AI is the Path Forward",
+          "url": "https://about.fb.com/news/2024/07/open-source-ai-is-the-path-forward/",
+          "date": "2024-07-23"
+        },
+        {
+          "id": "personal",
+          "kind": "primary",
+          "publisher": "Meta (Mark Zuckerberg)",
+          "title": "Personal Superintelligence",
+          "url": "https://www.meta.com/superintelligence/",
+          "date": "2025-07-30"
+        },
+        {
+          "id": "spark",
+          "kind": "primary",
+          "publisher": "AI at Meta, on X",
+          "title": "Introducing Muse Spark…",
+          "url": "https://x.com/AIatMeta/status/2041910285653737975",
+          "date": "2026-04-08"
+        },
+        {
+          "id": "glimmer",
+          "kind": "primary",
+          "publisher": "Meta AI Research",
+          "title": "Introducing Muse Glimmer: An Open Agentic Model That Runs on Your Device",
+          "url": "https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model",
+          "date": "2026-08-10"
+        },
+        {
+          "id": "sparkopen",
+          "kind": "primary",
+          "publisher": "Meta AI Research",
+          "title": "Introducing Muse Spark Open, The Most Capable US Open‑Weight Model to Date",
+          "url": "https://research.meta.ai/blog/muse-spark-open",
+          "date": "2026-10-15"
+        }
+      ],
+      "record": [
+        {
+          "event": "meta-claims-the-frontier-for-open-weights",
+          "note": "July 2024: Llama 3.1 405B, given away with the letter that made the commitment."
+        },
+        {
+          "event": "llama-2-is-free-for-commercial-use",
+          "note": "2023: the first Llama licensed for commercial use, and the start of the argument over what Meta calls open source."
+        }
+      ],
+      "open": "What Meta opens is now chosen model by model, and the record cannot say what it will choose next. The October licence limits commercial use, and Meta's use of the term open source has been contested since Llama 2.",
+      "checked": "2026-10-19",
+      "leads": [
+        "the-price-of-intelligence"
+      ]
+    },
+    {
+      "id": "anthropic-no-model-without-safeguards",
+      "title": "No Anthropic model trained or deployed without adequate safeguards",
+      "who": "Anthropic",
+      "people": [],
+      "orgs": [
+        "anthropic"
+      ],
+      "said": "2024-10-15",
+      "words": "In September 2023, we released our Responsible Scaling Policy (RSP), a public commitment not to train or deploy models capable of causing catastrophic harm unless we have implemented safety and security measures that will keep risks below acceptable levels.",
+      "source": "rsp2",
+      "verdict": "dropped",
+      "settled": "2026-02-24",
+      "short": "Anthropic’s scaling policy was a public commitment not to train or deploy models capable of catastrophic harm without measures that keep the risk acceptable. In February 2026 it rewrote it: the strongest steps now depend on what other developers do.",
+      "reading": [
+        "The policy dates from September 2023; its second version, in October 2024, described it in these words. Anthropic says it acted on it: it activated its ASL-3 safeguards for relevant models in May 2025.",
+        "In February 2026 it revised the policy, to adopt, it said, more realistic unilateral commitments. Its previous version, it wrote, had committed it to bring its models’ risk down to acceptable levels without regard to whether other developers did the same. The new one separates what Anthropic expects to do on its own from what it recommends for the industry, which it cannot commit to following unilaterally, and it still promises to delay development and deployment as needed while it believes it holds a significant lead.",
+        "The practice did not end with the words. On 2 April Anthropic added that it remained free to pause development even where the policy does not require it, and five days later it withheld Claude Mythos Preview from general release, saying it first needed safeguards that detect and block the model’s most dangerous outputs."
+      ],
+      "evidence": [
+        {
+          "source": "v3post",
+          "quote": "We activated ASL-3 safeguards for relevant models in May 2025 and have been working to improve them ever since."
+        },
+        {
+          "source": "v3post",
+          "quote": "The revised RSP aims to adopt more realistic unilateral commitments that are difficult but still achievable in the current environment, while continuing to comprehensively map the risks we believe the full industry needs to address multilaterally."
+        },
+        {
+          "source": "rsp3",
+          "quote": "Our previous RSP committed to implementing mitigations that would reduce our models' absolute risk levels to acceptable levels, without regard to whether other frontier AI developers would do the same."
+        },
+        {
+          "source": "rsp3",
+          "quote": "We now separate our plans as a company—those which we expect to achieve regardless of what any other company does—from our more ambitious industry-wide recommendations."
+        },
+        {
+          "source": "rsp3",
+          "quote": "But we cannot commit to following them unilaterally."
+        },
+        {
+          "source": "rsp3",
+          "quote": "We will delay AI development and deployment as needed to achieve this, until and unless we no longer believe we have a significant lead."
+        },
+        {
+          "source": "updates",
+          "quote": "We now clarify that, even if not required by the RSP, we remain free to take measures such as pausing the development of our AI systems in any circumstances in which we deem them appropriate."
+        },
+        {
+          "source": "glasswing",
+          "quote": "To do so, we need to make progress in developing cybersecurity (and other) safeguards that detect and block the model’s most dangerous outputs."
+        }
+      ],
+      "sources": [
+        {
+          "id": "rsp2",
+          "kind": "primary",
+          "publisher": "Anthropic",
+          "title": "Responsible Scaling Policy (effective October 15, 2024)",
+          "url": "https://www-cdn.anthropic.com/616dee633636e5bd309cb73aed8622e80fe47839.pdf",
+          "date": "2024-10-15"
+        },
+        {
+          "id": "v3post",
+          "kind": "primary",
+          "publisher": "Anthropic",
+          "title": "Anthropic’s Responsible Scaling Policy: Version 3.0",
+          "url": "https://www.anthropic.com/news/responsible-scaling-policy-v3",
+          "date": "2026-02-24"
+        },
+        {
+          "id": "rsp3",
+          "kind": "primary",
+          "publisher": "Anthropic",
+          "title": "Responsible Scaling Policy, Version 3.0",
+          "url": "https://www-cdn.anthropic.com/e670587677525f28df69b59e5fb4c22cc5461a17.pdf",
+          "date": "2026-02-24"
+        },
+        {
+          "id": "glasswing",
+          "kind": "primary",
+          "publisher": "Anthropic",
+          "title": "Project Glasswing: Securing critical software for the AI era",
+          "url": "https://www.anthropic.com/glasswing",
+          "date": "2026-04-07"
+        },
+        {
+          "id": "updates",
+          "kind": "primary",
+          "publisher": "Anthropic",
+          "title": "Anthropic’s Responsible Scaling Policy (updates, 2 April 2026)",
+          "url": "https://www.anthropic.com/responsible-scaling-policy",
+          "date": "2026-04-02"
+        }
+      ],
+      "record": [
+        {
+          "event": "anthropic-holds-back-mythos",
+          "note": "April 2026, six weeks after the rewrite: Anthropic withholds Mythos Preview because the safeguards are not ready."
+        },
+        {
+          "event": "the-labs-ask-to-be-slowed-down",
+          "note": "September 2026: Amodei asks for the frontier to be paced together; Anthropic commits on its own to embedded external review teams."
+        }
+      ],
+      "open": "Whether any model has been trained or deployed without safeguards adequate to its risk is not on the record. The rewrite changed the words; the board can check the practice only by what Anthropic and its reviewers publish.",
+      "checked": "2026-10-19",
+      "leads": []
+    },
+    {
+      "id": "six-companies-outside-audits-of-their-controls",
+      "title": "Each company audits its controls in four layers, one of them outside",
+      "who": "Google, Anthropic, Meta, OpenAI, xAI and Nvidia, in an accord with Donald J. Trump",
+      "people": [
+        "dario-amodei",
+        "mark-zuckerberg",
+        "greg-brockman",
+        "elon-musk",
+        "jensen-huang"
+      ],
+      "orgs": [
+        "google",
+        "anthropic",
+        "meta",
+        "openai",
+        "nvidia"
+      ],
+      "said": "2026-09-29",
+      "words": "Regardless of whether this is required of companies, we believe that implementing these controls and audits is critical to ensuring a safe future for everyone, and each of our companies are committed to doing this.",
+      "source": "accord",
+      "verdict": "open",
+      "short": "Six companies signed an accord with Trump on 29 September 2026 to put in four layers of controls and audits, one by an outside auditor. It names no date. Anthropic has since given METR employee-like access; the record shows no such step by the other five.",
+      "reading": [
+        "The accord was signed after a White House lunch by Trump and, for the companies, Sundar Pichai, Dario Amodei, Mark Zuckerberg, Greg Brockman, Elon Musk and Jensen Huang. Each company is to have internal controls on its models, a team to see that they work, an independent external auditor or evaluator to assess them, and a board committee to receive the reports; the companies are to meet regularly to set standards.",
+        "It names no date and no penalty, and asks for no audit to be published. Asked whether it was binding, Trump said he thought it morally binding; the Speaker of the House called the commitments voluntary. The auditor examines the companies’ controls, not their models.",
+        "Sixteen days later Anthropic, citing the accord, said a team from METR had employee-like access to assess its risks and would publish the results. By 19 October nothing on the board’s record shows Google, Meta, OpenAI, xAI or Nvidia naming an outside auditor or evaluator since the accord."
+      ],
+      "evidence": [
+        {
+          "source": "accord",
+          "quote": "(3) Partner with an independent external auditor or evaluator to carry out independent assessments of whether the controls, monitoring, and detection are operating as intended."
+        },
+        {
+          "source": "accord",
+          "quote": "The participating companies will meet regularly to establish standards and best practices to improve the safety of their systems."
+        },
+        {
+          "source": "gaggle",
+          "quote": "I think it's morally binding, yeah."
+        },
+        {
+          "source": "fox",
+          "quote": "This is a statement of principles that you'll see, a statement of standards, commitments that are voluntary on behalf of the industry."
+        },
+        {
+          "source": "evaluators",
+          "quote": "We also signed the White House Accord on Super Intelligence, in which companies pledged to partner with independent external auditors or evaluators. Today, we’re announcing that we’ve started to give employee-like access to a team from METR, a nonprofit that evaluates frontier AI models."
+        },
+        {
+          "source": "evaluators",
+          "quote": "METR will publish the results of its risk assessments."
+        }
+      ],
+      "sources": [
+        {
+          "id": "accord",
+          "kind": "primary",
+          "publisher": "Donald J. Trump (Truth Social post, transcribed by The American Presidency Project)",
+          "title": "White House Accord on Super Intelligence",
+          "url": "https://www.presidency.ucsb.edu/documents/white-house-accord-super-intelligence",
+          "date": "2026-09-29"
+        },
+        {
+          "id": "gaggle",
+          "kind": "primary",
+          "publisher": "Roll Call Factbase (transcript)",
+          "title": "Press Gaggle: Donald Trump Speaks with Reporters After AI Luncheon - September 29, 2026",
+          "url": "https://rollcall.com/factbase/trump/transcript/donald-trump-press-gaggle-after-ai-luncheon-the-sticks-september-29-2026/",
+          "date": "2026-09-29"
+        },
+        {
+          "id": "fox",
+          "kind": "article",
+          "publisher": "Fox Business",
+          "title": "Trump signs executive order rebranding AI as 'Super Intelligence' as tech titans ink separate SI accord",
+          "url": "https://www.foxbusiness.com/politics/trump-signs-executive-order-rebranding-ai-super-intelligence-tech-titans-ink-separate-accord",
+          "date": "2026-09-29"
+        },
+        {
+          "id": "evaluators",
+          "kind": "primary",
+          "publisher": "Anthropic",
+          "title": "An update on independent evaluators",
+          "url": "https://www.anthropic.com/news/an-update-on-independent-evaluators",
+          "date": "2026-10-15"
+        }
+      ],
+      "record": [
+        {
+          "event": "trump-and-six-companies-sign-an-accord-on-audits",
+          "note": "29 September 2026: the accord is signed; it asks for outside audits of controls and sets no pace."
+        },
+        {
+          "event": "the-labs-ask-to-be-slowed-down",
+          "note": "Earlier in September: the labs’ staff and Amodei ask for the frontier to be paced, and Altman says OpenAI will invite evaluators in too."
+        },
+        {
+          "event": "washington-says-reporting-incidents-is-not-optional",
+          "note": "October 2026: the task force that followed the accord says incidents must be reported, by statement, with no penalty behind it."
+        }
+      ],
+      "open": "The accord sets no date, so it cannot fall due. Who audits each company, against what standard, and whether anyone outside the company sees the findings is left to the companies.",
+      "checked": "2026-10-19",
+      "leads": [
+        "gaming-the-test"
+      ]
+    }
+  ]
+}

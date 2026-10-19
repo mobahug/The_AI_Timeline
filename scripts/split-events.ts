@@ -57,8 +57,16 @@ const PARTS: Record<string, (cards: EventRaw[]) => unknown> = {
    on — to list it; only its own pages read the words, the verdict at length
    and the sources, which are most of what data/predictions.json weighs. */
 export const PREDICTION_HEAD = ['id', 'title', 'who', 'people', 'said', 'by', 'verdict', 'came', 'short', 'record'] as const;
-const predictionHeads = (all: Record<string, unknown>[]) =>
-  all.map((p) => Object.fromEntries(PREDICTION_HEAD.filter((k) => p[k] !== undefined).map((k) => [k, p[k]])));
+/* Promises made, likewise: most pages list a promise from its head, and only
+   its own pages read its words, its reading and its sources. */
+export const PLEDGE_HEAD = ['id', 'title', 'who', 'people', 'orgs', 'said', 'by', 'verdict', 'settled', 'short', 'record'] as const;
+/** The files read as heads, with the key their records sit under and the fields kept. */
+const HEADS: Record<string, { key: string; fields: readonly string[] }> = {
+  '/data/predictions.json': { key: 'predictions', fields: PREDICTION_HEAD },
+  '/data/promises.json': { key: 'promises', fields: PLEDGE_HEAD }
+};
+const headsOf = (all: Record<string, unknown>[], fields: readonly string[]) =>
+  all.map((p) => Object.fromEntries(fields.filter((k) => p[k] !== undefined).map((k) => [k, p[k]])));
 
 export function splitEvents(): Plugin {
   return {
@@ -68,9 +76,11 @@ export function splitEvents(): Plugin {
     enforce: 'pre',
     load(id) {
       const [file, query] = id.split('?');
-      if (query && file.endsWith('/data/predictions.json') && new URLSearchParams(query).has('heads')) {
+      const heads = query && new URLSearchParams(query).has('heads') ? Object.keys(HEADS).find((f) => file.endsWith(f)) : undefined;
+      if (heads) {
         this.addWatchFile(file);
-        const text = JSON.stringify(predictionHeads((JSON.parse(readFileSync(file, 'utf8')) as { predictions: Record<string, unknown>[] }).predictions));
+        const { key, fields } = HEADS[heads];
+        const text = JSON.stringify(headsOf((JSON.parse(readFileSync(file, 'utf8')) as Record<string, Record<string, unknown>[]>)[key], fields));
         return `export default JSON.parse(${JSON.stringify(text)});\n`;
       }
       if (!query || !file.endsWith('/data/events.json')) return null;

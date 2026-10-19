@@ -5,6 +5,7 @@
   <url><loc>https://mobahug.github.io/The_AI_Timeline/case/</loc><priority>0.8</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/horizon/</loc><priority>0.8</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/predictions/</loc><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/promises/</loc><priority>0.8</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/board/</loc><priority>0.8</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/machines/</loc><priority>0.8</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/leads/</loc><priority>0.8</priority></url>
@@ -19,6 +20,7 @@
   <url><loc>https://mobahug.github.io/The_AI_Timeline/start/</loc><priority>0.8</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/latest/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/about/</loc><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/corrections/</loc><priority>0.8</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/line/1/</loc><priority>0.7</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/line/2/</loc><priority>0.7</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/line/3/</loc><priority>0.7</priority></url>
@@ -240,28 +242,39 @@
   <url><loc>https://mobahug.github.io/The_AI_Timeline/question/who-controls-the-most-powerful-ai/</loc><lastmod>2026-10-17</lastmod><priority>0.8</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/question/who-makes-the-rules-for-ai/</loc><lastmod>2026-10-18</lastmod><priority>0.8</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/check/claude-broke-out-of-its-tests/</loc><lastmod>2026-10-15</lastmod><priority>0.8</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/prediction/turing-imitation-game-by-2000/</loc><priority>0.8</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/prediction/dartmouth-a-summer-1956/</loc><priority>0.8</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/prediction/simon-newell-chess-champion-1967/</loc><priority>0.8</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/prediction/simon-newell-new-theorem-1967/</loc><priority>0.8</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/prediction/dreyfus-no-amateur-chess/</loc><priority>0.8</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/prediction/simon-any-work-that-a-man-can-do/</loc><priority>0.8</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/prediction/good-ultraintelligent-machine-by-2000/</loc><priority>0.8</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/prediction/minsky-three-to-eight-years/</loc><priority>0.8</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/prediction/kurzweil-computer-chess-champion/</loc><priority>0.8</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/prediction/vinge-singularity-within-thirty-years/</loc><priority>0.8</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/prediction/kapor-kurzweil-turing-test-bet/</loc><priority>0.8</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/prediction/coulom-go-maybe-ten-years/</loc><priority>0.8</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/prediction/hinton-radiologists-five-years/</loc><priority>0.8</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/prediction/musk-autonomous-la-to-new-york-2017/</loc><priority>0.8</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/prediction/openai-superalignment-in-four-years/</loc><priority>0.8</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/prediction/marcus-no-gpt5-by-end-of-2024/</loc><priority>0.8</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/prediction/huang-ai-does-well-on-every-test-in-five-years/</loc><priority>0.8</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/prediction/altman-agents-join-the-workforce-in-2025/</loc><priority>0.8</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/prediction/amodei-ai-writes-90-percent-of-the-code/</loc><priority>0.8</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/prediction/musk-ai-smarter-than-any-human-by-end-of-2025/</loc><priority>0.8</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/prediction/amodei-powerful-ai-as-early-as-2026/</loc><priority>0.8</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/prediction/kokotajlo-diplomacy-as-well-as-experts-by-2025/</loc><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/prediction/turing-imitation-game-by-2000/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/prediction/dartmouth-a-summer-1956/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/prediction/simon-newell-chess-champion-1967/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/prediction/simon-newell-new-theorem-1967/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/prediction/dreyfus-no-amateur-chess/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/prediction/simon-any-work-that-a-man-can-do/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/prediction/good-ultraintelligent-machine-by-2000/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/prediction/minsky-three-to-eight-years/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/prediction/kurzweil-computer-chess-champion/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/prediction/vinge-singularity-within-thirty-years/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/prediction/kapor-kurzweil-turing-test-bet/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/prediction/coulom-go-maybe-ten-years/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/prediction/hinton-radiologists-five-years/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/prediction/musk-autonomous-la-to-new-york-2017/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/prediction/openai-superalignment-in-four-years/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/prediction/marcus-no-gpt5-by-end-of-2024/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/prediction/huang-ai-does-well-on-every-test-in-five-years/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/prediction/altman-agents-join-the-workforce-in-2025/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/prediction/amodei-ai-writes-90-percent-of-the-code/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/prediction/musk-ai-smarter-than-any-human-by-end-of-2025/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/prediction/amodei-powerful-ai-as-early-as-2026/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/prediction/kokotajlo-diplomacy-as-well-as-experts-by-2025/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/promise/openai-researchers-publish-and-patents-are-shared/</loc><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/promise/google-no-ai-for-weapons/</loc><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/promise/openai-nonprofit-board-controls-the-company/</loc><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/promise/openai-investor-returns-are-capped/</loc><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/promise/microsoft-carbon-negative-by-2030/</loc><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/promise/openai-20-percent-of-compute-for-superalignment/</loc><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/promise/seven-companies-mark-ai-generated-media/</loc><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/promise/seoul-signatories-publish-safety-frameworks/</loc><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/promise/meta-committed-to-open-source-ai/</loc><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/promise/anthropic-no-model-without-safeguards/</loc><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/promise/six-companies-outside-audits-of-their-controls/</loc><priority>0.8</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/person/david-hilbert/</loc><priority>0.4</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/person/kurt-godel/</loc><priority>0.4</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/person/alan-turing/</loc><priority>0.4</priority></url>

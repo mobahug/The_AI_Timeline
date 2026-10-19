@@ -10,6 +10,8 @@ import { questionsOf } from '../lib/questions';
 import { checksOf } from '../lib/checks';
 import { machineOf } from '../lib/machines';
 import { FORETOLD, predictionsOf } from '../lib/predictions';
+import { PLEDGED, pledgesOf } from '../lib/pledges';
+import { correctionsOf } from '../lib/corrections';
 import { dayOf, keptOf } from '../lib/latest';
 import { bibtex, citation } from '../lib/cite';
 import { entitiesOf } from '../lib/files';
@@ -133,6 +135,8 @@ function CardView({ graph, route, media, embedded }: CardViewProps) {
   const checked = checksOf(event.id);
   const machine = machineOf(event.id);
   const foretold = predictionsOf(event.id);
+  const pledged = pledgesOf(event.id);
+  const corrected = correctionsOf(event.id);
   // Species-style: the one source the entry is based on, named up front.
   const basedOn = sources.find((s) => s.supports === 'claim') || sources[0] || null;
 
@@ -290,6 +294,20 @@ function CardView({ graph, route, media, embedded }: CardViewProps) {
         </Section>
       )}
 
+      {pledged.length > 0 && (
+        <Section id="promises-made" eyebrow="Promises made" title={pledged.length === 1 ? 'A promise this card bears on' : 'Promises this card bears on'}>
+          <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'flex', flexDirection: 'column', gap: 12 }}>
+            {pledged.map(({ pledge, note }) => (
+              <li key={pledge.id} style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                <span style={{ ...micro(4), letterSpacing: '0.12em' }}>{pledge.who} · {pledge.said.slice(0, 4)} · {PLEDGED[pledge.verdict].label}</span>
+                <Link to={{ view: 'promise', id: pledge.id }} className="ix-ref" style={{ font: '400 18px/1.3 ' + SERIF, color: INK }}>{pledge.title} →</Link>
+                <span style={{ font: '400 14px/1.5 ' + SERIF, color: ink(3), fontStyle: 'italic' }}>{note}</span>
+              </li>
+            ))}
+          </ul>
+        </Section>
+      )}
+
       {strings > 0 && (
         <Section id="strings" eyebrow="Connect the dots" title="What it came from, and what it led to" count={strings + (strings === 1 ? ' string' : ' strings')}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: 'clamp(16px,3vw,32px)' }}>
@@ -406,6 +424,12 @@ function CardView({ graph, route, media, embedded }: CardViewProps) {
             <p style={{ margin: embedded ? 0 : '0 0 20px', font: '400 11.5px/1.8 ' + MONO, color: ink(4), maxWidth: '72ch', textWrap: 'pretty' }}>
               Filed on the board on {dayOf(kept.filed)}{kept.changed !== kept.filed ? <>; last revised on {dayOf(kept.changed)}</> : null}.{' '}
               <Link to={{ view: 'latest', hash: 'changes' }} className="ix-ref" style={{ color: ink(2) }}>What changed lately →</Link>
+            </p>
+          )}
+          {corrected.length > 0 && (
+            <p style={{ margin: embedded ? '12px 0 0' : '0 0 20px', font: '400 11.5px/1.8 ' + MONO, color: ink(4), maxWidth: '72ch', textWrap: 'pretty' }}>
+              Corrected {corrected.length === 1 ? 'once' : corrected.length + ' times'}, most recently on {dayOf(corrected[0].date)}: {corrected[0].why}{' '}
+              <Link to={{ view: 'corrections' }} className="ix-ref" style={{ color: ink(2) }}>Every correction →</Link>
             </p>
           )}
           {!embedded && nav}

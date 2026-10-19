@@ -9,7 +9,8 @@
  *
  * Said in advance is checked the same way: each prediction's words against the
  * page they were said on, and every quote on what happened against its source
- * (data/predictions.json).
+ * (data/predictions.json). So are Promises made: each promise's words against
+ * the promiser's page, and every quote on what was done (data/promises.json).
  *
  * With --cards it checks the cards instead: every source in data/events.json
  * that carries a quote, against the page it cites, card by card. Ids named
@@ -26,13 +27,13 @@
  * with --via=wayback and every page is fetched from the Wayback Machine's
  * latest capture.
  *
- *   npm run check:quotes                     the headline checks and Said in advance
+ *   npm run check:quotes                     the headline checks, Said in advance and Promises made
  *   npm run check:quotes -- --cards          every card's quoted sources
  *   npm run check:quotes -- --cards <id> …   only the cards named
  *   npm run check:quotes -- --ci             exit 1 if a quote is missing or a page unread
  */
 import { readFile } from 'node:fs/promises';
-import type { Check, EventRaw, Prediction } from '../src/lib/types';
+import type { Check, EventRaw, Pledge, Prediction } from '../src/lib/types';
 import { Unread, parting, read } from './page-text';
 import type { Page } from './page-text';
 
@@ -97,10 +98,14 @@ if (cards) {
     }
   }
 } else {
-  const all = [...(await load<{ checks: Check[] }>('checks.json')).checks, ...(await load<{ predictions: Prediction[] }>('predictions.json')).predictions];
-  const kept = new Set(named(all, 'check or prediction'));
-  const checks = all.filter((r): r is Check => 'claims' in r && kept.has(r));
-  const predictions = all.filter((r): r is Prediction => 'evidence' in r && kept.has(r));
+  const checksAll = (await load<{ checks: Check[] }>('checks.json')).checks;
+  const predictionsAll = (await load<{ predictions: Prediction[] }>('predictions.json')).predictions;
+  const promisesAll = (await load<{ promises: Pledge[] }>('promises.json')).promises;
+  const kept = new Set<string>(named([...checksAll, ...predictionsAll, ...promisesAll], 'check, prediction or promise').map((r) => r.id));
+  const checks = checksAll.filter((c) => kept.has(c.id));
+  // A promise is quoted as a prediction is: its words, then what happened.
+  const predictions: { id: string; source: string; words: string; evidence: { source: string; quote: string }[]; sources: { id: string; publisher: string; url: string; date: string }[] }[] =
+    [...predictionsAll, ...promisesAll].filter((p) => kept.has(p.id));
   checks.forEach((c) => [c.reported, ...c.primary].forEach((s) => page(s.url)));
   predictions.forEach((p) => p.sources.forEach((s) => page(s.url)));
 

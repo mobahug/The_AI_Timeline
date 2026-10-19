@@ -18,6 +18,12 @@ declare module '*/data/predictions.json?heads' {
   export default heads;
 }
 
+/* Promises made, likewise: each promise's head only — see src/lib/pledges.ts. */
+declare module '*/data/promises.json?heads' {
+  const heads: import('./lib/types').PledgeHead[];
+  export default heads;
+}
+
 /* What changed on the board lately, dated from the git history at build time —
    see scripts/board-changes.ts. */
 declare module 'virtual:board-changes' {

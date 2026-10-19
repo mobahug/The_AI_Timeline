@@ -1,7 +1,7 @@
 import React, { Suspense, lazy, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { ComponentType } from 'react';
 import Header from './components/Header';
-import { RouteProvider } from './components/kit';
+import { Link, RouteProvider } from './components/kit';
 import ErrorBoundary from './components/ErrorBoundary';
 import Landing from './components/Landing';
 import Missing from './components/Missing';
@@ -197,6 +197,9 @@ export default function App({ initialRoute }: AppProps) {
   const MachinesView = pick(CHUNKS.machines);
   const PredictionsView = pick(CHUNKS.predictions);
   const PredictionView = pick(CHUNKS.prediction);
+  const PledgesView = pick(CHUNKS.promises);
+  const PledgeView = pick(CHUNKS.promise);
+  const CorrectionsView = pick(CHUNKS.corrections);
 
   return (
     <RouteProvider value={{ route, navigate }}>
@@ -253,6 +256,9 @@ export default function App({ initialRoute }: AppProps) {
           {view === 'machines' && <MachinesView graph={graph} />}
           {view === 'predictions' && <PredictionsView graph={graph} />}
           {view === 'prediction' && <PredictionView graph={graph} route={route} />}
+          {view === 'promises' && <PledgesView />}
+          {view === 'promise' && <PledgeView graph={graph} route={route} />}
+          {view === 'corrections' && <CorrectionsView graph={graph} />}
           </Suspense>
         </main>
       </ErrorBoundary>
@@ -268,6 +274,7 @@ export default function App({ initialRoute }: AppProps) {
             the date is a placeholder.
           </p>
           <p style={{ margin: 0, font: '400 11px/1.85 ' + SANS, color: ink(4), display: 'flex', gap: 14, flexWrap: 'wrap' }}>
+            <Link to={{ view: 'corrections' }}>Corrections</Link>
             <a href="https://github.com/mobahug/The_AI_Timeline">Source ↗</a>
             <a href="https://github.com/mobahug/The_AI_Timeline/blob/main/LICENSE">Licence ↗</a>
           </p>

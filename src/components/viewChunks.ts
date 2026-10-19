@@ -60,7 +60,10 @@ export const CHUNKS = {
   entity: chunk('src/components/EntityView.tsx', () => import('./EntityView')),
   machines: chunk('src/components/MachinesView.tsx', () => import('./MachinesView')),
   predictions: chunk('src/components/PredictionsView.tsx', () => import('./PredictionsView')),
-  prediction: chunk('src/components/PredictionView.tsx', () => import('./PredictionView'))
+  prediction: chunk('src/components/PredictionView.tsx', () => import('./PredictionView')),
+  promises: chunk('src/components/PledgesView.tsx', () => import('./PledgesView')),
+  promise: chunk('src/components/PledgeView.tsx', () => import('./PledgeView')),
+  corrections: chunk('src/components/CorrectionsView.tsx', () => import('./CorrectionsView'))
 };
 
 /** The views that share a chunk with another: the archive's three costumes, and the three kinds of file. */

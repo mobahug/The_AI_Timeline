@@ -4,6 +4,7 @@ import { PEOPLE, ORGS, TERMS, byUse, coOccurring, entityById, appearancesOf } fr
 import type { CoOccurrence } from '../lib/files';
 import { leadsOf } from '../lib/leads';
 import { FORETOLD, predictionsBy } from '../lib/predictions';
+import { PLEDGED, pledgesBy } from '../lib/pledges';
 import { INK, MONO, SANS, SERIF, RULE, ROW_RULE, badge, ink, micro, shell, pageTitle } from '../lib/styles';
 import { Btn, Claim, CopyLink, Eyebrow, Link, NavRow, Ref, Section } from './kit';
 import type { Edge, Entity, EntityKind, Graph, Lead, Route, ViewId } from '../lib/types';
@@ -43,6 +44,7 @@ function EntityView({ graph, route }: EntityViewProps) {
     return [...seen.values()].sort((a, b) => b.n - a.n);
   }, [cards]);
   const said = kind === 'person' && entity ? predictionsBy(entity.id) : [];
+  const promised = (kind === 'person' || kind === 'org') && entity ? pledgesBy(kind, entity.id) : [];
 
   if (!entity) {
     return (
@@ -194,6 +196,19 @@ function EntityView({ graph, route }: EntityViewProps) {
               <div key={p.id} style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
                 <span style={{ ...micro(4), letterSpacing: '0.12em' }}>{p.said.slice(0, 4)} · named {p.by} · {FORETOLD[p.verdict].label}</span>
                 <Link to={{ view: 'prediction', id: p.id }} className="ix-ref" style={{ font: '400 17px/1.3 ' + SERIF, color: INK }}>{p.title} →</Link>
+              </div>
+            ))}
+          </div>
+        </Section>
+      )}
+
+      {promised.length > 0 && (
+        <Section id="promises-made" eyebrow="Promises made" title="Promises on the record" count={promised.length + (promised.length === 1 ? ' promise' : ' promises')}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+            {promised.map((p) => (
+              <div key={p.id} style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                <span style={{ ...micro(4), letterSpacing: '0.12em' }}>{p.said.slice(0, 4)}{p.by ? ' · by ' + p.by : ''} · {PLEDGED[p.verdict].label}</span>
+                <Link to={{ view: 'promise', id: p.id }} className="ix-ref" style={{ font: '400 17px/1.3 ' + SERIF, color: INK }}>{p.title} →</Link>
               </div>
             ))}
           </div>

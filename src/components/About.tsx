@@ -103,12 +103,13 @@ function About() {
         <Section title="How it is kept">
           The board is the JSON in data/ — the entries, the strings, the leads, the files, the threads and the findings — and it is
           kept by its author. There is no editor on the site and no open contribution: the record is one reading, argued in one voice,
-          and corrected when it is wrong. A test suite checks ids, years, sources, link targets and that every scenario is labelled
-          before anything is published.
+          and corrected when it is wrong. Every correction of fact is listed in <Link to={{ view: 'corrections' }}>the corrections</Link>,
+          with what the card said, what it says now, the source that settled it and the change itself. A test suite checks ids,
+          years, sources, link targets and that every scenario is labelled before anything is published.
           What changes is listed, newest first, on <Link to={{ view: 'latest', hash: 'changes' }}>the latest page</Link> and in{' '}
-          <a href={BASE + 'feed.xml'} type="application/atom+xml">an Atom feed</a>: the cards, leads, plain questions and headline
-          checks most recently added or revised, each dated from the history of the data rather than by hand. Paste the feed's
-          address into any feed reader to hear when the board moves.
+          <a href={BASE + 'feed.xml'} type="application/atom+xml">an Atom feed</a>: the cards, leads, plain questions, headline
+          checks, predictions and promises most recently added or revised, each dated from the history of the data rather than by
+          hand. Paste the feed's address into any feed reader to hear when the board moves.
         </Section>
 
         <Section title="For a reader new to all this">

@@ -4,6 +4,7 @@ import { leadById } from './leads';
 import { questionById } from './questions';
 import { checkById, VERDICTS } from './checks';
 import { FORETOLD, predictionById } from './predictions';
+import { PLEDGED, pledgeById } from './pledges';
 import { entityById } from './files';
 import { paperOf } from './papers';
 import { viewById } from './views';
@@ -92,6 +93,10 @@ function describe(route: Route, graph?: Graph | null): { title: string; descript
   if (route.view === 'prediction' && route.id) {
     const p = predictionById[route.id];
     if (p) return { title: titled(p.title + ' · ' + FORETOLD[p.verdict].label, 'said in advance'), description: p.short };
+  }
+  if (route.view === 'promise' && route.id) {
+    const p = pledgeById[route.id];
+    if (p) return { title: titled(p.title + ' · ' + PLEDGED[p.verdict].label, 'a promise made'), description: p.short };
   }
   if ((route.view === 'person' || route.view === 'org' || route.view === 'term') && route.id) {
     const x = entityById(route.view, route.id);

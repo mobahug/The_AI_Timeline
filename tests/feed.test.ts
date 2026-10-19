@@ -15,7 +15,9 @@ const files = (cards: object[], leads: object[] = [], questions: object[] | null
   card: JSON.stringify(cards),
   lead: JSON.stringify({ leads }),
   question: questions === null ? null : JSON.stringify({ questions }),
-  check: checks === null ? null : JSON.stringify({ checks })
+  check: checks === null ? null : JSON.stringify({ checks }),
+  prediction: null,
+  promise: null
 });
 const card = (id: string, summary = 'As first written.') => ({ id, year: 1966, title: 'Card ' + id, summary });
 
@@ -58,7 +60,9 @@ describe('the feed', () => {
         card: JSON.stringify([card('a'), card('b'), card('unsaved')]),
         lead: JSON.stringify({ leads: [{ id: 'l', title: 'A lead', blurb: 'Rung by rung.' }] }),
         question: JSON.stringify({ questions: [{ id: 'q', question: 'Why?', short: 'Because.' }] }),
-        check: JSON.stringify({ checks: [{ id: 'h', title: 'Did it?', short: 'Not quite.' }] })
+        check: JSON.stringify({ checks: [{ id: 'h', title: 'Did it?', short: 'Not quite.' }] }),
+        prediction: '{"predictions":[]}',
+        promise: '{"promises":[]}'
       })
     ];
     const entries = feedEntries(items, dated);
@@ -69,7 +73,7 @@ describe('the feed', () => {
   });
 
   it('says whether an entry is new or what changed, and when', () => {
-    const [h, q, b] = feedEntries(itemsOf({ card: JSON.stringify([card('b')]), lead: '{"leads":[]}', question: JSON.stringify({ questions: [{ id: 'q', question: 'Why?', short: 'Because.' }] }), check: JSON.stringify({ checks: [{ id: 'h', title: 'Did it?', short: 'Not quite.' }] }) }), dated);
+    const [h, q, b] = feedEntries(itemsOf({ card: JSON.stringify([card('b')]), lead: '{"leads":[]}', question: JSON.stringify({ questions: [{ id: 'q', question: 'Why?', short: 'Because.' }] }), check: JSON.stringify({ checks: [{ id: 'h', title: 'Did it?', short: 'Not quite.' }] }), prediction: '{"predictions":[]}', promise: '{"promises":[]}' }), dated);
     expect(noteOf(h)).toBe('A new headline check, added on 6 October 2026.');
     expect(noteOf(q)).toBe('A new plain question, added on 5 October 2026.');
     expect(noteOf(b)).toBe('Revised on 4 October 2026: Card b says what its source says. On the board since 1 October 2026.');

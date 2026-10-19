@@ -39,6 +39,7 @@ const leads = JSON.parse(await readFile(join(root, 'data', 'leads.json'), 'utf8'
 const questions = JSON.parse(await readFile(join(root, 'data', 'questions.json'), 'utf8')).questions as Question[];
 const checks = JSON.parse(await readFile(join(root, 'data', 'checks.json'), 'utf8')).checks as Check[];
 const predictions = JSON.parse(await readFile(join(root, 'data', 'predictions.json'), 'utf8')).predictions as Prediction[];
+const promises = JSON.parse(await readFile(join(root, 'data', 'promises.json'), 'utf8')).promises as { id: string }[];
 const people = JSON.parse(await readFile(join(root, 'data', 'people.json'), 'utf8')).people as Person[];
 const orgs = JSON.parse(await readFile(join(root, 'data', 'orgs.json'), 'utf8')).orgs as Org[];
 const terms = JSON.parse(await readFile(join(root, 'data', 'glossary.json'), 'utf8')).terms as Term[];
@@ -63,7 +64,7 @@ const esc = (s: unknown): string => String(s || '').replace(/&/g, '&amp;').repla
 const enc = (s: string | null): string => encodeURIComponent(s as string);
 
 /** Every address the site has, as paths under the base (src/lib/pages.ts). */
-const routes: string[] = pages({ findings: spine.findings, events, leads, questions, checks, predictions, people, orgs, terms }).map((p) => p.path);
+const routes: string[] = pages({ findings: spine.findings, events, leads, questions, checks, predictions, promises, people, orgs, terms }).map((p) => p.path);
 
 /** Structured data for a route, as JSON-LD. Only what the page states. */
 function jsonLd(route: Route, meta: PageMeta, url: string, image: string): Record<string, unknown>[] {

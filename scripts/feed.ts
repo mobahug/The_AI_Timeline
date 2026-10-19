@@ -22,18 +22,20 @@ export const FEED_FILE = 'feed.xml';
 /** Entries in the feed: enough to cover a few weeks of work, few enough to read. */
 export const FEED_SIZE = 50;
 
-export type FeedKind = 'card' | 'lead' | 'question' | 'check';
+export type FeedKind = 'card' | 'lead' | 'question' | 'check' | 'prediction' | 'promise';
 /** The files the feed reads, by kind, and the key their records sit under
  *  (`null`: the file is the array itself). */
 export const FEED_FILES: Record<FeedKind, { path: string; key: string | null }> = {
   card: { path: 'data/events.json', key: null },
   lead: { path: 'data/leads.json', key: 'leads' },
   question: { path: 'data/questions.json', key: 'questions' },
-  check: { path: 'data/checks.json', key: 'checks' }
+  check: { path: 'data/checks.json', key: 'checks' },
+  prediction: { path: 'data/predictions.json', key: 'predictions' },
+  promise: { path: 'data/promises.json', key: 'promises' }
 };
 const KINDS = Object.keys(FEED_FILES) as FeedKind[];
-/** Within one commit, the questions first, then the checks, the leads, the cards. */
-const RANK: Record<FeedKind, number> = { question: 0, check: 1, lead: 2, card: 3 };
+/** Within one commit, the questions first, then the checks, the promises, the predictions, the leads, the cards. */
+const RANK: Record<FeedKind, number> = { question: 0, check: 1, promise: 2, prediction: 3, lead: 4, card: 5 };
 
 export interface Commit { sha: string; date: string; subject: string }
 /** One commit's copy of the data: the text of each file, or null where the
@@ -100,6 +102,12 @@ export function itemsOf(files: Record<FeedKind, string>): Item[] {
   for (const r of recordsOf('check', files.check) as { id: string; title: string; short: string }[]) {
     out.push({ kind: 'check', id: r.id, title: r.title, summary: r.short });
   }
+  for (const r of recordsOf('promise', files.promise) as { id: string; title: string; short: string }[]) {
+    out.push({ kind: 'promise', id: r.id, title: r.title, summary: r.short });
+  }
+  for (const r of recordsOf('prediction', files.prediction) as { id: string; title: string; short: string }[]) {
+    out.push({ kind: 'prediction', id: r.id, title: r.title, summary: r.short });
+  }
   for (const r of recordsOf('lead', files.lead) as { id: string; title: string; blurb: string }[]) {
     out.push({ kind: 'lead', id: r.id, title: r.title, summary: r.blurb });
   }
@@ -120,7 +128,7 @@ export const dayOf = (date: string): string => {
   return d + ' ' + MONTHS[m - 1] + ' ' + y;
 };
 
-const NOUN: Record<FeedKind, string> = { card: 'card', lead: 'lead', question: 'plain question', check: 'headline check' };
+const NOUN: Record<FeedKind, string> = { card: 'card', lead: 'lead', question: 'plain question', check: 'headline check', prediction: 'prediction', promise: 'promise' };
 /** The line under an entry's summary: new, or what changed and when. */
 export const noteOf = (e: Entry): string =>
   e.added.sha === e.changed.sha
@@ -147,7 +155,7 @@ export function atom(entries: Entry[]): string {
     + '<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">\n'
     + '  <id>' + ORIGIN + FEED_FILE + '</id>\n'
     + '  <title>The AI Timeline — what is new</title>\n'
-    + '  <subtitle>New and revised cards, leads, plain questions and headline checks on the investigation board, newest first.</subtitle>\n'
+    + '  <subtitle>New and revised cards, leads, plain questions, headline checks, predictions and promises on the investigation board, newest first.</subtitle>\n'
     + '  <link rel="self" type="application/atom+xml" href="' + ORIGIN + FEED_FILE + '"/>\n'
     + '  <link rel="alternate" type="text/html" href="' + ORIGIN + '"/>\n'
     + '  <author><name>The AI Timeline</name><uri>' + ORIGIN + '</uri></author>\n'
@@ -202,7 +210,7 @@ export function readHistory(root: string): Snapshot[] {
    the tests three more. The dates are a function of HEAD alone, so they are
    kept by HEAD's sha in node_modules/.cache and read back; any new commit is
    a new HEAD, and the next reader dates afresh. */
-const HISTORY_CACHE = 'board-history-v1';
+const HISTORY_CACHE = 'board-history-v2';
 const datedMemo = new Map<string, Map<string, Dated>>();
 
 /** Every record's dates, as `dateRecords(readHistory(root))`, read once per HEAD. */

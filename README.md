@@ -53,6 +53,8 @@ verbs. The switch is in the header; `?mode=full` on any link opens the whole fil
 | Headline checks | `/checks/`, `/check/<id>/` | A widely reported line set beside the primary account, both quoted |
 | Said in advance | `/predictions/`, `/prediction/<id>/` | Famous predictions about AI, each quoted from where it was made, with the year it named and what happened; and the board's own scenarios the record has overtaken in part |
 | Run the original | `/machines/`, `/card/<id>/#machine` | Programs from the record rebuilt from their own papers and run on their cards: ELIZA (1965 DOCTOR script), MENACE, Shannon's approximations to English, the perceptron |
+| Promises made | `/promises/`, `/promise/<id>/` | Promises that labs, companies and governments made in public about AI, each in their own words, set beside what the record shows they did |
+| Corrections | `/corrections/` | Every fact the board has corrected in its own record: what a card said, what it says now, why, the source that settled it, and the commit |
 
 Every chart is HTML laid out in percentages, so it is prerendered like any page and keeps
 the site's own type sizes on a phone. One Tab reaches a plot and the arrow keys walk its
@@ -111,6 +113,9 @@ count, not a year.
   the year it named, a verdict, what happened (quoted) and the cards it bears on
 - `data/machines.json` — the machines: which card each runs on, what is as it was and what is
   not, and the papers it was rebuilt from (the programs are in `src/lib/machines/`)
+- `data/promises.json` — Promises made: commitments quoted in the promiser's own words, each with a verdict, what
+  was done (quoted) and the cards it bears on
+- `data/corrections.json` — every change of fact the board has made to its record, dated by its commit
 - `data/watch.json` — the dates the record already knows are coming and the questions it is
   waiting on, each quoted word for word from the card that sources it
 

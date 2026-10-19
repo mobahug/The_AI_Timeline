@@ -4,6 +4,8 @@ import { AS_OF, dayText } from './data';
 import { leadById } from './leads';
 import { questionById } from './questions';
 import { checkById } from './checks';
+import { predictionById } from './predictions';
+import { pledgeById } from './pledges';
 import type { Change, ChangeKind, Event, Graph, RoutePatch, Watch } from './types';
 
 /* The latest: what happened most recently on the record, what the record
@@ -77,7 +79,7 @@ export function keptOf(kind: ChangeKind, id: string): { filed: string; changed: 
 
 export interface Changed extends Change { title: string; to: RoutePatch; noun: string; isNew: boolean }
 
-const NOUN: Record<ChangeKind, string> = { card: 'Card', lead: 'Lead', question: 'Plain question', check: 'Headline check' };
+const NOUN: Record<ChangeKind, string> = { card: 'Card', lead: 'Lead', question: 'Plain question', check: 'Headline check', prediction: 'Prediction', promise: 'Promise' };
 
 /** The day a commit was made, as the board writes dates: `15 Oct 2026`. */
 export const dayOf = dayText;
@@ -91,7 +93,9 @@ export function changes(graph: Graph, list: Change[] = CHANGES): Changed[] {
       c.kind === 'card' ? graph.index[c.id] && graph.index[c.id].title
       : c.kind === 'lead' ? leadById[c.id] && leadById[c.id].title
       : c.kind === 'question' ? questionById[c.id] && questionById[c.id].question
-      : checkById[c.id] && checkById[c.id].title;
+      : c.kind === 'check' ? checkById[c.id] && checkById[c.id].title
+      : c.kind === 'prediction' ? predictionById[c.id] && predictionById[c.id].title
+      : pledgeById[c.id] && pledgeById[c.id].title;
     if (!title) continue;
     out.push({ ...c, title, noun: NOUN[c.kind], isNew: !c.subject, to: { view: c.kind, id: c.id } });
   }

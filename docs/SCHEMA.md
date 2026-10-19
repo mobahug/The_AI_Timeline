@@ -148,6 +148,59 @@ Verdicts: **kept** — it happened by the year it named; **early** — it happen
 something would not happen, and it did; **disputed** — accounts on the record differ on whether it has
 happened; **open** — the year has not come. A verdict is about the words, not the person.
 
+## `data/promises.json`
+
+`promises` — Promises made: commitments that laboratories, companies and governments made in public about AI,
+each at `/promise/<id>/` and listed at `/promises/`, oldest first. A promise is filed when a named organisation or
+person made it, its words can be quoted from the promiser's own text, and a card on the board bears on it.
+
+| Field | Type | Required | Notes |
+| --- | --- | --- | --- |
+| `id` | string | yes | kebab-case, unique, stable |
+| `title` | string | yes | what was promised, in the board's words; never dressed as a quotation |
+| `who` | string | yes | as the source names them |
+| `people` / `orgs` | string[] | yes | ids from the files, possibly none; the promise is listed on each one's file |
+| `said` | `YYYY-MM-DD` | yes | when the quoted words were given |
+| `words` | string | yes | the promise, verbatim, from the source named by `source` |
+| `source` | string | yes | the id of the source the words come from |
+| `by` | string | no | `YYYY` or `YYYY-MM-DD`: the deadline it named, if it named one |
+| `byWords` | string | no | the words inside `words` that set the deadline |
+| `verdict` | string | yes | `kept`, `partly`, `broken`, `dropped`, `disputed` or `open` (below) |
+| `settled` | `YYYY-MM-DD` | no | when the record settled it; absent while it is open |
+| `short` | string | yes | the verdict in one or two sentences, ≤ 260 characters |
+| `reading` | string[] | yes | the verdict at length; claims nothing its quotes and cards do not say |
+| `evidence` | `{source, quote}[]` | yes | what was done, each `quote` verbatim from the source named by `source` |
+| `sources` | `{id, kind, publisher, title, url, date}[]` | yes | every source is used, one url each |
+| `record` | `{event, note}[]` | yes | the cards it bears on, at least one on the record; a card lists the promises that rest on it |
+| `open` | string | yes | what the record does not settle |
+| `checked` | `YYYY-MM-DD` | yes | the day every quote was last matched against its page |
+| `leads` | string[] | yes | ids from `leads.json`, possibly none |
+
+Verdicts: **kept** — done on its own terms, and by its date if it named one; **partly** — some of it done, by
+the record; **broken** — its date passed undone, or the promiser did otherwise; **dropped** (shown as
+*Rewritten*) — the promiser rewrote it or took it back, in public; **disputed** — accounts on the record differ;
+**open** — not yet due, or not yet settled. A verdict is about the words, not the people. `npm run check:quotes`
+matches every promise's words and evidence against their pages, as it does predictions'.
+
+## `data/corrections.json`
+
+`corrections` — every change of fact the board has made to its own record, at `/corrections/`, newest first, and
+at the foot of each card it touched. Wording that changed without a fact changing is not listed, nor a quote
+matched to its page's own marks. `note` is the sentence the page prints about how the register is kept.
+
+| Field | Type | Required | Notes |
+| --- | --- | --- | --- |
+| `id` | string | yes | kebab-case, unique |
+| `date` | `YYYY-MM-DD` | yes | the day of the commit that made the change (`npm test` checks it against git) |
+| `commit` | string | yes | that commit's short sha; the page links the change itself |
+| `event` | string | see note | the card corrected; or `where` instead |
+| `where` | `{file, id}` | see note | for a correction outside a card: a lead (`data/leads.json`), a string (`from>to` in `data/links.json`), a file or a glossary term |
+| `kind` | string | yes | `fact`, `date`, `figure`, `attribution`, `framing` or `citation` |
+| `was` / `now` | string | yes | the record's words before and after, verbatim, trimmed to the sentence |
+| `why` | string | yes | what showed it was wrong, naming the source that settled it |
+| `source` | `{publisher, title, url}` | no | that source, as the card cites it |
+| `alsoIn` | `{file, id}[]` | no | the same error, fixed in the same commit, elsewhere in `data/` |
+
 ## `data/machines.json`
 
 `machines` — programs from the record rebuilt to run in the browser from their own papers, each run

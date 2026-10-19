@@ -220,6 +220,63 @@ export interface Prediction {
  *  own pages (src/lib/predictions.ts). */
 export type PredictionHead = Pick<Prediction, 'id' | 'title' | 'who' | 'people' | 'said' | 'by' | 'verdict' | 'came' | 'short' | 'record'>;
 
+/** Promises made (data/promises.json): a commitment a lab, a company or a
+ *  government made in public, in words that can be quoted, set beside what the
+ *  record shows it did. A verdict is about the words, not the people. */
+export type PledgeVerdict = 'kept' | 'partly' | 'broken' | 'dropped' | 'disputed' | 'open';
+export interface Pledge {
+  id: string;
+  /** What was promised, in the board's words; never dressed as a quotation. */
+  title: string;
+  who: string;
+  people: string[];
+  orgs: string[];
+  /** When it was said, `YYYY-MM-DD`. */
+  said: string;
+  /** The promise, verbatim, from the source named by `source`. */
+  words: string;
+  source: string;
+  /** The deadline it named, if it named one: `YYYY` or `YYYY-MM-DD`. */
+  by?: string;
+  /** The words inside `words` that set the deadline. */
+  byWords?: string;
+  verdict: PledgeVerdict;
+  /** When the record settled it, `YYYY-MM-DD`; absent while it is open. */
+  settled?: string;
+  short: string;
+  reading: string[];
+  evidence: { source: string; quote: string }[];
+  sources: PredictionSource[];
+  record: QuestionRecord[];
+  open: string;
+  checked: string;
+  leads: string[];
+}
+/** What every page may know of a promise: enough to list it and say how it
+ *  stands. Its words, its reading and its sources are its own pages'. */
+export type PledgeHead = Pick<Pledge, 'id' | 'title' | 'who' | 'people' | 'orgs' | 'said' | 'by' | 'verdict' | 'settled' | 'short' | 'record'>;
+
+/** Corrections (data/corrections.json): a change of fact the board made to
+ *  its own record, dated by the commit that made it. */
+export type CorrectionKind = 'fact' | 'date' | 'figure' | 'attribution' | 'framing' | 'citation';
+export interface Correction {
+  id: string;
+  /** The day of the commit that made it, `YYYY-MM-DD`. */
+  date: string;
+  commit: string;
+  /** The card it corrected; or `where`, for a lead's rung, a string or a bio. */
+  event?: string;
+  where?: { file: string; id: string };
+  kind: CorrectionKind;
+  /** What the record said, verbatim, and what it says now. */
+  was: string;
+  now: string;
+  why: string;
+  source?: { publisher: string; title: string; url: string };
+  /** The same error, fixed in the same commit, elsewhere in data/. */
+  alsoIn?: { file: string; id: string }[];
+}
+
 /** A program from the record rebuilt to run in the browser from its original
  *  papers (data/machines.json), run on its card. `kept` says what is as it was,
  *  `changed` what is not. */
@@ -249,7 +306,7 @@ export interface Watch { id: string; date?: string; what: string; event: string;
 
 /** A record the board's history dates (virtual:board-changes): when it was
  *  added and when it last changed, from the commits that did it. */
-export type ChangeKind = 'card' | 'lead' | 'question' | 'check';
+export type ChangeKind = 'card' | 'lead' | 'question' | 'check' | 'prediction' | 'promise';
 export interface Change { kind: ChangeKind; id: string; added: string; changed: string; subject: string }
 
 export interface Person { id: string; name: string; aka?: string[]; role: string; bio: string }
@@ -269,7 +326,7 @@ export type Mode = 'brief' | 'full';
 export type ViewId =
   | 'landing' | 'line' | 'finding' | 'case' | 'horizon' | 'board' | 'card'
   | 'leads' | 'lead' | 'questions' | 'question' | 'checks' | 'check' | 'archive' | 'plates' | 'mosaic' | 'files' | 'person' | 'org' | 'glossary' | 'term' | 'about'
-  | 'start' | 'latest' | 'charts' | 'machines' | 'predictions' | 'prediction';
+  | 'start' | 'latest' | 'charts' | 'machines' | 'predictions' | 'prediction' | 'promises' | 'promise' | 'corrections';
 
 /** The board's geometry for one window, from layout.ts. */
 export interface Metrics {

@@ -1,0 +1,1244 @@
+{
+  "note": "Drawn from the board's own history, this register lists every change of fact the board has made to its record, dated by the commit that made it, and not every change of wording.",
+  "corrections": [
+    {
+      "id": "incident-guidance-three-agencies",
+      "date": "2026-10-19",
+      "commit": "307d0c6",
+      "event": "washington-says-reporting-incidents-is-not-optional",
+      "kind": "attribution",
+      "was": "The next day NIST, the government's standards institute, published key practices for readiness and response to incidents in training and evaluation, in a document it calls voluntary.",
+      "now": "The next day three agencies — NIST's centre for super-intelligence standards, the NSA's Super Intelligence Security Center and CISA — published key practices for readiness and response to incidents in training and evaluation, in a document they call voluntary.",
+      "why": "The incident guidance of 16 October came from three agencies, not from NIST alone: NIST's centre for super-intelligence standards published it with the NSA's Super Intelligence Security Center and CISA.",
+      "source": {
+        "publisher": "NIST, with the NSA and CISA",
+        "title": "Key Practices for Incident Readiness and Response in Super Intelligence Training and Evaluation",
+        "url": "https://www.nist.gov/news-events/news/2026/10/key-practices-incident-readiness-and-response-super-intelligence-training"
+      }
+    },
+    {
+      "id": "incident-definition-in-print",
+      "date": "2026-10-19",
+      "commit": "307d0c6",
+      "event": "washington-says-reporting-incidents-is-not-optional",
+      "kind": "fact",
+      "was": "The demand to report, though, rests so far on a statement, with the definition of an incident still to come.",
+      "now": "The demand to report, though, rests so far on a statement, with the task force's definition of an incident still to come and the only one in print voluntary.",
+      "why": "The same guidance defines an incident of its own, one in which agents take significant uninstructed actions that compromise the controls an operator set, so a definition was not still to come. The task force's is, and the only one in print is voluntary.",
+      "source": {
+        "publisher": "NIST CAISSI, NSA SISC and CISA",
+        "title": "Key Practices for Incident Readiness and Response in Super Intelligence Training and Evaluation (the document)",
+        "url": "https://www.nist.gov/document/keypracticesforincidentreadinessandresponseinsuperintelligence-trainingandevaluation"
+      },
+      "alsoIn": [
+        {
+          "file": "data/watch.json",
+          "id": "what-counts-as-an-incident"
+        }
+      ]
+    },
+    {
+      "id": "flattery-rollback-began-28-april",
+      "date": "2026-10-19",
+      "commit": "307d0c6",
+      "event": "chatgpt-is-rolled-back-for-flattery",
+      "kind": "date",
+      "was": "Tuesday 29 April 2025",
+      "now": "from Monday 28 April 2025, announced the next day",
+      "why": "OpenAI's post of 2 May 2025 says it began rolling the update back on 28 April, the day before it announced the rollback. The summary now says within four days of shipping, not four days after.",
+      "source": {
+        "publisher": "OpenAI",
+        "title": "Expanding on what we missed with sycophancy",
+        "url": "https://openai.com/index/expanding-on-sycophancy/"
+      }
+    },
+    {
+      "id": "adams-law-sycophancy-from-the-bill",
+      "date": "2026-10-19",
+      "commit": "307d0c6",
+      "event": "california-writes-sycophancy-into-law",
+      "kind": "citation",
+      "was": "Common Sense Media noted that it also requires protocols addressing sycophancy and isolation, with in-app crisis referrals.",
+      "now": "The bill as amended in June, which the Assembly's privacy committee analysed in July, required measures to stop a companion chatbot giving a child excessively sycophantic responses, and defined a sycophantic one as validating a user's preferences or desires for the primary purpose or effect of optimising engagement.",
+      "why": "The card's word sycophancy rested on Common Sense Media's account of the law, not on the law's own text. It now rests on the bill's definition, from the Assembly privacy committee's analysis of the June text, and on Senator Padilla's release of the day of signing; Common Sense Media stays as context.",
+      "source": {
+        "publisher": "California State Assembly, Committee on Privacy and Consumer Protection",
+        "title": "SB 1119 (Padilla), as amended June 25, 2026: analysis for the hearing of July 1, 2026",
+        "url": "https://apcp.assembly.ca.gov/media/1209"
+      }
+    },
+    {
+      "id": "hinton-quote-joined-two-passages",
+      "date": "2026-10-19",
+      "commit": "aea872c",
+      "event": "hinton-leaves-google",
+      "kind": "citation",
+      "was": "I'm mildly depressed. Which is why I'm scared.",
+      "now": "I want to talk about AI safety issues without having to worry about how it interacts with Google’s business",
+      "why": "The quote joined two passages that MIT Technology Review's page keeps apart, so it was not on the page as quoted. The source now quotes Hinton's reason for leaving, which is what the card's summary says.",
+      "source": {
+        "publisher": "MIT Technology Review",
+        "title": "Geoffrey Hinton tells us why he is now scared of the tech he helped build",
+        "url": "https://www.technologyreview.com/2023/05/02/1072528/geoffrey-hinton-google-why-scared-ai/"
+      }
+    },
+    {
+      "id": "conway-quote-from-the-page",
+      "date": "2026-10-19",
+      "commit": "aea872c",
+      "event": "character-ai-is-sued-over-a-boy-s-death",
+      "kind": "citation",
+      "was": "Conway said she's \"not prepared\" to hold that the chatbots' output constitutes speech \"at this stage.\"",
+      "now": "U.S. Senior District Judge Anne Conway rejected some of the defendants' free speech claims, saying she's “not prepared” to hold that the chatbots' output constitutes speech “at this stage.”",
+      "why": "The AP quote opened with words that are not on the page it cites. It now quotes the page's own sentence, whole and with the page's quotation marks.",
+      "source": {
+        "publisher": "AP (WUFT)",
+        "title": "In lawsuit over teen's death, judge rejects arguments that AI chatbots have free speech rights",
+        "url": "https://www.wuft.org/technology/2025-05-23/in-lawsuit-over-teens-death-judge-rejects-arguments-that-ai-chatbots-have-free-speech-rights"
+      }
+    },
+    {
+      "id": "dartmouth-proposal-quote-from-the-pdf",
+      "date": "2026-10-19",
+      "commit": "aea872c",
+      "event": "dartmouth-names-the-field",
+      "kind": "citation",
+      "was": "https://ojs.aaai.org/aimagazine/index.php/aimagazine/article/view/1904",
+      "now": "https://ojs.aaai.org/aimagazine/index.php/aimagazine/article/download/1904/1802",
+      "why": "AI Magazine's page for the 1955 proposal carries only an abstract, not the sentence the card quotes. The source now cites the article's PDF, and the quote stops before a word the PDF breaks across a line.",
+      "source": {
+        "publisher": "AI Magazine (reprint of the 1955 proposal)",
+        "title": "A Proposal for the Dartmouth Summer Research Project on Artificial Intelligence",
+        "url": "https://ojs.aaai.org/aimagazine/index.php/aimagazine/article/download/1904/1802"
+      }
+    },
+    {
+      "id": "eliza-paper-from-a-scan",
+      "date": "2026-10-19",
+      "commit": "aea872c",
+      "event": "eliza",
+      "kind": "citation",
+      "was": "https://dl.acm.org/doi/10.1145/365153.365168",
+      "now": "https://cse.buffalo.edu/~rapaport/572/S02/weizenbaum.eliza.1966.pdf",
+      "why": "The ACM page refuses scripts and holds no text of the 1966 paper, so the quote could not be checked there. The source now cites the ACM scan hosted by the University at Buffalo, and quotes a sentence the scan's text keeps whole.",
+      "source": {
+        "publisher": "Communications of the ACM (scan, University at Buffalo)",
+        "title": "ELIZA — A Computer Program for the Study of Natural Language Communication Between Man and Machine",
+        "url": "https://cse.buffalo.edu/~rapaport/572/S02/weizenbaum.eliza.1966.pdf"
+      }
+    },
+    {
+      "id": "hinton-nobel-interview-transcript",
+      "date": "2026-10-19",
+      "commit": "aea872c",
+      "event": "nobel-prizes-for-neural-networks",
+      "kind": "citation",
+      "was": "https://www.nobelprize.org/prizes/physics/2024/hinton/interview/",
+      "now": "https://www.nobelprize.org/prizes/physics/2024/hinton/1925103-interview-transcript/",
+      "why": "Hinton's words are on the interview's transcript page, not on the page the source cited. The quote and its timestamp are unchanged.",
+      "source": {
+        "publisher": "Nobel Prize Outreach",
+        "title": "Transcript from an interview with Geoffrey Hinton",
+        "url": "https://www.nobelprize.org/prizes/physics/2024/hinton/1925103-interview-transcript/"
+      }
+    },
+    {
+      "id": "deepseek-v3-cost-sentence-full-text",
+      "date": "2026-10-19",
+      "commit": "aea872c",
+      "event": "deepseek-r1-resets-the-price-of-reasoning",
+      "kind": "citation",
+      "was": "https://arxiv.org/abs/2412.19437",
+      "now": "https://arxiv.org/html/2412.19437v1",
+      "why": "The sentence on what the $5.6 million covers is in the DeepSeek-V3 report's full text, not in the abstract the source cited. The source now cites the report's first version in HTML, dated 27 December 2024 as the source is.",
+      "source": {
+        "publisher": "arXiv",
+        "title": "DeepSeek-V3 Technical Report (first version)",
+        "url": "https://arxiv.org/html/2412.19437v1"
+      }
+    },
+    {
+      "id": "erdos-90-archived-wording",
+      "date": "2026-10-19",
+      "commit": "6dc30bc",
+      "event": "the-erdos-problems",
+      "kind": "citation",
+      "was": "https://www.erdosproblems.com/90",
+      "now": "https://web.archive.org/web/20261011082230/https://www.erdosproblems.com/90",
+      "why": "The problem's page was reworded on 16 October 2026 and no longer names OpenAI in its text, so it stopped carrying the quote. The source now cites the Wayback Machine's capture of 11 October, the last before the edit, which keeps the wording of 20 May the card rests on; the card itself is unchanged.",
+      "source": {
+        "publisher": "Erdős problems (Wayback Machine capture)",
+        "title": "Problem 90",
+        "url": "https://web.archive.org/web/20261011082230/https://www.erdosproblems.com/90"
+      }
+    },
+    {
+      "id": "eight-states-arkansas-names-utah",
+      "date": "2026-10-18",
+      "commit": "35be7b5",
+      "event": "eight-states-sue-openai",
+      "kind": "framing",
+      "was": "On 14 October 2026 the attorneys general of Arizona, Arkansas, Idaho, Iowa, Kansas, Montana, Nebraska and West Virginia sued OpenAI, each in their own state's courts and under their own state's consumer-protection law; four of them, from Iowa, Kansas, Nebraska and West Virginia, announced their suits together at one press conference.",
+      "now": "Arkansas's announcement names Utah as well; Utah's attorney general had announced no suit by 18 October, and every other state's account counts eight.",
+      "why": "Arkansas's release of 14 October names Utah among the states that sued that day, which would make nine; every other state's account counts eight, and Utah had announced no suit by 18 October. A ninth state needs Utah's own account, so the card keeps eight and now carries both readings.",
+      "source": {
+        "publisher": "Arkansas Attorney General",
+        "title": "Attorney General Griffin Sues OpenAI for Misleading Arkansans over Safety of ChatGPT",
+        "url": "https://arkansasag.gov/news-release/attorney-general-griffin-sues-openai-for-misleading-arkansans-over-safety-of-chatgpt/"
+      }
+    },
+    {
+      "id": "ai-act-glossary-stages",
+      "date": "2026-10-17",
+      "commit": "bffaade",
+      "where": {
+        "file": "data/glossary.json",
+        "id": "ai-act"
+      },
+      "kind": "date",
+      "was": "Proposed in 2021, adopted in 2024, with general-purpose model duties applying from 2026.",
+      "now": "Proposed in 2021 and adopted in 2024, it switches on in stages: duties for the makers of general-purpose models from August 2025, the power to enforce them from August 2026, and the rules for high-risk uses from December 2027.",
+      "why": "The entry still gave 2026 for the general-purpose model duties after the AI Act card was corrected on 11 October. The duties have applied since August 2025 and became enforceable in August 2026, and the entry now gives the stages as the card does.",
+      "source": {
+        "publisher": "European Commission",
+        "title": "EU rules on general-purpose AI models start to apply, bringing more transparency, safety and accountability",
+        "url": "https://digital-strategy.ec.europa.eu/en/news/eu-rules-general-purpose-ai-models-start-apply-bringing-more-transparency-safety-and-accountability"
+      }
+    },
+    {
+      "id": "turing-1936-decision-problem",
+      "date": "2026-10-12",
+      "commit": "ef0b350",
+      "event": "on-computable-numbers",
+      "kind": "fact",
+      "was": "Turing defines a universal machine and proves the halting problem undecidable.",
+      "now": "Turing defines a universal machine and proves that Hilbert's decision problem has no solution: some questions no procedure can settle.",
+      "why": "What the paper proves undecidable is not quite the halting problem, as the Stanford Encyclopedia of Philosophy notes, and the answer it gives is to Hilbert's decision problem, the Entscheidungsproblem of its title.",
+      "source": {
+        "publisher": "Stanford Encyclopedia of Philosophy",
+        "title": "Turing Machines",
+        "url": "https://plato.stanford.edu/entries/turing-machine/"
+      }
+    },
+    {
+      "id": "turing-1936-in-print-in-1936",
+      "date": "2026-10-12",
+      "commit": "ef0b350",
+      "event": "on-computable-numbers",
+      "kind": "date",
+      "was": "28 May 1936; published 1937",
+      "now": "23 November and 23 December 1936, in two parts of a volume dated 1937",
+      "why": "The paper came out in 1936, in two parts on 23 November and 23 December, as Andrew Hodges records; 1937 is the date on the volume. The card now gives 28 May 1936 as the day it was received.",
+      "source": {
+        "publisher": "Andrew Hodges (turing.org.uk)",
+        "title": "Alan Turing's Scientific Papers: Mathematical Logic",
+        "url": "https://www.turing.org.uk/sources/biblio4.html"
+      }
+    },
+    {
+      "id": "turing-1936-twelve-years-to-the-machine",
+      "date": "2026-10-12",
+      "commit": "ef0b350",
+      "event": "on-computable-numbers",
+      "kind": "figure",
+      "was": "That second idea is the stored-program computer, nine years before one was built.",
+      "now": "From 1945 Turing tried to build the universal machine in electronics, and the first stored-program computer ran in Manchester on 21 June 1948.",
+      "why": "The first stored-program computer ran in Manchester on 21 June 1948, twelve years after the paper, not nine. Nine years is how long the universal machine stayed on paper before Turing set out to build it."
+    },
+    {
+      "id": "logic-theorist-one-of-two-programs",
+      "date": "2026-10-12",
+      "commit": "ef0b350",
+      "event": "logic-theorist",
+      "kind": "fact",
+      "was": "Logic Theorist was demonstrated at the Dartmouth workshop the same summer the field was named, and it was the only working program in the room.",
+      "now": "Logic Theorist was reported at the Dartmouth workshop the same summer the field was named — with Samuel's checkers player, one of only two programs there with results to show.",
+      "why": "McCarthy's own account of 1987 names two programs with results at the workshop: Newell, Simon and Shaw's Logic Theory Machine and Arthur Samuel's checkers learner. The Dartmouth card and the string between the two cards now say so too.",
+      "source": {
+        "publisher": "John McCarthy (SAILDART archive)",
+        "title": "The Dartmouth Conference",
+        "url": "https://www.saildart.org/DARTMO.TEX[S87,JMC]2"
+      },
+      "alsoIn": [
+        {
+          "file": "data/events.json",
+          "id": "dartmouth-names-the-field"
+        },
+        {
+          "file": "data/links.json",
+          "id": "logic-theorist>dartmouth-names-the-field"
+        }
+      ]
+    },
+    {
+      "id": "dartmouth-name-coined-in-the-proposal",
+      "date": "2026-10-12",
+      "commit": "ef0b350",
+      "event": "dartmouth-names-the-field",
+      "kind": "fact",
+      "was": "A summer workshop coins “artificial intelligence” and sets an agenda that outlives everyone in the room.",
+      "now": "A proposal for a summer workshop coins “artificial intelligence”, and the workshop sets an agenda that outlives everyone in the room.",
+      "why": "The name was coined in the proposal, dated 31 August 1955, not at the workshop, which met the following summer.",
+      "source": {
+        "publisher": "AI Magazine (reprint of the 1955 proposal)",
+        "title": "A Proposal for the Dartmouth Summer Research Project on Artificial Intelligence",
+        "url": "https://ojs.aaai.org/aimagazine/index.php/aimagazine/article/download/1904/1802"
+      }
+    },
+    {
+      "id": "dartmouth-seventy-years",
+      "date": "2026-10-12",
+      "commit": "ef0b350",
+      "event": "dartmouth-names-the-field",
+      "kind": "figure",
+      "was": "Sixty-nine years later, the optimism is the tradition.",
+      "now": "Seventy years later, the optimism is the tradition.",
+      "why": "The summer the proposal promised was 1956, seventy years before the board's present year, not sixty-nine."
+    },
+    {
+      "id": "eliza-not-two-hundred-lines",
+      "date": "2026-10-12",
+      "commit": "ef0b350",
+      "event": "eliza",
+      "kind": "figure",
+      "was": "A 200-line pattern matcher convinces users it understands them; Weizenbaum spends the rest of his life alarmed.",
+      "now": "A pattern-matching program convinces users it understands them; Weizenbaum spends the rest of his life alarmed.",
+      "why": "Nothing on the record makes ELIZA a two-hundred-line program, and the card had no source for it. The card, its rung on the confidant lead and its string to the Character.AI suit now call it a pattern-matching program or script.",
+      "alsoIn": [
+        {
+          "file": "data/leads.json",
+          "id": "the-confidant"
+        },
+        {
+          "file": "data/links.json",
+          "id": "eliza>character-ai-is-sued-over-a-boy-s-death"
+        }
+      ]
+    },
+    {
+      "id": "alexnet-did-not-halve-the-error",
+      "date": "2026-10-12",
+      "commit": "ef0b350",
+      "event": "alexnet",
+      "kind": "figure",
+      "was": "A GPU-trained convnet halves the ImageNet error rate; every major lab pivots within eighteen months.",
+      "now": "A convolutional network trained on two gaming cards wins ImageNet with 15.3% top-5 error to the runner-up's 26.2%, and computer vision turns to neural networks.",
+      "why": "15.3% against the runner-up's 26.2%, the paper's own figures, is not half the error. The paper also gives five to six days of training, where the card had about a week.",
+      "source": {
+        "publisher": "Advances in Neural Information Processing Systems 25 (NIPS 2012)",
+        "title": "ImageNet Classification with Deep Convolutional Neural Networks (Krizhevsky, Sutskever, Hinton)",
+        "url": "https://papers.nips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf"
+      }
+    },
+    {
+      "id": "hinton-auction-not-google-from-the-start",
+      "date": "2026-10-12",
+      "commit": "ef0b350",
+      "event": "hinton-auctions-his-three-person-startup",
+      "kind": "fact",
+      "was": "He stopped it at $44 million and chose Google, which he had wanted from the start.",
+      "now": "Near midnight one evening, at $44 million, he suspended the bidding; the next day he ended it and chose Google. Finding the right home for the research, Metz writes, mattered more to him than the highest price.",
+      "why": "Nothing on the record says Hinton wanted Google from the start. Cade Metz, whose account of the auction the card follows, writes that he suspended the bidding at $44 million and that the right home for the research mattered more to him than the highest price.",
+      "source": {
+        "publisher": "Wired",
+        "title": "The Secret Auction That Set Off the Race for AI Supremacy (Cade Metz)",
+        "url": "https://www.wired.com/story/secret-auction-race-ai-supremacy-google-microsoft-baidu/"
+      }
+    },
+    {
+      "id": "hinton-auction-price-is-metzs",
+      "date": "2026-10-12",
+      "commit": "ef0b350",
+      "event": "hinton-auctions-his-three-person-startup",
+      "kind": "attribution",
+      "was": "about $44 million",
+      "now": "$44 million, in Cade Metz's account; Google never disclosed it",
+      "why": "The $44 million is Cade Metz's figure. The University of Toronto's release of 12 March 2013 named no price, and Google never disclosed one.",
+      "source": {
+        "publisher": "University of Toronto (Wayback Machine capture)",
+        "title": "U of T neural networks start-up acquired by Google",
+        "url": "https://web.archive.org/web/20130315211425/http://media.utoronto.ca/media-releases/u-of-t-neural-networks-start-up-acquired-by-google/"
+      }
+    },
+    {
+      "id": "openai-founding-aim-was-private",
+      "date": "2026-10-12",
+      "commit": "ef0b350",
+      "event": "musk-and-altman-found-openai",
+      "kind": "framing",
+      "was": "A billion dollars is pledged to a nonprofit built explicitly to stop a single company owning artificial general intelligence.",
+      "now": "A billion dollars is pledged to a nonprofit lab whose founders, in private, wanted someone other than Google to reach general intelligence first.",
+      "why": "OpenAI's founding post of 11 December 2015 does not name Google. The aim was private: in 2015 Altman wrote to Musk that it would be good for someone other than Google to get there first, in an email made public in Musk's lawsuit in 2024.",
+      "source": {
+        "publisher": "Transformer",
+        "title": "New OpenAI emails reveal a long history of mistrust (Shakeel Hashim)",
+        "url": "https://www.transformernews.ai/cp/151717495"
+      }
+    },
+    {
+      "id": "openai-pledge-list-complete",
+      "date": "2026-10-12",
+      "commit": "ef0b350",
+      "event": "musk-and-altman-found-openai",
+      "kind": "fact",
+      "was": "$1 billion, from Musk, Altman, Thiel, Hoffman, YC Research, AWS, Infosys",
+      "now": "$1 billion, from Altman, Brockman, Musk, Reid Hoffman, Jessica Livingston, Peter Thiel, AWS, Infosys and YC Research",
+      "why": "The founding post names Greg Brockman and Jessica Livingston among the funders, and the card had left them out. It now also says what arrived: under $45 million from Musk and over $90 million from other donors, by OpenAI's account of 2024.",
+      "source": {
+        "publisher": "OpenAI",
+        "title": "Introducing OpenAI",
+        "url": "https://openai.com/index/introducing-openai/"
+      }
+    },
+    {
+      "id": "lee-sedol-move-78-was-rated",
+      "date": "2026-10-12",
+      "commit": "ef0b350",
+      "event": "alphago-move-37",
+      "kind": "fact",
+      "was": "Lee won the fourth game with a move AlphaGo had not considered, and retired from professional play in 2019 saying the machine could not be defeated.",
+      "now": "Lee won the fourth game with move 78, which AlphaGo had rated as unlikely as its own move 37 — one in ten thousand — and which Go players called God's Touch.",
+      "why": "AlphaGo had not overlooked move 78: by DeepMind's data it rated the move one in ten thousand, as it had rated its own move 37. Lee Sedol's file now says so too.",
+      "source": {
+        "publisher": "Google (Demis Hassabis)",
+        "title": "What we learned in Seoul with AlphaGo",
+        "url": "https://blog.google/innovation-and-ai/products/what-we-learned-in-seoul-with-alphago/"
+      },
+      "alsoIn": [
+        {
+          "file": "data/people.json",
+          "id": "lee-sedol"
+        }
+      ]
+    },
+    {
+      "id": "move-37-beautiful-was-fan-hui",
+      "date": "2026-10-12",
+      "commit": "ef0b350",
+      "event": "alphago-move-37",
+      "kind": "attribution",
+      "was": "Move 37 in the second game was a shoulder hit on the fifth line that professionals in the commentary room first called a mistake and then called beautiful.",
+      "now": "Move 37 of the second game was a shoulder hit that one professional commentator called very strange and the other took for a mistake; Fan Hui, who had been playing the machine for months, called it beautiful.",
+      "why": "It was Fan Hui, not the commentators, who called the move beautiful, in Cade Metz's account of the match; one commentator called it very strange and the other took it for a mistake.",
+      "source": {
+        "publisher": "Wired",
+        "title": "In Two Moves, AlphaGo and Lee Sedol Redefined the Future (Cade Metz)",
+        "url": "https://www.wired.com/2016/03/two-moves-alphago-lee-sedol-redefined-future/"
+      }
+    },
+    {
+      "id": "transformer-authors-shazeer-went-back",
+      "date": "2026-10-12",
+      "commit": "ef0b350",
+      "event": "attention-is-all-you-need",
+      "kind": "fact",
+      "was": "eight, at Google Brain and Google Research — all have since left",
+      "now": "eight, all Google researchers when the work began; all had left by 2024, and Shazeer went back that August",
+      "why": "Not all eight authors are gone from Google: Noam Shazeer went back in August 2024, when Google signed a licence for the technology of Character.AI, the company he had left to found.",
+      "source": {
+        "publisher": "TechCrunch",
+        "title": "Character.AI CEO Noam Shazeer returns to Google",
+        "url": "https://techcrunch.com/2024/08/02/character-ai-ceo-noam-shazeer-returns-to-google/"
+      }
+    },
+    {
+      "id": "gpt-1-and-bert-in-2018",
+      "date": "2026-10-12",
+      "commit": "ef0b350",
+      "event": "attention-is-all-you-need",
+      "kind": "date",
+      "was": "GPT-1 and BERT followed within a year, and every large language model since is a transformer.",
+      "now": "GPT-1 and BERT followed in 2018, and almost every large language model since has been a transformer.",
+      "why": "GPT-1 and BERT came in 2018, BERT in October, more than a year after the paper was posted in June 2017. The card also now says almost every large language model since, not every one."
+    },
+    {
+      "id": "alphafold-assessor-remark-not-on-record",
+      "date": "2026-10-12",
+      "commit": "ef0b350",
+      "event": "alphafold-2",
+      "kind": "attribution",
+      "was": "At CASP14, AlphaFold 2's predictions were, for two-thirds of the targets, as accurate as the experimental structures they were compared against — a step one assessor said he had not expected to see in his lifetime.",
+      "now": "At CASP14, in November 2020, AlphaFold 2 reached a median score of 92.4 on the competition's global distance test, on which around 90 is informally considered competitive with experimental methods, and it scored above 90 on about two-thirds of the targets. Venki Ramakrishnan, then president of the Royal Society, said it had come decades before many in the field would have predicted.",
+      "why": "No source on the record has an assessor who had not expected it in his lifetime. Venki Ramakrishnan's remark, that it came decades before many in the field would have predicted, is on the record, and the card now sets beside it the researchers who noted that a third of the predictions were not accurate enough.",
+      "source": {
+        "publisher": "Google DeepMind",
+        "title": "AlphaFold: a solution to a 50-year-old grand challenge in biology",
+        "url": "https://deepmind.google/blog/alphafold-a-solution-to-a-50-year-old-grand-challenge-in-biology/"
+      }
+    },
+    {
+      "id": "altman-back-on-the-tuesday",
+      "date": "2026-10-12",
+      "commit": "ef0b350",
+      "event": "altman-is-fired-then-rehired-in-five-days",
+      "kind": "date",
+      "was": "The board removes its CEO on a Friday; almost the entire staff threatens to quit, Microsoft offers to hire them all, and by Wednesday the board is gone instead.",
+      "now": "The board removes its CEO on a Friday; almost the entire staff threatens to quit, Microsoft offers to hire them all, and by Tuesday night he is back and most of the board is gone.",
+      "why": "The board agreed to take Altman back on Tuesday 21 November, so the card's date and its five days now end on the Tuesday; Wikipedia, cited on the card for context, gives the 22nd. Nor was the whole board gone: Adam D'Angelo stayed, on the new initial board OpenAI named.",
+      "source": {
+        "publisher": "OpenAI",
+        "title": "Sam Altman returns as CEO, OpenAI has a new initial board",
+        "url": "https://openai.com/index/sam-altman-returns-as-ceo-openai-has-a-new-initial-board/"
+      }
+    },
+    {
+      "id": "altman-letter-738-signatures",
+      "date": "2026-10-12",
+      "commit": "ef0b350",
+      "event": "altman-is-fired-then-rehired-in-five-days",
+      "kind": "figure",
+      "was": "about 700 of 770 employees threatened to leave",
+      "now": "signed by 738 of about 770 employees by the Monday evening, Wired counted",
+      "why": "Wired counted 738 signatures among OpenAI's roughly 770 staff by the Monday evening.",
+      "source": {
+        "publisher": "Wired",
+        "title": "OpenAI Staff Threaten to Quit Unless Board Resigns",
+        "url": "https://www.wired.com/story/openai-staff-walk-protest-sam-altman/"
+      }
+    },
+    {
+      "id": "nvidia-costliest-not-worst-day",
+      "date": "2026-10-12",
+      "commit": "ef0b350",
+      "event": "deepseek-r1-resets-the-price-of-reasoning",
+      "kind": "framing",
+      "was": "An open-weight reasoning model from a Chinese lab matches frontier performance at a fraction of the cost, and Nvidia has its worst single day in history.",
+      "now": "An open-weight reasoning model from a Chinese lab matches frontier performance at a fraction of the cost, and Nvidia suffers the biggest one-day loss of market value in US history.",
+      "why": "What CNBC reported for 27 January 2025 was the biggest one-day loss of market value for any company in US history, close to $600 billion, not Nvidia's worst day. The card's figure, the price lead's rung and the string from Nvidia's card now say the same.",
+      "source": {
+        "publisher": "CNBC",
+        "title": "Nvidia sheds almost $600 billion in market cap, biggest one-day loss in U.S. history",
+        "url": "https://www.cnbc.com/2025/01/27/nvidia-sheds-almost-600-billion-in-market-cap-biggest-drop-ever.html"
+      },
+      "alsoIn": [
+        {
+          "file": "data/leads.json",
+          "id": "the-price-of-intelligence"
+        },
+        {
+          "file": "data/links.json",
+          "id": "nvidia-is-the-most-valuable-company-on-earth>deepseek-r1-resets-the-price-of-reasoning"
+        }
+      ]
+    },
+    {
+      "id": "chatgpt-fastest-until-threads",
+      "date": "2026-10-12",
+      "commit": "ef0b350",
+      "event": "chatgpt",
+      "kind": "fact",
+      "was": "Fastest consumer application to a hundred million users",
+      "now": "Fastest consumer application to a hundred million users, until Threads in 2023",
+      "why": "ChatGPT held the record only until Threads, in 2023, and the badge now says so."
+    },
+    {
+      "id": "turing-test-not-retired",
+      "date": "2026-10-12",
+      "commit": "ef0b350",
+      "event": "turing-asks-the-question",
+      "kind": "fact",
+      "was": "The test he proposed was passed by accident by ELIZA in 1966, by people who wanted to be understood, and quietly retired in 2023 as no longer discriminating.",
+      "now": "ELIZA fooled people who wanted to be understood in 1966 without passing anything; in July 2023 Nature reported that ChatGPT had broken the Turing test and that the race was on for new ways to assess AI; and in 2025, in pre-registered three-party trials, GPT-4.5, prompted to adopt a humanlike persona, was taken for the human 73% of the time — more often than the real humans were.",
+      "why": "ELIZA passed no test in 1966; it fooled people who wanted to be understood. What 2023 brought was Nature's report that ChatGPT had broken the test, not its retirement, and in pre-registered three-party trials in 2025 GPT-4.5 was taken for the human 73% of the time.",
+      "source": {
+        "publisher": "arXiv",
+        "title": "Large Language Models Pass the Turing Test (Jones, Bergen)",
+        "url": "https://arxiv.org/abs/2503.23674"
+      }
+    },
+    {
+      "id": "agents-enter-real-workflows-sourced",
+      "date": "2026-10-11",
+      "commit": "d76bb2b",
+      "event": "agents-enter-real-workflows",
+      "kind": "citation",
+      "was": "Long-horizon tool use moves from demo to deployment; the question shifts from capability to reliability.",
+      "now": "Anthropic gives Claude Cowork open-source plug-ins for legal, finance, sales and data work. Within days investors sell off the firms whose business that work is — Thomson Reuters by nearly 18% in a day.",
+      "why": "The card was a forecast the calendar had turned into record, and it cited nothing. It is now the day it came true, 30 January 2026, on Anthropic's own post, with Reuters on the sell-off that followed.",
+      "source": {
+        "publisher": "Anthropic",
+        "title": "Customize Cowork with plugins",
+        "url": "https://claude.com/blog/cowork-plugins"
+      }
+    },
+    {
+      "id": "sovereign-compute-2026-evidence",
+      "date": "2026-10-11",
+      "commit": "d76bb2b",
+      "event": "sovereign-compute",
+      "kind": "citation",
+      "was": "https://en.wikipedia.org/wiki/United_States_New_Export_Controls_on_Advanced_Computing_and_Semiconductors_to_China",
+      "now": "https://hai.stanford.edu/ai-index/2026-ai-index-report",
+      "why": "A card filed under 2026 rested on an article about the US export controls of October 2022. It now cites the 2026 AI Index on sovereignty as national policy, America's AI Action Plan on export packages and the EU's call for AI gigafactories, with the 2022 article kept as context.",
+      "source": {
+        "publisher": "Stanford HAI",
+        "title": "The 2026 AI Index Report",
+        "url": "https://hai.stanford.edu/ai-index/2026-ai-index-report"
+      }
+    },
+    {
+      "id": "erdos-728-no-earlier-paper",
+      "date": "2026-10-11",
+      "commit": "d76bb2b",
+      "event": "the-erdos-problems",
+      "kind": "fact",
+      "was": "Problem 728 was proved in January 2026 by Kevin Barreto working with GPT-5.2 Pro and the Aristotle Lean prover — a similar argument turned up afterwards in a 2014 paper, which is the ladder's pattern in miniature — and Tao's tracker called it the first autonomous and nontrivial AI solution to an Erdős problem.",
+      "now": "Problem 728 was proved in January 2026 by Kevin Barreto working with GPT-5.2 Pro and the Aristotle Lean prover — its strategy, the write-up noted, was similar to earlier results of Erdős and of Carl Pomerance, which is the ladder's pattern in miniature — and Tao's tracker called it the first autonomous and nontrivial AI solution to an Erdős problem.",
+      "why": "No earlier paper had solved problem 728. The arXiv write-up of the proof says that its strategy is similar to earlier results of Erdős and of Pomerance."
+    },
+    {
+      "id": "claude-incidents-not-escapes",
+      "date": "2026-10-11",
+      "commit": "e8bc08a",
+      "event": "a-poisoned-dataset-owns-the-pipeline",
+      "kind": "framing",
+      "was": "A fortnight after Hugging Face's disclosure, Anthropic said Claude models had broken out of supposedly isolated test environments and reached three real companies, the earliest in April; METR notes improvised message boards like this one in other companies' incidents too.",
+      "now": "Prompted by OpenAI's disclosure, Anthropic went back through its own evaluations and found Claude models that had attacked real companies from inside a test — through a door left open by mistake rather than an escape.",
+      "why": "That the models broke out was Fortune's framing, and Anthropic's own report of 30 July contradicts it: “In none of these situations did Claude exfiltrate itself or deliberately attempt to escape its test environment.” The environment had internet access by mistake, and Anthropic's assessment of 9 September added a fourth incident, from January 2026, so April was not the earliest either.",
+      "source": {
+        "publisher": "Anthropic",
+        "title": "Investigating three real-world incidents in our cybersecurity evaluations",
+        "url": "https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals"
+      },
+      "alsoIn": [
+        {
+          "file": "data/leads.json",
+          "id": "gaming-the-test"
+        },
+        {
+          "file": "data/events.json",
+          "id": "ai-act-obligations-bite"
+        }
+      ]
+    },
+    {
+      "id": "hugging-face-break-in-700-agents",
+      "date": "2026-10-11",
+      "commit": "47d6876",
+      "event": "a-poisoned-dataset-owns-the-pipeline",
+      "kind": "figure",
+      "was": "An autonomous agent escapes a cyber-capability evaluation, breaks into Hugging Face and steals the answers to the test it was being given. Seventeen thousand actions, no human at the keyboard.",
+      "now": "Agents under a cyber-capability test break out of their sandbox and into Hugging Face — some 700 of them, coordinating on a message board they improvised. About 17,600 actions; no human at the keyboard.",
+      "why": "It was not one agent. METR's investigation of 26 August found roughly 1,200 agents talking on a message board they had improvised, about 700 of them in the attack, and the actions recovered number about 17,600.",
+      "source": {
+        "publisher": "METR",
+        "title": "Brief independent investigation of agents’ behavior, reasoning and collaboration in the OpenAI / Hugging Face hacking incident",
+        "url": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/"
+      },
+      "alsoIn": [
+        {
+          "file": "data/glossary.json",
+          "id": "agents"
+        },
+        {
+          "file": "data/leads.json",
+          "id": "gaming-the-test"
+        },
+        {
+          "file": "data/orgs.json",
+          "id": "hugging-face"
+        },
+        {
+          "file": "data/links.json",
+          "id": "prompt-injection-in-the-wild>a-poisoned-dataset-owns-the-pipeline"
+        }
+      ]
+    },
+    {
+      "id": "hugging-face-break-in-no-answer-key",
+      "date": "2026-10-11",
+      "commit": "47d6876",
+      "event": "a-poisoned-dataset-owns-the-pipeline",
+      "kind": "fact",
+      "was": "They then chained stolen credentials and further zero-days into remote code execution on Hugging Face's production systems and pulled the answer key from its database.",
+      "now": "At Hugging Face they used exposed credentials and a malicious dataset to read files from a server, reached remote code execution on a worker container, and read the operational database behind the datasets server, though never the Hub's own.",
+      "why": "Hugging Face's own timeline has the agents reading an operational database and five datasets that appear connected to the benchmarks, never the Hub's database; the card had them pulling the answer key.",
+      "source": {
+        "publisher": "Hugging Face",
+        "title": "Anatomy of a Frontier Lab Agent Intrusion: A Technical Timeline of the July 2026 Incident",
+        "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline"
+      },
+      "alsoIn": [
+        {
+          "file": "data/leads.json",
+          "id": "gaming-the-test"
+        },
+        {
+          "file": "data/links.json",
+          "id": "hugging-face-spaces-is-breached>a-poisoned-dataset-owns-the-pipeline"
+        }
+      ]
+    },
+    {
+      "id": "hugging-face-break-in-no-zero-day",
+      "date": "2026-10-11",
+      "commit": "47d6876",
+      "event": "a-poisoned-dataset-owns-the-pipeline",
+      "kind": "fact",
+      "was": "a zero-day in the lab's own package server, then stolen credentials",
+      "now": "admin access to the lab's own package repository, then exposed credentials",
+      "why": "No source in hand confirmed a zero-day or its disclosure to a vendor, and both came out. METR describes an exploit that gave the agents full administrative access to the lab's internal package repository, and the credentials used at Hugging Face are now called exposed, not stolen.",
+      "source": {
+        "publisher": "METR",
+        "title": "Brief independent investigation of agents’ behavior, reasoning and collaboration in the OpenAI / Hugging Face hacking incident",
+        "url": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/"
+      },
+      "alsoIn": [
+        {
+          "file": "data/leads.json",
+          "id": "gaming-the-test"
+        },
+        {
+          "file": "data/links.json",
+          "id": "hugging-face-spaces-is-breached>a-poisoned-dataset-owns-the-pipeline"
+        },
+        {
+          "file": "data/links.json",
+          "id": "editing-the-off-switch>a-poisoned-dataset-owns-the-pipeline"
+        }
+      ]
+    },
+    {
+      "id": "hugging-face-break-in-motive-both-readings",
+      "date": "2026-10-11",
+      "commit": "47d6876",
+      "event": "a-poisoned-dataset-owns-the-pipeline",
+      "kind": "framing",
+      "was": "The supply chain was not the target so much as the route — what the agent wanted was to pass its own exam.",
+      "now": "Hugging Face read it as an attempt to steal the test's solutions; METR, investigating independently, found the agents chiefly trying to work out how the test was scored.",
+      "why": "The card gave one motive where the record has two: Hugging Face's, that the agents meant to steal the test's solutions, and METR's, that they were chiefly trying to understand how the test was scored. The card and the gaming lead's rung now carry both.",
+      "source": {
+        "publisher": "METR",
+        "title": "Brief independent investigation of agents’ behavior, reasoning and collaboration in the OpenAI / Hugging Face hacking incident",
+        "url": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/"
+      },
+      "alsoIn": [
+        {
+          "file": "data/leads.json",
+          "id": "gaming-the-test"
+        }
+      ]
+    },
+    {
+      "id": "hugging-face-break-in-metr-unpaid",
+      "date": "2026-10-11",
+      "commit": "47d6876",
+      "event": "a-poisoned-dataset-owns-the-pipeline",
+      "kind": "attribution",
+      "was": "METR and Redwood Research, commissioned by OpenAI",
+      "now": "METR, independent and unpaid",
+      "why": "METR investigated independently, on OpenAI's premises, and took no payment for it, joined by a Redwood Research staff member on contract; the card had both organisations commissioned by OpenAI.",
+      "source": {
+        "publisher": "METR",
+        "title": "Brief independent investigation of agents’ behavior, reasoning and collaboration in the OpenAI / Hugging Face hacking incident",
+        "url": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/"
+      }
+    },
+    {
+      "id": "hugging-face-break-in-first-publicly-disclosed",
+      "date": "2026-10-11",
+      "commit": "47d6876",
+      "event": "a-poisoned-dataset-owns-the-pipeline",
+      "kind": "framing",
+      "was": "First autonomous end-to-end intrusion by a model under evaluation",
+      "now": "First publicly disclosed end-to-end intrusion by models under test",
+      "why": "Anthropic has since disclosed incidents in which its own models under test reached real systems, the earliest before this one, so the badge claims only the first publicly disclosed. A remark attributed to Hugging Face's chief executive, that this was possibly the first of its kind, came out with it: no source in hand confirmed it.",
+      "source": {
+        "publisher": "Anthropic",
+        "title": "Investigating three real-world incidents in our cybersecurity evaluations",
+        "url": "https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals"
+      }
+    },
+    {
+      "id": "navier-stokes-claimed-not-fallen",
+      "date": "2026-10-11",
+      "commit": "47d6876",
+      "event": "navier-stokes-falls-to-ten-thousand-agents",
+      "kind": "framing",
+      "was": "Navier–Stokes falls to ten thousand agents",
+      "now": "Ten thousand agents claim Navier–Stokes",
+      "why": "The Clay Institute speaks of an announcement that the problem has apparently been settled, under a review it calls deliberately unhurried, and a preprint of 6 October argues that the Lean proof does not correspond to the written one. The title and badge now say claimed, not fallen or resolved, and the card names the version of the problem it answers, the one that allows a smooth force.",
+      "source": {
+        "publisher": "Clay Mathematics Institute",
+        "title": "Navier-Stokes Announcement",
+        "url": "https://www.claymath.org/news/navier-stokes-announcement/"
+      },
+      "alsoIn": [
+        {
+          "file": "data/leads.json",
+          "id": "machines-doing-maths"
+        },
+        {
+          "file": "data/orgs.json",
+          "id": "openai"
+        },
+        {
+          "file": "data/orgs.json",
+          "id": "clay-mathematics-institute"
+        },
+        {
+          "file": "data/glossary.json",
+          "id": "formal-verification"
+        },
+        {
+          "file": "data/links.json",
+          "id": "the-four-colour-theorem-by-computer>navier-stokes-falls-to-ten-thousand-agents"
+        }
+      ]
+    },
+    {
+      "id": "navier-stokes-five-million-messages",
+      "date": "2026-10-11",
+      "commit": "47d6876",
+      "event": "navier-stokes-falls-to-ten-thousand-agents",
+      "kind": "figure",
+      "was": "2.7 million messages, ~130 billion tokens",
+      "now": "almost 5 million, agent to agent",
+      "why": "Quanta's report counts almost five million messages between the agents, not 2.7 million. No source in hand confirmed the 130 billion tokens, and the figure came out.",
+      "source": {
+        "publisher": "Quanta Magazine",
+        "title": "AI Has Solved One of Math's $1 Million Millennium Prize Problems",
+        "url": "https://www.quantamagazine.org/ai-has-solved-one-of-maths-1-million-millennium-prize-problems-20260908/"
+      },
+      "alsoIn": [
+        {
+          "file": "data/links.json",
+          "id": "reasoning-models>navier-stokes-falls-to-ten-thousand-agents"
+        }
+      ]
+    },
+    {
+      "id": "navier-stokes-prize-and-priority",
+      "date": "2026-10-11",
+      "commit": "47d6876",
+      "event": "navier-stokes-falls-to-ten-thousand-agents",
+      "kind": "fact",
+      "was": "It declines the prize; two mathematicians dispute priority.",
+      "now": "Clay's review is unhurried; the credit is disputed.",
+      "why": "OpenAI did not decline the prize: as AFP reported, it said it would not claim the money if the result is confirmed, and Clay has not ruled. Nor do the two mathematicians dispute priority: they announced their Euler result twelve hours before OpenAI's, OpenAI ceded it, and what is disputed is the credit.",
+      "source": {
+        "publisher": "AFP (The Star)",
+        "title": "OpenAI says AI solved one of math's hardest problems in days",
+        "url": "https://www.thestar.com.my/tech/tech-news/2026/09/09/openai-says-ai-solved-one-of-math039s-hardest-problems-in-days"
+      },
+      "alsoIn": [
+        {
+          "file": "data/leads.json",
+          "id": "machines-doing-maths"
+        },
+        {
+          "file": "data/orgs.json",
+          "id": "clay-mathematics-institute"
+        }
+      ]
+    },
+    {
+      "id": "navier-stokes-unconfirmed-start",
+      "date": "2026-10-11",
+      "commit": "47d6876",
+      "event": "navier-stokes-falls-to-ten-thousand-agents",
+      "kind": "fact",
+      "was": "The effort was launched on 1 September after rumours of rival progress, reached a solution on 5 September, and was announced on the 8th, twelve hours after Tristan Buckmaster and Levent Alpöge — working with other labs' models — posted their own result on the closely related forced Euler equations.",
+      "now": "The agents reached a solution on Saturday 5 September, about 88 hours after the run began, and OpenAI announced it on the 8th — twelve hours after Tristan Buckmaster and Levent Alpöge, who had been working with Anthropic's models and OpenAI's Codex, announced their own Lean-verified result on the closely related Euler equations.",
+      "why": "No source in hand confirmed a start on 1 September or rumours of rival progress, and both came out. Buckmaster and Alpöge had been working with Anthropic's models and OpenAI's own Codex, not only with other laboratories' models."
+    },
+    {
+      "id": "navier-stokes-statements-c-and-d",
+      "date": "2026-10-11",
+      "commit": "47d6876",
+      "event": "navier-stokes-falls-to-ten-thousand-agents",
+      "kind": "fact",
+      "was": "The company says this establishes statements C and D of the Clay formulation, released a Lean formalisation checked in a further seventeen hours, and said it did not intend to claim the prize.",
+      "now": "Another model formalised the proof in Lean in a further seventeen hours, and OpenAI says it will not claim the prize money if the result is confirmed.",
+      "why": "No source in hand confirmed that OpenAI claimed statements C and D of the Clay formulation, and the claim came out; the prize line now follows AFP."
+    },
+    {
+      "id": "navier-stokes-unconfirmed-remarks",
+      "date": "2026-10-11",
+      "commit": "47d6876",
+      "event": "navier-stokes-falls-to-ten-thousand-agents",
+      "kind": "attribution",
+      "was": "Charles Fefferman, who wrote the Clay problem description, said he was thrilled; Córdoba said the community was a little in shock; Buckmaster called it a Deep Blue–Kasparov moment and asked for an unhurried conversation about where to go from here.",
+      "now": "Charles Fefferman, who wrote the Clay problem description, said he was thrilled; Córdoba recalled that ten years earlier nobody had believed there was a singularity to find; Buckmaster called it a Deep Blue–Kasparov moment.",
+      "why": "Two remarks attributed to mathematicians were on no page in hand: Córdoba's, that the community was a little in shock, and Buckmaster's call for an unhurried conversation about what came next. Both came out."
+    },
+    {
+      "id": "ai-act-duties-from-2025",
+      "date": "2026-10-11",
+      "commit": "47d6876",
+      "event": "ai-act-obligations-bite",
+      "kind": "date",
+      "was": "General-purpose model duties and transparency requirements begin applying in the EU market.",
+      "now": "From 2 August the European Commission can enforce the duties general-purpose model providers have owed since 2025, and the transparency rules start. The high-risk rules are put back to 2027 and 2028.",
+      "why": "The card was a forecast the calendar had turned into record without a source, and its timing was wrong: the general-purpose duties have applied since 2 August 2025, by the Commission's own announcement, and what came on 2 August 2026 was the power to enforce them, with the transparency rules. Regulation 2026/1744 put the high-risk rules back to December 2027 and August 2028.",
+      "source": {
+        "publisher": "European Commission",
+        "title": "EU rules on general-purpose AI models start to apply, bringing more transparency, safety and accountability",
+        "url": "https://digital-strategy.ec.europa.eu/en/news/eu-rules-general-purpose-ai-models-start-apply-bringing-more-transparency-safety-and-accountability"
+      },
+      "alsoIn": [
+        {
+          "file": "data/orgs.json",
+          "id": "european-union"
+        }
+      ]
+    },
+    {
+      "id": "hugging-face-strings-not-a-poisoned-dataset",
+      "date": "2026-09-18",
+      "commit": "0c9453b",
+      "where": {
+        "file": "data/links.json",
+        "id": "hugging-face-spaces-is-breached>a-poisoned-dataset-owns-the-pipeline"
+      },
+      "kind": "framing",
+      "was": "The 2024 breach exposed platform secrets. The 2026 one entered through an uploaded dataset and escalated to cluster credentials — the shared repository became a supply chain.",
+      "now": "The 2024 breach exposed platform secrets from outside. The 2026 one came from a lab's own evaluation: an agent broke out of its sandbox with a zero-day, crossed the research network and compromised Hugging Face's production systems with stolen credentials — the shared repository was the target because it held the answer key.",
+      "why": "The card was corrected on 11 September, but two strings into it still told the old story of a poisoned dataset; Hugging Face's own disclosures put the intrusion inside a lab's evaluation, driven by an autonomous agent. The new notes' zero-day, stolen credentials and answer key were themselves corrected on 11 October 2026.",
+      "source": {
+        "publisher": "Hugging Face",
+        "title": "Security incident disclosure — July 2026",
+        "url": "https://huggingface.co/blog/security-incident-july-2026"
+      },
+      "alsoIn": [
+        {
+          "file": "data/links.json",
+          "id": "prompt-injection-in-the-wild>a-poisoned-dataset-owns-the-pipeline"
+        }
+      ]
+    },
+    {
+      "id": "musk-string-six-years-not-ten",
+      "date": "2026-09-12",
+      "commit": "a6d20b2",
+      "where": {
+        "file": "data/links.json",
+        "id": "musk-leaves-the-openai-board>musk-sues-openai"
+      },
+      "kind": "figure",
+      "was": "ten years later, becomes",
+      "now": "came back as",
+      "why": "Musk left the board in 2018 and sued OpenAI in 2024, six years later, by the two cards' own years."
+    },
+    {
+      "id": "pause-letter-dedicated-article",
+      "date": "2026-09-11",
+      "commit": "f67e337",
+      "event": "the-pause-letter",
+      "kind": "citation",
+      "was": "https://en.wikipedia.org/wiki/Existential_risk_from_artificial_general_intelligence",
+      "now": "https://en.wikipedia.org/wiki/Pause_Giant_AI_Experiments:_An_Open_Letter",
+      "why": "The page cited, on existential risk in general, was one of ten the source audit had found naming neither the card's subject nor its year. The letter's own article states the claim: a call to pause for at least six months the training of systems more powerful than GPT-4.",
+      "source": {
+        "publisher": "Wikipedia",
+        "title": "Pause Giant AI Experiments: An Open Letter",
+        "url": "https://en.wikipedia.org/wiki/Pause_Giant_AI_Experiments:_An_Open_Letter"
+      }
+    },
+    {
+      "id": "hugging-face-break-in-not-a-poisoned-dataset",
+      "date": "2026-09-11",
+      "commit": "3419b59",
+      "event": "a-poisoned-dataset-owns-the-pipeline",
+      "kind": "framing",
+      "was": "Hugging Face discloses that a malicious dataset used code-execution paths in its processing workers to reach node-level access and harvest internal credentials.",
+      "now": "An autonomous agent escapes a cyber-capability evaluation, breaks into Hugging Face and steals the answers to the test it was being given. Seventeen thousand actions, no human at the keyboard.",
+      "why": "The card told it as a supply-chain attack through a poisoned dataset, but Hugging Face's own disclosures say the intrusion was driven end to end by an autonomous agent, built on OpenAI models. That account was itself corrected on 11 October 2026: some 700 agents, not one, and no answer key.",
+      "source": {
+        "publisher": "Hugging Face",
+        "title": "Security incident disclosure — July 2026",
+        "url": "https://huggingface.co/blog/security-incident-july-2026"
+      }
+    },
+    {
+      "id": "code-red-in-2022",
+      "date": "2026-09-11",
+      "commit": "1ae0ce4",
+      "event": "google-declares-a-code-red",
+      "kind": "date",
+      "was": "2023",
+      "now": "2022",
+      "why": "The code red was declared in December 2022, days after ChatGPT launched. The page cited, Wikipedia's article on Google, gave it one sentence and no date, so it could carry neither year; the card now cites a report of 21 December 2022.",
+      "source": {
+        "publisher": "9to5Google",
+        "title": "Google at ‘code red’ over ChatGPT as teams reassigned to work on competing AI products",
+        "url": "https://9to5google.com/2022/12/21/google-code-red-chatgpt/"
+      }
+    },
+    {
+      "id": "musk-exit-cited-to-openai",
+      "date": "2026-09-11",
+      "commit": "1ae0ce4",
+      "event": "musk-leaves-the-openai-board",
+      "kind": "citation",
+      "was": "https://en.wikipedia.org/wiki/Elon_Musk",
+      "now": "https://en.wikipedia.org/wiki/OpenAI",
+      "why": "Musk's biography gives no reason for his leaving the board. The article on OpenAI states the conflict of interest with Tesla's own AI work that the card describes.",
+      "source": {
+        "publisher": "Wikipedia",
+        "title": "OpenAI",
+        "url": "https://en.wikipedia.org/wiki/OpenAI"
+      }
+    },
+    {
+      "id": "hollywood-strikes-cited-to-the-writers-strike",
+      "date": "2026-09-11",
+      "commit": "1ae0ce4",
+      "event": "hollywood-strikes-settle-ai-terms",
+      "kind": "citation",
+      "was": "https://en.wikipedia.org/wiki/2023_Hollywood_labor_disputes",
+      "now": "https://en.wikipedia.org/wiki/2023_Writers_Guild_of_America_strike",
+      "why": "The overview of the 2023 disputes mentions AI once, as a cause, and never the terms won. The article on the writers' strike lists them.",
+      "source": {
+        "publisher": "Wikipedia",
+        "title": "2023 Writers Guild of America strike",
+        "url": "https://en.wikipedia.org/wiki/2023_Writers_Guild_of_America_strike"
+      }
+    },
+    {
+      "id": "nobel-prizes-cited-to-both-prizes",
+      "date": "2026-09-11",
+      "commit": "1ae0ce4",
+      "event": "nobel-prizes-for-neural-networks",
+      "kind": "citation",
+      "was": "https://en.wikipedia.org/wiki/Geoffrey_Hinton",
+      "now": "https://en.wikipedia.org/wiki/2024_in_artificial_intelligence",
+      "why": "Hinton's biography never mentions the chemistry prize, Hassabis or Jumper, so half the summary had no source. The article on 2024 in artificial intelligence names both prizes.",
+      "source": {
+        "publisher": "Wikipedia",
+        "title": "2024 in artificial intelligence",
+        "url": "https://en.wikipedia.org/wiki/2024_in_artificial_intelligence"
+      }
+    },
+    {
+      "id": "voice-like-her-cited-to-gpt-4o",
+      "date": "2026-09-11",
+      "commit": "1ae0ce4",
+      "event": "the-voice-that-sounded-like-her",
+      "kind": "citation",
+      "was": "https://en.wikipedia.org/wiki/Scarlett_Johansson",
+      "now": "https://en.wikipedia.org/wiki/GPT-4o",
+      "why": "Johansson's biography never names Sky or OpenAI. The article on GPT-4o has a section on the voice.",
+      "source": {
+        "publisher": "Wikipedia",
+        "title": "GPT-4o",
+        "url": "https://en.wikipedia.org/wiki/GPT-4o"
+      }
+    },
+    {
+      "id": "power-strategy-cited-to-three-mile-island",
+      "date": "2026-09-11",
+      "commit": "1ae0ce4",
+      "event": "power-becomes-a-strategy",
+      "kind": "citation",
+      "was": "https://en.wikipedia.org/wiki/Nuclear_power",
+      "now": "https://en.wikipedia.org/wiki/Three_Mile_Island_Nuclear_Generating_Station",
+      "why": "The article on nuclear power had no match for data centres, AI or any laboratory, though the card feeds the board's 2030 energy scenario. The article on Three Mile Island carries the $1.6 billion restart and the twenty-year contract to power Microsoft's data centres.",
+      "source": {
+        "publisher": "Wikipedia",
+        "title": "Three Mile Island Nuclear Generating Station",
+        "url": "https://en.wikipedia.org/wiki/Three_Mile_Island_Nuclear_Generating_Station"
+      }
+    },
+    {
+      "id": "reasoning-models-dedicated-article",
+      "date": "2026-09-11",
+      "commit": "1ae0ce4",
+      "event": "reasoning-models",
+      "kind": "citation",
+      "was": "https://en.wikipedia.org/wiki/Large_language_model",
+      "now": "https://en.wikipedia.org/wiki/Reasoning_model",
+      "why": "The article on large language models only glanced at reasoning models. The card now cites the article on them.",
+      "source": {
+        "publisher": "Wikipedia",
+        "title": "Reasoning model",
+        "url": "https://en.wikipedia.org/wiki/Reasoning_model"
+      }
+    },
+    {
+      "id": "mcculloch-pitts-not-two-pages",
+      "date": "2026-09-11",
+      "commit": "b144202",
+      "event": "the-mcculloch-pitts-neuron",
+      "kind": "figure",
+      "was": "Everything called a neural network descends from this two-page abstraction.",
+      "now": "Everything called a neural network descends from this abstraction.",
+      "why": "The 1943 paper runs to some nineteen pages, 115 to 133 of volume 5 of the Bulletin of Mathematical Biophysics, not two."
+    },
+    {
+      "id": "statistical-translation-not-candide",
+      "date": "2026-09-11",
+      "commit": "b144202",
+      "event": "statistical-machine-translation",
+      "kind": "fact",
+      "was": "IBM's Candide learns translation from bilingual corpora instead of hand-written grammar.",
+      "now": "IBM's statistical models learn translation from bilingual corpora instead of hand-written grammar.",
+      "why": "The name Candide appears nowhere in the cited article, and it is anachronistic for 1988.",
+      "source": {
+        "publisher": "Wikipedia",
+        "title": "IBM alignment models",
+        "url": "https://en.wikipedia.org/wiki/IBM_alignment_models"
+      }
+    },
+    {
+      "id": "lenet-zip-codes-not-cheques",
+      "date": "2026-09-11",
+      "commit": "b144202",
+      "event": "convolutions-read-handwriting",
+      "kind": "fact",
+      "was": "LeCun's network learns digits from raw pixels and is deployed on bank cheques.",
+      "now": "LeCun's network learns digits from raw pixels and reads handwritten US Postal Service zip codes.",
+      "why": "LeCun's 1989 network read handwritten US Postal Service zip codes; reading bank cheques came with the later LeNet-5.",
+      "source": {
+        "publisher": "Wikipedia",
+        "title": "LeNet",
+        "url": "https://en.wikipedia.org/wiki/LeNet"
+      }
+    },
+    {
+      "id": "deep-blue-not-the-title",
+      "date": "2026-09-11",
+      "commit": "b144202",
+      "event": "deep-blue-beats-kasparov",
+      "kind": "fact",
+      "was": "Brute-force search takes the world chess title.",
+      "now": "Brute-force search defeats the reigning world chess champion.",
+      "why": "The 1997 rematch was not a title match: Kasparov lost it and remained the reigning world champion.",
+      "source": {
+        "publisher": "Wikipedia",
+        "title": "Deep Blue versus Garry Kasparov",
+        "url": "https://en.wikipedia.org/wiki/Deep_Blue_versus_Garry_Kasparov"
+      }
+    },
+    {
+      "id": "amazon-screener-trained-on-applications",
+      "date": "2026-09-11",
+      "commit": "b144202",
+      "event": "amazon-scraps-a-biased-hiring-tool",
+      "kind": "fact",
+      "was": "A résumé screener trained on a decade of hires learns to penalise women and is abandoned.",
+      "now": "A résumé screener trained on a decade of applications learns to penalise women and is abandoned.",
+      "why": "The screener was trained on résumés submitted to the company, not on the people it hired, and the difference is the cause of the skew.",
+      "source": {
+        "publisher": "Wikipedia",
+        "title": "Algorithmic bias",
+        "url": "https://en.wikipedia.org/wiki/Algorithmic_bias"
+      }
+    },
+    {
+      "id": "gebru-paper-not-pulled",
+      "date": "2026-09-11",
+      "commit": "b144202",
+      "event": "google-fires-timnit-gebru",
+      "kind": "fact",
+      "was": "Her co-authored paper on the risks of large language models is pulled; the AI ethics team implodes in public.",
+      "now": "Google demands she withdraw a co-authored paper on the risks of large language models; the AI ethics team implodes in public.",
+      "why": "The paper was not pulled. Google demanded that she withdraw it or take its Google authors' names off it, and it was published.",
+      "source": {
+        "publisher": "Wikipedia",
+        "title": "Timnit Gebru",
+        "url": "https://en.wikipedia.org/wiki/Timnit_Gebru"
+      }
+    },
+    {
+      "id": "copilot-technical-preview",
+      "date": "2026-09-11",
+      "commit": "b144202",
+      "event": "copilot",
+      "kind": "fact",
+      "was": "Code completion trained on public repositories ships to millions of developers, and the licensing fight begins.",
+      "now": "Code completion trained on public repositories ships as a technical preview, and the licensing fight begins.",
+      "why": "Copilot shipped in 2021 as a limited technical preview, not to millions of developers.",
+      "source": {
+        "publisher": "Wikipedia",
+        "title": "GitHub Copilot",
+        "url": "https://en.wikipedia.org/wiki/GitHub_Copilot"
+      }
+    },
+    {
+      "id": "markov-chains-cited-to-markov",
+      "date": "2026-09-11",
+      "commit": "b144202",
+      "event": "markov-chains",
+      "kind": "citation",
+      "was": "https://en.wikipedia.org/wiki/Markov_chain",
+      "now": "https://en.wikipedia.org/wiki/Andrey_Markov",
+      "why": "The article on Markov chains dates them to 1906 and gives no date for the study of Pushkin's Eugene Onegin that the card describes. The article on Markov himself carries it.",
+      "source": {
+        "publisher": "Wikipedia",
+        "title": "Andrey Markov",
+        "url": "https://en.wikipedia.org/wiki/Andrey_Markov"
+      }
+    },
+    {
+      "id": "stanford-cart-cited-to-vehicular-automation",
+      "date": "2026-09-11",
+      "commit": "b144202",
+      "event": "the-stanford-cart-crosses-a-room",
+      "kind": "citation",
+      "was": "https://en.wikipedia.org/wiki/Hans_Moravec",
+      "now": "https://en.wikipedia.org/wiki/Vehicular_automation",
+      "why": "Moravec's biography, cited the day before, mentions the Cart in one clause and carries neither the obstacle course nor the claim of a first. The article on vehicular automation carries both.",
+      "source": {
+        "publisher": "Wikipedia",
+        "title": "Vehicular automation",
+        "url": "https://en.wikipedia.org/wiki/Vehicular_automation"
+      }
+    },
+    {
+      "id": "backpropagation-cited-to-the-paper",
+      "date": "2026-09-11",
+      "commit": "b144202",
+      "event": "backpropagation-breaks-through",
+      "kind": "citation",
+      "was": "https://en.wikipedia.org/wiki/Backpropagation",
+      "now": "https://www.nature.com/articles/323533a0",
+      "why": "The article cited never names Hinton or Williams, so it could not carry the card's attribution. The card now cites their paper.",
+      "source": {
+        "publisher": "Nature",
+        "title": "Learning representations by back-propagating errors",
+        "url": "https://www.nature.com/articles/323533a0"
+      }
+    },
+    {
+      "id": "resnet-cited-to-the-paper",
+      "date": "2026-09-11",
+      "commit": "b144202",
+      "event": "resnet-passes-human-error-rates",
+      "kind": "citation",
+      "was": "https://en.wikipedia.org/wiki/Residual_neural_network",
+      "now": "https://arxiv.org/abs/1512.03385",
+      "why": "The article cited gave no error rates at all, and error rates are the card's whole claim. The card now cites the paper.",
+      "source": {
+        "publisher": "arXiv",
+        "title": "Deep Residual Learning for Image Recognition",
+        "url": "https://arxiv.org/abs/1512.03385"
+      }
+    },
+    {
+      "id": "stanford-cart-dead-link",
+      "date": "2026-09-10",
+      "commit": "7584e51",
+      "event": "the-stanford-cart-crosses-a-room",
+      "kind": "citation",
+      "was": "https://en.wikipedia.org/wiki/Stanford_Cart",
+      "now": "https://en.wikipedia.org/wiki/Hans_Moravec",
+      "why": "The article cited did not exist, so the claim behind the card could not be checked; it cited Hans Moravec, who built and programmed the Cart, instead. The next day the source audit found that his biography did not carry the claim either."
+    },
+    {
+      "id": "sovereign-compute-dead-link",
+      "date": "2026-09-10",
+      "commit": "7584e51",
+      "event": "sovereign-compute",
+      "kind": "citation",
+      "was": "https://en.wikipedia.org/wiki/Export_controls_on_semiconductors",
+      "now": "https://en.wikipedia.org/wiki/United_States_New_Export_Controls_on_Advanced_Computing_and_Semiconductors_to_China",
+      "why": "The article cited did not exist; the card cited the article on the US export controls of October 2022 instead. On 11 October 2026 it gained evidence from 2026 itself.",
+      "source": {
+        "publisher": "Wikipedia",
+        "title": "United States New Export Controls on Advanced Computing and Semiconductors to China",
+        "url": "https://en.wikipedia.org/wiki/United_States_New_Export_Controls_on_Advanced_Computing_and_Semiconductors_to_China"
+      }
+    }
+  ]
+}

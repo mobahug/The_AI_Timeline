@@ -5,7 +5,7 @@
 
 import { VIEWS } from './views';
 
-export type PageKind = 'view' | 'finding' | 'card' | 'lead' | 'question' | 'check' | 'prediction' | 'person' | 'org' | 'term';
+export type PageKind = 'view' | 'finding' | 'card' | 'lead' | 'question' | 'check' | 'prediction' | 'promise' | 'person' | 'org' | 'term';
 
 /** One address, as a path under the site's base (`''` is the front page), with
  *  the record it shows. */
@@ -20,6 +20,7 @@ export interface PageSources {
   questions: { id: string }[];
   checks: { id: string }[];
   predictions: { id: string }[];
+  promises: { id: string }[];
   people: { id: string }[];
   orgs: { id: string }[];
   terms: { id: string }[];
@@ -37,6 +38,7 @@ export function pages(d: PageSources): Page[] {
     ...at('question', d.questions),
     ...at('check', d.checks),
     ...at('prediction', d.predictions),
+    ...at('promise', d.promises),
     ...at('person', d.people),
     ...at('org', d.orgs),
     ...at('term', d.terms)

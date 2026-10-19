@@ -53,6 +53,10 @@ export const VIEWS: View[] = [
     title: 'Said in advance',
     description: 'Famous predictions about AI — Turing, Simon, Minsky, Kurzweil, Hinton, Musk, Altman, Amodei and more — each quoted from where it was made and set beside what happened.' },
   { id: 'prediction', path: 'prediction/:id', parent: 'line', sitemap: false, shell: 'route' },
+  { id: 'promises', path: 'promises', parent: 'line', sitemap: true, shell: 'route',
+    title: 'Promises made',
+    description: 'Promises that labs, companies and governments made in public about AI — on weapons, carbon, watermarks, safety frameworks, audits — each quoted in their own words and set beside what they did.' },
+  { id: 'promise', path: 'promise/:id', parent: 'line', sitemap: false, shell: 'route' },
   { id: 'board', path: 'board', label: 'The board', hint: 'Every card and string, pinned to one wall', tab: true, sitemap: true, shell: 'wide',
     title: 'The board',
     description: 'Photo cards, string connections, and a walkthrough that follows each causal chain clue by clue.' },
@@ -101,7 +105,10 @@ export const VIEWS: View[] = [
     description: 'The newest AI events on the record, the dates it knows are coming, the questions it is waiting on, and what changed on the board, with a feed to follow it by.' },
   { id: 'about', path: 'about', label: 'About', hint: 'How the board works, and its licence', sitemap: true, shell: 'read', papers: true,
     title: 'About',
-    description: 'How this board works, what a string means, what it does not claim, and the licence it is published under.' }
+    description: 'How this board works, what a string means, what it does not claim, and the licence it is published under.' },
+  { id: 'corrections', path: 'corrections', sitemap: true, shell: 'route',
+    title: 'Corrections',
+    description: 'Every fact the board has corrected in its own record — what a card said, what it says now, why, and the source that settled it — dated from its history.' }
 ];
 
 /** Retired view names keep working: every link ever shared still lands somewhere sensible. */
