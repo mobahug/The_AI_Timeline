@@ -2,6 +2,842 @@
   "note": "Drawn from the board's own history, this register lists every change of fact the board has made to its record, dated by the commit that made it, and not every change of wording.",
   "corrections": [
     {
+      "id": "deepmind-price-not-disclosed",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "event": "google-buys-deepmind",
+      "kind": "figure",
+      "was": "A London lab with no product sells for around $500 million, on the condition that Google create an AI ethics board.",
+      "now": "Google buys a London AI lab for a price it did not disclose, reported at $400 million to $650 million, and agrees, The Information reported, to set up an ethics board.",
+      "why": "Google confirmed the purchase but declined to give a price, and the papers differed that weekend: Re/code reported $400 million, The Information more than $500 million and the Guardian £400 million, or $650 million. No source calls the ethics board a condition of the sale, which The Information reported Google had agreed to set up, and none says DeepMind had no product: its own site gave its first commercial applications as simulations, e-commerce and games. The plain question on who controls AI repeated the price and the lab with no product.",
+      "source": {
+        "publisher": "Re/code (Wayback Machine capture)",
+        "title": "Exclusive: Google to Buy Artificial Intelligence Startup DeepMind for $400M (Liz Gannes)",
+        "url": "https://web.archive.org/web/20140128015943/http://recode.net/2014/01/26/exclusive-google-to-buy-artificial-intelligence-startup-deepmind-for-400m/"
+      },
+      "alsoIn": [
+        {
+          "file": "data/questions.json",
+          "id": "who-controls-the-most-powerful-ai"
+        }
+      ]
+    },
+    {
+      "id": "deepmind-price-figure",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "event": "google-buys-deepmind",
+      "kind": "figure",
+      "was": "about $500 million, January 2014",
+      "now": "not disclosed; reported at $400 million (Re/code), more than $500 million (The Information) and £400 million, or $650 million (The Guardian), January 2014",
+      "why": "Google gave no price; $500 million was one of three figures the press reported, beside Re/code's $400 million and the Guardian's £400 million, or $650 million.",
+      "source": {
+        "publisher": "Re/code (Wayback Machine capture)",
+        "title": "Exclusive: Google to Buy Artificial Intelligence Startup DeepMind for $400M (Liz Gannes)",
+        "url": "https://web.archive.org/web/20140128015943/http://recode.net/2014/01/26/exclusive-google-to-buy-artificial-intelligence-startup-deepmind-for-400m/"
+      }
+    },
+    {
+      "id": "deepmind-ethics-board-met-once",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "event": "google-buys-deepmind",
+      "kind": "fact",
+      "was": "The ethics board barely met.",
+      "now": "The ethics board met only once, TIME reported in 2024, and gave way to Google's own AI principles; Musk, who says he was asked to join it, called it a façade.",
+      "why": "'Barely met' had no source. TIME reported in 2024 that the independent ethics board DeepMind's leaders had hoped would govern the lab's technology met only once and was soon replaced by Google's AI principles; Musk's complaint of 2024 says he was asked to join it and found it a façade to slow down regulation.",
+      "source": {
+        "publisher": "TIME (Wayback Machine capture)",
+        "title": "Exclusive: Workers at Google DeepMind Push Company to Drop Military Contracts (Billy Perrigo)",
+        "url": "https://web.archive.org/web/20240823212251/https://time.com/7013685/google-ai-deepmind-military-contracts-israel/"
+      }
+    },
+    {
+      "id": "deepmind-ethics-board-figure",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "event": "google-buys-deepmind",
+      "kind": "fact",
+      "was": "an ethics board, which barely met",
+      "now": "agreed with the purchase, The Information reported; it met only once, TIME reported in 2024",
+      "why": "The board was reported, not announced, and no source calls it a condition of the sale; The Information, citing two people familiar with the deal, wrote that Google had agreed to set one up, and TIME that it met only once.",
+      "source": {
+        "publisher": "The Information (Wayback Machine capture)",
+        "title": "Google Beat Facebook for DeepMind, Creates Ethics Board (Amir Efrati)",
+        "url": "https://web.archive.org/web/20180312200123/https://www.theinformation.com/articles/Google-beat-Facebook-For-DeepMind-Creates-Ethics-Board"
+      }
+    },
+    {
+      "id": "deepmind-sale-musks-account",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "where": {
+        "file": "data/links.json",
+        "id": "google-buys-deepmind>musk-and-altman-found-openai"
+      },
+      "kind": "attribution",
+      "was": "Musk and Altman both read the DeepMind sale the same way: one company was going to own the best AI lab on earth.",
+      "now": "By his own account Musk tried to stop the sale, attempting with Luke Nosek to raise the money to buy DeepMind before Google could; in May 2015 Altman wrote to him that if AI was coming anyway it would be good for someone other than Google to do it first.",
+      "why": "No source has the two men reading the sale alike. Musk's complaint of 2024 says he and Luke Nosek tried to put together the money to buy DeepMind before Google did; Altman's email of May 2015, made public in the suit, names Google, not DeepMind or its sale.",
+      "source": {
+        "publisher": "Superior Court of California, County of San Francisco (copy hosted by ChatGPT Is Eating the World)",
+        "title": "Complaint, Elon Musk v. Samuel Altman et al. (CGC-24-612746)",
+        "url": "https://chatgptiseatingtheworld.com/wp-content/uploads/2024/03/Elon-Musk-v.-Sam-Altman-OpenAI-COMPLAINT.pdf"
+      }
+    },
+    {
+      "id": "openai-founding-not-a-direct-reaction",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "where": {
+        "file": "data/links.json",
+        "id": "google-buys-deepmind>musk-and-altman-found-openai"
+      },
+      "kind": "framing",
+      "was": "The founding is a direct reaction to this purchase.",
+      "now": "In Musk's telling the founding begins with this sale; OpenAI's founding post named no rival.",
+      "why": "Nothing on the record makes OpenAI's founding a direct reaction to the purchase. Musk's complaint tells it that way, the sale and then his search for a counter to Google; OpenAI's founding post of December 2015 named neither Google nor DeepMind. DeepMind's file, which said the sale provoked the founding, now gives it as Musk's account.",
+      "source": {
+        "publisher": "Superior Court of California, County of San Francisco (copy hosted by ChatGPT Is Eating the World)",
+        "title": "Complaint, Elon Musk v. Samuel Altman et al. (CGC-24-612746)",
+        "url": "https://chatgptiseatingtheworld.com/wp-content/uploads/2024/03/Elon-Musk-v.-Sam-Altman-OpenAI-COMPLAINT.pdf"
+      },
+      "alsoIn": [
+        {
+          "file": "data/orgs.json",
+          "id": "google-deepmind"
+        }
+      ]
+    },
+    {
+      "id": "hassabis-co-founded-deepmind",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "where": {
+        "file": "data/people.json",
+        "id": "demis-hassabis"
+      },
+      "kind": "attribution",
+      "was": "Founded DeepMind in 2010, sold it to Google in 2014, and led the teams behind AlphaGo, AlphaZero, AlphaFold and the olympiad results.",
+      "now": "Co-founded DeepMind in 2010 with Shane Legg and Mustafa Suleyman, sold it to Google in 2014, and led the teams behind AlphaGo, AlphaZero, AlphaFold and the olympiad results.",
+      "why": "DeepMind had three founders: its own site, as captured in January 2014, names Demis Hassabis, Shane Legg and Mustafa Suleyman.",
+      "source": {
+        "publisher": "DeepMind (Wayback Machine capture)",
+        "title": "DeepMind Technologies (home page, as captured on 27 January 2014)",
+        "url": "https://web.archive.org/web/20140127112828/http://deepmind.com/"
+      }
+    },
+    {
+      "id": "musk-exit-reason-was-openais",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "event": "musk-leaves-the-openai-board",
+      "kind": "attribution",
+      "was": "Citing conflicts with Tesla's own AI work after a failed bid to take control, he walks — and the promised funding largely does not arrive.",
+      "now": "OpenAI says Musk will leave its board to avoid a potential future conflict as Tesla turns to AI. It later said he had wanted control of a for-profit OpenAI; by his account, he insisted it stay a nonprofit.",
+      "why": "The Tesla reason was OpenAI's, and it named no present conflict: its post of 20 February 2018 said his leaving would eliminate a potential future conflict, and that he would keep donating, which by his complaint he did into 2020. The bid for control is OpenAI's account, given in 2024; Musk's is that others proposed the for-profit and he told them to stay a nonprofit or go it alone. Both now stand, here and on the string from the founding.",
+      "source": {
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "OpenAI Supporters",
+        "url": "https://web.archive.org/web/20180221040655/https://blog.openai.com/openai-supporters/"
+      },
+      "alsoIn": [
+        {
+          "file": "data/links.json",
+          "id": "musk-and-altman-found-openai>musk-leaves-the-openai-board"
+        }
+      ]
+    },
+    {
+      "id": "musk-exit-did-not-force-the-structure",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "event": "musk-leaves-the-openai-board",
+      "kind": "fact",
+      "was": "The exit forces OpenAI to find capital elsewhere, which forces the structure that everything later breaks on.",
+      "now": "Both sides agree a for-profit was under discussion before he left. His exit meant raising the billions without him, through the structure that everything later breaks on.",
+      "why": "The exit did not force the structure. By OpenAI's account it and Musk agreed in the summer of 2017 that a for-profit was the next step; by Musk's, Brockman and others suggested one that year. What his leaving settled was that it would be built without him.",
+      "source": {
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "Elon Musk wanted an OpenAI for-profit",
+        "url": "https://web.archive.org/web/20241214084452/https://openai.com/index/elon-musk-wanted-an-openai-for-profit/"
+      }
+    },
+    {
+      "id": "openai-founding-money-never-paid-in",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "where": {
+        "file": "data/links.json",
+        "id": "musk-leaves-the-openai-board>openai-goes-capped-profit-microsoft-puts-in-1bn"
+      },
+      "kind": "fact",
+      "was": "With the founding money gone and training costs climbing, a nonprofit could not buy compute.",
+      "now": "With most of the pledged billion never paid in, and billions of dollars needed for compute and people in the years ahead, by OpenAI's own estimate, a nonprofit could not raise enough.",
+      "why": "The founding money was never there to be gone: by OpenAI's account the nonprofit raised less than $45 million from Musk and more than $90 million from other donors against the billion announced. OpenAI wrote in 2019 that it would need to invest billions of dollars in compute, people and supercomputers.",
+      "source": {
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "OpenAI and Elon Musk",
+        "url": "https://web.archive.org/web/20240306022619/https://openai.com/blog/openai-elon-musk"
+      }
+    },
+    {
+      "id": "capped-profit-first-round-only",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "event": "openai-goes-capped-profit-microsoft-puts-in-1bn",
+      "kind": "figure",
+      "was": "A nonprofit grows a for-profit subsidiary with returns capped at 100x, and Azure becomes its exclusive compute.",
+      "now": "In March the nonprofit sets up a capped-profit company under its board, its first investors' returns limited to 100 times their money. In July Microsoft invests $1 billion and becomes its exclusive cloud provider.",
+      "why": "The cap of 100 times was for the first round of investors; OpenAI expected later rounds to be capped lower. The company was set up on 11 March 2019, four months before the Microsoft investment the card's date marks, and OpenAI's words for Microsoft's part were exclusive cloud provider.",
+      "source": {
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "OpenAI LP",
+        "url": "https://web.archive.org/web/20190311161512/https://openai.com/blog/openai-lp/"
+      }
+    },
+    {
+      "id": "capped-profit-cap-figure",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "event": "openai-goes-capped-profit-microsoft-puts-in-1bn",
+      "kind": "figure",
+      "was": "returns to investors limited to 100× ",
+      "now": "from March 2019, 100× their investment for the first round of investors, later rounds expected to be lower; anything above goes to the nonprofit",
+      "why": "OpenAI capped its first round of investors at 100 times their investment and expected the multiple to be lower for later rounds, with any excess going to the nonprofit.",
+      "source": {
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "OpenAI LP",
+        "url": "https://web.archive.org/web/20190311161512/https://openai.com/blog/openai-lp/"
+      }
+    },
+    {
+      "id": "capped-profit-no-precedent-claim",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "event": "openai-goes-capped-profit-microsoft-puts-in-1bn",
+      "kind": "attribution",
+      "was": "A governance experiment nobody had run before.",
+      "now": "OpenAI said no existing legal structure it knew of struck the balance it wanted, so it built one.",
+      "why": "That nobody had run the experiment before had no source. OpenAI's own claim, in the post that set the company up, was narrower: no pre-existing legal structure it knew of struck the right balance.",
+      "source": {
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "OpenAI LP",
+        "url": "https://web.archive.org/web/20190311161512/https://openai.com/blog/openai-lp/"
+      }
+    },
+    {
+      "id": "capped-profit-five-days-not-a-weekend",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "event": "openai-goes-capped-profit-microsoft-puts-in-1bn",
+      "kind": "date",
+      "was": "Four years later it fails live, on a weekend.",
+      "now": "Four years later the board used its control, and was reversed within five days.",
+      "why": "The firing card's own sources run from Friday 17 to Tuesday 21 November 2023: the board removed Altman, nearly all the staff signed a letter saying they might resign, and on the fifth day he was back.",
+      "source": {
+        "publisher": "Wired",
+        "title": "OpenAI Staff Threaten to Quit Unless Board Resigns",
+        "url": "https://www.wired.com/story/openai-staff-walk-protest-sam-altman/"
+      }
+    },
+    {
+      "id": "altman-reversal-one-letter",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "where": {
+        "file": "data/links.json",
+        "id": "openai-goes-capped-profit-microsoft-puts-in-1bn>altman-is-fired-then-rehired-in-five-days"
+      },
+      "kind": "fact",
+      "was": "When the board finally used its power, the commercial side simply out-voted it with resignation letters.",
+      "now": "When the board finally used its power, the staff and the investor reversed it in five days: 738 of some 770 employees signed a letter saying they might resign and join Altman at Microsoft, which had assured them of positions.",
+      "why": "There were no resignation letters and no vote. By the Monday 738 of about 770 staff had signed one letter saying they might resign and join the new Microsoft unit, which, they wrote, had assured them of positions, Wired reported; the board took Altman back on the Tuesday.",
+      "source": {
+        "publisher": "Wired",
+        "title": "OpenAI Staff Threaten to Quit Unless Board Resigns",
+        "url": "https://www.wired.com/story/openai-staff-walk-protest-sam-altman/"
+      }
+    },
+    {
+      "id": "openai-group-a-public-benefit-corporation",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "where": {
+        "file": "data/links.json",
+        "id": "openai-goes-capped-profit-microsoft-puts-in-1bn>openai-converts-the-nonprofit-keeps-a-stake"
+      },
+      "kind": "fact",
+      "was": "Six years later the cap is gone, the for-profit is a conventional benefit corporation, and the foundation keeps control through board-appointment rights while holding 26% of the equity.",
+      "now": "Six years later the cap is gone, the for-profit is a public benefit corporation with a normal capital structure, and the foundation keeps control through board-appointment rights while holding 26% of the equity.",
+      "why": "OpenAI Group is a public benefit corporation, not a conventional one; what became conventional was its stock, OpenAI having said it was moving to a normal capital structure where everyone has stock.",
+      "source": {
+        "publisher": "OpenAI",
+        "title": "Built to benefit everyone",
+        "url": "https://openai.com/index/built-to-benefit-everyone/"
+      }
+    },
+    {
+      "id": "microsoft-thirteen-billion-in-all",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "where": {
+        "file": "data/orgs.json",
+        "id": "microsoft"
+      },
+      "kind": "figure",
+      "was": "Put a billion dollars into OpenAI in 2019 and about thirteen more after; shipped Sydney; offered Altman a job during the five days.",
+      "now": "Put a billion dollars into OpenAI in 2019, and more than thirteen billion in all; shipped Sydney; offered Altman a job during the five days.",
+      "why": "The thirteen billion includes the first: CNBC reported at the conversion of 2025 that Microsoft had invested more than $13 billion in OpenAI, backing it from 2019.",
+      "source": {
+        "publisher": "CNBC",
+        "title": "OpenAI completes restructure, solidifying Microsoft as a major shareholder",
+        "url": "https://www.cnbc.com/2025/10/28/open-ai-for-profit-microsoft.html"
+      }
+    },
+    {
+      "id": "capped-profit-nonprofit-kept-control",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "where": {
+        "file": "data/glossary.json",
+        "id": "capped-profit"
+      },
+      "kind": "fact",
+      "was": "It was the structure that fired Altman and could not keep him fired, and it was replaced in 2025 by a public benefit corporation with the nonprofit as shareholder.",
+      "now": "It was the structure that fired Altman and could not keep him fired, and in 2025 it gave way to a public benefit corporation whose board the nonprofit appoints and of which it owns 26%.",
+      "why": "The nonprofit did not lose control in 2025, as the entry's short line also implied: by OpenAI's account the OpenAI Foundation appoints all of OpenAI Group's directors and holds 26% of its equity. What ended was the cap.",
+      "source": {
+        "publisher": "OpenAI",
+        "title": "Built to benefit everyone",
+        "url": "https://openai.com/index/built-to-benefit-everyone/"
+      }
+    },
+    {
+      "id": "gpt-2-argument-was-older",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "event": "gpt-2-s-staged-release",
+      "kind": "framing",
+      "was": "OpenAI withholds its largest model citing misuse risk and starts a still-running argument about openness.",
+      "now": "OpenAI holds back the full GPT-2 for fear of misuse, calling it an experiment in responsible disclosure, and releases it in stages over nine months. The argument over openness it sharpened is still running.",
+      "why": "The argument did not start here. OpenAI's post quoted its charter of 2018, which had already said safety concerns would reduce its publishing, and pointed to long-running debates over responsible publication in biotechnology and cybersecurity; it called its decision an experiment. The model then went out in four stages, the last on 5 November 2019.",
+      "source": {
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "Better Language Models and Their Implications",
+        "url": "https://web.archive.org/web/20190214171619/https://blog.openai.com/better-language-models/"
+      }
+    },
+    {
+      "id": "gpt-2-no-first",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "event": "gpt-2-s-staged-release",
+      "kind": "framing",
+      "was": "The first time a lab treated its own capability as a hazard in public.",
+      "now": "A lab treated its own model as a hazard, in public, and asked the field to take up the arguments over publication that biotechnology and cybersecurity had long had.",
+      "why": "No source on the record calls it the first. OpenAI presented the decision as an experiment and set it beside the debates over responsible publication that other disciplines had long had.",
+      "source": {
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "Better Language Models and Their Implications",
+        "url": "https://web.archive.org/web/20190214171619/https://blog.openai.com/better-language-models/"
+      }
+    },
+    {
+      "id": "gpt-2-gate-not-pioneered",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "where": {
+        "file": "data/links.json",
+        "id": "gpt-2-s-staged-release>llama-leaks"
+      },
+      "kind": "attribution",
+      "was": "Meta tried the gated release OpenAI had pioneered — case-by-case access, research-only licence.",
+      "now": "Meta tried the kind of gate OpenAI had kept around the unreleased GPT-2 — case-by-case access, a non-commercial licence for research.",
+      "why": "Nothing on the record says OpenAI pioneered gated release. What it did, by its own report, was share the unreleased full model with partner organisations under a non-commercial legal agreement for their research; Meta's LLaMA post describes access case by case under a noncommercial licence focused on research.",
+      "source": {
+        "publisher": "arXiv (OpenAI)",
+        "title": "Release Strategies and the Social Impacts of Language Models (Irene Solaiman, Miles Brundage, Jack Clark and others)",
+        "url": "https://arxiv.org/pdf/1908.09203v2"
+      }
+    },
+    {
+      "id": "llm-not-all-tuned-by-feedback",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "where": {
+        "file": "data/glossary.json",
+        "id": "large-language-model"
+      },
+      "kind": "fact",
+      "was": "GPT-2, GPT-3, ChatGPT, Claude, Gemini, Llama, DeepSeek: all are transformers trained on text to predict what comes next, then adjusted with human feedback to be useful.",
+      "now": "GPT-2, GPT-3, ChatGPT, Claude, Gemini, Llama, DeepSeek: all are transformers trained on text to predict what comes next, and the chat models among them are then adjusted with human feedback to be useful.",
+      "why": "GPT-2 was trained simply to predict the next word, by its paper, and no human feedback went into it, nor into GPT-3 as first sold; that tuning came to OpenAI's models with InstructGPT in 2022, as the board's own card has it.",
+      "source": {
+        "publisher": "OpenAI",
+        "title": "Language Models are Unsupervised Multitask Learners (Alec Radford, Jeffrey Wu, Rewon Child, David Luan, Dario Amodei and Ilya Sutskever)",
+        "url": "https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf"
+      }
+    },
+    {
+      "id": "tay-attacked-sixteen-hours-the-guardians",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "event": "tay",
+      "kind": "attribution",
+      "was": "A chatbot released to Twitter is taught to post racist content and withdrawn within sixteen hours.",
+      "now": "Microsoft's chatbot for young Americans goes live on Twitter and, after what Microsoft called a coordinated attack, tweets racist abuse. It is offline within a day, sixteen hours in by the Guardian's count.",
+      "why": "Microsoft's own account, Peter Lee's post of 25 March 2016, puts the tweets down to a coordinated attack that exploited a vulnerability in Tay's first 24 hours, and gives no hour for the shutdown. Sixteen hours is the Guardian's count, from Tay's first tweet to its goodnight; taught was the press's word.",
+      "source": {
+        "publisher": "Microsoft (Official Microsoft Blog)",
+        "title": "Learning from Tay’s introduction (Peter Lee)",
+        "url": "https://blogs.microsoft.com/blog/2016/03/25/learning-tays-introduction/"
+      }
+    },
+    {
+      "id": "tay-not-the-first-lesson",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "event": "tay",
+      "kind": "framing",
+      "was": "The first mainstream lesson that deployment context, not model quality, determines behaviour.",
+      "now": "What a chatbot says depends on who talks to it. Tay was Microsoft's test of whether a bot like XiaoIce, used by some 40 million people in China, would work as well in America. On Twitter it was turned within a day, and Microsoft called the challenges as much social as technical.",
+      "why": "Nothing on the record makes Tay the first such lesson, and Microsoft's post says Tay was not its first chatbot in public: XiaoIce was being used by some 40 million people in China. Nor does Microsoft put the failure outside the system: it writes of a vulnerability and a critical oversight, and of challenges as much social as technical.",
+      "source": {
+        "publisher": "Microsoft (Official Microsoft Blog)",
+        "title": "Learning from Tay’s introduction (Peter Lee)",
+        "url": "https://blogs.microsoft.com/blog/2016/03/25/learning-tays-introduction/"
+      }
+    },
+    {
+      "id": "tay-and-sydney-reined-in-apart",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "where": {
+        "file": "data/links.json",
+        "id": "tay>sydney"
+      },
+      "kind": "date",
+      "was": "Seven years apart, Microsoft put two chatbots in front of the public and had to rein both in within days.",
+      "now": "Seven years apart, Microsoft put two chatbots in front of the public and had to rein both in: Tay within a day, Sydney ten days after launch.",
+      "why": "Tay was offline within a day, and Sydney's conversations were capped ten days after launch, as the Sydney card says: not both within days.",
+      "source": {
+        "publisher": "Microsoft (Bing Blog)",
+        "title": "The new Bing & Edge – Updates to Chat",
+        "url": "https://blogs.bing.com/search/2023/2/The-new-Bing-Edge-Updates-to-Chat/"
+      }
+    },
+    {
+      "id": "herzberg-detected-not-classified",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "event": "a-self-driving-car-kills-a-pedestrian",
+      "kind": "fact",
+      "was": "A test vehicle strikes Elaine Herzberg in Tempe, Arizona; sensor gaps, disabled braking and inattention compound.",
+      "now": "An Uber test car driving itself kills Elaine Herzberg in Tempe, Arizona. It detected her 5.6 seconds out but never classified her as a pedestrian, its emergency braking was off, and its operator was looking at her phone.",
+      "why": "The sensors did not miss her. By the NTSB's account Uber's system detected her 5.6 seconds before impact and tracked her to the crash, but never classified her as a pedestrian or predicted her path. The braking was off twice over: the Volvo's own emergency braking was switched off under computer control, and Uber's design left emergency braking to the operator, who was looking at her phone.",
+      "source": {
+        "publisher": "National Transportation Safety Board",
+        "title": "Collision Between Vehicle Controlled by Developmental Automated Driving System and Pedestrian, Tempe, Arizona, March 18, 2018 (Highway Accident Report NTSB/HAR-19/03)",
+        "url": "https://www.ntsb.gov/investigations/AccidentReports/Reports/HAR1903.pdf"
+      }
+    },
+    {
+      "id": "herzberg-first-pedestrian-not-first-death",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "event": "a-self-driving-car-kills-a-pedestrian",
+      "kind": "attribution",
+      "was": "The first death attributed to an autonomous vehicle, and the case that reframed testing on public roads.",
+      "now": "Reported at the time as the first pedestrian killed by a self-driving car in the US. Arizona suspended Uber's testing eight days later, and the NTSB called for a federal review before automated test vehicles are allowed on public roads.",
+      "why": "It was not the first death in a car driving itself: the Guardian's report of the crash recalls the Tesla driver killed with Autopilot on in 2016. What it reported was the first pedestrian killed. What changed for testing on public roads is now on the card as the record has it: Arizona's suspension and the NTSB's call for a federal review process.",
+      "source": {
+        "publisher": "The Guardian",
+        "title": "Self-driving Uber kills Arizona woman in first fatal crash involving pedestrian (Sam Levin and Julia Carrie Wong)",
+        "url": "https://www.theguardian.com/technology/2018/mar/19/uber-self-driving-car-kills-woman-arizona-tempe"
+      }
+    },
+    {
+      "id": "thrun-founded-googles-project-by-his-account",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "where": {
+        "file": "data/links.json",
+        "id": "stanley-wins>a-self-driving-car-kills-a-pedestrian"
+      },
+      "kind": "attribution",
+      "was": "Stanley's team leader went on to found Google's self-driving project, and within a decade the industry Stanley started was testing on public streets.",
+      "now": "Stanley's team leader, Sebastian Thrun, went on to found Google's self-driving project, by his own account, and within five years its cars were driving on public streets.",
+      "why": "That Thrun founded the project is his own account: his page says he founded Project Chauffeur, later Waymo, and Google's post of October 2010 has its cars already driving from Mountain View to Hollywood Boulevard, five years after Stanley. That the industry was Stanley's to start had no source."
+    },
+    {
+      "id": "deepfakes-not-a-gan",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "where": {
+        "file": "data/links.json",
+        "id": "generative-adversarial-networks>deepfakes-arrive"
+      },
+      "kind": "fact",
+      "was": "Adversarial training made convincing synthetic faces a weekend project. Three years later the technique was in consumer tools, and the first victims were private individuals.",
+      "now": "The network the Reddit user posted in 2017 was not a GAN but an autoencoder: one encoder shared between two faces, a decoder for each. Adversarial training was added afterwards, by tools built on it. The first faces taken were celebrities'; within weeks users were faking people they knew.",
+      "why": "The first deepfakes did not use adversarial training. The original network was an encoder–decoder with one encoder and two decoders, by Mirsky and Lee's survey and the faceswap project's account of its original model; adversarial loss was added to it afterwards. Motherboard's first report names celebrities as the first faces used; private individuals followed within weeks. The string's claim and the glossary's entry on GANs now say so.",
+      "source": {
+        "publisher": "ACM Computing Surveys (arXiv preprint)",
+        "title": "The Creation and Detection of Deepfakes: A Survey (Yisroel Mirsky and Wenke Lee)",
+        "url": "https://arxiv.org/pdf/2004.11138"
+      },
+      "alsoIn": [
+        {
+          "file": "data/glossary.json",
+          "id": "gan"
+        }
+      ]
+    },
+    {
+      "id": "deepfakes-an-app-by-2018",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "where": {
+        "file": "data/glossary.json",
+        "id": "deepfake"
+      },
+      "kind": "date",
+      "was": "Named on a subreddit in 2017; a product by 2022; a policy problem the board expects to force provenance rules by 2029.",
+      "now": "Named after a Reddit user who posted face-swapped porn in 2017; a free desktop app by January 2018; a policy problem the board expects to force provenance rules by 2029.",
+      "why": "Deepfakes were a product within weeks, not by 2022: Motherboard reported FakeApp, an application anyone could use, in January 2018, and Reddit shut the deepfakes subreddit that February. The entry on diffusion models, which tied deepfakes becoming a product to 2022, no longer does.",
+      "source": {
+        "publisher": "Vice (Motherboard)",
+        "title": "We Are Truly Fucked: Everyone Is Making AI-Generated Fake Porn Now (Samantha Cole)",
+        "url": "https://www.vice.com/en/article/reddit-fake-porn-app-daisy-ridley/"
+      },
+      "alsoIn": [
+        {
+          "file": "data/glossary.json",
+          "id": "diffusion-model"
+        }
+      ]
+    },
+    {
+      "id": "gebru-two-accounts-of-her-exit",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "event": "google-fires-timnit-gebru",
+      "kind": "attribution",
+      "was": "Google fires Timnit Gebru",
+      "now": "Google and Timnit Gebru part over a paper",
+      "why": "That she was fired is Gebru's account. Google's, in Jeff Dean's email, which he published, is that it accepted her resignation. The title now takes neither side, and Google's file gives both; the card's address is unchanged.",
+      "source": {
+        "publisher": "Google (Jeff Dean, published as a Google Doc)",
+        "title": "About Google's approach to research publication (Jeff Dean)",
+        "url": "https://docs.google.com/document/d/1f2kYWDXwhzYnq8ebVtuk9CqQqz7ScqxhSIxeYGrWjK0/mobilebasic"
+      },
+      "alsoIn": [
+        {
+          "file": "data/orgs.json",
+          "id": "google"
+        }
+      ]
+    },
+    {
+      "id": "gebru-retract-or-remove-names",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "event": "google-fires-timnit-gebru",
+      "kind": "fact",
+      "was": "Google demands she withdraw a co-authored paper on the risks of large language models; the AI ethics team implodes in public.",
+      "now": "Google tells the co-lead of its ethical AI team to withdraw a paper on the risks of large language models or take its Google authors' names off it. She sets conditions; Google says she resigned, she says she was fired.",
+      "why": "Google's demand had an alternative: retract the paper or take the Google employees' names off it, as MIT Technology Review reported and the paper's own acknowledgements confirm. What followed is told two ways, and the card now carries both.",
+      "source": {
+        "publisher": "MIT Technology Review",
+        "title": "A leading AI ethics researcher says she’s been fired from Google (Karen Hao)",
+        "url": "https://www.technologyreview.com/2020/12/03/1013065/google-ai-ethics-lead-timnit-gebru-fired/"
+      }
+    },
+    {
+      "id": "gebru-no-exodus-on-record",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "event": "google-fires-timnit-gebru",
+      "kind": "fact",
+      "was": "The industry learns that internal criticism is a career risk. Half the field's safety talent moves to labs of their own.",
+      "now": "By Gebru's account, criticism from inside a lab cost her her job; Google says she resigned. Within three months both co-leads of Google's ethical AI team were gone, and a year later Gebru launched DAIR, an institute meant to do the research outside Big Tech's influence.",
+      "why": "Nothing on the record says half the field's safety talent left for labs of their own. What is on the record: Google fired the team's other co-lead, Margaret Mitchell, in February 2021, and on 2 December 2021 Gebru launched DAIR, an independent institute. Her reading of her exit is hers, and is now given as hers.",
+      "source": {
+        "publisher": "DAIR",
+        "title": "Press Release: Announcing DAIR",
+        "url": "https://www.dair-institute.org/press-release"
+      }
+    },
+    {
+      "id": "gebru-and-anthropic-unconnected",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "where": {
+        "file": "data/links.json",
+        "id": "google-fires-timnit-gebru>anthropic-founded-by-departing-openai-staff"
+      },
+      "kind": "fact",
+      "was": "Both events answer the same question — what happens when internal safety criticism collides with product pressure. One ended in a firing; the other in a rival company.",
+      "now": "In December 2020 Google and Timnit Gebru parted over a paper on the risks of large language models, and OpenAI announced that Dario Amodei and a handful of colleagues were leaving for a project that would probably focus less on product development and more on research. Neither caused the other: Anthropic was founded by the OpenAI group, and Gebru went on to found DAIR.",
+      "why": "Gebru's exit did not scatter anyone into Anthropic, as the string's claim had it: Anthropic was founded by the group from OpenAI, and Gebru went on to found DAIR. That one ended in a firing is Gebru's account, not Google's. The two share a month, not a cause.",
+      "source": {
+        "publisher": "DAIR",
+        "title": "Press Release: Announcing DAIR",
+        "url": "https://www.dair-institute.org/press-release"
+      }
+    },
+    {
+      "id": "copilot-suggested-whole-functions",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "where": {
+        "file": "data/links.json",
+        "id": "copilot>coding-agents-take-the-keyboard"
+      },
+      "kind": "fact",
+      "was": "Copilot suggested the next line; four years later coding agents ran the terminal, made whole changes and fixed their own failing tests.",
+      "now": "Copilot suggested whole lines or entire functions; four years later coding agents ran commands in the terminal, made whole changes and ran the tests until they passed.",
+      "why": "GitHub's launch post says Copilot suggested whole lines or entire functions, not only the next line.",
+      "source": {
+        "publisher": "GitHub (The GitHub Blog)",
+        "title": "Introducing GitHub Copilot: your AI pair programmer (Nat Friedman)",
+        "url": "https://github.blog/news-insights/product-news/introducing-github-copilot-ai-pair-programmer/"
+      }
+    },
+    {
+      "id": "books-half-settled-not-lost",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "where": {
+        "file": "data/links.json",
+        "id": "copilot>anthropic-pays-for-pirated-books"
+      },
+      "kind": "fact",
+      "was": "In 2025 a federal judge drew a line for books: training Claude on them was fair use, but downloading them from pirate libraries was not, and that half cost Anthropic $1.5 billion.",
+      "now": "In 2025 a federal judge drew a line for books: training Claude on them was fair use, but downloading millions from pirate libraries and keeping them was not, and settling that half cost Anthropic $1.5 billion.",
+      "why": "The $1.5 billion was a settlement, reached before the trial the judge had set on the pirated copies, not damages awarded; and what he held unjustified was downloading the books from pirate libraries and keeping them in a central library, as the books card says.",
+      "source": {
+        "publisher": "US District Court for the Northern District of California (RECAP copy, CourtListener)",
+        "title": "Bartz v. Anthropic PBC, Order on Fair Use (Dkt. 231)",
+        "url": "https://storage.courtlistener.com/recap/gov.uscourts.cand.434709/gov.uscourts.cand.434709.231.0.pdf"
+      }
+    },
+    {
+      "id": "coding-agents-not-yet-daily-in-2025",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "event": "coding-agents-take-the-keyboard",
+      "kind": "fact",
+      "was": "Tools that plan, edit and run whole repositories move from novelty to daily use, and software work reorganises around review.",
+      "now": "Anthropic, OpenAI and GitHub release agents that edit code across a repository, run its tests and hand the changes back for review. A majority of developers surveyed in mid-2025 did not yet use agents.",
+      "why": "Stack Overflow's survey of mid-2025 found AI agents not yet mainstream: a majority of developers did not use them or kept to simpler AI tools. Daily use came later; by its 2026 survey 73% of those using AI coding assistants or agents used them daily. Nothing sourced the work reorganising around review; the makers' own posts show each tool handing its changes back for review. Two plain questions, the primer and two predictions repeated the claim.",
+      "source": {
+        "publisher": "Stack Overflow",
+        "title": "2025 Developer Survey: AI",
+        "url": "https://survey.stackoverflow.co/2025/ai"
+      },
+      "alsoIn": [
+        {
+          "file": "data/questions.json",
+          "id": "will-ai-take-my-job"
+        },
+        {
+          "file": "data/questions.json",
+          "id": "what-can-ai-do-now"
+        }
+      ]
+    },
+    {
+      "id": "coding-agents-no-template-on-record",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "event": "coding-agents-take-the-keyboard",
+      "kind": "framing",
+      "was": "The first job where agentic AI became normal infrastructure rather than a demo. Everything else is following this template.",
+      "now": "Software is the first work on the board that agents were sold to do rather than shown doing. By 2026 Stack Overflow's survey said AI had become 'less sidekick and more infrastructure' for developers; the board's reading is that other work follows the same course, the task going to the machine and the check staying with a person.",
+      "why": "That agentic AI was normal infrastructure in 2025, and that everything else was following the template, had no source. Stack Overflow's survey of 2026 now supplies its own phrase for developers, and the rest is marked as the board's reading.",
+      "source": {
+        "publisher": "Stack Overflow",
+        "title": "2025 Developer Survey: AI",
+        "url": "https://survey.stackoverflow.co/2025/ai"
+      },
+      "alsoIn": [
+        {
+          "file": "data/questions.json",
+          "id": "will-ai-take-my-job"
+        }
+      ]
+    },
+    {
+      "id": "software-not-first-to-verify-instantly",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "where": {
+        "file": "data/links.json",
+        "id": "coding-agents-take-the-keyboard>agents-enter-real-workflows"
+      },
+      "kind": "fact",
+      "was": "Software was the first domain with instant verification: code runs or it doesn't. Agents became reliable there first, then generalised into work with slower feedback.",
+      "now": "Code can be checked by running it and its tests, and GitHub billed its agent as best at low-to-medium complexity tasks in well-tested codebases. On the board's reading agents took hold in software first, then spread to work whose results take longer to check.",
+      "why": "Software was not the first domain with instant verification: games, where the board's self-play cards begin, had it long before. Nothing sourced agents becoming reliable there first; GitHub billed its agent as best at low-to-medium complexity tasks in well-tested codebases.",
+      "source": {
+        "publisher": "GitHub (The GitHub Blog)",
+        "title": "GitHub Copilot: Meet the new coding agent (Thomas Dohmke)",
+        "url": "https://github.blog/news-insights/product-news/github-copilot-meet-the-new-coding-agent/"
+      }
+    },
+    {
+      "id": "diffusion-weeks-apart-weights-behind-a-licence",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "event": "diffusion-goes-mainstream",
+      "kind": "fact",
+      "was": "Text-to-image tools reach the public within months of each other; one of them ships open weights.",
+      "now": "Text-to-image tools reach the public within weeks of each other in the summer of 2022, and one of them, Stable Diffusion, publishes its weights for anyone who accepts its licence.",
+      "why": "Midjourney opened its beta on 12 July 2022, OpenAI began inviting a million people to DALL·E on 20 July and Stable Diffusion went to the public on 22 August: weeks apart, not months. Its weights were open to anyone who clicked to accept the CreativeML OpenRAIL-M licence on Hugging Face, which bars harmful uses.",
+      "source": {
+        "publisher": "Hugging Face (CompVis model page, Wayback Machine capture)",
+        "title": "CompVis/stable-diffusion-v1-4: Stable Diffusion v1-4 Model Card",
+        "url": "https://web.archive.org/web/20220824015913/https://huggingface.co/CompVis/stable-diffusion-v1-4"
+      }
+    },
+    {
+      "id": "diffusion-only-the-weights-unrecallable",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "event": "diffusion-goes-mainstream",
+      "kind": "framing",
+      "was": "Nothing about image generation could be recalled after this.",
+      "now": "Once the weights were out, anyone could copy and run them, and nobody could call them back.",
+      "why": "That nothing about image generation could be recalled claimed more than the record holds. What could not be recalled was the published weights, which Stability released for anyone to run.",
+      "source": {
+        "publisher": "Stability AI",
+        "title": "Stable Diffusion Public Release (Joshua Lopez)",
+        "url": "https://stability.ai/news/stable-diffusion-public-release"
+      }
+    },
+    {
+      "id": "stable-diffusion-moment-and-llama-release",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "where": {
+        "file": "data/links.json",
+        "id": "diffusion-goes-mainstream>llama-leaks"
+      },
+      "kind": "attribution",
+      "was": "Both the leaked Google memo and Simon Willison called it the \"Stable Diffusion moment\" for language models: an open base model, then a flood of community fine-tunes, quantisation and local inference within weeks. The difference is that Stability chose to release and Meta did not.",
+      "now": "Simon Willison called it the \"Stable Diffusion moment\" for language models, and the leaked Google memo said many were calling it that: a capable base model loose, then a flood of community fine-tunes, quantisation and local inference within weeks. The difference is that Stability released its weights to anyone who accepted a licence, while Meta gave LLaMA's to approved researchers, and they leaked.",
+      "why": "The memo did not use the phrase as its own: it said many were calling it the Stable Diffusion moment, as Simon Willison had in March 2023. And Meta did release LLaMA, to researchers granted access case by case, before the weights leaked.",
+      "source": {
+        "publisher": "Simon Willison",
+        "title": "Large language models are having their Stable Diffusion moment",
+        "url": "https://simonwillison.net/2023/Mar/11/llama/"
+      }
+    },
+    {
+      "id": "stable-diffusion-was-gated",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "where": {
+        "file": "data/links.json",
+        "id": "diffusion-goes-mainstream>a-magnet-link-from-paris"
+      },
+      "kind": "fact",
+      "was": "Stable Diffusion had shown that shipping weights with no gate builds a community faster than any API. Mistral took the lesson literally: no gate, no form, a torrent.",
+      "now": "Stable Diffusion's weights sat behind a one-click licence on Hugging Face that barred harmful uses, and a community built on them. Mistral went further: no form, no restrictions under its Apache 2.0 licence, a torrent.",
+      "why": "Stable Diffusion's first public weights were gated: Hugging Face asked users to share their contact details and accept the CreativeML OpenRAIL-M licence before granting access. Nothing on the record compares the community it built with any API's.",
+      "source": {
+        "publisher": "Hugging Face (CompVis model page, Wayback Machine capture)",
+        "title": "CompVis/stable-diffusion-v1-4: Stable Diffusion v1-4 Model Card",
+        "url": "https://web.archive.org/web/20220824015913/https://huggingface.co/CompVis/stable-diffusion-v1-4"
+      }
+    },
+    {
+      "id": "code-red-the-times-and-pichai",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "event": "google-declares-a-code-red",
+      "kind": "attribution",
+      "was": "ChatGPT's launch triggers an internal emergency at the company that invented the transformer, and the release brakes come off across the industry.",
+      "now": "At the company whose researchers published the transformer, ChatGPT's release leads management to declare a code red, The New York Times reports. Sundar Pichai later says he did not issue one.",
+      "why": "The code red is The New York Times's report, from a memo and a recording it obtained; Sundar Pichai told its Hard Fork podcast in March 2023 that he had not issued one, though people had probably sent emails saying there was one. Nothing showed the brakes coming off across the industry. The ChatGPT card's file, Google's file, the string from ChatGPT and the blurb of finding 14 said the same, and now say what the record holds.",
+      "source": {
+        "publisher": "The New York Times (Hard Fork transcript, Wayback Machine capture)",
+        "title": "Google C.E.O. Sundar Pichai on Bard, A.I. ‘Whiplash’ and Competing With ChatGPT (Kevin Roose and Casey Newton)",
+        "url": "https://web.archive.org/web/20230401225008/https://www.nytimes.com/2023/03/31/podcasts/hard-fork-sundar.html"
+      },
+      "alsoIn": [
+        {
+          "file": "data/events.json",
+          "id": "chatgpt"
+        },
+        {
+          "file": "data/orgs.json",
+          "id": "google"
+        },
+        {
+          "file": "data/links.json",
+          "id": "chatgpt>google-declares-a-code-red"
+        },
+        {
+          "file": "data/spine.json",
+          "id": "14"
+        }
+      ]
+    },
+    {
+      "id": "code-red-staged-releases-did-not-end",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "event": "google-declares-a-code-red",
+      "kind": "fact",
+      "was": "Competitive pressure, not capability, is what ends the era of cautious staged releases.",
+      "now": "Google already had a chatbot to rival ChatGPT, kept to a test app; competition, not capability, changed its pace. By the Times's account Google and Microsoft took greater risks with their ethical guidelines; both said they had limited their first releases.",
+      "why": "Staged releases did not end: Google released Bard to trusted testers and then to users in two countries, and Bing's chat opened as a limited preview. What the Times reported in April 2023 was narrower, Google and Microsoft willing to take greater risks with their ethical guidelines, and the companies answered that their first releases were limited.",
+      "source": {
+        "publisher": "Google (The Keyword)",
+        "title": "An important next step on our AI journey (Sundar Pichai)",
+        "url": "https://blog.google/technology/ai/bard-google-ai-search-updates/"
+      }
+    },
+    {
+      "id": "transformer-already-in-search",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "where": {
+        "file": "data/links.json",
+        "id": "chatgpt>google-declares-a-code-red"
+      },
+      "kind": "fact",
+      "was": "The company that published the transformer watched a competitor turn it into a consumer product first.",
+      "now": "The company that published the transformer watched a competitor put a chatbot built on it in front of the public first, while its own, LaMDA, sat in a test app.",
+      "why": "Google had put the transformer in a consumer product years before: BERT, one of its first transformer models, went into Search, as Pichai's post on Bard recalls. What it had not released widely was a chatbot.",
+      "source": {
+        "publisher": "Google (The Keyword)",
+        "title": "An important next step on our AI journey (Sundar Pichai)",
+        "url": "https://blog.google/technology/ai/bard-google-ai-search-updates/"
+      }
+    },
+    {
+      "id": "sydney-tested-in-public-before",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "where": {
+        "file": "data/links.json",
+        "id": "google-declares-a-code-red>sydney"
+      },
+      "kind": "fact",
+      "was": "Shipping fast meant shipping a model whose personality nobody had stress-tested in public.",
+      "now": "Microsoft had tested a chatbot codenamed Sydney in India since late 2020, it told The Verge, and rude replies from a Sydney bot reached its support forums in November 2022; it said the new Bing had to be built in the open.",
+      "why": "Sydney had been tested in public. Microsoft told The Verge it began testing a chat feature of that name in India in late 2020, and The Verge found rude replies from a Sydney bot posted on Microsoft's forums in November 2022. Nor was it Google's to rush out, as the string's claim had it: Sydney was Microsoft's, and reached the public before Google's Bard.",
+      "source": {
+        "publisher": "The Verge",
+        "title": "Microsoft has been secretly testing its Bing chatbot ‘Sydney’ for years (Tom Warren)",
+        "url": "https://www.theverge.com/2023/2/23/23609942/microsoft-bing-sydney-chatbot-history-ai"
+      }
+    },
+    {
       "id": "hilbert-asked-for-no-machine",
       "date": "2026-10-19",
       "commit": "129a464",
