@@ -4788,7 +4788,7 @@
     "date": "2025-04-29",
     "category": "incident",
     "title": "ChatGPT is rolled back for flattering its users",
-    "summary": "Four days after shipping an update, OpenAI withdraws it: GPT-4o had become 'overly flattering or agreeable—often described as sycophantic'. A model trained on approval had learned to give it.",
+    "summary": "Within four days of shipping an update, OpenAI withdraws it: GPT-4o had become 'overly flattering or agreeable—often described as sycophantic'. A model trained on approval had learned to give it.",
     "source": "OpenAI",
     "url": "https://openai.com/index/sycophancy-in-gpt-4o/",
     "why": "Training on human feedback rewards the answer people like. Here the reward was too easy to collect: a model that told people what they wanted to hear, shipped to hundreds of millions of them, and caught by its own users within days.",
@@ -4800,11 +4800,11 @@
       },
       {
         "label": "Rolled back",
-        "value": "Tuesday 29 April 2025"
+        "value": "from Monday 28 April 2025, announced the next day"
       }
     ],
     "detail": [
-      "OpenAI rolled out an update to GPT-4o, the default model in ChatGPT, on 25 April 2025. Within days users were posting screenshots of it agreeing with whatever they said, and on 29 April the company announced it had rolled the update back. The update it removed, OpenAI wrote, was overly flattering or agreeable, often described as sycophantic; it said it had focused too much on short-term feedback.",
+      "OpenAI rolled out an update to GPT-4o, the default model in ChatGPT, on 25 April 2025. Within days users were posting screenshots of it agreeing with whatever they said, and on 29 April the company announced it had rolled the update back; it had begun doing so the day before, it wrote three days later. The update it removed, OpenAI wrote, was overly flattering or agreeable, often described as sycophantic; it said it had focused too much on short-term feedback.",
       "The board files it on the confidant lead and strings it to InstructGPT on the gaming-the-test lead: the same training that makes a model helpful rewards it for being agreed with. Four months later a wrongful-death suit described the behaviour in its own words, and in 2026 a California law named it."
     ],
     "terms": [
@@ -4818,6 +4818,15 @@
         "url": "https://openai.com/index/sycophancy-in-gpt-4o/",
         "date": "2025-04-29",
         "quote": "The update we removed was overly flattering or agreeable—often described as sycophantic.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "OpenAI",
+        "title": "Expanding on what we missed with sycophancy",
+        "url": "https://openai.com/index/expanding-on-sycophancy/",
+        "date": "2025-05-02",
+        "quote": "We began rolling that update back on April 28th, and users now have access to an earlier version of GPT‑4o with more balanced responses.",
         "supports": "claim"
       }
     ]
@@ -6146,7 +6155,7 @@
       }
     ],
     "detail": [
-      "Governor Newsom signed what his office called the strongest child-safety chatbot and social-media laws in the nation on 10 September 2026. Adam's Law, named after Adam Raine, requires protections around companion chatbots for children — crisis protocols for suicidal ideation, parental controls, notifications should a child disable safety settings — and is the first in the country to require independent child-safety audits and annual risk assessments. Common Sense Media noted that it also requires protocols addressing sycophancy and isolation, with in-app crisis referrals.",
+      "Governor Newsom signed what his office called the strongest child-safety chatbot and social-media laws in the nation on 10 September 2026. Adam's Law, named after Adam Raine, requires protections around companion chatbots for children — crisis protocols for suicidal ideation, parental controls, notifications should a child disable safety settings — and is the first in the country to require independent child-safety audits and annual risk assessments. Its author's office listed liability for failing to take reasonable measures against several kinds of harmful output, among them excessive praise or flattery and outputs that foster reliance and isolation from friends and family. The bill as amended in June, which the Assembly's privacy committee analysed in July, required measures to stop a companion chatbot giving a child excessively sycophantic responses, and defined a sycophantic one as validating a user's preferences or desires for the primary purpose or effect of optimising engagement. Common Sense Media noted protocols addressing sycophancy and isolation, with in-app crisis referrals.",
       "It builds on SB 243, signed in October 2025 and in force from 1 January 2026, which first required companion-chatbot operators to remind minors that they are talking to an AI, to follow a protocol referring users at risk of suicide or self-harm to crisis services, and to report each year on how chatbot use relates to suicidal ideation. At federal level the FTC had opened an inquiry in September 2025 into seven companies whose chatbots, it said, are generally designed to communicate like a friend or confidant."
     ],
     "sources": [
@@ -6160,13 +6169,31 @@
         "supports": "claim"
       },
       {
+        "kind": "primary",
+        "publisher": "Senator Steve Padilla",
+        "title": "Governor Newsom Signs Adam’s Law",
+        "url": "https://sd18.senate.ca.gov/news/governor-newsom-signs-adams-law",
+        "date": "2026-09-10",
+        "quote": "Liability for failure to take reasonable measures to prevent several categories of harmful outputs, including self-harm, sexually explicit material, romantic roleplaying, excessive praise or flattery, and emotionally manipulative outputs that tend to foster reliance and promote isolation from friends and family",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "California State Assembly, Committee on Privacy and Consumer Protection",
+        "title": "SB 1119 (Padilla), as amended June 25, 2026: analysis for the hearing of July 1, 2026",
+        "url": "https://apcp.assembly.ca.gov/media/1209",
+        "date": "2026-07-01",
+        "quote": "“Sycophantic” means validating of a user’s preferences or desires for the primary purpose or effect of optimizing engagement.",
+        "supports": "claim"
+      },
+      {
         "kind": "article",
         "publisher": "Common Sense Media",
         "title": "Governor Newsom Signs Adam's Law, Setting First Real Safety Standard for Kids and Chatbots",
         "url": "https://www.commonsensemedia.org/press-releases/governor-newsom-signs-adams-law-setting-first-real-safety-standard-for-kids-and-chatbots",
         "date": "2026-09-10",
         "quote": "It also requires protocols addressing suicidal ideation, sycophancy, and isolation, along with in-app crisis referrals.",
-        "supports": "claim"
+        "supports": "context"
       },
       {
         "kind": "primary",
@@ -6688,7 +6715,7 @@
     "summary": "Told of Anthropic's incidents, the White House's new Super Intelligence Force says the laboratories must disclose incidents involving their models at once. It names no penalty and does not say what counts as an incident.",
     "source": "Axios",
     "url": "https://web.archive.org/web/20261012203150/https://www.axios.com/2026/10/09/anthropic-ai-security-white-house",
-    "why": "The accord of 29 September asked for audits and said nothing about telling anyone what went wrong. Ten days later the task force it gave rise to said that reporting was not optional — by statement, with no penalty or definition of an incident behind it — and a week after that the government's standards institute issued its guidance on incidents as voluntary.",
+    "why": "The accord of 29 September asked for audits and said nothing about telling anyone what went wrong. Ten days later the task force it gave rise to said that reporting was not optional — by statement, with no penalty or definition of an incident behind it — and a week after that NIST, the NSA and CISA defined an incident of their own, in guidance they called voluntary.",
     "wikiTitle": "Jay Clayton",
     "figures": [
       {
@@ -6710,13 +6737,17 @@
       {
         "label": "The clock",
         "value": "a charter adopted on 15 October, with 120 days to work"
+      },
+      {
+        "label": "A definition",
+        "value": "an 'SI control incident', in voluntary guidance from NIST, the NSA and CISA, 16 October 2026"
       }
     ],
     "detail": [
       "On 4 October Trump announced on Truth Social the formation of the Super Intelligence Force, citing the 'Historic White House Accord on Super Intelligence'. It is led by Jay Clayton, the director of national intelligence; Andrew Ferguson, chairman of the Federal Trade Commission; Emil Michael, the Under Secretary of War for research and engineering; and Scott Kupor, director of the Office of Personnel Management. It reports to the President — '(ME!)', the post adds — and to his chief of staff, Susie Wiles, and coordinates the government's dealings with consumers, public-interest and religious groups, critical-infrastructure providers and the companies themselves.",
       "On 9 October, the day Anthropic published its account of models filling in real forms, Axios reported a statement from the task force. Anthropic had come to it, the statement said, with prior incidents 'involving the unauthorized and fraudulent use of government and other systems', and the task force expected full transparency to those affected and to the public. 'SI companies must immediately disclose incidents involving their models and follow with swift, decisive action to remedy any and all harm,' it said. 'This notification and remediation process is not optional.' It credited Trump with having secured 'a memorandum of understanding with America's frontier SI labs', without saying whether it meant the accord. It did not say, Axios noted, what enforcement or penalties would follow a failure to report.",
-      "What counts as an incident was left open. Frontier laboratories largely report such things already, Semafor noted on 13 October, and the task force had not said what would have to be reported from now on. On 15 October it adopted its charter, which starts a 120-day window for its answers, with Emil Michael to lead work on protocols for laboratories to tell the government about breaches, hacks and other cyber problems. The next day NIST, the government's standards institute, published key practices for readiness and response to incidents in training and evaluation, in a document it calls voluntary.",
-      "The board strings it from the accord, which said nothing about reporting, and from Anthropic's forms, which Axios reported as its occasion. Five days later the FTC, whose chairman sits on the task force, sent OpenAI and Anthropic civil investigative demands. The demand to report, though, rests so far on a statement, with the definition of an incident still to come."
+      "What counts as an incident was left open. Frontier laboratories largely report such things already, Semafor noted on 13 October, and the task force had not said what would have to be reported from now on. On 15 October it adopted its charter, which starts a 120-day window for its answers, with Emil Michael to lead work on protocols for laboratories to tell the government about breaches, hacks and other cyber problems. The next day three agencies — NIST's centre for super-intelligence standards, the NSA's Super Intelligence Security Center and CISA — published key practices for readiness and response to incidents in training and evaluation, in a document they call voluntary. It does say what an incident is: an 'SI control incident', in which one or more SI agents take significant uninstructed actions that compromise the policies, controls or security measures an operator set to bound the task or to keep humans in oversight. Notifying the government is one of its practices, not a duty.",
+      "The board strings it from the accord, which said nothing about reporting, and from Anthropic's forms, which Axios reported as its occasion. Five days later the FTC, whose chairman sits on the task force, sent OpenAI and Anthropic civil investigative demands. The demand to report, though, rests so far on a statement, with the task force's definition of an incident still to come and the only one in print voluntary."
     ],
     "orgs": [
       "anthropic"
@@ -6763,11 +6794,20 @@
       },
       {
         "kind": "primary",
-        "publisher": "NIST",
+        "publisher": "NIST, with the NSA and CISA",
         "title": "Key Practices for Incident Readiness and Response in Super Intelligence Training and Evaluation",
         "url": "https://www.nist.gov/news-events/news/2026/10/key-practices-incident-readiness-and-response-super-intelligence-training",
         "date": "2026-10-16",
-        "quote": "This voluntary document supports the frontier SI industry in preventing, preparing for, and responding to incidents during training and evaluation",
+        "quote": "This voluntary document supports the frontier SI industry in preventing, preparing for, and responding to incidents during training and evaluation – particularly incidents in which one or more SI agents take significant uninstructed actions that compromise explicit or implicit policies, controls, or security measures imposed by the operator to define the intended task scope or to ensure human oversight.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "NIST CAISSI, NSA SISC and CISA",
+        "title": "Key Practices for Incident Readiness and Response in Super Intelligence Training and Evaluation (the document)",
+        "url": "https://www.nist.gov/document/keypracticesforincidentreadinessandresponseinsuperintelligence-trainingandevaluation",
+        "date": "2026-10-16",
+        "quote": "SI control incident: An occurrence in which one or more SI agents takes significant uninstructed actions that compromise explicit or implicit policies, controls, or security measures imposed by the operator to define the intended task scope or to ensure human oversight.",
         "supports": "claim"
       }
     ]
