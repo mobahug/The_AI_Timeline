@@ -8,7 +8,7 @@
         "Hilbert"
       ],
       "role": "Mathematician · Göttingen",
-      "bio": "Posed the twenty-three problems in 1900 that set the century's agenda, and the programme — to put all of mathematics on a finite, checkable footing — that Gödel and Turing answered in the negative."
+      "bio": "Posed the twenty-three problems in 1900 that set the century's agenda and, in the 1920s, the programme — to put all of mathematics on a finite, checkable footing — that Gödel and Turing answered in the negative."
     },
     {
       "id": "kurt-godel",
@@ -107,7 +107,7 @@
         "Samuel"
       ],
       "role": "Engineer · IBM",
-      "bio": "Wrote a checkers program in 1952 that improved by playing itself, and in 1959 gave the technique its name: machine learning."
+      "bio": "Wrote a checkers program in 1952 and made it learn by 1955, partly by playing itself; in 1959 he gave the technique its name: machine learning."
     },
     {
       "id": "joseph-weizenbaum",
@@ -186,7 +186,7 @@
       "name": "Jensen Huang",
       "aka": [],
       "role": "Chief executive · Nvidia",
-      "bio": "Opened graphics chips to general computation with CUDA in 2007 and sold the shovels for every training run since. In 2024 his company became the most valuable on earth."
+      "bio": "Opened graphics chips to general computation with CUDA in 2007 and sold the shovels for most training runs since. In 2024 his company became the most valuable on earth."
     },
     {
       "id": "ilya-sutskever",
@@ -372,7 +372,7 @@
         "Lemoine"
       ],
       "role": "Engineer · Google",
-      "bio": "Said in 2022 that Google's LaMDA was sentient, and was dismissed. The first public case of a professional convinced by a system he was testing."
+      "bio": "Said in 2022 that Google's LaMDA, which he had been testing for the company, was sentient, and was dismissed. Google called his claims wholly unfounded and said he had broken its data-security policies."
     },
     {
       "id": "liang-wenfeng",

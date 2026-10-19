@@ -180,7 +180,7 @@
         "graphics chips"
       ],
       "short": "The graphics chip that turned out to be the right shape for neural networks.",
-      "definition": "Built to draw triangles, opened to general computation by CUDA in 2007, and the hardware every model on the board since AlexNet was trained on. Nvidia makes most of them; the H100 and its successors are what the datacentre buildout is buying."
+      "definition": "Built to draw triangles, opened to general computation by CUDA in 2007, and the hardware most models on the board since AlexNet were trained on. Nvidia makes most of them; the H100 and its successors are what the datacentre buildout is buying."
     },
     {
       "id": "inference",
@@ -288,7 +288,7 @@
         "injection"
       ],
       "short": "Steering a model through the content it reads.",
-      "definition": "An agent that reads a web page or an e-mail will follow instructions hidden in it, because a model does not keep instructions and data apart. It is the boat's flaw in a new place, and the vulnerability class that made 2025's agents a security problem."
+      "definition": "An agent that reads a web page or an e-mail will follow instructions hidden in it, because a model does not keep instructions and data apart. It is SQL injection's flaw in a new place, as Simon Willison said when he named it in 2022, and the vulnerability class that made 2025's agents a security problem."
     },
     {
       "id": "open-weights",
@@ -369,7 +369,7 @@
         "played itself"
       ],
       "short": "A system that trains by playing against copies of itself.",
-      "definition": "Samuel's checkers program did it in 1952; TD-Gammon in 1992; AlphaZero in 2017; the reasoning models in a sense do it against verifiable problems. It needs no human data, which is why the games lead ends with programs that were taught nothing."
+      "definition": "Samuel's checkers program did it in the 1950s; TD-Gammon in 1992; AlphaZero in 2017; the reasoning models in a sense do it against verifiable problems. It needs no human data, which is why the games lead ends with programs that were taught nothing."
     },
     {
       "id": "game-playing",
@@ -435,7 +435,7 @@
       "aka": [
         "Moore's"
       ],
-      "short": "Transistors on a chip double at a steady rate — the price lead's starting curve.",
+      "short": "The components on a chip double at a steady rate — the price lead's starting curve.",
       "definition": "Gordon Moore's 1965 observation, kept true by the industry for fifty years. It is why the same answer got cheaper every year without anyone doing anything, and why the price lead begins in 1965."
     },
     {

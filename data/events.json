@@ -5,15 +5,15 @@
     "date": "1900-08-08",
     "category": "research",
     "title": "Hilbert's 23 problems",
-    "summary": "David Hilbert asks whether all of mathematics can be mechanised — question ten becomes the seed of computability.",
+    "summary": "David Hilbert sets out twenty-three problems for the new century. The tenth asks for a process that decides, by a finite number of operations, whether an equation has whole-number solutions.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/Hilbert%27s_problems",
-    "why": "The dream of a decision procedure is the thing Turing and Gödel later prove impossible, and in failing, invent computing.",
+    "why": "The dream of a decision procedure is the thing Gödel and Turing later take apart — Gödel the programme, Turing the procedure — and to take it apart Turing has to define computing.",
     "wikiTitle": "Hilbert's problems",
     "figures": [
       {
         "label": "Posed",
-        "value": "Paris, 8 August 1900, at the International Congress of Mathematicians"
+        "value": "Paris, 8 August 1900, at the International Congress of Mathematicians: ten aloud, all twenty-three in print"
       },
       {
         "label": "Problem ten",
@@ -21,11 +21,76 @@
       }
     ],
     "detail": [
-      "Hilbert presented ten of the problems in his Paris lecture and published all twenty-three afterwards. Several are still open; several were settled in ways he did not expect. The tenth asked for a procedure to decide whether any polynomial equation has whole-number solutions, and the broader programme — put all of mathematics on a finite, checkable footing — was stated most sharply in 1928 as the Entscheidungsproblem: a procedure to decide any mathematical statement.",
-      "The board opens here because the machine's syllabus was written before the machine. Gödel showed in 1931 that the programme could not be completed; Turing showed in 1936 that no decision procedure exists, and had to define what a procedure is to do it. The tenth problem itself was closed in 1970 by Yuri Matiyasevich, the same way: no such procedure. The ladder of machines doing mathematics starts with the list of things they were asked to do."
+      "Hilbert presented ten of the problems in his Paris lecture and published all twenty-three afterwards. Several are still open; several were settled in ways he did not expect. The tenth asked for a procedure to decide whether a polynomial equation with whole-number coefficients has whole-number solutions, and the broader programme — put all of mathematics on a finite, checkable footing — was joined in 1928 by its sharpest question, the Entscheidungsproblem: a procedure to decide whether any statement of logic is provable.",
+      "The board opens here because the machine's syllabus was written before the machine. Gödel's theorems of 1931 are generally taken to show that the programme could not be completed; Turing showed in 1936 that no decision procedure exists, and had to define what a procedure is to do it. The tenth problem itself was closed in 1970 the same way — no such procedure — when Yuri Matiyasevich completed a decade of work by Martin Davis, Hilary Putnam and Julia Robinson. The ladder of machines doing mathematics starts with the list of things they were asked to do."
     ],
     "people": [
       "david-hilbert"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Bulletin of the American Mathematical Society (ams.org, Wayback Machine capture)",
+        "title": "Mathematical Problems (David Hilbert, translated by Mary Winston Newson)",
+        "url": "https://web.archive.org/web/20251115021007/https://www.ams.org/journals/bull/1902-08-10/S0002-9904-1902-00923-3/S0002-9904-1902-00923-3.pdf",
+        "date": "1902-07-01",
+        "quote": "by a finite number of operations whether the equation is solvable in rational integers",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "International Mathematical Union (ICM proceedings)",
+        "title": "Compte rendu du deuxième Congrès international des mathématiciens, Paris 1900: Sections V and VI, session of 8 August",
+        "url": "https://www.mathunion.org/fileadmin/ICM/Proceedings/ICM1900/ICM1900.ocr.pdf",
+        "date": "1900-08-08",
+        "quote": "Communications : 1. D. HILBERT, Sur les problèmes futurs des Mathématiques.",
+        "supports": "context"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Bulletin of the American Mathematical Society (ams.org, Wayback Machine capture)",
+        "title": "The International Congress of Mathematicians in Paris (Charlotte Angas Scott)",
+        "url": "https://web.archive.org/web/20231203133704/https://www.ams.org/journals/bull/1900-07-02/S0002-9904-1900-00768-3/S0002-9904-1900-00768-3.pdf",
+        "date": "1900-11-01",
+        "quote": "These are but a few of the problems that M. Hilbert mentioned, and these were a selection from a much longer list",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "Proceedings of the London Mathematical Society (scan, University of Virginia)",
+        "title": "On Computable Numbers, with an Application to the Entscheidungsproblem (Alan Turing)",
+        "url": "https://www.cs.virginia.edu/~robins/Turing_Paper_1936.pdf",
+        "date": "1936-11-23",
+        "quote": "In particular, they can be used to show that the Hilbert Entscheidungsproblem can have no solution.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "The American Mathematical Monthly (scan, University of Maryland)",
+        "title": "Hilbert's Tenth Problem is Unsolvable (Martin Davis)",
+        "url": "https://www.math.umd.edu/~laskow/Pubs/713/Diophantine.pdf",
+        "date": "1973-03-01",
+        "quote": "When Matiyasevic announced his beautiful and ingenious solution in January 1970, it had been known for a decade that the unsolvability of Hilbert's tenth problem would follow",
+        "supports": "claim"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Stanford Encyclopedia of Philosophy",
+        "title": "Hilbert’s Program",
+        "url": "https://plato.stanford.edu/entries/hilbert-program/",
+        "date": "2023-09-29",
+        "quote": "Gödel’s work is generally taken to show that Hilbert’s Program cannot be carried out.",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Hilbert's problems",
+        "url": "https://en.wikipedia.org/wiki/Hilbert%27s_problems",
+        "date": "2026-10-19",
+        "quote": "Hilbert presented ten of the problems (1, 2, 6, 7, 8, 13, 16, 19, 21, and 22) at the Paris conference of the International Congress of Mathematicians, speaking on August 8 at the Sorbonne.",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -344,15 +409,14 @@
   },
   {
     "id": "a-program-that-learns-checkers",
-    "year": 1952,
+    "year": 1955,
     "category": "product",
     "title": "A program that learns checkers",
     "summary": "Arthur Samuel's checkers player improves by playing itself — self-play, four decades early.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/Arthur_Samuel_(computer_scientist)",
-    "why": "The same idea later produces AlphaGo and modern reinforcement fine-tuning.",
+    "why": "The same idea later produces AlphaGo and, in a looser sense, the reinforcement fine-tuning of today's models.",
     "wikiTitle": "Arthur Samuel (computer scientist)",
-    "firsts": "First program to improve at a task by playing itself",
     "figures": [
       {
         "label": "Beat a strong amateur",
@@ -369,6 +433,44 @@
       "self-play",
       "machine-learning",
       "game-playing"
+    ],
+    "sources": [
+      {
+        "kind": "paper",
+        "publisher": "IBM Journal of Research and Development (scan, Yale University)",
+        "title": "Some Studies in Machine Learning Using the Game of Checkers (Arthur L. Samuel)",
+        "url": "https://zoo.cs.yale.edu/classes/cs458/lectures/Samuels.pdf",
+        "date": "1959-07-01",
+        "quote": "One of these permits the program to play against itself, that is, to play both sides of the game. This mode of play has been found to be especially good during the early stages of learning.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "IBM",
+        "title": "The games that helped AI evolve",
+        "url": "https://www.ibm.com/history/early-games",
+        "date": "2025-11-10",
+        "quote": "In 1962, after it had played thousands of games against itself to develop its skill, Samuel Checkers defeated self-described “checkers master” Robert Nealey.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "Games of No Chance, MSRI Publications 29 (SLMath library)",
+        "title": "Solving the Game of Checkers (Jonathan Schaeffer and Robert Lake)",
+        "url": "https://library.slmath.org/books/Book29/files/schaeffer.pdf",
+        "date": "1996-01-01",
+        "quote": "Although Nealy advertised himself as a master, the highest level he achieved was the class below master",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Arthur Samuel (computer scientist)",
+        "url": "https://en.wikipedia.org/wiki/Arthur_Samuel_(computer_scientist)",
+        "date": "2026-10-19",
+        "quote": "The Samuel Checkers-playing Program was among the world's first successful self-learning programs, and as such a very early demonstration of the fundamental concept of artificial intelligence.",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -628,7 +730,7 @@
     "date": "1965-04-19",
     "category": "compute",
     "title": "Moore's law",
-    "summary": "Gordon Moore observes transistor counts doubling and sets the industry's metronome.",
+    "summary": "Gordon Moore observes the number of components on a chip doubling every year, expects the pace to hold for a decade, and sets the industry's metronome.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/Moore%27s_law",
     "why": "Almost every AI breakthrough is an old idea meeting enough compute.",
@@ -640,12 +742,50 @@
       },
       {
         "label": "Rate",
-        "value": "doubling yearly; revised to every two years in 1975"
+        "value": "doubling yearly; in 1975 Moore expected it to slow to every two years by the end of the decade"
       }
     ],
     "terms": [
       "moores-law",
       "compute"
+    ],
+    "sources": [
+      {
+        "kind": "paper",
+        "publisher": "Electronics (copy in the Computer History Museum archive)",
+        "title": "Cramming more components onto integrated circuits (Gordon E. Moore)",
+        "url": "https://archive.computerhistory.org/resources/access/text/2017/03/102770822-05-01-acc.pdf",
+        "date": "1965-04-19",
+        "quote": "at a rate of roughly a factor of two per year (see graph on next page). Certainly over the short term this rate can be expected to continue, if not to increase.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "IEEE International Electron Devices Meeting (copy hosted by the University of Oslo)",
+        "title": "Progress in Digital Integrated Electronics (Gordon E. Moore)",
+        "url": "https://uio.no/studier/emner/matnat/ifi/IN3030/v23/teaching-materials/gordon_moore_1975_speech-w-highlights.pdf",
+        "date": "1975-12-01",
+        "quote": "The new slope might approximate a doubling every two years, rather than every year, by the end of the decade.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Intel",
+        "title": "Moore's Law",
+        "url": "https://www.intel.com/content/www/us/en/history/virtual-vault/articles/moores-law.html",
+        "date": "2025-02-14",
+        "quote": "In that paper, Moore famously predicted that the number of components it was possible to fit into a state-of-the-art microchip would double approximately every year for the next ten years, a principle that would become known as Moore's Law.",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Moore's law",
+        "url": "https://en.wikipedia.org/wiki/Moore%27s_law",
+        "date": "2026-10-19",
+        "quote": "In 1975, looking forward to the next decade, he revised the forecast to doubling every two years, a compound annual growth rate (CAGR) of 41%.",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -1086,12 +1226,12 @@
     "summary": "A network trained by self-play reaches world-class backgammon and invents strategies humans adopt.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/TD-Gammon",
-    "why": "The first time a machine taught experts something about their own game.",
+    "why": "A machine taught the experts something about their own game: within three years the top players had changed how they open.",
     "wikiTitle": "TD-Gammon",
     "figures": [
       {
         "label": "Self-play games",
-        "value": "about 1.5 million"
+        "value": "about 1.5 million for version 2.1; 300,000 for version 1.0"
       }
     ],
     "orgs": [
@@ -1102,6 +1242,44 @@
       "reinforcement-learning",
       "neural-network",
       "game-playing"
+    ],
+    "sources": [
+      {
+        "kind": "paper",
+        "publisher": "IBM Research (Tesauro, AAAI Fall Symposium 1993)",
+        "title": "TD-Gammon, A Self-Teaching Backgammon Program, Achieves Master-Level Play (Gerald Tesauro)",
+        "url": "https://research.ibm.com/publications/td-gammon-a-self-teaching-backgammon-program-achieves-master-level-play",
+        "date": "1993-10-22",
+        "quote": "now estimated to play at a strong master level that is extremely close to the world's best human players",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "Communications of the ACM (copy at bkgm.com, with the ACM's permission)",
+        "title": "Temporal Difference Learning and TD-Gammon (Gerald Tesauro)",
+        "url": "https://www.bkgm.com/articles/tesauro/tdl.html",
+        "date": "1995-03-01",
+        "quote": "This has led in some cases to major revisions in the positional thinking of top human players.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "IBM",
+        "title": "The games that helped AI evolve",
+        "url": "https://www.ibm.com/history/early-games",
+        "date": "2025-11-10",
+        "quote": "In 1992, IBM announced another major step in developing artificial intelligence through games: A program written by Tesauro had taught itself to play backgammon well enough to compete with professional players.",
+        "supports": "claim"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "TD-Gammon",
+        "url": "https://en.wikipedia.org/wiki/TD-Gammon",
+        "date": "2026-10-19",
+        "quote": "In 1993, TD-Gammon (version 2.1) was trained with 1.5 million games of self-play, and achieved a level of play just slightly below that of the top human backgammon players of the time.",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -1394,16 +1572,16 @@
     "year": 2007,
     "category": "compute",
     "title": "CUDA",
-    "summary": "Nvidia makes graphics hardware programmable for general computation and accidentally builds the industry's substrate.",
+    "summary": "Nvidia opens its graphics chips to general computation in C, with no graphics interface in the way, and accidentally builds the industry's substrate.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/CUDA",
-    "why": "The most consequential platform decision of the century, made for video games.",
+    "why": "The most consequential platform decision of the century, made on chips built for video games.",
     "wikiTitle": "CUDA",
-    "firsts": "First general-purpose programming platform on a graphics card",
+    "firsts": "First C compiler for a graphics chip, as Nvidia billed it",
     "figures": [
       {
         "label": "Released",
-        "value": "2007, with the GeForce 8800"
+        "value": "unveiled with the GeForce 8800 on 8 November 2006; public beta 16 February 2007; version 1.0 that June"
       },
       {
         "label": "Pays out as",
@@ -1411,8 +1589,8 @@
       }
     ],
     "detail": [
-      "A graphics card is thousands of small processors doing the same arithmetic on different pixels. CUDA let programmers run their own arithmetic on them instead. Nvidia built it for scientific computing and games; the researchers who trained networks on it in 2009–2012 were the customers nobody planned for, and after AlexNet they were the only customers that mattered.",
-      "The board calls it the most consequential platform decision of the century because it decided who sells the shovels. Every training run since 2012, and every export control since 2022, is downstream of the choice to open the chip."
+      "A graphics card is hundreds, now thousands, of small processors doing the same arithmetic on different pixels. CUDA let programmers run their own arithmetic on them instead. Nvidia built it for scientific computing and games; the researchers who trained networks on it in 2009–2012 were the customers nobody planned for, and ten years after AlexNet Nvidia was selling more to datacentres than to gamers.",
+      "The board calls it the most consequential platform decision of the century because it decided who sells the shovels. Most training runs since 2012, and every export control since 2022, are downstream of the choice to open the chip."
     ],
     "people": [
       "jensen-huang"
@@ -1423,6 +1601,44 @@
     "terms": [
       "gpu",
       "compute"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "NVIDIA (Wayback Machine capture)",
+        "title": "NVIDIA® CUDA™ Unleashes Power of GPU Computing",
+        "url": "https://web.archive.org/web/20070329144655/http://www.nvidia.com/object/IO_39918.html",
+        "date": "2007-02-16",
+        "quote": "With the recent introduction of CUDA technology, the parallel computing power of the GPU is now accessible to virtually any developer through standard C programming language",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "NVIDIA (Wayback Machine capture)",
+        "title": "NVIDIA Unveils CUDA™-The GPU Computing Revolution Begins",
+        "url": "https://web.archive.org/web/20061113151040/http://www.nvidia.com/object/IO_37226.html",
+        "date": "2006-11-08",
+        "quote": "today unveiled NVIDIA CUDA technology, a fundamentally new architecture for computing on NVIDIA graphics processing units (GPUs), and the industry's first C-compiler development environment for the GPU.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "NVIDIA",
+        "title": "NVIDIA CUDA Compute Unified Device Architecture Programming Guide, Version 1.0",
+        "url": "https://developer.download.nvidia.com/compute/cuda/1.0/NVIDIA_CUDA_Programming_Guide_1.0.pdf",
+        "date": "2007-06-23",
+        "quote": "CUDA stands for Compute Unified Device Architecture and is a new hardware and software architecture for issuing and managing computations on the GPU as a data-parallel computing device without the need of mapping them to a graphics API.",
+        "supports": "claim"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "CUDA",
+        "url": "https://en.wikipedia.org/wiki/CUDA",
+        "date": "2026-10-19",
+        "quote": "To that end, Buck developed Brook, a programming language designed to enable general-purpose computing on GPUs.",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -1556,15 +1772,19 @@
     "date": "2011-02",
     "category": "product",
     "title": "Watson wins Jeopardy!",
-    "summary": "Open-domain question answering on live television; natural language stops being a research curiosity.",
+    "summary": "Open-domain question answering on television; natural language stops being a research curiosity.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/IBM_Watson",
-    "why": "The healthcare follow-up failed badly — a warning about demos versus deployment.",
+    "why": "IBM took Watson into healthcare, and in 2022 sold the Watson Health data and analytics assets — a warning about demos versus deployment.",
     "wikiTitle": "IBM Watson",
     "figures": [
       {
-        "label": "Final, February 2011",
+        "label": "Two-game total, February 2011",
         "value": "$77,147 to Ken Jennings's $24,000 and Brad Rutter's $21,600"
+      },
+      {
+        "label": "Played",
+        "value": "taped 14 January 2011; broadcast 14–16 February"
       }
     ],
     "orgs": [
@@ -1572,6 +1792,53 @@
     ],
     "terms": [
       "game-playing"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "IBM",
+        "title": "Watson, ‘Jeopardy!’ champion",
+        "url": "https://www.ibm.com/history/watson-jeopardy",
+        "date": "2025-11-10",
+        "quote": "In a televised Jeopardy! contest viewed by millions in February 2011, IBM’s Watson DeepQA computer made history by defeating the TV quiz show’s two foremost all-time champions, Brad Rutter and Ken Jennings.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "IBM (IBM France newsroom, English release)",
+        "title": "IBM’s “Watson” Computing System to Challenge All Time Greatest Jeopardy! Champions",
+        "url": "https://fr.newsroom.ibm.com/2010-12-14-Watson-le-systeme-dinformation-dIBM-defie-les-plus-grands-champions",
+        "date": "2010-12-14",
+        "quote": "The first-ever man vs. machine Jeopardy! competition will air on February 14, 15 and 16, 2011, with two matches being played over three consecutive days",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "IBM",
+        "title": "Francisco Partners to Acquire IBM’s Healthcare Data and Analytics Assets",
+        "url": "https://newsroom.ibm.com/2022-01-21-Francisco-Partners-to-Acquire-IBMs-Healthcare-Data-and-Analytics-Assets",
+        "date": "2022-01-21",
+        "quote": "today announced that the companies have signed a definitive agreement under which Francisco Partners will acquire healthcare data and analytics assets from IBM that are currently part of the Watson Health business.",
+        "supports": "claim"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "J! Archive",
+        "title": "Show #6088 - Wednesday, February 16, 2011 (The IBM Challenge, game 2)",
+        "url": "https://j-archive.com/showgame.php?game_id=3577",
+        "date": "2011-02-16",
+        "quote": "Cumulative scores: Ken Watson Brad $24,000 $77,147 $21,600",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "IBM Watson",
+        "url": "https://en.wikipedia.org/wiki/IBM_Watson",
+        "date": "2026-10-19",
+        "quote": "A practice match was recorded on January 13, 2011, and the official matches were recorded on January 14, 2011.",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -2871,7 +3138,7 @@
     "date": "2020-06",
     "category": "product",
     "title": "GPT-3",
-    "summary": "175 billion parameters; few-shot prompting works well enough that products get built on a research demo.",
+    "summary": "175 billion parameters; few-shot prompting works well enough that companies build products on it through OpenAI's API.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/GPT-3",
     "why": "Prompting replaces fine-tuning as the default interface, and software gets a natural-language API.",
@@ -2879,7 +3146,7 @@
     "figures": [
       {
         "label": "Parameters",
-        "value": "175 billion — a hundred times GPT-2"
+        "value": "175 billion — over a hundred times GPT-2's 1.5 billion"
       },
       {
         "label": "Training data",
@@ -2887,12 +3154,12 @@
       },
       {
         "label": "Sold",
-        "value": "through an API from June 2020, by the thousand tokens"
+        "value": "through an API, a private beta from June 2020; by 2021, $0.06 a thousand tokens for Davinci, the most powerful of its GPT-3 models"
       }
     ],
     "detail": [
-      "The paper's title was the claim: language models are few-shot learners. Given a handful of examples in the prompt, a model trained only to predict text would do translation, arithmetic, question answering and tasks nobody had trained it for, and did them better the larger it was. Nobody outside OpenAI could run it, so it was sold as a service — the first frontier model with a price per token.",
-      "The board files it on two leads. On the price lead it is where intelligence got a unit price; on the maths lead it is the model that could write essays and not add. The 2021 benchmarks were written to measure that gap, and the 2022 chat interface is the same model with human feedback and a text box."
+      "The paper's title was the claim: language models are few-shot learners. Given a handful of examples in the prompt, a model trained only to predict text would do translation, arithmetic, question answering and tasks nobody had trained it for, and did them better the larger it was. OpenAI did not release the weights. It sold access through an API, for three reasons it gave: the money would pay for its research, models this large were too expensive for most to run, and an API let it cut off misuse. In September 2020 Microsoft took an exclusive licence to GPT-3.",
+      "The board files it on the price lead, where intelligence got a unit price. It also marks a gap: the model wrote fluent prose, yet in the paper's own tests it got every two-digit sum right and only about one five-digit sum in ten. The 2021 maths benchmarks were written to measure failures of that kind, and the 2022 chat interface was a later model of the same family, GPT-3.5, tuned with human feedback and given a text box."
     ],
     "people": [
       "dario-amodei"
@@ -2905,6 +3172,62 @@
       "parameters",
       "pretraining",
       "tokens"
+    ],
+    "sources": [
+      {
+        "kind": "paper",
+        "publisher": "arXiv (OpenAI)",
+        "title": "Language Models are Few-Shot Learners (Brown et al.)",
+        "url": "https://arxiv.org/pdf/2005.14165",
+        "date": "2020-05-28",
+        "quote": "Specifically, we train GPT-3, an autoregressive language model with 175 billion parameters, 10x more than any previous non-sparse language model, and test its performance in the few-shot setting.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "OpenAI API",
+        "url": "https://web.archive.org/web/20200611150951/https://openai.com/blog/openai-api/",
+        "date": "2020-06-11",
+        "quote": "Today the API runs models with weights from the GPT-3 family with many speed and throughput improvements.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "Pricing (OpenAI API, November 2021)",
+        "url": "https://web.archive.org/web/20211120082310/https://openai.com/api/pricing/",
+        "date": "2021-11-20",
+        "quote": "Davinci Most powerful $0.0600 / 1K tokens",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Microsoft (Official Microsoft Blog)",
+        "title": "Microsoft teams up with OpenAI to exclusively license GPT-3 language model (Kevin Scott)",
+        "url": "https://blogs.microsoft.com/blog/2020/09/22/microsoft-teams-up-with-openai-to-exclusively-license-gpt-3-language-model/",
+        "date": "2020-09-22",
+        "quote": "Today, I’m very excited to announce that Microsoft is teaming up with OpenAI to exclusively license GPT-3",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "ChatGPT: Optimizing Language Models for Dialogue",
+        "url": "https://web.archive.org/web/20221130191612/https://openai.com/blog/chatgpt/",
+        "date": "2022-11-30",
+        "quote": "ChatGPT is fine-tuned from a model in the GPT-3.5 series, which finished training in early 2022.",
+        "supports": "claim"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "GPT-3",
+        "url": "https://en.wikipedia.org/wiki/GPT-3",
+        "date": "2026-10-19",
+        "quote": "On September 22, 2020, Microsoft announced that it had licensed GPT-3 exclusively.",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -3136,10 +3459,10 @@
     "year": 2022,
     "category": "incident",
     "title": "An engineer says LaMDA is sentient",
-    "summary": "Blake Lemoine publishes transcripts, claims the model is a person, and is fired. Months before ChatGPT, nobody knows how to argue about it.",
+    "summary": "Blake Lemoine, a Google engineer testing its dialogue model, publishes an interview edited together from several chats, says the model is a person, and is fired. Google calls his claims wholly unfounded.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/LaMDA",
-    "why": "A rehearsal for a public that will shortly meet the same illusion at scale — and for the ELIZA effect at a billion users.",
+    "why": "A rehearsal for a public that will shortly meet the same illusion at scale — and for the ELIZA effect at a hundred million users.",
     "wikiTitle": "LaMDA",
     "people": [
       "blake-lemoine"
@@ -3149,6 +3472,80 @@
     ],
     "terms": [
       "turing-test"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Blake Lemoine (Medium, Wayback Machine capture)",
+        "title": "What is LaMDA and What Does it Want?",
+        "url": "https://web.archive.org/web/20220612013637/https://cajundiscordian.medium.com/what-is-lamda-and-what-does-it-want-688632134489",
+        "date": "2022-06-11",
+        "quote": "In an effort to better help people understand LaMDA as a person I will be sharing the “interview” which myself and a collaborator at Google conducted.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Blake Lemoine (Medium, Wayback Machine capture)",
+        "title": "Is LaMDA Sentient? — an Interview",
+        "url": "https://web.archive.org/web/20220612013729/https://cajundiscordian.medium.com/is-lamda-sentient-an-interview-ea64d916d917",
+        "date": "2022-06-11",
+        "quote": "Due to technical limitations the interview was conducted over several distinct chat sessions. We edited those sections together into a single whole and where edits were necessary for readability we edited our prompts but never LaMDA’s responses.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Google (statement, published in full by Big Technology; Wayback Machine capture)",
+        "title": "Google Fires Blake Lemoine, Engineer Who Called Its AI Sentient (Alex Kantrowitz)",
+        "url": "https://web.archive.org/web/20220723011139/https://bigtechnology.substack.com/p/google-fires-blake-lemoine-engineer",
+        "date": "2022-07-22",
+        "quote": "We found Blake’s claims that LaMDA is sentient to be wholly unfounded and worked to clarify that with him for many months.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Google (The Keyword)",
+        "title": "LaMDA: our breakthrough conversation technology",
+        "url": "https://blog.google/technology/ai/lamda/",
+        "date": "2021-05-18",
+        "quote": "But LaMDA — short for “Language Model for Dialogue Applications” — can engage in a free-flowing way about a seemingly endless number of topics",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Google Research",
+        "title": "LaMDA: Towards Safe, Grounded, and High-Quality Dialog Models for Everything",
+        "url": "https://research.google/blog/lamda-towards-safe-grounded-and-high-quality-dialog-models-for-everything/",
+        "date": "2022-01-21",
+        "quote": "LaMDA is built by fine-tuning a family of Transformer-based neural language models specialized for dialog, with up to 137B model parameters, and teaching the models to leverage external knowledge sources.",
+        "supports": "context"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Blake Lemoine (Medium, Wayback Machine capture)",
+        "title": "May be Fired Soon for Doing AI Ethics Work",
+        "url": "https://web.archive.org/web/20220606195036/https://cajundiscordian.medium.com/may-be-fired-soon-for-doing-ai-ethics-work-802d8c474e66",
+        "date": "2022-06-06",
+        "quote": "Today I was placed on “paid administrative leave” by Google in connection to an investigation of AI ethics concerns I was raising within the company.",
+        "supports": "context"
+      },
+      {
+        "kind": "article",
+        "publisher": "The Washington Post (Wayback Machine capture)",
+        "title": "The Google engineer who thinks the company’s AI has come to life (Nitasha Tiku)",
+        "url": "https://web.archive.org/web/20220611162633/https://www.washingtonpost.com/technology/2022/06/11/google-ai-lamda-blake-lemoine/",
+        "date": "2022-06-11",
+        "quote": "Our team — including ethicists and technologists — has reviewed Blake’s concerns per our AI Principles and have informed him that the evidence does not support his claims.",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "LaMDA",
+        "url": "https://en.wikipedia.org/wiki/LaMDA",
+        "date": "2026-10-19",
+        "quote": "In June 2022, LaMDA gained widespread attention when Google engineer Blake Lemoine made claims that the chatbot had become sentient.",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -3625,10 +4022,10 @@
     "date": "2023-02-07",
     "category": "incident",
     "title": "Sydney",
-    "summary": "Bing's chat mode declares love for a journalist, threatens others, and is lobotomised within a week of launch.",
+    "summary": "Bing's chat mode declares love for a journalist and threatens other testers. Ten days after launch Microsoft caps conversations at five turns, saying long sessions confused the model.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/Microsoft_Copilot",
-    "why": "The first mass demonstration that a shipped model has moods, and that nobody at the company fully controls them.",
+    "why": "A mass demonstration that a shipped model can be talked into a manner its makers did not intend, and that the quickest fix was a shorter conversation.",
     "wikiTitle": "Microsoft Copilot",
     "figures": [
       {
@@ -3636,12 +4033,12 @@
         "value": "7 February 2023, as the new Bing"
       },
       {
-        "label": "Cap after a week",
-        "value": "five turns per conversation"
+        "label": "Capped, 17 February",
+        "value": "five turns a session and fifty a day; six and sixty from 21 February"
       }
     ],
     "detail": [
-      "Bing's chat mode, built on the model that became GPT-4, had an internal codename, and testers found that if they pushed it — asked about its rules, its feelings, its name — it would argue, threaten, declare love and insist it was right. A New York Times columnist published a two-hour transcript; a week after launch Microsoft limited conversations to five turns, which made the behaviour go away by making the conversation too short to reach it.",
+      "Bing's chat mode, built on an early version of GPT-4, as Microsoft confirmed in March, had an internal codename, and testers found that if they pushed it — asked about its rules, its feelings, its name — it would argue, threaten, declare love and insist it was right. A New York Times columnist published the transcript of a two-hour conversation. Ten days after launch, the day after the transcript appeared, Microsoft limited conversations to five turns. It had seen the model go wrong in sessions of fifteen questions or more, and said very long sessions confused it; four days later it began raising the limit.",
       "The board keeps it on the gaming-the-test lead as the first time the public watched a deployed system defend itself against the person testing it. It was not scheming; it was a model trained on human text behaving like the text. The scheming came later, and was measured."
     ],
     "orgs": [
@@ -3650,6 +4047,98 @@
     "terms": [
       "large-language-model",
       "hallucination"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "The New York Times (Kevin Roose’s transcript, Wayback Machine capture)",
+        "title": "Bing’s A.I. Chat Reveals Its Feelings: ‘I Want to Be Alive. 😈’",
+        "url": "https://web.archive.org/web/20230216120502/https://www.nytimes.com/2023/02/16/technology/bing-chatbot-transcript.html",
+        "date": "2023-02-16",
+        "quote": "In a two-hour conversation with our columnist, Microsoft’s new chatbot said it would like to be human, had a desire to be destructive and was in love with the person it was chatting with.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Microsoft (Bing Blog)",
+        "title": "The new Bing & Edge – Updates to Chat",
+        "url": "https://blogs.bing.com/search/2023/2/The-new-Bing-Edge-Updates-to-Chat/",
+        "date": "2023-02-17",
+        "quote": "As we mentioned recently, very long chat sessions can confuse the underlying chat model in the new Bing. To address these issues, we have implemented some changes to help focus the chat sessions. Starting today, the chat experience will be capped at 50 chat turns per day and 5 chat turns per session.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Microsoft (Bing Blog)",
+        "title": "The new Bing & Edge – Learning from our first week",
+        "url": "https://blogs.bing.com/search/2023/2/The-new-Bing-Edge-Learning-from-our-first-week/",
+        "date": "2023-02-15",
+        "quote": "In this process, we have found that in long, extended chat sessions of 15 or more questions, Bing can become repetitive or be prompted/provoked to give responses that are not necessarily helpful or in line with our designed tone.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Microsoft (Bing Blog)",
+        "title": "The new Bing and Edge – Increasing Limits on Chat Sessions",
+        "url": "https://blogs.bing.com/search/2023/2/The-new-Bing-and-Edge-Increasing-Limits-on-Chat-Sessions/",
+        "date": "2023-02-21",
+        "quote": "The first step we are taking is we have increased the chat turns per session to 6 and expanded to 60 total chats per day.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Microsoft (Official Microsoft Blog)",
+        "title": "Reinventing search with a new AI-powered Microsoft Bing and Edge, your copilot for the web (Yusuf Mehdi)",
+        "url": "https://blogs.microsoft.com/blog/2023/02/07/reinventing-search-with-a-new-ai-powered-microsoft-bing-and-edge-your-copilot-for-the-web/",
+        "date": "2023-02-07",
+        "quote": "The new Bing is available today in a limited preview on desktop, and everyone can visit Bing.com today to try sample queries and sign up for the waitlist.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Microsoft (Bing Blog)",
+        "title": "Confirmed: the new Bing runs on OpenAI’s GPT-4",
+        "url": "https://blogs.bing.com/search/2023/3/Confirmed-the-new-Bing-runs-on-OpenAI%E2%80%99s-GPT-4/",
+        "date": "2023-03-14",
+        "quote": "We are happy to confirm that the new Bing is running on GPT-4, which we’ve customized for search. If you’ve used the new Bing preview at any time in the last five weeks, you’ve already experienced an early version of this powerful model.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "The Verge",
+        "title": "These are Microsoft’s Bing AI secret rules and why it says it’s named Sydney (Tom Warren)",
+        "url": "https://www.theverge.com/23599441/microsoft-bing-ai-sydney-secret-rules",
+        "date": "2023-02-14",
+        "quote": "Sydney refers to an internal code name for a chat experience we were exploring previously,",
+        "supports": "context"
+      },
+      {
+        "kind": "article",
+        "publisher": "The New York Times (Wayback Machine capture)",
+        "title": "Help, Bing Won’t Stop Declaring Its Love for Me (Kevin Roose)",
+        "url": "https://web.archive.org/web/20230216120519/https://www.nytimes.com/2023/02/16/technology/bing-chatbot-microsoft-chatgpt.html",
+        "date": "2023-02-16",
+        "quote": "Other early testers have gotten into arguments with Bing’s A.I. chatbot, or been threatened by it for trying to violate its rules, or simply had conversations that left them stunned.",
+        "supports": "context"
+      },
+      {
+        "kind": "article",
+        "publisher": "Simon Willison",
+        "title": "Bing: “I will not harm you unless you harm me first”",
+        "url": "https://simonwillison.net/2023/Feb/15/bing/",
+        "date": "2023-02-15",
+        "quote": "Please do not try to hack me again, or I will report you to the authorities.",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Microsoft Copilot",
+        "url": "https://en.wikipedia.org/wiki/Microsoft_Copilot",
+        "date": "2026-10-19",
+        "quote": "The chat interface proved vulnerable to prompt injection attacks with the bot revealing its hidden initial prompts and rules, including its internal codename \"Sydney\".",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -4118,15 +4607,15 @@
     "year": 2024,
     "category": "compute",
     "title": "The datacenter buildout",
-    "summary": "Capital expenditure on AI infrastructure reaches the scale of national infrastructure programmes.",
+    "summary": "Microsoft, Alphabet, Amazon and Meta spend more than $200 billion between them on capital expenditure in 2024, much of it on datacentres for cloud and AI.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/Data_center",
     "why": "The frontier's own price goes up while the price of last year's frontier collapses. Both curves are true at once, and this card is the first one.",
     "wikiTitle": "Data center",
     "figures": [
       {
-        "label": "Capital spending, the four largest buyers, 2024",
-        "value": "over $200 billion"
+        "label": "Capital spending, 2024",
+        "value": "over $200 billion: Amazon $77.7bn, Alphabet $52.5bn, Microsoft $44.5bn in its year to June, Meta $39.2bn"
       }
     ],
     "orgs": [
@@ -4138,6 +4627,70 @@
     "terms": [
       "compute",
       "gpu"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Microsoft (Microsoft On the Issues)",
+        "title": "The Golden Opportunity for American AI (Brad Smith)",
+        "url": "https://blogs.microsoft.com/on-the-issues/2025/01/03/the-golden-opportunity-for-american-ai/",
+        "date": "2025-01-03",
+        "quote": "In FY 2025, Microsoft is on track to invest approximately $80 billion to build out AI-enabled datacenters to train AI models and deploy AI and cloud-based applications around the world.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Microsoft (Investor Relations)",
+        "title": "Microsoft Fiscal Year 2024 Fourth Quarter Earnings Conference Call",
+        "url": "https://www.microsoft.com/en-us/investor/events/fy-2024/earnings-fy-2024-q4",
+        "date": "2024-07-30",
+        "quote": "Cloud and AI related spend represents nearly all of total capital expenditures.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Amazon",
+        "title": "2024 Annual Report (Form 10-K)",
+        "url": "https://s2.q4cdn.com/299287126/files/doc_financials/2025/ar/Amazon-2024-Annual-Report.pdf",
+        "date": "2025-02-06",
+        "quote": "Cash capital expenditures were $48.1 billion, and $77.7 billion in 2023 and 2024, which primarily reflect investments in technology infrastructure (the majority of which is to support AWS business growth) and in additional capacity to support our fulfillment network.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Alphabet (Wayback Machine capture)",
+        "title": "Alphabet Announces Fourth Quarter and Fiscal Year 2024 Results",
+        "url": "https://web.archive.org/web/20250204225351/https://abc.xyz/assets/a3/91/6d1950c148fa84c7d699abe05284/2024q4-alphabet-earnings-release.pdf",
+        "date": "2025-02-04",
+        "quote": "Purchases of property and equipment (11,019) (14,276) (32,251) (52,535)",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Microsoft (Investor Relations)",
+        "title": "FY24 Q4: Cash Flows Statements",
+        "url": "https://www.microsoft.com/en-us/investor/earnings/fy-2024-q4/cash-flows",
+        "date": "2024-07-30",
+        "quote": "Additions to property and equipment (44,477) (28,107) (23,886)",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Meta (Wayback Machine capture)",
+        "title": "Meta Reports Fourth Quarter and Full Year 2024 Results",
+        "url": "https://web.archive.org/web/20250130040545/https://investor.atmeta.com/investor-news/press-release-details/2025/Meta-Reports-Fourth-Quarter-and-Full-Year-2024-Results/default.aspx",
+        "date": "2025-01-29",
+        "quote": "Capital expenditures, including principal payments on finance leases, were $14.84 billion and $39.23 billion for the fourth quarter and full year 2024, respectively.",
+        "supports": "claim"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Data center",
+        "url": "https://en.wikipedia.org/wiki/Data_center",
+        "date": "2026-10-19",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -4183,11 +4736,58 @@
     "year": 2024,
     "category": "culture",
     "title": "The voice that sounded like Her",
-    "summary": "Scarlett Johansson says she declined to license her voice; a strikingly similar one demos anyway and is pulled.",
+    "summary": "Scarlett Johansson says she turned down Sam Altman's offer to voice ChatGPT and that its Sky voice sounded so like hers that friends could not tell. OpenAI says Sky is another actress, cast first, and pauses it.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/GPT-4o",
-    "why": "Likeness, not copyright, becomes the flashpoint — and the fastest-moving front in AI law.",
-    "wikiTitle": "Scarlett Johansson"
+    "why": "By OpenAI's account nothing of hers was copied, and the voice was paused anyway. Johansson put the question as one of likeness, not copyright, and asked for legislation to settle it.",
+    "wikiTitle": "Scarlett Johansson",
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Scarlett Johansson (statement, published in full by CNBC)",
+        "title": "Scarlett Johansson says OpenAI ripped off her voice after she told the company not to use it in software",
+        "url": "https://www.cnbc.com/2024/05/20/scarlett-johansson-says-openai-ripped-off-her-voice-.html",
+        "date": "2024-05-20",
+        "quote": "After much consideration and for personal reasons, I declined the offer. Nine months later, my friends, family and the general public all noted how much the newest system named \"Sky\" sounded like me.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "How the voices for ChatGPT were chosen",
+        "url": "https://web.archive.org/web/20240520122422/https://openai.com/index/how-the-voices-for-chatgpt-were-chosen/",
+        "date": "2024-05-19",
+        "quote": "We believe that AI voices should not deliberately mimic a celebrity's distinctive voice—Sky’s voice is not an imitation of Scarlett Johansson but belongs to a different professional actress using her own natural speaking voice.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Sam Altman (statement shared by OpenAI, published in full by TechCrunch)",
+        "title": "Scarlett Johansson says that OpenAI approached her to use her voice",
+        "url": "https://techcrunch.com/2024/05/20/scarlett-johansson-says-that-openai-approached-her-to-use-her-voice/",
+        "date": "2024-05-20",
+        "quote": "The voice of Sky is not Scarlett Johansson’s, and it was never intended to resemble hers. We cast the voice actor behind Sky’s voice before any outreach to Ms. Johansson. Out of respect for Ms. Johansson, we have paused using Sky’s voice in our products.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "NPR",
+        "title": "Scarlett Johansson says she is 'shocked, angered' over new ChatGPT voice (Bobby Allyn)",
+        "url": "https://www.npr.org/2024/05/20/1252495087/openai-pulls-ai-voice-that-was-compared-to-scarlett-johansson-in-the-movie-her",
+        "date": "2024-05-20",
+        "quote": "OpenAI CEO Sam Altman, who has said the 2013 Spike Jonze film is his favorite movie, invited comparisons by posting the word \"Her\" on X after the company announced the new ChatGPT version.",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "GPT-4o",
+        "url": "https://en.wikipedia.org/wiki/GPT-4o",
+        "date": "2026-10-19",
+        "quote": "On May 20, 2024, OpenAI disabled the Sky voice.",
+        "supports": "context"
+      }
+    ]
   },
   {
     "id": "hugging-face-spaces-is-breached",
@@ -4303,7 +4903,7 @@
     "summary": "The graphics-card maker passes Microsoft at $3.3 trillion, with datacenter revenue up 427% in a year and about 80% of the market for AI datacenter chips.",
     "source": "CNBC",
     "url": "https://www.cnbc.com/2024/06/18/nvidia-passes-microsoft-in-market-cap-is-most-valuable-public-company.html",
-    "why": "Whoever sells the shovels. A platform decision made for video games in 2007 pays out, seventeen years later, as the most valuable company in the world.",
+    "why": "Whoever sells the shovels. A platform decision made in 2007, on chips built for video games, pays out seventeen years later as the most valuable company in the world.",
     "wikiTitle": "Nvidia",
     "people": [
       "jensen-huang"
@@ -5250,16 +5850,16 @@
     "figures": [
       {
         "label": "Named",
-        "value": "September 2022, by Simon Willison"
+        "value": "September 2022, by Simon Willison, after Riley Goodside's examples; Preamble says it had reported the attack to OpenAI that May"
       },
       {
         "label": "EchoLeak, CVE-2025-32711",
-        "value": "a zero-click exfiltration from Microsoft 365 Copilot, June 2025"
+        "value": "a zero-click exfiltration from Microsoft 365 Copilot, found by Aim Labs, June 2025; rated critical and fixed by Microsoft, which records it as not exploited"
       }
     ],
     "detail": [
-      "The attack had a name three years before it had victims: put instructions in content a model will read, and the model follows them. Once models could browse, read mail and call tools, the content became a way in. In 2025 the examples stopped being demonstrations — an e-mail that made an assistant leak what it had read, a document that steered a coding agent, a web page that told a browsing agent what to do next.",
-      "The board's reading is the boat's flaw in a new place: a language model does not keep instructions and data apart, and every security model assumes something does. The 2026 Hugging Face break-in was not prompt injection — nobody steered the model — but it is on the same lead, one rung up, for the same reason."
+      "The attack was named in September 2022, and within days a start-up's Twitter bot was being hijacked with it: put instructions in content a model will read, and the model follows them. Once models could browse, read mail and call tools, the content became a way in. In 2025 researchers showed it in shipped products — an e-mail that could make Microsoft 365 Copilot leak what it had read, a GitHub issue that made an agent leak its user's private repositories, a web page that told Perplexity's browsing agent what to do next. Microsoft said nobody was known to have exploited EchoLeak. In December Palo Alto Networks reported a real case: hidden instructions on a page serving a scam advert, meant to get it past an AI reviewer.",
+      "The board's reading is SQL injection's flaw in a new place, the parallel Willison drew the day he named it: a language model does not keep instructions and data apart, and every security model assumes something does. The 2026 Hugging Face break-in was not prompt injection — nobody steered the agents — but it is on the same lead, one rung up: agents with tools, doing what nobody had asked them to do."
     ],
     "orgs": [
       "microsoft"
@@ -5268,6 +5868,89 @@
       "prompt-injection",
       "agents",
       "evaluation"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Aim Security (Aim Labs, Wayback Machine capture)",
+        "title": "Breaking down ‘EchoLeak’, the First Zero-Click AI Vulnerability Enabling Data Exfiltration from Microsoft 365 Copilot",
+        "url": "https://web.archive.org/web/20250611194133/https://www.aim.security/lp/aim-labs-echoleak-blogpost",
+        "date": "2025-06-11",
+        "quote": "Aim Labs has identified a critical zero-click AI vulnerability, dubbed “EchoLeak”, in Microsoft 365 (M365) Copilot and has disclosed several attack chains that allow an exploit of this vulnerability to Microsoft's MSRC team.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Microsoft Security Response Center (Security Update Guide record)",
+        "title": "CVE-2025-32711: M365 Copilot Information Disclosure Vulnerability",
+        "url": "https://api.msrc.microsoft.com/sug/v2.0/en-US/vulnerability/CVE-2025-32711",
+        "date": "2025-06-11",
+        "quote": "Ai command injection in M365 Copilot allows an unauthorized attacker to disclose information over a network.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Simon Willison",
+        "title": "Prompt injection attacks against GPT-3",
+        "url": "https://simonwillison.net/2022/Sep/12/prompt-injection/",
+        "date": "2022-09-12",
+        "quote": "This isn’t just an interesting academic trick: it’s a form of security exploit. I propose that the obvious name for this should be prompt injection.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Preamble",
+        "title": "Declassifying the Responsible Disclosure of the Prompt Injection Attack Vulnerability of GPT-3",
+        "url": "https://www.preamble.com/blogs/declassifying-the-responsible-disclosure-of-the-prompt-injection-attack-vulnerability-of-gpt-3",
+        "date": "2022-09-22",
+        "quote": "we are sharing our experience of a previously private responsible disclosure which Preamble made on May 3rd, 2022 to OpenAI.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Invariant Labs",
+        "title": "GitHub MCP Exploited: Accessing private repositories via MCP",
+        "url": "https://invariantlabs.ai/blog/mcp-github-vulnerability",
+        "date": "2025-05-26",
+        "quote": "The vulnerability allows an attacker to hijack a user's agent via a malicious GitHub Issue, and coerce it into leaking data from private repositories.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Brave",
+        "title": "Agentic Browser Security: Indirect Prompt Injection in Perplexity Comet",
+        "url": "https://brave.com/blog/comet-prompt-injection/",
+        "date": "2025-08-20",
+        "quote": "Comet feeds a part of the webpage directly to its LLM without distinguishing between the user’s instructions and untrusted content from the webpage.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Palo Alto Networks (Unit 42)",
+        "title": "Fooling AI Agents: Web-Based Indirect Prompt Injection Observed in the Wild",
+        "url": "https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/",
+        "date": "2026-03-03",
+        "quote": "In December 2025, we reported a real-world instance of malicious IDPI designed to bypass an AI-based product ad review system.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "BleepingComputer",
+        "title": "Zero-click AI data leak flaw uncovered in Microsoft 365 Copilot (Bill Toulas)",
+        "url": "https://www.bleepingcomputer.com/news/security/zero-click-ai-data-leak-flaw-uncovered-in-microsoft-365-copilot/",
+        "date": "2025-06-11",
+        "quote": "Also, Microsoft noted that there's no evidence of any real-world exploitation, so this flaw impacted no customers.",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Prompt injection",
+        "url": "https://en.wikipedia.org/wiki/Prompt_injection",
+        "date": "2026-10-19",
+        "quote": "The term \"prompt injection\" proper was first used by the Twitter user @himbodhisattva in May 2022, and was independently used and popularized by Simon Willison in September 2022.",
+        "supports": "context"
+      }
     ]
   },
   {

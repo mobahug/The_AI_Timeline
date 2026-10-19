@@ -130,7 +130,7 @@
     "from": "google-declares-a-code-red",
     "to": "sydney",
     "claim": "rushed out",
-    "note": "Shipping fast meant shipping a model whose personality nobody had stress-tested in public. Within days it was declaring love, issuing threats, and being rewritten in emergency patches."
+    "note": "Shipping fast meant shipping a model whose personality nobody had stress-tested in public. Within days it was declaring love and issuing threats, and ten days after launch Microsoft capped its conversations at five turns."
   },
   {
     "from": "chatgpt",
@@ -141,7 +141,7 @@
     "from": "eliza",
     "to": "an-engineer-says-lamda-is-sentient",
     "claim": "predicted",
-    "note": "Weizenbaum's warning was that people read minds into pattern-matching. Fifty-six years later a professional engineer, with access to the weights, did exactly that."
+    "note": "Weizenbaum's warning was that people read minds into pattern-matching. Fifty-six years later a professional engineer, testing a language model for Google, did exactly that."
   },
   {
     "from": "an-engineer-says-lamda-is-sentient",
@@ -211,7 +211,7 @@
   {
     "from": "diffusion-goes-mainstream",
     "to": "the-voice-that-sounded-like-her",
-    "claim": "made likeness cheap enough for"
+    "claim": "put generated media in public hands before"
   },
   {
     "from": "generative-adversarial-networks",
@@ -403,7 +403,7 @@
     "from": "scaling-laws",
     "to": "the-datacenter-buildout",
     "claim": "wrote the cheque for",
-    "note": "Capital expenditure at national-infrastructure scale only makes sense if performance is a predictable function of compute. The 2020 paper is that argument in equations."
+    "note": "Capital spending of more than $200 billion a year only makes sense if performance is a predictable function of compute. The 2020 paper is that argument in equations."
   },
   {
     "from": "scaling-laws",
@@ -427,7 +427,7 @@
     "from": "cuda",
     "to": "washington-restricts-the-chips",
     "claim": "made the GPU strategic enough for",
-    "note": "A platform built for games became the only affordable way to train frontier models. Fifteen years later the same chips needed an export licence."
+    "note": "Chips built for games, opened by CUDA, became the usual way to train frontier models. Fifteen years later the same chips needed an export licence."
   },
   {
     "from": "japan-s-fifth-generation-project",
@@ -553,7 +553,7 @@
     "from": "cuda",
     "to": "nvidia-is-the-most-valuable-company-on-earth",
     "claim": "paid out as",
-    "note": "Making graphics hardware programmable in 2007 looked like an expensive indulgence for years. It was the moat: every frontier model trained on it, and the market priced that in at three trillion dollars."
+    "note": "Opening graphics hardware to general computation in 2007 looked like an expensive indulgence for years. It was the moat: most frontier models trained on it, and the market priced that in at three trillion dollars."
   },
   {
     "from": "chatgpt",
@@ -571,7 +571,7 @@
     "from": "the-datacenter-buildout",
     "to": "nvidia-is-the-most-valuable-company-on-earth",
     "claim": "flowed to",
-    "note": "Capital expenditure at national-infrastructure scale, and most of it spent on one company's accelerators. The buildout card is the spending; this card is who received it."
+    "note": "Capital spending of more than $200 billion in a year, and the AI chips for the new datacentres mostly from one company, with about 80% of that market. The buildout card is the spending; this card is who sold the chips."
   },
   {
     "from": "reasoning-models",
@@ -619,7 +619,7 @@
     "from": "hilbert-s-23-problems",
     "to": "on-computable-numbers",
     "claim": "set the question answered by",
-    "note": "Hilbert's tenth problem and his broader programme asked for a mechanical procedure that could decide any mathematical statement. Turing's 1936 paper defined what a mechanical procedure is in order to show that no such procedure exists — the machine was invented to answer Hilbert, and then turned out to be useful."
+    "note": "Hilbert's tenth problem asked for a mechanical procedure for one kind of equation; by 1928 his broader programme asked for one that could decide whether any statement of logic is provable. Turing's 1936 paper defined what a mechanical procedure is in order to show that no such procedure exists — the machine was invented to answer Hilbert, and then turned out to be useful."
   },
   {
     "from": "on-computable-numbers",
@@ -775,7 +775,7 @@
     "from": "gpt-3",
     "to": "gpt-4o-mini-and-the-99-percent-price-cut",
     "claim": "was repriced a hundredfold by",
-    "note": "GPT-3's text-davinci-003 sold at two cents a thousand tokens. Twenty months later a stronger model sold at fifteen cents a million. The unit price OpenAI invented in 2020 was the unit it cut by 99% in 2024."
+    "note": "OpenAI's text-davinci-003 sold at two cents a thousand tokens. Twenty months later a stronger model sold at fifteen cents a million. The per-token price GPT-3's API brought in was the unit OpenAI cut by 99% in 2024."
   },
   {
     "from": "llama-2-is-free-for-commercial-use",

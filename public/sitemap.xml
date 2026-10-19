@@ -108,6 +108,7 @@
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/sequence-to-sequence/</loc><lastmod>2026-09-18</lastmod><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/google-buys-deepmind/</loc><lastmod>2026-09-22</lastmod><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/generative-adversarial-networks/</loc><lastmod>2026-09-22</lastmod><priority>0.5</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/eugene-goostman/</loc><lastmod>2026-10-19</lastmod><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/resnet-passes-human-error-rates/</loc><lastmod>2026-09-18</lastmod><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/the-autonomous-weapons-letter/</loc><lastmod>2026-09-18</lastmod><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/musk-and-altman-found-openai/</loc><lastmod>2026-10-14</lastmod><priority>0.6</priority></url>
@@ -151,6 +152,7 @@
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/sydney/</loc><lastmod>2026-09-22</lastmod><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/the-pause-letter/</loc><lastmod>2026-09-22</lastmod><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/hinton-leaves-google/</loc><lastmod>2026-10-19</lastmod><priority>0.5</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/the-drone-test-that-never-ran/</loc><lastmod>2026-10-19</lastmod><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/llama-2-is-free-for-commercial-use/</loc><lastmod>2026-09-22</lastmod><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/a-magnet-link-from-paris/</loc><lastmod>2026-09-22</lastmod><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/bletchley-and-the-executive-orders/</loc><lastmod>2026-09-22</lastmod><priority>0.5</priority></url>
@@ -168,21 +170,25 @@
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/gpt-4o-mini-and-the-99-percent-price-cut/</loc><lastmod>2026-09-22</lastmod><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/silver-at-the-imo/</loc><lastmod>2026-09-22</lastmod><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/character-ai-is-sued-over-a-boy-s-death/</loc><lastmod>2026-10-19</lastmod><priority>0.5</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/caught-scheming-in-the-lab/</loc><lastmod>2026-09-22</lastmod><priority>0.5</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/caught-scheming-in-the-lab/</loc><lastmod>2026-10-19</lastmod><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/alignment-faking/</loc><lastmod>2026-09-22</lastmod><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/frontiermath/</loc><lastmod>2026-09-22</lastmod><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/reasoning-models/</loc><lastmod>2026-09-18</lastmod><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/power-becomes-a-strategy/</loc><lastmod>2026-09-18</lastmod><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/coding-agents-take-the-keyboard/</loc><lastmod>2026-09-18</lastmod><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/deepseek-r1-resets-the-price-of-reasoning/</loc><lastmod>2026-10-19</lastmod><priority>0.6</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/the-cheating-goes-quiet/</loc><lastmod>2026-10-19</lastmod><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/the-cost-of-an-answer-falls-280-fold/</loc><lastmod>2026-09-22</lastmod><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/chatgpt-is-rolled-back-for-flattery/</loc><lastmod>2026-10-19</lastmod><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/editing-the-off-switch/</loc><lastmod>2026-10-19</lastmod><priority>0.5</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/alphaevolve/</loc><lastmod>2026-10-19</lastmod><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/prompt-injection-in-the-wild/</loc><lastmod>2026-09-22</lastmod><priority>0.5</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/blackmail-in-the-simulation/</loc><lastmod>2026-09-22</lastmod><priority>0.5</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/blackmail-in-the-simulation/</loc><lastmod>2026-10-19</lastmod><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/gold-at-the-imo/</loc><lastmod>2026-09-22</lastmod><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/parents-sue-openai-over-their-son-s-death/</loc><lastmod>2026-10-12</lastmod><priority>0.5</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/anthropic-pays-for-pirated-books/</loc><lastmod>2026-10-19</lastmod><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/openai-converts-the-nonprofit-keeps-a-stake/</loc><lastmod>2026-10-19</lastmod><priority>0.5</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/cheating-generalises-to-sabotage/</loc><lastmod>2026-10-19</lastmod><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/sovereign-compute/</loc><lastmod>2026-10-11</lastmod><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/the-erdos-problems/</loc><lastmod>2026-10-19</lastmod><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/agents-enter-real-workflows/</loc><lastmod>2026-10-11</lastmod><priority>0.5</priority></url>
@@ -203,6 +209,7 @@
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/trump-and-six-companies-sign-an-accord-on-audits/</loc><lastmod>2026-10-18</lastmod><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/anthropic-models-fill-in-real-forms/</loc><lastmod>2026-10-18</lastmod><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/washington-says-reporting-incidents-is-not-optional/</loc><lastmod>2026-10-19</lastmod><priority>0.5</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/card/character-ai-files-for-bankruptcy/</loc><lastmod>2026-10-19</lastmod><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/eight-states-sue-openai/</loc><lastmod>2026-10-18</lastmod><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/brussels-and-washington-question-the-labs/</loc><lastmod>2026-10-18</lastmod><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/multi-day-autonomous-work/</loc><lastmod>2026-10-19</lastmod><priority>0.5</priority></url>
@@ -223,25 +230,30 @@
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/a-contested-agi-claim/</loc><lastmod>2026-10-19</lastmod><priority>0.5</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/the-date-on-the-poster/</loc><lastmod>2026-09-18</lastmod><priority>0.6</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/card/the-second-half-of-the-century/</loc><lastmod>2026-09-22</lastmod><priority>0.5</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/lead/machines-doing-maths/</loc><lastmod>2026-10-11</lastmod><priority>0.8</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/lead/gaming-the-test/</loc><lastmod>2026-10-18</lastmod><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/lead/machines-doing-maths/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/lead/gaming-the-test/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/lead/games-fall/</loc><lastmod>2026-10-11</lastmod><priority>0.8</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/lead/the-price-of-intelligence/</loc><lastmod>2026-10-14</lastmod><priority>0.8</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/lead/the-confidant/</loc><lastmod>2026-10-17</lastmod><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/lead/the-price-of-intelligence/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/lead/the-confidant/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/question/can-i-trust-what-a-chatbot-tells-me/</loc><lastmod>2026-10-15</lastmod><priority>0.8</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/question/is-it-safe-to-confide-in-a-chatbot/</loc><lastmod>2026-10-17</lastmod><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/question/is-it-safe-to-confide-in-a-chatbot/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/question/why-is-ai-suddenly-free-and-everywhere/</loc><lastmod>2026-10-15</lastmod><priority>0.8</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/question/where-is-all-the-money-going/</loc><lastmod>2026-10-15</lastmod><priority>0.8</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/question/will-ai-take-my-job/</loc><lastmod>2026-10-15</lastmod><priority>0.8</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/question/can-i-still-believe-what-i-see-and-hear/</loc><lastmod>2026-10-15</lastmod><priority>0.8</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/question/is-ai-making-decisions-about-me/</loc><lastmod>2026-10-15</lastmod><priority>0.8</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/question/does-ai-actually-understand-anything/</loc><lastmod>2026-10-15</lastmod><priority>0.8</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/question/can-ai-do-things-nobody-asked-it-to/</loc><lastmod>2026-10-18</lastmod><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/question/can-ai-do-things-nobody-asked-it-to/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/question/how-did-ai-get-so-good-so-fast/</loc><lastmod>2026-10-17</lastmod><priority>0.8</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/question/what-can-ai-do-now/</loc><lastmod>2026-10-17</lastmod><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/question/what-can-ai-do-now/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/question/who-controls-the-most-powerful-ai/</loc><lastmod>2026-10-17</lastmod><priority>0.8</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/question/who-makes-the-rules-for-ai/</loc><lastmod>2026-10-18</lastmod><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/question/who-makes-the-rules-for-ai/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/check/claude-broke-out-of-its-tests/</loc><lastmod>2026-10-15</lastmod><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/check/deepseek-r1-cost-5-6-million/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/check/an-ai-drone-killed-its-operator/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/check/a-computer-passed-the-turing-test/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/check/claude-turns-to-blackmail/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/check/o1-tried-to-escape-and-lied/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/prediction/turing-imitation-game-by-2000/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/prediction/dartmouth-a-summer-1956/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/prediction/simon-newell-chess-champion-1967/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
@@ -264,17 +276,17 @@
   <url><loc>https://mobahug.github.io/The_AI_Timeline/prediction/musk-ai-smarter-than-any-human-by-end-of-2025/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/prediction/amodei-powerful-ai-as-early-as-2026/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/prediction/kokotajlo-diplomacy-as-well-as-experts-by-2025/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/promise/openai-researchers-publish-and-patents-are-shared/</loc><priority>0.8</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/promise/google-no-ai-for-weapons/</loc><priority>0.8</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/promise/openai-nonprofit-board-controls-the-company/</loc><priority>0.8</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/promise/openai-investor-returns-are-capped/</loc><priority>0.8</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/promise/microsoft-carbon-negative-by-2030/</loc><priority>0.8</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/promise/openai-20-percent-of-compute-for-superalignment/</loc><priority>0.8</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/promise/seven-companies-mark-ai-generated-media/</loc><priority>0.8</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/promise/seoul-signatories-publish-safety-frameworks/</loc><priority>0.8</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/promise/meta-committed-to-open-source-ai/</loc><priority>0.8</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/promise/anthropic-no-model-without-safeguards/</loc><priority>0.8</priority></url>
-  <url><loc>https://mobahug.github.io/The_AI_Timeline/promise/six-companies-outside-audits-of-their-controls/</loc><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/promise/openai-researchers-publish-and-patents-are-shared/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/promise/google-no-ai-for-weapons/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/promise/openai-nonprofit-board-controls-the-company/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/promise/openai-investor-returns-are-capped/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/promise/microsoft-carbon-negative-by-2030/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/promise/openai-20-percent-of-compute-for-superalignment/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/promise/seven-companies-mark-ai-generated-media/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/promise/seoul-signatories-publish-safety-frameworks/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/promise/meta-committed-to-open-source-ai/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/promise/anthropic-no-model-without-safeguards/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
+  <url><loc>https://mobahug.github.io/The_AI_Timeline/promise/six-companies-outside-audits-of-their-controls/</loc><lastmod>2026-10-19</lastmod><priority>0.8</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/person/david-hilbert/</loc><priority>0.4</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/person/kurt-godel/</loc><priority>0.4</priority></url>
   <url><loc>https://mobahug.github.io/The_AI_Timeline/person/alan-turing/</loc><priority>0.4</priority></url>

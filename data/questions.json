@@ -66,13 +66,13 @@
       "question": "Where is all the money going, and is it a bubble?",
       "short": "Upstream, to chips, datacentres and electricity. Whether it is a bubble the record cannot yet say, but it has already shown how fast the market can change its mind.",
       "answer": [
-        "As answers got cheaper, the money moved to what makes them. In June 2024 Nvidia, with about 80% of the market for AI datacentre chips, passed Microsoft at $3.3 trillion to become the most valuable company on earth. The four largest buyers spent over $200 billion on AI infrastructure in 2024, and the laboratories began signing long-term energy contracts.",
+        "As answers got cheaper, the money moved to what makes them. In June 2024 Nvidia, with about 80% of the market for AI datacentre chips, passed Microsoft at $3.3 trillion to become the most valuable company on earth. Microsoft, Alphabet, Amazon and Meta spent over $200 billion between them on capital expenditure in 2024, much of it on datacentres for cloud and AI, and the laboratories began signing long-term energy contracts.",
         "The market's nerves showed in January 2025. When DeepSeek released a frontier-level model it said had been trained cheaply, Nvidia lost close to $600 billion of market value in a day, the biggest one-day drop for any company in American history. The claimed cost was disputed, and DeepSeek's own report said it covered only the final training run.",
         "In 2026 the same thing happened to the firms that sell professional work. When Anthropic released plug-ins for legal and finance work, Thomson Reuters fell nearly 18% in a day, its worst on record."
       ],
       "record": [
         { "event": "nvidia-is-the-most-valuable-company-on-earth", "note": "Whoever sells the shovels." },
-        { "event": "the-datacenter-buildout", "note": "Spending at the scale of national infrastructure." },
+        { "event": "the-datacenter-buildout", "note": "Over $200 billion of capital spending in a year." },
         { "event": "power-becomes-a-strategy", "note": "The bottleneck moves to electricity." },
         { "event": "deepseek-r1-resets-the-price-of-reasoning", "note": "The week the moat looked like nothing at all." },
         { "event": "energy-is-the-binding-constraint", "note": "The board's scenario for 2030." }
@@ -189,7 +189,7 @@
       "answer": [
         "For most of its history the field moved slowly; until the 2010s the board finds one or two events a year. What changed was a combination. In 2012 AlexNet, a neural network trained on two gaming graphics cards, won the ImageNet image-recognition contest with 15.3% error against the runner-up's 26.2%, and computer vision turned to neural networks. The cards were Nvidia's, opened to general computation five years earlier.",
         "In 2017 Google researchers published the transformer, a design that reads a whole passage at once and so can be trained in parallel; size became the lever. In 2020 OpenAI showed that a model's error falls smoothly as its size, its data and its computing budget grow, and the same lab trained GPT-3, with 175 billion parameters, on that bet.",
-        "From there the gains were bought. ChatGPT, a chat interface on an existing model, reached a hundred million users faster than any consumer product before it, and the four largest buyers of AI infrastructure spent over $200 billion on it in 2024. In 2025 reasoning models added a second lever: letting a model think for longer before it answers."
+        "From there the gains were bought. ChatGPT, a chat interface on an existing model, reached a hundred million users faster than any consumer product before it, and Microsoft, Alphabet, Amazon and Meta spent over $200 billion between them on capital expenditure in 2024, much of it on datacentres. In 2025 reasoning models added a second lever: letting a model think for longer before it answers."
       ],
       "record": [
         { "event": "cuda", "note": "Graphics chips, opened to any calculation." },
