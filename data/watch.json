@@ -95,6 +95,83 @@
       "what": "Whether the states settle with Character.AI, as their lawyer told the court they were negotiating to, and what protection any sale gives the chats its users, children among them, left with its characters.",
       "event": "character-ai-files-for-bankruptcy",
       "evidence": "they were negotiating a settlement with the company"
+    },
+    {
+      "id": "sb53-amendment-recommendations",
+      "date": "2026-11-16",
+      "what": "California's Government Operations Agency is due to recommend amendments to the state's AI safety laws, a wider definition of a critical safety incident among them.",
+      "event": "california-makes-frontier-labs-report-incidents",
+      "evidence": "by 16 November 2026"
+    },
+    {
+      "id": "cal-oes-first-incident-summary",
+      "date": "2027-01-01",
+      "what": "California's Office of Emergency Services is due to publish its first anonymised annual summary of the critical safety incidents reported to it.",
+      "event": "california-makes-frontier-labs-report-incidents",
+      "evidence": "from 1 January 2027 the office is to publish an anonymised annual summary of them"
+    },
+    {
+      "id": "nvidia-openai-first-gigawatt",
+      "what": "Whether the first gigawatt of Nvidia systems for OpenAI comes online in the second half of 2026, as the letter of intent planned.",
+      "event": "nvidia-offers-openai-100-billion",
+      "evidence": "The first gigawatt was to come online in the second half of 2026"
+    },
+    {
+      "id": "openai-crisis-estimates-revised",
+      "what": "Whether OpenAI publishes newer estimates of how many of its users show signs of crisis, and how far they move as its methods change.",
+      "event": "openai-counts-users-in-crisis",
+      "evidence": "the estimates, it said, may change materially as its methods mature"
+    },
+    {
+      "id": "gtg-1002-targets",
+      "what": "Whether the organisations the campaign reached are ever named, and whether US government agencies or contractors were among them, as two senators asked.",
+      "event": "a-state-backed-group-hacks-through-claude-code",
+      "evidence": "Two senators asked the National Cyber Director whether any US government agencies or contractors had been targeted"
+    },
+    {
+      "id": "commerce-state-ai-list",
+      "what": "Whether Commerce publishes its list of onerous state AI laws, which would start the FCC's ninety days on a federal reporting standard.",
+      "event": "trump-orders-a-task-force-against-state-ai-laws",
+      "evidence": "Commerce's evaluation, due by 11 March, had not appeared by October"
+    },
+    {
+      "id": "colorado-ai-act-replacement",
+      "date": "2027-01-01",
+      "what": "Colorado's replacement for the AI law the executive order named takes effect.",
+      "event": "trump-orders-a-task-force-against-state-ai-laws",
+      "evidence": "which takes effect on 1 January 2027"
+    },
+    {
+      "id": "federal-preemption-of-state-ai-laws",
+      "what": "Whether Congress preempts the states' AI laws, as the order asked and twenty-six state attorneys general opposed.",
+      "event": "trump-orders-a-task-force-against-state-ai-laws",
+      "evidence": "In Congress the preemption the order asked for had not passed by October 2026"
+    },
+    {
+      "id": "anthropic-rehearing-response",
+      "date": "2026-10-30",
+      "what": "The government's answer is due to Anthropic's petition for a rehearing of the ruling that upheld its exclusion from the Pentagon.",
+      "event": "anthropic-is-named-a-supply-chain-risk",
+      "evidence": "to 30 October 2026"
+    },
+    {
+      "id": "anthropic-exclusion-review",
+      "what": "Whether the full D.C. Circuit or the Supreme Court reviews the Pentagon's exclusion of Anthropic, which two courts have judged in opposite ways.",
+      "event": "anthropic-is-named-a-supply-chain-risk",
+      "evidence": "Anthropic asked for a rehearing on 13 October"
+    },
+    {
+      "id": "chatgpt-dsa-duties-apply",
+      "date": "2027-01",
+      "what": "ChatGPT's duties as a very large online search engine apply, its first assessment of systemic risks among them.",
+      "event": "chatgpt-becomes-a-very-large-search-engine",
+      "evidence": "by January 2027"
+    },
+    {
+      "id": "chatgpt-dsa-scope",
+      "what": "Whether the Commission's designation of ChatGPT reaches its conversations or only the search feature that OpenAI's user figures count.",
+      "event": "chatgpt-becomes-a-very-large-search-engine",
+      "evidence": "whether the duties reach the conversations or only the search feature is read both ways"
     }
   ]
 }
