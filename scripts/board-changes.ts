@@ -19,8 +19,8 @@
 // warning: a shallow checkout should still be able to run the site.
 import { fileURLToPath } from 'node:url';
 import type { Plugin } from 'vite';
-import { dateRecords, feedEntries, readHistory, readItems } from './feed';
-import type { Change } from '../src/lib/types';
+import { datedHistory, feedEntries, readItems } from './feed.ts';
+import type { Change } from '../src/lib/types.ts';
 
 const ID = 'virtual:board-changes';
 const RESOLVED = '\0' + ID;
@@ -31,7 +31,7 @@ export const CHANGES_SIZE = 30;
  *  and every dated record's two days, by `kind/id`, as `[filed, changed]`. */
 export function boardChangesOf(root: string, size = CHANGES_SIZE): { changes: Change[]; dated: Record<string, [string, string]> } {
   const items = readItems(root);
-  const history = dateRecords(readHistory(root));
+  const history = datedHistory(root);
   const changes = feedEntries(items, history, size).map((e) => ({
     kind: e.kind,
     id: e.id,

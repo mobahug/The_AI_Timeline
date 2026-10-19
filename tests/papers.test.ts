@@ -13,6 +13,10 @@ import { carriedPapers, carryPapers, hasPapers, loadPapers, papersFor, primePape
 import { FINDINGS } from '../src/lib/spine';
 import { parse } from '../src/lib/url';
 import { VIEWS, viewById } from '../src/lib/views';
+import { pages } from '../src/lib/pages';
+import { QUESTIONS } from '../src/lib/questions';
+import { CHECKS } from '../src/lib/checks';
+import { PREDICTIONS } from '../src/lib/predictions';
 import { headOf, papersOf } from '../scripts/split-events';
 import { PAPER_FIELDS } from '../src/lib/types';
 import type { Carried } from '../src/lib/papers';
@@ -66,17 +70,9 @@ describe('the split', () => {
   });
 });
 
-/* Every address the prerenderer writes, as scripts/prerender.ts lists them. */
-const ROUTES: string[] = [
-  '/',
-  ...VIEWS.filter((v) => v.sitemap && v.path).map((v) => '/' + v.path + '/'),
-  ...FINDINGS.map((f) => '/line/' + f.n + '/'),
-  ...events.map((e) => '/card/' + e.id + '/'),
-  ...LEADS.map((l) => '/lead/' + l.id + '/'),
-  ...PEOPLE.map((p) => '/person/' + p.id + '/'),
-  ...ORGS.map((o) => '/org/' + o.id + '/'),
-  ...TERMS.map((t) => '/term/' + t.id + '/')
-];
+/* Every address the prerenderer writes: the list it writes them from. */
+const ROUTES: string[] = pages({ findings: FINDINGS, events, leads: LEADS, questions: QUESTIONS, checks: CHECKS, predictions: PREDICTIONS, people: PEOPLE, orgs: ORGS, terms: TERMS })
+  .map((p) => '/' + p.path);
 
 /** What the prerenderer does for one address: the page, its meta, and the papers it read. */
 const render = (path: string) => {

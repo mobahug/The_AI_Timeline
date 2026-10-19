@@ -124,7 +124,6 @@ export interface Thread { id: string; label: string }
  *  what it covers in a reader's words (shown where the categories are explained). */
 export interface Category { id: string; label: string; hue: number; thread: string; blurb?: string }
 export interface Era { year: number; range: string; title: string; subtitle: string }
-export interface Span { first: number; now: number; last: number }
 
 export interface Finding { n: number; from: number; title: string; lead: string | null; blurb: string }
 

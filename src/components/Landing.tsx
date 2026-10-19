@@ -123,7 +123,7 @@ function Landing({ media }: LandingProps) {
                 }}>
                   <span style={{ ...frame(false), border: 'none', borderRadius: 0, display: 'block', aspectRatio: '16 / 9', overflow: 'hidden' }}>
                     {shot.img
-                      ? <img src={shot.img} alt="" loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', filter: CARD_PHOTO_FILTER }} />
+                      ? <img src={shot.img} alt="" crossOrigin="anonymous" loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', filter: CARD_PHOTO_FILTER }} />
                       : <span aria-hidden="true" style={{ display: 'block', width: '100%', height: '100%', backgroundImage: PLACEHOLDER }} />}
                   </span>
                   <span style={{ display: 'flex', flexDirection: 'column', gap: 8, padding: 'clamp(12px,1.6vw,16px)' }}>

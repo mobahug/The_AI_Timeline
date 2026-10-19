@@ -83,6 +83,10 @@ input:focus-visible, select:focus-visible, textarea:focus-visible {
 .ix-seg:not([aria-current]):not([aria-pressed="true"]):active { background-color: rgba(243, 240, 234, 0.12) !important; }
 .ix-door:hover { border-color: rgba(243, 240, 234, 0.28) !important; background-color: rgba(243, 240, 234, 0.06) !important; }
 .ix-door:active { background-color: rgba(243, 240, 234, 0.09) !important; }
+/* Inside running text a reference keeps its dotted rule at rest, faint: told
+   from the words around it by more than its colour, which was 2:1 against them
+   (WCAG 1.4.1). Hover draws the rule up to the strength it always had. */
+p .ix-ref { text-decoration: underline dotted rgba(243, 240, 234, 0.3) !important; text-underline-offset: 0.16em; }
 .ix-ref:hover { text-decoration: underline !important; text-decoration-style: dotted !important; text-decoration-color: rgba(243, 240, 234, 0.45) !important; text-underline-offset: 0.16em; }
 /* A turn held for the papers of the page it goes to (src/lib/papers.ts): the
    page stays as it was until they come, and says it is busy. */

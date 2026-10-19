@@ -11,19 +11,23 @@ import { mkdir, readFile, readdir, writeFile, rm } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { VIEWS } from '../src/lib/views';
+import { pages } from '../src/lib/pages';
 import type { Carried } from '../src/lib/papers';
 import type { Check, EventRaw, Finding, Lead, Org, PageMeta, Person, Prediction, Question, Route, Term, WikiCache, WikiPage } from '../src/lib/types';
 import { VERDICTS } from '../src/lib/checks';
 import { SHARE_H, SHARE_W, writeShareImages } from './share-images';
 import type { ShareImage } from './share-images';
+import { datedHistory } from './feed';
+import { BASE, HOST } from './site';
+import type { Dated } from './feed';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, '..');
 const dist = join(root, 'dist');
 const ssrDir = join(root, 'dist-ssr');
 
-const ORIGIN = 'https://mobahug.github.io';
-const BASE = process.env.BASE_PATH || '/The_AI_Timeline/';
+/* The host alone: every address below is built as ORIGIN + BASE + path. */
+const ORIGIN = HOST;
 const SITE = 'The AI Timeline';
 
 const template = await readFile(join(dist, 'index.html'), 'utf8');
@@ -39,6 +43,16 @@ const orgs = JSON.parse(await readFile(join(root, 'data', 'orgs.json'), 'utf8'))
 const terms = JSON.parse(await readFile(join(root, 'data', 'glossary.json'), 'utf8')).terms as Term[];
 const fallbacks = JSON.parse(await readFile(join(root, 'data', 'image-fallbacks.json'), 'utf8')) as Record<string, string>;
 const NOW = JSON.parse(await readFile(join(root, 'data', 'threads.json'), 'utf8')).span.now as number;
+/* When each card, lead, question and check was filed on the board and last
+   changed, from the history the feed reads (scripts/feed.ts). An Article's
+   datePublished is the day its page was filed, never the year of what it is
+   about. A shallow clone dates nothing; the feed's own step says why. */
+let dated = new Map<string, Dated>();
+try { dated = datedHistory(root); } catch { dated = new Map(); }
+const datesOf = (key: string): { datePublished?: string; dateModified?: string } => {
+  const d = dated.get(key);
+  return d ? { datePublished: d.added.date, dateModified: d.changed.date } : {};
+};
 
 /** The built SSR bundle's entry: what src/entry-server.tsx exports. */
 interface Rendered { html: string; route: Route; meta: PageMeta; media: WikiCache; papers: Carried | null }
@@ -47,20 +61,8 @@ const { render } = await import(pathToFileURL(join(ssrDir, 'entry-server.js')).h
 const esc = (s: unknown): string => String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const enc = (s: string | null): string => encodeURIComponent(s as string);
 
-/** Every address the site has, as paths under the base. */
-const routes: string[] = [
-  '',
-  ...VIEWS.filter((v) => v.sitemap && v.path).map((v) => v.path + '/'),
-  ...spine.findings.map((f) => 'line/' + f.n + '/'),
-  ...events.map((e) => 'card/' + enc(e.id) + '/'),
-  ...leads.map((l) => 'lead/' + enc(l.id) + '/'),
-  ...questions.map((q) => 'question/' + enc(q.id) + '/'),
-  ...checks.map((c) => 'check/' + enc(c.id) + '/'),
-  ...predictions.map((p) => 'prediction/' + enc(p.id) + '/'),
-  ...people.map((p) => 'person/' + enc(p.id) + '/'),
-  ...orgs.map((o) => 'org/' + enc(o.id) + '/'),
-  ...terms.map((t) => 'term/' + enc(t.id) + '/')
-];
+/** Every address the site has, as paths under the base (src/lib/pages.ts). */
+const routes: string[] = pages({ findings: spine.findings, events, leads, questions, checks, predictions, people, orgs, terms }).map((p) => p.path);
 
 /** Structured data for a route, as JSON-LD. Only what the page states. */
 function jsonLd(route: Route, meta: PageMeta, url: string, image: string): Record<string, unknown>[] {
@@ -82,7 +84,7 @@ function jsonLd(route: Route, meta: PageMeta, url: string, image: string): Recor
       // as datePublished it dated a page to 1900, and every scenario to the
       // future. It is the date of what the article is about.
       { '@context': 'https://schema.org', '@type': 'Article', headline: e.title, description: meta.description, url,
-        image: [image], isPartOf: site,
+        image: [image], isPartOf: site, ...datesOf('card/' + e.id),
         author: { '@type': 'Organization', name: SITE }, citation: sources.length ? sources : undefined,
         about: e.year > NOW ? 'Scenario, confidence ' + (e.confidence || 'Uncertain') : { '@type': 'Event', name: e.title, startDate: e.date || String(e.year) } },
       { '@context': 'https://schema.org', ...crumbs([[SITE, ''], ['The board', 'board/'], [e.year + ' ' + e.title, 'card/' + enc(e.id) + '/']]) }
@@ -93,7 +95,7 @@ function jsonLd(route: Route, meta: PageMeta, url: string, image: string): Recor
     if (!l) return [];
     return [
       { '@context': 'https://schema.org', '@type': 'Article', headline: l.title, description: meta.description, url, isPartOf: site,
-        image: [image], author: { '@type': 'Organization', name: SITE },
+        image: [image], author: { '@type': 'Organization', name: SITE }, ...datesOf('lead/' + l.id),
         hasPart: l.rungs.map((r, i) => ({ '@type': 'ListItem', position: i + 1, name: r.label, url: ORIGIN + BASE + 'card/' + enc(r.event) + '/' })) },
       { '@context': 'https://schema.org', ...crumbs([[SITE, ''], ['The leads', 'leads/'], [l.title, 'lead/' + enc(l.id) + '/']]) }
     ];
@@ -142,7 +144,7 @@ function jsonLd(route: Route, meta: PageMeta, url: string, image: string): Recor
   }
   if (route.view === 'finding') {
     const f = spine.findings.find((x) => String(x.n) === String(route.finding));
-    return f ? [{ '@context': 'https://schema.org', '@type': 'Article', headline: f.title, description: f.blurb, url, isPartOf: site },
+    return f ? [{ '@context': 'https://schema.org', '@type': 'Article', headline: f.title, description: f.blurb, url, isPartOf: site, image: [image] },
       { '@context': 'https://schema.org', ...crumbs([[SITE, ''], ['The line', 'line/'], [f.title, 'line/' + f.n + '/']]) }] : [];
   }
   return [{ '@context': 'https://schema.org', '@type': 'WebPage', name: meta.title, description: meta.description, url, isPartOf: site }];
@@ -197,9 +199,13 @@ function page(route: Route, html: string, meta: PageMeta, media: WikiCache, pape
   if (route.view === 'landing') {
     out = out.replace('</head>', '  <link rel="preload" href="' + BASE + 'fonts/instrument-serif-400-italic-latin.woff2" as="font" type="font/woff2" crossorigin />\n  </head>');
   }
+  // The wall sets its years and lane labels in the mono's medium, which no
+  // other first screen uses. Asked for only when the canvas drew them, it landed
+  // after the first paint and the lanes moved as the labels reflowed.
   if (clientOnly) {
     out = out.replace('<html lang="en">', '<html lang="en" data-client-render>');
-    out = out.replace('</head>', '  <link rel="modulepreload" crossorigin href="' + BASE + 'assets/' + BOARD_CHUNK + '">\n  </head>');
+    out = out.replace('</head>', '  <link rel="modulepreload" crossorigin href="' + BASE + 'assets/' + BOARD_CHUNK + '">\n'
+      + '  <link rel="preload" href="' + BASE + 'fonts/plex-mono-500-latin.woff2" as="font" type="font/woff2" crossorigin />\n  </head>');
   }
   out = out.replace('<div id="root"></div>', '<div id="root">' + html + '</div>');
   return out;

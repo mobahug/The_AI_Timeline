@@ -125,11 +125,6 @@ export function peakOf(rows: PairRow[], key: 'a' | 'b'): { year: number; count: 
   return { year: top.year, count: top[key] };
 }
 
-/** The first year on the record a thread appears, and the card that opens it. */
-export function firstOf(graph: Graph, thread: string): Event | null {
-  return graph.all.find((e) => !e.future && e.thread === thread) || null;
-}
-
 /* ─── How long a string takes ────────────────────────────────────────── */
 
 export interface SpanBin { label: string; from: number; to: number; edges: Edge[] }

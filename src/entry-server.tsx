@@ -32,4 +32,3 @@ export function render(pathname: string, cache?: WikiCache | null) {
   return { html, route, meta, media: usedMedia(), papers: carriedPapers(route) };
 }
 
-export { graph };

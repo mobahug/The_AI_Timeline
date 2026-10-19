@@ -1,9 +1,8 @@
 import React from 'react';
-import { NOW, accent, otherOrigins, roadsTo, sourcesOf, sourceStrength, stringsOf, whenOf } from '../lib/data';
+import { NOW, accent, dayText, kindLabel, otherOrigins, roadsTo, sourcesOf, sourceStrength, stringsOf, whenOf } from '../lib/data';
 
 /* A citation's own date, written the way the board writes a card's — otherwise
    `2024-12-18` and `Dec 2024` sit a few lines apart on one page. */
-const dateText = (iso: string): string => whenOf({ year: Number(iso.slice(0, 4)), date: iso });
 import { bearingOn, splitSentences } from '../lib/wiki';
 import { findingFor } from '../lib/spine';
 import { leadsOf } from '../lib/leads';
@@ -32,7 +31,6 @@ import type { Event, Graph, Media, Route, Shot, Source } from '../lib/types';
    one line that says what is there and offers the switch.
 */
 
-const KIND_LABEL: Record<string, string> = { primary: 'Primary', paper: 'Paper', article: 'Article', video: 'Video', podcast: 'Podcast', interview: 'Interview', encyclopedia: 'Encyclopaedia' };
 
 /** The article lead with the sentence that bears on this entry highlighted. */
 const Lead = ({ event, extract }: { event: Event; extract: string }) => {
@@ -56,8 +54,8 @@ const SourceBlock = ({ src, event, page }: { src: Source; event: Event; page: Sh
   return (
     <div style={{ padding: '16px 0', borderBottom: ROW_RULE }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 9, flexWrap: 'wrap' }}>
-        <span style={{ ...micro(3), border: '1px solid rgba(243,240,234,0.22)', borderRadius: 2, padding: '3px 7px' }}>{KIND_LABEL[src.kind] || src.kind}</span>
-        <span style={{ ...micro(5), letterSpacing: '0.12em' }}>{src.publisher}{src.date ? ' · ' + dateText(src.date) : ''}{src.at ? ' · at ' + src.at : ''}</span>
+        <span style={{ ...micro(3), border: '1px solid rgba(243,240,234,0.22)', borderRadius: 2, padding: '3px 7px' }}>{kindLabel(src.kind)}</span>
+        <span style={{ ...micro(5), letterSpacing: '0.12em' }}>{src.publisher}{src.date ? ' · ' + dayText(src.date) : ''}{src.at ? ' · at ' + src.at : ''}</span>
         {supports && <span style={{ ...micro(1), color: STRING_INK, letterSpacing: '0.14em' }}>supports the claim</span>}
         {src.legacy && <span style={micro(5)}>cited, not yet quoted</span>}
       </div>
@@ -166,11 +164,14 @@ function CardView({ graph, route, media, embedded }: CardViewProps) {
 
         <div style={{ marginTop: 34, display: 'flex', gap: 'clamp(16px,3vw,28px)', alignItems: 'flex-start', flexWrap: 'wrap' }}>
           {shot.img && (
+            // An <img>, not a background: a background is fetched with the
+            // reader's cookies for Wikimedia, and an anonymous image is not.
             <div aria-hidden="true" style={{
-              ...frame(event.future), flex: 'none', width: 'clamp(120px,18vw,168px)', aspectRatio: '1 / 1',
-              backgroundImage: 'url(' + shot.img + ')', backgroundSize: 'cover', backgroundPosition: 'center',
+              ...frame(event.future), flex: 'none', width: 'clamp(120px,18vw,168px)', aspectRatio: '1 / 1', overflow: 'hidden',
               filter: PHOTO_FILTER
-            }} />
+            }}>
+              <img src={shot.img} alt="" crossOrigin="anonymous" decoding="async" style={{ display: 'block', width: '100%', height: '100%', objectFit: 'cover' }} />
+            </div>
           )}
           <div style={{ flex: '1 1 340px', minWidth: 0 }}>
             <CardTriple event={event} size={embedded ? 'panel' : 'page'} as={embedded ? 'h2' : 'h1'} />
@@ -179,7 +180,7 @@ function CardView({ graph, route, media, embedded }: CardViewProps) {
             <Reading event={event} size="lg" maxWidth="50ch" style={{ margin: '16px 0 0' }} />
             {basedOn && (
               <div style={{ margin: '16px 0 0', ...micro(5), textTransform: 'none', letterSpacing: '0.06em', font: '400 11px/1.6 ' + MONO, overflowWrap: 'anywhere' }}>
-                Based on · <a href={basedOn.url} target="_blank" rel="noopener" className="ix" style={{ color: ink(3) }}>{basedOn.publisher || basedOn.title}{basedOn.title && basedOn.publisher ? ', ' + basedOn.title : ''}</a>{basedOn.date ? ' · ' + dateText(basedOn.date) : ''}
+                Based on · <a href={basedOn.url} target="_blank" rel="noopener" className="ix" style={{ color: ink(3) }}>{basedOn.publisher || basedOn.title}{basedOn.title && basedOn.publisher ? ', ' + basedOn.title : ''}</a>{basedOn.date ? ' · ' + dayText(basedOn.date) : ''}
               </div>
             )}
             <Chips label="Names" items={[...names.people, ...names.orgs]} style={{ marginTop: 16 }} />
@@ -294,7 +295,7 @@ function CardView({ graph, route, media, embedded }: CardViewProps) {
             <div>
               <Eyebrow tier="section" dim style={{ marginBottom: 10 }}>Came from</Eyebrow>
               {into.length ? into.map((a, k) => (
-                <div key={k} style={{ display: 'flex', flexDirection: 'column', gap: 4, padding: '8px 0 10px', borderLeft: '2px solid ' + accent(graph.index[a.id].category, 0), paddingLeft: 12, marginBottom: 6 }}>
+                <div key={k} style={{ display: 'flex', flexDirection: 'column', gap: 8, padding: '8px 0 10px', borderLeft: '2px solid ' + accent(graph.index[a.id].category, 0), paddingLeft: 12, marginBottom: 6 }}>
                   <Ref event={graph.index[a.id]} to={{ view: 'card', id: a.id }} />
                   <Link to={{ view: 'board', clue: { from: a.id, to: event.id } }}>
                     <Claim tone={accent(graph.index[a.id].category, 0)}>{a.claim}</Claim>
@@ -306,7 +307,7 @@ function CardView({ graph, route, media, embedded }: CardViewProps) {
             <div>
               <Eyebrow tier="section" dim style={{ marginBottom: 10 }}>Led to</Eyebrow>
               {outOf.length ? outOf.map((a, k) => (
-                <div key={k} style={{ display: 'flex', flexDirection: 'column', gap: 4, padding: '8px 0 10px', borderLeft: '2px solid ' + tone, paddingLeft: 12, marginBottom: 6 }}>
+                <div key={k} style={{ display: 'flex', flexDirection: 'column', gap: 8, padding: '8px 0 10px', borderLeft: '2px solid ' + tone, paddingLeft: 12, marginBottom: 6 }}>
                   <Link to={{ view: 'board', clue: { from: event.id, to: a.id } }}>
                     <Claim tone={tone}>{a.claim}</Claim>
                   </Link>

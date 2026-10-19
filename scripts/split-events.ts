@@ -14,9 +14,9 @@
 // made it: a string literal parses faster than the same object written as code.
 import { readFileSync } from 'node:fs';
 import type { Plugin } from 'vite';
-import { ALL_ENTITIES, TAG, speaks, wordsOf } from '../src/lib/names';
-import { PAPER_FIELDS } from '../src/lib/types';
-import type { EventHead, EventRaw, Named, Papers } from '../src/lib/types';
+import { ALL_ENTITIES, TAG, speaks, wordsOf } from '../src/lib/names.ts';
+import { PAPER_FIELDS } from '../src/lib/types.ts';
+import type { EventHead, EventRaw, Named, Papers } from '../src/lib/types.ts';
 
 /** The names a card's own words use and its tags do not, read over the whole
  *  card. The browser never has every card's words, so it is asked once, here. */

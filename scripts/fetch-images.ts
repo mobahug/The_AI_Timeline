@@ -3,6 +3,9 @@
 // the app falls back to live lookups for anything missing.
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import type { EventRaw, WikiCache, WikiPage } from '../src/lib/types';
+// The article a citation URL points at, which is not always the one a card's
+// photograph is borrowed from: the site's own reading of it, so the two agree.
+import { citedTitle } from '../src/lib/wiki';
 
 const OUT = new URL('../public/wiki-cache.json', import.meta.url);
 const events = JSON.parse(await readFile(new URL('../data/events.json', import.meta.url), 'utf8')) as EventRaw[];
@@ -12,21 +15,6 @@ const { span: { now: NOW } } = JSON.parse(await readFile(new URL('../data/thread
 let cache: WikiCache = {};
 try { cache = JSON.parse(await readFile(OUT, 'utf8')); } catch {}
 
-/** The article a citation URL actually points at. This is NOT always wikiTitle:
- *  wikiTitle picks the illustration, the URL is the claim's evidence, and after
- *  the source audit repointed several citations the two deliberately differ. The
- *  text shown to a reader must come from the page we cite, never from the page we
- *  borrowed a photograph from. */
-export const citedTitle = (url: string | undefined): string | null => {
-  try {
-    const u = new URL(url as string);
-    if (!/(^|\.)wikipedia\.org$/.test(u.hostname)) return null;
-    if (!u.pathname.startsWith('/wiki/')) return null;
-    return decodeURIComponent(u.pathname.slice('/wiki/'.length)).replace(/_/g, ' ');
-  } catch {
-    return null;
-  }
-};
 
 const wanted = new Set<string>();
 /** The titles a card takes its photograph from: the only pictures a page shows. */

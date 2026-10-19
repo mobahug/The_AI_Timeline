@@ -10,10 +10,10 @@ export const easeOut = (x: number): number => 1 - Math.pow(1 - Math.min(1, Math.
  *  one deliberate movement rather than a snap or a drift. */
 export const panDuration = (distance: number): number => Math.min(950, Math.max(320, Math.abs(distance) * 0.2));
 
-/** Where the board should be `elapsed` ms into a pan from `from` to `to`. */
-export function panPosition(from: number, to: number, elapsed: number): number {
+/** Where the board should be `elapsed` ms into a pan from `from` to `to`. Two
+ *  axes that travel together share one `duration`, the longer one's. */
+export function panPosition(from: number, to: number, elapsed: number, duration: number = panDuration(to - from)): number {
   const dist = to - from;
-  const duration = panDuration(dist);
   const p = duration > 0 ? Math.min(1, elapsed / duration) : 1;
   return from + dist * easeOut(p);
 }

@@ -52,7 +52,7 @@ function PaperCard({ e, media }: { e: Event; media: Media }) {
           {e.future ? 'Scenario · ' + (e.confidence || 'Uncertain') : catLabel(e.category)}
         </span>
       </span>
-      {img && <img src={img} alt="" loading="lazy" decoding="async" style={{ flex: 'none', width: 58, height: 58, objectFit: 'cover', border: '1px solid rgba(23,22,26,0.22)', filter: CARD_PHOTO_FILTER }} />}
+      {img && <img src={img} alt="" crossOrigin="anonymous" loading="lazy" decoding="async" style={{ flex: 'none', width: 58, height: 58, objectFit: 'cover', border: '1px solid rgba(23,22,26,0.22)', filter: CARD_PHOTO_FILTER }} />}
     </Link>
   );
 }

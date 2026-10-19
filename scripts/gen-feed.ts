@@ -5,12 +5,12 @@
 // commits it is built from, so a committed copy would always be one commit behind.
 import { writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
-import { atom, dateRecords, feedEntries, readHistory, readItems } from './feed';
+import { atom, datedHistory, feedEntries, readItems } from './feed';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
 const items = readItems(root);
 
-const dated = dateRecords(readHistory(root));
+const dated = datedHistory(root);
 const entries = feedEntries(items, dated);
 const unsaved = items.filter((i) => !dated.has(i.kind + '/' + i.id)).length;
 

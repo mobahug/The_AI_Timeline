@@ -1,5 +1,5 @@
 import React from 'react';
-import { whenOf } from '../lib/data';
+import { dayText } from '../lib/data';
 import { CHECKS, VERDICTS, VERDICT_ORDER } from '../lib/checks';
 import { INK, MONO, SANS, SERIF, RULE, ink, micro, shell, pageTitle } from '../lib/styles';
 import { Btn, Eyebrow, Link, PageHead } from './kit';
@@ -8,8 +8,6 @@ import { VerdictMark } from './CheckView';
 /* The headline checks: each widely reported line set beside the primary
    account it rests on. Newest report first, since a check is most use while the
    headline is still going round. */
-
-const dateText = (iso: string): string => whenOf({ year: Number(iso.slice(0, 4)), date: iso });
 
 function ChecksView() {
   const checks = CHECKS.slice().sort((a, b) => b.reported.date.localeCompare(a.reported.date));
@@ -36,7 +34,7 @@ function ChecksView() {
           <li key={c.id} style={{ borderTop: RULE, padding: 'clamp(20px,3vw,28px) 0', display: 'flex', flexDirection: 'column', gap: 10 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
               <VerdictMark verdict={c.verdict} />
-              <span style={{ ...micro(5), letterSpacing: '0.12em' }}>{c.reported.publisher} · {dateText(c.reported.date)}</span>
+              <span style={{ ...micro(5), letterSpacing: '0.12em' }}>{c.reported.publisher} · {dayText(c.reported.date)}</span>
             </div>
             <Link to={{ view: 'check', id: c.id }} className="ix-ref">
               <h2 style={{ margin: 0, font: '400 clamp(24px,3.2vw,36px)/1.08 ' + SERIF, letterSpacing: '-0.025em', textWrap: 'balance', color: INK }}>{c.title}</h2>

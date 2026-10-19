@@ -25,7 +25,7 @@ export default function PlatesView({ items, media }: PlatesViewProps) {
             }}>{era.year}</div>
             <div style={{ position: 'relative', display: 'flex', flexDirection: 'column', gap: 10 }}>
               <Eyebrow tier="section" dim>{era.range}</Eyebrow>
-              <div style={{ font: '400 clamp(34px,6vw,74px)/0.94 ' + SERIF, letterSpacing: '-0.03em' }}>{era.title}</div>
+              <h2 style={{ margin: 0, font: '400 clamp(34px,6vw,74px)/0.94 ' + SERIF, letterSpacing: '-0.03em' }}>{era.title}</h2>
               <div style={{ font: '400 13.5px/1.55 ' + SANS, color: ink(5), maxWidth: '46ch', textWrap: 'pretty' }}>{era.subtitle}</div>
             </div>
           </div>
@@ -52,7 +52,7 @@ export default function PlatesView({ items, media }: PlatesViewProps) {
                 <div style={{ flex: '0 0 110px', font: '400 ' + (featured ? 40 : 28) + 'px/1 ' + SERIF, letterSpacing: '-0.02em', fontVariantNumeric: 'tabular-nums' }}>{e.year}</div>
                 <div style={{ ...frame(e.future), flex: featured ? '1.35 1 260px' : '1 1 260px', minWidth: 0, position: 'relative', overflow: 'hidden', height: featured ? 300 : 210 }}>
                   {shot.img
-                    ? <img src={shot.img} alt="" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', filter: PHOTO_FILTER }} />
+                    ? <img src={shot.img} alt="" crossOrigin="anonymous" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', filter: PHOTO_FILTER }} />
                     : <div style={{ width: '100%', height: '100%', backgroundImage: PLACEHOLDER }} />}
                   <div style={{
                     position: 'absolute', left: 10, bottom: 10, ...micro(3), maxWidth: 'calc(100% - 20px)',

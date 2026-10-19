@@ -99,7 +99,9 @@ export default function CluePanel({ graph, chain: walked, step, current, focus, 
 
           <div style={{ display: 'flex', gap: 16, alignItems: 'flex-start', flexWrap: 'wrap' }}>
             {shot.img && (
-              <div aria-hidden="true" style={{ flex: 'none', width: 84, height: 84, ...frame(card.future), backgroundImage: 'url(' + shot.img + ')', backgroundSize: 'cover', backgroundPosition: 'center', filter: PHOTO_FILTER }} />
+              <div aria-hidden="true" style={{ flex: 'none', width: 84, height: 84, ...frame(card.future), overflow: 'hidden', filter: PHOTO_FILTER }}>
+                <img src={shot.img} alt="" crossOrigin="anonymous" decoding="async" style={{ display: 'block', width: '100%', height: '100%', objectFit: 'cover' }} />
+              </div>
             )}
             <div style={{ flex: '1 1 240px', minWidth: 0, display: 'flex', flexDirection: 'column', gap: 8 }}>
               <span style={{ ...micro(3), color: tone }}>{current.claim}</span>
@@ -202,10 +204,11 @@ export default function CluePanel({ graph, chain: walked, step, current, focus, 
               card to card made the panel a different shape every time. */}
           {shot.img && (
             <div aria-hidden="true" style={{
-              flex: 'none', width: 112, height: 112, margin: '16px 0 0 16px', ...frame(focus.future),
-              backgroundSize: 'cover', backgroundPosition: 'center', backgroundImage: 'url(' + shot.img + ')',
+              flex: 'none', width: 112, height: 112, margin: '16px 0 0 16px', ...frame(focus.future), overflow: 'hidden',
               filter: PHOTO_FILTER
-            }} />
+            }}>
+              <img src={shot.img} alt="" crossOrigin="anonymous" decoding="async" style={{ display: 'block', width: '100%', height: '100%', objectFit: 'cover' }} />
+            </div>
           )}
           <div style={{ flex: '1 1 280px', minWidth: 0, padding: 'clamp(13px,3vw,18px) clamp(14px,3vw,22px)', display: 'flex', gap: 'clamp(14px,3vw,26px)', flexWrap: 'wrap' }}>
             <div style={{ flex: '1 1 260px', minWidth: 0, display: 'flex', flexDirection: 'column', gap: 10 }}>

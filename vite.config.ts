@@ -1,8 +1,8 @@
 /// <reference types="vitest/config" />
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import { splitEvents } from './scripts/split-events';
-import { boardChanges } from './scripts/board-changes';
+import { splitEvents } from './scripts/split-events.ts';
+import { boardChanges } from './scripts/board-changes.ts';
 
 // GitHub Pages serves the project site from /<repo>/, so the production build
 // needs that base. The dev server does not: with a base set, Vite answers the

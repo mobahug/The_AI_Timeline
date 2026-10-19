@@ -1,6 +1,6 @@
 import CHANGED, { DATED } from 'virtual:board-changes';
 import raw from '../../data/watch.json';
-import { AS_OF, whenOf } from './data';
+import { AS_OF, dayText } from './data';
 import { leadById } from './leads';
 import { questionById } from './questions';
 import { checkById } from './checks';
@@ -62,7 +62,7 @@ export function watchList(asOf: string = AS_OF): { ahead: Watch[]; passed: Watch
 }
 
 /** A watched date, as the board writes dates: `12 Nov 2026`. */
-export const dateOf = (w: Watch): string => whenOf({ year: Number((w.date || '').slice(0, 4)), date: w.date });
+export const dateOf = (w: Watch): string => dayText(w.date || '');
 
 /* ─── What changed on the board ──────────────────────────────────────── */
 
@@ -80,7 +80,7 @@ export interface Changed extends Change { title: string; to: RoutePatch; noun: s
 const NOUN: Record<ChangeKind, string> = { card: 'Card', lead: 'Lead', question: 'Plain question', check: 'Headline check' };
 
 /** The day a commit was made, as the board writes dates: `15 Oct 2026`. */
-export const dayOf = (iso: string): string => whenOf({ year: Number(iso.slice(0, 4)), date: iso.slice(0, 10) });
+export const dayOf = dayText;
 
 /** The changes, each resolved against the data the page holds: its present
  *  title and its address. A record no longer on the board is left out. */

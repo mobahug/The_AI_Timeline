@@ -13,10 +13,11 @@
 // history for that, so a shallow clone is refused rather than dated wrongly:
 // the deploy workflow checks out with `fetch-depth: 0`.
 import { execFileSync } from 'node:child_process';
-import { readFileSync } from 'node:fs';
+import { mkdirSync, readFileSync, readdirSync, renameSync, rmSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { ORIGIN } from './site.ts';
 
-export const ORIGIN = 'https://mobahug.github.io/The_AI_Timeline/';
+export { ORIGIN };
 export const FEED_FILE = 'feed.xml';
 /** Entries in the feed: enough to cover a few weeks of work, few enough to read. */
 export const FEED_SIZE = 50;
@@ -194,4 +195,39 @@ export function readHistory(root: string): Snapshot[] {
     for (const k of KINDS) { const oid = oids.get(FEED_FILES[k].path); files[k] = oid ? text(oid) : null; }
     return { commit, files };
   });
+}
+
+/* Reading the history takes a git call per commit, and one build asked for it
+   four times over (the sitemap, the feed, the client and the server builds) and
+   the tests three more. The dates are a function of HEAD alone, so they are
+   kept by HEAD's sha in node_modules/.cache and read back; any new commit is
+   a new HEAD, and the next reader dates afresh. */
+const HISTORY_CACHE = 'board-history-v1';
+const datedMemo = new Map<string, Map<string, Dated>>();
+
+/** Every record's dates, as `dateRecords(readHistory(root))`, read once per HEAD. */
+export function datedHistory(root: string): Map<string, Dated> {
+  const head = git(root, ['rev-parse', 'HEAD']).trim();
+  const memo = datedMemo.get(root + '@' + head);
+  if (memo) return memo;
+  const dir = join(root, 'node_modules', '.cache', HISTORY_CACHE);
+  const file = join(dir, head + '.json');
+  let dated: Map<string, Dated> | null = null;
+  try { dated = new Map(JSON.parse(readFileSync(file, 'utf8')) as [string, Dated][]); } catch { dated = null; }
+  if (!dated) {
+    dated = dateRecords(readHistory(root));
+    try {
+      mkdirSync(dir, { recursive: true });
+      for (const f of readdirSync(dir)) if (f.endsWith('.json') && f !== head + '.json') rmSync(join(dir, f), { force: true });
+      // Written whole and then moved into place, so a test worker reading it
+      // while another writes never sees half a file.
+      const part = file + '.' + process.pid;
+      writeFileSync(part, JSON.stringify([...dated]));
+      renameSync(part, file);
+    } catch {
+      // A cache that cannot be written only makes the next reader slower.
+    }
+  }
+  datedMemo.set(root + '@' + head, dated);
+  return dated;
 }

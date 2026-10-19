@@ -1,6 +1,6 @@
 import React from 'react';
 import type { CheckSource, Graph, Route, Verdict } from '../lib/types';
-import { catLabel, whenOf } from '../lib/data';
+import { catLabel, dayText } from '../lib/data';
 import { CHECKS, VERDICTS, checkById } from '../lib/checks';
 import { leadById } from '../lib/leads';
 import { CYAN, GOLD, INK, MONO, RED_LIT, SANS, SERIF, RULE, ROW_RULE, DASHED_RULE, badge, ink, micro, shell, pageTitle } from '../lib/styles';
@@ -9,8 +9,6 @@ import { Btn, CopyLink, Eyebrow, NavRow, PageHead, Quote, Ref, Section } from '.
 /* One headline check: what was reported, set line by line beside what the
    primary account says, both quoted; the check at length; the cards it touches
    and what the record does not settle. */
-
-const dateText = (iso: string): string => whenOf({ year: Number(iso.slice(0, 4)), date: iso });
 
 /** A verdict's ink: the scale runs from the string's red to the board's cyan. */
 export const verdictInk = (v: Verdict): string =>
@@ -28,7 +26,7 @@ export const VerdictMark = ({ verdict, size = 'sm' }: { verdict: Verdict; size?:
 /** Who said it and when, linked to where they said it. */
 const Said = ({ src, byline }: { src: CheckSource; byline?: string }) => (
   <div style={{ display: 'flex', flexDirection: 'column', gap: 4, marginTop: 8 }}>
-    <span style={{ ...micro(5), letterSpacing: '0.12em' }}>{src.publisher}{byline ? ' · ' + byline : ''} · {dateText(src.date)}</span>
+    <span style={{ ...micro(5), letterSpacing: '0.12em' }}>{src.publisher}{byline ? ' · ' + byline : ''} · {dayText(src.date)}</span>
     <a href={src.url} target="_blank" rel="noopener" className="ix ix-ref" style={{ font: '400 14px/1.35 ' + SERIF, color: ink(2), textDecoration: 'none', overflowWrap: 'anywhere' }}>
       {src.title} ↗
     </a>
@@ -64,7 +62,7 @@ function CheckView({ graph, route }: CheckViewProps) {
   return (
     <div style={shell('route')}>
       <PageHead
-        eyebrow={'Headline check' + (CHECKS.length > 1 ? ' ' + String(n + 1).padStart(2, '0') + ' of ' + CHECKS.length : '') + ' · checked ' + dateText(c.checked)}
+        eyebrow={'Headline check' + (CHECKS.length > 1 ? ' ' + String(n + 1).padStart(2, '0') + ' of ' + CHECKS.length : '') + ' · checked ' + dayText(c.checked)}
         title={c.title}
         lede={c.short}
         h1Style={pageTitle('detail')}
@@ -83,7 +81,7 @@ function CheckView({ graph, route }: CheckViewProps) {
           {c.reported.title} <span style={{ fontStyle: 'normal', fontSize: '0.7em', color: ink(3) }}>↗</span>
         </a>
         <div style={{ ...micro(5), letterSpacing: '0.12em', marginTop: 10 }}>
-          {c.reported.publisher}{c.reported.byline ? ' · ' + c.reported.byline : ''} · {dateText(c.reported.date)} · the headline as published
+          {c.reported.publisher}{c.reported.byline ? ' · ' + c.reported.byline : ''} · {dayText(c.reported.date)} · the headline as published
         </div>
       </Section>
 
@@ -109,7 +107,7 @@ function CheckView({ graph, route }: CheckViewProps) {
                         <Quote tone="claim">{q.quote}</Quote>
                         {src && (
                           <a href={src.url} target="_blank" rel="noopener" className="ix ix-ref" style={{ display: 'inline-block', marginTop: 6, paddingLeft: 14, ...micro(5), letterSpacing: '0.1em', textDecoration: 'none' }}>
-                            {src.publisher} · {dateText(src.date)} ↗
+                            {src.publisher} · {dayText(src.date)} ↗
                           </a>
                         )}
                       </div>
@@ -191,7 +189,7 @@ function CheckView({ graph, route }: CheckViewProps) {
 
       <div style={{ borderTop: RULE, marginTop: 30, paddingTop: 22, ...micro(5), letterSpacing: '0.1em', textTransform: 'none', font: '400 11.5px/1.8 ' + MONO, maxWidth: '72ch', color: ink(5) }}>
         A check sets a report beside the primary account it rests on. Every quotation on this page is verbatim and was
-        matched, character for character, against the page it links to on {dateText(c.checked)}. A verdict is about
+        matched, character for character, against the page it links to on {dayText(c.checked)}. A verdict is about
         the words quoted, not about the reporter or the publication.
       </div>
     </div>

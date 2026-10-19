@@ -1,7 +1,10 @@
-import rawPeople from '../../data/people.json';
-import rawOrgs from '../../data/orgs.json';
-import rawTerms from '../../data/glossary.json';
-import type { Entity, EntityKind, Org, Person, Term } from './types';
+// Read by vite.config.ts, through scripts/split-events.ts, so its imports are
+// written as Vite's native config loader needs them: extensions, and JSON asked
+// for as JSON.
+import rawPeople from '../../data/people.json' with { type: 'json' };
+import rawOrgs from '../../data/orgs.json' with { type: 'json' };
+import rawTerms from '../../data/glossary.json' with { type: 'json' };
+import type { Entity, EntityKind, Org, Person, Term } from './types.ts';
 
 /* Every name on file — persons of interest, organisations, the glossary — and
    the one rule for whether a card's own words use one. The build runs the rule

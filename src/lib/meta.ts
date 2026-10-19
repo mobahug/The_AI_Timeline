@@ -15,6 +15,17 @@ const TAGLINE = 'An investigation board of artificial intelligence, ' + FIRST + 
 
 // Titles and descriptions live in the view registry.
 
+/** A search result shows about sixty-five characters of a title. A page's own
+ *  words, its verdict where it has one, and the site's name stay; the words that
+ *  say what kind of page it is (a lead, a headline check) repeat what the page
+ *  says first, and go from a title that would be cut. */
+const FIT = 65;
+function titled(own: string, ...kinds: string[]): string {
+  const parts = [own, ...kinds];
+  while (parts.length > 1 && (parts.join(' · ') + ' · ' + SITE).length > FIT) parts.pop();
+  return parts.join(' · ') + ' · ' + SITE;
+}
+
 /** The title and description a page should carry, derived from the route. */
 export function metaFor(route: Route, graph?: Graph | null): PageMeta {
   const { title, description } = describe(route, graph);
@@ -49,7 +60,7 @@ function describe(route: Route, graph?: Graph | null): { title: string; descript
   }
   if (route.view === 'board' && route.lead) {
     const l = leadById[route.lead];
-    if (l) return { title: l.title + ' · on the board · ' + SITE, description: l.question };
+    if (l) return { title: titled(l.title, 'on the board'), description: l.question };
   }
   if ((route.view === 'card' || route.view === 'board') && route.id && graph) {
     const e = graph.index[route.id];
@@ -68,7 +79,7 @@ function describe(route: Route, graph?: Graph | null): { title: string; descript
   }
   if (route.view === 'lead' && route.id) {
     const l = leadById[route.id];
-    if (l) return { title: l.title + ' · a lead · ' + SITE, description: l.question + ' ' + l.blurb };
+    if (l) return { title: titled(l.title, 'a lead'), description: l.question + ' ' + l.blurb };
   }
   if (route.view === 'question' && route.id) {
     const q = questionById[route.id];
@@ -76,11 +87,11 @@ function describe(route: Route, graph?: Graph | null): { title: string; descript
   }
   if (route.view === 'check' && route.id) {
     const c = checkById[route.id];
-    if (c) return { title: c.title + ' · ' + VERDICTS[c.verdict].label + ' · a headline check · ' + SITE, description: c.short };
+    if (c) return { title: titled(c.title + ' · ' + VERDICTS[c.verdict].label, 'a headline check'), description: c.short };
   }
   if (route.view === 'prediction' && route.id) {
     const p = predictionById[route.id];
-    if (p) return { title: p.title + ' · ' + FORETOLD[p.verdict].label + ' · said in advance · ' + SITE, description: p.short };
+    if (p) return { title: titled(p.title + ' · ' + FORETOLD[p.verdict].label, 'said in advance'), description: p.short };
   }
   if ((route.view === 'person' || route.view === 'org' || route.view === 'term') && route.id) {
     const x = entityById(route.view, route.id);
@@ -88,7 +99,7 @@ function describe(route: Route, graph?: Graph | null): { title: string; descript
       const kind = route.view === 'person' ? 'Person of interest' : route.view === 'org' ? 'Organisation' : 'Term';
       const lead = x.kind === 'term' ? x.short : x.role;
       const body = x.kind === 'term' ? x.definition : x.bio;
-      return { title: x.label + ' · ' + kind + ' · ' + SITE, description: (lead ? lead + ' ' : '') + (body || '') };
+      return { title: titled(x.label, kind), description: (lead ? lead + ' ' : '') + (body || '') };
     }
   }
   if (route.missing) return { title: 'Nothing filed here · ' + SITE, description: TAGLINE };

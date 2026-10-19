@@ -37,7 +37,7 @@ function RecordRow({ e, media }: { e: Event; media: Media }) {
       <Link to={{ view: 'card', id: e.id }} className="ix-row" style={{ display: 'flex', gap: 'clamp(12px,2.4vw,22px)', alignItems: 'flex-start', padding: '16px 4px' }}>
         <span style={{ ...frame(false), flex: 'none', width: 'clamp(58px,9vw,84px)', aspectRatio: '1', overflow: 'hidden', display: 'block' }}>
           {shot.img
-            ? <img src={shot.img} alt="" loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', filter: CARD_PHOTO_FILTER }} />
+            ? <img src={shot.img} alt="" crossOrigin="anonymous" loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', filter: CARD_PHOTO_FILTER }} />
             : <span aria-hidden="true" style={{ display: 'block', width: '100%', height: '100%', backgroundImage: PLACEHOLDER }} />}
         </span>
         <span style={{ flex: '1 1 auto', minWidth: 0, display: 'flex', flexDirection: 'column', gap: 7 }}>
@@ -73,9 +73,9 @@ function WatchRow({ w, graph, passed }: { w: Watch; graph: Graph; passed?: boole
         <blockquote style={{ margin: 0, paddingLeft: 12, borderLeft: '2px solid ' + STRING_INK, font: '400 13px/1.55 ' + SANS, color: ink(3), maxWidth: '62ch', textWrap: 'pretty' }}>
           <span style={{ color: STRING_INK }}>“</span>{w.evidence}<span style={{ color: STRING_INK }}>”</span>
         </blockquote>
-        <div style={{ font: '400 11px/1.6 ' + MONO, color: ink(4) }}>
+        <p style={{ margin: 0, font: '400 11px/1.6 ' + MONO, color: ink(4) }}>
           From the card <Link to={{ view: 'card', id: e.id }} className="ix-ref" style={{ color: ink(2) }}>{e.year} · {e.title}</Link>, where it is sourced
-        </div>
+        </p>
         {w.date && <Overdue date={w.date} />}
       </div>
     </li>

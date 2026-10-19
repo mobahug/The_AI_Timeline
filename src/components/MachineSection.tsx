@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import type { ComponentType } from 'react';
 import type { Machine, MachineKind } from '../lib/types';
 import { leadById } from '../lib/leads';
-import { whenOf } from '../lib/data';
+import { dayText, kindLabel } from '../lib/data';
 import { INK, MONO, SANS, SERIF, ROW_RULE, STRING_INK, ink, micro } from '../lib/styles';
 import { Btn, Eyebrow, Link, Quote, Section } from './kit';
 import { Waiting } from './machines/kit';
@@ -42,8 +42,6 @@ function Slot({ kind }: { kind: MachineKind }) {
   }, [kind]);
   return Program ? <Program /> : <Waiting failed={failed} />;
 }
-
-const KIND: Record<string, string> = { primary: 'Primary', paper: 'Paper', article: 'Article', video: 'Video', podcast: 'Podcast', interview: 'Interview', encyclopedia: 'Encyclopaedia' };
 
 const List = ({ title, items }: { title: string; items: string[] }) => (
   <div style={{ minWidth: 0 }}>
@@ -91,8 +89,8 @@ export function MachineSection({ machine, embedded }: { machine: Machine; embedd
         {machine.sources.map((s) => (
           <div key={s.url} style={{ padding: '14px 0', borderBottom: ROW_RULE }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 9, flexWrap: 'wrap' }}>
-              <span style={{ ...micro(3), border: '1px solid rgba(243,240,234,0.22)', borderRadius: 2, padding: '3px 7px' }}>{KIND[s.kind] || s.kind}</span>
-              <span style={{ ...micro(5), letterSpacing: '0.12em' }}>{s.publisher}{s.date ? ' · ' + whenOf({ year: Number(s.date.slice(0, 4)), date: s.date }) : ''}</span>
+              <span style={{ ...micro(3), border: '1px solid rgba(243,240,234,0.22)', borderRadius: 2, padding: '3px 7px' }}>{kindLabel(s.kind)}</span>
+              <span style={{ ...micro(5), letterSpacing: '0.12em' }}>{s.publisher}{s.date ? ' · ' + dayText(s.date) : ''}</span>
             </div>
             <a href={s.url} target="_blank" rel="noopener" className="ix ix-ref" style={{ display: 'inline-block', marginTop: 8, font: '400 16px/1.3 ' + SERIF, color: INK, letterSpacing: '-0.015em', textDecoration: 'none' }}>
               {s.title} ↗

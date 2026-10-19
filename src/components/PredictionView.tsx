@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Graph, PredictionSource, Route } from '../lib/types';
-import { NOW, catLabel, whenOf } from '../lib/data';
+import { NOW, catLabel, dayText, kindLabel } from '../lib/data';
 import { FORETOLD, PREDICTIONS, predictionInFull, usePredictions, yearOf } from '../lib/predictions';
 import { leadById } from '../lib/leads';
 import { INK, MONO, SANS, SERIF, RULE, ROW_RULE, DASHED_RULE, badge, ink, micro, shell, pageTitle } from '../lib/styles';
@@ -11,12 +11,10 @@ import { Clock, ClockKey, ForetoldMark, clockWords } from './PredictionKit';
    record shows happened, quoted, the verdict at length, the cards it touches,
    and what is still not settled. */
 
-const dateText = (iso: string): string => whenOf({ year: Number(iso.slice(0, 4)), date: iso.length > 4 ? iso : undefined });
-const KIND: Record<string, string> = { primary: 'Primary', paper: 'Paper', article: 'Article', video: 'Video', podcast: 'Podcast', interview: 'Interview', encyclopedia: 'Encyclopaedia' };
 
 const SourceLine = ({ src }: { src: PredictionSource }) => (
   <a href={src.url} target="_blank" rel="noopener" className="ix ix-ref" style={{ display: 'inline-block', marginTop: 6, paddingLeft: 14, ...micro(5), letterSpacing: '0.1em', textDecoration: 'none' }}>
-    {src.publisher} · {dateText(src.date)} ↗
+    {src.publisher} · {dayText(src.date)} ↗
   </a>
 );
 
@@ -53,7 +51,7 @@ function PredictionView({ graph, route }: { graph: Graph; route: Route }) {
   return (
     <div style={shell('route')}>
       <PageHead
-        eyebrow={'Said in advance · ' + p.who + ' · ' + dateText(p.said) + ' · checked ' + dateText(p.checked)}
+        eyebrow={'Said in advance · ' + p.who + ' · ' + dayText(p.said) + ' · checked ' + dayText(p.checked)}
         title={p.title}
         lede={p.short}
         h1Style={pageTitle('detail')}
@@ -72,7 +70,7 @@ function PredictionView({ graph, route }: { graph: Graph; route: Route }) {
           “{p.words}”
         </p>
         <div style={{ ...micro(5), letterSpacing: '0.12em', marginTop: 12, display: 'flex', flexDirection: 'column', gap: 6 }}>
-          <span>{p.who} · {dateText(p.said)}</span>
+          <span>{p.who} · {dayText(p.said)}</span>
           {where && (
             <a href={where.url} target="_blank" rel="noopener" className="ix ix-ref" style={{ font: '400 14px/1.35 ' + SERIF, letterSpacing: 0, textTransform: 'none', color: ink(2), textDecoration: 'none', overflowWrap: 'anywhere' }}>
               {where.publisher}, {where.title} ↗
@@ -140,8 +138,8 @@ function PredictionView({ graph, route }: { graph: Graph; route: Route }) {
           {p.sources.map((s) => (
             <li key={s.id} style={{ padding: '14px 0', borderBottom: ROW_RULE }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 9, flexWrap: 'wrap' }}>
-                <span style={{ ...micro(3), border: '1px solid rgba(243,240,234,0.22)', borderRadius: 2, padding: '3px 7px' }}>{s.id === p.source ? 'Where it was said' : KIND[s.kind] || s.kind}</span>
-                <span style={{ ...micro(5), letterSpacing: '0.12em' }}>{s.publisher} · {dateText(s.date)}</span>
+                <span style={{ ...micro(3), border: '1px solid rgba(243,240,234,0.22)', borderRadius: 2, padding: '3px 7px' }}>{s.id === p.source ? 'Where it was said' : kindLabel(s.kind)}</span>
+                <span style={{ ...micro(5), letterSpacing: '0.12em' }}>{s.publisher} · {dayText(s.date)}</span>
               </div>
               <a href={s.url} target="_blank" rel="noopener" className="ix ix-ref" style={{ display: 'inline-block', marginTop: 8, font: '400 15px/1.35 ' + SERIF, color: ink(2), textDecoration: 'none', overflowWrap: 'anywhere' }}>{s.title} ↗</a>
             </li>
@@ -173,7 +171,7 @@ function PredictionView({ graph, route }: { graph: Graph; route: Route }) {
 
       <div style={{ borderTop: RULE, marginTop: 30, paddingTop: 22, ...micro(5), letterSpacing: '0.1em', textTransform: 'none', font: '400 11.5px/1.8 ' + MONO, maxWidth: '72ch', color: ink(5) }}>
         Every quotation on this page is verbatim and was matched, character for character, against the page or document it
-        links to on {dateText(p.checked)}. A verdict is about the words quoted, not about the person who said them.
+        links to on {dayText(p.checked)}. A verdict is about the words quoted, not about the person who said them.
       </div>
     </div>
   );

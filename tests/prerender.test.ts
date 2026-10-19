@@ -70,7 +70,7 @@ describe('server rendering', () => {
   });
 
   /* The faces are this site's own. A stylesheet from a third party blocks the
-     first paint of all 318 pages and reflows the text when it answers. */
+     first paint of every page and reflows the text when it answers. */
   it('asks no third party for its type', () => {
     const shell = readFileSync(join(__dirname, '..', 'index.html'), 'utf8');
     expect(shell).not.toContain('fonts.googleapis.com');

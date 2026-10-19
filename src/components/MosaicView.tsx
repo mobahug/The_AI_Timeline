@@ -29,7 +29,7 @@ export default function MosaicView({ items, media }: MosaicViewProps) {
             }}
           >
             {shot.img
-              ? <img src={shot.img} alt="" loading="lazy" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', filter: PHOTO_FILTER }} />
+              ? <img src={shot.img} alt="" crossOrigin="anonymous" loading="lazy" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', filter: PHOTO_FILTER }} />
               : <div style={{ position: 'absolute', inset: 0, backgroundImage: PLACEHOLDER }} />}
             <div style={{ position: 'absolute', inset: 0, zIndex: 1, background: 'linear-gradient(180deg,rgba(10,10,11,0.05) 30%,rgba(10,10,11,0.88) 100%)' }} />
             <div style={{ position: 'absolute', inset: 'auto 0 0 0', padding: '14px 15px 15px', zIndex: 2, display: 'flex', flexDirection: 'column', gap: 7 }}>

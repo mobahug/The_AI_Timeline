@@ -5,7 +5,7 @@ import { LEAD_CARD_IDS } from './leads';
 import { paperOf } from './papers';
 import type {
   Accent, Adjacent, Category, Chain, Dossier, Edge, Era, Event, EventHead, EventRaw, ForwardLedger, Graph, Horizon, HorizonLedger,
-  LinkRaw, LoadRow, Parent, Roads, Hop, Source, SourceStrength, Standing, Step, Strand, Thread, ThreadRow, EraGroup
+  LinkRaw, LoadRow, Parent, Roads, Hop, Source, SourceKind, SourceStrength, Standing, Step, Strand, Thread, ThreadRow, EraGroup
 } from './types';
 
 /* The span of the board — the first year drawn, the present, the last year drawn —
@@ -96,6 +96,10 @@ export function whenOf(e: { year: number; date?: string }, opts?: { year?: boole
   const head = m[3] ? String(Number(m[3])) + ' ' + month : month;
   return withYear ? head + ' ' + m[1] : head;
 }
+
+/** A day as the board writes it, from `YYYY-MM-DD` (or a timestamp that begins
+ *  with one), `YYYY-MM` or `YYYY`: `15 Oct 2026`, `Oct 2026`, `2026`. */
+export const dayText = (iso: string): string => whenOf({ year: Number(iso.slice(0, 4)), date: iso.length > 4 ? iso.slice(0, 10) : undefined });
 
 /** Oldest first: by year, then by date where both carry one, then by the order
  *  they are written in the file. An undated card leads its year. */
@@ -403,7 +407,11 @@ export function loadBearing(graph: Graph, top = 6): LoadRow[] {
    from a topic page, which is exactly how 65% of this board came to be cited to
    pages that merely mention the event.                                          */
 
-export const SOURCE_KINDS: string[] = ['primary', 'paper', 'article', 'video', 'podcast', 'interview', 'encyclopedia'];
+/** The kinds a source can be, and the word each is labelled with. */
+export const SOURCE_KIND_LABEL: Record<SourceKind, string> = { primary: 'Primary', paper: 'Paper', article: 'Article', video: 'Video', podcast: 'Podcast', interview: 'Interview', encyclopedia: 'Encyclopaedia' };
+export const SOURCE_KINDS: string[] = Object.keys(SOURCE_KIND_LABEL);
+/** A source's kind as its label, or as written when it is not one of the kinds. */
+export const kindLabel = (kind: string | undefined): string => (kind && (SOURCE_KIND_LABEL as Record<string, string>)[kind]) || kind || '';
 
 export function sourcesOf(event: Dossier | null | undefined): Source[] {
   if (!event) return [];

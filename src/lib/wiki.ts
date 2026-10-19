@@ -9,7 +9,10 @@ const REST = 'https://en.wikipedia.org/api/rest_v1/page/summary/';
 
 let prebuilt: WikiCache | null = null;
 let live: WikiCache = {};
-try { live = JSON.parse(localStorage.getItem(LIVE_KEY) || '{}'); } catch { live = {}; }
+/** This browser's own lookups, kept between visits. Read when a page goes live,
+ *  not when the module loads: the server and the tests have no storage to read,
+ *  and Node 25 warns in every test worker that asks. */
+const readLive = (): WikiCache => { try { return JSON.parse(localStorage.getItem(LIVE_KEY) || '{}') || {}; } catch { return {}; } };
 
 /* The prerenderer hands the build-time cache to the server render, and writes
    the pages each route actually used into that route's HTML. The client reads
@@ -159,6 +162,7 @@ export function useMedia(items: Event[]): Media {
       // Only if the full cache changes that is every card re-rendered.
       const seen = () => [...titles].map((t) => { const p = lookup(t); return p ? (p.img || '') + '#' + (p.extract || '').length : ''; }).join('|');
       const before = seen();
+      if (!liveReady) live = readLive();
       liveReady = true;
       const cache = await loadPrebuilt();
       if (cancelled) return;

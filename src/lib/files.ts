@@ -85,9 +85,6 @@ export const appearancesOf = (graph: Graph, entity: Entity): Event[] => {
   return out;
 };
 
-/** The route to an entity's page. */
-export const routeOf = (entity: Entity): { view: ViewId; id: string } => ({ view: VIEW[entity.kind], id: entity.id });
-
 /* ─── Who else is on these cards ─────────────────────────────────────────
    No entity on this board related to any other. A name's page listed its cards
    and stopped, and prev/next walked the raw order of the JSON file — which is

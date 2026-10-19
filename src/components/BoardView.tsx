@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import type { KeyboardEvent as ReactKeyboardEvent, PointerEvent as ReactPointerEvent, TransitionEvent as ReactTransitionEvent } from 'react';
 import { THREADS, TICKS, FIRST, NOW, CATEGORIES, accent, buildChain, catLabel, catHue, fade, yearAtFraction } from '../lib/data';
 import { PAD, metrics, layout, stringPath, inTime, seek, firstInView } from '../lib/layout';
@@ -7,7 +7,7 @@ import { leadById, leadChain } from '../lib/leads';
 import { useMode } from '../lib/mode';
 import { BOARD_GROUND, CARD_PHOTO_FILTER, MANILA, MONO, PAPER, RED, RED_LIT, CYAN, SERIF, DUR, EASE, FADE, STATE, micro, paperInk } from '../lib/styles';
 import { Btn, Empty, RouteProvider } from './kit';
-import { easeOut, panDuration, rubberBand, sheetClaims, springDuration, springEasing } from '../lib/motion';
+import { panDuration, panPosition, rubberBand, sheetClaims, springDuration, springEasing } from '../lib/motion';
 import type { Claim } from '../lib/motion';
 import type { Edge, Event, Graph, Media, Metrics, Node, Route, RoutePatch, Step } from '../lib/types';
 import type { Navigate } from '../lib/url';
@@ -35,6 +35,15 @@ const isCard = (t: EventTarget | null): t is HTMLElement => t instanceof HTMLEle
 /** Whether focus came by keyboard: the browser's own judgement, which a click
  *  does not meet. A browser that cannot answer is taken to be a mouse. */
 const byKeyboard = (el: Element): boolean => { try { return el.matches(':focus-visible'); } catch { return false; } };
+
+/** The shell's height: whatever the header leaves of the viewport. The header is
+ *  measured, never assumed, so wrapping at narrow widths just makes the lanes
+ *  shorter. */
+const shellOf = (): number => {
+  const header = document.querySelector<HTMLElement>('[data-chrome="header"]');
+  const vh = (window.visualViewport && window.visualViewport.height) || window.innerHeight;
+  return Math.max(300, Math.floor(vh - (header ? header.offsetHeight : 0)));
+};
 /** The keys that walk the wall, and where each one goes (layout.ts). */
 const MOVES: Partial<Record<string, Move>> = {
   ArrowLeft: 'earlier', ArrowRight: 'later', ArrowUp: 'up', ArrowDown: 'down', Home: 'first', End: 'last'
@@ -110,7 +119,7 @@ const Card = React.memo(function Card({ node, m, img, lit, subject, raised, hove
               }}>{e.title}</span>
             </span>
             {img ? (
-              <img src={img} alt="" loading="lazy" decoding="async" style={{ flex: 'none', width: m.thumb, height: m.thumb, objectFit: 'cover', display: 'block', border: '1px solid rgba(23,22,26,0.22)', filter: CARD_PHOTO_FILTER }} />
+              <img src={img} alt="" crossOrigin="anonymous" loading="lazy" decoding="async" style={{ flex: 'none', width: m.thumb, height: m.thumb, objectFit: 'cover', display: 'block', border: '1px solid rgba(23,22,26,0.22)', filter: CARD_PHOTO_FILTER }} />
             ) : (
               <span aria-hidden="true" style={{
                 flex: 'none', width: m.thumb, height: m.thumb, border: '1px solid rgba(23,22,26,0.22)',
@@ -120,7 +129,7 @@ const Card = React.memo(function Card({ node, m, img, lit, subject, raised, hove
           </span>
         ) : (<>
         {m.photo && (img ? (
-          <img src={img} alt="" loading="lazy" decoding="async" style={{ flex: '1 1 auto', minHeight: 0, width: '100%', objectFit: 'cover', display: 'block', border: '1px solid rgba(23,22,26,0.22)', filter: CARD_PHOTO_FILTER }} />
+          <img src={img} alt="" crossOrigin="anonymous" loading="lazy" decoding="async" style={{ flex: '1 1 auto', minHeight: 0, width: '100%', objectFit: 'cover', display: 'block', border: '1px solid rgba(23,22,26,0.22)', filter: CARD_PHOTO_FILTER }} />
         ) : (
           <span style={{
             flex: '1 1 auto', minHeight: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%',
@@ -221,7 +230,11 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
   const frameRef = useRef<HTMLDivElement>(null);
   const scroller = useRef<HTMLDivElement>(null);
   const dragged = useRef<boolean>(false);
-  const [shellH, setShellH] = useState(640);
+  // Measured on the first render, not after it: the canvas is drawn in the
+  // browser only, and lanes first solved for a guessed height and then for the
+  // real one moved the whole wall under the reader's eyes (a layout shift of
+  // 0.25 on a phone).
+  const [shellH, setShellH] = useState(() => typeof window === 'undefined' ? 640 : shellOf());
 
   // `h` is the canvas's inner height, which the lanes are solved for; `frameH`
   // the frame's, which the rail stands in.
@@ -256,14 +269,9 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
   const [fileOpen, setFileOpen] = useState(false);
   const [, setMode] = useMode();
 
-  // The shell fills whatever the header leaves. The header is measured, never
-  // assumed, so wrapping at narrow widths just makes the lanes shorter.
+  // The shell follows the viewport and the header as they change.
   useEffect(() => {
-    const measure = () => {
-      const header = document.querySelector<HTMLElement>('[data-chrome="header"]');
-      const vh = (window.visualViewport && window.visualViewport.height) || window.innerHeight;
-      setShellH(Math.max(300, Math.floor(vh - (header ? header.offsetHeight : 0))));
-    };
+    const measure = () => setShellH(shellOf());
     measure();
     window.addEventListener('resize', measure);
     if (window.visualViewport) window.visualViewport.addEventListener('resize', measure);
@@ -282,8 +290,9 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
   // rail is laid out against it. The height is the canvas's own inner height,
   // less its border and the scrollbar along its foot: the lanes are solved to
   // fill exactly that, and solving them for the frame instead left the bottom
-  // lane's cards cut off by the scrollbar's height.
-  useEffect(() => {
+  // lane's cards cut off by the scrollbar's height. Read before the first
+  // paint, so the lanes are drawn once, where they stay.
+  useLayoutEffect(() => {
     const el = frameRef.current;
     if (!el || !window.ResizeObserver) return;
     const read = () => {
@@ -465,9 +474,8 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
       const el2 = scroller.current;
       if (!el2) { panAnim.current = null; return; }
       const elapsed = now - t0;
-      const p = Math.min(1, elapsed / duration);
-      el2.scrollLeft = from + dist * easeOut(p);
-      if (down) el2.scrollTop = fromTop + distTop * easeOut(p);
+      el2.scrollLeft = panPosition(from, from + dist, elapsed, duration);
+      if (down) el2.scrollTop = panPosition(fromTop, fromTop + distTop, elapsed, duration);
       panAnim.current = elapsed < duration ? requestAnimationFrame(step) : null;
       // Landed. The last frames of the curve barely move the wall, and the
       // scroll they end on may come while the pan is still under way; so the

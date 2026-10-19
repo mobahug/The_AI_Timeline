@@ -11,7 +11,6 @@ import type { Accent } from './types';
 export const INK = '#f3f0ea';
 export const PAPER = '#e9e3d4';
 export const MANILA = '#d9cfb8';
-export const GROUND = '#0a0a0b';
 /** The recessed well a photograph sits in, and the board's own dark. */
 export const WELL = '#0e0e11';
 export const RED = 'oklch(0.58 0.2 25)';
