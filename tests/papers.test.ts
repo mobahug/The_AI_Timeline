@@ -102,7 +102,9 @@ describe('a page carries the papers it printed', () => {
       // A page that reads papers says so in the registry, so a turn to it waits.
       if (carried && Object.keys(carried.papers).length) expect(viewById[server.route.view].papers, path + ' reads papers').toBe(true);
     });
-  });
+    // It renders every page twice; on the deploy's runner it took 4.4 of the
+    // default five seconds before the predictions and the machines arrived.
+  }, 30_000);
 
   it('carries nothing on a page that prints no papers, and only its own card on a dossier', () => {
     primePapers(PAPERS);
