@@ -90,7 +90,7 @@
         "language models"
       ],
       "short": "A transformer trained to predict the next token on most of the written internet.",
-      "definition": "GPT-2, GPT-3, ChatGPT, Claude, Gemini, Llama, DeepSeek: all are transformers trained on text to predict what comes next, then adjusted with human feedback to be useful. 'Large' means billions to trillions of parameters. The board's era of contact with the public begins when one of these got a chat interface."
+      "definition": "GPT-2, GPT-3, ChatGPT, Claude, Gemini, Llama, DeepSeek: all are transformers trained on text to predict what comes next, and the chat models among them are then adjusted with human feedback to be useful. 'Large' means billions to trillions of parameters. The board's era of contact with the public begins when one of these got a chat interface."
     },
     {
       "id": "tokens",
@@ -399,7 +399,7 @@
         "diffusion"
       ],
       "short": "An image generator that learns to remove noise, step by step.",
-      "definition": "Train a network to undo a little noise; apply it many times to pure noise and an image appears. DALL-E 2, Stable Diffusion and Midjourney took it mainstream in 2022, and deepfakes went from a subreddit to a product."
+      "definition": "Train a network to undo a little noise; apply it many times to pure noise and an image appears. DALL-E 2, Stable Diffusion and Midjourney took it mainstream in 2022."
     },
     {
       "id": "multimodal",
@@ -465,7 +465,7 @@
         "synthetic media"
       ],
       "short": "A synthetic image, voice or video of a real person.",
-      "definition": "Named on a subreddit in 2017; a product by 2022; a policy problem the board expects to force provenance rules by 2029."
+      "definition": "Named after a Reddit user who posted face-swapped porn in 2017; a free desktop app by January 2018; a policy problem the board expects to force provenance rules by 2029."
     },
     {
       "id": "word-embedding",
@@ -498,7 +498,7 @@
         "adversarial"
       ],
       "short": "Two networks, one forging and one detecting, trained against each other.",
-      "definition": "Goodfellow's 2014 idea: a generator makes images, a discriminator tells them from real ones, and each improves the other. The first convincing generated faces, and the technique behind the first deepfakes."
+      "definition": "Goodfellow's 2014 idea: a generator makes images, a discriminator tells them from real ones, and each improves the other. It produced the first convincing generated faces, though not the first deepfakes: those, in 2017, came from a different network, an autoencoder, and adversarial training reached face-swap tools afterwards."
     },
     {
       "id": "capped-profit",
@@ -507,8 +507,8 @@
         "capped-profit",
         "public benefit corporation"
       ],
-      "short": "OpenAI's 2019 structure: investors' returns limited, the nonprofit in control — until 2025.",
-      "definition": "A for-profit subsidiary whose returns were capped at a multiple, governed by the nonprofit's board. It was the structure that fired Altman and could not keep him fired, and it was replaced in 2025 by a public benefit corporation with the nonprofit as shareholder."
+      "short": "OpenAI's structure from 2019 to 2025: investors' returns limited, the nonprofit in control.",
+      "definition": "A for-profit subsidiary whose returns were capped at a multiple, governed by the nonprofit's board. It was the structure that fired Altman and could not keep him fired, and in 2025 it gave way to a public benefit corporation whose board the nonprofit appoints and of which it owns 26%."
     },
     {
       "id": "chatbot",

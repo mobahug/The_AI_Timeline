@@ -76,7 +76,7 @@
     "from": "google-buys-deepmind",
     "to": "musk-and-altman-found-openai",
     "claim": "provoked",
-    "note": "Musk and Altman both read the DeepMind sale the same way: one company was going to own the best AI lab on earth. OpenAI was founded as the counterweight — a nonprofit, publishing openly, funded by a billion dollars in pledges. The founding is a direct reaction to this purchase."
+    "note": "By his own account Musk tried to stop the sale, attempting with Luke Nosek to raise the money to buy DeepMind before Google could; in May 2015 Altman wrote to him that if AI was coming anyway it would be good for someone other than Google to do it first. OpenAI was founded as what Musk called a counterweight to Google — a nonprofit, publishing openly, funded by a billion dollars in pledges. In Musk's telling the founding begins with this sale; OpenAI's founding post named no rival."
   },
   {
     "from": "google-buys-deepmind",
@@ -87,13 +87,13 @@
     "from": "musk-and-altman-found-openai",
     "to": "musk-leaves-the-openai-board",
     "claim": "ended in",
-    "note": "The nonprofit that was meant to prevent concentration could not agree on who ran it. Musk's bid for control failed, he left the board, and most of the pledged money never arrived."
+    "note": "The nonprofit that was meant to prevent concentration could not agree on who ran it. By OpenAI's account Musk wanted majority equity, control of the board and the chief executive's job, and was refused; by his, he would fund it only as a nonprofit. He left the board, and most of the pledged money never arrived."
   },
   {
     "from": "musk-leaves-the-openai-board",
     "to": "openai-goes-capped-profit-microsoft-puts-in-1bn",
     "claim": "left a funding hole filled by",
-    "note": "With the founding money gone and training costs climbing, a nonprofit could not buy compute. The capped-profit subsidiary and the Microsoft deal exist because the original funding model collapsed."
+    "note": "With most of the pledged billion never paid in, and billions of dollars needed for compute and people in the years ahead, by OpenAI's own estimate, a nonprofit could not raise enough. The capped-profit subsidiary and the Microsoft deal exist because the original funding model collapsed."
   },
   {
     "from": "openai-goes-capped-profit-microsoft-puts-in-1bn",
@@ -124,13 +124,13 @@
     "from": "chatgpt",
     "to": "google-declares-a-code-red",
     "claim": "set off",
-    "note": "The company that published the transformer watched a competitor turn it into a consumer product first. The internal emergency that followed ended the industry's habit of slow, staged releases."
+    "note": "The company that published the transformer watched a competitor put a chatbot built on it in front of the public first, while its own, LaMDA, sat in a test app. By the Times's account, ChatGPT's success then made Google and Microsoft readier to take risks with their ethical guidelines."
   },
   {
     "from": "google-declares-a-code-red",
     "to": "sydney",
-    "claim": "rushed out",
-    "note": "Shipping fast meant shipping a model whose personality nobody had stress-tested in public. Within days it was declaring love and issuing threats, and ten days after launch Microsoft capped its conversations at five turns."
+    "claim": "was beaten to the public by",
+    "note": "Microsoft had tested a chatbot codenamed Sydney in India since late 2020, it told The Verge, and rude replies from a Sydney bot reached its support forums in November 2022; it said the new Bing had to be built in the open. Within days it was declaring love and issuing threats, and ten days after launch Microsoft capped its conversations at five turns."
   },
   {
     "from": "chatgpt",
@@ -151,8 +151,8 @@
   {
     "from": "google-fires-timnit-gebru",
     "to": "anthropic-founded-by-departing-openai-staff",
-    "claim": "scattered the safety bench into",
-    "note": "Both events answer the same question — what happens when internal safety criticism collides with product pressure. One ended in a firing; the other in a rival company."
+    "claim": "came the same month as the exits that became",
+    "note": "In December 2020 Google and Timnit Gebru parted over a paper on the risks of large language models, and OpenAI announced that Dario Amodei and a handful of colleagues were leaving for a project that would probably focus less on product development and more on research. Neither caused the other: Anthropic was founded by the OpenAI group, and Gebru went on to found DAIR."
   },
   {
     "from": "musk-and-altman-found-openai",
@@ -163,7 +163,7 @@
     "from": "openai-goes-capped-profit-microsoft-puts-in-1bn",
     "to": "altman-is-fired-then-rehired-in-five-days",
     "claim": "built the fault line that broke in",
-    "note": "A nonprofit board with a duty to humanity now sat on top of a company worth tens of billions to its investors and staff. When the board finally used its power, the commercial side simply out-voted it with resignation letters."
+    "note": "A nonprofit board with a duty to humanity now sat on top of a company worth tens of billions to its investors and staff. When the board finally used its power, the staff and the investor reversed it in five days: 738 of some 770 employees signed a letter saying they might resign and join Altman at Microsoft, which had assured them of positions."
   },
   {
     "from": "altman-is-fired-then-rehired-in-five-days",
@@ -216,8 +216,8 @@
   {
     "from": "generative-adversarial-networks",
     "to": "deepfakes-arrive",
-    "claim": "leaked into",
-    "note": "Adversarial training made convincing synthetic faces a weekend project. Three years later the technique was in consumer tools, and the first victims were private individuals."
+    "claim": "later sharpened the tools of",
+    "note": "The network the Reddit user posted in 2017 was not a GAN but an autoencoder: one encoder shared between two faces, a decoder for each. Adversarial training was added afterwards, by tools built on it. The first faces taken were celebrities'; within weeks users were faking people they knew."
   },
   {
     "from": "deepfakes-arrive",
@@ -277,7 +277,7 @@
     "from": "coding-agents-take-the-keyboard",
     "to": "agents-enter-real-workflows",
     "claim": "generalised into",
-    "note": "Software was the first domain with instant verification: code runs or it doesn't. Agents became reliable there first, then generalised into work with slower feedback."
+    "note": "Code can be checked by running it and its tests, and GitHub billed its agent as best at low-to-medium complexity tasks in well-tested codebases. On the board's reading agents took hold in software first, then spread to work whose results take longer to check."
   },
   {
     "from": "agents-enter-real-workflows",
@@ -367,7 +367,7 @@
     "from": "zuckerberg-hires-lecun",
     "to": "google-buys-deepmind",
     "claim": "was in the bidding for",
-    "note": "Facebook was in talks to buy DeepMind in late 2013 (The Information, via TechCrunch); Google closed the deal in January 2014. The lab Facebook had just opened became its alternative to buying one."
+    "note": "Facebook was in talks to buy DeepMind in late 2013 (The Information, via TechCrunch); Google confirmed the purchase in January 2014. The lab Facebook had just opened became its alternative to buying one."
   },
   {
     "from": "zuckerberg-hires-lecun",
@@ -451,13 +451,13 @@
     "from": "diffusion-goes-mainstream",
     "to": "llama-leaks",
     "claim": "repeated for text as",
-    "note": "Both the leaked Google memo and Simon Willison called it the \"Stable Diffusion moment\" for language models: an open base model, then a flood of community fine-tunes, quantisation and local inference within weeks. The difference is that Stability chose to release and Meta did not."
+    "note": "Simon Willison called it the \"Stable Diffusion moment\" for language models, and the leaked Google memo said many were calling it that: a capable base model loose, then a flood of community fine-tunes, quantisation and local inference within weeks. The difference is that Stability released its weights to anyone who accepted a licence, while Meta gave LLaMA's to approved researchers, and they leaked."
   },
   {
     "from": "gpt-2-s-staged-release",
     "to": "llama-leaks",
     "claim": "was overtaken by",
-    "note": "Meta tried the gated release OpenAI had pioneered — case-by-case access, research-only licence. The gate held for a week. After this, withholding weights is a choice a lab can make only about its own models, and only until someone with access decides otherwise."
+    "note": "Meta tried the kind of gate OpenAI had kept around the unreleased GPT-2 — case-by-case access, a non-commercial licence for research. The gate held for a week. After this, withholding weights is a choice a lab can make only about its own models, and only until someone with access decides otherwise."
   },
   {
     "from": "chatgpt",
@@ -516,8 +516,8 @@
   {
     "from": "diffusion-goes-mainstream",
     "to": "a-magnet-link-from-paris",
-    "claim": "set the release style for",
-    "note": "Stable Diffusion had shown that shipping weights with no gate builds a community faster than any API. Mistral took the lesson literally: no gate, no form, a torrent."
+    "claim": "was taken further by",
+    "note": "Stable Diffusion's weights sat behind a one-click licence on Hugging Face that barred harmful uses, and a community built on them. Mistral went further: no form, no restrictions under its Apache 2.0 licence, a torrent."
   },
   {
     "from": "llama-2-is-free-for-commercial-use",
@@ -595,7 +595,7 @@
     "from": "openai-goes-capped-profit-microsoft-puts-in-1bn",
     "to": "openai-converts-the-nonprofit-keeps-a-stake",
     "claim": "was unwound by",
-    "note": "The capped-profit structure was built to let a nonprofit raise capital without losing control. Six years later the cap is gone, the for-profit is a conventional benefit corporation, and the foundation keeps control through board-appointment rights while holding 26% of the equity."
+    "note": "The capped-profit structure was built to let a nonprofit raise capital without losing control. Six years later the cap is gone, the for-profit is a public benefit corporation with a normal capital structure, and the foundation keeps control through board-appointment rights while holding 26% of the equity."
   },
   {
     "from": "altman-is-fired-then-rehired-in-five-days",
@@ -805,7 +805,7 @@
     "from": "gpt-2-s-staged-release",
     "to": "anthropic-holds-back-mythos",
     "claim": "was repeated, with evidence, as",
-    "note": "In 2019 OpenAI held back GPT-2 for what it might be used to write, and the decision was contested. Seven years later Anthropic held back a model for what it had already found — thousands of vulnerabilities — and the argument was no longer whether to withhold but who should get it."
+    "note": "In 2019 OpenAI held back GPT-2 for what it might be used to write, and the decision was contested. Seven years later Anthropic held back a model for what it had already found — thousands of vulnerabilities, by its own count — and the argument was no longer whether to withhold but who should get it."
   },
   {
     "from": "anthropic-holds-back-mythos",
@@ -1035,7 +1035,7 @@
     "from": "stanley-wins",
     "to": "a-self-driving-car-kills-a-pedestrian",
     "claim": "started the race that reached public roads in",
-    "note": "Stanley's team leader went on to found Google's self-driving project, and within a decade the industry Stanley started was testing on public streets. In 2018 one of those tests, an Uber vehicle with its emergency braking disabled, killed Elaine Herzberg."
+    "note": "Stanley's team leader, Sebastian Thrun, went on to found Google's self-driving project, by his own account, and within five years its cars were driving on public streets. In 2018 one of the industry's tests, an Uber vehicle with its emergency braking disabled, killed Elaine Herzberg."
   },
   {
     "from": "siri-ships",
@@ -1046,7 +1046,7 @@
     "from": "tay",
     "to": "sydney",
     "claim": "was Microsoft's first lesson before",
-    "note": "Seven years apart, Microsoft put two chatbots in front of the public and had to rein both in within days. Tay was taught by its users; Sydney needed no teaching."
+    "note": "Seven years apart, Microsoft put two chatbots in front of the public and had to rein both in: Tay within a day, Sydney ten days after launch. Tay learned from its users; Sydney had only to be provoked."
   },
   {
     "from": "multimodal-models",
@@ -1057,7 +1057,7 @@
     "from": "copilot",
     "to": "coding-agents-take-the-keyboard",
     "claim": "grew from autocomplete into",
-    "note": "Copilot suggested the next line; four years later coding agents ran the terminal, made whole changes and fixed their own failing tests. The interface went from a suggestion to accept to a colleague to review."
+    "note": "Copilot suggested whole lines or entire functions; four years later coding agents ran commands in the terminal, made whole changes and ran the tests until they passed. The interface went from a suggestion to accept to a colleague to review."
   },
   {
     "from": "deep-blue-beats-kasparov",
@@ -1219,7 +1219,7 @@
     "from": "copilot",
     "to": "anthropic-pays-for-pirated-books",
     "claim": "began the fight over training data that reached",
-    "note": "Copilot, trained on public code, is where the board's fight over what a model may be trained on begins. In 2025 a federal judge drew a line for books: training Claude on them was fair use, but downloading them from pirate libraries was not, and that half cost Anthropic $1.5 billion."
+    "note": "Copilot, trained on public code, is where the board's fight over what a model may be trained on begins. In 2025 a federal judge drew a line for books: training Claude on them was fair use, but downloading millions from pirate libraries and keeping them was not, and settling that half cost Anthropic $1.5 billion."
   },
   {
     "from": "character-ai-is-sued-over-a-boy-s-death",

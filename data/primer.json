@@ -47,7 +47,7 @@
     },
     {
       "term": "agents",
-      "plain": "A model given tools (a browser, a keyboard, the means to run programs) and left to carry out a task in many steps instead of only answering. By 2025 agents were writing software every day; in 2026 they reached legal, finance and sales work.",
+      "plain": "A model given tools (a browser, a keyboard, the means to run programs) and left to carry out a task in many steps instead of only answering. Coding agents shipped in 2025; by 2026 most developers using AI coding tools used them daily, and agents had reached legal, finance and sales work.",
       "cards": ["coding-agents-take-the-keyboard", "agents-enter-real-workflows"]
     },
     {

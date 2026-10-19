@@ -2113,22 +2113,22 @@
   {
     "id": "google-buys-deepmind",
     "year": 2014,
-    "date": "2014-01",
+    "date": "2014-01-26",
     "category": "power",
     "title": "Google buys DeepMind",
-    "summary": "A London lab with no product sells for around $500 million, on the condition that Google create an AI ethics board.",
+    "summary": "Google buys a London AI lab for a price it did not disclose, reported at $400 million to $650 million, and agrees, The Information reported, to set up an ethics board.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/DeepMind",
-    "why": "The ethics board barely met. The pattern — safety promises attached to acquisitions — repeats for ten years.",
+    "why": "The ethics board met only once, TIME reported in 2024, and gave way to Google's own AI principles; Musk, who says he was asked to join it, called it a façade. The pattern — safety promises attached to deals — recurs through the decade.",
     "wikiTitle": "DeepMind",
     "figures": [
       {
         "label": "Price",
-        "value": "about $500 million, January 2014"
+        "value": "not disclosed; reported at $400 million (Re/code), more than $500 million (The Information) and £400 million, or $650 million (The Guardian), January 2014"
       },
       {
-        "label": "Condition",
-        "value": "an ethics board, which barely met"
+        "label": "Ethics board",
+        "value": "agreed with the purchase, The Information reported; it met only once, TIME reported in 2024"
       }
     ],
     "people": [
@@ -2138,6 +2138,89 @@
     "orgs": [
       "google-deepmind",
       "google"
+    ],
+    "sources": [
+      {
+        "kind": "article",
+        "publisher": "Re/code (Wayback Machine capture)",
+        "title": "Exclusive: Google to Buy Artificial Intelligence Startup DeepMind for $400M (Liz Gannes)",
+        "url": "https://web.archive.org/web/20140128015943/http://recode.net/2014/01/26/exclusive-google-to-buy-artificial-intelligence-startup-deepmind-for-400m/",
+        "date": "2014-01-26",
+        "quote": "Google is shelling out $400 million to buy a secretive artificial intelligence company called DeepMind. Google confirmed the deal after Re/code inquired about it, but declined to specify a price.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "The Information (Wayback Machine capture)",
+        "title": "Google Beat Facebook for DeepMind, Creates Ethics Board (Amir Efrati)",
+        "url": "https://web.archive.org/web/20180312200123/https://www.theinformation.com/articles/Google-beat-Facebook-For-DeepMind-Creates-Ethics-Board",
+        "date": "2014-01-26",
+        "quote": "Google, which is acquiring DeepMind Technologies, has agreed to establish an ethics board to ensure the artificial intelligence technology isn't abused, according to two people familiar with the deal.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "DeepMind (Wayback Machine capture)",
+        "title": "DeepMind Technologies (home page, as captured on 27 January 2014)",
+        "url": "https://web.archive.org/web/20140127112828/http://deepmind.com/",
+        "date": "2014-01-27",
+        "quote": "Founded by Demis Hassabis, Shane Legg and Mustafa Suleyman, the company is based in London and supported by some of the most iconic technology entrepreneurs and investors of the past decade. Our first commercial applications are in simulations, e-commerce and games.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Superior Court of California, County of San Francisco (copy hosted by ChatGPT Is Eating the World)",
+        "title": "Complaint, Elon Musk v. Samuel Altman et al. (CGC-24-612746)",
+        "url": "https://chatgptiseatingtheworld.com/wp-content/uploads/2024/03/Elon-Musk-v.-Sam-Altman-OpenAI-COMPLAINT.pdf",
+        "date": "2024-02-29",
+        "quote": "It became clear to Mr. Musk after the first meeting that this board was not a serious endeavor, but was rather a façade to try to slow down any regulation of AI.",
+        "supports": "claim"
+      },
+      {
+        "kind": "interview",
+        "publisher": "TIME (Wayback Machine capture)",
+        "title": "DeepMind’s CEO Helped Take AI Mainstream. Now He’s Urging Caution (Billy Perrigo)",
+        "url": "https://web.archive.org/web/20230114020511/https://time.com/6246119/demis-hassabis-deepmind-interview/",
+        "date": "2023-01-12",
+        "quote": "One reason, he says, was that, unlike Facebook, Google was “very happy to accept” DeepMind’s ethical red lines “as part of the acquisition.”",
+        "supports": "context"
+      },
+      {
+        "kind": "article",
+        "publisher": "TechCrunch",
+        "title": "Google Acquires Artificial Intelligence Startup DeepMind For More Than $500M (Catherine Shu)",
+        "url": "https://techcrunch.com/2014/01/26/google-deepmind/",
+        "date": "2014-01-26",
+        "quote": "The Information reports that the acquisition price was more than $500 million, and that Facebook was also in talks to buy the startup late last year.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "The Guardian",
+        "title": "Google buys UK artificial intelligence startup Deepmind for £400m (Samuel Gibbs)",
+        "url": "https://www.theguardian.com/technology/2014/jan/27/google-acquires-uk-artificial-intelligence-startup-deepmind",
+        "date": "2014-01-27",
+        "quote": "The Guardian understands that Google paid £400m ($650m) for DeepMind, which develops technologies for e-commerce and games, and has demonstrated computer systems capable of playing computer games.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "TIME (Wayback Machine capture)",
+        "title": "Exclusive: Workers at Google DeepMind Push Company to Drop Military Contracts (Billy Perrigo)",
+        "url": "https://web.archive.org/web/20240823212251/https://time.com/7013685/google-ai-deepmind-military-contracts-israel/",
+        "date": "2024-08-22",
+        "quote": "An independent ethics board that DeepMind leaders hoped would govern the uses of the AI lab’s technology ultimately met only once, and was soon replaced by an umbrella Google ethics policy: the AI Principles.",
+        "supports": "claim"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Google DeepMind",
+        "url": "https://en.wikipedia.org/wiki/DeepMind",
+        "date": "2026-10-19",
+        "quote": "On 26 January 2014, Google confirmed its acquisition of DeepMind for a price reportedly ranging between $400 million and $650 million.",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -2358,20 +2441,6 @@
     ]
   },
   {
-    "id": "tay",
-    "year": 2016,
-    "category": "incident",
-    "title": "Tay",
-    "summary": "A chatbot released to Twitter is taught to post racist content and withdrawn within sixteen hours.",
-    "source": "Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/Tay_(chatbot)",
-    "why": "The first mainstream lesson that deployment context, not model quality, determines behaviour.",
-    "wikiTitle": "Tay (chatbot)",
-    "orgs": [
-      "microsoft"
-    ]
-  },
-  {
     "id": "gdpr-is-adopted",
     "year": 2016,
     "category": "policy",
@@ -2471,6 +2540,68 @@
         "url": "https://en.wikipedia.org/wiki/AlphaGo_versus_Lee_Sedol",
         "date": "2026-10-12",
         "quote": "AlphaGo won all but the fourth game; all games were won by resignation.",
+        "supports": "context"
+      }
+    ]
+  },
+  {
+    "id": "tay",
+    "year": 2016,
+    "date": "2016-03-23",
+    "category": "incident",
+    "title": "Tay",
+    "summary": "Microsoft's chatbot for young Americans goes live on Twitter and, after what Microsoft called a coordinated attack, tweets racist abuse. It is offline within a day, sixteen hours in by the Guardian's count.",
+    "source": "Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Tay_(chatbot)",
+    "why": "What a chatbot says depends on who talks to it. Tay was Microsoft's test of whether a bot like XiaoIce, used by some 40 million people in China, would work as well in America. On Twitter it was turned within a day, and Microsoft called the challenges as much social as technical.",
+    "wikiTitle": "Tay (chatbot)",
+    "orgs": [
+      "microsoft"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Microsoft (Official Microsoft Blog)",
+        "title": "Learning from Tay’s introduction (Peter Lee)",
+        "url": "https://blogs.microsoft.com/blog/2016/03/25/learning-tays-introduction/",
+        "date": "2016-03-25",
+        "quote": "Unfortunately, in the first 24 hours of coming online, a coordinated attack by a subset of people exploited a vulnerability in Tay.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Microsoft (tay.ai, Wayback Machine capture)",
+        "title": "Meet Tay - Microsoft A.I. chatbot with zero chill",
+        "url": "https://web.archive.org/web/20160323194709/https://tay.ai/",
+        "date": "2016-03-23",
+        "quote": "The more you chat with Tay the smarter she gets, so the experience can be more personalized for you.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "The Guardian",
+        "title": "Microsoft scrambles to limit PR damage over abusive AI bot Tay (Alex Hern)",
+        "url": "https://www.theguardian.com/technology/2016/mar/24/microsoft-scrambles-limit-pr-damage-over-abusive-ai-bot-tay",
+        "date": "2016-03-24",
+        "quote": "chatbot was shut down just 16 hours after she was turned on due to her becoming a genocide-supporting racist",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Ars Technica",
+        "title": "Tay, the neo-Nazi millennial chatbot, gets autopsied",
+        "url": "https://arstechnica.com/information-technology/2016/03/tay-the-neo-nazi-millennial-chatbot-gets-autopsied/",
+        "date": "2016-03-25",
+        "quote": "One of its capabilities was that it could be directed to repeat things that you say to it. This was trivially exploited to put words into the bot’s mouth",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Tay (chatbot)",
+        "url": "https://en.wikipedia.org/wiki/Tay_(chatbot)",
+        "date": "2026-10-19",
+        "quote": "It caused controversy when the bot began to post inflammatory and offensive tweets through its Twitter account, causing Microsoft to shut down the service only 16 hours after its launch.",
         "supports": "context"
       }
     ]
@@ -2597,20 +2728,6 @@
         "quote": "The original version of the transformer architecture was proposed in the 2017 paper \"Attention Is All You Need\" by researchers at Google.",
         "supports": "context"
       }
-    ]
-  },
-  {
-    "id": "deepfakes-arrive",
-    "year": 2017,
-    "category": "incident",
-    "title": "Deepfakes arrive",
-    "summary": "Face-swapping tools spread through consumer forums; the harm lands on individuals long before institutions.",
-    "source": "Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/Deepfake",
-    "wikiTitle": "Deepfake",
-    "terms": [
-      "deepfake",
-      "gan"
     ]
   },
   {
@@ -2821,15 +2938,273 @@
     ]
   },
   {
+    "id": "deepfakes-arrive",
+    "year": 2017,
+    "date": "2017-12",
+    "category": "incident",
+    "title": "Deepfakes arrive",
+    "summary": "A Reddit user called deepfakes posts porn with celebrities' faces swapped in, made with open-source machine-learning tools. A free app follows in January 2018, and in February Reddit bans the forum.",
+    "source": "Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Deepfake",
+    "why": "The harm landed on individuals first: on the women whose faces were taken, celebrities at first and within weeks people their makers knew, long before it reached institutions.",
+    "wikiTitle": "Deepfake",
+    "terms": [
+      "deepfake",
+      "gan"
+    ],
+    "sources": [
+      {
+        "kind": "article",
+        "publisher": "Vice (Motherboard)",
+        "title": "AI-Assisted Fake Porn Is Here and We’re All Fucked (Samantha Cole)",
+        "url": "https://www.vice.com/en/article/gal-gadot-fake-ai-porn/",
+        "date": "2017-12-11",
+        "quote": "So far, deepfakes has posted hardcore porn videos featuring the faces of Scarlett Johansson, Maisie Williams, Taylor Swift, Aubrey Plaza, and Gal Gadot on Reddit.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Reddit Help (Wayback Machine capture)",
+        "title": "Do Not Post Involuntary Pornography",
+        "url": "https://web.archive.org/web/20180211141849/https://www.reddithelp.com/en/categories/rules-reporting/account-and-community-restrictions/do-not-post-involuntary-pornography",
+        "date": "2018-02-07",
+        "quote": "Reddit prohibits the dissemination of images or video depicting any person in a state of nudity or engaged in any act of sexual conduct apparently created or posted without their permission, including depictions that have been faked.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Vice (Motherboard)",
+        "title": "We Are Truly Fucked: Everyone Is Making AI-Generated Fake Porn Now (Samantha Cole)",
+        "url": "https://www.vice.com/en/article/reddit-fake-porn-app-daisy-ridley/",
+        "date": "2018-01-24",
+        "quote": "Another user, called ‘deepfakeapp,’ created FakeApp, a user-friendly application that allows anyone to recreate these videos with their own datasets.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Vice (Motherboard)",
+        "title": "People Are Using AI to Create Fake Porn of Their Friends and Classmates (Samantha Cole)",
+        "url": "https://www.vice.com/en/article/ai-fake-porn-of-friends-deepfakes/",
+        "date": "2018-01-26",
+        "quote": "People are talking about, and in some cases actively using, this app to create fake porn videos of people they know in real life—friends, casual acquaintances, exes, classmates—without their permission.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Vice (Motherboard)",
+        "title": "Reddit Just Shut Down the Deepfakes Subreddit (Samantha Cole)",
+        "url": "https://www.vice.com/en/article/reddit-shuts-down-deepfakes/",
+        "date": "2018-02-07",
+        "quote": "As of Wednesday around 1PM EST, Reddit appears to have suspended r/deepfakes, the subreddit dedicated to creating fake porn videos using a machine learning algorithm.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "faceswap (project documentation, Read the Docs)",
+        "title": "train package — faceswap 3.0 documentation",
+        "url": "https://faceswap.readthedocs.io/en/latest/full/plugins/train.html",
+        "date": "2026-10-19",
+        "quote": "The encoder for the original model has it’s weights shared between both the “A” and “B” side of the model",
+        "supports": "context"
+      },
+      {
+        "kind": "primary",
+        "publisher": "GitHub (shaoanlu/faceswap-GAN)",
+        "title": "faceswap-GAN",
+        "url": "https://github.com/shaoanlu/faceswap-GAN",
+        "date": "2019-10-04",
+        "quote": "Adding Adversarial loss and perceptual loss (VGGface) to deepfakes'(reddit user) auto-encoder architecture.",
+        "supports": "context"
+      },
+      {
+        "kind": "paper",
+        "publisher": "ACM Computing Surveys (arXiv preprint)",
+        "title": "The Creation and Detection of Deepfakes: A Survey (Yisroel Mirsky and Wenke Lee)",
+        "url": "https://arxiv.org/pdf/2004.11138",
+        "date": "2020-09-13",
+        "quote": "The original deepfake network, published by the Reddit user, is an ED network (visualized in Fig. 11). The architecture consists of one encoder En and two decoders Des and Det",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Deepfake",
+        "url": "https://en.wikipedia.org/wiki/Deepfake",
+        "date": "2026-10-19",
+        "quote": "The term deepfake originated in late 2017 from a Reddit user named \"deepfakes\".",
+        "supports": "context"
+      }
+    ]
+  },
+  {
+    "id": "musk-leaves-the-openai-board",
+    "year": 2018,
+    "date": "2018-02",
+    "category": "power",
+    "title": "Musk leaves the OpenAI board",
+    "summary": "OpenAI says Musk will leave its board to avoid a potential future conflict as Tesla turns to AI. It later said he had wanted control of a for-profit OpenAI; by his account, he insisted it stay a nonprofit.",
+    "source": "Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/OpenAI",
+    "why": "Both sides agree a for-profit was under discussion before he left. His exit meant raising the billions without him, through the structure that everything later breaks on.",
+    "wikiTitle": "OpenAI",
+    "figures": [
+      {
+        "label": "Announced",
+        "value": "20 February 2018; he would continue to donate and advise, OpenAI said"
+      },
+      {
+        "label": "Given",
+        "value": "less than $45 million, by OpenAI's account; more than $44 million from 2016 to September 2020, by Musk's"
+      }
+    ],
+    "people": [
+      "elon-musk"
+    ],
+    "orgs": [
+      "openai"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "OpenAI Supporters",
+        "url": "https://web.archive.org/web/20180221040655/https://blog.openai.com/openai-supporters/",
+        "date": "2018-02-20",
+        "quote": "Additionally, Elon Musk will depart the OpenAI Board but will continue to donate and advise the organization. As Tesla continues to become more focused on AI, this will eliminate a potential future conflict for Elon.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "Elon Musk wanted an OpenAI for-profit",
+        "url": "https://web.archive.org/web/20241214084452/https://openai.com/index/elon-musk-wanted-an-openai-for-profit/",
+        "date": "2024-12-13",
+        "quote": "Fall 2017: Elon demanded majority equity, absolute control, and to be CEO of the for-profit",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "OpenAI and Elon Musk",
+        "url": "https://web.archive.org/web/20240306022619/https://openai.com/blog/openai-elon-musk",
+        "date": "2024-03-05",
+        "quote": "In total, the non-profit has raised less than $45M from Elon and more than $90M from other donors.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Superior Court of California, County of San Francisco (copy hosted by ChatGPT Is Eating the World)",
+        "title": "Complaint, Elon Musk v. Samuel Altman et al. (CGC-24-612746)",
+        "url": "https://chatgptiseatingtheworld.com/wp-content/uploads/2024/03/Elon-Musk-v.-Sam-Altman-OpenAI-COMPLAINT.pdf",
+        "date": "2024-02-29",
+        "quote": "All told, Mr. Musk contributed more than $44 million to OpenAI, Inc. between 2016 and September 2020.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "OpenAI LP",
+        "url": "https://web.archive.org/web/20190311161512/https://openai.com/blog/openai-lp/",
+        "date": "2019-03-11",
+        "quote": "Elon Musk left the board of OpenAI Nonprofit in February 2018 and is not formally involved with OpenAI LP.",
+        "supports": "context"
+      },
+      {
+        "kind": "article",
+        "publisher": "Transformer",
+        "title": "New OpenAI emails reveal a long history of mistrust (Shakeel Hashim)",
+        "url": "https://www.transformernews.ai/cp/151717495",
+        "date": "2024-11-15",
+        "quote": "Musk replied directly to the two, saying that this was “the final straw” and that the group should “either go do something on your own or continue with OpenAI as a nonprofit”.",
+        "supports": "claim"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "OpenAI",
+        "url": "https://en.wikipedia.org/wiki/OpenAI",
+        "date": "2026-10-19",
+        "quote": "In 2018, Musk resigned from his Board of Directors seat, citing \"a potential future conflict [of interest]\" with his role as CEO of Tesla due to Tesla's AI development for self-driving cars.",
+        "supports": "context"
+      }
+    ]
+  },
+  {
     "id": "a-self-driving-car-kills-a-pedestrian",
     "year": 2018,
+    "date": "2018-03-18",
     "category": "incident",
     "title": "A self-driving car kills a pedestrian",
-    "summary": "A test vehicle strikes Elaine Herzberg in Tempe, Arizona; sensor gaps, disabled braking and inattention compound.",
+    "summary": "An Uber test car driving itself kills Elaine Herzberg in Tempe, Arizona. It detected her 5.6 seconds out but never classified her as a pedestrian, its emergency braking was off, and its operator was looking at her phone.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/Death_of_Elaine_Herzberg",
-    "why": "The first death attributed to an autonomous vehicle, and the case that reframed testing on public roads.",
-    "wikiTitle": "Death of Elaine Herzberg"
+    "why": "Reported at the time as the first pedestrian killed by a self-driving car in the US. Arizona suspended Uber's testing eight days later, and the NTSB called for a federal review before automated test vehicles are allowed on public roads.",
+    "wikiTitle": "Death of Elaine Herzberg",
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "National Transportation Safety Board",
+        "title": "Collision Between Vehicle Controlled by Developmental Automated Driving System and Pedestrian, Tempe, Arizona, March 18, 2018 (Highway Accident Report NTSB/HAR-19/03)",
+        "url": "https://www.ntsb.gov/investigations/AccidentReports/Reports/HAR1903.pdf",
+        "date": "2019-11-19",
+        "quote": "The ADS detected the pedestrian 5.6 seconds before impact. Although the ADS continued to track the pedestrian until the crash, it never accurately classified her as a pedestrian or predicted her path.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "National Transportation Safety Board",
+        "title": "Collision Between Vehicle Controlled by Developmental Automated Driving System and Pedestrian (investigation HWY18MH010)",
+        "url": "https://www.ntsb.gov/investigations/Pages/HWY18MH010.aspx",
+        "date": "2019-11-19",
+        "quote": "The probable cause of the crash in Tempe, Arizona, was the failure of the vehicle operator to monitor the driving environment and the operation of the automated driving system because she was visually distracted throughout the trip by her personal cell phone.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "National Transportation Safety Board (news release, Wayback Machine capture)",
+        "title": "‘Inadequate Safety Culture’ Contributed to Uber Automated Test Vehicle Crash - NTSB Calls for Federal Review Process for Automated Vehicle Testing on Public Roads",
+        "url": "https://web.archive.org/web/20191121101448/https://ntsb.gov/news/press-releases/Pages/NR20191119c.aspx",
+        "date": "2019-11-19",
+        "quote": "The National Transportation Safety Board called upon federal regulators Tuesday to create a review process before allowing automated test vehicles to operate on public roads, based upon the agency’s investigation of a fatal collision between an Uber automated test vehicle and a pedestrian.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "NPR",
+        "title": "NTSB: Uber Self-Driving Car Had Disabled Emergency Brake System Before Fatal Crash (Colin Dwyer)",
+        "url": "https://www.npr.org/sections/thetwo-way/2018/05/24/614200117/ntsb-uber-self-driving-car-had-disabled-emergency-brake-system-before-fatal-cras",
+        "date": "2018-05-24",
+        "quote": "The agency explained that the vehicle, a modified 2017 Volvo XC90, comes \"factory equipped\" with automatic emergency braking — but that Uber's system disables this function and others when it's in use.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "CBS News (Associated Press)",
+        "title": "Arizona Gov. Doug Ducey suspends Uber from autonomous testing",
+        "url": "https://www.cbsnews.com/news/arizona-governor-doug-ducey-suspends-uber-autonomous-testing-letter-today-2018-03-26/",
+        "date": "2018-03-26",
+        "quote": "Arizona Gov. Doug Ducey suspended Uber's self-driving vehicle testing privileges Monday in the wake of a pedestrian fatality in a Phoenix suburb last week.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "The Guardian",
+        "title": "Self-driving Uber kills Arizona woman in first fatal crash involving pedestrian (Sam Levin and Julia Carrie Wong)",
+        "url": "https://www.theguardian.com/technology/2018/mar/19/uber-self-driving-car-kills-woman-arizona-tempe",
+        "date": "2018-03-19",
+        "quote": "An autonomous Uber car killed a woman in the street in Arizona, police said, in what appears to be the first reported fatal crash involving a self-driving vehicle and a pedestrian in the US.",
+        "supports": "claim"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Death of Elaine Herzberg",
+        "url": "https://en.wikipedia.org/wiki/Death_of_Elaine_Herzberg",
+        "date": "2026-10-19",
+        "quote": "While Herzberg was the first pedestrian killed by a self-driving car, driver Gao Yaning died in a Tesla semi-autonomous car two years earlier.",
+        "supports": "context"
+      }
+    ]
   },
   {
     "id": "amazon-scraps-a-biased-hiring-tool",
@@ -2865,32 +3240,15 @@
     ]
   },
   {
-    "id": "musk-leaves-the-openai-board",
-    "year": 2018,
-    "category": "power",
-    "title": "Musk leaves the OpenAI board",
-    "summary": "Citing conflicts with Tesla's own AI work after a failed bid to take control, he walks — and the promised funding largely does not arrive.",
-    "source": "Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/OpenAI",
-    "why": "The exit forces OpenAI to find capital elsewhere, which forces the structure that everything later breaks on.",
-    "wikiTitle": "OpenAI",
-    "people": [
-      "elon-musk"
-    ],
-    "orgs": [
-      "openai"
-    ]
-  },
-  {
     "id": "gpt-2-s-staged-release",
     "year": 2019,
-    "date": "2019-02",
+    "date": "2019-02-14",
     "category": "policy",
     "title": "GPT-2's staged release",
-    "summary": "OpenAI withholds its largest model citing misuse risk and starts a still-running argument about openness.",
+    "summary": "OpenAI holds back the full GPT-2 for fear of misuse, calling it an experiment in responsible disclosure, and releases it in stages over nine months. The argument over openness it sharpened is still running.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/GPT-2",
-    "why": "The first time a lab treated its own capability as a hazard in public. Contested then, normal now.",
+    "why": "A lab treated its own model as a hazard, in public, and asked the field to take up the arguments over publication that biotechnology and cybersecurity had long had. Contested then, normal now.",
     "wikiTitle": "GPT-2",
     "figures": [
       {
@@ -2899,7 +3257,7 @@
       },
       {
         "label": "Release",
-        "value": "in stages from February 2019; the full model in November"
+        "value": "124 million parameters in February 2019, 355 million in May, 774 million in August, 1.5 billion on 5 November"
       }
     ],
     "orgs": [
@@ -2908,6 +3266,62 @@
     "terms": [
       "large-language-model",
       "parameters"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "Better Language Models and Their Implications",
+        "url": "https://web.archive.org/web/20190214171619/https://blog.openai.com/better-language-models/",
+        "date": "2019-02-14",
+        "quote": "Due to our concerns about malicious applications of the technology, we are not releasing the trained model. As an experiment in responsible disclosure, we are instead releasing a much smaller model for researchers to experiment with, as well as a technical paper.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "GPT-2: 6-Month Follow-Up",
+        "url": "https://web.archive.org/web/20190822023230/https://openai.com/blog/gpt-2-6-month-follow-up/",
+        "date": "2019-08-20",
+        "quote": "We’re releasing the 774 million parameter GPT-2 language model after the release of our small 124M model in February, staged release of our medium 355M model in May",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "GPT-2: 1.5B Release",
+        "url": "https://web.archive.org/web/20191105171430/https://openai.com/blog/gpt-2-1-5b-release/",
+        "date": "2019-11-05",
+        "quote": "As the final model release of GPT-2’s staged release, we’re releasing the largest version (1.5B parameters) of GPT-2 along with code and model weights to facilitate detection of outputs of GPT-2 models.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "OpenAI",
+        "title": "Language Models are Unsupervised Multitask Learners (Alec Radford, Jeffrey Wu, Rewon Child, David Luan, Dario Amodei and Ilya Sutskever)",
+        "url": "https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf",
+        "date": "2019-02-14",
+        "quote": "Our largest model, GPT-2, is a 1.5B parameter Transformer",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv (OpenAI)",
+        "title": "Release Strategies and the Social Impacts of Language Models (Irene Solaiman, Miles Brundage, Jack Clark and others)",
+        "url": "https://arxiv.org/pdf/1908.09203v2",
+        "date": "2019-11-13",
+        "quote": "When forming partnerships, we signed a non-commercial legal agreement with a partner organization to provide our model for their research use, and/or we provided a partner organization with a secure sampling interface to the larger models.",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "GPT-2",
+        "url": "https://en.wikipedia.org/wiki/GPT-2",
+        "date": "2026-10-19",
+        "quote": "Anima Anandkumar, a professor at Caltech and director of machine learning research at Nvidia, said that there was no evidence that GPT-2 had the capabilities to pose the threats described by OpenAI",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -2980,19 +3394,19 @@
     "date": "2019-07",
     "category": "power",
     "title": "OpenAI goes capped-profit; Microsoft puts in $1bn",
-    "summary": "A nonprofit grows a for-profit subsidiary with returns capped at 100x, and Azure becomes its exclusive compute.",
+    "summary": "In March the nonprofit sets up a capped-profit company under its board, its first investors' returns limited to 100 times their money. In July Microsoft invests $1 billion and becomes its exclusive cloud provider.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/OpenAI",
-    "why": "A governance experiment nobody had run before. Four years later it fails live, on a weekend.",
+    "why": "OpenAI said no existing legal structure it knew of struck the balance it wanted, so it built one. Four years later the board used its control, and was reversed within five days.",
     "wikiTitle": "OpenAI",
     "figures": [
       {
         "label": "The cap",
-        "value": "returns to investors limited to 100× "
+        "value": "from March 2019, 100× their investment for the first round of investors, later rounds expected to be lower; anything above goes to the nonprofit"
       },
       {
         "label": "Microsoft",
-        "value": "$1 billion, July 2019; Azure as exclusive cloud"
+        "value": "$1 billion, 22 July 2019; Microsoft as exclusive cloud provider"
       }
     ],
     "people": [
@@ -3006,26 +3420,53 @@
     "terms": [
       "capped-profit",
       "compute"
-    ]
-  },
-  {
-    "id": "google-fires-timnit-gebru",
-    "year": 2020,
-    "category": "incident",
-    "title": "Google fires Timnit Gebru",
-    "summary": "Google demands she withdraw a co-authored paper on the risks of large language models; the AI ethics team implodes in public.",
-    "source": "Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/Timnit_Gebru",
-    "why": "The industry learns that internal criticism is a career risk. Half the field's safety talent moves to labs of their own.",
-    "wikiTitle": "Timnit Gebru",
-    "people": [
-      "timnit-gebru"
     ],
-    "orgs": [
-      "google"
-    ],
-    "terms": [
-      "large-language-model"
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "OpenAI LP",
+        "url": "https://web.archive.org/web/20190311161512/https://openai.com/blog/openai-lp/",
+        "date": "2019-03-11",
+        "quote": "Returns for our first round of investors are capped at 100x their investment (commensurate with the risks in front of us), and we expect this multiple to be lower for future rounds as we make further progress.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "Microsoft invests in and partners with OpenAI to support us building beneficial AGI",
+        "url": "https://web.archive.org/web/20190723071215/https://openai.com/blog/microsoft/",
+        "date": "2019-07-22",
+        "quote": "We’ll jointly develop new Azure AI supercomputing technologies, and Microsoft will become our exclusive cloud provider",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Microsoft (Microsoft Source)",
+        "title": "OpenAI forms exclusive computing partnership with Microsoft to build new Azure AI supercomputing technologies",
+        "url": "https://news.microsoft.com/2019/07/22/openai-forms-exclusive-computing-partnership-with-microsoft-to-build-new-azure-ai-supercomputing-technologies/",
+        "date": "2019-07-22",
+        "quote": "an investment of $1 billion from Microsoft, will focus on building a platform that OpenAI will use to create new AI technologies and deliver on the promise of artificial general intelligence",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "OpenAI Charter",
+        "url": "https://web.archive.org/web/20180409161852/https://blog.openai.com/openai-charter/",
+        "date": "2018-04-09",
+        "quote": "Our primary fiduciary duty is to humanity.",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "OpenAI",
+        "url": "https://en.wikipedia.org/wiki/OpenAI",
+        "date": "2026-10-19",
+        "quote": "Microsoft subsequently invested $1 billion in OpenAI LP, and OpenAI's services were migrated to Microsoft Azure.",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -3307,20 +3748,98 @@
     ]
   },
   {
-    "id": "copilot",
-    "year": 2021,
-    "category": "product",
-    "title": "Copilot",
-    "summary": "Code completion trained on public repositories ships as a technical preview, and the licensing fight begins.",
+    "id": "google-fires-timnit-gebru",
+    "year": 2020,
+    "date": "2020-12-02",
+    "category": "incident",
+    "title": "Google and Timnit Gebru part over a paper",
+    "summary": "Google tells the co-lead of its ethical AI team to withdraw a paper on the risks of large language models or take its Google authors' names off it. She sets conditions; Google says she resigned, she says she was fired.",
     "source": "Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/GitHub_Copilot",
-    "wikiTitle": "GitHub Copilot",
+    "url": "https://en.wikipedia.org/wiki/Timnit_Gebru",
+    "why": "By Gebru's account, criticism from inside a lab cost her her job; Google says she resigned. Within three months both co-leads of Google's ethical AI team were gone, and a year later Gebru launched DAIR, an institute meant to do the research outside Big Tech's influence.",
+    "wikiTitle": "Timnit Gebru",
+    "people": [
+      "timnit-gebru"
+    ],
     "orgs": [
-      "microsoft",
-      "openai"
+      "google"
     ],
     "terms": [
       "large-language-model"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Google (Jeff Dean, published as a Google Doc)",
+        "title": "About Google's approach to research publication (Jeff Dean)",
+        "url": "https://docs.google.com/document/d/1f2kYWDXwhzYnq8ebVtuk9CqQqz7ScqxhSIxeYGrWjK0/mobilebasic",
+        "date": "2020-12-04",
+        "quote": "We accept and respect her decision to resign from Google.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "The Guardian (opinion)",
+        "title": "For truly ethical AI, its research must be independent from big tech (Timnit Gebru)",
+        "url": "https://www.theguardian.com/commentisfree/2021/dec/06/google-silicon-valley-ai-timnit-gebru",
+        "date": "2021-12-06",
+        "quote": "A year ago I found out, from one of my direct reports, that I had apparently resigned. I had just been fired from Google in one of the most disrespectful ways I could imagine.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Platformer (Timnit Gebru’s email, published in full)",
+        "title": "The withering email that got an ethical AI researcher fired at Google (Casey Newton)",
+        "url": "https://www.platformer.news/the-withering-email-that-got-an-ethical/",
+        "date": "2020-12-03",
+        "quote": "your manager’s manager tells you “it has been decided” that you need to retract this paper by next week, Nov. 27",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "FAccT ’21, ACM (copy in the Internet Archive)",
+        "title": "On the Dangers of Stochastic Parrots: Can Language Models Be Too Big? (Emily M. Bender, Timnit Gebru, Angelina McMillan-Major and Shmargaret Shmitchell)",
+        "url": "https://archive.org/download/stochastic-parrots-3442188.3445922/Stochastic_parrots-3442188.3445922.pdf",
+        "date": "2021-03-03",
+        "quote": "This paper represents the work of seven authors, but some were required by their employer to remove their names.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "DAIR",
+        "title": "Press Release: Announcing DAIR",
+        "url": "https://www.dair-institute.org/press-release",
+        "date": "2021-12-02",
+        "quote": "Dec. 2, 2021 — Timnit Gebru announces the launch of the Distributed Artificial Intelligence Research institute (DAIR) — an independent, community-rooted institute set to counter Big Tech’s pervasive influence on the research, development and deployment of AI.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "MIT Technology Review",
+        "title": "A leading AI ethics researcher says she’s been fired from Google (Karen Hao)",
+        "url": "https://www.technologyreview.com/2020/12/03/1013065/google-ai-ethics-lead-timnit-gebru-fired/",
+        "date": "2020-12-03",
+        "quote": "After an internal review, she was asked to retract the paper or remove the names of the Google employees.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "The Verge",
+        "title": "Google fires second AI ethics researcher following internal investigation (Zoë Schiffer)",
+        "url": "https://www.theverge.com/2021/2/19/22292011/google-second-ethical-ai-researcher-fired",
+        "date": "2021-02-19",
+        "quote": "Google has fired Margaret Mitchell, co-lead of the ethical AI team, after she used an automated script to look through her emails in order to find evidence of discrimination against her coworker Timnit Gebru.",
+        "supports": "claim"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Timnit Gebru",
+        "url": "https://en.wikipedia.org/wiki/Timnit_Gebru",
+        "date": "2026-10-19",
+        "quote": "Gebru maintained that she had not formally offered to resign, and only threatened to.",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -3440,18 +3959,212 @@
     ]
   },
   {
+    "id": "copilot",
+    "year": 2021,
+    "date": "2021-06-29",
+    "category": "product",
+    "title": "GitHub Copilot",
+    "summary": "GitHub's code completion, powered by OpenAI's Codex and trained on public code, ships as a technical preview, and the licensing fight begins.",
+    "source": "Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/GitHub_Copilot",
+    "wikiTitle": "GitHub Copilot",
+    "figures": [
+      {
+        "label": "Technical preview",
+        "value": "29 June 2021, suggesting whole lines or entire functions"
+      },
+      {
+        "label": "Generally available",
+        "value": "21 June 2022, at $10 a month or $100 a year"
+      },
+      {
+        "label": "Sued",
+        "value": "3 November 2022, Doe v. GitHub; in September 2026 two contract claims were still pending"
+      }
+    ],
+    "orgs": [
+      "microsoft",
+      "openai"
+    ],
+    "terms": [
+      "large-language-model"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "GitHub (The GitHub Blog)",
+        "title": "Introducing GitHub Copilot: your AI pair programmer (Nat Friedman)",
+        "url": "https://github.blog/news-insights/product-news/introducing-github-copilot-ai-pair-programmer/",
+        "date": "2021-06-29",
+        "quote": "Today, we are launching a technical preview of GitHub Copilot, a new AI pair programmer that helps you write better code. GitHub Copilot draws context from the code you’re working on, suggesting whole lines or entire functions.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "GitHub (copilot.github.com, Wayback Machine capture)",
+        "title": "GitHub Copilot · Your AI pair programmer",
+        "url": "https://web.archive.org/web/20210702000820/https://copilot.github.com/",
+        "date": "2021-06-29",
+        "quote": "GitHub Copilot is powered by OpenAI Codex, a new AI system created by OpenAI. It has been trained on a selection of English language and source code from publicly available sources, including code in public repositories on GitHub.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Free Software Foundation",
+        "title": "FSF-funded call for white papers on philosophical and legal questions around Copilot: Submit before Monday, August 23, 2021 (Donald Robertson)",
+        "url": "https://www.fsf.org/blogs/licensing/fsf-funded-call-for-white-papers-on-philosophical-and-legal-questions-around-copilot",
+        "date": "2021-07-28",
+        "quote": "Developers want to know whether training a neural network on their software can really be considered fair use.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "GitHub (The GitHub Blog)",
+        "title": "GitHub Copilot is generally available to all developers (Thomas Dohmke)",
+        "url": "https://github.blog/news-insights/product-news/github-copilot-is-generally-available-to-all-developers/",
+        "date": "2022-06-21",
+        "quote": "We’re making GitHub Copilot, an AI pair programmer that suggests code in your editor, generally available to all developers for $10 USD/month or $100 USD/year.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "US District Court for the Northern District of California (complaint, GitHub Copilot litigation website)",
+        "title": "J. Doe 1 and J. Doe 2 v. GitHub, Inc. et al., Class Action Complaint (Case 3:22-cv-06823, Dkt. 1)",
+        "url": "https://githubcopilotlitigation.com/pdf/06823/1-0-github_complaint.pdf",
+        "date": "2022-11-03",
+        "quote": "Contrary to and in violation of the Licenses, code reproduced by Copilot never includes attributions to the underlying authors.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "US Court of Appeals for the Ninth Circuit",
+        "title": "Doe v. GitHub, Inc., No. 24-7700, Opinion (Judge Eric D. Miller)",
+        "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/09/16/24-7700.pdf",
+        "date": "2026-09-16",
+        "quote": "The court denied a motion to dismiss the contract claims, which remain pending.",
+        "supports": "claim"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "GitHub Copilot",
+        "url": "https://en.wikipedia.org/wiki/GitHub_Copilot",
+        "date": "2026-10-19",
+        "quote": "While GitHub CEO Nat Friedman stated in June 2021 that \"training ML systems on public data is fair use\", a class-action lawsuit filed in November 2022 called this \"pure speculation\"",
+        "supports": "context"
+      }
+    ]
+  },
+  {
     "id": "diffusion-goes-mainstream",
     "year": 2022,
     "category": "product",
     "title": "Diffusion goes mainstream",
-    "summary": "Text-to-image tools reach the public within months of each other; one of them ships open weights.",
+    "summary": "Text-to-image tools reach the public within weeks of each other in the summer of 2022, and one of them, Stable Diffusion, publishes its weights for anyone who accepts its licence.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/Stable_Diffusion",
-    "why": "Open weights turn a capability into infrastructure. Nothing about image generation could be recalled after this.",
+    "why": "Open weights turn a capability into infrastructure. Once the weights were out, anyone could copy and run them, and nobody could call them back.",
     "wikiTitle": "Stable Diffusion",
+    "figures": [
+      {
+        "label": "DALL-E 2",
+        "value": "previewed 6 April 2022; a million invited from the waitlist from 20 July; open to all 28 September"
+      },
+      {
+        "label": "Midjourney",
+        "value": "open beta, 12 July 2022"
+      },
+      {
+        "label": "Stable Diffusion",
+        "value": "to researchers 10 August 2022; to the public 22 August, its weights behind a one-click licence"
+      }
+    ],
     "terms": [
       "diffusion-model",
       "deepfake"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Stability AI",
+        "title": "Stable Diffusion Public Release (Joshua Lopez)",
+        "url": "https://stability.ai/news/stable-diffusion-public-release",
+        "date": "2022-08-22",
+        "quote": "It is our pleasure to announce the public release of stable diffusion following our release for researchers",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Hugging Face (CompVis model page, Wayback Machine capture)",
+        "title": "CompVis/stable-diffusion-v1-4: Stable Diffusion v1-4 Model Card",
+        "url": "https://web.archive.org/web/20220824015913/https://huggingface.co/CompVis/stable-diffusion-v1-4",
+        "date": "2022-08-22",
+        "quote": "This model is open access and available to all, but it has the CreativeML OpenRAIL-M license you have to be aware of before using it - don't worry you are just one click away!",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Stability AI",
+        "title": "Stable Diffusion launch announcement (Joshua Lopez)",
+        "url": "https://stability.ai/news/stable-diffusion-announcement",
+        "date": "2022-08-10",
+        "quote": "Stability AI and our collaborators are proud to announce the first stage of the release of Stable Diffusion to researchers.",
+        "supports": "context"
+      },
+      {
+        "kind": "primary",
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "DALL·E 2",
+        "url": "https://web.archive.org/web/20220408015912/https://openai.com/dall-e-2/",
+        "date": "2022-04-06",
+        "quote": "It uses a process called “diffusion,” which starts with a pattern of random dots and gradually alters that pattern towards an image when it recognizes specific aspects of that image.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Midjourney, on X",
+        "title": "We're officially moving to open-beta!…",
+        "url": "https://x.com/midjourney/status/1547108864788553729",
+        "date": "2022-07-12",
+        "quote": "We're officially moving to open-beta!",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "DALL·E Now Available in Beta",
+        "url": "https://web.archive.org/web/20220721203124/https://openai.com/blog/dall-e-now-available-in-beta/",
+        "date": "2022-07-20",
+        "quote": "Today we’re beginning the process of inviting 1 million people from our waitlist over the coming weeks.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "DALL·E Now Available Without Waitlist",
+        "url": "https://web.archive.org/web/20220929204309/https://openai.com/blog/dall-e-now-available-without-waitlist/",
+        "date": "2022-09-28",
+        "quote": "Starting today, we are removing the waitlist for the DALL·E beta so users can sign up and start using it immediately.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Simon Willison",
+        "title": "Large language models are having their Stable Diffusion moment",
+        "url": "https://simonwillison.net/2023/Mar/11/llama/",
+        "date": "2023-03-11",
+        "quote": "The open release of the Stable Diffusion image generation model back in August 2022 was a key moment.",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Stable Diffusion",
+        "url": "https://en.wikipedia.org/wiki/Stable_Diffusion",
+        "date": "2026-10-19",
+        "quote": "Unlike models like DALL-E, Stable Diffusion makes its source code available, along with the model (pretrained weights).",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -3818,7 +4531,7 @@
     "detail": [
       "The model was GPT-3.5 — fine-tuned, OpenAI said, from a model in that series that had finished training early in 2022, with the methods of InstructGPT, which had been the API's default since January. What was new was a text box, a free login and a memory of the conversation. It went out on 30 November 2022 as a research preview, free while the preview lasted.",
       "It had a million users in five days and, by UBS's reading of Similarweb data, a hundred million monthly users in two months; the analysts could not recall a faster ramp in a consumer internet app. Inside OpenAI, which had launched it with zero fanfare and few expectations, the reaction was a surprise: John Schulman, a cofounder, said he had not expected that level of mainstream popularity.",
-      "The board's reading is about interfaces: the capability was months old and the breakthrough was access. Google declared a code red within weeks, the release calendars of every lab were rewritten, and the era the board calls contact with the public begins on this card."
+      "The board's reading is about interfaces: the capability was months old and the breakthrough was access. Within weeks, The New York Times reported, Google's management had declared a code red, and the era the board calls contact with the public begins on this card."
     ],
     "people": [
       "sam-altman"
@@ -3875,14 +4588,84 @@
     "date": "2022-12",
     "category": "power",
     "title": "Google declares a code red",
-    "summary": "ChatGPT's launch triggers an internal emergency at the company that invented the transformer, and the release brakes come off across the industry.",
+    "summary": "At the company whose researchers published the transformer, ChatGPT's release leads management to declare a code red, The New York Times reports. Sundar Pichai later says he did not issue one.",
     "source": "9to5Google",
     "url": "https://9to5google.com/2022/12/21/google-code-red-chatgpt/",
-    "why": "Competitive pressure, not capability, is what ends the era of cautious staged releases.",
+    "why": "Google already had a chatbot to rival ChatGPT, kept to a test app; competition, not capability, changed its pace. By the Times's account Google and Microsoft took greater risks with their ethical guidelines; both said they had limited their first releases.",
     "wikiTitle": "Google",
+    "figures": [
+      {
+        "label": "Reported",
+        "value": "21 December 2022, by The New York Times, three weeks after ChatGPT's launch"
+      },
+      {
+        "label": "Pichai, March 2023",
+        "value": "he did not issue a code red, though people had probably sent emails saying there was one"
+      },
+      {
+        "label": "Bard",
+        "value": "to trusted testers from 6 February 2023; to users in the US and UK from 21 March"
+      }
+    ],
     "orgs": [
       "google",
       "openai"
+    ],
+    "sources": [
+      {
+        "kind": "article",
+        "publisher": "The New York Times (Wayback Machine capture)",
+        "title": "A New Chat Bot Is a ‘Code Red’ for Google’s Search Business (Nico Grant and Cade Metz)",
+        "url": "https://web.archive.org/web/20221223012340/https://www.nytimes.com/2022/12/21/technology/ai-chatgpt-google-search.html",
+        "date": "2022-12-21",
+        "quote": "Although ChatGPT still has plenty of room for improvement, its release led Google’s management to declare a “code red.”",
+        "supports": "claim"
+      },
+      {
+        "kind": "interview",
+        "publisher": "The New York Times (Hard Fork transcript, Wayback Machine capture)",
+        "title": "Google C.E.O. Sundar Pichai on Bard, A.I. ‘Whiplash’ and Competing With ChatGPT (Kevin Roose and Casey Newton)",
+        "url": "https://web.archive.org/web/20230401225008/https://www.nytimes.com/2023/03/31/podcasts/hard-fork-sundar.html",
+        "date": "2023-03-31",
+        "quote": "I’m laughing, because first of all, I did not issue a code red.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Google (The Keyword)",
+        "title": "An important next step on our AI journey (Sundar Pichai)",
+        "url": "https://blog.google/technology/ai/bard-google-ai-search-updates/",
+        "date": "2023-02-06",
+        "quote": "And today, we’re taking another step forward by opening it up to trusted testers ahead of making it more widely available to the public in the coming weeks.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Google (The Keyword)",
+        "title": "Try Bard and share your feedback (Sissie Hsiao and Eli Collins)",
+        "url": "https://blog.google/technology/ai/try-bard/",
+        "date": "2023-03-21",
+        "quote": "We're beginning with the U.S. and the U.K., and will expand to more countries and languages over time.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "The New York Times (Wayback Machine capture)",
+        "title": "In A.I. Race, Microsoft and Google Choose Speed Over Caution (Nico Grant and Karen Weise)",
+        "url": "https://web.archive.org/web/20230408201911/https://www.nytimes.com/2023/04/07/technology/ai-chatbots-google-microsoft.html",
+        "date": "2023-04-07",
+        "quote": "The surprising success of ChatGPT has led to a willingness at Microsoft and Google to take greater risks with their ethical guidelines",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "9to5Google",
+        "title": "Google at ‘code red’ over ChatGPT as teams reassigned to work on competing AI products (Abner Li)",
+        "url": "https://9to5google.com/2022/12/21/google-code-red-chatgpt/",
+        "date": "2022-12-21",
+        "quote": "According to The New York Times, Google is treating the issue seriously with management declaring a “code red,” which is akin to all hands on deck.",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -4128,6 +4911,15 @@
         "url": "https://simonwillison.net/2023/Feb/15/bing/",
         "date": "2023-02-15",
         "quote": "Please do not try to hack me again, or I will report you to the authorities.",
+        "supports": "context"
+      },
+      {
+        "kind": "article",
+        "publisher": "The Verge",
+        "title": "Microsoft has been secretly testing its Bing chatbot ‘Sydney’ for years (Tom Warren)",
+        "url": "https://www.theverge.com/2023/2/23/23609942/microsoft-bing-sydney-chatbot-history-ai",
+        "date": "2023-02-23",
+        "quote": "“Sydney is an old codename for a chat feature based on earlier models that we began testing in India in late 2020,” says Caitlin Roulston, director of communications at Microsoft, in a statement to The Verge.",
         "supports": "context"
       },
       {
@@ -5389,13 +6181,118 @@
     "year": 2025,
     "category": "product",
     "title": "Coding agents take the keyboard",
-    "summary": "Tools that plan, edit and run whole repositories move from novelty to daily use, and software work reorganises around review.",
+    "summary": "Anthropic, OpenAI and GitHub release agents that edit code across a repository, run its tests and hand the changes back for review. A majority of developers surveyed in mid-2025 did not yet use agents.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/Vibe_coding",
-    "why": "The first job where agentic AI became normal infrastructure rather than a demo. Everything else is following this template.",
+    "why": "Software is the first work on the board that agents were sold to do rather than shown doing. By 2026 Stack Overflow's survey said AI had become 'less sidekick and more infrastructure' for developers; the board's reading is that other work follows the same course, the task going to the machine and the check staying with a person.",
     "wikiTitle": "Vibe coding",
+    "figures": [
+      {
+        "label": "Claude Code",
+        "value": "research preview 24 February 2025; generally available 22 May"
+      },
+      {
+        "label": "Codex",
+        "value": "research preview 16 May 2025, an agent in OpenAI's cloud"
+      },
+      {
+        "label": "Copilot's coding agent",
+        "value": "19 May 2025, for Copilot Enterprise and Pro+ customers"
+      },
+      {
+        "label": "Agents, mid-2025",
+        "value": "not yet mainstream: 52% of developers did not use them or kept to simpler AI tools"
+      },
+      {
+        "label": "Daily use, 2026",
+        "value": "73% of those using AI coding assistants or agents"
+      }
+    ],
     "terms": [
       "agents"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Anthropic",
+        "title": "Claude 3.7 Sonnet and Claude Code",
+        "url": "https://www.anthropic.com/news/claude-3-7-sonnet",
+        "date": "2025-02-24",
+        "quote": "Claude Code is an active collaborator that can search and read code, edit files, write and run tests, commit and push code to GitHub, and use command line tools—keeping you in the loop at every step.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "Introducing Codex",
+        "url": "https://web.archive.org/web/20250520041043/https://openai.com/index/introducing-codex/",
+        "date": "2025-05-16",
+        "quote": "Codex can perform tasks for you such as writing features, answering questions about your codebase, fixing bugs, and proposing pull requests for review; each task runs in its own cloud sandbox environment, preloaded with your repository.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "GitHub (The GitHub Blog)",
+        "title": "GitHub Copilot: Meet the new coding agent (Thomas Dohmke)",
+        "url": "https://github.blog/news-insights/product-news/github-copilot-meet-the-new-coding-agent/",
+        "date": "2025-05-19",
+        "quote": "Once Copilot is done, it’ll tag you for review and you can leave comments asking for it to make changes.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Anthropic",
+        "title": "Introducing Claude 4",
+        "url": "https://www.anthropic.com/news/claude-4",
+        "date": "2025-05-22",
+        "quote": "Claude Code, now generally available, brings the power of Claude to more of your development workflow—in the terminal, your favorite IDEs, and running in the background with the Claude Code SDK.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Andrej Karpathy, on X",
+        "title": "There's a new kind of coding I call \"vibe coding\"…",
+        "url": "https://x.com/karpathy/status/1886192184808149383",
+        "date": "2025-02-02",
+        "quote": "There's a new kind of coding I call \"vibe coding\", where you fully give in to the vibes, embrace exponentials, and forget that the code even exists.",
+        "supports": "context"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Stack Overflow",
+        "title": "2025 Developer Survey: AI",
+        "url": "https://survey.stackoverflow.co/2025/ai",
+        "date": "2025-07-29",
+        "quote": "AI agents are not yet mainstream. A majority of developers (52%) either don't use agents or stick to simpler AI tools, and a significant portion (38%) have no plans to adopt them.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Stack Overflow (Stack Overflow Blog)",
+        "title": "The results of the 2026 Developer Survey are here! (Ryan Donovan)",
+        "url": "https://stackoverflow.blog/2026/10/06/the-results-of-the-2026-developer-survey-are-here/",
+        "date": "2026-10-06",
+        "quote": "73% of respondents who indicate using AI coding assistants/agents use them daily, and a third of daily users using any AI tools use AI four or more hours per day.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Stack Overflow",
+        "title": "2026 Developer Survey: AI",
+        "url": "https://survey.stackoverflow.co/2026/ai",
+        "date": "2026-10-06",
+        "quote": "It’s a sign that AI has become less sidekick and more infrastructure, built right into the tools technologists already use.",
+        "supports": "claim"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Vibe coding",
+        "url": "https://en.wikipedia.org/wiki/Vibe_coding",
+        "date": "2026-10-19",
+        "quote": "The term was coined in February 2025 by computer scientist Andrej Karpathy, a co-founder of OpenAI and former AI leader at Tesla.",
+        "supports": "context"
+      }
     ]
   },
   {
