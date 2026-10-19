@@ -2212,7 +2212,7 @@
     "year": 2006,
     "category": "research",
     "title": "Deep networks become trainable",
-    "summary": "Hinton's layer-wise pretraining reopens depth as viable and rebrands the field “deep learning”.",
+    "summary": "Hinton's layer-wise pretraining makes deep networks trainable. The name deep learning was older; by Hinton's own account, its popularity began with the 2006 paper on deep belief nets.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/Deep_learning",
     "wikiTitle": "Deep learning",
@@ -2221,6 +2221,89 @@
     ],
     "terms": [
       "deep-learning"
+    ],
+    "sources": [
+      {
+        "kind": "paper",
+        "publisher": "Neural Computation (author's copy, University of Toronto)",
+        "title": "A fast learning algorithm for deep belief nets (Geoffrey E. Hinton, Simon Osindero and Yee-Whye Teh)",
+        "url": "https://www.cs.toronto.edu/~hinton/absps/fastnc.pdf",
+        "date": "2006-07-01",
+        "quote": "There is a fast, greedy learning algorithm that can find a fairly good set of parameters quickly, even in deep networks with millions of parameters and many hidden layers.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "Science (copy hosted by the University of Toronto)",
+        "title": "Reducing the Dimensionality of Data with Neural Networks (G. E. Hinton and R. R. Salakhutdinov)",
+        "url": "https://www.cs.toronto.edu/~hinton/absps/science.pdf",
+        "date": "2006-07-28",
+        "quote": "If the initial weights are close to a good solution, gradient descent works well, but finding such initial weights requires a very different type of algorithm that learns one layer of features at a time.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "Advances in Neural Information Processing Systems 19 (NIPS 2006)",
+        "title": "Greedy Layer-Wise Training of Deep Networks (Yoshua Bengio, Pascal Lamblin, Dan Popovici and Hugo Larochelle)",
+        "url": "https://papers.nips.cc/paper/2006/file/5da713a690c067105aeb2fae32403405-Paper.pdf",
+        "date": "2006-12-04",
+        "quote": "However, until recently it was not clear how to train such deep networks, since gradient-based optimization starting from random initialization appears to often get stuck in poor solutions.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Connectionists mailing list (Carnegie Mellon University archive)",
+        "title": "Who introduced the term \"Deep Learning\" to NNs? (Geoffrey Hinton)",
+        "url": "https://mailman.srv.cs.cmu.edu/pipermail/connectionists/2015-March/027852.html",
+        "date": "2015-03-12",
+        "quote": "I think the current popularity of the term started with the paper by Hinton Osindero and Teh in 2006 called \"A fast learning algorithm for deep belief nets\".",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Connectionists mailing list (Carnegie Mellon University archive)",
+        "title": "NIPS satellite meeting on deep learning (Yoshua Bengio)",
+        "url": "https://mailman.srv.cs.cmu.edu/pipermail/connectionists/2007-October/023115.html",
+        "date": "2007-10-25",
+        "quote": "This workshop is intended to bring together researchers interested in the question of deep learning in order to review the current algorithms' principles and successes",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "Proceedings of AAAI-86 (cdn.aaai.org, Wayback Machine capture)",
+        "title": "Learning While Searching in Constraint-Satisfaction-Problems (Rina Dechter)",
+        "url": "https://web.archive.org/web/20261002120925/https://cdn.aaai.org/AAAI/1986/AAAI86-029.pdf",
+        "date": "1986-08-11",
+        "quote": "in most cases both performance measures improve as we move from shallow learning to deep learning and from first-order to second-order.",
+        "supports": "context"
+      },
+      {
+        "kind": "paper",
+        "publisher": "Nature (copy hosted by the University of Toronto)",
+        "title": "Deep learning (Yann LeCun, Yoshua Bengio and Geoffrey Hinton)",
+        "url": "https://www.cs.toronto.edu/~hinton/absps/NatureDeepReview.pdf",
+        "date": "2015-05-28",
+        "quote": "Interest in deep feedforward networks was revived around 2006",
+        "supports": "context"
+      },
+      {
+        "kind": "paper",
+        "publisher": "Advances in Neural Information Processing Systems 25 (NIPS 2012)",
+        "title": "ImageNet Classification with Deep Convolutional Neural Networks (Krizhevsky, Sutskever, Hinton)",
+        "url": "https://papers.nips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf",
+        "date": "2012-12-03",
+        "quote": "To simplify our experiments, we did not use any unsupervised pre-training even though we expect that it will help",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Deep learning",
+        "url": "https://en.wikipedia.org/wiki/Deep_learning",
+        "date": "2026-10-19",
+        "quote": "The term deep learning was introduced to the machine learning community by Rina Dechter in 1986, and to artificial neural networks by Igor Aizenberg and colleagues in 2000, in the context of Boolean threshold neurons.",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -2232,7 +2315,7 @@
     "summary": "Netflix posts 100 million anonymised ratings and offers $1M to beat its recommender by ten percent. Thousands of teams enter; the bar takes nearly three years to clear, and the winning blend never ships.",
     "source": "Netflix (netflixprize.com, Wayback Machine capture)",
     "url": "https://web.archive.org/web/20100106185508/http://www.netflixprize.com//rules",
-    "why": "The first proof at scale that a public dataset, a fixed metric, a live leaderboard and a cheque can mobilise a field. Every benchmark race since runs on this template. It also showed the template's limit: the entry that wins the leaderboard is rarely the one you can ship.",
+    "why": "The first proof at scale that a public dataset, a fixed metric, a live leaderboard and a cheque can mobilise a field. Many benchmark races since run on this template; ImageNet's ran on PASCAL VOC's instead, with no live leaderboard and no target. It also showed the template's limit: the entry that wins the leaderboard is rarely the one you can ship.",
     "wikiTitle": "Netflix Prize",
     "terms": [
       "benchmark",
@@ -2374,7 +2457,7 @@
     "year": 2009,
     "category": "research",
     "title": "ImageNet",
-    "summary": "Fei-Fei Li's fourteen-million-image dataset gives the field a problem hard enough to be worth winning.",
+    "summary": "Fei-Fei Li's group at Princeton publishes ImageNet: 3.2 million labelled images, on the way to fourteen million, and a problem hard enough to be worth winning.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/ImageNet",
     "why": "Benchmarks organise science. Whoever defines the test defines the decade.",
@@ -2382,7 +2465,7 @@
     "figures": [
       {
         "label": "Images",
-        "value": "about 14 million, in some 22,000 categories"
+        "value": "3.2 million in 5,247 categories in 2009; 14,197,122 in 21,841 by 2014"
       },
       {
         "label": "Labelled by",
@@ -2394,7 +2477,7 @@
       }
     ],
     "detail": [
-      "The idea was unfashionable: the field was working on algorithms and treated data as the boring part. Li's group built a dataset organised by the WordNet hierarchy, with hundreds of photographs for each of tens of thousands of nouns, labelled by crowdworkers. The paper was a poster at CVPR 2009. The annual competition on a thousand-category subset began the following year, and in 2012 a neural network won it by a margin that ended the argument.",
+      "In Li's telling the idea was unfashionable: the field was working on algorithms, and friendly colleagues advised her to do something more useful for her tenure. Her group at Princeton built a dataset organised by the WordNet hierarchy, with hundreds of photographs for each of tens of thousands of nouns, labelled by crowdworkers. CVPR 2009 gave the paper a poster, not a talk, Li recalls. The annual competition on a thousand-category subset began the following year, and in 2012 a deep convolutional network won it with 15.3% top-5 error to the runner-up's 26.2%. Until that competition, LeCun, Bengio and Hinton wrote later, mainstream computer vision had largely forsaken such networks.",
       "The board's reading is that benchmarks organise science: whoever defines the test defines the decade. The maths lead is the same observation applied to a different subject, with the tests falling faster each time."
     ],
     "people": [
@@ -2406,6 +2489,89 @@
     "terms": [
       "benchmark",
       "deep-learning"
+    ],
+    "sources": [
+      {
+        "kind": "paper",
+        "publisher": "IEEE Conference on Computer Vision and Pattern Recognition, CVPR 2009 (copy at image-net.org)",
+        "title": "ImageNet: A Large-Scale Hierarchical Image Database (Jia Deng, Wei Dong, Richard Socher, Li-Jia Li, Kai Li and Li Fei-Fei)",
+        "url": "https://www.image-net.org/static_files/papers/imagenet_cvpr09.pdf",
+        "date": "2009-06-20",
+        "quote": "This paper offers a detailed analysis of ImageNet in its current state: 12 subtrees with 5247 synsets and 3.2 million images in total.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "International Journal of Computer Vision (arXiv)",
+        "title": "ImageNet Large Scale Visual Recognition Challenge (Olga Russakovsky, Jia Deng and others)",
+        "url": "https://arxiv.org/pdf/1409.0575",
+        "date": "2015-01-30",
+        "quote": "As a result, ImageNet contains 14,197,122 annotated images organized by the semantic hierarchy of WordNet (as of August 2014).",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "ImageNet (image-net.org)",
+        "title": "ImageNet: Where have we been? Where are we going? (Li Fei-Fei and Jia Deng, slides for the CVPR 2017 workshop)",
+        "url": "https://www.image-net.org/static_files/files/imagenet_ilsvrc2017_v1.0.pdf",
+        "date": "2017-07-26",
+        "quote": "Crowdsourced Labor 49k Workers from 167 Countries 2007-2010",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "ImageNet (image-net.org)",
+        "title": "ImageNet Large Scale Visual Recognition Challenge 2010 (ILSVRC2010)",
+        "url": "https://www.image-net.org/challenges/LSVRC/2010/",
+        "date": "2010-03-18",
+        "quote": "The training data, the subset of ImageNet containing the 1000 categories and 1.2 million images, will be packaged for easy downloading.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "Advances in Neural Information Processing Systems 25 (NIPS 2012)",
+        "title": "ImageNet Classification with Deep Convolutional Neural Networks (Krizhevsky, Sutskever, Hinton)",
+        "url": "https://papers.nips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf",
+        "date": "2012-12-03",
+        "quote": "achieved a winning top-5 test error rate of 15.3%, compared to 26.2% achieved by the second-best entry",
+        "supports": "claim"
+      },
+      {
+        "kind": "video",
+        "publisher": "TED",
+        "title": "How we're teaching computers to understand pictures (Fei-Fei Li, TED2015, transcript)",
+        "url": "https://www.ted.com/talks/fei_fei_li_how_we_re_teaching_computers_to_understand_pictures/transcript",
+        "date": "2015-03-23",
+        "quote": "Some very friendly colleagues advised me to do something more useful for my tenure, and we were constantly struggling for research funding.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Quartz (Wayback Machine capture)",
+        "title": "The data that transformed AI research—and possibly the world (Dave Gershgorn)",
+        "url": "https://web.archive.org/web/20170804013913/https://qz.com/1034972/the-data-that-changed-the-direction-of-ai-research-and-possibly-the-world/",
+        "date": "2017-07-26",
+        "quote": "Li recalls that CVPR, a leading conference in computer vision research, only allowed a poster, instead of an oral presentation, and the team handed out ImageNet-branded pens to drum up interest.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "Nature (copy hosted by the University of Toronto)",
+        "title": "Deep learning (Yann LeCun, Yoshua Bengio and Geoffrey Hinton)",
+        "url": "https://www.cs.toronto.edu/~hinton/absps/NatureDeepReview.pdf",
+        "date": "2015-05-28",
+        "quote": "Despite these successes, ConvNets were largely forsaken by the mainstream computer-vision and machine-learning communities until the ImageNet competition in 2012.",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "ImageNet",
+        "url": "https://en.wikipedia.org/wiki/ImageNet",
+        "date": "2026-10-19",
+        "quote": "As an assistant professor at Princeton, Li assembled a team of researchers to work on the ImageNet project.",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -2824,9 +2990,15 @@
     "year": 2014,
     "category": "research",
     "title": "Sequence to sequence",
-    "summary": "Encoder–decoder models learn translation end to end and retire decades of hand-built pipelines.",
+    "summary": "Two LSTMs, one reading an English sentence and one writing it in French, learn translation end to end and beat a phrase-based baseline. Google starts moving Translate onto neural networks two years later.",
     "source": "arXiv",
     "url": "https://arxiv.org/abs/1409.3215",
+    "figures": [
+      {
+        "label": "BLEU, WMT 2014 English–French",
+        "value": "34.8, against 33.3 for a phrase-based system; 36.5 reranking that system's output"
+      }
+    ],
     "people": [
       "ilya-sutskever"
     ],
@@ -2836,6 +3008,71 @@
     "terms": [
       "recurrent-network",
       "attention"
+    ],
+    "sources": [
+      {
+        "kind": "paper",
+        "publisher": "arXiv",
+        "title": "Sequence to Sequence Learning with Neural Networks (Ilya Sutskever, Oriol Vinyals and Quoc V. Le)",
+        "url": "https://arxiv.org/abs/1409.3215",
+        "date": "2014-09-10",
+        "quote": "Our method uses a multilayered Long Short-Term Memory (LSTM) to map the input sequence to a vector of a fixed dimensionality, and then another deep LSTM to decode the target sequence from the vector.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv (full text, version 3)",
+        "title": "Sequence to Sequence Learning with Neural Networks (Ilya Sutskever, Oriol Vinyals and Quoc V. Le)",
+        "url": "https://arxiv.org/pdf/1409.3215",
+        "date": "2014-12-14",
+        "quote": "While the decoded translations of the LSTM ensemble do not outperform the best WMT’14 system, it is the first time that a pure neural translation system outperforms a phrase-based SMT baseline",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Google Research blog",
+        "title": "A Neural Network for Machine Translation, at Production Scale (Quoc V. Le and Mike Schuster)",
+        "url": "https://research.google/blog/a-neural-network-for-machine-translation-at-production-scale/",
+        "date": "2016-09-27",
+        "quote": "The Google Translate mobile and web apps are now using GNMT for 100% of machine translations from Chinese to English—about 18 million translations per day.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv",
+        "title": "Google's Neural Machine Translation System: Bridging the Gap between Human and Machine Translation (Yonghui Wu and others)",
+        "url": "https://arxiv.org/abs/1609.08144",
+        "date": "2016-09-26",
+        "quote": "These issues have hindered NMT's use in practical deployments and services, where both accuracy and speed are essential.",
+        "supports": "context"
+      },
+      {
+        "kind": "paper",
+        "publisher": "EMNLP 2013 (ACL Anthology)",
+        "title": "Recurrent Continuous Translation Models (Nal Kalchbrenner and Phil Blunsom)",
+        "url": "https://aclanthology.org/D13-1176.pdf",
+        "date": "2013-10-18",
+        "quote": "that are purely based on continuous representations for words, phrases and sentences and do not rely on alignments or phrasal translation units.",
+        "supports": "context"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv",
+        "title": "Learning Phrase Representations using RNN Encoder-Decoder for Statistical Machine Translation (Kyunghyun Cho and others)",
+        "url": "https://arxiv.org/abs/1406.1078",
+        "date": "2014-06-03",
+        "quote": "In this paper, we propose a novel neural network model called RNN Encoder-Decoder that consists of two recurrent neural networks (RNN).",
+        "supports": "context"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv",
+        "title": "Neural Machine Translation by Jointly Learning to Align and Translate (Dzmitry Bahdanau, Kyunghyun Cho and Yoshua Bengio)",
+        "url": "https://arxiv.org/abs/1409.0473",
+        "date": "2014-09-01",
+        "quote": "propose to extend this by allowing a model to automatically (soft-)search for parts of a source sentence that are relevant to predicting a target word",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -2957,10 +3194,10 @@
     "date": "2014-06",
     "category": "research",
     "title": "Generative adversarial networks",
-    "summary": "Two networks trained against each other start producing faces that were never photographed.",
+    "summary": "Two networks are trained against each other, one forging samples and one catching forgeries. The first samples are digits, faces and objects; in 2017 a descendant makes faces 1,024 pixels square.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/Generative_adversarial_network",
-    "why": "Synthetic media becomes technically trivial nine years before the law notices.",
+    "why": "The paper's own analogy is counterfeiters and the police, each improving until the counterfeits cannot be told from the real thing. For faces, by 2022, they could not: people shown faces from StyleGAN2 did no better than chance.",
     "wikiTitle": "Generative adversarial network",
     "figures": [
       {
@@ -2974,6 +3211,62 @@
     "terms": [
       "gan",
       "deepfake"
+    ],
+    "sources": [
+      {
+        "kind": "paper",
+        "publisher": "arXiv",
+        "title": "Generative Adversarial Networks (Ian J. Goodfellow, Jean Pouget-Abadie, Mehdi Mirza, Bing Xu, David Warde-Farley, Sherjil Ozair, Aaron Courville and Yoshua Bengio)",
+        "url": "https://arxiv.org/abs/1406.2661",
+        "date": "2014-06-10",
+        "quote": "We propose a new framework for estimating generative models via an adversarial process, in which we simultaneously train two models: a generative model G that captures the data distribution, and a discriminative model D that estimates the probability that a sample came from the training data rather than G.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "Advances in Neural Information Processing Systems 27 (NIPS 2014)",
+        "title": "Generative Adversarial Nets (Ian J. Goodfellow and others)",
+        "url": "https://papers.nips.cc/paper_files/paper/2014/file/f033ed80deb0234979a61f95710dbe25-Paper.pdf",
+        "date": "2014-12-08",
+        "quote": "We trained adversarial nets an a range of datasets including MNIST[21], the Toronto Face Database (TFD) [27], and CIFAR-10 [19].",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv (ICLR 2018)",
+        "title": "Progressive Growing of GANs for Improved Quality, Stability, and Variation (Tero Karras, Timo Aila, Samuli Laine and Jaakko Lehtinen)",
+        "url": "https://arxiv.org/abs/1710.10196",
+        "date": "2017-10-27",
+        "quote": "This both speeds the training up and greatly stabilizes it, allowing us to produce images of unprecedented quality, e.g., CelebA images at 1024^2.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "Proceedings of the National Academy of Sciences (PubMed Central copy)",
+        "title": "AI-synthesized faces are indistinguishable from real faces and more trustworthy (Sophie J. Nightingale and Hany Farid)",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8872790/",
+        "date": "2022-02-14",
+        "quote": "Our evaluation of the photorealism of AI-synthesized faces indicates that synthesis engines have passed through the uncanny valley and are capable of creating faces that are indistinguishable—and more trustworthy—than real faces.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Meta (Engineering at Meta)",
+        "title": "FAIR turns five: What we've accomplished and where we're headed",
+        "url": "https://engineering.fb.com/2018/12/05/ai-research/fair-fifth-anniversary/",
+        "date": "2018-12-05",
+        "quote": "But as promising as GANs looked, they had been demonstrated only on “toy” problems.",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Generative adversarial network",
+        "url": "https://en.wikipedia.org/wiki/Generative_adversarial_network",
+        "date": "2026-10-19",
+        "quote": "The concept was initially developed by Ian Goodfellow and his colleagues at Université de Montréal in June 2014.",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -4587,6 +4880,165 @@
     ]
   },
   {
+    "id": "anthropic-founded-by-departing-openai-staff",
+    "year": 2021,
+    "date": "2021-01",
+    "category": "power",
+    "title": "Anthropic founded by departing OpenAI staff",
+    "summary": "A group of senior staff leaves over disagreements about direction and safety, and starts a rival with the same argument built in.",
+    "source": "Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Anthropic",
+    "why": "OpenAI was founded, in Musk's word, as a counterweight to Google; five years on it had a counterweight of its own. How to build safely had become a reason to found a company.",
+    "wikiTitle": "Anthropic",
+    "figures": [
+      {
+        "label": "Founders",
+        "value": "Dario and Daniela Amodei and colleagues from OpenAI's research and policy teams"
+      },
+      {
+        "label": "First round",
+        "value": "$124 million, May 2021"
+      },
+      {
+        "label": "Structure",
+        "value": "public benefit corporation"
+      }
+    ],
+    "detail": [
+      "Anthropic's founders included Dario Amodei, OpenAI's vice-president of research, who by the GPT-3 paper's account designed and led its research, and by OpenAI's had helped build GPT-2; Jared Kaplan, who co-led the scaling-laws paper; and Jack Clark, OpenAI's policy director. OpenAI announced Amodei's departure on 29 December 2020, saying the group had told it their new project would probably focus less on product development and more on research. Why they left is told two ways. The Financial Times reported in 2021 that the split followed differences over direction after Microsoft's $1 billion investment of 2019; Amodei has since called that account false, while granting that how to do the deal was much discussed, and says the group left together to pursue two beliefs: that scaling would keep making models better, and that safety had to be added to it. They founded a public benefit corporation that said it would do safety research on large-scale models of its own. Its chatbot, Claude, was offered more widely in March 2023, after a closed alpha.",
+      "The board's reading is about a mechanism: a lab founded as a counterweight got a counterweight of its own, and an argument over how to build safely became a reason to found a company. On the gaming-the-test lead Anthropic is the lab that publishes its own models' failures, which is the founding argument kept."
+    ],
+    "people": [
+      "dario-amodei"
+    ],
+    "orgs": [
+      "anthropic",
+      "openai"
+    ],
+    "terms": [
+      "alignment"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "Organizational Update from OpenAI",
+        "url": "https://web.archive.org/web/20201229190920/https://openai.com/blog/organizational-update/",
+        "date": "2020-12-29",
+        "quote": "He and a handful of OpenAI colleagues are planning a new project, which they tell us will probably focus less on product development and more on research.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Anthropic",
+        "title": "Anthropic raises $124 million to build more reliable, general AI systems",
+        "url": "https://www.anthropic.com/news/anthropic-raises-124-million-to-build-more-reliable-general-ai-systems",
+        "date": "2021-05-28",
+        "quote": "Anthropic, an AI safety and research company, has raised $124 million in a Series A.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "US District Court for the Northern District of California (RECAP copy, CourtListener)",
+        "title": "Bartz v. Anthropic PBC, Order on Fair Use (Dkt. 231)",
+        "url": "https://storage.courtlistener.com/recap/gov.uscourts.cand.434709/gov.uscourts.cand.434709.231.0.pdf",
+        "date": "2025-06-23",
+        "quote": "Defendant Anthropic PBC is an AI software firm founded by former OpenAI employees in January 2021.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Anthropic",
+        "title": "The Long-Term Benefit Trust",
+        "url": "https://www.anthropic.com/news/the-long-term-benefit-trust",
+        "date": "2023-09-19",
+        "quote": "One governance feature we have already shared is that Anthropic is a Delaware Public Benefit Corporation, or PBC.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Anthropic",
+        "title": "Introducing Claude",
+        "url": "https://www.anthropic.com/news/introducing-claude",
+        "date": "2023-03-14",
+        "quote": "After working for the past few months with key partners like Notion, Quora, and DuckDuckGo in a closed alpha, we’ve been able to carefully test out our systems in the wild, and are ready to offer Claude more broadly",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv (OpenAI)",
+        "title": "Language Models are Few-Shot Learners (Tom B. Brown et al.)",
+        "url": "https://arxiv.org/pdf/2005.14165",
+        "date": "2020-05-28",
+        "quote": "Dario Amodei designed and led the research.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv (OpenAI)",
+        "title": "Scaling Laws for Neural Language Models (Jared Kaplan, Sam McCandlish et al.)",
+        "url": "https://arxiv.org/pdf/2001.08361",
+        "date": "2020-01-23",
+        "quote": "Contributions: Jared Kaplan and Sam McCandlish led the research.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Jack Clark (Import AI)",
+        "title": "About",
+        "url": "https://jack-clark.net/about/",
+        "date": "2026-10-19",
+        "quote": "Prior to Anthropic, Jack was the Policy Director of OpenAI.",
+        "supports": "claim"
+      },
+      {
+        "kind": "interview",
+        "publisher": "Fortune (Jeremy Kahn interviewing Dario Amodei, Brainstorm Tech)",
+        "title": "Anthropic’s CEO says why he quit his job at OpenAI to start a competitor that just received billions from Amazon and Google",
+        "url": "https://fortune.com/2023/09/26/anthropic-ceo-interview-quit-open-ai-amazon-investment/",
+        "date": "2023-09-26",
+        "quote": "And the second was the idea that you needed something in addition to just scaling the models up, which is alignment or safety.",
+        "supports": "claim"
+      },
+      {
+        "kind": "podcast",
+        "publisher": "Lex Fridman Podcast #452 (transcript)",
+        "title": "Transcript for Dario Amodei: Anthropic CEO on Claude, AGI & the Future of AI & Humanity",
+        "url": "https://lexfridman.com/dario-amodei-transcript/",
+        "date": "2024-11-11",
+        "quote": "People say we left because we didn’t like the deal with Microsoft. False.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Turing Post (Ksenia Se), quoting the Financial Times of 28 May 2021",
+        "title": "Anthropic Chronicle: Unveiling the Secrets of OpenAI's Rival",
+        "url": "https://www.turingpost.com/p/anthropic",
+        "date": "2023-06-15",
+        "quote": "According to Financial Times, “the schism followed differences over the group’s direction after it took a landmark $1bn investment from Microsoft in 2019.”",
+        "supports": "context"
+      },
+      {
+        "kind": "article",
+        "publisher": "TechCrunch (Devin Coldewey)",
+        "title": "Anthropic is the new AI research outfit from OpenAI’s Dario Amodei, and it has $124M to burn",
+        "url": "https://techcrunch.com/2021/05/28/anthropic-is-the-new-ai-research-outfit-from-openais-dario-amodei-and-it-has-124m-to-burn/",
+        "date": "2021-05-28",
+        "quote": "The company is a public benefit corporation",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Anthropic",
+        "url": "https://en.wikipedia.org/wiki/Anthropic",
+        "date": "2026-10-19",
+        "quote": "Anthropic was founded in January 2021 by seven former employees of OpenAI, including siblings Daniela Amodei and Dario Amodei, the latter of whom was OpenAI's Vice President of Research.",
+        "supports": "context"
+      }
+    ]
+  },
+  {
     "id": "grade-school-maths-becomes-a-benchmark",
     "year": 2021,
     "date": "2021-03",
@@ -4644,46 +5096,6 @@
         "quote": "we introduce MATH, a new dataset of 12,500 challenging competition mathematics problems.",
         "supports": "claim"
       }
-    ]
-  },
-  {
-    "id": "anthropic-founded-by-departing-openai-staff",
-    "year": 2021,
-    "date": "2021-05",
-    "category": "power",
-    "title": "Anthropic founded by departing OpenAI staff",
-    "summary": "A group of senior researchers leaves over disagreements about direction and safety, and starts a rival with the same argument built in.",
-    "source": "Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/Anthropic",
-    "why": "Every major lab is now a splinter of another. Safety disagreement became the industry's main mechanism of company formation.",
-    "wikiTitle": "Anthropic",
-    "figures": [
-      {
-        "label": "Founders",
-        "value": "Dario and Daniela Amodei and colleagues from OpenAI's research and policy teams"
-      },
-      {
-        "label": "First round",
-        "value": "$124 million, May 2021"
-      },
-      {
-        "label": "Structure",
-        "value": "public benefit corporation"
-      }
-    ],
-    "detail": [
-      "The group that left had led OpenAI's work on GPT-2, GPT-3 and the scaling laws, and its policy team. They said the disagreement was about the direction of the company after the Microsoft deal and about how seriously safety research was taken; they founded a lab with a public-benefit structure and a stated intention to do that research alongside frontier models. The models followed two years later.",
-      "The board's reading is about a mechanism: every major lab is now a splinter of another, and safety disagreement became the industry's main way of forming companies. On the gaming-the-test lead Anthropic is the lab that publishes its own models' failures, which is the founding argument kept."
-    ],
-    "people": [
-      "dario-amodei"
-    ],
-    "orgs": [
-      "anthropic",
-      "openai"
-    ],
-    "terms": [
-      "alignment"
     ]
   },
   {
@@ -5429,11 +5841,67 @@
     "year": 2023,
     "category": "culture",
     "title": "Hollywood strikes settle AI terms",
-    "summary": "Writers and performers win consent and compensation rules for synthetic likeness and generated scripts.",
+    "summary": "Writers win rules that AI-generated material is neither literary nor source material and cannot cut their credit or pay; performers win consent and payment for digital replicas of their voice and likeness.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/2023_Writers_Guild_of_America_strike",
-    "why": "The first major labour contract to price AI use directly. A template other sectors will copy.",
-    "wikiTitle": "2023 Writers Guild of America strike"
+    "why": "The performers' contract put a price on AI use: a digital replica is paid at the performer's rate for the production days they would have worked. The writers' terms run the other way: generated material is nobody's writing, so it cannot cut a writer's credit or fee.",
+    "wikiTitle": "2023 Writers Guild of America strike",
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Writers Guild of America (WGA Contract 2023)",
+        "title": "Summary of the 2023 WGA MBA",
+        "url": "https://www.wgacontract2023.org/the-campaign/summary-of-the-2023-wga-mba",
+        "date": "2023-09-26",
+        "quote": "AI can’t write or rewrite literary material, and AI-generated material will not be considered source material under the MBA, meaning that AI-generated material can’t be used to undermine a writer’s credit or separated rights.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Writers Guild of America West",
+        "title": "Know Your Rights: Artificial Intelligence",
+        "url": "https://www.wga.org/contracts/know-your-rights/artificial-intelligence",
+        "date": "2025-12-18",
+        "quote": "If a company gives a writer written material produced by GAI that hasn’t been previously published or exploited, that material doesn’t count as assigned material (for compensation purposes) or source material (for determining credits)",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "SAG-AFTRA (Wayback Machine capture)",
+        "title": "SAG-AFTRA Members Approve 2023 TV/Theatrical Contracts Tentative Agreement",
+        "url": "https://web.archive.org/web/20231215233828/https://www.sagaftra.org/sag-aftra-members-approve-2023-tvtheatrical-contracts-tentative-agreement",
+        "date": "2023-12-05",
+        "quote": "Additionally, the deal establishes detailed informed consent and compensation guardrails for the use of AI",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "SAG-AFTRA (Wayback Machine capture)",
+        "title": "TV/Theatrical Contracts 2023: Summary of Tentative Agreement",
+        "url": "https://web.archive.org/web/20231207201036/https://www.sagaftra.org/files/sa_documents/TV-Theatrical_23_Summary_Agreement_Final.pdf",
+        "date": "2023-11-16",
+        "quote": "Performer’s pro rata daily rate or the minimum rate, whichever is higher, for the number of production days that Producer determines the performer would have been required to work had the performer instead performed those scene(s) in person",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Writers Guild of America (WGA Contract 2023)",
+        "title": "Negotiations Update: End of the Strike, Deal Points, Member Meetings",
+        "url": "https://www.wgacontract2023.org/announcements/negotiations-update-end-of-the-strike-deal-points-member-meetings",
+        "date": "2023-09-26",
+        "quote": "The WGAW Board and WGAE Council also voted unanimously to lift the restraining order and end the strike as of 12:01 am PT/3:01 am ET on Wednesday, September 27th.",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "2023 Writers Guild of America strike",
+        "url": "https://en.wikipedia.org/wiki/2023_Writers_Guild_of_America_strike",
+        "date": "2026-10-19",
+        "quote": "After a tentative agreement, union leadership voted to end the strike starting from September 27, 2023.",
+        "supports": "context"
+      }
+    ]
   },
   {
     "id": "llama-leaks",
@@ -5670,7 +6138,7 @@
     "summary": "Thousands sign a call for a six-month halt on training runs beyond GPT-4. Nobody pauses.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/Pause_Giant_AI_Experiments:_An_Open_Letter",
-    "why": "It proved the field could not coordinate voluntarily, which is the argument regulators used next.",
+    "why": "No laboratory paused. The letter's fallback, that governments step in, came that autumn in softer form: an executive order and an international declaration, not a moratorium.",
     "wikiTitle": "Pause Giant AI Experiments: An Open Letter",
     "figures": [
       {
@@ -5948,8 +6416,8 @@
     "year": 2023,
     "date": "2023-11",
     "category": "policy",
-    "title": "Bletchley and the executive orders",
-    "summary": "Twenty-eight countries sign a joint declaration on frontier risk; national testing bodies follow.",
+    "title": "Bletchley and the executive order",
+    "summary": "Two days after Biden's executive order on AI, twenty-eight countries and the EU sign the Bletchley Declaration on frontier AI risk. Britain launches an AI Safety Institute; the US announces one.",
     "figures": [
       {
         "label": "The declaration",
@@ -5958,10 +6426,102 @@
     ],
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/AI_Safety_Summit",
-    "why": "Governance finally moves at the speed of a product cycle rather than a legislative one.",
+    "why": "Governance moves at the speed of a product cycle by going round legislatures: a declaration and an executive order, quick to make and, as the order's revocation in January 2025 showed, as quick to undo.",
     "wikiTitle": "AI Safety Summit",
     "terms": [
       "foundation-model"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "UK Government (GOV.UK)",
+        "title": "The Bletchley Declaration by Countries Attending the AI Safety Summit, 1-2 November 2023",
+        "url": "https://www.gov.uk/government/publications/ai-safety-summit-2023-the-bletchley-declaration/the-bletchley-declaration-by-countries-attending-the-ai-safety-summit-1-2-november-2023",
+        "date": "2023-11-01",
+        "quote": "Particular safety risks arise at the ‘frontier’ of AI, understood as being those highly capable general-purpose AI models, including foundation models, that could perform a wide variety of tasks",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "UK Government (GOV.UK)",
+        "title": "Countries agree to safe and responsible development of frontier AI in landmark Bletchley Declaration",
+        "url": "https://www.gov.uk/government/news/countries-agree-to-safe-and-responsible-development-of-frontier-ai-in-landmark-bletchley-declaration",
+        "date": "2023-11-01",
+        "quote": "The Bletchley Declaration on AI safety sees 28 countries from across the globe including Africa, the Middle East, and Asia, as well as the EU, agreeing to the urgent need to understand and collectively manage potential risks",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Federal Register",
+        "title": "Executive Order 14110 of October 30, 2023: Safe, Secure, and Trustworthy Development and Use of Artificial Intelligence",
+        "url": "https://www.federalregister.gov/documents/2023/11/01/2023-24283/safe-secure-and-trustworthy-development-and-use-of-artificial-intelligence",
+        "date": "2023-11-01",
+        "quote": "Companies developing or demonstrating an intent to develop potential dual-use foundation models to provide the Federal Government, on an ongoing basis, with information, reports, or records",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "UK Government (GOV.UK)",
+        "title": "Prime Minister launches new AI Safety Institute",
+        "url": "https://www.gov.uk/government/news/prime-minister-launches-new-ai-safety-institute",
+        "date": "2023-11-02",
+        "quote": "A new global hub based in the UK and tasked with testing the safety of emerging types of AI has been backed by leading AI companies and nations, as the world’s first AI Safety Institute launches today (2 November).",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "U.S. Department of Commerce (Wayback Machine capture)",
+        "title": "At the Direction of President Biden, Department of Commerce to Establish U.S. Artificial Intelligence Safety Institute to Lead Efforts on AI Safety",
+        "url": "https://web.archive.org/web/20231204203620/https://www.commerce.gov/news/press-releases/2023/11/direction-president-biden-department-commerce-establish-us-artificial",
+        "date": "2023-11-01",
+        "quote": "USAISI will support the responsibilities assigned to the Department of Commerce under the historic executive order that President Biden signed earlier this week.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "UK Government (GOV.UK)",
+        "title": "Introducing the AI Safety Institute",
+        "url": "https://www.gov.uk/government/publications/ai-safety-institute-overview/introducing-the-ai-safety-institute",
+        "date": "2023-11-02",
+        "quote": "The Institute is not a regulator and will not determine government regulation.",
+        "supports": "context"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Federal Register",
+        "title": "Executive Order 14148 of January 20, 2025: Initial Rescissions of Harmful Executive Orders and Actions",
+        "url": "https://www.federalregister.gov/documents/2025/01/28/2025-01901/initial-rescissions-of-harmful-executive-orders-and-actions",
+        "date": "2025-01-28",
+        "quote": "Executive Order 14110 of October 30, 2023 (Safe, Secure, and Trustworthy Development and Use of Artificial Intelligence).",
+        "supports": "context"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Future of Life Institute",
+        "title": "Pause Giant AI Experiments: An Open Letter",
+        "url": "https://futureoflife.org/open-letter/pause-giant-ai-experiments/",
+        "date": "2023-03-22",
+        "quote": "If such a pause cannot be enacted quickly, governments should step in and institute a moratorium.",
+        "supports": "context"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Future of Life Institute (newsletter)",
+        "title": "Future of Life Institute Newsletter: Our Pause Letter, Six Months Later",
+        "url": "https://newsletter.futureoflife.org/p/fli-newsletter-september-2023",
+        "date": "2023-10-01",
+        "quote": "Despite this, a pause never materialized - if anything, the “arms race” between AI corporations has only intensified in the last six months.",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "AI Safety Summit 2023",
+        "url": "https://en.wikipedia.org/wiki/AI_Safety_Summit",
+        "date": "2026-10-19",
+        "quote": "The UK's own AI Safety Institute was officially launched on 2 November, following its initial announcement the week prior.",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -6057,20 +6617,96 @@
     ]
   },
   {
-    "id": "the-eu-ai-act-is-adopted",
+    "id": "musk-sues-openai",
     "year": 2024,
-    "category": "policy",
-    "title": "The EU AI Act is adopted",
-    "summary": "The first comprehensive, risk-tiered AI law; obligations phase in across the rest of the decade.",
+    "date": "2024-02-29",
+    "category": "power",
+    "title": "Musk sues OpenAI",
+    "summary": "The co-founder sues over the abandonment of the nonprofit mission; OpenAI publishes his old emails in reply.",
     "source": "Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/Artificial_Intelligence_Act",
-    "wikiTitle": "Artificial Intelligence Act",
-    "orgs": [
-      "european-union"
+    "url": "https://en.wikipedia.org/wiki/OpenAI",
+    "why": "The founding contradiction — open mission, closed capital — finally goes to court.",
+    "wikiTitle": "OpenAI",
+    "people": [
+      "elon-musk",
+      "sam-altman"
     ],
-    "terms": [
-      "ai-act",
-      "foundation-model"
+    "orgs": [
+      "openai"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Superior Court of California, County of San Francisco (copy, Courthouse News Service)",
+        "title": "Musk v. Altman, Complaint (CGC-24-612746)",
+        "url": "https://www.courthousenews.com/wp-content/uploads/2024/02/musk-v-altman-openai-complaint-sf.pdf",
+        "date": "2024-02-29",
+        "quote": "In 2023, Defendants Mr. Altman, Mr. Brockman, and OpenAI set the Founding Agreement aflame.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "OpenAI and Elon Musk",
+        "url": "https://web.archive.org/web/20240307001103/https://openai.com/blog/openai-elon-musk",
+        "date": "2024-03-05",
+        "quote": "We're sad that it's come to this with someone whom we’ve deeply admired—someone who inspired us to aim higher, then told us we would fail, started a competitor, and then sued us when we started making meaningful progress towards OpenAI’s mission without him.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "US District Court for the Northern District of California (RECAP copy, CourtListener)",
+        "title": "Musk v. Altman, Complaint (Dkt. 1)",
+        "url": "https://storage.courtlistener.com/recap/gov.uscourts.cand.433688/gov.uscourts.cand.433688.1.0.pdf",
+        "date": "2024-08-05",
+        "quote": "Elon Musk’s case against Sam Altman and OpenAI is a textbook tale of altruism versus greed.",
+        "supports": "context"
+      },
+      {
+        "kind": "primary",
+        "publisher": "US District Court for the Northern District of California (RECAP copy, CourtListener)",
+        "title": "Musk v. Altman, Order Denying Motion for a Preliminary Injunction (Dkt. 121)",
+        "url": "https://storage.courtlistener.com/recap/gov.uscourts.cand.433688/gov.uscourts.cand.433688.121.0_1.pdf",
+        "date": "2025-03-04",
+        "quote": "The request for an injunction barring any steps towards OpenAI’s conversion to a for-profit entity is DENIED.",
+        "supports": "context"
+      },
+      {
+        "kind": "primary",
+        "publisher": "US District Court for the Northern District of California (RECAP copy, CourtListener)",
+        "title": "Musk v. Altman, Post-Trial Order re: Advisory Verdict (Dkt. 580)",
+        "url": "https://storage.courtlistener.com/recap/gov.uscourts.cand.433688/gov.uscourts.cand.433688.580.0_1.pdf",
+        "date": "2026-05-20",
+        "quote": "The Court reaffirms that it empaneled an advisory jury in this matter and that the advisory jury found that plaintiff’s trial claims are barred by the statute of limitations.",
+        "supports": "context"
+      },
+      {
+        "kind": "article",
+        "publisher": "CNBC (Hayden Field)",
+        "title": "Elon Musk drops suit against OpenAI and Sam Altman",
+        "url": "https://www.cnbc.com/2024/06/11/elon-musk-drops-suit-against-openai-and-sam-altman.html",
+        "date": "2024-06-11",
+        "quote": "Elon Musk on Tuesday withdrew his lawsuit against OpenAI and two of the company's co-founders, Sam Altman and Greg Brockman, in California state court.",
+        "supports": "context"
+      },
+      {
+        "kind": "article",
+        "publisher": "NPR",
+        "title": "Jury dismisses all claims in Elon Musk's lawsuit against OpenAI CEO Sam Altman",
+        "url": "https://www.npr.org/2026/05/18/nx-s1-5822366/musk-altman-openai-jury-verdict-claims-dismissed",
+        "date": "2026-05-18",
+        "quote": "In determining that the suit was filed too late, the jury sidestepped questions at the heart of Musk's case accusing Altman and co-founder Greg Brockman of committing a \"breach of charitable trust\" by allegedly jettisoning OpenAI's founding mission",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "OpenAI",
+        "url": "https://en.wikipedia.org/wiki/OpenAI",
+        "date": "2026-10-19",
+        "quote": "On February 29, 2024, Elon Musk filed a lawsuit against OpenAI and CEO Sam Altman, accusing them of shifting focus from public benefit to profit maximization",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -6214,44 +6850,6 @@
     ]
   },
   {
-    "id": "musk-sues-openai",
-    "year": 2024,
-    "category": "power",
-    "title": "Musk sues OpenAI",
-    "summary": "The co-founder sues over the abandonment of the nonprofit mission; OpenAI publishes his old emails in reply.",
-    "source": "Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/OpenAI",
-    "why": "The founding contradiction — open mission, closed capital — finally goes to court.",
-    "wikiTitle": "OpenAI",
-    "people": [
-      "elon-musk",
-      "sam-altman"
-    ],
-    "orgs": [
-      "openai"
-    ]
-  },
-  {
-    "id": "sutskever-leaves-superalignment-dissolves",
-    "year": 2024,
-    "category": "power",
-    "title": "Sutskever leaves; superalignment dissolves",
-    "summary": "The chief scientist who voted to remove Altman departs, the long-term safety team is folded, and its leads resign loudly.",
-    "source": "Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/Ilya_Sutskever",
-    "why": "Safety headcount moves from the labs that ship to the labs and institutes that don't. The centre of gravity shifts again.",
-    "wikiTitle": "Ilya Sutskever",
-    "people": [
-      "ilya-sutskever"
-    ],
-    "orgs": [
-      "openai"
-    ],
-    "terms": [
-      "alignment"
-    ]
-  },
-  {
     "id": "the-voice-that-sounded-like-her",
     "year": 2024,
     "category": "culture",
@@ -6340,6 +6938,239 @@
         "date": "2024-05-31",
         "quote": "It wasn’t immediately clear how many users or apps were impacted",
         "supports": "claim"
+      }
+    ]
+  },
+  {
+    "id": "sutskever-leaves-superalignment-dissolves",
+    "year": 2024,
+    "date": "2024-05",
+    "category": "power",
+    "title": "Sutskever leaves; superalignment dissolves",
+    "summary": "The chief scientist who voted to remove Altman leaves on warm terms. His co-lead resigns, saying safety had 'taken a backseat to shiny products', and their long-term safety team is folded into other research.",
+    "source": "Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Ilya_Sutskever",
+    "why": "The two leads went opposite ways: Jan Leike to Anthropic, a rival that ships, and Sutskever to Safe Superintelligence, a lab with one goal and one product. The centre of gravity shifts again.",
+    "wikiTitle": "Ilya Sutskever",
+    "people": [
+      "ilya-sutskever"
+    ],
+    "orgs": [
+      "openai"
+    ],
+    "terms": [
+      "alignment"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "Ilya Sutskever to leave OpenAI, Jakub Pachocki announced as Chief Scientist",
+        "url": "https://web.archive.org/web/20240515235445/https://openai.com/index/jakub-pachocki-announced-as-chief-scientist/",
+        "date": "2024-05-14",
+        "quote": "Ilya Sutskever to leave OpenAI, Jakub Pachocki announced as Chief Scientist",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Ilya Sutskever, on X",
+        "title": "After almost a decade, I have made the decision to leave OpenAI…",
+        "url": "https://x.com/ilyasut/status/1790517455628198322",
+        "date": "2024-05-14",
+        "quote": "After almost a decade, I have made the decision to leave OpenAI. The company’s trajectory has been nothing short of miraculous",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Jan Leike, on X",
+        "title": "I resigned",
+        "url": "https://x.com/janleike/status/1790603862132596961",
+        "date": "2024-05-15",
+        "quote": "I resigned",
+        "supports": "context"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Jan Leike, on X",
+        "title": "But over the past years, safety culture and processes have taken a backseat to shiny products.",
+        "url": "https://x.com/janleike/status/1791498184671605209",
+        "date": "2024-05-17",
+        "quote": "But over the past years, safety culture and processes have taken a backseat to shiny products.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "Introducing Superalignment",
+        "url": "https://web.archive.org/web/20230705170451/https://openai.com/blog/introducing-superalignment",
+        "date": "2023-07-05",
+        "quote": "To solve this problem within four years, we’re starting a new team, co-led by Ilya Sutskever and Jan Leike, and dedicating 20% of the compute we’ve secured to date to this effort.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Jan Leike, on X",
+        "title": "I'm excited to join @AnthropicAI to continue the superalignment mission!…",
+        "url": "https://x.com/janleike/status/1795497960509448617",
+        "date": "2024-05-28",
+        "quote": "I'm excited to join @AnthropicAI to continue the superalignment mission!",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Ilya Sutskever, on X",
+        "title": "I am starting a new company: SSI Inc.",
+        "url": "https://x.com/ilyasut/status/1803472978753303014",
+        "date": "2024-06-19",
+        "quote": "I am starting a new company:",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Safe Superintelligence Inc.",
+        "title": "Safe Superintelligence Inc.",
+        "url": "https://ssi.inc/",
+        "date": "2024-06-19",
+        "quote": "Our singular focus means no distraction by management overhead or product cycles, and our business model means safety, security, and progress are all insulated from short-term commercial pressures.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Wired (Will Knight)",
+        "title": "OpenAI’s Long-Term AI Risk Team Has Disbanded",
+        "url": "https://www.wired.com/story/openai-superalignment-team-disbanded/",
+        "date": "2024-05-17",
+        "quote": "Now OpenAI’s “superalignment team” is no more, the company confirms.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "CNBC (Hayden Field)",
+        "title": "OpenAI dissolves team focused on long-term AI risks, less than one year after announcing it",
+        "url": "https://www.cnbc.com/2024/05/17/openai-superalignment-sutskever-leike.html",
+        "date": "2024-05-17",
+        "quote": "The person, who spoke on condition of anonymity, said some of the team members are being reassigned to multiple other teams within the company.",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Ilya Sutskever",
+        "url": "https://en.wikipedia.org/wiki/Ilya_Sutskever",
+        "date": "2026-10-19",
+        "quote": "In May 2024, Sutskever announced his departure from OpenAI to focus on a new project that was \"very personally meaningful\" to him.",
+        "supports": "context"
+      }
+    ]
+  },
+  {
+    "id": "the-eu-ai-act-is-adopted",
+    "year": 2024,
+    "date": "2024-05-21",
+    "category": "policy",
+    "title": "The EU AI Act is adopted",
+    "summary": "The EU adopts the AI Act, which sorts AI systems by risk and which the Commission calls the world's first comprehensive AI law. Its rules apply in stages from February 2025.",
+    "source": "Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Artificial_Intelligence_Act",
+    "wikiTitle": "Artificial Intelligence Act",
+    "figures": [
+      {
+        "label": "Adopted",
+        "value": "by Parliament on 13 March 2024 and the Council on 21 May 2024; signed 13 June"
+      },
+      {
+        "label": "In force",
+        "value": "1 August 2024; applies from 2 August 2026, its prohibitions from 2 February 2025"
+      }
+    ],
+    "orgs": [
+      "european-union"
+    ],
+    "terms": [
+      "ai-act",
+      "foundation-model"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "EUR-Lex",
+        "title": "Regulation (EU) 2024/1689 of 13 June 2024 (Artificial Intelligence Act)",
+        "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng",
+        "date": "2024-07-12",
+        "quote": "Position of the European Parliament of 13 March 2024 (not yet published in the Official Journal) and decision of the Council of 21 May 2024.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Council of the EU (Wayback Machine capture)",
+        "title": "Artificial intelligence (AI) act: Council gives final green light to the first worldwide rules on AI",
+        "url": "https://web.archive.org/web/20261004231116/https://www.consilium.europa.eu/en/press/press-releases/2024/05/21/artificial-intelligence-ai-act-council-gives-final-green-light-to-the-first-worldwide-rules-on-ai/",
+        "date": "2024-05-21",
+        "quote": "The flagship legislation follows a ‘risk-based’ approach, which means the higher the risk to cause harm to society, the stricter the rules.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "European Commission",
+        "title": "European Artificial Intelligence Act comes into force",
+        "url": "https://ec.europa.eu/commission/presscorner/detail/en/ip_24_4123",
+        "date": "2024-08-01",
+        "quote": "Today, the European Artificial Intelligence Act (AI Act), the world's first comprehensive regulation on artificial intelligence, enters into force.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "European Commission (Shaping Europe’s digital future)",
+        "title": "AI Act",
+        "url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
+        "date": "2026-10-19",
+        "quote": "The AI Act entered into force on 1 August 2024 and became applicable on 2 August 2026, with some exceptions: prohibited AI practices and AI literacy obligations entered into application from 2 February 2025",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "European Parliament",
+        "title": "Artificial Intelligence Act: MEPs adopt landmark law",
+        "url": "https://www.europarl.europa.eu/news/en/press-room/20240308IPR19015/artificial-intelligence-act-meps-adopt-landmark-law",
+        "date": "2024-03-13",
+        "quote": "The more powerful GPAI models that could pose systemic risks will face additional requirements, including performing model evaluations, assessing and mitigating systemic risks, and reporting on incidents.",
+        "supports": "context"
+      },
+      {
+        "kind": "primary",
+        "publisher": "European Commission",
+        "title": "Simpler EU digital rules and new digital wallets to save billions for businesses and boost innovation",
+        "url": "https://ec.europa.eu/commission/presscorner/detail/en/ip_25_2718",
+        "date": "2025-11-19",
+        "quote": "The Commission proposes linking the entry into application of the rules governing high-risk AI systems to the availability of support tools, including the necessary standards.",
+        "supports": "context"
+      },
+      {
+        "kind": "article",
+        "publisher": "Euractiv (Wayback Machine capture)",
+        "title": "EU’s AI Act negotiations hit the brakes over foundation models",
+        "url": "https://web.archive.org/web/20250415032105/https://www.euractiv.com/section/artificial-intelligence/news/eus-ai-act-negotiations-hit-the-brakes-over-foundation-models/",
+        "date": "2023-11-10",
+        "quote": "Leading the charge against any regulation for foundation models in the AI rulebook is Mistral, a French AI start-up that has thrown the gauntlet to Big Tech.",
+        "supports": "context"
+      },
+      {
+        "kind": "article",
+        "publisher": "TechCrunch",
+        "title": "France’s Mistral dials up call for EU AI Act to fix rules for apps, not model makers",
+        "url": "https://techcrunch.com/2023/11/16/mistral-eu-ai-act/",
+        "date": "2023-11-16",
+        "quote": "For its part, Mistral denies lobbying to block regulation of AI.",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Artificial Intelligence Act",
+        "url": "https://en.wikipedia.org/wiki/Artificial_Intelligence_Act",
+        "date": "2026-10-19",
+        "quote": "Proposed by the European Commission on 21 April 2021, it passed the European Parliament on 13 March 2024, and was unanimously approved by the EU Council on 21 May 2024.",
+        "supports": "context"
       }
     ]
   },
@@ -6619,6 +7450,231 @@
     ]
   },
   {
+    "id": "power-becomes-a-strategy",
+    "year": 2024,
+    "date": "2024-09",
+    "category": "compute",
+    "title": "Power becomes a strategy",
+    "summary": "Microsoft signs a twenty-year agreement for the power of a closed Three Mile Island reactor, to be restarted. Amazon, Google and, in 2025, Meta sign nuclear deals of their own.",
+    "source": "Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Three_Mile_Island_Nuclear_Generating_Station",
+    "why": "The bottleneck moves from chips towards electricity, and with it from engineering to permits and grid queues. Mark Zuckerberg said in April 2024 that the chip shortage was easing and that Meta would build bigger clusters if it could get the energy.",
+    "wikiTitle": "Nuclear power",
+    "terms": [
+      "compute"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Constellation Energy",
+        "title": "Constellation to Launch Crane Clean Energy Center, Restoring Jobs and Carbon-Free Power to The Grid",
+        "url": "https://www.constellationenergy.com/newsroom/2024/Constellation-to-Launch-Crane-Clean-Energy-Center-Restoring-Jobs-and-Carbon-Free-Power-to-The-Grid.html",
+        "date": "2024-09-20",
+        "quote": "Constellation (Nasdaq: CEG) announced today the signing of a 20-year power purchase agreement with Microsoft that will pave the way for the launch of the Crane Clean Energy Center (CCEC) and restart of Three Mile Island Unit 1",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Talen Energy (Wayback Machine capture)",
+        "title": "Talen Energy Announces Sale of Zero-Carbon Data Center Campus",
+        "url": "https://web.archive.org/web/20260814231104/https://ir.talenenergy.com/news-releases/news-release-details/talen-energy-announces-sale-zero-carbon-data-center-campus",
+        "date": "2024-03-04",
+        "quote": "today issued the following statement regarding the sale of its 960-megawatt Cumulus data center campus in northeast Pennsylvania to a major cloud service provider",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Talen Energy (Wayback Machine capture)",
+        "title": "Talen Energy Expands Nuclear Energy Relationship with Amazon",
+        "url": "https://web.archive.org/web/20261004063607/https://ir.talenenergy.com/news-releases/news-release-details/talen-energy-expands-nuclear-energy-relationship-amazon",
+        "date": "2025-06-11",
+        "quote": "Under the expanded PPA, at the full contract quantity, Talen will provide Amazon with 1,920 megawatts of carbon-free nuclear power through 2042, with options to further extend its duration.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Google (The Keyword)",
+        "title": "New nuclear clean energy agreement with Kairos Power",
+        "url": "https://blog.google/company-news/outreach-and-initiatives/sustainability/google-kairos-power-nuclear-energy-agreement/",
+        "date": "2024-10-14",
+        "quote": "Today, we’re building on these efforts by signing the world’s first corporate agreement to purchase nuclear energy from multiple small modular reactors (SMRs) to be developed by Kairos Power.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Constellation Energy",
+        "title": "Constellation, Meta Sign 20-Year Deal for Clean, Reliable Nuclear Energy in Illinois",
+        "url": "https://www.constellationenergy.com/newsroom/2025/constellation-meta-sign-20-year-deal-for-clean-reliable-nuclear-energy-in-illinois.html",
+        "date": "2025-06-03",
+        "quote": "Constellation (Nasdaq: CEG) and Meta have signed a 20-year power purchase agreement (PPA) for the output of the Clinton Clean Energy Center",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "International Energy Agency",
+        "title": "Energy and AI: Executive summary",
+        "url": "https://www.iea.org/reports/energy-and-ai/executive-summary",
+        "date": "2025-04-10",
+        "quote": "Electricity grids are already under strain in many places: we estimate that unless these risks are addressed, around 20% of planned data centre projects could be at risk of delays.",
+        "supports": "claim"
+      },
+      {
+        "kind": "podcast",
+        "publisher": "Dwarkesh Podcast",
+        "title": "Mark Zuckerberg — Llama 3, $10B models, Caesar Augustus, & 1 GW datacenters (transcript)",
+        "url": "https://www.dwarkesh.com/p/mark-zuckerberg",
+        "date": "2024-04-18",
+        "quote": "I think we would probably build out bigger clusters than we currently can if we could get the energy to do it.",
+        "supports": "claim"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Three Mile Island Nuclear Generating Station",
+        "url": "https://en.wikipedia.org/wiki/Three_Mile_Island_Nuclear_Generating_Station",
+        "date": "2026-10-19",
+        "quote": "Microsoft entered into a 20-year agreement to purchase as much electricity as possible from the plant, which will support the company’s growing energy needs for its expanding network of data centers.",
+        "supports": "context"
+      }
+    ]
+  },
+  {
+    "id": "reasoning-models",
+    "year": 2024,
+    "date": "2024-09-12",
+    "category": "research",
+    "title": "Reasoning models",
+    "summary": "Spending compute at inference time — thinking for longer — becomes a scaling axis of its own.",
+    "source": "Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Reasoning_model",
+    "why": "Breaks the assumption that capability is fixed at training time. Cost per answer becomes a design variable.",
+    "wikiTitle": "Reasoning model",
+    "figures": [
+      {
+        "label": "o1 preview",
+        "value": "September 2024"
+      },
+      {
+        "label": "DeepSeek R1, open weights",
+        "value": "January 2025"
+      },
+      {
+        "label": "Gold at the olympiad",
+        "value": "July 2025"
+      }
+    ],
+    "detail": [
+      "A reasoning model is trained, by reinforcement learning against problems with checkable answers, to write out a long chain of thought before it replies — and the longer it is allowed to think, the better it does. OpenAI released o1-preview in September 2024; its o1 series, by DeepSeek's later account, was the first to scale up inference by lengthening the chain of thought. DeepSeek's R1, in January 2025, published a recipe of its own, large-scale reinforcement learning rewarded by rules that check the final answer, with the weights, and by its paper performed comparably to o1 on reasoning tasks. By OpenAI's account o1's accuracy on hard maths rose smoothly with the compute spent thinking at answer time as well as with training, and the limits on scaling it differ from those of pretraining.",
+      "The board's reading is that this broke the assumption that a model's capability is fixed when training ends. Cost per answer became a design variable, which is a price-lead fact; ten thousand agents thinking at once on Navier–Stokes is the same fact at industrial scale; and the models that edited their own off-switch in 2025 were these."
+    ],
+    "people": [
+      "noam-brown"
+    ],
+    "orgs": [
+      "openai",
+      "deepseek",
+      "google-deepmind"
+    ],
+    "terms": [
+      "reasoning-model",
+      "test-time-compute",
+      "chain-of-thought",
+      "reinforcement-learning"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "Learning to Reason with LLMs",
+        "url": "https://web.archive.org/web/20240913230723/https://openai.com/index/learning-to-reason-with-llms/",
+        "date": "2024-09-12",
+        "quote": "We have found that the performance of o1 consistently improves with more reinforcement learning (train-time compute) and with more time spent thinking (test-time compute).",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "Introducing OpenAI o1-preview",
+        "url": "https://web.archive.org/web/20240913234555/https://openai.com/index/introducing-openai-o1-preview/",
+        "date": "2024-09-12",
+        "quote": "We've developed a new series of AI models designed to spend more time thinking before they respond.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv (DeepSeek-AI)",
+        "title": "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning (first version)",
+        "url": "https://arxiv.org/abs/2501.12948v1",
+        "date": "2025-01-22",
+        "quote": "DeepSeek-R1 achieves performance comparable to OpenAI-o1-1217 on reasoning tasks.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv (DeepSeek-AI)",
+        "title": "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning (first version, PDF)",
+        "url": "https://arxiv.org/pdf/2501.12948v1",
+        "date": "2025-01-22",
+        "quote": "To train DeepSeek-R1-Zero, we adopt a rule-based reward system that mainly consists of two types of rewards",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "DeepSeek",
+        "title": "DeepSeek-R1 Release",
+        "url": "https://api-docs.deepseek.com/news/news250120",
+        "date": "2025-01-20",
+        "quote": "Fully open-source model & technical report",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv (DeepSeek-AI)",
+        "title": "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning (first version, HTML)",
+        "url": "https://arxiv.org/html/2501.12948v1",
+        "date": "2025-01-22",
+        "quote": "OpenAI’s o1 (OpenAI, 2024b) series models were the first to introduce inference-time scaling by increasing the length of the Chain-of-Thought reasoning process.",
+        "supports": "context"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Google DeepMind",
+        "title": "Advanced version of Gemini with Deep Think officially achieves gold-medal standard at the International Mathematical Olympiad",
+        "url": "https://deepmind.google/blog/advanced-version-of-gemini-with-deep-think-officially-achieves-gold-medal-standard-at-the-international-mathematical-olympiad/",
+        "date": "2025-07-21",
+        "quote": "An advanced version of Gemini Deep Think solved five out of the six IMO problems perfectly, earning 35 total points, and achieving gold-medal level performance.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Alexander Wei (OpenAI), on X",
+        "title": "1/N I’m excited to share that our latest @OpenAI experimental reasoning LLM has achieved a longstanding grand challenge in AI…",
+        "url": "https://x.com/alexwei_/status/1946477742855532918",
+        "date": "2025-07-19",
+        "quote": "We reach this capability level not via narrow, task-specific methodology, but by breaking new ground in general-purpose reinforcement learning and test-time compute scaling.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Noam Brown, on X",
+        "title": "I’m thrilled to share that I've joined @OpenAI!…",
+        "url": "https://x.com/polynoamial/status/1676971503261454340",
+        "date": "2023-07-06",
+        "quote": "For years I’ve researched AI self-play and reasoning in games like Poker and Diplomacy. I’ll now investigate how to make these methods truly general.",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Reasoning model",
+        "url": "https://en.wikipedia.org/wiki/Reasoning_model",
+        "date": "2026-10-19",
+        "quote": "In September 2024, OpenAI released o1-preview, an LLM with enhanced reasoning.",
+        "supports": "context"
+      }
+    ]
+  },
+  {
     "id": "character-ai-is-sued-over-a-boy-s-death",
     "year": 2024,
     "date": "2024-10-22",
@@ -6845,63 +7901,6 @@
         "quote": "Current state-of-the-art AI models solve under 2% of problems",
         "supports": "claim"
       }
-    ]
-  },
-  {
-    "id": "reasoning-models",
-    "year": 2025,
-    "category": "research",
-    "title": "Reasoning models",
-    "summary": "Spending compute at inference time — thinking for longer — becomes a scaling axis of its own.",
-    "source": "Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/Reasoning_model",
-    "why": "Breaks the assumption that capability is fixed at training time. Cost per answer becomes a design variable.",
-    "wikiTitle": "Reasoning model",
-    "figures": [
-      {
-        "label": "o1 preview",
-        "value": "September 2024"
-      },
-      {
-        "label": "DeepSeek R1, open weights",
-        "value": "January 2025"
-      },
-      {
-        "label": "Gold at the olympiad",
-        "value": "July 2025"
-      }
-    ],
-    "detail": [
-      "A reasoning model is trained, by reinforcement learning against problems with checkable answers, to write out a long chain of thought before it replies — and it is allowed to think for as long as the task needs. OpenAI's o1 preview in September 2024 was the first to ship; DeepSeek's R1 in January 2025 showed the recipe was reproducible and published it. Accuracy on hard maths and code rose with the compute spent at answer time, on a curve of its own.",
-      "The board's reading is that this broke the assumption that a model's capability is fixed when training ends. Cost per answer became a design variable, which is a price-lead fact; ten thousand agents thinking at once on Navier–Stokes is the same fact at industrial scale; and the models that edited their own off-switch in 2025 were these."
-    ],
-    "people": [
-      "noam-brown"
-    ],
-    "orgs": [
-      "openai",
-      "deepseek",
-      "google-deepmind"
-    ],
-    "terms": [
-      "reasoning-model",
-      "test-time-compute",
-      "chain-of-thought",
-      "reinforcement-learning"
-    ]
-  },
-  {
-    "id": "power-becomes-a-strategy",
-    "year": 2025,
-    "category": "compute",
-    "title": "Power becomes a strategy",
-    "summary": "Labs sign long-term energy contracts and revive generation capacity to secure training and serving.",
-    "source": "Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/Three_Mile_Island_Nuclear_Generating_Station",
-    "why": "The bottleneck moves from chips to electricity, and therefore from engineering to politics.",
-    "wikiTitle": "Nuclear power",
-    "terms": [
-      "compute"
     ]
   },
   {
@@ -8866,7 +9865,7 @@
       },
       {
         "label": "Messages",
-        "value": "almost 5 million, agent to agent"
+        "value": "2.7 million, agent to agent, and about 130 billion tokens of output; 4.9 million messages across every problem attempted"
       },
       {
         "label": "Compute",

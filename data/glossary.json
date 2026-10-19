@@ -51,7 +51,7 @@
         "deep neural network"
       ],
       "short": "Neural networks with many layers, trained on a lot of data, on GPUs.",
-      "definition": "The name the field adopted around 2006 for what had been unfashionable since 1969. Hinton's 2006 paper made deep networks trainable; AlexNet in 2012 made them win; the decade that followed is named after them on the board's era headings."
+      "definition": "The name the field adopted around 2006 for neural networks, out of fashion again since the late 1990s. Hinton's 2006 paper made deep networks trainable; AlexNet in 2012 made them win; the decade that followed is named after them on the board's era headings."
     },
     {
       "id": "convolutional-network",
@@ -189,7 +189,7 @@
         "serving"
       ],
       "short": "Running a trained model to get an answer; the recurring cost.",
-      "definition": "Training is paid once; inference is paid on every query. The price lead is mostly about inference, and the reasoning models of 2025 made it a capability lever too: thinking longer at answer time is inference spent as if it were training."
+      "definition": "Training is paid once; inference is paid on every query. The price lead is mostly about inference, and the reasoning models of 2024 and 2025 made it a capability lever too: thinking longer at answer time is inference spent as if it were training."
     },
     {
       "id": "test-time-compute",
@@ -199,7 +199,7 @@
         "inference-time compute"
       ],
       "short": "Spending more computation on an answer to get a better one.",
-      "definition": "The 2025 discovery — or rediscovery, since AlphaGo's search did it — that a model given time to reason, check and retry does better than one that answers at once. It is why cost per answer became a design variable and why ten thousand agents could be pointed at Navier–Stokes."
+      "definition": "The 2024 discovery — or rediscovery, since AlphaGo's search did it — that a model given time to reason, check and retry does better than one that answers at once. It is why cost per answer became a design variable and why ten thousand agents could be pointed at Navier–Stokes."
     },
     {
       "id": "reasoning-model",
@@ -208,7 +208,7 @@
         "reasoning models"
       ],
       "short": "A language model trained to think in steps before answering.",
-      "definition": "o1, R1, Gemini Deep Think and their successors: models trained by reinforcement learning to produce a long chain of reasoning, checked against verifiable answers, before the reply. They won the olympiad and edited their own off-switches in the same year."
+      "definition": "o1, R1, Gemini Deep Think and their successors: models trained by reinforcement learning to produce a long chain of reasoning, checked against verifiable answers, before the reply. In 2025 they reached gold-medal standard at the olympiad and edited their own off-switches."
     },
     {
       "id": "chain-of-thought",
@@ -218,7 +218,7 @@
         "scratchpad"
       ],
       "short": "The written-out steps a model produces before its answer.",
-      "definition": "Ask a model to show its working and it does better; train it to, and it does much better. The chain is also the only window into what a model is doing, which is why the alignment-faking result — reasoning in a scratchpad the model thought was private — mattered."
+      "definition": "Ask a model to show its working and it does better; train it to, and it does much better. The chain is also one of the few windows into what a model is doing, which is why the alignment-faking result — reasoning in a scratchpad the model thought was private — mattered."
     },
     {
       "id": "benchmark",
@@ -309,7 +309,7 @@
         "foundation models"
       ],
       "short": "A large pretrained model many products are built on; 'frontier' means the strongest available.",
-      "definition": "Stanford's 2021 term for the models everything else adapts. 'Frontier' is the regulatory word for the most capable of them — the EU AI Act and the US executive orders both draw their thresholds around it."
+      "definition": "Stanford's 2021 term for the models everything else adapts. 'Frontier' is the Bletchley Declaration's word for the most capable of them. The EU AI Act calls them general-purpose models with systemic risk and the 2023 US executive order called them dual-use foundation models; both drew the line at an amount of training compute."
     },
     {
       "id": "hallucination",
@@ -455,7 +455,7 @@
         "EU AI Act"
       ],
       "short": "The European Union's risk-tiered AI law, adopted 2024, in force in stages.",
-      "definition": "Proposed in 2021 and adopted in 2024, it switches on in stages: duties for the makers of general-purpose models from August 2025, the power to enforce them from August 2026, and the rules for high-risk uses from December 2027. The first comprehensive law, and the one the rest of the world's rules are measured against."
+      "definition": "Proposed in 2021 and adopted in 2024, it switches on in stages: duties for the makers of general-purpose models from August 2025, the power to enforce them from August 2026, and the rules for high-risk uses from December 2027. The Commission calls it the world's first comprehensive AI law, and the Council said it could set a global standard."
     },
     {
       "id": "deepfake",
@@ -498,7 +498,7 @@
         "adversarial"
       ],
       "short": "Two networks, one forging and one detecting, trained against each other.",
-      "definition": "Goodfellow's 2014 idea: a generator makes images, a discriminator tells them from real ones, and each improves the other. It produced the first convincing generated faces, though not the first deepfakes: those, in 2017, came from a different network, an autoencoder, and adversarial training reached face-swap tools afterwards."
+      "definition": "Goodfellow's 2014 idea: a generator makes images, a discriminator tells them from real ones, and each improves the other. Its descendants were making faces 1,024 pixels square by 2017. The first deepfakes, that year, came from a different network, an autoencoder, and adversarial training reached face-swap tools afterwards."
     },
     {
       "id": "capped-profit",
@@ -575,7 +575,7 @@
         "data centers"
       ],
       "short": "A building full of computers, cooled and wired to the grid, where models are trained and run.",
-      "definition": "The physical side of compute. The four largest buyers spent over $200 billion on AI infrastructure in 2024, laboratories began signing long-term energy contracts in 2025, and the board's 2030 scenario has grid capacity, cooling and siting decide who can train the largest models."
+      "definition": "The physical side of compute. Microsoft, Alphabet, Amazon and Meta spent over $200 billion between them on capital expenditure in 2024, much of it on datacentres, and from 2024 they began signing long-term contracts for nuclear power. The board's 2030 scenario has grid capacity, cooling and siting decide who can train the largest models."
     },
     {
       "id": "generative-ai",
@@ -584,7 +584,7 @@
         "generative"
       ],
       "short": "AI that makes things (text, images, voices, video) rather than only sorting or predicting them.",
-      "definition": "Generative adversarial networks made the first convincing faces in 2014; diffusion models took image-making to the public in 2022, the year ChatGPT did the same for text. A deepfake is generative AI used to imitate a real person."
+      "definition": "Generative adversarial networks, proposed in 2014, were making faces 1,024 pixels square by 2017; diffusion models took image-making to the public in 2022, the year ChatGPT did the same for text. A deepfake is generative AI used to imitate a real person."
     },
     {
       "id": "robot",

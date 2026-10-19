@@ -185,7 +185,7 @@
     "from": "the-pause-letter",
     "to": "bletchley-and-the-executive-orders",
     "claim": "handed the problem to states at",
-    "note": "A voluntary pause nobody honoured demonstrated that the industry could not self-coordinate. Governments used that failure as the argument for statutory oversight."
+    "note": "The letter's fallback was that, if the laboratories would not pause, governments should step in with a moratorium. No pause came, by its authors' account six months on. By November governments had acted, with an executive order and a declaration rather than a moratorium or a statute."
   },
   {
     "from": "bletchley-and-the-executive-orders",
@@ -233,13 +233,13 @@
     "from": "attention-is-all-you-need",
     "to": "reasoning-models",
     "claim": "left room for",
-    "note": "The transformer made capability a function of scale. When training scale got expensive, the same architecture allowed the spend to move to inference — thinking longer instead of training bigger."
+    "note": "The transformer made capability a function of scale. When training scale got expensive, the same architecture let spending move to inference too — thinking longer as well as training bigger."
   },
   {
     "from": "reasoning-models",
     "to": "deepseek-r1-resets-the-price-of-reasoning",
     "claim": "was reproduced cheaply by",
-    "note": "Once reasoning was a technique rather than a secret, it could be reproduced. An open-weight model matched frontier behaviour cheaply, and the market repriced the moat in a single session."
+    "note": "Once a lab had published a working recipe, reasoning was a technique rather than a secret. An open-weight model performed comparably to o1 on reasoning tasks, by its paper's account, at a reported fraction of the cost, and the market repriced the moat in a single session."
   },
   {
     "from": "deepseek-r1-resets-the-price-of-reasoning",
@@ -250,7 +250,7 @@
     "from": "the-datacenter-buildout",
     "to": "power-becomes-a-strategy",
     "claim": "ran into the grid before",
-    "note": "Capital could buy chips faster than utilities could deliver megawatts. The constraint moved from the fab to the grid connection, and labs started behaving like energy companies."
+    "note": "Mark Zuckerberg said in April 2024 that the GPU shortage was easing and that energy would be the next constraint. Within months the companies building datacentres were buying power stations' output for as long as twenty years ahead, and in 2025 the IEA estimated that strained grids put around a fifth of planned projects at risk of delay."
   },
   {
     "from": "power-becomes-a-strategy",
@@ -337,13 +337,13 @@
     "from": "deep-networks-become-trainable",
     "to": "the-netflix-prize",
     "claim": "was road-tested in",
-    "note": "Hinton's Toronto group entered the Netflix Prize in its first months and published restricted Boltzmann machines for collaborative filtering; the eventual winners folded that method into their blend. (Kaggle Merck interview, 2012: 'In the Netflix competition, the Toronto group publicized their novel use of restricted Boltzmann machines for collaborative filtering, and the winners used this method to create several of the models that were averaged to produce the winning solution.')"
+    "note": "Hinton's Toronto group entered the Netflix Prize in its first months and published restricted Boltzmann machines for collaborative filtering, the building block of its deep belief nets, used here a single layer deep; the eventual winners folded that method into their blend. (Kaggle Merck interview, 2012: 'In the Netflix competition, the Toronto group publicized their novel use of restricted Boltzmann machines for collaborative filtering, and the winners used this method to create several of the models that were averaged to produce the winning solution.')"
   },
   {
     "from": "the-netflix-prize",
     "to": "imagenet",
-    "claim": "wrote the template for",
-    "note": "Public data, a fixed metric, a live leaderboard and a target score. ImageNet's own challenge (from 2010) ran on exactly this format, and so has every benchmark race since."
+    "claim": "ran on a different template from",
+    "note": "Netflix put up public data, a fixed metric, a live leaderboard, a ten per cent target and a million dollars. ImageNet's own challenge, from 2010, kept the public data and the fixed metric and ran on another model: it began as a taster competition beside PASCAL VOC, the challenge its organisers name as their inspiration, each year's entries were scored on a withheld test set and revealed only at the end, and the winners were invited to present at a workshop. It moved to Kaggle in 2017."
   },
   {
     "from": "imagenet",
@@ -372,8 +372,8 @@
   {
     "from": "zuckerberg-hires-lecun",
     "to": "generative-adversarial-networks",
-    "claim": "made practical",
-    "note": "By Meta's own account (FAIR's fifth-anniversary post, 2018), GANs had been shown only on toy problems until FAIR's 2015 papers, DCGAN among them, 'were instrumental in convincing the research community that GANs really worked'. Self-assessment, but widely accepted."
+    "claim": "helped make practical",
+    "note": "By Meta's own account (FAIR's fifth-anniversary post, 2018), GANs had been demonstrated only on toy problems, and a series of FAIR papers from 2015, LAPGAN and DCGAN among them, 'were instrumental in convincing the research community that GANs really worked'. The account is FAIR's own: DCGAN's first two authors, Alec Radford and Luke Metz, were at indico Research in Boston, writing with FAIR's Soumith Chintala."
   },
   {
     "from": "cuda",
@@ -409,7 +409,7 @@
     "from": "scaling-laws",
     "to": "reasoning-models",
     "claim": "ran out of cheap data before",
-    "note": "Chinchilla showed data mattered as much as parameters; the usable web is finite. When pretraining scale got expensive, the spend moved to inference — thinking longer instead of training bigger."
+    "note": "Chinchilla showed data mattered as much as parameters; the usable web is finite. When pretraining scale got expensive, spending found a second lever at inference — thinking longer as well as training bigger."
   },
   {
     "from": "gpt-3",
@@ -505,7 +505,7 @@
     "from": "a-magnet-link-from-paris",
     "to": "the-eu-ai-act-is-adopted",
     "claim": "lobbied to soften",
-    "note": "In the November 2023 trilogue Mistral was reported to be leading the push against the Parliament's tiered obligations on foundation-model makers. I verified the lobbying, not its effect on the final text — the claim verb should stay at 'lobbied', not 'watered down'."
+    "note": "In November 2023, with the talks stalled over foundation models, Euractiv reported that Mistral was leading the charge against any regulation of them in the Act, and that Cédric O was arguing it could kill the company. Mistral denied lobbying to block regulation and argued for rules on applications, not model makers. The Act as adopted kept duties for every general-purpose model provider, and more for the most powerful."
   },
   {
     "from": "a-magnet-link-from-paris",
@@ -541,7 +541,7 @@
     "from": "the-arc-prize",
     "to": "reasoning-models",
     "claim": "was overrun, at a price, by",
-    "note": "Two weeks after the 2024 prize closed unclaimed, o3 scored 75.7% within the $10k budget and 87.5% at 172 times the compute. The benchmark fell; the prize — an efficient, open-source solution — did not."
+    "note": "Six weeks after the 2024 prize closed, and two weeks after it was declared unclaimed, o3 scored 75.7% within the $10k budget and 87.5% at 172 times the compute. The benchmark fell; the prize — an efficient, open-source solution — did not."
   },
   {
     "from": "the-arc-prize",
@@ -577,7 +577,7 @@
     "from": "reasoning-models",
     "to": "gold-at-the-imo",
     "claim": "sat the exam as",
-    "note": "Neither lab used a maths-specific system. OpenAI credited 'general-purpose reinforcement learning and test-time compute scaling'; DeepMind ran an advanced Gemini Deep Think end-to-end in natural language. The olympiad was the first public test of thinking-for-longer on a problem experts take hours to grade."
+    "note": "Neither lab used a formal system like 2024's AlphaProof. OpenAI's Alexander Wei credited 'general-purpose reinforcement learning and test-time compute scaling'; DeepMind ran an advanced Gemini Deep Think end-to-end in natural language, after extra training on theorem-proving data and with hints on approaching IMO problems. It tested thinking-for-longer where no answer key could check the work: on what Wei called 'hard-to-verify, multi-page proofs'."
   },
   {
     "from": "deep-blue-beats-kasparov",
@@ -607,7 +607,7 @@
     "from": "musk-sues-openai",
     "to": "openai-converts-the-nonprofit-keeps-a-stake",
     "claim": "failed to stop",
-    "note": "The suit sought to block exactly this conversion. The conversion closed in October 2025; in May 2026 a jury found the claim was filed too late and never reached the question of whether the mission had been abandoned."
+    "note": "Musk asked the court in 2024 to bar any step towards converting OpenAI to a for-profit, and in March 2025 it refused. The conversion closed in October 2025; in May 2026 an advisory jury found his trial claims barred by the statute of limitations, the judge adopted its verdict, and whether the founding mission had been jettisoned was never decided. His lawyer said they would appeal."
   },
   {
     "from": "openai-converts-the-nonprofit-keeps-a-stake",
@@ -648,8 +648,8 @@
   {
     "from": "grade-school-maths-becomes-a-benchmark",
     "to": "reasoning-models",
-    "claim": "supplied the verifiable answers for",
-    "note": "The GSM8K paper trained a verifier to grade candidate solutions; the reasoning models of 2025 were trained by reinforcement learning against exactly this kind of checkable answer. A benchmark written to measure a failure became the training signal that removed it."
+    "claim": "pointed to the kind of answer that trained",
+    "note": "The GSM8K paper trained a verifier to grade candidate solutions; the reasoning models of 2024 and 2025 were trained by reinforcement learning against exactly this kind of checkable answer. A benchmark written to measure a failure showed the kind of signal later models were trained on."
   },
   {
     "from": "silver-at-the-imo",
@@ -673,7 +673,7 @@
     "from": "reasoning-models",
     "to": "navier-stokes-falls-to-ten-thousand-agents",
     "claim": "were run ten thousand at a time for",
-    "note": "Test-time compute is the lever: a model that does better when it thinks longer does better still when ten thousand copies think at once and share notes. The run as reported — almost five million messages between agents, 88 hours, a compute bill of several million dollars — is the reasoning-model recipe scaled to an industrial process."
+    "note": "Test-time compute is the lever: a model that does better when it thinks longer does better still when ten thousand copies think at once and share notes. The run as reported — 2.7 million messages between agents, about 130 billion tokens of output, 88 hours, a compute bill of several million dollars — is the reasoning-model recipe scaled to an industrial process."
   },
   {
     "from": "navier-stokes-falls-to-ten-thousand-agents",
@@ -915,13 +915,13 @@
     "from": "lstm",
     "to": "sequence-to-sequence",
     "claim": "was the memory inside",
-    "note": "The 2014 encoder–decoder that learned translation end to end was built from LSTMs, one reading the sentence and one writing it. The gating designed against vanishing gradients is what let a network carry a sentence that far."
+    "note": "The 2014 encoder–decoder that learned translation end to end was built from LSTMs, one reading the sentence and one writing it. Its authors chose the LSTM for its memory over long stretches, but credited long sentences to a trick: reversing each source sentence, which put its first words close to the first words of the translation."
   },
   {
     "from": "sequence-to-sequence",
     "to": "attention-is-all-you-need",
-    "claim": "set the task, and the baseline, for",
-    "note": "The transformer was introduced as a better encoder–decoder for translation and measured on the same benchmarks, and the attention it was built from had first been added to recurrent sequence-to-sequence models in 2014. It kept the problem and threw away the recurrence."
+    "claim": "set the task, and the encoder–decoder shape, for",
+    "note": "The transformer was introduced as a better encoder–decoder for translation and scored on the same WMT 2014 English–French test, with English–German beside it, and the attention it was built from had been added to recurrent encoder–decoders for translation in 2014. It kept the problem and threw away the recurrence."
   },
   {
     "from": "resnet-passes-human-error-rates",
@@ -1213,7 +1213,7 @@
     "from": "anthropic-founded-by-departing-openai-staff",
     "to": "anthropic-pays-for-pirated-books",
     "claim": "began, in its first year, the library paid for in",
-    "note": "By the court's account the library began in the company's first year: a cofounder downloaded Books3 in January or February 2021 and, that June, at least five million books from Library Genesis that he knew had been pirated. Four years later Anthropic agreed to pay $1.5 billion over the Library Genesis and Pirate Library Mirror downloads; training on the books, the judge had ruled, was fair use."
+    "note": "By the court's account the library began in the company's first year: a cofounder downloaded Books3 in January or February 2021 and, that June, at least five million copies of books from Library Genesis that he knew had been pirated. Four years later Anthropic agreed to pay $1.5 billion over the Library Genesis and Pirate Library Mirror downloads; training on the books, the judge had ruled, was fair use."
   },
   {
     "from": "copilot",

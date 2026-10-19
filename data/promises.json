@@ -470,11 +470,11 @@
       "record": [
         {
           "event": "the-datacenter-buildout",
-          "note": "2024: capital spending on AI infrastructure reaches the scale of national infrastructure programmes."
+          "note": "2024: Microsoft, Alphabet, Amazon and Meta spend more than $200 billion between them on capital expenditure, much of it on datacentres for cloud and AI."
         },
         {
           "event": "power-becomes-a-strategy",
-          "note": "2025: labs sign long-term energy contracts and revive generation capacity to secure training and serving."
+          "note": "September 2024: Microsoft signs a twenty-year agreement for the power of a Three Mile Island reactor, to be restarted, to match its data centres' use with carbon-free energy."
         },
         {
           "event": "energy-is-the-binding-constraint",
@@ -850,7 +850,7 @@
       "record": [
         {
           "event": "bletchley-and-the-executive-orders",
-          "note": "November 2023: twenty-eight countries sign a joint declaration on frontier risk at Bletchley Park, the summit Paris commended beside Seoul."
+          "note": "November 2023: twenty-eight countries and the EU sign a joint declaration on frontier risk at Bletchley Park, the summit Paris commended beside Seoul."
         },
         {
           "event": "ai-act-obligations-bite",
