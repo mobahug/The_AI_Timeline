@@ -103,12 +103,12 @@
   {
     "from": "attention-is-all-you-need",
     "to": "bert-and-gpt-1",
-    "claim": "became the recipe for"
+    "claim": "became the architecture of"
   },
   {
     "from": "bert-and-gpt-1",
     "to": "gpt-3",
-    "claim": "scaled into"
+    "claim": "had their GPT half scaled into"
   },
   {
     "from": "gpt-3",
@@ -931,12 +931,12 @@
   {
     "from": "word2vec",
     "to": "bert-and-gpt-1",
-    "claim": "was made contextual by"
+    "claim": "was taken beyond single words by"
   },
   {
     "from": "support-vector-machines",
     "to": "alexnet",
-    "claim": "was the method displaced by"
+    "claim": "did the classifying for ImageNet's winners before"
   },
   {
     "from": "markov-chains",
@@ -1068,12 +1068,12 @@
   {
     "from": "gdpr-is-adopted",
     "to": "the-eu-proposes-the-ai-act",
-    "claim": "set the template for"
+    "claim": "was complemented, the Commission said, by"
   },
   {
     "from": "amazon-scraps-a-biased-hiring-tool",
     "to": "the-eu-proposes-the-ai-act",
-    "claim": "is the kind of system made high-risk by"
+    "claim": "is the kind of system listed as high-risk in"
   },
   {
     "from": "the-autonomous-weapons-letter",
@@ -1387,7 +1387,7 @@
     "from": "the-autonomous-weapons-letter",
     "to": "anthropic-is-named-a-supply-chain-risk",
     "claim": "drew a line a laboratory held, on other grounds, in",
-    "note": "The 2015 letter asked for a ban on offensive autonomous weapons beyond meaningful human control. Eleven years later Anthropic refused to let Claude power fully autonomous weapons, but not on the letter's ground: such weapons, it said, may prove critical for national defence, and today's frontier systems are simply not reliable enough to run them. For holding to it, the Department of War designated it a supply-chain risk."
+    "note": "The 2015 letter asked for a ban on offensive autonomous weapons beyond meaningful human control. Eleven years later Anthropic refused to let Claude power fully autonomous weapons, but not on the letter's ground: such weapons, it said, may prove critical for national defence, and today's frontier systems are simply not reliable enough to run them. When it held to that line, and to a second against mass domestic surveillance, the Department of War designated it a supply-chain risk."
   },
   {
     "from": "anthropic-is-named-a-supply-chain-risk",

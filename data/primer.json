@@ -22,7 +22,7 @@
     },
     {
       "term": "transformer",
-      "plain": "The design, published by Google researchers in 2017, behind every large language model since, ChatGPT's included. It reads a whole passage at once instead of word by word, which made it practical to train on far more text.",
+      "plain": "The design, published by Google researchers in 2017, behind almost every large language model since, ChatGPT's included. It reads a whole passage at once instead of word by word, which made it practical to train on far more text.",
       "cards": ["attention-is-all-you-need"]
     },
     {
@@ -32,7 +32,7 @@
     },
     {
       "term": "hallucination",
-      "plain": "A fluent, confident answer that is not true. A language model writes what is plausible, and plausible is not the same as correct: in 2023 lawyers were sanctioned for filing a brief that cited cases that never existed.",
+      "plain": "A fluent, confident answer that is not true. A language model writes what is plausible, and plausible is not the same as correct: in 2023 a federal judge sanctioned two lawyers who cited cases that ChatGPT had invented and stood by them when he asked to see them.",
       "cards": ["fabricated-citations-reach-a-courtroom"]
     },
     {

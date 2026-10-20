@@ -9,6 +9,9 @@ const record = graph.all.filter((e) => !e.future);
 const listed = (e: Event) => paperOf(e, 'sources');
 const raw = JSON.parse(readFileSync(new URL('../data/events.json', import.meta.url), 'utf8')) as EventRaw[];
 const withArray = raw.filter((e) => Array.isArray(e.sources) && e.sources.length) as (EventRaw & { sources: SourceRaw[] })[];
+/** A card cited the old way, by a publisher and a url alone. No record card is
+ *  left like that, so the reader's handling of one is tested on a made-up card. */
+const legacy = { title: 'A card cited the old way', source: 'Wikipedia', url: 'https://en.wikipedia.org/wiki/Example' } as unknown as Event;
 
 describe('the sources array is well formed where it exists', () => {
   it('is being adopted, not merely declared', () => {
@@ -75,13 +78,15 @@ describe('a source cannot claim support without a quote', () => {
 
 describe('sourcesOf gives one shape for migrated and unmigrated entries alike', () => {
   it('normalises a legacy source + url pair', () => {
-    const legacy = record.find((e) => !Array.isArray(listed(e)) && e.url);
-    expect(legacy).toBeTruthy();
     const list = sourcesOf(legacy);
     expect(list.length).toBe(1);
     expect(list[0].legacy).toBe(true);
-    expect(list[0].url).toBe((legacy as Event).url);
+    expect(list[0].url).toBe(legacy.url);
     expect(list[0].supports).toBe('context');
+  });
+
+  it('leaves no record card on a legacy citation alone', () => {
+    expect(record.filter((e) => !Array.isArray(listed(e)) && e.url).map((e) => e.id)).toEqual([]);
   });
 
   it('returns nothing for an entry with no source at all', () => {
@@ -103,7 +108,6 @@ describe('sourceStrength reports what is actually there', () => {
     expect(sourceStrength(migrated).state).toBe('quoted');
     expect(sourceStrength(migrated).supporting).toBeGreaterThan(0);
 
-    const legacy = record.find((e) => !Array.isArray(listed(e)) && e.url);
     expect(sourceStrength(legacy).state).toBe('cited');
     expect(sourceStrength(legacy).supporting).toBe(0);
 

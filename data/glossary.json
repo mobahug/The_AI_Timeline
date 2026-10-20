@@ -70,7 +70,7 @@
       "aka": [
         "transformers"
       ],
-      "short": "The 2017 architecture built entirely from attention; every large language model since.",
+      "short": "The 2017 architecture built entirely from attention; almost every large language model since.",
       "definition": "'Attention is all you need' replaced the recurrent networks that had run language with a stack of attention layers, which look at every position in the input at once and can be trained in parallel. That parallelism is why scale became the only lever: a transformer's ceiling is the compute you can buy."
     },
     {
@@ -408,7 +408,7 @@
         "multimodal models"
       ],
       "short": "A model that takes images, audio or video as well as text.",
-      "definition": "GPT-4 with vision, Gemini, the voice that sounded like her: one model over several kinds of input. The board's 2023 card marks the point at which 'language model' stopped being the accurate name."
+      "definition": "GPT-4 with vision, Gemini and GPT-4o: one model over several kinds of input. ChatGPT's voices of 2023, Sky among them, ran through separate speech models. The board's 2023 card marks the point at which 'language model' stopped being the accurate name."
     },
     {
       "id": "ai-winter",
@@ -475,8 +475,8 @@
         "embeddings",
         "embedding"
       ],
-      "short": "Words as points in space, so that meaning is geometry.",
-      "definition": "word2vec's 2013 trick: train a small network to predict neighbouring words and the learned vectors put king minus man plus woman near queen. Every language model since represents its input this way."
+      "short": "Words as points in space, placed so that similar words lie close together.",
+      "definition": "Older than word2vec: Bengio's neural language model learned them in 2003. word2vec's 2013 trick made them cheap: train a small network to predict neighbouring words and the learned vectors put king minus man plus woman near queen. The transformer of 2017 learns them for its input tokens too."
     },
     {
       "id": "recurrent-network",
@@ -594,7 +594,7 @@
         "robotics"
       ],
       "short": "A machine that senses and acts in the physical world; the word comes from a 1920 play.",
-      "definition": "Karel Čapek's R.U.R. gave the language the word. The Unimate, which the International Federation of Robotics calls the first industrial robot, started work at a General Motors plant in 1961, and SRI's Shakey planned, perceived and acted, slowly, from 1969. Most of what the board calls AI since has stayed on screens; its scenario for 2033 is the first genuinely useful household robot."
+      "definition": "Karel Čapek's R.U.R. gave the language the word. The Unimate, which the International Federation of Robotics calls the first industrial robot, started work at a General Motors plant in 1961, and SRI's Shakey planned, perceived and acted, slowly, from 1969. Most of what the board calls AI since has stayed on screens; its scenario for 2033 is the first genuinely useful general-purpose household robot."
     }
   ]
 }

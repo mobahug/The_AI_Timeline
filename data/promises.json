@@ -130,7 +130,7 @@
       "reading": [
         "Sundar Pichai published the principles in June 2018 with a list of applications Google would not pursue: technologies that cause or are likely to cause overall harm, and weapons. The same post said Google was not developing AI for use in weapons and would go on working with governments and the military in many other areas.",
         "On 4 February 2025 James Manyika and Demis Hassabis announced updated principles, focused on three core tenets. Democracies should lead in AI development, they wrote, and companies, governments and organisations sharing those values should work together on AI that protects people, promotes global growth and supports national security. The new principles speak of human oversight and due diligence aligned with international law and human rights; Bloomberg reported the weapons passage removed the same day, and Pichai’s 2018 post now opens with a note pointing to the update.",
-        "The board’s card for 2015 records thousands of researchers opposing offensive autonomous weapons, the field’s first collective attempt to set a red line ahead of capability. Google drew a company’s line on the same ground in 2018 and took it down in 2025."
+        "The board’s card for 2015 records AI and robotics researchers calling for a ban on offensive autonomous weapons beyond meaningful human control, weapons whose deployment, their letter said, was feasible within years, not decades. Google drew a company’s line on the same ground in 2018 and took it down in 2025."
       ],
       "evidence": [
         {
@@ -195,7 +195,7 @@
       "record": [
         {
           "event": "the-autonomous-weapons-letter",
-          "note": "2015: thousands of researchers sign an open letter opposing offensive autonomous weapons."
+          "note": "2015: AI and robotics researchers call for a ban on offensive autonomous weapons beyond meaningful human control."
         },
         {
           "event": "anthropic-is-named-a-supply-chain-risk",

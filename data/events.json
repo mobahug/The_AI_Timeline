@@ -3553,7 +3553,7 @@
     "year": 1995,
     "category": "research",
     "title": "Support vector machines",
-    "summary": "Cortes and Vapnik's method dominates practical machine learning for a decade; neural nets stay unfashionable.",
+    "summary": "Cortes and Vapnik extend Boser, Guyon and Vapnik's margin-maximising algorithm of 1992 to data that cannot be separated without errors. Kernel machines like it help push neural networks out of fashion.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/Support_vector_machine",
     "wikiTitle": "Support vector machine",
@@ -3562,6 +3562,62 @@
     ],
     "terms": [
       "machine-learning"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Machine Learning, vol. 20, Kluwer (copy hosted by the University of Illinois Chicago)",
+        "title": "Support-Vector Networks (Corinna Cortes and Vladimir Vapnik)",
+        "url": "https://homepages.math.uic.edu/~lreyzin/papers/cortes95.pdf",
+        "date": "1995-09-01",
+        "quote": "The idea behind the support-vector network was previously implemented for the restricted case where the training data can be separated without errors. We here extend this result to non-separable training data.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Proceedings of the Fifth Annual Workshop on Computational Learning Theory, ACM (abstract, ML Anthology)",
+        "title": "A Training Algorithm for Optimal Margin Classifiers (Bernhard E. Boser, Isabelle Guyon and Vladimir Vapnik)",
+        "url": "https://mlanthology.org/colt/1992/boser1992colt-training/",
+        "date": "1992-07-01",
+        "quote": "A training algorithm that maximizes the margin between the training patterns and the decision boundary is presented. The technique is applicable to a wide variety of the classification functions, including Perceptrons, polynomials, and Radial Basis Functions.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "MIT Press (the authors' online edition, deeplearningbook.org)",
+        "title": "Deep Learning, chapter 1: Introduction (Ian Goodfellow, Yoshua Bengio and Aaron Courville)",
+        "url": "https://www.deeplearningbook.org/contents/intro.html",
+        "date": "2016-01-01",
+        "quote": "These two factors led to a decline in the popularity of neural networks that lasted until 2007.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "Nature (copy hosted by the University of Toronto)",
+        "title": "Deep learning (Yann LeCun, Yoshua Bengio and Geoffrey Hinton)",
+        "url": "https://www.cs.toronto.edu/~hinton/absps/NatureDeepReview.pdf",
+        "date": "2015-05-28",
+        "quote": "In the late 1990s, neural nets and backpropagation were largely forsaken by the machine-learning community and ignored by the computer-vision and speech-recognition communities.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv (full text, version 3)",
+        "title": "ImageNet Large Scale Visual Recognition Challenge (Olga Russakovsky, Jia Deng and others)",
+        "url": "https://arxiv.org/pdf/1409.0575",
+        "date": "2015-01-30",
+        "quote": "with compression using product quantization (Sanchez and Perronnin, 2011) and one-vs-all linear SVMs",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Support vector machine",
+        "url": "https://en.wikipedia.org/wiki/Support_vector_machine",
+        "date": "2026-10-20",
+        "quote": "In 1992, Bernhard Boser, Isabelle Guyon and Vladimir Vapnik suggested a way to create nonlinear classifiers by applying the kernel trick to maximum-margin hyperplanes.",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -3695,21 +3751,161 @@
     "year": 1998,
     "category": "adjacent",
     "title": "PageRank",
-    "summary": "Google turns the link graph into a ranking signal and, incidentally, into the largest labelled dataset yet.",
+    "summary": "At Stanford, Sergey Brin and Larry Page turn the web's link graph into a ranking signal, PageRank, for their prototype search engine, Google, and index the words of each link with the page it points to.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/PageRank",
-    "wikiTitle": "PageRank"
+    "wikiTitle": "PageRank",
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Computer Networks and ISDN Systems (copy hosted by Google Research)",
+        "title": "The Anatomy of a Large-Scale Hypertextual Web Search Engine (Sergey Brin and Lawrence Page)",
+        "url": "https://research.google.com/pubs/archive/334.pdf",
+        "date": "1998-04-01",
+        "quote": "These maps allow rapid calculation of a web page’s \"PageRank\", an objective measure of its citation importance that corresponds well with people’s subjective idea of importance. Because of this correspondence, PageRank is an excellent way to prioritize the results of web keyword searches.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Stanford InfoLab (copy of infolab.stanford.edu/~backrub/google.html hosted by gwern.net)",
+        "title": "The Anatomy of a Large-Scale Hypertextual Web Search Engine (Sergey Brin and Lawrence Page)",
+        "url": "https://gwern.net/doc/www/infolab.stanford.edu/6f7c60d7e3beb371d089d6b926d4f523a4bdcd5c.html",
+        "date": "1998-04-01",
+        "quote": "Most search engines associate the text of a link with the page that the link is on. In addition, we associate it with the page the link points to. This has several advantages. First, anchors often provide more accurate descriptions of web pages than the pages themselves.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Computer Networks and ISDN Systems, vol. 30 (abstract, Google Research)",
+        "title": "The Anatomy of a Large-Scale Hypertextual Web Search Engine (Sergey Brin and Lawrence Page)",
+        "url": "https://research.google/pubs/the-anatomy-of-a-large-scale-hypertextual-web-search-engine/",
+        "date": "1998-04-01",
+        "quote": "In this paper, we present Google, a prototype of a large-scale search engine which makes heavy use of the structure present in hypertext.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "United States Patent and Trademark Office (Google Patents)",
+        "title": "Method for node ranking in a linked database, US 6,285,999 B1 (Lawrence Page; assigned to Stanford University)",
+        "url": "https://patents.google.com/patent/US6285999B1/en",
+        "date": "2001-09-04",
+        "quote": "The rank assigned to a document is calculated from the ranks of documents citing it.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Google (about.google)",
+        "title": "Our story: From the garage to the Googleplex",
+        "url": "https://about.google/company-info/our-story/",
+        "date": "2026-10-20",
+        "quote": "Working from their dorm rooms, they built a search engine that used links to determine the importance of individual pages on the World Wide Web.",
+        "supports": "claim"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "PageRank",
+        "url": "https://en.wikipedia.org/wiki/PageRank",
+        "date": "2026-10-20",
+        "quote": "PageRank (PR) is an algorithm used by Google Search to rank web pages in their search engine results.",
+        "supports": "context"
+      }
+    ]
   },
   {
     "id": "roomba",
     "year": 2002,
+    "date": "2002-09-18",
     "category": "product",
     "title": "Roomba",
-    "summary": "The first mass-market home robot sells on suction, not intelligence — and ships in millions.",
+    "summary": "iRobot's Roomba goes on sale at $199.95, a year after Electrolux's Trilobite. It cleans with a carpet sweeper and a small vacuum, steered by simple behaviours. A million are sold by October 2004, two million by May 2006.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/Roomba",
-    "why": "Consumer robotics succeeds by being boring. A lesson ignored repeatedly since.",
-    "wikiTitle": "Roomba"
+    "why": "Consumer robotics succeeds by being boring. Shown it as an automatic floor cleaner, only two of some two dozen people in iRobot's focus groups called Roomba a robot, its designer Joe Jones recalls. In 2016 a Stanford study panel found surprisingly slow growth in the diversity of home robots' applications.",
+    "wikiTitle": "Roomba",
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "iRobot (media.irobot.com)",
+        "title": "iRobot Introduces Roomba™ Intelligent FloorVac – The First Automatic Floor Cleaner In The U.S.",
+        "url": "https://media.irobot.com/2002-09-18-iRobot-Introduces-Roomba-Intelligent-FloorVac-The-First-Automatic-Floor-Cleaner-In-The-U-S",
+        "date": "2002-09-18",
+        "quote": "Roomba™ Intelligent FloorVac is available for $199.95 (SRP) at Brookstone, The Sharper Image and Hammacher Schlemmer -- online starting this week and in stores in October.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "IEEE Spectrum (adapted from Dancing with Roomba, Routledge, 2025)",
+        "title": "How Roomba Got Its Vacuum (Joe Jones)",
+        "url": "https://spectrum.ieee.org/irobot-roomba-history",
+        "date": "2025-10-15",
+        "quote": "The enabling innovation that made the energy budget work, that made Roomba technically and economically feasible, was cleaning with a carpet sweeper rather than a vacuum.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "iRobot (investor.irobot.com, Wayback Machine capture)",
+        "title": "iRobot's Roomba Robotic Floorvac Surpasses 1 Million In Sales",
+        "url": "https://web.archive.org/web/20251215064726/https://investor.irobot.com/node/7746",
+        "date": "2004-10-25",
+        "quote": "In a major milestone for the consumer technology industry, iRobot has now sold more than 1 million Roomba",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "iRobot (investor.irobot.com, Wayback Machine capture)",
+        "title": "Sales of iRobot Roomba Vacuuming Robot Surpass 2 Million Units",
+        "url": "https://web.archive.org/web/20251215070341/https://investor.irobot.com/node/7521",
+        "date": "2006-05-22",
+        "quote": "iRobot Corp. (NASDAQ: IRBT) today announced that it has sold more than 2 million iRobot Roomba® Vacuuming Robots, making Roomba one of the best-selling consumer robots in history.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Electrolux Group (electroluxgroup.com)",
+        "title": "Electrolux celebrates 100 years since launch of the LUX 1 vacuum cleaner",
+        "url": "https://electroluxgroup.com/en/?p=14079",
+        "date": "2012-08-17",
+        "quote": "2001, the Trilobite, the world’s first mass produced self-going vacuum cleaner was launched.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "One Hundred Year Study on Artificial Intelligence, Stanford University (ai100.stanford.edu)",
+        "title": "Artificial Intelligence and Life in 2030, Home/Service Robots: Vacuum Cleaners (Peter Stone, Rodney Brooks and the 2015–2016 Study Panel)",
+        "url": "https://ai100.stanford.edu/2016-report/section-ii-ai-domain/homeservice-robots/vacuum-cleaners-annotated",
+        "date": "2016-09-01",
+        "quote": "A year later, iRobot introduced Roomba, which was a tenth the price of the Trilobite and, with only 512 bytes of RAM, ran a behavior based controller.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "One Hundred Year Study on Artificial Intelligence, Stanford University (ai100.stanford.edu)",
+        "title": "Artificial Intelligence and Life in 2030, Home/Service Robots (Peter Stone, Rodney Brooks and the 2015–2016 Study Panel)",
+        "url": "https://ai100.stanford.edu/2016-report/section-ii-ai-domain/homeservice-robots",
+        "date": "2016-09-01",
+        "quote": "Robots have entered people’s homes in the past fifteen years. Surprisingly slow growth in the diversity of applications has occurred simultaneously with increasingly sophisticated AI deployed on existing applications.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Technology Review (copy hosted by Simson Garfinkel, simson.net)",
+        "title": "iRobot Roomba (Simson Garfinkel)",
+        "url": "https://simson.net/clips/2002/2002.TR.10-09.iRobot_Roomba.htm",
+        "date": "2002-10-09",
+        "quote": "When it bumps into something, it backs up, turns, and starts off in a new direction.",
+        "supports": "claim"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Roomba",
+        "url": "https://en.wikipedia.org/wiki/Roomba",
+        "date": "2026-10-20",
+        "quote": "A Roomba is an autonomous robotic vacuum cleaner made by the company iRobot, and was first introduced in September 2002.",
+        "supports": "context"
+      }
+    ]
   },
   {
     "id": "nobody-finishes-the-grand-challenge",
@@ -4245,17 +4441,6 @@
     ]
   },
   {
-    "id": "the-flash-crash",
-    "year": 2010,
-    "category": "incident",
-    "title": "The flash crash",
-    "summary": "A trillion dollars evaporates from US markets in minutes as automated systems interact unpredictably.",
-    "source": "Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/2010_flash_crash",
-    "why": "The first mass demonstration that fast autonomous systems fail in ways no single operator can foresee.",
-    "wikiTitle": "2010 flash crash"
-  },
-  {
     "id": "kaggle",
     "year": 2010,
     "date": "2010-05",
@@ -4321,14 +4506,81 @@
     ]
   },
   {
-    "id": "siri-ships",
-    "year": 2011,
-    "category": "product",
-    "title": "Siri ships",
-    "summary": "A voice assistant in every pocket sets expectations the technology cannot yet meet.",
+    "id": "the-flash-crash",
+    "year": 2010,
+    "date": "2010-05-06",
+    "category": "incident",
+    "title": "The flash crash",
+    "summary": "The Dow and the S&P 500 fall more than 5% in five minutes and almost entirely recover within minutes. Regulators say it began with one large trader's algorithm selling $4.1 billion of futures into a fragile market.",
     "source": "Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/Siri",
-    "wikiTitle": "Siri"
+    "url": "https://en.wikipedia.org/wiki/2010_flash_crash",
+    "why": "Orders could now ricochet across markets and set off other algorithms in milliseconds, the SEC's chair told the Senate; in 1987 investigators could follow trades on one or two markets. In 2015 the US Justice Department charged a British futures trader, Navinder Sarao, alleging that his manipulation contributed to the crash. In 2016 he pleaded guilty to spoofing and wire fraud.",
+    "wikiTitle": "2010 flash crash",
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "U.S. Senate, Committee on Banking, Housing, and Urban Affairs, S. Hrg. 111-922 (U.S. Government Publishing Office, govinfo)",
+        "title": "Examining the Efficiency, Stability, and Integrity of the U.S. Capital Markets: prepared statement of Mary L. Schapiro, Chairman, Securities and Exchange Commission",
+        "url": "https://www.govinfo.gov/content/pkg/CHRG-111shrg65272/html/CHRG-111shrg65272.htm",
+        "date": "2010-12-08",
+        "quote": "While the decline in prices in broad market indexes on May 6 was not as steep and as persistent as the decline in October 1987--when trading was slower and less reliant on technology--the broad market indexes, including the Dow Jones Industrial Average and S&P 500, dropped more than 5 percent in 5 minutes, only to almost entirely reverse the decline in a subsequent few minutes.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Commodity Futures Trading Commission (copy hosted by Mondo Visione)",
+        "title": "Testimony of Chairman Gary Gensler before the Senate Subcommittee on Securities, Insurance, and Investment and the Permanent Subcommittee on Investigations (Gary Gensler)",
+        "url": "https://mondovisione.com/news/testimony-of-chairman-gary-gensler-before-the-senate-committee-on-banking-housin-2011124/",
+        "date": "2010-12-08",
+        "quote": "At around 2:30 pm that day, in markets that were already frail and volatile, a large fundamental trader came into the E-Mini market to hedge about $4.1 billion of equity market exposure by selling 75,000 futures contracts, using an executing broker to execute the transaction. The trader chose to put the entire order into an automated execution algorithm.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "U.S. Senate, Committee on Banking, Housing, and Urban Affairs, S. Hrg. 111-774 (U.S. Government Publishing Office, govinfo)",
+        "title": "Examining the Causes and Lessons of the May 6th Market Plunge: prepared statement of Mary L. Schapiro, Chairman, Securities and Exchange Commission",
+        "url": "https://www.govinfo.gov/content/pkg/CHRG-111shrg62513/html/CHRG-111shrg62513.htm",
+        "date": "2010-05-20",
+        "quote": "Orders in one stock directed to one market can now ricochet to other markets and trigger algorithmic executions in other stocks and derivatives in milliseconds. By contrast, in 1987, investigators could focus their attention on discrete transactions largely effected on only one or two markets.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "U.S. Department of Justice, Office of Public Affairs (copy hosted by Mondo Visione)",
+        "title": "Futures Trader Charged With Illegally Manipulating Stock Market, Contributing To The May 2010 Market ‘Flash Crash’",
+        "url": "https://mondovisione.com/media-and-resources/news/futures-trader-charged-with-illegally-manipulating-stock-market-contributing-to-2015421/",
+        "date": "2015-04-21",
+        "quote": "Sarao’s alleged manipulation earned him significant profits and contributed to a major drop in the U.S. stock market on May 6, 2010, that came to be known as the “Flash Crash.”",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "U.S. Department of Justice, Office of Public Affairs (copy hosted by Mondo Visione)",
+        "title": "Futures Trader Pleads Guilty To Illegally Manipulating The Futures Market In Connection With 2010 “Flash Crash”",
+        "url": "https://mondovisione.com/news/us-justice-department-futures-trader-pleads-guilty-to-illegally-manipulating-th-20161110/",
+        "date": "2016-11-09",
+        "quote": "Navinder Singh Sarao, 37, of Hounslow, United Kingdom, pleaded guilty to one count of wire fraud and one count of spoofing before U.S. District Judge Virginia Kendall of the Northern District of Illinois.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Commodity Futures Trading Commission (copy hosted by Mondo Visione)",
+        "title": "Federal Court in Chicago Orders U.K. Resident Navinder Singh Sarao to Pay More than $38 Million in Monetary Sanctions for Price Manipulation and Spoofing",
+        "url": "https://mondovisione.com/news/cftc-federal-court-in-chicago-orders-uk-resident-navinder-singh-sarao-to-pay-20161117/",
+        "date": "2016-11-17",
+        "quote": "The Order also finds that Defendants’ actions contributed to an extreme order book imbalance in the E-mini S&P market and that the CFTC’s and Securities and Exchange Commission’s Preliminary Findings Regarding the Events of May 6, 2010 noted that the significant imbalance between sell orders and buy orders contributed to a sudden loss of liquidity in the E-mini S&P market that day and that this loss of liquidity, in conjunction with other market events, directly contributed to the E-mini S&P price crash.",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "2010 flash crash",
+        "url": "https://en.wikipedia.org/wiki/2010_flash_crash",
+        "date": "2026-10-20",
+        "quote": "A variety of explanations have been forwarded for the crash, including errors in automatic trading systems and deliberate market manipulation.",
+        "supports": "context"
+      }
+    ]
   },
   {
     "id": "watson-wins-jeopardy",
@@ -4401,6 +4653,92 @@
         "url": "https://en.wikipedia.org/wiki/IBM_Watson",
         "date": "2026-10-19",
         "quote": "A practice match was recorded on January 13, 2011, and the official matches were recorded on January 14, 2011.",
+        "supports": "context"
+      }
+    ]
+  },
+  {
+    "id": "siri-ships",
+    "year": 2011,
+    "date": "2011-10-14",
+    "category": "product",
+    "title": "Siri ships on the iPhone 4S",
+    "summary": "Apple's iPhone 4S goes on sale with Siri, an assistant that, Apple says, helps you get things done just by asking. Apple releases it in beta, in English, French and German.",
+    "source": "Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Siri",
+    "why": "It set an expectation, of a phone you could simply ask, and reviewers split on whether it met it: John Gruber found that so many of the things he tried worked; in December Gizmodo's Mat Honan called it a broken promise.",
+    "wikiTitle": "Siri",
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Apple (Apple Newsroom)",
+        "title": "Apple Launches iPhone 4S, iOS 5 & iCloud",
+        "url": "https://www.apple.com/newsroom/2011/10/04Apple-Launches-iPhone-4S-iOS-5-iCloud/",
+        "date": "2011-10-04",
+        "quote": "Siri will be available in beta on iPhone 4S in English (localized for US, UK and Australia), French and German.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Apple (Apple Newsroom)",
+        "title": "iPhone 4S Pre-Orders Top One Million in First 24 Hours",
+        "url": "https://www.apple.com/newsroom/2011/10/10iPhone-4S-Pre-Orders-Top-One-Million-in-First-24-Hours/",
+        "date": "2011-10-10",
+        "quote": "Siri™, an intelligent assistant that helps you get things done just by asking.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Apple (Apple Newsroom)",
+        "title": "iPhone 4S First Weekend Sales Top Four Million",
+        "url": "https://www.apple.com/newsroom/2011/10/17iPhone-4S-First-Weekend-Sales-Top-Four-Million/",
+        "date": "2011-10-17",
+        "quote": "Apple® today announced it has sold over four million of its new iPhone® 4S, just three days after its launch on October 14.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "SRI International (sri.com)",
+        "title": "Siri – 2007 (SRI's history of innovation)",
+        "url": "https://www.sri.com/hoi/siri/",
+        "date": "2024-05-28",
+        "quote": "SRI spun off Siri, Inc. in 2007 to bring the technology to consumers, raising $24 million in two rounds of financing. In April 2010, Apple acquired Siri, and in October 2011, Siri was unveiled as an integrated feature of the Apple iPhone 4S.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Daring Fireball",
+        "title": "The iPhone 4S (John Gruber)",
+        "url": "https://daringfireball.net/2011/10/iphone_4s",
+        "date": "2011-10-12",
+        "quote": "Siri, on the other hand, feels limitless. It’s fuzzy, and fuzzy on purpose. There’s no way to tell what will work and what won’t. You must explore. I found it extremely fun to explore Siri — primarily because so many of the things I tried actually worked.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Gizmodo",
+        "title": "Siri Is Apple’s Broken Promise (Mat Honan)",
+        "url": "https://gizmodo.com/siri-is-apples-broken-promise-5864293",
+        "date": "2011-12-05",
+        "quote": "After playing with Siri for more than a month, I’m still waiting to find out. Instead of an intelligent assistant I found a lie, and worse, a broken promise.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Technologizer",
+        "title": "Siri, a Promising “Virtual Personal Assistant” for the iPhone 3GS (Harry McCracken)",
+        "url": "https://www.technologizer.com/2010/02/05/siri/",
+        "date": "2010-02-05",
+        "quote": "Siri, an ambitious new free iPhone application, is now available in the App Store–and it’s not Just Another iPhone Application.",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Siri",
+        "url": "https://en.wikipedia.org/wiki/Siri",
+        "date": "2026-10-20",
+        "quote": "On October 14, 2011, Apple launched the iPhone 4S with a beta version of Siri.",
         "supports": "context"
       }
     ]
@@ -4480,16 +4818,126 @@
     "year": 2013,
     "category": "research",
     "title": "word2vec",
-    "summary": "Words become vectors with arithmetic — king minus man plus woman lands near queen.",
+    "summary": "Tomas Mikolov's team at Google trains word vectors on 1.6 billion words in under a day, and the offsets between them hold relations: king minus man plus woman lands near queen.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/Word2vec",
-    "why": "Meaning as geometry: the representational idea that makes everything after it possible.",
+    "why": "Word vectors were older: Bengio's language model learned them in 2003. King minus man plus woman came from Mikolov's paper with Microsoft colleagues, on a recurrent network's vectors. What was new was the cost, and Google gave the code away. By 2018 the BERT paper called pre-trained word embeddings an integral part of modern NLP systems.",
     "wikiTitle": "Word2vec",
     "orgs": [
       "google"
     ],
     "terms": [
       "word-embedding"
+    ],
+    "sources": [
+      {
+        "kind": "paper",
+        "publisher": "arXiv",
+        "title": "Efficient Estimation of Word Representations in Vector Space (Tomas Mikolov, Kai Chen, Greg Corrado and Jeffrey Dean)",
+        "url": "https://arxiv.org/abs/1301.3781",
+        "date": "2013-01-16",
+        "quote": "We observe large improvements in accuracy at much lower computational cost, i.e. it takes less than a day to learn high quality word vectors from a 1.6 billion words data set.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv (full text, version 3)",
+        "title": "Efficient Estimation of Word Representations in Vector Space (Tomas Mikolov, Kai Chen, Greg Corrado and Jeffrey Dean)",
+        "url": "https://arxiv.org/pdf/1301.3781",
+        "date": "2013-09-07",
+        "quote": "results in a vector that is closest to the vector representation of the word Queen [20]",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Google Code (project page, Wayback Machine capture)",
+        "title": "word2vec: Tool for computing continuous distributed representations of words",
+        "url": "https://web.archive.org/web/20130930011406/https://code.google.com/p/word2vec/",
+        "date": "2013-07-30",
+        "quote": "vector('king') - vector('man') + vector('woman') is close to vector('queen') [3, 1]",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Google Open Source Blog",
+        "title": "Learning the meaning behind words (Tomas Mikolov, Ilya Sutskever and Quoc Le)",
+        "url": "https://opensource.googleblog.com/2013/08/learning-meaning-behind-words.html",
+        "date": "2013-08-14",
+        "quote": "we’re publishing an open source toolkit called word2vec that aims to learn the meaning behind words",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "Microsoft Research (publication page)",
+        "title": "Linguistic Regularities in Continuous Space Word Representations (Tomas Mikolov, Wen-tau Yih and Geoffrey Zweig)",
+        "url": "https://www.microsoft.com/en-us/research/publication/linguistic-regularities-in-continuous-space-word-representations/",
+        "date": "2013-05-01",
+        "quote": "the male/female relationship is automatically learned, and with the induced vector representations, “King – Man + Woman” results in a vector very close to “Queen.”",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "Proceedings of NAACL-HLT 2013 (ACL Anthology)",
+        "title": "Linguistic Regularities in Continuous Space Word Representations (Tomas Mikolov, Wen-tau Yih and Geoffrey Zweig)",
+        "url": "https://aclanthology.org/N13-1090.pdf",
+        "date": "2013-06-09",
+        "quote": "The word representations we study are learned by a recurrent neural network language model (Mikolov et al., 2010), as illustrated in Figure 1.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "Journal of Machine Learning Research",
+        "title": "A Neural Probabilistic Language Model (Yoshua Bengio, Réjean Ducharme, Pascal Vincent and Christian Jauvin)",
+        "url": "https://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf",
+        "date": "2003-02-01",
+        "quote": "The model learns simultaneously (1) a distributed representation for each word along with (2) the probability function for word sequences, expressed in terms of these representations.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv (full text)",
+        "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding (Jacob Devlin, Ming-Wei Chang, Kenton Lee and Kristina Toutanova)",
+        "url": "https://arxiv.org/pdf/1810.04805",
+        "date": "2018-10-11",
+        "quote": "Pre-trained word embeddings are an integral part of modern NLP systems",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv",
+        "title": "Distributed Representations of Words and Phrases and their Compositionality (Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg Corrado and Jeffrey Dean)",
+        "url": "https://arxiv.org/abs/1310.4546",
+        "date": "2013-10-16",
+        "quote": "The recently introduced continuous Skip-gram model is an efficient method for learning high-quality distributed vector representations that capture a large number of precise syntactic and semantic word relationships.",
+        "supports": "context"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv",
+        "title": "Deep contextualized word representations (Matthew E. Peters, Mark Neumann, Mohit Iyyer, Matt Gardner, Christopher Clark, Kenton Lee and Luke Zettlemoyer)",
+        "url": "https://arxiv.org/abs/1802.05365",
+        "date": "2018-02-15",
+        "quote": "We introduce a new type of deep contextualized word representation that models both (1) complex characteristics of word use (e.g., syntax and semantics), and (2) how these uses vary across linguistic contexts (i.e., to model polysemy).",
+        "supports": "context"
+      },
+      {
+        "kind": "paper",
+        "publisher": "OpenAI (cdn.openai.com)",
+        "title": "Improving Language Understanding by Generative Pre-Training (Alec Radford, Karthik Narasimhan, Tim Salimans and Ilya Sutskever)",
+        "url": "https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf",
+        "date": "2018-06-11",
+        "quote": "These approaches, however, mainly transfer word-level information, whereas we aim to capture higher-level semantics.",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Word2vec",
+        "url": "https://en.wikipedia.org/wiki/Word2vec",
+        "date": "2026-10-20",
+        "quote": "Its computational efficiency made it practical to learn high-quality word embeddings from very large text corpora and contributed to their widespread adoption in natural language processing.",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -5012,13 +5460,95 @@
     ]
   },
   {
+    "id": "the-autonomous-weapons-letter",
+    "year": 2015,
+    "date": "2015-07-28",
+    "category": "policy",
+    "title": "The autonomous weapons letter",
+    "summary": "AI and robotics researchers call for a ban on offensive autonomous weapons beyond meaningful human control. The Future of Life Institute counts over 1,700 of them at the launch and over 3,000 by the year's end.",
+    "source": "Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Lethal_autonomous_weapon",
+    "why": "Researchers tried to draw a line ahead of the weapons, whose deployment, the letter said, was feasible within years, not decades. They were not the first to try: in 2013 more than 270 engineers, computing and AI experts and roboticists, gathered by the International Committee for Robot Arms Control, had called for a ban on weapons that make the decision to use violent force themselves.",
+    "wikiTitle": "Lethal autonomous weapon",
+    "people": [
+      "elon-musk"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Future of Life Institute",
+        "title": "Autonomous Weapons Open Letter: AI & Robotics Researchers",
+        "url": "https://futureoflife.org/open-letter/open-letter-autonomous-weapons-ai-robotics/",
+        "date": "2015-07-28",
+        "quote": "Starting a military AI arms race is a bad idea, and should be prevented by a ban on offensive autonomous weapons beyond meaningful human control.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Future of Life Institute (Wayback Machine capture)",
+        "title": "Autonomous Weapons: an Open Letter from AI & Robotics Researchers (the letter's page as captured on 28 July 2015)",
+        "url": "https://web.archive.org/web/20150728112158/http://futureoflife.org/AI/open_letter_autonomous_weapons",
+        "date": "2015-07-28",
+        "quote": "This open letter will be officially announced at the opening of the IJCAI 2015 conference on July 28, and we ask journalists not to write about it before then.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Future of Life Institute",
+        "title": "Open letter on AI weapons (Max Tegmark)",
+        "url": "https://futureoflife.org/ai/open-letter-on-ai-weapons/",
+        "date": "2015-07-29",
+        "quote": "At a press conference at the IJCAI AI-meeting in Buenos Aires today, Stuart Russell and Toby Walsh announced an open letter on autonomous weapons that we’ve helped organize. We’re delighted that it’s been signed by over 1700 AI/robotics researchers and over 11000 others.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Future of Life Institute (newsletter)",
+        "title": "2015: An Amazing Year in Review (Ariel Conn)",
+        "url": "https://futureoflife.org/newsletter/2015-an-amazing-year-in-review/",
+        "date": "2015-12-31",
+        "quote": "The letter has been signed by over 3,000 AI and robotics researchers, including leaders such as Demis Hassabis (DeepMind), Yann LeCun (Facebook), Eric Horvitz (Microsoft), Peter Norvig (Google), Oren Etzioni (Allen Institute), six past presidents of the AAAI, and over 17,000 other scientists and concerned individuals, including Stephen Hawking, Elon Musk, and Steve Wozniak.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "International Committee for Robot Arms Control (ICRAC)",
+        "title": "Computing experts from 37 countries call for ban on killer robots",
+        "url": "https://www.icrac.net/computing-experts-from-37-countries-call-for-ban-on-killer-robots/",
+        "date": "2013-10-16",
+        "quote": "More than 270 engineers, computing and artificial intelligence experts, roboticists, and professionals from related disciplines are calling for a ban on the development and deployment of weapon systems that make the decision to apply violent force autonomously, without any human control.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "The Guardian",
+        "title": "Musk, Wozniak and Hawking urge ban on warfare AI and autonomous weapons (Samuel Gibbs)",
+        "url": "https://www.theguardian.com/technology/2015/jul/27/musk-wozniak-hawking-ban-ai-autonomous-weapons",
+        "date": "2015-07-27",
+        "quote": "Over 1,000 high-profile artificial intelligence experts and leading researchers have signed an open letter warning of a “military artificial intelligence arms race” and calling for a ban on “offensive autonomous weapons”.",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Lethal autonomous weapon",
+        "url": "https://en.wikipedia.org/wiki/Lethal_autonomous_weapon",
+        "date": "2026-10-20",
+        "quote": "The letter was presented in Buenos Aires at the 24th International Joint Conference on Artificial Intelligence (IJCAI-15) and was co-signed by Stephen Hawking, Elon Musk, Steve Wozniak, Noam Chomsky, Skype co-founder Jaan Tallinn and Google DeepMind co-founder Demis Hassabis, among others.",
+        "supports": "context"
+      }
+    ]
+  },
+  {
     "id": "resnet-passes-human-error-rates",
     "year": 2015,
+    "date": "2015-12-10",
     "category": "research",
-    "title": "ResNet passes human error rates",
-    "summary": "Residual connections let networks go 152 layers deep and beat human accuracy on ImageNet.",
+    "title": "ResNet goes 152 layers deep",
+    "summary": "Kaiming He and colleagues at Microsoft Research train residual networks 152 layers deep and win ImageNet's 2015 challenge with 3.57% top-5 error, below the 5.1% one trained annotator, Andrej Karpathy, had scored.",
     "source": "arXiv",
     "url": "https://arxiv.org/abs/1512.03385",
+    "why": "It was not the first result below 5.1%. In February 2015 the same team claimed 4.94%, the first, they wrote, to surpass human-level performance on the challenge; days later Google's batch-normalised networks reported 4.8%. The ResNet paper itself says nothing about people.",
     "wikiTitle": "Residual neural network",
     "orgs": [
       "microsoft"
@@ -5026,20 +5556,89 @@
     "terms": [
       "deep-learning",
       "benchmark"
-    ]
-  },
-  {
-    "id": "the-autonomous-weapons-letter",
-    "year": 2015,
-    "category": "policy",
-    "title": "The autonomous weapons letter",
-    "summary": "Thousands of researchers sign an open letter opposing offensive autonomous weapons.",
-    "source": "Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/Lethal_autonomous_weapon",
-    "why": "The research community's first collective attempt to set a red line ahead of capability.",
-    "wikiTitle": "Lethal autonomous weapon",
-    "people": [
-      "elon-musk"
+    ],
+    "sources": [
+      {
+        "kind": "paper",
+        "publisher": "arXiv",
+        "title": "Deep Residual Learning for Image Recognition (Kaiming He, Xiangyu Zhang, Shaoqing Ren and Jian Sun)",
+        "url": "https://arxiv.org/abs/1512.03385",
+        "date": "2015-12-10",
+        "quote": "An ensemble of these residual nets achieves 3.57% error on the ImageNet test set. This result won the 1st place on the ILSVRC 2015 classification task.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv (full text, version 1)",
+        "title": "Deep Residual Learning for Image Recognition (Kaiming He, Xiangyu Zhang, Shaoqing Ren and Jian Sun)",
+        "url": "https://arxiv.org/pdf/1512.03385",
+        "date": "2015-12-10",
+        "quote": "We combine six models of different depth to form an ensemble (only with two 152-layer ones at the time of submitting). This leads to 3.57% top-5 error on the test set (Table 5).",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv",
+        "title": "Delving Deep into Rectifiers: Surpassing Human-Level Performance on ImageNet Classification (Kaiming He, Xiangyu Zhang, Shaoqing Ren and Jian Sun)",
+        "url": "https://arxiv.org/abs/1502.01852",
+        "date": "2015-02-06",
+        "quote": "To our knowledge, our result is the first to surpass human-level performance (5.1%, Russakovsky et al.) on this visual recognition challenge.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Microsoft Research Blog",
+        "title": "Microsoft Researchers’ Algorithm Sets ImageNet Challenge Milestone (Richard Eckel)",
+        "url": "https://www.microsoft.com/en-us/research/blog/microsoft-researchers-algorithm-sets-imagenet-challenge-milestone/",
+        "date": "2015-02-10",
+        "quote": "had for the first time eclipsed the abilities of people to classify objects defined in the ImageNet 1000 challenge",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv",
+        "title": "Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift (Sergey Ioffe and Christian Szegedy)",
+        "url": "https://arxiv.org/abs/1502.03167",
+        "date": "2015-02-11",
+        "quote": "reaching 4.9% top-5 validation error (and 4.8% test error), exceeding the accuracy of human raters",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv (full text, version 3)",
+        "title": "ImageNet Large Scale Visual Recognition Challenge (Olga Russakovsky, Jia Deng and others)",
+        "url": "https://arxiv.org/pdf/1409.0575",
+        "date": "2015-01-30",
+        "quote": "Annotator A1 evaluated a total of 1500 test set images. The GoogLeNet classification error on this sample was estimated to be 6.8% (recall that the error on full test set of 100,000 images is 6.7%, as shown in Table 7). The human error was estimated to be 5.1%.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Andrej Karpathy (karpathy.github.io)",
+        "title": "What I learned from competing against a ConvNet on ImageNet (Andrej Karpathy)",
+        "url": "https://karpathy.github.io/2014/09/02/what-i-learned-from-competing-against-a-convnet-on-imagenet/",
+        "date": "2014-09-02",
+        "quote": "There have now been several reported results that surpass my 5.1% error on ImageNet.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv (full text)",
+        "title": "Delving Deep into Rectifiers: Surpassing Human-Level Performance on ImageNet Classification (Kaiming He, Xiangyu Zhang, Shaoqing Ren and Jian Sun)",
+        "url": "https://arxiv.org/pdf/1502.01852",
+        "date": "2015-02-06",
+        "quote": "While our algorithm produces a superior result on this particular dataset, this does not indicate that machine vision outperforms human vision on object recognition in general.",
+        "supports": "context"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv (full text)",
+        "title": "Attention Is All You Need (Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Łukasz Kaiser and Illia Polosukhin)",
+        "url": "https://arxiv.org/pdf/1706.03762",
+        "date": "2017-06-12",
+        "quote": "We employ a residual connection [11] around each of the two sub-layers, followed by layer normalization [1].",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -5129,20 +5728,6 @@
         "quote": "OpenAI was founded in 2015 as a nonprofit, with Elon Musk and Sam Altman as co-chairs; Musk resigned in 2018.",
         "supports": "context"
       }
-    ]
-  },
-  {
-    "id": "gdpr-is-adopted",
-    "year": 2016,
-    "category": "policy",
-    "title": "GDPR is adopted",
-    "summary": "Europe writes rights around automated decisions and personal data two years before enforcement begins.",
-    "source": "Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/General_Data_Protection_Regulation",
-    "why": "Sets the template — extraterritorial, risk-based, slow-burning — that the AI Act later follows.",
-    "wikiTitle": "General Data Protection Regulation",
-    "orgs": [
-      "european-union"
     ]
   },
   {
@@ -5293,6 +5878,104 @@
         "url": "https://en.wikipedia.org/wiki/Tay_(chatbot)",
         "date": "2026-10-19",
         "quote": "It caused controversy when the bot began to post inflammatory and offensive tweets through its Twitter account, causing Microsoft to shut down the service only 16 hours after its launch.",
+        "supports": "context"
+      }
+    ]
+  },
+  {
+    "id": "gdpr-is-adopted",
+    "year": 2016,
+    "date": "2016-04-14",
+    "category": "policy",
+    "title": "GDPR is adopted",
+    "summary": "The EU adopts the General Data Protection Regulation in place of its 1995 directive. It keeps the right not to be subject to decisions based solely on automated processing, and applies from 25 May 2018.",
+    "source": "Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/General_Data_Protection_Regulation",
+    "why": "It reaches companies outside the Union, scales its duties to risk, and applied only from May 2018, two years after its adoption. The board reads it as the template for the AI Act, whose proposal of 2021 says it complements the GDPR.",
+    "wikiTitle": "General Data Protection Regulation",
+    "orgs": [
+      "european-union"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "EUR-Lex",
+        "title": "Regulation (EU) 2016/679 of 27 April 2016 (General Data Protection Regulation)",
+        "url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng",
+        "date": "2016-05-04",
+        "quote": "Position of the European Parliament of 12 March 2014 (not yet published in the Official Journal) and position of the Council at first reading of 8 April 2016 (not yet published in the Official Journal). Position of the European Parliament of 14 April 2016.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Official Journal of the European Union (copy hosted by legislation.gov.uk, The National Archives)",
+        "title": "Regulation (EU) 2016/679, Article 22: Automated individual decision-making, including profiling (as adopted)",
+        "url": "https://www.legislation.gov.uk/eur/2016/679/article/22/adopted",
+        "date": "2016-05-04",
+        "quote": "The data subject shall have the right not to be subject to a decision based solely on automated processing, including profiling, which produces legal effects concerning him or her or similarly significantly affects him or her.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Official Journal of the European Union (copy hosted by legislation.gov.uk, The National Archives)",
+        "title": "Regulation (EU) 2016/679, Article 99: Entry into force and application (as adopted)",
+        "url": "https://www.legislation.gov.uk/eur/2016/679/article/99/adopted",
+        "date": "2016-05-04",
+        "quote": "It shall apply from 25 May 2018.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "European Parliament",
+        "title": "Data protection reform - Parliament approves new rules fit for the digital era",
+        "url": "https://www.europarl.europa.eu/news/en/press-room/20160407IPR21776/data-protection-reform-parliament-approves-new-rules-fit-for-the-digital-era",
+        "date": "2016-04-14",
+        "quote": "The reform will replace the current data protection directive, dating back to 1995 when the internet was still in its infancy, with a general regulation",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Official Journal of the European Communities (copy hosted by legislation.gov.uk, The National Archives)",
+        "title": "Directive 95/46/EC of 24 October 1995 on the protection of individuals with regard to the processing of personal data and on the free movement of such data (as adopted)",
+        "url": "https://www.legislation.gov.uk/eudr/1995/46/pdfs/eudr_19950046_adopted_en.pdf",
+        "date": "1995-11-23",
+        "quote": "Member States shall grant the right to every person not to be subject to a decision which produces legal effects concerning him or significantly affects him and which is based solely on automated processing of data intended to evaluate certain personal aspects relating to him",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "European Commission",
+        "title": "Joint Statement on the final adoption of the new EU rules for personal data protection",
+        "url": "https://ec.europa.eu/commission/presscorner/detail/en/statement_16_1403",
+        "date": "2016-04-14",
+        "quote": "With the new rules, non-EU companies will have to apply, when offering their services to customers in the EU, the same rules as EU companies; thus creating a level playing field.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Official Journal of the European Union (copy hosted by legislation.gov.uk, The National Archives)",
+        "title": "Regulation (EU) 2016/679, Article 24: Responsibility of the controller (as adopted)",
+        "url": "https://www.legislation.gov.uk/eur/2016/679/article/24/adopted",
+        "date": "2016-05-04",
+        "quote": "Taking into account the nature, scope, context and purposes of processing as well as the risks of varying likelihood and severity for the rights and freedoms of natural persons, the controller shall implement appropriate technical and organisational measures",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "EUR-Lex (Wayback Machine capture)",
+        "title": "Proposal for a Regulation laying down harmonised rules on artificial intelligence (Artificial Intelligence Act), COM(2021) 206 final",
+        "url": "https://web.archive.org/web/20260926150823/https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A52021PC0206",
+        "date": "2021-04-21",
+        "quote": "The proposal is without prejudice and complements the General Data Protection Regulation (Regulation (EU) 2016/679) and the Law Enforcement Directive (Directive (EU) 2016/680) with a set of harmonised rules applicable to the design, development and use of certain high-risk AI systems and restrictions on certain uses of remote biometric identification systems.",
+        "supports": "claim"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "General Data Protection Regulation",
+        "url": "https://en.wikipedia.org/wiki/General_Data_Protection_Regulation",
+        "date": "2026-10-20",
+        "quote": "The European Parliament and Council of the European Union adopted the GDPR on 14 April 2016, to become effective on 25 May 2018.",
         "supports": "context"
       }
     ]
@@ -5728,6 +6411,127 @@
     ]
   },
   {
+    "id": "bert-and-gpt-1",
+    "year": 2018,
+    "category": "research",
+    "title": "BERT and GPT-1",
+    "summary": "OpenAI pretrains a transformer on unlabelled text to predict the next word, then fine-tunes it for each task. In October Google's BERT learns instead by filling in masked words, reading both ways at every layer.",
+    "source": "Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/BERT_(language_model)",
+    "why": "Neither paper invented the recipe, or said it had: OpenAI called its approach a combination of two existing ideas, and Google said BERT built on earlier work, Dai and Le's of 2015, ULMFiT and ELMo, both public by February 2018, and OpenAI's own. After 2019, by Stanford's account, using BERT became the norm in language processing.",
+    "wikiTitle": "BERT (language model)",
+    "orgs": [
+      "google",
+      "openai"
+    ],
+    "terms": [
+      "transformer",
+      "pretraining",
+      "large-language-model"
+    ],
+    "sources": [
+      {
+        "kind": "paper",
+        "publisher": "OpenAI",
+        "title": "Improving Language Understanding by Generative Pre-Training (Alec Radford, Karthik Narasimhan, Tim Salimans and Ilya Sutskever)",
+        "url": "https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf",
+        "date": "2018-06-11",
+        "quote": "We demonstrate that large gains on these tasks can be realized by generative pre-training of a language model on a diverse corpus of unlabeled text, followed by discriminative fine-tuning on each specific task.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "Improving Language Understanding with Unsupervised Learning",
+        "url": "https://web.archive.org/web/20180613194942/https://blog.openai.com/language-unsupervised/",
+        "date": "2018-06-11",
+        "quote": "Our approach is a combination of two existing ideas: transformers and unsupervised pre-training. These results provide a convincing example that pairing supervised learning methods with unsupervised pre-training works very well; this is an idea that many have explored in the past",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv (Google AI Language)",
+        "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding (Jacob Devlin, Ming-Wei Chang, Kenton Lee and Kristina Toutanova)",
+        "url": "https://arxiv.org/abs/1810.04805v1",
+        "date": "2018-10-11",
+        "quote": "Unlike recent language representation models, BERT is designed to pre-train deep bidirectional representations by jointly conditioning on both left and right context in all layers.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv (full text, version 1)",
+        "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding (Jacob Devlin, Ming-Wei Chang, Kenton Lee and Kristina Toutanova)",
+        "url": "https://arxiv.org/pdf/1810.04805v1",
+        "date": "2018-10-11",
+        "quote": "The masked language model randomly masks some of the tokens from the input, and the objective is to predict the original vocabulary id of the masked word based only on its context.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Google AI Blog (Google Research)",
+        "title": "Open Sourcing BERT: State-of-the-Art Pre-training for Natural Language Processing (Jacob Devlin and Ming-Wei Chang)",
+        "url": "https://research.google/blog/open-sourcing-bert-state-of-the-art-pre-training-for-natural-language-processing/",
+        "date": "2018-11-02",
+        "quote": "BERT builds upon recent work in pre-training contextual representations — including Semi-supervised Sequence Learning, Generative Pre-Training, ELMo, and ULMFit.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv (Google)",
+        "title": "Semi-supervised Sequence Learning (Andrew M. Dai and Quoc V. Le)",
+        "url": "https://arxiv.org/abs/1511.01432",
+        "date": "2015-11-04",
+        "quote": "These two algorithms can be used as a \"pretraining\" step for a later supervised sequence learning algorithm.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv",
+        "title": "Universal Language Model Fine-tuning for Text Classification (Jeremy Howard and Sebastian Ruder)",
+        "url": "https://arxiv.org/abs/1801.06146",
+        "date": "2018-01-18",
+        "quote": "We propose Universal Language Model Fine-tuning (ULMFiT), an effective transfer learning method that can be applied to any task in NLP, and introduce techniques that are key for fine-tuning a language model.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv (Allen Institute for Artificial Intelligence)",
+        "title": "Deep contextualized word representations (Matthew E. Peters and others)",
+        "url": "https://arxiv.org/abs/1802.05365",
+        "date": "2018-02-15",
+        "quote": "Our word vectors are learned functions of the internal states of a deep bidirectional language model (biLM), which is pre-trained on a large text corpus.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv (OpenAI)",
+        "title": "Language Models are Few-Shot Learners (Brown et al.)",
+        "url": "https://arxiv.org/pdf/2005.14165v1",
+        "date": "2020-05-28",
+        "quote": "First, single-layer representations were learned using word vectors [MCCD13, PSM14] and fed to task-specific architectures, then RNNs with multiple layers of representations and contextual state were used to form stronger representations [DL15, MBXS17, PNZtY18] (though still applied to task-specific architectures), and more recently pre-trained recurrent or transformer language models [VSP+17] have been directly fine-tuned, entirely removing the need for task-specific architectures [RNSS18, DCLT18, HR18].",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv (Stanford Center for Research on Foundation Models)",
+        "title": "On the Opportunities and Risks of Foundation Models (Rishi Bommasani and others)",
+        "url": "https://arxiv.org/pdf/2108.07258v1",
+        "date": "2021-08-16",
+        "quote": "After 2019, self-supervised learning with language models became more of a substrate of NLP, as using BERT has become the norm.",
+        "supports": "claim"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "BERT (language model)",
+        "url": "https://en.wikipedia.org/wiki/BERT_(language_model)",
+        "date": "2026-10-20",
+        "quote": "BERT is trained by masked token prediction and next sentence prediction.",
+        "supports": "context"
+      }
+    ]
+  },
+  {
     "id": "musk-leaves-the-openai-board",
     "year": 2018,
     "date": "2018-02",
@@ -5900,34 +6704,57 @@
   {
     "id": "amazon-scraps-a-biased-hiring-tool",
     "year": 2018,
+    "date": "2018-10-10",
     "category": "incident",
-    "title": "Amazon scraps a biased hiring tool",
-    "summary": "A résumé screener trained on a decade of applications learns to penalise women and is abandoned.",
+    "title": "Amazon's biased hiring tool comes to light",
+    "summary": "Reuters reports that Amazon's résumé screener, trained on a decade of applications mostly from men, learned to prefer men; its team was disbanded by 2017. Amazon says recruiters never used it to evaluate candidates.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/Algorithmic_bias",
     "why": "Models inherit the history in their data. Fairness is a data problem before it is a model problem.",
+    "detail": [
+      "Reuters' sources said Amazon's recruiters looked at the engine's recommendations when searching for new hires but never relied on them alone, and that the team was disbanded because executives lost hope for the project. Amazon said the tool was never used by its recruiters to evaluate candidates."
+    ],
     "wikiTitle": "Algorithmic bias",
     "terms": [
       "machine-learning"
-    ]
-  },
-  {
-    "id": "bert-and-gpt-1",
-    "year": 2018,
-    "category": "research",
-    "title": "BERT and GPT-1",
-    "summary": "Pretrain on unlabelled text, then fine-tune: the recipe that becomes the default for language.",
-    "source": "Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/BERT_(language_model)",
-    "wikiTitle": "BERT (language model)",
-    "orgs": [
-      "google",
-      "openai"
     ],
-    "terms": [
-      "transformer",
-      "pretraining",
-      "large-language-model"
+    "sources": [
+      {
+        "kind": "article",
+        "publisher": "Reuters (copy hosted by Global News)",
+        "title": "Amazon scraps secret AI recruiting tool that showed bias against women (Jeffrey Dastin)",
+        "url": "https://globalnews.ca/news/4532172/amazon-jobs-ai-bias/",
+        "date": "2018-10-10",
+        "quote": "That is because Amazon’s computer models were trained to vet applicants by observing patterns in resumes submitted to the company over a 10-year period. Most came from men, a reflection of male dominance across the tech industry. In effect, Amazon’s system taught itself that male candidates were preferable.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Reuters (the updated reuters.com page, printed to PDF; course reading hosted by Emory University)",
+        "title": "Amazon scraps secret AI recruiting tool that showed bias against women (Jeffrey Dastin)",
+        "url": "https://jlucasmckay.bmi.emory.edu/global/bmi510/Reference/hiring-bias.pdf",
+        "date": "2018-10-10",
+        "quote": "Amazon’s recruiters looked at the recommendations generated by the tool when searching for new hires, but never relied solely on those rankings, they said. Amazon declined to comment on the technology’s challenges, but said the tool “was never used by Amazon recruiters to evaluate candidates.”",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Reuters (copy hosted by CNBC)",
+        "title": "Amazon scraps secret AI recruiting tool that showed bias against women (Jeffrey Dastin)",
+        "url": "https://www.cnbc.com/2018/10/10/amazon-scraps-a-secret-ai-recruiting-tool-that-showed-bias-against-women.html",
+        "date": "2018-10-10",
+        "quote": "The Seattle company ultimately disbanded the team by the start of last year because executives lost hope for the project, according to the people, who spoke on condition of anonymity.",
+        "supports": "claim"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Algorithmic bias",
+        "url": "https://en.wikipedia.org/wiki/Algorithmic_bias",
+        "date": "2026-10-20",
+        "quote": "Bias can emerge from many factors, including intentionally biased design decisions or the unintended or unanticipated use or decisions relating to the way data is coded, collected, selected or used to train the algorithm.",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -6534,22 +7361,6 @@
     ]
   },
   {
-    "id": "the-eu-proposes-the-ai-act",
-    "year": 2021,
-    "category": "policy",
-    "title": "The EU proposes the AI Act",
-    "summary": "A risk-tiered regulation is tabled in Brussels, three years before adoption.",
-    "source": "Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/Artificial_Intelligence_Act",
-    "wikiTitle": "Artificial Intelligence Act",
-    "orgs": [
-      "european-union"
-    ],
-    "terms": [
-      "ai-act"
-    ]
-  },
-  {
     "id": "anthropic-founded-by-departing-openai-staff",
     "year": 2021,
     "date": "2021-01",
@@ -6765,6 +7576,70 @@
         "date": "2021-03-05",
         "quote": "we introduce MATH, a new dataset of 12,500 challenging competition mathematics problems.",
         "supports": "claim"
+      }
+    ]
+  },
+  {
+    "id": "the-eu-proposes-the-ai-act",
+    "year": 2021,
+    "date": "2021-04-21",
+    "category": "policy",
+    "title": "The EU proposes the AI Act",
+    "summary": "A risk-tiered regulation is tabled in Brussels, three years before adoption.",
+    "source": "Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Artificial_Intelligence_Act",
+    "wikiTitle": "Artificial Intelligence Act",
+    "orgs": [
+      "european-union"
+    ],
+    "terms": [
+      "ai-act"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "EUR-Lex (Wayback Machine capture)",
+        "title": "Proposal for a Regulation laying down harmonised rules on artificial intelligence (Artificial Intelligence Act), COM(2021) 206 final",
+        "url": "https://web.archive.org/web/20260926150823/https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A52021PC0206",
+        "date": "2021-04-21",
+        "quote": "The regulation follows a risk-based approach, differentiating between uses of AI that create (i) an unacceptable risk, (ii) a high risk, and (iii) low or minimal risk.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "European Commission",
+        "title": "Europe fit for the Digital Age: Commission proposes new rules and actions for excellence and trust in Artificial Intelligence (IP/21/1682)",
+        "url": "https://ec.europa.eu/commission/presscorner/detail/en/ip_21_1682",
+        "date": "2021-04-21",
+        "quote": "Employment, workers management and access to self-employment (e.g. CV-sorting software for recruitment procedures)",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "European Commission (Shaping Europe’s digital future)",
+        "title": "Proposal for a Regulation laying down harmonised rules on artificial intelligence",
+        "url": "https://digital-strategy.ec.europa.eu/en/library/proposal-regulation-laying-down-harmonised-rules-artificial-intelligence",
+        "date": "2021-04-21",
+        "quote": "It aims to address risks of specific uses of AI, categorising them into 4 different levels: unacceptable risk, high risk, limited risk, and minimal risk.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Council of the EU (Wayback Machine capture)",
+        "title": "Artificial intelligence (AI) act: Council gives final green light to the first worldwide rules on AI",
+        "url": "https://web.archive.org/web/20261004231116/https://www.consilium.europa.eu/en/press/press-releases/2024/05/21/artificial-intelligence-ai-act-council-gives-final-green-light-to-the-first-worldwide-rules-on-ai/",
+        "date": "2024-05-21",
+        "quote": "The Commission (Thierry Breton, commissioner for internal market) submitted the proposal for the AI act in April 2021.",
+        "supports": "claim"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Artificial Intelligence Act",
+        "url": "https://en.wikipedia.org/wiki/Artificial_Intelligence_Act",
+        "date": "2026-10-20",
+        "quote": "Proposed by the European Commission on 21 April 2021, it passed the European Parliament on 13 March 2024, and was unanimously approved by the EU Council on 21 May 2024.",
+        "supports": "context"
       }
     ]
   },
@@ -7483,27 +8358,97 @@
     "year": 2023,
     "category": "product",
     "title": "Multimodal models",
-    "summary": "Images, audio and text enter the same context window; assistants stop being text boxes.",
+    "summary": "GPT-4 accepts images as well as text; from September ChatGPT can look at photos and talk, its voice run by separate speech models. In December Google says Gemini was trained on text, images, audio and video together.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/GPT-4",
+    "why": "Assistants stopped being only text boxes, but by different routes. OpenAI's GPT-4 took pictures with the words, in early access from March and in ChatGPT from September, while ChatGPT's voice was, in OpenAI's later words, a pipeline of three separate models until GPT-4o, in May 2024, put text, images and audio through one network. Google said Gemini could take audio, images and video interleaved with text, though the Gemini Pro it put into Bard in December took text-based prompts only.",
     "wikiTitle": "GPT-4",
     "terms": [
       "multimodal",
       "large-language-model"
-    ]
-  },
-  {
-    "id": "fabricated-citations-reach-a-courtroom",
-    "year": 2023,
-    "category": "incident",
-    "title": "Fabricated citations reach a courtroom",
-    "summary": "Lawyers file a brief containing cases that never existed and are sanctioned.",
-    "source": "Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/Mata_v._Avianca,_Inc.",
-    "why": "Hallucination stops being a benchmark metric and becomes a professional liability.",
-    "wikiTitle": "Mata v. Avianca, Inc.",
-    "terms": [
-      "hallucination"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "GPT-4",
+        "url": "https://web.archive.org/web/20230315232313/https://openai.com/research/gpt-4",
+        "date": "2023-03-14",
+        "quote": "GPT-4 is a large multimodal model (accepting image and text inputs, emitting text outputs)",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "OpenAI",
+        "title": "GPT-4V(ision) System Card",
+        "url": "https://cdn.openai.com/papers/GPTV_System_Card.pdf",
+        "date": "2023-09-25",
+        "quote": "Similar to GPT-4, training of GPT-4V was completed in 2022 and we began providing early access to the system in March 2023.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "ChatGPT can now see, hear, and speak",
+        "url": "https://web.archive.org/web/20230926235219/https://openai.com/blog/chatgpt-can-now-see-hear-and-speak",
+        "date": "2023-09-25",
+        "quote": "The new voice capability is powered by a new text-to-speech model, capable of generating human-like audio from just text and a few seconds of sample speech. We collaborated with professional voice actors to create each of the voices. We also use Whisper, our open-source speech recognition system, to transcribe your spoken words into text.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "Hello GPT-4o",
+        "url": "https://web.archive.org/web/20240513183723/https://openai.com/index/hello-gpt-4o/",
+        "date": "2024-05-13",
+        "quote": "To achieve this, Voice Mode is a pipeline of three separate models: one simple model transcribes audio to text, GPT-3.5 or GPT-4 takes in text and outputs text, and a third simple model converts that text back to audio.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Google (The Keyword)",
+        "title": "Introducing Gemini: our largest and most capable AI model (Sundar Pichai and Demis Hassabis)",
+        "url": "https://blog.google/technology/ai/google-gemini-ai/",
+        "date": "2023-12-06",
+        "quote": "We designed Gemini to be natively multimodal, pre-trained from the start on different modalities.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Google (The Keyword)",
+        "title": "Bard gets its biggest upgrade yet with Gemini (Sissie Hsiao)",
+        "url": "https://blog.google/products/bard/google-bard-try-gemini-ai/",
+        "date": "2023-12-06",
+        "quote": "You can try out Bard with Gemini Pro today for text-based prompts, with support for other modalities coming soon.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv (OpenAI)",
+        "title": "GPT-4 Technical Report (OpenAI)",
+        "url": "https://arxiv.org/pdf/2303.08774v1",
+        "date": "2023-03-15",
+        "quote": "Specifically, the model generates text outputs given inputs consisting of arbitrarily interlaced text and images.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv (Google)",
+        "title": "Gemini: A Family of Highly Capable Multimodal Models (Gemini Team, Google)",
+        "url": "https://arxiv.org/pdf/2312.11805v1",
+        "date": "2023-12-19",
+        "quote": "Video frames or images can be interleaved naturally with text or audio as part of the model input.",
+        "supports": "claim"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "GPT-4",
+        "url": "https://en.wikipedia.org/wiki/GPT-4",
+        "date": "2026-10-20",
+        "quote": "GPT-4V is a version of GPT-4 that can process images in addition to text.",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -7965,6 +8910,77 @@
         "date": "2023-06-02",
         "quote": "The Department of the Air Force has not conducted any such AI-drone simulations and remains committed to ethical and responsible use of AI technology",
         "supports": "claim"
+      }
+    ]
+  },
+  {
+    "id": "fabricated-citations-reach-a-courtroom",
+    "year": 2023,
+    "date": "2023-06-22",
+    "category": "incident",
+    "title": "Fabricated citations reach a courtroom",
+    "summary": "In a federal court filing, two lawyers cite six cases that ChatGPT invented, and stand by them after the court asks to see them. The judge finds bad faith and fines them and their firm $5,000.",
+    "source": "Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Mata_v._Avianca,_Inc.",
+    "why": "Hallucination stops being a benchmark metric and becomes a professional liability.",
+    "wikiTitle": "Mata v. Avianca, Inc.",
+    "terms": [
+      "hallucination"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "United States District Court for the Southern District of New York (CourtListener RECAP copy)",
+        "title": "Mata v. Avianca, Inc., No. 22-cv-1461 (PKC): Opinion and Order on Sanctions (Judge P. Kevin Castel)",
+        "url": "https://storage.courtlistener.com/recap/gov.uscourts.nysd.575368/gov.uscourts.nysd.575368.54.0.pdf",
+        "date": "2023-06-22",
+        "quote": "Peter LoDuca, Steven A. Schwartz and the law firm of Levidow, Levidow & Oberman P.C. (the “Levidow Firm”) (collectively, “Respondents”) abandoned their responsibilities when they submitted non-existent judicial opinions with fake quotes and citations created by the artificial intelligence tool ChatGPT, then continued to stand by the fake opinions after judicial orders called their existence into question.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "United States District Court for the Southern District of New York (CourtListener)",
+        "title": "Mata v. Avianca, Inc., No. 22-cv-1461 (PKC): Opinion and Order on Sanctions, docket entry 54 (Judge P. Kevin Castel)",
+        "url": "https://www.courtlistener.com/docket/63107798/54/mata-v-avianca-inc/",
+        "date": "2023-06-22",
+        "quote": "For reasons explained and considering the conduct of each individual Respondent separately, the Court finds bad faith on the part of the individual Respondents based upon acts of conscious avoidance and false and misleading statements to the Court.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "United States District Court for the Southern District of New York (CourtListener)",
+        "title": "Mata v. Avianca, Inc., 1:22-cv-01461 (S.D.N.Y.): docket",
+        "url": "https://www.courtlistener.com/docket/63107798/mata-v-avianca-inc/",
+        "date": "2023-06-22",
+        "quote": "A penalty of $5,000 is jointly and severally imposed on Respondents and shall be paid into the Registry of this Court within 14 days of this Opinion and Order.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "United States District Court for the Southern District of New York (CourtListener RECAP copy)",
+        "title": "Mata v. Avianca, Inc., No. 22-cv-1461 (PKC): Order to Show Cause (Judge P. Kevin Castel)",
+        "url": "https://storage.courtlistener.com/recap/gov.uscourts.nysd.575368/gov.uscourts.nysd.575368.31.0.pdf",
+        "date": "2023-05-04",
+        "quote": "Six of the submitted cases appear to be bogus judicial decisions with bogus quotes and bogus internal citations.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "United States District Court for the Southern District of New York (CourtListener)",
+        "title": "Mata v. Avianca, Inc., No. 22-cv-1461 (PKC): Order to Show Cause, docket entry 31 (Judge P. Kevin Castel)",
+        "url": "https://www.courtlistener.com/docket/63107798/31/mata-v-avianca-inc/",
+        "date": "2023-05-04",
+        "quote": "The Court is presented with an unprecedented circumstance. A submission filed by plaintiff’s counsel in opposition to a motion to dismiss is replete with citations to non-existent cases.",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Mata v. Avianca, Inc.",
+        "url": "https://en.wikipedia.org/wiki/Mata_v._Avianca,_Inc.",
+        "date": "2026-10-20",
+        "quote": "Judge Castel held that Mata's lawyers had acted with \"subjective bad faith\" sufficient for sanctions under Federal Rule of Civil Procedure Rule 11.",
+        "supports": "context"
       }
     ]
   },
@@ -13991,7 +15007,7 @@
     "category": "incident",
     "title": "An agent-driven market event",
     "summary": "Interacting autonomous trading and treasury agents produce a disorderly move no single desk can explain — the flash crash, with reasoning traces.",
-    "why": "The 2010 flash crash took five years to explain, and the explanation was one trader. This card asks what the same half-hour looks like when the participants are agents that leave reasoning traces nobody can read at the speed the market moves. The board keeps it because both strings behind it are already on the record.",
+    "why": "Regulators explained the 2010 flash crash within five months, starting from one large trader's selling algorithm in a fragile market; five years later prosecutors charged another trader, Navinder Sarao, with manipulation they said had contributed to it. This card asks what the same half-hour looks like when the participants are agents that leave reasoning traces nobody can read at the speed the market moves. The board keeps it because both strings behind it are already on the record.",
     "confidence": "Uncertain",
     "terms": [
       "agents",
@@ -14064,7 +15080,7 @@
     "year": 2033,
     "category": "product",
     "title": "General-purpose robots at home",
-    "summary": "Manipulation finally generalises; the first genuinely useful household robot ships at car prices, then falls.",
+    "summary": "Manipulation finally generalises; the first genuinely useful general-purpose household robot ships at car prices, then falls.",
     "why": "Embodiment lags language by roughly two decades — the same gap as mainframe to PC.",
     "confidence": "Uncertain"
   },
