@@ -2261,10 +2261,10 @@
     "year": 1973,
     "category": "incident",
     "title": "The Lighthill report",
-    "summary": "A damning UK review finds AI has failed its grand objectives; British confidence in the field, its funders' included, collapses for almost a decade.",
+    "summary": "Asked for a personal view, Lighthill finds no part of AI has had the major impact once promised, robot-building least of all; British confidence in the field, its funders' included, collapses for almost a decade.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/Lighthill_report",
-    "why": "How far the money went with the confidence is read two ways. Wikipedia, after Russell and Norvig's textbook, says the report formed the basis for ending support for AI research in most British universities; Chilton Computing's archive, which keeps the report, says AI research continued, though the next attempt at a major programme waited until 1982.",
+    "why": "How far the money went with the confidence is read two ways. Donald Michie, whose Edinburgh robot project the Science Research Council stopped paying for in February 1973, wrote that the collapse of funding drove British talent abroad; Chilton Computing's archive, which keeps the report, says AI research continued, though the next attempt at a major programme waited until 1982.",
     "wikiTitle": "Lighthill report",
     "people": [
       "james-lighthill"
@@ -2283,12 +2283,75 @@
         "supports": "claim"
       },
       {
+        "kind": "primary",
+        "publisher": "Science Research Council, Artificial Intelligence: a paper symposium (Chilton Computing archive)",
+        "title": "Preface (Brian Flowers)",
+        "url": "https://www.chilton-computing.org.uk/inf/literature/reports/lighthill_report/preface.htm",
+        "date": "1973-01-01",
+        "quote": "I therefore asked Sir James Lighthill, FRS, Lucasian Professor of Applied Mathematics in the University of Cambridge, to make a personal review of the subject.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "The Knowledge Engineering Review, vol. 5, no. 4 (Cambridge University Press; copy hosted by Maximum Academic Press)",
+        "title": "Comments on Martin Lam's article Lighthill 17 years on: end of a shotgun divorce (Donald Michie)",
+        "url": "https://www.maxapress.com/data/article/ker/preview/pdf/S0269888900005506.pdf",
+        "date": "1990-01-01",
+        "quote": "My own assessment of the axeing of the FREDDY project which followed in February 1973 can be found in my book Machine Intelligence and Related Topics",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "The British Journal for the History of Science, vol. 53, no. 3 (Cambridge University Press)",
+        "title": "What is science for? The Lighthill report on artificial intelligence reinterpreted (Jon Agar)",
+        "url": "https://www.cambridge.org/core/journals/british-journal-for-the-history-of-science/article/what-is-science-for-the-lighthill-report-on-artificial-intelligence-reinterpreted/61B13B32988D6A8C58CF8AADD4777789",
+        "date": "2020-07-10",
+        "quote": "I also show that the Science Research Council provided a preliminary steer to the direction of this apparently independent report.",
+        "supports": "context"
+      },
+      {
+        "kind": "paper",
+        "publisher": "School of Informatics, University of Edinburgh (author's copy, homepages.inf.ed.ac.uk)",
+        "title": "A Short History of the Early Years of Artificial Intelligence at Edinburgh (Christopher K. I. Williams, Vassilis Galanos and Xiao Yang)",
+        "url": "https://homepages.inf.ed.ac.uk/ckiw/postscript/whai2024_camready.pdf",
+        "date": "2024-01-01",
+        "quote": "The years after the Lighthill report (1973) [13] were a lean time for AI in the UK",
+        "supports": "context"
+      },
+      {
+        "kind": "paper",
+        "publisher": "National Research Council (National Academies Press)",
+        "title": "Funding a Revolution: Government Support for Computing Research, chapter 9: Developments in Artificial Intelligence",
+        "url": "https://nap.nationalacademies.org/read/6323/chapter/11",
+        "date": "1999-01-01",
+        "quote": "The Lighthill report raised questions about AI research funding in the United States and led DOD to establish a panel to assess DARPA's AI program.",
+        "supports": "claim"
+      },
+      {
         "kind": "article",
         "publisher": "Chilton Computing (UKRI Science and Technology Facilities Council)",
         "title": "Lighthill — Overview",
         "url": "https://www.chilton-computing.org.uk/inf/literature/reports/lighthill_report/overview.htm",
         "date": "2022-12-14",
         "quote": "Lighthill's report provoked a massive loss of confidence in AI by the academic establishment in the UK including the funding body. It persisted for almost a decade. AI research continued",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "The Times, reprinted in SIGART Newsletter no. 41 (scan, Computer History Museum)",
+        "title": "SRC Threatens British Robot Research (Alan Cane)",
+        "url": "https://archive.computerhistory.org/resources/access/text/2016/09/102726041-05-01-acc.pdf",
+        "date": "1973-06-01",
+        "quote": "has already been prejudiced by the failure of the SRC—which has financed Professor Michie's work since 1963 to renew his chief source of support",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "School of Informatics, University of Edinburgh",
+        "title": "Artificial Intelligence at Edinburgh University: a Perspective (Jim Howe)",
+        "url": "https://www.inf.ed.ac.uk/about/AIhistory.html",
+        "date": "2007-06-01",
+        "quote": "Although it supported AI research related to automation and to computer simulation of neurophysiological and psychological processes, it was highly critical of basic research in foundational areas such as robotics and language processing.",
         "supports": "claim"
       },
       {
