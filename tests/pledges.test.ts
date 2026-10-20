@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest';
 import raw from '../data/promises.json';
 import { PLEDGED, PLEDGED_ORDER, PLEDGES as HEADS, pledgeById, pledgesBy } from '../src/lib/pledges';
 import { pledgeInFull } from '../src/lib/bodies/pledges';
-import { pledgesOf } from '../src/lib/bodies/notes';
+import { pledgesOf } from '../src/lib/notes';
 import type { Pledge } from '../src/lib/types';
 import { leadById } from '../src/lib/leads';
 import { ORGS, PEOPLE } from '../src/lib/files';
@@ -100,7 +100,7 @@ describe('promises made: commitments set beside what was done', () => {
       expect(h.title).toBe(p.title);
       expect(h.verdict).toBe(p.verdict);
       expect(pledgeInFull(h.id)).toEqual(p);
-      p.record.forEach((r) => expect(pledgesOf(r.event).map((x) => x.pledge.id), r.event).toContain(p.id));
+      p.record.forEach((r) => expect(pledgesOf(graph.index[r.event]).map((x) => x.pledge.id), r.event).toContain(p.id));
       p.orgs.forEach((o) => expect(pledgesBy('org', o).map((x) => x.id), o).toContain(p.id));
       p.people.forEach((o) => expect(pledgesBy('person', o).map((x) => x.id), o).toContain(p.id));
     });

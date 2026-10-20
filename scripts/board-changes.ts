@@ -5,14 +5,12 @@
 //   import CHANGES from 'virtual:board-changes';
 //
 // — and, for every card, the day it was filed and the day it last changed,
-// which its dossier prints at its foot and in its citation:
-//
-//   import DATED from 'virtual:board-dated';
-//
-// Two modules, so that each travels in the chunk of the page that prints it
-// and neither in the main script. No page prints the days of a lead, a
-// question, a check, a prediction or a promise (the prerenderer dates their
-// pages from the history itself), so the browser is not sent them.
+// which its dossier prints at its foot and in its citation. Those are filed
+// with the card's papers (scripts/split-events.ts), so a dossier brings its
+// own card's days and no other card's, and neither the list nor the days ride
+// in the main script. No page prints the days of a lead, a question, a check,
+// a prediction or a promise (the prerenderer dates their pages from the
+// history itself), so the browser is not sent them.
 //
 // The feed is for a reader with a feed reader; this is the same list for a
 // reader without one, printed on the page. It carries only what the history
@@ -29,13 +27,13 @@ import type { Plugin } from 'vite';
 import { datedHistory, feedEntries, readItems } from './feed.ts';
 import type { Change } from '../src/lib/types.ts';
 
-/** The two modules, and the part of the history each answers with. */
-const PARTS = new Map<string, 'changes' | 'dated'>([['virtual:board-changes', 'changes'], ['virtual:board-dated', 'dated']]);
+const ID = 'virtual:board-changes';
+const RESOLVED = '\0' + ID;
 /** How many the page lists: a few weeks of work, as the feed does. */
 export const CHANGES_SIZE = 30;
 
 /** The newest changes on the board, newest first, as the page reads them;
- *  and every dated card's two days, by `card/id`, as `[filed, changed]`. */
+ *  and every dated card's two days, by its id, as `[filed, changed]`. */
 export function boardChangesOf(root: string, size = CHANGES_SIZE): { changes: Change[]; dated: Record<string, [string, string]> } {
   const items = readItems(root);
   const history = datedHistory(root);
@@ -48,31 +46,31 @@ export function boardChangesOf(root: string, size = CHANGES_SIZE): { changes: Ch
     subject: e.added.sha === e.changed.sha ? '' : e.changed.subject
   }));
   const dated: Record<string, [string, string]> = {};
-  for (const e of feedEntries(items, history, Infinity)) if (e.kind === 'card') dated[e.kind + '/' + e.id] = [e.added.date.slice(0, 10), e.changed.date.slice(0, 10)];
+  for (const e of feedEntries(items, history, Infinity)) if (e.kind === 'card') dated[e.id] = [e.added.date.slice(0, 10), e.changed.date.slice(0, 10)];
   return { changes, dated };
 }
 
 export function boardChanges(): Plugin {
   const root = fileURLToPath(new URL('..', import.meta.url));
   let strict = false;
-  let out: ReturnType<typeof boardChangesOf> | null = null;
+  let code: string | null = null;
   return {
     name: 'board-changes',
     configResolved(config) { strict = config.command === 'build'; },
-    resolveId(id) { return PARTS.has(id) ? '\0' + id : null; },
+    resolveId(id) { return id === ID ? RESOLVED : null; },
     load(id) {
-      const part = id.startsWith('\0') ? PARTS.get(id.slice(1)) : undefined;
-      if (!part) return null;
-      if (out === null) {
+      if (id !== RESOLVED) return null;
+      if (code === null) {
+        let changes: Change[] = [];
         try {
-          out = boardChangesOf(root);
+          changes = boardChangesOf(root).changes;
         } catch (err) {
           if (strict) throw err;
           console.warn('board-changes: ' + (err instanceof Error ? err.message : String(err)) + ' The latest page lists no changes.');
-          out = { changes: [], dated: {} };
         }
+        code = 'export default JSON.parse(' + JSON.stringify(JSON.stringify(changes)) + ');\n';
       }
-      return 'export default JSON.parse(' + JSON.stringify(JSON.stringify(out[part])) + ');\n';
+      return code;
     }
   };
 }

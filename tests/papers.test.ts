@@ -112,11 +112,14 @@ describe('a page carries the papers it printed', () => {
     const carried = carriedPapers(parse('/card/chatgpt/')) as Carried;
     expect(Object.keys(carried.papers)).toEqual(['chatgpt']);
     expect(Object.keys(carried.papers.chatgpt).sort()).toEqual([...PAPER_FIELDS].sort());
+    // The days it was filed and last changed, and the lines on it, among them.
+    expect(carried.papers.chatgpt.kept).toEqual(PAPERS.chatgpt.kept || null);
+    expect(carried.papers.chatgpt.notes).toEqual(PAPERS.chatgpt.notes || null);
   });
 });
 
 describe('a turn waits only for papers that are not here', () => {
-  const chatgpt: Carried = { at: 'card|chatgpt|', papers: { chatgpt: { why: 'x', detail: null, figures: null, sources: null } } };
+  const chatgpt: Carried = { at: 'card|chatgpt|', papers: { chatgpt: { why: 'x', detail: null, figures: null, sources: null, kept: null, notes: null } } };
 
   it('knows which pages a page’s own papers cover', () => {
     primePapers(null);

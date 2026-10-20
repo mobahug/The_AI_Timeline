@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { CHECKS as HEADS, VERDICTS, VERDICT_ORDER, checkById } from '../src/lib/checks';
 import { checkInFull } from '../src/lib/bodies/checks';
-import { checksOf } from '../src/lib/bodies/notes';
+import { checksOf } from '../src/lib/notes';
 import { leadById } from '../src/lib/leads';
 import { buildGraph, sourcesOf } from '../src/lib/data';
 import { hrefFor, parse } from '../src/lib/url';
@@ -97,7 +97,7 @@ describe('headline checks set a report beside its primary account', () => {
 
   it('is listed on every card it touches', () => {
     CHECKS.forEach((c) => c.record.forEach((r) => {
-      expect(checksOf(r.event).map((x) => x.check.id), r.event).toContain(c.id);
+      expect(checksOf(graph.index[r.event]).map((x) => x.check.id), r.event).toContain(c.id);
     }));
   });
 

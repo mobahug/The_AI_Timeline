@@ -115,36 +115,10 @@ declare module '*/data/corrections.json?heads' {
   export default file;
 }
 
-/* The line each plain question, headline check, prediction and promise gives
-   each card on its record, and nothing else of its body: what a card's dossier
-   prints (src/lib/bodies/notes.ts). */
-declare module '*/data/questions.json?bodies=record' {
-  const file: { questions: { id: string; record: Pick<import('./lib/types').QuestionRecord, 'note'>[] }[] };
-  export default file;
-}
-declare module '*/data/checks.json?bodies=record' {
-  const file: { checks: { id: string; record: Pick<import('./lib/types').QuestionRecord, 'note'>[] }[] };
-  export default file;
-}
-declare module '*/data/predictions.json?bodies=record' {
-  const file: { predictions: { id: string; record: Pick<import('./lib/types').QuestionRecord, 'note'>[] }[] };
-  export default file;
-}
-declare module '*/data/promises.json?bodies=record' {
-  const file: { promises: { id: string; record: Pick<import('./lib/types').QuestionRecord, 'note'>[] }[] };
-  export default file;
-}
-
-/* What changed on the board lately, and when each card was filed and last
-   changed, dated from the git history at build time — see
-   scripts/board-changes.ts. The latest page imports the one, a card's dossier
-   the other. */
+/* What changed on the board lately, dated from the git history at build time
+   — see scripts/board-changes.ts. The latest page imports it; the days each
+   card was filed and last changed are filed with its papers. */
 declare module 'virtual:board-changes' {
   const changes: import('./lib/types').Change[];
   export default changes;
-}
-declare module 'virtual:board-dated' {
-  /** Every dated card, by `card/id`: the day it was filed and the day it last changed. */
-  const dated: Record<string, [string, string]>;
-  export default dated;
 }
