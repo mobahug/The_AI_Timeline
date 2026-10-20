@@ -88,24 +88,27 @@ describe('a dossier, on its corrections', () => {
     const cards = [...new Set(ORDER.map((c) => c.event).filter(Boolean) as string[])];
     // The card corrected most lately, and the one whose newest correction the register prints furthest back.
     [cards[0], cards[cards.length - 1]].forEach((id) => {
-      const seen = correctedOf(id);
+      const seen = correctedOf(graph.index[id]);
       if (!seen) throw new Error(id + ' was never corrected');
-      expect(render('/card/' + id + '/'), id).toContain('href="' + hrefFor(atRegister(seen.id)) + '"');
+      expect(render('/card/' + id + '/'), id).toContain('href="' + hrefFor(atRegister(seen.id, seen.page)) + '"');
     });
   });
 
-  it('counts each card’s corrections from the heads alone, and links the newest', async () => {
+  it('counts each card’s corrections from its papers, with the newest the register lists and the page that prints it', async () => {
     const { correctedOf } = await import('../src/lib/corrected');
     const cards = new Set(ALL.map((c) => c.event).filter(Boolean) as string[]);
+    /** The page that prints an entry, as the build cut the register. */
+    const printedOn = (id: string): number => PAGES.findIndex((p) => p.corrections.some((c) => c.id === id)) + 1;
     cards.forEach((id) => {
       const full = correctionsOf(id);
-      const seen = correctedOf(id);
+      const seen = correctedOf(graph.index[id]);
       expect(seen, id).not.toBeNull();
       expect(seen && seen.n, id).toBe(full.length);
       expect(seen && seen.id, id).toBe(full[0].id);
       expect(seen && seen.date, id).toBe(full[0].date);
+      expect(seen && seen.page, id).toBe(printedOn(full[0].id));
     });
-    expect(correctedOf('no-such-card')).toBeNull();
+    graph.all.filter((e) => !cards.has(e.id)).forEach((e) => expect(correctedOf(e), e.id).toBeNull());
   });
 });
 
@@ -135,7 +138,7 @@ describe('the register, a page at a time', () => {
   });
 
   it('knows which page prints each entry and each month, and sends a link there', async () => {
-    const { atRegister, pageOf } = await import('../src/lib/corrected');
+    const { atRegister } = await import('../src/lib/corrected');
     // The index an old address is sent on by: every entry and every month, and
     // no entry named like a month.
     const { default: index } = await import('virtual:register-index');
@@ -144,17 +147,11 @@ describe('the register, a page at a time', () => {
     PAGES.forEach((p, i) => {
       const n = i + 1;
       p.corrections.forEach((c) => {
-        expect(pageOf(c.id), c.id).toBe(n);
         expect(index[c.id], c.id).toBe(n);
-        expect(atRegister(c.id), c.id).toEqual(n === 1 ? { view: 'corrections', hash: c.id } : { view: 'register', id: String(n), hash: c.id });
+        expect(atRegister(c.id, n), c.id).toEqual(n === 1 ? { view: 'corrections', hash: c.id } : { view: 'register', id: String(n), hash: c.id });
       });
-      Object.entries(p.months).forEach(([m, { before }]) => {
-        if (before > 0) return;
-        expect(pageOf('m-' + m), m).toBe(n);
-        expect(index['m-' + m], m).toBe(n);
-      });
+      Object.entries(p.months).forEach(([m, { before }]) => { if (before === 0) expect(index['m-' + m], m).toBe(n); });
     });
-    expect(pageOf('no-such-entry')).toBeNull();
   });
 
   it('reads its page from the address, and no page it does not fill', () => {

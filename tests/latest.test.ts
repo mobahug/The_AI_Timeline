@@ -117,14 +117,12 @@ describe('what changed on the board', () => {
     const committed = new Set((JSON.parse(execFileSync('git', ['show', 'HEAD:data/events.json'], { cwd: root, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })) as { id: string }[]).map((e) => e.id));
     expect(committed.size).toBeGreaterThan(0);
     graph.all.filter((e) => committed.has(e.id)).forEach((e) => {
-      const kept = keptOf('card', e.id);
+      const kept = keptOf(e);
       expect(kept, e.id).toBeTruthy();
       expect((kept as { filed: string }).filed <= (kept as { changed: string }).changed, e.id).toBe(true);
       expect((kept as { filed: string }).filed).toMatch(/^\d{4}-\d{2}-\d{2}$/);
     });
-    expect(keptOf('card', 'no-such-card')).toBeNull();
-    // Only a card's days reach the browser: no page prints another record's.
-    expect(keptOf('check', CHECKS[0].id)).toBeNull();
+    expect(keptOf({ ...graph.all[0], id: 'no-such-card' })).toBeNull();
   });
 
   it('names only records the board holds, each with an address of its own', () => {

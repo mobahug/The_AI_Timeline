@@ -191,9 +191,10 @@ function page(route: Route, html: string, meta: PageMeta, media: WikiCache, pape
     + '    <link rel="canonical" href="' + esc(url) + '" />');
   const inline = Object.keys(media).length ? '\n    <script id="wiki-inline" type="application/json">' + JSON.stringify(media).replace(/</g, '\\u003c') + '</script>' : '';
   const structured = ld.length ? '\n    <script type="application/ld+json">' + JSON.stringify(ld).replace(/</g, '\\u003c') + '</script>' : '';
-  // The papers this page printed — a dossier's reading, file, figures and
-  // sources; the readings on the horizon — so the hydration reads them here
-  // rather than from a request it would have to wait for (src/lib/papers.ts).
+  // The papers this page printed — a dossier's reading, file, figures,
+  // sources, days, lines and corrections; the readings on the horizon — so
+  // the hydration reads them here rather than from a request it would have to
+  // wait for (src/lib/papers.ts).
   const filed = papers ? '\n    <script id="papers-inline" type="application/json">' + JSON.stringify(papers).replace(/</g, '\\u003c') + '</script>' : '';
   out = out.replace('</head>', structured + inline + filed + '\n  </head>');
   // The front page's headline is set half in the italic, the largest type on

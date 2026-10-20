@@ -65,11 +65,29 @@ export interface EventRaw {
    reading (`why`), the file (`detail`), the figures and the sources — and they
    are two thirds of what data/events.json weighs, while most pages print none
    of them. The build files them apart (scripts/split-events.ts) and they are
-   read through src/lib/papers.ts, never off the card. */
-export const PAPER_FIELDS = ['why', 'detail', 'figures', 'sources'] as const;
+   read through src/lib/papers.ts, never off the card.
+
+   With them the build files three that no file writes on the card, and that
+   only its dossier prints: the days it was filed on the board and last
+   changed, from the history (`kept`), the line each plain question, headline
+   check, prediction and promise resting on it gives it (`notes`), and how
+   often the corrections register lists it corrected (`corrected`). A dossier
+   the server printed carries its own card's; every card's arrive with the
+   rest of the papers, when a page sends for them. */
+export const PAPER_FIELDS = ['why', 'detail', 'figures', 'sources', 'kept', 'notes', 'corrected'] as const;
 export type PaperField = typeof PAPER_FIELDS[number];
-/** A card's papers, as written. */
-export type Papers = Pick<EventRaw, PaperField>;
+/** The papers written on a card in data/events.json: all but the three the build files. */
+export type WrittenField = Exclude<PaperField, 'kept' | 'notes' | 'corrected'>;
+/** The lines the records of each kind give a card, in the order a page lists the records. */
+export type Notes = Partial<Record<'question' | 'check' | 'prediction' | 'promise', string[]>>;
+/** How many times the corrections register lists a card corrected, and the
+ *  newest of them: its day, its entry, and the page of the register that
+ *  prints it, to link (src/lib/register.ts). */
+export interface Corrected { n: number; date: string; id: string; page: number }
+/** A card's papers: as written, and as the build files them — the day it was
+ *  filed and the day it last changed (`YYYY-MM-DD`), its notes, and its
+ *  corrections. */
+export type Papers = Pick<EventRaw, WrittenField> & { kept?: [string, string]; notes?: Notes; corrected?: Corrected };
 
 /** The names a card's own words use that its tags do not, by tag field. */
 export type Named = Partial<Record<'people' | 'orgs' | 'terms', string[]>>;
@@ -155,7 +173,7 @@ export type LeadHead = Omit<Lead, 'standing' | 'rungs'> & { rungs: RungHead[] };
 export interface QuestionRecord { event: string; note: string }
 /** A card on a record's list, as every page holds it: which card it is. The
  *  line the record gives it is printed on the record's own pages and on the
- *  card's dossier (src/lib/bodies/notes.ts). */
+ *  card's dossier (src/lib/notes.ts). */
 export type QuestionRecordHead = Omit<QuestionRecord, 'note'>;
 export interface Question {
   id: string;

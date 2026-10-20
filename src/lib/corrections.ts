@@ -13,7 +13,8 @@ import type { RegisterPage } from './register';
    each page and nothing of what they hold. The server and the tests hold every
    page before they render (components/viewChunks.ts); the browser fetches a
    page's entries before it draws or hydrates that page, as it fetches the
-   page's chunk. */
+   page's chunk. A dossier reads only its own card's count, and the page that
+   prints its newest entry, filed with the card's papers (lib/corrected.ts). */
 
 /** How many pages the register fills. */
 export const REGISTER_PAGES = PAGES.length;

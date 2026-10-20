@@ -8,7 +8,7 @@ import { findingFor } from '../lib/spine';
 import { leadsOf } from '../lib/leads';
 import { leadInFull } from '../lib/bodies/leads';
 import { noteOf } from '../lib/bodies/links';
-import { checksOf, pledgesOf, predictionsOf, questionsOf } from '../lib/bodies/notes';
+import { checksOf, pledgesOf, predictionsOf, questionsOf } from '../lib/notes';
 import { machineOf } from '../lib/machines';
 import { FORETOLD } from '../lib/predictions';
 import { PLEDGED } from '../lib/pledges';
@@ -133,12 +133,12 @@ function CardView({ graph, route, media, embedded }: CardViewProps) {
   const figures = paperOf(event, 'figures') || [];
   const names = entitiesOf(event);
   const onLeads = leadsOf(event.id);
-  const asked = questionsOf(event.id);
-  const checked = checksOf(event.id);
+  const asked = questionsOf(event);
+  const checked = checksOf(event);
   const machine = machineOf(event.id);
-  const foretold = predictionsOf(event.id);
-  const pledged = pledgesOf(event.id);
-  const corrected = correctedOf(event.id);
+  const foretold = predictionsOf(event);
+  const pledged = pledgesOf(event);
+  const corrected = correctedOf(event);
   // Species-style: the one source the entry is based on, named up front.
   const basedOn = sources.find((s) => s.supports === 'claim') || sources[0] || null;
 
@@ -155,7 +155,7 @@ function CardView({ graph, route, media, embedded }: CardViewProps) {
   ] satisfies (NavItem | null)[]).filter(Boolean) as NavItem[];
   // The neighbours are labelled by date, never by title: `Btn` is nowrap, and a
   // title would run off the side of a phone.
-  const kept = keptOf('card', event.id);
+  const kept = keptOf(event);
   const nav = (
     <NavRow
       up={up}
@@ -432,7 +432,7 @@ function CardView({ graph, route, media, embedded }: CardViewProps) {
           {corrected && (
             <p style={{ margin: embedded ? '12px 0 0' : '0 0 20px', font: '400 11.5px/1.8 ' + MONO, color: ink(4), maxWidth: '72ch', textWrap: 'pretty' }}>
               Corrected {corrected.n === 1 ? 'once' : corrected.n + ' times'}, most recently on {dayOf(corrected.date)}.{' '}
-              <Link to={atRegister(corrected.id)} className="ix-ref" style={{ color: ink(2) }}>What was corrected, and why →</Link>
+              <Link to={atRegister(corrected.id, corrected.page)} className="ix-ref" style={{ color: ink(2) }}>What was corrected, and why →</Link>
             </p>
           )}
           {!embedded && nav}

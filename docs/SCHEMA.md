@@ -42,7 +42,10 @@ a string never runs backwards inside a year: `npm test` checks both.
 
 `why`, `detail`, `figures` and `sources` are the card's papers. The build serves them
 apart from the rest of the card (`scripts/split-events.ts`) and the site reads them
-only through `src/lib/papers.ts`; nothing changes in how they are written.
+only through `src/lib/papers.ts`; nothing changes in how they are written. It files three
+more with them that are not written on the card: the days the history dates it to, the
+`note` each question, check, prediction and promise gives it, and how many entries of
+`data/corrections.json` name it, with the newest and the page of the register that prints it.
 
 Each source: `{ kind, publisher, title, url, date (YYYY-MM-DD), quote, supports }`.
 `kind` is one of `primary, paper, article, video, podcast, interview, encyclopedia`.
@@ -195,8 +198,11 @@ matches every promise's words and evidence against their pages, as it does predi
 
 `corrections` — every change of fact the board has made to its own record, at `/corrections/`, newest first and
 forty to a page (`/corrections/2/` and on; `src/lib/register.ts` sets the number), and at the foot of each card it
-touched. An entry's anchor finds it on whichever page prints it. Wording that changed without a fact changing is not listed, nor a quote
-matched to its page's own marks. `note` is the sentence the page prints about how the register is kept.
+touched, which links the page that prints the card's newest entry. An entry's anchor, and a month's (`m-YYYY-MM`),
+finds it on whichever page prints it: a page asked for one it does not print looks it up in the register's index
+(`virtual:register-index`, made by the build) and sends the reader on. Wording that changed without a fact changing
+is not listed, nor a quote matched to its page's own marks. `note` is the sentence the page prints about how the
+register is kept.
 
 | Field | Type | Required | Notes |
 | --- | --- | --- | --- |

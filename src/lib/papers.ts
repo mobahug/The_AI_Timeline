@@ -5,8 +5,10 @@ import type { Dossier, PaperField, Papers, Route } from './types';
 
 /* A card's papers — the reading, the file, the figures, the sources — are two
    thirds of what data/events.json weighs, and most pages print none of them.
-   The build files them apart from the cards (scripts/split-events.ts); this is
-   the one place they are read.
+   The build files them apart from the cards (scripts/split-events.ts), with
+   three more that only a dossier prints: the days the card was filed and last
+   changed, the line each record resting on it gives it, and how often it was
+   corrected. This is the one place they are read.
 
    On the server every card's papers are here from the start, and a render
    notes which it read. The prerenderer writes exactly those into the page's

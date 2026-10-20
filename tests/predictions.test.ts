@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 import raw from '../data/predictions.json';
 import { FORETOLD, FORETOLD_ORDER, PREDICTIONS as HEADS, predictionById, predictionsBy } from '../src/lib/predictions';
 import { predictionInFull } from '../src/lib/bodies/predictions';
-import { predictionsOf } from '../src/lib/bodies/notes';
+import { predictionsOf } from '../src/lib/notes';
 import type { Prediction } from '../src/lib/types';
 import { leadById } from '../src/lib/leads';
 import { PEOPLE } from '../src/lib/files';
@@ -93,7 +93,7 @@ describe('said in advance: predictions set beside what happened', () => {
       p.record.forEach((r) => {
         expect(graph.index[r.event], p.id + ' → ' + r.event).toBeTruthy();
         expect(r.note.trim().length, r.event).toBeGreaterThan(0);
-        expect(predictionsOf(r.event).map((x) => x.prediction.id), r.event).toContain(p.id);
+        expect(predictionsOf(graph.index[r.event]).map((x) => x.prediction.id), r.event).toContain(p.id);
       });
       p.leads.forEach((l) => expect(leadById[l], p.id + ' → ' + l).toBeTruthy());
       p.people.forEach((person) => expect(predictionsBy(person).map((x) => x.id)).toContain(p.id));
