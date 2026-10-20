@@ -12,7 +12,7 @@ import { checksOf, pledgesOf, predictionsOf, questionsOf } from '../lib/bodies/n
 import { machineOf } from '../lib/machines';
 import { FORETOLD } from '../lib/predictions';
 import { PLEDGED } from '../lib/pledges';
-import { correctionsOf } from '../lib/corrections';
+import { correctedOf } from '../lib/corrected';
 import { dayOf } from '../lib/latest';
 import { keptOf } from '../lib/dated';
 import { bibtex, citation } from '../lib/cite';
@@ -138,7 +138,7 @@ function CardView({ graph, route, media, embedded }: CardViewProps) {
   const machine = machineOf(event.id);
   const foretold = predictionsOf(event.id);
   const pledged = pledgesOf(event.id);
-  const corrected = correctionsOf(event.id);
+  const corrected = correctedOf(event.id);
   // Species-style: the one source the entry is based on, named up front.
   const basedOn = sources.find((s) => s.supports === 'claim') || sources[0] || null;
 
@@ -429,10 +429,10 @@ function CardView({ graph, route, media, embedded }: CardViewProps) {
               <Link to={{ view: 'latest', hash: 'changes' }} className="ix-ref" style={{ color: ink(2) }}>What changed lately →</Link>
             </p>
           )}
-          {corrected.length > 0 && (
+          {corrected && (
             <p style={{ margin: embedded ? '12px 0 0' : '0 0 20px', font: '400 11.5px/1.8 ' + MONO, color: ink(4), maxWidth: '72ch', textWrap: 'pretty' }}>
-              Corrected {corrected.length === 1 ? 'once' : corrected.length + ' times'}, most recently on {dayOf(corrected[0].date)}: {corrected[0].why}{' '}
-              <Link to={{ view: 'corrections' }} className="ix-ref" style={{ color: ink(2) }}>Every correction →</Link>
+              Corrected {corrected.n === 1 ? 'once' : corrected.n + ' times'}, most recently on {dayOf(corrected.date)}.{' '}
+              <Link to={{ view: 'corrections', hash: corrected.id }} className="ix-ref" style={{ color: ink(2) }}>What was corrected, and why →</Link>
             </p>
           )}
           {!embedded && nav}

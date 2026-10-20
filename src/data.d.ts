@@ -109,6 +109,12 @@ declare module '*/data/glossary.json?bodies' {
   export default file;
 }
 
+/* The corrections register, as a dossier reads it: each entry's day and card. */
+declare module '*/data/corrections.json?heads' {
+  const file: { corrections: Pick<import('./lib/types').Correction, 'id' | 'date' | 'event'>[] };
+  export default file;
+}
+
 /* The line each plain question, headline check, prediction and promise gives
    each card on its record, and nothing else of its body: what a card's dossier
    prints (src/lib/bodies/notes.ts). */

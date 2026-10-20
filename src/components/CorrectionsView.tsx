@@ -45,7 +45,7 @@ function Entry({ c, graph }: { c: Correction; graph: Graph }) {
   const place = !card && c.where ? placeOf(c.where.file, c.where.id, graph) : null;
   const also = (c.alsoIn || []).map((a) => placeOf(a.file, a.id, graph)).filter((x): x is { to: RoutePatch; label: string } => !!x);
   return (
-    <li style={{ borderTop: ROW_RULE, padding: 'clamp(18px,2.6vw,24px) 0', display: 'flex', flexDirection: 'column', gap: 10 }}>
+    <li id={c.id} style={{ borderTop: ROW_RULE, padding: 'clamp(18px,2.6vw,24px) 0', display: 'flex', flexDirection: 'column', gap: 10, scrollMarginTop: 96 }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
         <span style={{ ...micro(2), border: '1px solid rgba(243,240,234,0.22)', borderRadius: 2, padding: '3px 7px', letterSpacing: '0.12em' }}>{CORRECTION_KIND[c.kind]}</span>
         <span style={{ ...micro(5), letterSpacing: '0.12em' }}>{dayText(c.date)}</span>

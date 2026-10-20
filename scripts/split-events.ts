@@ -136,7 +136,10 @@ export const SPLITS: Record<string, Split> = {
   '/data/machines.json': { key: 'machines', id: ['id'], heads: ['event', 'title', 'short', 'lead'], bodies: ['lede', 'try', 'kept', 'changed', 'credit', 'sources'] },
   '/data/people.json': { key: 'people', id: ['id'], heads: ['name', 'aka', 'role'], bodies: ['bio'] },
   '/data/orgs.json': { key: 'orgs', id: ['id'], heads: ['name', 'aka', 'kind', 'role'], bodies: ['bio'] },
-  '/data/glossary.json': { key: 'terms', id: ['id'], heads: ['term', 'aka', 'short'], bodies: ['definition'] }
+  '/data/glossary.json': { key: 'terms', id: ['id'], heads: ['term', 'aka', 'short'], bodies: ['definition'] },
+  // A dossier says when its card was last corrected, and links the entry; the
+  // register itself prints the rest, and only the register reads it.
+  '/data/corrections.json': { key: 'corrections', id: ['id'], heads: ['date', 'event'], bodies: ['commit', 'where', 'kind', 'was', 'now', 'why', 'source', 'alsoIn'] }
 };
 
 type Rec = Record<string, unknown>;
