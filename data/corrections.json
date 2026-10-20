@@ -2,6 +2,36 @@
   "note": "Drawn from the board's own history, this register lists every change of fact the board has made to its record, dated by the commit that made it, and not every change of wording.",
   "corrections": [
     {
+      "id": "lighthill-faulted-robots-not-the-whole-field",
+      "date": "2026-10-20",
+      "commit": "cd969aa",
+      "event": "the-lighthill-report",
+      "kind": "fact",
+      "was": "A damning UK review finds AI has failed its grand objectives; British confidence in the field, its funders' included, collapses for almost a decade.",
+      "now": "Asked for a personal view, Lighthill finds no part of AI has had the major impact once promised, robot-building least of all; British confidence in the field, its funders' included, collapses for almost a decade.",
+      "why": "The report damned one part of the field, not all of it. Lighthill, asked by the Science Research Council's chairman for what he called a highly personal view, found that no part of AI had produced the major impact once promised, but credited advanced automation and computer studies of the nervous system with respectable achievements. It was robot-building, his bridge between the two, whose progress he found even slower and more discouraging.",
+      "source": {
+        "publisher": "Science Research Council, Artificial Intelligence: a paper symposium (Chilton Computing archive)",
+        "title": "Artificial Intelligence: A General Survey (James Lighthill)",
+        "url": "https://www.chilton-computing.org.uk/inf/literature/reports/lighthill_report/p001.htm"
+      }
+    },
+    {
+      "id": "lighthill-funding-reading-rests-on-michie",
+      "date": "2026-10-20",
+      "commit": "cd969aa",
+      "event": "the-lighthill-report",
+      "kind": "attribution",
+      "was": "Wikipedia, after Russell and Norvig's textbook, says the report formed the basis for ending support for AI research in most British universities; Chilton Computing's archive, which keeps the report, says AI research continued, though the next attempt at a major programme waited until 1982.",
+      "now": "Donald Michie, whose Edinburgh robot project the Science Research Council stopped paying for in February 1973, wrote that the collapse of funding drove British talent abroad; Chilton Computing's archive, which keeps the report, says AI research continued, though the next attempt at a major programme waited until 1982.",
+      "why": "The reading that the money went with the confidence rested on a textbook, by way of Wikipedia. The primary accounts give it ground and scope: The Times reported in June 1973 that the Science Research Council had failed to renew Michie's chief grant, and Michie dates the axeing of his FREDDY robot project to February 1973 and writes that the collapse of funding forced trained British talent overseas. Wikipedia's line stays in the card's sources.",
+      "source": {
+        "publisher": "The Knowledge Engineering Review, vol. 5, no. 4 (Cambridge University Press; copy hosted by Maximum Academic Press)",
+        "title": "Comments on Martin Lam's article Lighthill 17 years on: end of a shotgun divorce (Donald Michie)",
+        "url": "https://www.maxapress.com/data/article/ker/preview/pdf/S0269888900005506.pdf"
+      }
+    },
+    {
       "id": "svm-extended-a-method-of-1992",
       "date": "2026-10-20",
       "commit": "8bcfcde",
