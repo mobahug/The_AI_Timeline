@@ -120,6 +120,11 @@ function describe(route: Route, graph?: Graph | null): { title: string; descript
       return { title: titled(x.label, kind), description: [lead, body].filter(Boolean).join(' ') };
     }
   }
+  // A later page of the corrections register is described as the register is.
+  if (route.view === 'register' && route.id) {
+    const v = viewById.corrections;
+    return { title: (v.title || 'Corrections') + ', page ' + route.id + ' · ' + SITE, description: v.description || TAGLINE };
+  }
   if (route.missing) return { title: 'Nothing filed here · ' + SITE, description: TAGLINE };
   const v = viewById[route.view];
   if (v && v.title) return { title: v.title + ' · ' + SITE, description: v.description || TAGLINE };

@@ -108,7 +108,9 @@ export const VIEWS: View[] = [
     description: 'How this board works, what a string means, what it does not claim, and the licence it is published under.' },
   { id: 'corrections', path: 'corrections', sitemap: true, shell: 'route',
     title: 'Corrections',
-    description: 'Every fact the board has corrected in its own record — what a card said, what it says now, why, and the source that settled it — dated from its history.' }
+    description: 'Every fact the board has corrected in its own record — what a card said, what it says now, why, and the source that settled it — dated from its history.' },
+  // The register's later pages, each as many entries as the first, newest first (lib/register.ts).
+  { id: 'register', path: 'corrections/:id', sitemap: false, shell: 'route' }
 ];
 
 /** Retired view names keep working: every link ever shared still lands somewhere sensible. */

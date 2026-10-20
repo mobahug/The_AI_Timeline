@@ -109,10 +109,17 @@ declare module '*/data/glossary.json?bodies' {
   export default file;
 }
 
-/* The corrections register, as a dossier reads it: each entry's day and card. */
-declare module '*/data/corrections.json?heads' {
-  const file: { corrections: Pick<import('./lib/types').Correction, 'id' | 'date' | 'event'>[] };
-  export default file;
+/* The corrections register, a page at a time (src/lib/register.ts): a loader
+   for each page's entries, first to last — see scripts/split-events.ts. */
+declare module 'virtual:register-pages' {
+  const pages: (() => Promise<{ default: import('./lib/register').RegisterPage }>)[];
+  export default pages;
+}
+/* The page of the register that prints each anchor, an entry's or a month's
+   (`m-YYYY-MM`): what a page sends an old address on by. */
+declare module 'virtual:register-index' {
+  const index: Record<string, number>;
+  export default index;
 }
 
 /* What changed on the board lately, dated from the git history at build time

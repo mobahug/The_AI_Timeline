@@ -18,6 +18,7 @@ import { QUESTIONS } from '../src/lib/questions';
 import { CHECKS } from '../src/lib/checks';
 import { PREDICTIONS } from '../src/lib/predictions';
 import { PLEDGES } from '../src/lib/pledges';
+import corrections from '../data/corrections.json';
 import { headOf, papersOf } from '../scripts/split-events';
 import { PAPER_FIELDS } from '../src/lib/types';
 import type { Carried } from '../src/lib/papers';
@@ -72,7 +73,7 @@ describe('the split', () => {
 });
 
 /* Every address the prerenderer writes: the list it writes them from. */
-const ROUTES: string[] = pages({ findings: FINDINGS, events, leads: LEADS, questions: QUESTIONS, checks: CHECKS, predictions: PREDICTIONS, promises: PLEDGES, people: PEOPLE, orgs: ORGS, terms: TERMS })
+const ROUTES: string[] = pages({ findings: FINDINGS, events, leads: LEADS, questions: QUESTIONS, checks: CHECKS, predictions: PREDICTIONS, promises: PLEDGES, people: PEOPLE, orgs: ORGS, terms: TERMS, corrections: corrections.corrections })
   .map((p) => '/' + p.path);
 
 /** What the prerenderer does for one address: the page, its meta, and the papers it read. */
@@ -112,14 +113,19 @@ describe('a page carries the papers it printed', () => {
     const carried = carriedPapers(parse('/card/chatgpt/')) as Carried;
     expect(Object.keys(carried.papers)).toEqual(['chatgpt']);
     expect(Object.keys(carried.papers.chatgpt).sort()).toEqual([...PAPER_FIELDS].sort());
-    // The days it was filed and last changed, and the lines on it, among them.
+    // The days it was filed and last changed, the lines on it and its
+    // corrections, among them: the corrections with the page of the register
+    // that prints the newest, which its link names.
     expect(carried.papers.chatgpt.kept).toEqual(PAPERS.chatgpt.kept || null);
     expect(carried.papers.chatgpt.notes).toEqual(PAPERS.chatgpt.notes || null);
+    expect(carried.papers.chatgpt.corrected).toEqual(PAPERS.chatgpt.corrected || null);
+    const corrected = carried.papers.chatgpt.corrected;
+    if (corrected) expect(Object.keys(corrected).sort()).toEqual(['date', 'id', 'n', 'page']);
   });
 });
 
 describe('a turn waits only for papers that are not here', () => {
-  const chatgpt: Carried = { at: 'card|chatgpt|', papers: { chatgpt: { why: 'x', detail: null, figures: null, sources: null, kept: null, notes: null } } };
+  const chatgpt: Carried = { at: 'card|chatgpt|', papers: { chatgpt: { why: 'x', detail: null, figures: null, sources: null, kept: null, notes: null, corrected: null } } };
 
   it('knows which pages a page’s own papers cover', () => {
     primePapers(null);

@@ -54,7 +54,7 @@ verbs. The switch is in the header; `?mode=full` on any link opens the whole fil
 | Said in advance | `/predictions/`, `/prediction/<id>/` | Famous predictions about AI, each quoted from where it was made, with the year it named and what happened; and the board's own scenarios the record has overtaken in part |
 | Run the original | `/machines/`, `/card/<id>/#machine` | Programs from the record rebuilt from their own papers and run on their cards: ELIZA (1965 DOCTOR script), MENACE, Shannon's approximations to English, the perceptron |
 | Promises made | `/promises/`, `/promise/<id>/` | Promises that labs, companies and governments made in public about AI, each in their own words, set beside what the record shows they did |
-| Corrections | `/corrections/` | Every fact the board has corrected in its own record: what a card said, what it says now, why, the source that settled it, and the commit |
+| Corrections | `/corrections/`, `/corrections/<n>/` | Every fact the board has corrected in its own record, newest first and forty to a page: what a card said, what it says now, why, the source that settled it, and the commit |
 
 Every chart is HTML laid out in percentages, so it is prerendered like any page and keeps
 the site's own type sizes on a phone. One Tab reaches a plot and the arrow keys walk its
@@ -135,11 +135,12 @@ year, title, summary, tags, the link it is cited to — is in the main bundle, w
 names its words use worked out at build time. Its papers — the reading, the file, the
 figures and the sources, two thirds of `events.json` — are a chunk of their own,
 fetched when a page needs them: a dossier, the board's panel, the search. The build
-files two more with them that only a dossier prints: the days the card was filed and
-last revised, and the line each question, check, prediction and promise gives it. Every
-prerendered page carries the papers it prints, so it hydrates without waiting for
-them, and a dossier carries its own card's alone. See `scripts/split-events.ts` and
-`src/lib/papers.ts`.
+files three more with them that only a dossier prints: the days the card was filed and
+last revised, the line each question, check, prediction and promise gives it, and how
+often the corrections register lists it corrected, with the newest and the page that
+prints it. Every prerendered page carries the papers it prints, so it hydrates without
+waiting for them, and a dossier carries its own card's alone. See
+`scripts/split-events.ts` and `src/lib/papers.ts`.
 
 The other files of records are read in two parts the same way. Every page lists a
 record from its head: a lead's question and the cards of its rungs, a name and the

@@ -5,7 +5,7 @@
 //
 //   data/events.json?cards    every card's head and the names its words use:
 //                             what the wall is drawn from, in the main bundle
-//   data/events.json?papers   every card's papers, by id, with the two the build
+//   data/events.json?papers   every card's papers, by id, with three the build
 //                             files beside them (papersIn): the browser imports
 //                             it when a page needs it, the server imports it whole
 //
@@ -22,8 +22,9 @@ import { fileURLToPath } from 'node:url';
 import type { Plugin } from 'vite';
 import { boardChangesOf } from './board-changes.ts';
 import { TAG, entitiesFrom, speaks, wordsOf } from '../src/lib/names.ts';
+import { PER_PAGE, newestFirst, pageCount, registerIndex, registerPages } from '../src/lib/register.ts';
 import { PAPER_FIELDS } from '../src/lib/types.ts';
-import type { Entity, EventHead, EventRaw, Named, Notes, PaperField, Papers, QuestionRecord, WrittenField } from '../src/lib/types.ts';
+import type { Corrected, Correction, Entity, EventHead, EventRaw, Named, Notes, PaperField, Papers, QuestionRecord, WrittenField } from '../src/lib/types.ts';
 
 /** Every name on file, read whole from the three files in `dir`: all the rule
  *  below asks of them is their names, which the build has either way. */
@@ -60,7 +61,7 @@ export function headOf(card: EventRaw, entities?: Entity[]): EventHead {
 }
 
 /** A paper a card has written on it, rather than one the build files beside it. */
-const written = (f: PaperField): f is WrittenField => f !== 'kept' && f !== 'notes';
+const written = (f: PaperField): f is WrittenField => f !== 'kept' && f !== 'notes' && f !== 'corrected';
 
 /** A card's papers, as written: only the fields it has. */
 export function papersOf(card: EventRaw): Papers {
@@ -108,24 +109,42 @@ function keptIn(root: string, strict: boolean): Record<string, [string, string]>
   }
 }
 
-/** Every card's papers, by id: those written on it, and the two no file
+/** How many times the corrections register lists each card corrected, by
+ *  the card's id, with the newest correction's day and entry and the page of
+ *  the register that prints it, read whole from the register in `dir`. The
+ *  newest is the one the register lists first: it lists the newest day first,
+ *  and a day's in the order they are written, PER_PAGE to a page
+ *  (src/lib/register.ts). */
+export function correctedIn(dir: string): Record<string, Corrected> {
+  const { corrections } = JSON.parse(readFileSync(join(dir, 'corrections.json'), 'utf8')) as { corrections: Pick<Correction, 'id' | 'date' | 'event'>[] };
+  const out: Record<string, Corrected> = {};
+  newestFirst(corrections).forEach((c, i) => {
+    if (!c.event) return;
+    const known = out[c.event];
+    if (known) known.n += 1; else out[c.event] = { n: 1, date: c.date, id: c.id, page: Math.floor(i / PER_PAGE) + 1 };
+  });
+  return out;
+}
+
+/** Every card's papers, by id: those written on it, and the three no file
  *  writes there, which only its dossier prints — the days the history dates
- *  it to, and the line each record resting on it gives it. Filed with its
- *  papers, they reach a page as the papers do: a dossier the server printed
- *  carries its own card's, and the rest come when the browser sends for the
- *  papers. */
-export function papersIn(cards: EventRaw[], notes: Record<string, Notes>, kept: Record<string, [string, string]>): Record<string, Papers> {
+ *  it to, the line each record resting on it gives it, and how often the
+ *  register lists it corrected. Filed with its papers, they reach a page as
+ *  the papers do: a dossier the server printed carries its own card's, and
+ *  the rest come when the browser sends for the papers. */
+export function papersIn(cards: EventRaw[], notes: Record<string, Notes>, kept: Record<string, [string, string]>, corrected: Record<string, Corrected>): Record<string, Papers> {
   return Object.fromEntries(cards.map((c) => {
     const papers = papersOf(c);
     if (kept[c.id]) papers.kept = kept[c.id];
     if (notes[c.id]) papers.notes = notes[c.id];
+    if (corrected[c.id]) papers.corrected = corrected[c.id];
     return [c.id, papers];
   }));
 }
 
 const PARTS: Record<string, (cards: EventRaw[], dir: string, strict: boolean) => unknown> = {
   cards: (cards, dir) => { const names = namesIn(dir); return cards.map((c) => headOf(c, names)); },
-  papers: (cards, dir, strict) => papersIn(cards, notesIn(dir), keptIn(dirname(dir), strict))
+  papers: (cards, dir, strict) => papersIn(cards, notesIn(dir), keptIn(dirname(dir), strict), correctedIn(dir))
 };
 
 /* ─── Heads and bodies ───────────────────────────────────────────────────
@@ -194,10 +213,7 @@ export const SPLITS: Record<string, Split> = {
   '/data/machines.json': { key: 'machines', id: ['id'], heads: ['event', 'title', 'short', 'lead'], bodies: ['lede', 'try', 'kept', 'changed', 'credit', 'sources'] },
   '/data/people.json': { key: 'people', id: ['id'], heads: ['name', 'aka', 'role'], bodies: ['bio'] },
   '/data/orgs.json': { key: 'orgs', id: ['id'], heads: ['name', 'aka', 'kind', 'role'], bodies: ['bio'] },
-  '/data/glossary.json': { key: 'terms', id: ['id'], heads: ['term', 'aka', 'short'], bodies: ['definition'] },
-  // A dossier says when its card was last corrected, and links the entry; the
-  // register itself prints the rest, and only the register reads it.
-  '/data/corrections.json': { key: 'corrections', id: ['id'], heads: ['date', 'event'], bodies: ['commit', 'where', 'kind', 'was', 'now', 'why', 'source', 'alsoIn'] }
+  '/data/glossary.json': { key: 'terms', id: ['id'], heads: ['term', 'aka', 'short'], bodies: ['definition'] }
 };
 
 type Rec = Record<string, unknown>;
@@ -252,6 +268,27 @@ export function project(file: string, split: Split, whole: unknown, part: 'heads
 /** The module that answers an import: its JSON, parsed from a string. */
 const moduleOf = (data: unknown): string => 'export default JSON.parse(' + JSON.stringify(JSON.stringify(data)) + ');\n';
 
+/* ─── The register, a page at a time ───────────────────────────────────
+   The corrections register prints PER_PAGE entries to a page, newest first
+   (src/lib/register.ts), and a page's script carries that page's entries:
+
+     data/corrections.json?page=2   the register's second page, each entry whole
+     virtual:register-pages         a loader for each page, first to last
+     virtual:register-index         the page that prints each entry, and each month
+
+   The loaders ride in the main script, a line each, so a turn to any page of
+   the register sends for its entries beside its chunk rather than after it.
+   A page keeps the file's shape, `note` and `corrections`, with what it says
+   of the whole register beside them. The index is sent for only by a page
+   asked for an anchor it does not print, an address made before newer
+   entries moved its entry along, to send the reader on. A dossier's link
+   needs no index: the page that prints the card's newest entry is filed with
+   the card's papers (correctedIn, above). */
+const REGISTER = fileURLToPath(new URL('../data/corrections.json', import.meta.url));
+const PAGES = 'virtual:register-pages';
+const INDEX = 'virtual:register-index';
+const readRegister = (file: string) => JSON.parse(readFileSync(file, 'utf8')) as { note: string; corrections: Correction[] };
+
 export function splitEvents(): Plugin {
   let strict = false;
   return {
@@ -260,10 +297,28 @@ export function splitEvents(): Plugin {
     // the whole of it.
     enforce: 'pre',
     configResolved(config) { strict = config.command === 'build'; },
+    resolveId(id) { return id === PAGES || id === INDEX ? '\0' + id : null; },
     load(id) {
+      if (id === '\0' + PAGES) {
+        this.addWatchFile(REGISTER);
+        const count = pageCount(readRegister(REGISTER).corrections.length);
+        return 'export default [\n' + Array.from({ length: count }, (_, i) => '  () => import(' + JSON.stringify(REGISTER + '?page=' + (i + 1)) + ')').join(',\n') + '\n];\n';
+      }
+      if (id === '\0' + INDEX) {
+        this.addWatchFile(REGISTER);
+        return moduleOf(registerIndex(readRegister(REGISTER).corrections));
+      }
       const [file, query] = id.split('?');
       if (!query) return null;
       const params = new URLSearchParams(query);
+      if (file.endsWith('/data/corrections.json') && params.has('page')) {
+        const whole = readRegister(file);
+        const pages = registerPages(whole.corrections, whole.note);
+        const n = Number(params.get('page'));
+        if (!Number.isInteger(n) || n < 1 || n > pages.length) throw new Error('split-events: data/corrections.json has no page ' + params.get('page') + ' (it fills ' + pages.length + ')');
+        this.addWatchFile(file);
+        return moduleOf(pages[n - 1]);
+      }
       const split = Object.keys(SPLITS).find((f) => file.endsWith(f));
       if (split) {
         const part = params.has('heads') ? 'heads' : params.has('bodies') ? 'bodies' : null;
@@ -275,11 +330,12 @@ export function splitEvents(): Plugin {
       const part = Object.keys(PARTS).find((p) => params.has(p));
       if (!part) return null;
       this.addWatchFile(file);
-      // The names a card uses are read from the three files beside it, and the
-      // lines on it from the four whose records rest on it.
+      // The names a card uses are read from the three files beside it, the
+      // lines on it from the four whose records rest on it, and its
+      // corrections from the register.
       const dir = dirname(file);
       if (part === 'cards') ['people.json', 'orgs.json', 'glossary.json'].forEach((f) => this.addWatchFile(join(dir, f)));
-      if (part === 'papers') Object.values(RESTING).forEach((f) => this.addWatchFile(join(dir, f + '.json')));
+      if (part === 'papers') [...Object.values(RESTING), 'corrections'].forEach((f) => this.addWatchFile(join(dir, f + '.json')));
       return moduleOf(PARTS[part](JSON.parse(readFileSync(file, 'utf8')) as EventRaw[], dir, strict));
     }
   };

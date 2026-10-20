@@ -8,6 +8,7 @@ import { buildGraph } from './lib/data';
 import { carriedPapers, primePapers } from './lib/papers';
 import { primeMedia, usedMedia } from './lib/wiki';
 import { loadAll } from './components/viewChunks';
+import { loadRegister } from './lib/corrections';
 import type { WikiCache } from './lib/types';
 
 /* The server entry. The prerenderer calls render() once per address and writes
@@ -20,8 +21,9 @@ import type { WikiCache } from './lib/types';
 
 const graph = buildGraph();
 // Every page's chunk, held before the first render: renderToString cannot wait
-// for one, and a page must be written whole (components/viewChunks.ts).
-await loadAll();
+// for one, and a page must be written whole (components/viewChunks.ts). So is
+// every page of the corrections register (lib/corrections.ts).
+await Promise.all([loadAll(), loadRegister()]);
 
 export function render(pathname: string, cache?: WikiCache | null) {
   primeMedia(cache);

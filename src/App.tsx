@@ -9,6 +9,7 @@ import BoardStatic from './components/BoardStatic';
 import { boardIfLoaded, loadBoard } from './components/boardChunk';
 import { CHUNKS, chunkOf } from './components/viewChunks';
 import type { Chunk } from './components/viewChunks';
+import { registerFor } from './lib/corrections';
 import { buildGraph, events as canonEvents, forwardLedger, FIRST, NOW } from './lib/data';
 import { matches } from './lib/files';
 import { papersFor, usePapers } from './lib/papers';
@@ -30,10 +31,11 @@ const LazyBoardView = lazy(() => loadBoard().then((Board) => ({ default: Board }
 
 const isBrowser = typeof window !== 'undefined';
 
-/** What a turn waits for: the page's own chunk (viewChunks.ts) and its papers. */
+/** What a turn waits for: the page's own chunk (viewChunks.ts) and its papers,
+ *  and a page of the corrections register its entries (lib/corrections.ts). */
 const waitFor = (next: Route, prev: Route | null): Promise<void> | null => {
   const chunk = chunkOf(next.view);
-  const all = [chunk && !chunk.now() ? chunk.load() : null, papersFor(next, prev)].filter((p) => p !== null);
+  const all = [chunk && !chunk.now() ? chunk.load() : null, papersFor(next, prev), registerFor(next)].filter((p) => p !== null);
   return all.length ? Promise.all(all).then(() => undefined) : null;
 };
 
@@ -104,13 +106,18 @@ export default function App({ initialRoute }: AppProps) {
   // down the finding. Deep links to a card on the board are excluded — the board
   // scrolls itself to the card.
   const firstRoute = useRef(true);
+  // The anchor the visit opened with is jumped to at once, as the first page
+  // is, even when the register first sends the reader on to the page that now
+  // prints it (CorrectionsView); a section chosen later glides into view.
+  const opened = useRef(route.hash);
   useEffect(() => {
     if (route.view === 'board') return;
     if (route.hash) {
       // The target may be rendered a frame later than the route; look twice.
+      const instant = firstRoute.current || route.hash === opened.current;
       const jump = () => {
         const el = document.getElementById(route.hash as string);
-        if (el) { el.scrollIntoView({ block: 'start', behavior: firstRoute.current ? 'instant' : 'smooth' }); return true; }
+        if (el) { el.scrollIntoView({ block: 'start', behavior: instant ? 'instant' : 'smooth' }); return true; }
         return false;
       };
       if (!jump()) requestAnimationFrame(() => { if (!jump()) setTimeout(jump, 120); });
@@ -256,7 +263,7 @@ export default function App({ initialRoute }: AppProps) {
           {view === 'prediction' && <PredictionView graph={graph} route={route} />}
           {view === 'promises' && <PledgesView />}
           {view === 'promise' && <PledgeView graph={graph} route={route} />}
-          {view === 'corrections' && <CorrectionsView graph={graph} />}
+          {(view === 'corrections' || view === 'register') && <CorrectionsView graph={graph} route={route} navigate={navigate} />}
           </Suspense>
         </main>
       </ErrorBoundary>

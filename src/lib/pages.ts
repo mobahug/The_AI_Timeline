@@ -4,8 +4,9 @@
    is added here once, and none of the three can leave it out. */
 
 import { VIEWS } from './views';
+import { pageCount } from './register';
 
-export type PageKind = 'view' | 'finding' | 'card' | 'lead' | 'question' | 'check' | 'prediction' | 'promise' | 'person' | 'org' | 'term';
+export type PageKind = 'view' | 'finding' | 'card' | 'lead' | 'question' | 'check' | 'prediction' | 'promise' | 'person' | 'org' | 'term' | 'register';
 
 /** One address, as a path under the site's base (`''` is the front page), with
  *  the record it shows. */
@@ -24,6 +25,8 @@ export interface PageSources {
   people: { id: string }[];
   orgs: { id: string }[];
   terms: { id: string }[];
+  /** The corrections register, whose later pages are pages of their own (register.ts). */
+  corrections: { id: string }[];
 }
 
 export function pages(d: PageSources): Page[] {
@@ -41,6 +44,7 @@ export function pages(d: PageSources): Page[] {
     ...at('promise', d.promises),
     ...at('person', d.people),
     ...at('org', d.orgs),
-    ...at('term', d.terms)
+    ...at('term', d.terms),
+    ...Array.from({ length: pageCount(d.corrections.length) - 1 }, (_, i): Page => ({ path: 'corrections/' + (i + 2) + '/', kind: 'register', id: String(i + 2) }))
   ];
 }
