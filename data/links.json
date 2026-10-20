@@ -65,7 +65,7 @@
     "from": "alexnet",
     "to": "hinton-auctions-his-three-person-startup",
     "claim": "set off a bidding war",
-    "note": "Winning ImageNet by a margin nobody had seen turned three researchers into the most valuable asset in the industry. The auction that followed set the market price for deep learning talent."
+    "note": "Winning ImageNet with 15.3% top-5 error to the runner-up's 26.2% turned three researchers into the most valuable asset in the industry. The auction that followed set the market price for deep learning talent."
   },
   {
     "from": "hinton-auctions-his-three-person-startup",
@@ -799,7 +799,7 @@
     "from": "the-arc-prize",
     "to": "gold-at-the-imo",
     "claim": "was overrun on compute before",
-    "note": "ARC fell to o3 in December 2024 by spending compute nobody could afford, and the olympiad fell to general reasoning models seven months later by the same lever. The benchmark answered by moving its own goalposts, first to ARC-AGI-2 and then to the interactive ARC-AGI-3."
+    "note": "ARC fell to o3 in December 2024 by spending compute on each puzzle — 75.7% inside the public leaderboard's $10,000 limit, 87.5% at 172 times that — and the olympiad fell to general reasoning models seven months later by the same lever. The benchmark answered by moving its own goalposts, first to ARC-AGI-2 and then to the interactive ARC-AGI-3."
   },
   {
     "from": "gpt-2-s-staged-release",

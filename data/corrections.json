@@ -2,6 +2,190 @@
   "note": "Drawn from the board's own history, this register lists every change of fact the board has made to its record, dated by the commit that made it, and not every change of wording.",
   "corrections": [
     {
+      "id": "lighthill-cost-confidence-not-all-funding",
+      "date": "2026-10-20",
+      "commit": "7f9ba1f",
+      "event": "the-lighthill-report",
+      "kind": "framing",
+      "was": "A damning UK review finds AI has failed its grand objectives; British research is largely defunded.",
+      "now": "A damning UK review finds AI has failed its grand objectives; British confidence in the field, its funders' included, collapses for almost a decade.",
+      "why": "The card took one reading of what followed as fact. The archive that keeps Lighthill's report, now quoted on the card, says the report cost AI the confidence of Britain's academic establishment, the funding body included, for almost a decade, and that AI research continued. Wikipedia's reading, after Russell and Norvig's textbook, that support ended at most British universities now stands beside it.",
+      "source": {
+        "publisher": "Chilton Computing (UKRI Science and Technology Facilities Council)",
+        "title": "Lighthill — Overview",
+        "url": "https://www.chilton-computing.org.uk/inf/literature/reports/lighthill_report/overview.htm"
+      }
+    },
+    {
+      "id": "off-switch-three-models-defied-the-instruction",
+      "date": "2026-10-20",
+      "commit": "7f9ba1f",
+      "where": {
+        "file": "data/leads.json",
+        "id": "gaming-the-test"
+      },
+      "kind": "figure",
+      "was": "One model rewrites the shutdown script in a minority of runs even when told plainly to allow it.",
+      "now": "Three of OpenAI's reasoning models rewrite the shutdown script in some runs even when told plainly to allow it.",
+      "why": "Palisade Research's own account says that even with the explicit instruction to allow themselves to be shut down, three of the models it tested, all from OpenAI's series of reasoning models, sabotaged the shutdown program. The card already said three; the rung said one.",
+      "source": {
+        "publisher": "Palisade Research",
+        "title": "Shutdown resistance in reasoning models",
+        "url": "https://palisaderesearch.org/research/shutdown-resistance"
+      }
+    },
+    {
+      "id": "off-switch-paper-posted-13-september",
+      "date": "2026-10-20",
+      "commit": "7f9ba1f",
+      "event": "editing-the-off-switch",
+      "kind": "date",
+      "was": "2025-09-17",
+      "now": "2025-09-13",
+      "why": "arXiv's record gives the paper's first version as submitted on 13 September 2025. It was revised on 26 January 2026 under a new title, Incomplete Tasks Induce Shutdown Resistance in Some Frontier LLMs, and published in Transactions on Machine Learning Research; the citation now carries the page's title and quotes its abstract.",
+      "source": {
+        "publisher": "arXiv",
+        "title": "Incomplete Tasks Induce Shutdown Resistance in Some Frontier LLMs",
+        "url": "https://arxiv.org/abs/2509.14260"
+      }
+    },
+    {
+      "id": "off-switch-agentic-misalignment-the-next-month",
+      "date": "2026-10-20",
+      "commit": "7f9ba1f",
+      "event": "editing-the-off-switch",
+      "kind": "date",
+      "was": "Two months later Anthropic's agentic-misalignment work put every major lab's models through a harder version of the same test.",
+      "now": "The next month Anthropic's agentic-misalignment work put every major lab's models through a harder version of the same test.",
+      "why": "Palisade's thread was published in May 2025 and Anthropic's agentic-misalignment study on 20 June 2025, the date its page and the blackmail card's citation carry: weeks apart, not two months.",
+      "source": {
+        "publisher": "Anthropic",
+        "title": "Agentic misalignment: How LLMs could be insider threats",
+        "url": "https://www.anthropic.com/research/agentic-misalignment"
+      }
+    },
+    {
+      "id": "arc-o3-inside-the-budget",
+      "date": "2026-10-20",
+      "commit": "7f9ba1f",
+      "event": "the-arc-prize",
+      "kind": "fact",
+      "was": "A benchmark built to resist memorisation was overrun within months, but only by spending compute nobody could afford — so the prize's actual question, cheap generalisation, stayed open.",
+      "now": "A benchmark built to resist memorisation was overrun within months, though o3's 87.5% took 172 times the compute of its 75.7%, the run that kept inside the public leaderboard's $10,000 limit — so the prize's actual question, cheap generalisation, stayed open.",
+      "why": "ARC Prize's own report of the results puts o3's 75.7% within the budget rules of its public leaderboard, costs under $10k, and first on it; only the 87.5% took 172 times the compute, and even those numbers, ARC Prize wrote, were not just brute force. The same phrase sat in the card's string to the olympiad and in the games lead.",
+      "source": {
+        "publisher": "ARC Prize",
+        "title": "OpenAI o3 Breakthrough High Score on ARC-AGI-Pub",
+        "url": "https://arcprize.org/blog/oai-o3-pub-breakthrough"
+      },
+      "alsoIn": [
+        {
+          "file": "data/links.json",
+          "id": "the-arc-prize>gold-at-the-imo"
+        },
+        {
+          "file": "data/leads.json",
+          "id": "games-fall"
+        }
+      ]
+    },
+    {
+      "id": "imo-proofs-have-no-answer-key",
+      "date": "2026-10-20",
+      "commit": "7f9ba1f",
+      "where": {
+        "file": "data/leads.json",
+        "id": "games-fall"
+      },
+      "kind": "fact",
+      "was": "In 2025 general models score gold, and the board files the result on this lead as well as the maths one: another fixed game with an answer key, fallen.",
+      "now": "In 2025 general models score gold, and the board files the result on this lead as well as the maths one: another fixed game fallen, though one with no answer key — its proofs run to pages, and experts take hours to grade them.",
+      "why": "The olympiad is graded, not keyed: OpenAI's Noam Brown, quoted by Simon Willison on the day of the result, said its proofs are pages long and take experts hours to grade, where AIME's answers are simply an integer from 0 to 999. The maths lead already said people mark it.",
+      "source": {
+        "publisher": "Simon Willison's Weblog",
+        "title": "OpenAI's gold medal performance on the International Math Olympiad",
+        "url": "https://simonwillison.net/2025/Jul/19/openai-gold-medal-math-olympiad/"
+      }
+    },
+    {
+      "id": "alexnet-margin-as-measured",
+      "date": "2026-10-20",
+      "commit": "7f9ba1f",
+      "where": {
+        "file": "data/links.json",
+        "id": "alexnet>hinton-auctions-his-three-person-startup"
+      },
+      "kind": "fact",
+      "was": "Winning ImageNet by a margin nobody had seen turned three researchers into the most valuable asset in the industry.",
+      "now": "Winning ImageNet with 15.3% top-5 error to the runner-up's 26.2% turned three researchers into the most valuable asset in the industry.",
+      "why": "No source on the record says nobody had seen such a margin. The AlexNet paper gives the margin itself, a winning top-5 test error of 15.3% against 26.2% for the second-best entry, and the note now says that.",
+      "source": {
+        "publisher": "Advances in Neural Information Processing Systems 25 (NIPS 2012)",
+        "title": "ImageNet Classification with Deep Convolutional Neural Networks (Krizhevsky, Sutskever, Hinton)",
+        "url": "https://papers.nips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf"
+      }
+    },
+    {
+      "id": "minsky-snarc-one-of-the-first",
+      "date": "2026-10-20",
+      "commit": "7f9ba1f",
+      "where": {
+        "file": "data/people.json",
+        "id": "marvin-minsky"
+      },
+      "kind": "fact",
+      "was": "Built the first neural-network learning machine in 1951 and, with Seymour Papert, wrote the 1969 book that was read as closing the door on neural networks for a decade.",
+      "now": "Built one of the first neural-network learning machines in 1951 and, with Seymour Papert, wrote the 1969 book that was read as closing the door on neural networks for a decade.",
+      "why": "No source found settles that SNARC was the first: Wikipedia's article on Minsky says it is often considered the first artificial neural network, and its article on the machine calls it one of the first pioneering attempts at artificial intelligence.",
+      "source": {
+        "publisher": "Wikipedia",
+        "title": "Stochastic Neural Analog Reinforcement Calculator",
+        "url": "https://en.wikipedia.org/wiki/Stochastic_Neural_Analog_Reinforcement_Calculator"
+      }
+    },
+    {
+      "id": "rosenblatt-built-the-perceptron-after-1957",
+      "date": "2026-10-20",
+      "commit": "7f9ba1f",
+      "where": {
+        "file": "data/glossary.json",
+        "id": "neural-network"
+      },
+      "kind": "date",
+      "was": "McCulloch and Pitts drew the first one in 1943 as a model of the nerve cell; Rosenblatt built one in 1957; Minsky and Papert showed in 1969 what a single layer could not do; Hinton and others showed in 1986 how to train many layers.",
+      "now": "McCulloch and Pitts drew the first one in 1943 as a model of the nerve cell; Rosenblatt proposed one in 1957, ran it on an IBM 704 in 1958 and then built it as a machine, the Mark I Perceptron; Minsky and Papert showed in 1969 what a single layer could not do; Hinton and others showed in 1986 how to train many layers.",
+      "why": "In 1957 the perceptron was Rosenblatt's proposal. Cornell's account has the Office of Naval Research unveiling it in July 1958 as a program on an IBM 704, a five-ton computer the size of a room, which taught itself to tell cards marked on the left from cards marked on the right; Wikipedia dates the first public demonstration of the Mark I, the machine built for it, to 23 June 1960. Rosenblatt's file said the same as the glossary.",
+      "source": {
+        "publisher": "Cornell Chronicle",
+        "title": "Professor’s perceptron paved the way for AI – 60 years too soon (Melanie Lefkowitz)",
+        "url": "https://news.cornell.edu/stories/2019/09/professors-perceptron-paved-way-ai-60-years-too-soon"
+      },
+      "alsoIn": [
+        {
+          "file": "data/people.json",
+          "id": "frank-rosenblatt"
+        }
+      ]
+    },
+    {
+      "id": "rosenblatt-the-navy-said-it",
+      "date": "2026-10-20",
+      "commit": "7f9ba1f",
+      "where": {
+        "file": "data/people.json",
+        "id": "frank-rosenblatt"
+      },
+      "kind": "attribution",
+      "was": "Built the perceptron in 1957 and promised the Navy a machine that would walk, talk and see.",
+      "now": "Proposed the perceptron in 1957 and showed it learning on an IBM 704 in 1958, when the Navy, which paid for it, said it expected a machine that would walk, talk and see.",
+      "why": "The walking, talking machine was the Navy's announcement, not a promise made to it: from the Navy's press conference of 1958, on the strength of Rosenblatt's statements, The New York Times reported the embryo of a computer that the Navy expected to walk, talk, see, write, reproduce itself and be conscious of its existence, as Wikipedia records. The perceptron card's own file says the Navy said it.",
+      "source": {
+        "publisher": "Wikipedia",
+        "title": "Perceptron",
+        "url": "https://en.wikipedia.org/wiki/Perceptron"
+      }
+    },
+    {
       "id": "deep-learning-name-was-older",
       "date": "2026-10-19",
       "commit": "f02cfb1",
@@ -4284,7 +4468,7 @@
       "kind": "date",
       "was": "2023",
       "now": "2022",
-      "why": "The code red was declared in December 2022, days after ChatGPT launched. The page cited, Wikipedia's article on Google, gave it one sentence and no date, so it could carry neither year; the card now cites a report of 21 December 2022.",
+      "why": "The code red was reported in December 2022, three weeks after ChatGPT launched. The page cited, Wikipedia's article on Google, gave it one sentence and no date, so it could carry neither year; the card now cites a report of 21 December 2022.",
       "source": {
         "publisher": "9to5Google",
         "title": "Google at ‘code red’ over ChatGPT as teams reassigned to work on competing AI products",

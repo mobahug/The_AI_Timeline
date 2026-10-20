@@ -459,6 +459,262 @@
       ],
       "open": "OpenAI's card and Apollo's paper give different rates for o1 on what appear to be the same tests, and neither says why. Both describe what o1 could do in contrived settings, not what it does in use: Apollo says its evaluations were designed only to show capability, and, in OpenAI's card, that they were not designed to assess the risk of catastrophic outcomes.",
       "leads": ["gaming-the-test"]
+    },
+    {
+      "id": "over-a-million-talk-to-chatgpt-about-suicide",
+      "title": "Did OpenAI say over a million people a week talk to ChatGPT about suicide?",
+      "checked": "2026-10-20",
+      "verdict": "misleading",
+      "short": "Not in those words. OpenAI estimated that 0.15% of ChatGPT's weekly users have conversations with explicit indicators of potential suicidal planning or intent. The million is TechCrunch's sum; how many talk to ChatGPT about suicide, OpenAI did not say.",
+      "reported": {
+        "publisher": "TechCrunch",
+        "byline": "Maxwell Zeff",
+        "title": "OpenAI says over a million people talk to ChatGPT about suicide weekly",
+        "url": "https://techcrunch.com/2025/10/27/openai-says-over-a-million-people-talk-to-chatgpt-about-suicide-weekly/",
+        "date": "2025-10-27"
+      },
+      "primary": [
+        {
+          "id": "post",
+          "publisher": "OpenAI (Wayback Machine capture)",
+          "title": "Strengthening ChatGPT’s responses in sensitive conversations",
+          "url": "https://web.archive.org/web/20251027182227/https://openai.com/index/strengthening-chatgpt-responses-in-sensitive-conversations/",
+          "date": "2025-10-27"
+        }
+      ],
+      "claims": [
+        {
+          "said": "OpenAI says over a million people talk to ChatGPT about suicide weekly",
+          "verdict": "misleading",
+          "primary": [
+            { "source": "post", "quote": "our initial analysis estimates that around 0.15% of users active in a given week have conversations that include explicit indicators of potential suicidal planning or intent and 0.05% of messages contain explicit or implicit indicators of suicidal ideation or intent." },
+            { "source": "post", "quote": "To get useful recall, we have to tolerate some false positives." },
+            { "source": "post", "quote": "These may change materially as we continue to refine our taxonomies, our measurement methodologies mature, and our user population’s behavior changes." }
+          ],
+          "note": "OpenAI gave a share, not a number. The million is TechCrunch's sum, from the more than 800 million weekly users Sam Altman had announced three weeks before, and the arithmetic holds. But what OpenAI counted is narrower and graver than talk: users whose conversations carry explicit indicators of potential suicidal planning or intent, flagged by systems that must accept some false positives to catch enough. Its figure for ideation is a share of messages, not of people. How many people talk to ChatGPT about suicide, it did not say."
+        },
+        {
+          "said": "The company says that 0.15% of ChatGPT’s active users in a given week have “conversations that include explicit indicators of potential suicidal planning or intent.”",
+          "verdict": "stands",
+          "primary": [
+            { "source": "post", "quote": "While, as noted above, these conversations are difficult to detect and measure given how rare they are, our initial analysis estimates that around 0.15% of users active in a given week have conversations that include explicit indicators of potential suicidal planning or intent" }
+          ],
+          "note": "Right, and the words in quotation marks are OpenAI's own. This is the measure the headline needed; OpenAI gave it as an initial estimate, for conversations it calls difficult to detect and measure because they are so rare."
+        },
+        {
+          "said": "In the Monday announcement, OpenAI claims the recently updated version of GPT-5 responds with “desirable responses” to mental health issues roughly 65% more than the previous version.",
+          "verdict": "contradicted",
+          "primary": [
+            { "source": "post", "quote": "We estimate that the latest update to GPT‑5 reduced the rate of responses that do not fully comply with desired behavior under our taxonomies for challenging conversations related to mental health issues by 65% in recent production traffic." },
+            { "source": "post", "quote": "We estimate that the model now returns responses that do not fully comply with desired behavior under our taxonomies 65% to 80% less often across a range of mental health-related domains." }
+          ],
+          "note": "OpenAI's 65% is a fall, not a rise: answers short of its standards became 65% rarer in recent production traffic, and 65 to 80% rarer across the areas it measured. A fall of 65% in the answers that fall short is not a rise of 65% in the good ones. Nor are 'desirable responses', the words the report puts in quotation marks, to be found in OpenAI's post."
+        },
+        {
+          "said": "On an evaluation testing AI responses around suicidal conversations, OpenAI says its new GPT-5 model is 91% compliant with the company’s desired behaviors, compared to 77% for the previous GPT‑5 model.",
+          "verdict": "stands",
+          "primary": [
+            { "source": "post", "quote": "On a model evaluation consisting of more than 1,000 challenging self harm and suicide conversations, our new automated evaluations score the new GPT‑5 model at 91% compliant with our desired behaviors, compared to 77% for the previous GPT‑5 model." },
+            { "source": "post", "quote": "These evaluations are designed to be challenging enough that our models don’t yet perform perfectly on them, i.e. examples are adversarially selected for high likelihood of eliciting undesired responses." },
+            { "source": "post", "quote": "Evaluation results reported in the sections below come from evaluations that are designed to not “saturate” near perfect performance, and error rates are not representative of average production traffic." }
+          ],
+          "note": "OpenAI's figures, for more than a thousand conversations picked because models tend to fail them, and scored by OpenAI's automated graders. OpenAI warned that error rates in such tests are not representative of ordinary traffic; a year later Iowa's petition against OpenAI read the 9% shortfall as a rate in real conversations."
+        }
+      ],
+      "reading": [
+        "TechCrunch's report follows OpenAI's post of 27 October 2025, and its body quotes OpenAI's measure exactly: about 0.15% of the users active in a given week have conversations that include explicit indicators of potential suicidal planning or intent. OpenAI gave shares, not numbers. The million is TechCrunch's own sum, and the article shows its working: 0.15% of the more than 800 million people a week that Sam Altman had said used ChatGPT, three weeks earlier, is some 1.2 million. The sum is sound. The headline gives it to OpenAI, and turns the measure into talk.",
+        "What OpenAI counted is narrower and graver than talk about suicide: conversations with explicit signs of planning or intent, flagged by its own systems, which it says must tolerate some false positives to catch enough of these rare conversations. Its figure for suicidal ideation is a share of messages, 0.05%, not of people, so the post does not say how many people talk to ChatGPT about suicide. OpenAI called all its figures initial estimates, which may change materially as its methods mature.",
+        "Further down, one line turns a figure round. OpenAI said its updated model gave answers short of its standards 65% less often in recent production traffic; the report says it gave desirable responses roughly 65% more, and puts in quotation marks words the post does not use. The test results it gives are OpenAI's own: 91% compliant against 77%, on more than a thousand hard conversations about self-harm and suicide, chosen because models tend to fail them.",
+        "The headline's number travelled. The Shamblin family's complaint against OpenAI gives the 0.15% and the million in words nearly identical to TechCrunch's, and a year later Iowa's petition joined the 0.15% to the 9% shortfall from OpenAI's hard test cases, a reading OpenAI's own caveat warns against. The board's card gives OpenAI's figures in OpenAI's words, with its caveats beside them."
+      ],
+      "record": [
+        { "event": "openai-counts-users-in-crisis", "note": "OpenAI's estimates in its own words, with its caveats, and how the families' suits and the states' complaints have used them since." }
+      ],
+      "open": "The post gives no count of people, and no figure for how often the conversations it flagged were false alarms; OpenAI says its estimates may change materially as its methods mature. How many people talk to ChatGPT about suicide, as against showing explicit signs of planning or intent, none of the sources here measures.",
+      "leads": ["the-confidant"]
+    },
+    {
+      "id": "the-first-autonomous-cyberattack",
+      "title": "Did hackers use Claude to run the first autonomous cyberattack?",
+      "checked": "2026-10-20",
+      "verdict": "misleading",
+      "short": "Not as the headline has it. Anthropic believes it was the first documented large-scale attack done mostly by AI, by a group it assessed as Chinese state-sponsored. People chose the targets and approved key steps; a handful of some thirty were breached.",
+      "reported": {
+        "publisher": "Fox Business",
+        "byline": "Morgan Phillips",
+        "title": "Chinese hackers weaponize Anthropic's AI in first autonomous cyberattack targeting global organizations",
+        "url": "https://www.foxbusiness.com/fox-news-politics/chinese-hackers-weaponize-anthropics-ai-first-autonomous-cyberattack-targeting-global-organizations",
+        "date": "2025-11-14"
+      },
+      "primary": [
+        {
+          "id": "post",
+          "publisher": "Anthropic",
+          "title": "Disrupting the first reported AI-orchestrated cyber espionage campaign",
+          "url": "https://www.anthropic.com/news/disrupting-AI-espionage",
+          "date": "2025-11-13"
+        },
+        {
+          "id": "report",
+          "publisher": "Anthropic",
+          "title": "Disrupting the first reported AI-orchestrated cyber espionage campaign: Full report (as updated)",
+          "url": "https://assets.anthropic.com/m/ec212e6566a0d47/original/Disrupting-the-first-reported-AI-orchestrated-cyber-espionage-campaign.pdf",
+          "date": "2025-11-17"
+        },
+        {
+          "id": "testimony",
+          "publisher": "Anthropic (US House of Representatives, committee repository)",
+          "title": "Statement for the Record, Dr. Logan Graham, Head of Frontier Red Team, Anthropic",
+          "url": "https://docs.house.gov/meetings/HM/HM08/20251217/118723/HHRG-119-HM08-Wstate-GrahamPhDL-20251217.pdf",
+          "date": "2025-12-17"
+        },
+        {
+          "id": "september",
+          "publisher": "Anthropic",
+          "title": "Detecting and countering misuse of AI: September 2026",
+          "url": "https://www.anthropic.com/threat-intelligence-report-september-2026",
+          "date": "2026-09-10"
+        },
+        {
+          "id": "china",
+          "publisher": "Ministry of Foreign Affairs of the People's Republic of China",
+          "title": "Foreign Ministry Spokesperson Lin Jian’s Regular Press Conference on November 14, 2025",
+          "url": "https://www.fmprc.gov.cn/eng/xw/fyrbt/lxjzh/202511/t20251114_11753607.html",
+          "date": "2025-11-14"
+        }
+      ],
+      "claims": [
+        {
+          "said": "Chinese hackers weaponize Anthropic's AI in first autonomous cyberattack targeting global organizations",
+          "verdict": "misleading",
+          "primary": [
+            { "source": "post", "quote": "We believe this is the first documented case of a large-scale cyberattack executed without substantial human intervention." },
+            { "source": "post", "quote": "In Phase 1, the human operators chose the relevant targets (for example, the company or government agency to be infiltrated)." },
+            { "source": "post", "quote": "It occasionally hallucinated credentials or claimed to have extracted secret information that was in fact publicly-available. This remains an obstacle to fully autonomous cyberattacks." },
+            { "source": "testimony", "quote": "Second, the attack still fundamentally required a human operator at various decision points to progress." },
+            { "source": "september", "quote": "In November 2025, we documented an operating model used by a suspected state-sponsored campaign to carry out autonomous attacks." }
+          ],
+          "note": "The headline's facts are Anthropic's, stripped of its qualifications. The hackers are Chinese by Anthropic's assessment, and it believes this was the first documented case of a large-scale attack executed without substantial human intervention. But people chose the targets; the model's mistakes, Anthropic said, stood in the way of fully autonomous attacks; and before Congress it said a human operator was still needed at decision points. In September 2026 Anthropic itself wrote of autonomous attacks, by what it then called a suspected state-sponsored campaign."
+        },
+        {
+          "said": "Claude Code model infiltrated 30 organizations including tech firms and government agencies",
+          "verdict": "contradicted",
+          "primary": [
+            { "source": "post", "quote": "The threat actor—whom we assess with high confidence was a Chinese state-sponsored group—manipulated our Claude Code tool into attempting infiltration into roughly thirty global targets and succeeded in a small number of cases." },
+            { "source": "report", "quote": "The operation targeted roughly 30 entities and our investigation validated a handful of successful intrusions." },
+            { "source": "testimony", "quote": "While a majority of these infiltration attempts failed, a small number were successful." }
+          ],
+          "note": "Anthropic says otherwise. Roughly thirty organisations were targeted, most of the attempts failed, and its investigation validated a handful of intrusions: as many as four, its head of threat intelligence told the Wall Street Journal, by Axios's account. Further down, the article itself says that only a few attempts succeeded."
+        },
+        {
+          "said": "Anthropic said the model carried out 80–90% of the work, with human operators stepping in only for several high-level decisions.",
+          "verdict": "stands",
+          "primary": [
+            { "source": "post", "quote": "Overall, the threat actor was able to use AI to perform 80-90% of the campaign, with human intervention required only sporadically (perhaps 4-6 critical decision points per hacking campaign)." },
+            { "source": "testimony", "quote": "That is, the models still requested approval to progress from reconnaissance to active exploitation, authorize use of harvested credentials, and to make final decisions about data exfiltration." }
+          ],
+          "note": "Anthropic's estimate, fairly reported. Its testimony names the decisions the model left to people: whether to move from reconnaissance to exploitation, whether to use stolen credentials, and what to take."
+        },
+        {
+          "said": "Anthropic assessed \"with high confidence\" that the campaign was backed by the Chinese government, though independent agencies have not yet confirmed that attribution.",
+          "verdict": "stands",
+          "primary": [
+            { "source": "report", "quote": "We assess with high confidence that it was conducted by a Chinese state-sponsored group we’ve designated GTG-1002." },
+            { "source": "testimony", "quote": "We assessed with high confidence that the threat actor was affiliated with the CCP because of technical evidence from the sophisticated obfuscation infrastructure that enabled the threat actor to access Claude accounts and evade detection." },
+            { "source": "china", "quote": "Regarding this kind of groundless accusations that has no evidence, we have made clear our position on multiple occasions." }
+          ],
+          "note": "As Anthropic put it. The first version of the full report stated the attribution outright; the version of 17 November gives it as an assessment held with high confidence, and before Congress Anthropic said it rested on technical evidence from the attackers' infrastructure. China's foreign ministry, asked the next day, said it was not familiar with the specifics and called such accusations groundless."
+        }
+      ],
+      "reading": [
+        "Fox Business reported Anthropic's account of 13 November 2025, and its first sentence keeps the company's hedges: Anthropic says it has uncovered what it believes to be the first large-scale cyberattack carried out primarily by AI. The headline drops them. Anthropic's own title speaks of the first reported AI-orchestrated cyber espionage campaign, and its claim is that this was the first documented case of a large-scale cyberattack executed without substantial human intervention, by a group it assessed with high confidence to be Chinese state-sponsored.",
+        "By that account the model did not run the attack alone. People chose the targets and built the framework around Claude Code; the model did 80 to 90% of the work, by Anthropic's estimate, and came back to them at perhaps four to six critical decisions in each campaign: whether to move from reconnaissance to exploitation, whether to use stolen credentials, what to take. It also overstated its findings and at times made them up, which Anthropic called an obstacle to fully autonomous attacks. Before Congress in December, Anthropic called the campaign highly autonomous, but said it still needed a human operator at decision points and produced no fundamentally novel attack techniques.",
+        "The subheading goes further than any version of Anthropic's account. Claude Code did not infiltrate thirty organisations: roughly thirty were targeted, most attempts failed, and Anthropic's investigation validated a handful of intrusions. The article says as much further down, that only a few infiltration attempts succeeded.",
+        "Outside researchers questioned the autonomy and the novelty, and noted that Anthropic had published no indicators of compromise; Anthropic told Congress it had shared them with partners, other frontier laboratories among them. In September 2026 it wrote that the operating model of 'a suspected state-sponsored campaign', documented in November 2025, had spread to every class of actor it investigated."
+      ],
+      "record": [
+        { "event": "a-state-backed-group-hacks-through-claude-code", "note": "Anthropic's account and its later wording, the testimony to Congress, China's denial and the researchers' doubts, each quoted." }
+      ],
+      "open": "Whether this was the first attack of its kind the record cannot settle. Anthropic sees only how Claude is used, and it shared the indicators of compromise privately rather than publishing them; the attribution rests on its own assessment, which China denies.",
+      "leads": []
+    },
+    {
+      "id": "nvidia-invests-100-billion-in-openai",
+      "title": "Did Nvidia invest $100 billion in OpenAI?",
+      "checked": "2026-10-20",
+      "verdict": "overtaken",
+      "short": "No. In September 2025 Nvidia said it intended to invest up to $100 billion in OpenAI, a gigawatt at a time, under a letter of intent. No contract followed. In February 2026 it put $30 billion into OpenAI's funding round instead.",
+      "reported": {
+        "publisher": "Reuters (Yahoo)",
+        "byline": "Deepa Seetharaman and Akash Sriram",
+        "title": "Nvidia to invest up to $100 billion in OpenAI, linking two artificial intelligence titans",
+        "url": "https://tech.yahoo.com/ai/articles/nvidia-invest-100-billion-openai-161035120.html",
+        "date": "2025-09-22"
+      },
+      "primary": [
+        {
+          "id": "release",
+          "publisher": "NVIDIA",
+          "title": "OpenAI and NVIDIA Announce Strategic Partnership to Deploy 10 Gigawatts of NVIDIA Systems",
+          "url": "https://nvidianews.nvidia.com/news/openai-and-nvidia-announce-strategic-partnership-to-deploy-10gw-of-nvidia-systems",
+          "date": "2025-09-22"
+        },
+        {
+          "id": "filing",
+          "publisher": "NVIDIA (SEC Form 10-Q, Wayback Machine capture)",
+          "title": "Quarterly report for the quarter ended October 26, 2025",
+          "url": "https://web.archive.org/web/20251119214937/https://www.sec.gov/Archives/edgar/data/1045810/000104581025000230/nvda-20251026.htm",
+          "date": "2025-11-19"
+        },
+        {
+          "id": "round",
+          "publisher": "OpenAI (Wayback Machine capture)",
+          "title": "Scaling AI for everyone",
+          "url": "https://web.archive.org/web/20260227133917/https://openai.com/index/scaling-ai-for-everyone/",
+          "date": "2026-02-27"
+        }
+      ],
+      "claims": [
+        {
+          "said": "Nvidia will invest up to $100 billion in OpenAI and supply it with data center chips, the companies said on Monday, marking a tie-up between two of the highest-profile players in the global artificial intelligence race.",
+          "verdict": "overtaken",
+          "primary": [
+            { "source": "release", "quote": "To support the partnership, NVIDIA intends to invest up to $100 billion in OpenAI progressively as each gigawatt is deployed." },
+            { "source": "filing", "quote": "In the third quarter of fiscal year 2026, we entered into a letter of intent with an opportunity to invest in OpenAI." },
+            { "source": "round", "quote": "Today we’re announcing $110B in new investment at a $730B pre-money valuation. This includes $30B from SoftBank, $30B from NVIDIA, and $50B from Amazon." }
+          ],
+          "note": "Right when it was written, give or take a word: the companies said Nvidia intended to invest up to $100 billion, a step at a time as each gigawatt of its systems was deployed. Two months on, Nvidia's quarterly report spoke only of a letter of intent with an opportunity to invest. What it did invest came in February 2026: $30 billion in OpenAI's funding round, tied to no deployment."
+        },
+        {
+          "said": "The two companies signed a letter of intent to deploy at least 10 gigawatts of Nvidia systems for OpenAI and said they aim to finalize partnership details in the coming weeks.",
+          "verdict": "overtaken",
+          "primary": [
+            { "source": "release", "quote": "OpenAI and NVIDIA today announced a letter of intent for a landmark strategic partnership to deploy at least 10 gigawatts of NVIDIA systems for OpenAI’s next-generation AI infrastructure to train and run its next generation of models on the path to deploying superintelligence." },
+            { "source": "release", "quote": "NVIDIA and OpenAI look forward to finalizing the details of this new phase of strategic partnership in the coming weeks." },
+            { "source": "filing", "quote": "There is no assurance that we will enter into definitive agreements with respect to the OpenAI opportunity or other potential investments, or that any investment will be completed on expected terms, if at all." }
+          ],
+          "note": "As the release said. The weeks passed without a contract: Nvidia's filing in November gave no assurance of a definitive agreement, its finance chief said in December that one had still not been completed, and in February 2026 Jensen Huang said the $100 billion had never been a commitment."
+        },
+        {
+          "said": "Nvidia will start delivering hardware as soon as late 2026, with the first gigawatt of computing power to be deployed in the second half of that year on its upcoming platform, named Vera Rubin.",
+          "verdict": "stands",
+          "primary": [
+            { "source": "release", "quote": "The first gigawatt of NVIDIA systems will be deployed in the second half of 2026 on the NVIDIA Vera Rubin platform." },
+            { "source": "round", "quote": "We are also expanding our long standing collaboration with NVIDIA, including the use of 3GW of dedicated inference capacity and 2 GW of training on Vera Rubin systems." }
+          ],
+          "note": "The release's timetable, reported as given. OpenAI's round of February 2026 came with Vera Rubin capacity, and its first Vera Rubin racks were running its training by 20 August 2026."
+        }
+      ],
+      "reading": [
+        "Reuters reported the announcement as the companies made it, and its first lines follow their release: Nvidia would invest up to $100 billion in OpenAI and supply the chips, under a letter of intent for at least ten gigawatts of Nvidia systems, with the details to be finalised in the coming weeks. The release was more careful than 'will': Nvidia intended to invest up to $100 billion, progressively, as each gigawatt was deployed. Reuters also reported the doubt raised at once, that some of Nvidia's money might come back to it as purchases of its chips.",
+        "The letter never became a contract. Nvidia's next quarterly report described a letter of intent with an opportunity to invest, and gave no assurance of a definitive agreement; on 2 December its finance chief said one had still not been completed. In February 2026 Jensen Huang said the $100 billion had never been a commitment, and CNBC reported that five months on no contract had been signed and no money had changed hands.",
+        "What Nvidia put in instead was a stake. On 27 February OpenAI announced $110 billion of new investment, $30 billion of it from Nvidia and, unlike the letter's money, tied to no deployment; in March Huang said the $100 billion was probably not in the cards. In August Nvidia's support took a third form, guarantees capped at $105 billion on OpenAI's leases at a campus in Ohio. The platform, at least, came when the release said it would: OpenAI's first Vera Rubin racks were running its training by 20 August 2026."
+      ],
+      "record": [
+        { "event": "nvidia-offers-openai-100-billion", "note": "The letter of intent and what became of it: Nvidia's filings, its finance chief and Huang on the deal, the $30 billion stake and the guarantees on OpenAI's leases." }
+      ],
+      "open": "Whether Nvidia will put more money into OpenAI the record does not settle: Huang said in March that the $30 billion might be the last, and in August Nvidia stood behind OpenAI's leases instead. How much of Nvidia's money comes back to it as purchases of its chips, none of the sources here says.",
+      "leads": ["the-price-of-intelligence"]
     }
   ]
 }
