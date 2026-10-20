@@ -73,7 +73,7 @@
         "Minsky"
       ],
       "role": "Cognitive scientist · MIT",
-      "bio": "Built the first neural-network learning machine in 1951 and, with Seymour Papert, wrote the 1969 book that was read as closing the door on neural networks for a decade. Both cards are his."
+      "bio": "Built one of the first neural-network learning machines in 1951 and, with Seymour Papert, wrote the 1969 book that was read as closing the door on neural networks for a decade. Both cards are his."
     },
     {
       "id": "frank-rosenblatt",
@@ -82,7 +82,7 @@
         "Rosenblatt"
       ],
       "role": "Psychologist · Cornell",
-      "bio": "Built the perceptron in 1957 and promised the Navy a machine that would walk, talk and see. The promise was the first the field could not keep; the machine was the ancestor of every network since."
+      "bio": "Proposed the perceptron in 1957 and showed it learning on an IBM 704 in 1958, when the Navy, which paid for it, said it expected a machine that would walk, talk and see. The promise was the first the field could not keep; the machine was the ancestor of every network since."
     },
     {
       "id": "herbert-simon",
