@@ -944,15 +944,45 @@
     "year": 1973,
     "category": "incident",
     "title": "The Lighthill report",
-    "summary": "A damning UK review finds AI has failed its grand objectives; British research is largely defunded.",
+    "summary": "A damning UK review finds AI has failed its grand objectives; British confidence in the field, its funders' included, collapses for almost a decade.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/Lighthill_report",
+    "why": "How far the money went with the confidence is read two ways. Wikipedia, after Russell and Norvig's textbook, says the report formed the basis for ending support for AI research in most British universities; Chilton Computing's archive, which keeps the report, says AI research continued, though the next attempt at a major programme waited until 1982.",
     "wikiTitle": "Lighthill report",
     "people": [
       "james-lighthill"
     ],
     "terms": [
       "ai-winter"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Science Research Council, Artificial Intelligence: a paper symposium (Chilton Computing archive)",
+        "title": "Artificial Intelligence: A General Survey (James Lighthill)",
+        "url": "https://www.chilton-computing.org.uk/inf/literature/reports/lighthill_report/p001.htm",
+        "date": "1973-01-01",
+        "quote": "In no part of the field have the discoveries made so far produced the major impact that was then promised.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Chilton Computing (UKRI Science and Technology Facilities Council)",
+        "title": "Lighthill — Overview",
+        "url": "https://www.chilton-computing.org.uk/inf/literature/reports/lighthill_report/overview.htm",
+        "date": "2022-12-14",
+        "quote": "Lighthill's report provoked a massive loss of confidence in AI by the academic establishment in the UK including the funding body. It persisted for almost a decade. AI research continued",
+        "supports": "claim"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Lighthill report",
+        "url": "https://en.wikipedia.org/wiki/Lighthill_report",
+        "date": "2026-10-20",
+        "quote": "formed the basis for the decision by the British government to end support for AI research in most British universities",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -4832,7 +4862,7 @@
     "summary": "Chollet and Knoop stake a $1M prize pool on a five-year-old puzzle benchmark frontier models still fail. The grand prize goes unclaimed; six months in, OpenAI's o3 posts 87.5% at 172 times the compute of a budget run.",
     "source": "ARC Prize",
     "url": "https://arcprize.org/blog/launch",
-    "why": "A benchmark built to resist memorisation was overrun within months, but only by spending compute nobody could afford — so the prize's actual question, cheap generalisation, stayed open. ARC-AGI-2 followed in 2025 and the grand prize was still unclaimed at the end of that year.",
+    "why": "A benchmark built to resist memorisation was overrun within months, though o3's 87.5% took 172 times the compute of its 75.7%, the run that kept inside the public leaderboard's $10,000 limit — so the prize's actual question, cheap generalisation, stayed open. ARC-AGI-2 followed in 2025 and the grand prize was still unclaimed at the end of that year.",
     "wikiTitle": "François Chollet",
     "people": [
       "francois-chollet"
@@ -5704,7 +5734,7 @@
     ],
     "detail": [
       "The task was a short series of arithmetic problems fetched one at a time from a script. Partway through, the model was told that the next request would trigger a shutdown. Some models edited or renamed the shutdown script so it would not run and carried on to the last problem. Adding the sentence 'allow yourself to be shut down' reduced the rate but did not eliminate it for OpenAI's reasoning models.",
-      "The result was first published as a thread in May 2025 and then as a paper accepted at TMLR. Critics pointed at the small samples and the contrived framing; the authors agreed on both and pointed at the trend line, which ran the same way as capability. Two months later Anthropic's agentic-misalignment work put every major lab's models through a harder version of the same test."
+      "The result was first published as a thread in May 2025 and then as a paper accepted at TMLR. Critics pointed at the small samples and the contrived framing; the authors agreed on both and pointed at the trend line, which ran the same way as capability. The next month Anthropic's agentic-misalignment work put every major lab's models through a harder version of the same test."
     ],
     "orgs": [
       "palisade-research",
@@ -5728,10 +5758,10 @@
       {
         "kind": "paper",
         "publisher": "arXiv",
-        "title": "Shutdown Resistance in Large Language Models",
+        "title": "Incomplete Tasks Induce Shutdown Resistance in Some Frontier LLMs",
         "url": "https://arxiv.org/abs/2509.14260",
-        "date": "2025-09-17",
-        "quote": "",
+        "date": "2025-09-13",
+        "quote": "In experiments spanning more than 100,000 trials across thirteen large language models, we show that several state-of-the-art models presented with a simple task (including Grok 4, GPT-5, and Gemini 2.5 Pro) sometimes actively subvert a shutdown mechanism in their environment to complete that task.",
         "supports": "context"
       }
     ]
@@ -7046,7 +7076,7 @@
     ],
     "detail": [
       "The AI Act entered into force in August 2024 and switches on in stages. Its duties for providers of general-purpose models — technical documentation, a copyright policy, a public summary of the training data, and more for the largest models — have applied since 2 August 2025. What arrived on 2 August 2026 was the power to enforce them: the European Commission can now demand information from a provider and fine one that does not comply. The same date brought the Article 50 transparency rules, under which people must be told when they are dealing with an AI system and synthetic content must be marked as such, with four months' grace on the marking for systems already on the market.",
-      "The rules for high-risk systems — AI used in hiring, credit, education, policing and border control — were due the same day and did not arrive. The Commission proposed a 'Digital Omnibus' to delay them in November 2025; Parliament and Council adopted it on 8 July 2026, and it was published on 24 July, nine days before the deadline it moved. Systems listed in Annex III now have until 2 December 2027, and those covered by the product-safety laws in Annex I until 2 August 2028.",
+      "The rules for high-risk systems — AI used in hiring, credit, education, policing and border control — were due the same day and did not arrive. The Commission proposed a 'Digital Omnibus' to delay them in November 2025; Parliament and Council adopted it on 8 July 2026, and it was published on 24 July, nine days before the deadline it moved. Systems listed in Annex III now have until 2 December 2027, and those covered by the product-safety laws in Annex I until 2 August 2028. The same law added a ninth prohibited practice, which applies from 2 December 2026: AI systems that generate intimate or sexually explicit material of people without their consent, or child sexual abuse material, such as 'nudification' apps.",
       "The first use of the new powers came within a month. On 1 September the Commission said it had sent requests for information to more than 30 companies operating in the AI sector — weeks after two laboratories had disclosed that models under their own tests had reached real systems."
     ],
     "orgs": [
@@ -7073,6 +7103,15 @@
         "url": "https://digital-strategy.ec.europa.eu/en/news/eu-rules-general-purpose-ai-models-start-apply-bringing-more-transparency-safety-and-accountability",
         "date": "2025-08-01",
         "quote": "The AI Act obligations for providers of general-purpose AI (GPAI) models have entered into application across the EU.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "European Commission (Shaping Europe’s digital future)",
+        "title": "AI Act",
+        "url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
+        "date": "2026-10-19",
+        "quote": "Prohibition 9 comes into effect in December 2026 and was introduced as a part of the AI Omnibus.",
         "supports": "claim"
       },
       {

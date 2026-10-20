@@ -23,7 +23,7 @@
         "neural net"
       ],
       "short": "Layers of simple units, each a weighted sum and a threshold, learned from data.",
-      "definition": "McCulloch and Pitts drew the first one in 1943 as a model of the nerve cell; Rosenblatt built one in 1957; Minsky and Papert showed in 1969 what a single layer could not do; Hinton and others showed in 1986 how to train many layers. The word 'neural' is historical — the units are arithmetic, not biology — and the board keeps it because the field did."
+      "definition": "McCulloch and Pitts drew the first one in 1943 as a model of the nerve cell; Rosenblatt proposed one in 1957, ran it on an IBM 704 in 1958 and then built it as a machine, the Mark I Perceptron; Minsky and Papert showed in 1969 what a single layer could not do; Hinton and others showed in 1986 how to train many layers. The word 'neural' is historical — the units are arithmetic, not biology — and the board keeps it because the field did."
     },
     {
       "id": "perceptron",
