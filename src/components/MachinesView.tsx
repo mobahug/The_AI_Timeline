@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Graph } from '../lib/types';
 import { MACHINES } from '../lib/machines';
+import { machineInFull } from '../lib/bodies/machines';
 import { catLabel, whenOf } from '../lib/data';
 import { INK, MONO, SANS, SERIF, RULE, ink, micro, shell, pageTitle } from '../lib/styles';
 import { Btn, Eyebrow, Link, PageHead } from './kit';
@@ -23,6 +24,7 @@ function MachinesView({ graph }: { graph: Graph }) {
       <ol style={{ listStyle: 'none', margin: '40px 0 0', padding: 0 }}>
         {machines.map((m) => {
           const e = graph.index[m.event];
+          const full = machineInFull(m.id);
           return (
             <li key={m.id} style={{ borderTop: RULE, padding: 'clamp(20px,3vw,28px) 0' }}>
               <div style={{ display: 'flex', gap: 'clamp(14px,3vw,28px)', alignItems: 'flex-start', flexWrap: 'wrap' }}>
@@ -35,7 +37,7 @@ function MachinesView({ graph }: { graph: Graph }) {
                   <p style={{ margin: 0, font: '400 clamp(14.5px,1.5vw,16px)/1.6 ' + SANS, color: ink(3), maxWidth: '62ch', textWrap: 'pretty' }}>{m.short}</p>
                   <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', alignItems: 'center', marginTop: 4 }}>
                     <Btn size="sm" tone="loud" to={{ view: 'card', id: e.id, hash: 'machine' }}>Run it on its card →</Btn>
-                    <Eyebrow as="span" dim style={{ ...micro(5) }}>{m.sources.length} {m.sources.length === 1 ? 'source' : 'sources'} · {m.kept.length} things as they were · {m.changed.length} not</Eyebrow>
+                    {full && <Eyebrow as="span" dim style={{ ...micro(5) }}>{full.sources.length} {full.sources.length === 1 ? 'source' : 'sources'} · {full.kept.length} things as they were · {full.changed.length} not</Eyebrow>}
                   </div>
                 </div>
               </div>

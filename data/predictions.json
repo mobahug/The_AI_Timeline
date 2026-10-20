@@ -1091,7 +1091,7 @@
       "record": [
         {
           "event": "stanley-wins",
-          "note": "The desert race of 2005 that began the run to self-driving on public roads."
+          "note": "The desert race of 2005, whose engineers Google gathered for the self-driving cars it put on public roads."
         }
       ],
       "open": "Tesla has not staged the demonstration Musk described, ending with the car parking itself, and its own description of the software rules out calling the 2026 run autonomous.",
@@ -1400,7 +1400,7 @@
       "record": [
         {
           "event": "coding-agents-take-the-keyboard",
-          "note": "The job where agents did become daily tools in 2025: writing software."
+          "note": "Writing software: coding agents arrived in 2025, and by 2026 most developers who used AI coding tools used them daily."
         },
         {
           "event": "agents-enter-real-workflows",
@@ -1508,7 +1508,7 @@
       "record": [
         {
           "event": "coding-agents-take-the-keyboard",
-          "note": "Coding agents become daily tools in 2025, and software work reorganises around review."
+          "note": "Coding agents arrive in 2025 and hand their work back for review."
         }
       ],
       "open": "Company figures are their own and count differently — merged lines, code approved by engineers — and no independent count of the whole industry's code in 2025 is on the record.",

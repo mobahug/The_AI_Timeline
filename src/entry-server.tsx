@@ -1,14 +1,11 @@
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import PAPERS from '../data/events.json?papers';
-import FORETOLD_FILE from '../data/predictions.json';
 import App from './App';
 import { parse } from './lib/url';
 import { metaFor } from './lib/meta';
 import { buildGraph } from './lib/data';
 import { carriedPapers, primePapers } from './lib/papers';
-import { primePredictions } from './lib/predictions';
-import type { Prediction } from './lib/types';
 import { primeMedia, usedMedia } from './lib/wiki';
 import { loadAll } from './components/viewChunks';
 import type { WikiCache } from './lib/types';
@@ -22,7 +19,6 @@ import type { WikiCache } from './lib/types';
    carries it, so the browser's first render reads exactly what this one did. */
 
 const graph = buildGraph();
-primePredictions(FORETOLD_FILE.predictions as Prediction[]);
 // Every page's chunk, held before the first render: renderToString cannot wait
 // for one, and a page must be written whole (components/viewChunks.ts).
 await loadAll();

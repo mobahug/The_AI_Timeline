@@ -1,11 +1,15 @@
 import { describe, it, expect } from 'vitest';
 import { MACHINES, machineById, machineOf } from '../src/lib/machines';
+import { machineInFull } from '../src/lib/bodies/machines';
 import { leadById } from '../src/lib/leads';
 import { buildGraph } from '../src/lib/data';
 import { hrefFor, parse } from '../src/lib/url';
 import { tabOf } from '../src/lib/views';
+import type { Machine } from '../src/lib/types';
 
 const graph = buildGraph();
+/* Each machine in full, as the card that runs it reads it. */
+const FULL = MACHINES.map((h) => machineInFull(h.id) as Machine);
 
 describe('the machines, each run on its card', () => {
   it('has one machine of each kind, each on a card of the record', () => {
@@ -21,7 +25,7 @@ describe('the machines, each run on its card', () => {
   });
 
   it('says what it is, what is as it was, what is not, and whose it is', () => {
-    MACHINES.forEach((m) => {
+    FULL.forEach((m) => {
       expect(m.title.length, m.id).toBeLessThanOrEqual(60);
       expect(m.short.length, m.id).toBeLessThanOrEqual(200);
       expect(m.lede.length, m.id).toBeGreaterThan(100);
@@ -33,7 +37,7 @@ describe('the machines, each run on its card', () => {
   });
 
   it('names the papers it was rebuilt from, quoted where it quotes', () => {
-    MACHINES.forEach((m) => {
+    FULL.forEach((m) => {
       expect(m.sources.length, m.id).toBeGreaterThan(0);
       expect(new Set(m.sources.map((s) => s.url)).size, m.id).toBe(m.sources.length);
       m.sources.forEach((s) => {

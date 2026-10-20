@@ -1,9 +1,10 @@
 import React from 'react';
 import { PLEDGED, PLEDGED_ORDER, PLEDGES } from '../lib/pledges';
+import { pledgeInFull } from '../lib/bodies/pledges';
 import { dayText } from '../lib/data';
 import { INK, MONO, SANS, SERIF, RULE, ink, micro, shell, pageTitle } from '../lib/styles';
 import { Btn, Eyebrow, Link, PageHead, Quote } from './kit';
-import { PledgeMark, pledgeInFull } from './PledgeKit';
+import { PledgeMark } from './PledgeKit';
 
 /* Promises made: what laboratories, companies and governments said in public
    they would do about AI, each in their own words, oldest first, and set

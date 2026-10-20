@@ -3,7 +3,8 @@ import type { KeyboardEvent as ReactKeyboardEvent, PointerEvent as ReactPointerE
 import { THREADS, TICKS, FIRST, NOW, CATEGORIES, accent, buildChain, catHue, yearAtFraction } from '../lib/data';
 import { PAD, metrics, layout, stringPath, inTime, seek, firstInView } from '../lib/layout';
 import type { Aim, Move } from '../lib/layout';
-import { leadById, leadChain } from '../lib/leads';
+import { leadById } from '../lib/leads';
+import { leadChain, leadInFull } from '../lib/bodies/leads';
 import { useMode } from '../lib/mode';
 import { BOARD_GROUND, MONO, RED_LIT, CYAN, SERIF, DUR, EASE, FADE, STATE, micro } from '../lib/styles';
 import { Btn, Empty, RouteProvider } from './kit';
@@ -394,7 +395,7 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
 
   /** Walk a lead from one of its rungs. */
   const openLead = useCallback((id: string, rung?: number | null) => {
-    const l = leadById[id];
+    const l = leadInFull(id);
     if (!l) return;
     const steps = leadChain(graph, l);
     if (!steps.length) return;
@@ -459,7 +460,7 @@ export default function BoardView({ items, graph, media, route, navigate, onYear
       return;
     }
     if (route.lead) {
-      const l = leadById[route.lead];
+      const l = leadInFull(route.lead);
       const steps = l ? leadChain(graph, l) : [];
       if (steps.length) { showChain(steps, Math.max(0, Math.min(steps.length - 1, (route.rung || 1) - 1)), false); return; }
       navigate({ lead: null, rung: null }, true);

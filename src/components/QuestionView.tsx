@@ -1,7 +1,8 @@
 import React from 'react';
 import type { Graph, Route } from '../lib/types';
 import { catLabel } from '../lib/data';
-import { QUESTIONS, questionById } from '../lib/questions';
+import { QUESTIONS } from '../lib/questions';
+import { questionInFull } from '../lib/bodies/questions';
 import { leadById } from '../lib/leads';
 import { GOLD, INK, MONO, SANS, SERIF, RULE, ROW_RULE, DASHED_RULE, badge, ink, micro, shell, pageTitle } from '../lib/styles';
 import { Btn, CopyLink, Eyebrow, NavRow, PageHead, Ref, Section } from './kit';
@@ -12,7 +13,7 @@ import { Btn, CopyLink, Eyebrow, NavRow, PageHead, Ref, Section } from './kit';
 export interface QuestionViewProps { graph: Graph; route: Route }
 
 function QuestionView({ graph, route }: QuestionViewProps) {
-  const q = questionById[route.id as string];
+  const q = questionInFull(route.id as string);
   if (!q) {
     return (
       <div style={shell('route')}>

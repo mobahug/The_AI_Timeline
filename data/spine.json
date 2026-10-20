@@ -13,7 +13,7 @@
       "from": 1943,
       "title": "The brain as a circuit",
       "lead": "turing-asks-the-question",
-      "blurb": "A nerve cell is modelled as a logic gate, information is given a unit, and the question stops being whether machines can think and becomes how you would tell."
+      "blurb": "A nerve cell is modelled as a logic gate, information is measured in bits, and the question stops being whether machines can think and becomes how you would tell."
     },
     {
       "n": 3,
@@ -34,14 +34,14 @@
       "from": 1969,
       "title": "The book that closed the door",
       "lead": "perceptrons-closes-a-door",
-      "blurb": "One mathematical result about what a single-layer network cannot do is read as a verdict on the whole approach."
+      "blurb": "A book of proofs about what one kind of network cannot do is read as a verdict on the whole approach."
     },
     {
       "n": 6,
       "from": 1974,
       "title": "The first winter",
       "lead": "the-first-ai-winter",
-      "blurb": "Funding stops. The work that continues is narrow, useful and careful not to call itself artificial intelligence."
+      "blurb": "DARPA's money must now serve military ends, and Britain loses faith in the field. The field keeps growing anyway, and its name grows more common, not less."
     },
     {
       "n": 7,
@@ -97,7 +97,7 @@
       "from": 2022,
       "title": "Contact with the public",
       "lead": "chatgpt",
-      "blurb": "Capability meets a hundred million people in two months, and every lab's release calendar is rewritten by competition rather than readiness."
+      "blurb": "Capability meets a hundred million people in two months, and at Google and Microsoft competition starts to set the pace of release."
     },
     {
       "n": 15,
@@ -111,7 +111,7 @@
       "from": 2024,
       "title": "Rules, money and the first breaches",
       "lead": "the-eu-ai-act-is-adopted",
-      "blurb": "The first comprehensive law is adopted, the buildout reaches industrial scale, and the shared infrastructure everyone depends on is attacked."
+      "blurb": "Europe adopts what it calls the first comprehensive AI law, the buildout reaches industrial scale, and the shared infrastructure everyone depends on is attacked."
     },
     {
       "n": 17,

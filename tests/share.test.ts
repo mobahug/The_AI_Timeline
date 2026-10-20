@@ -154,7 +154,7 @@ describe('share images', () => {
     const made = await siteShare(ctx);
     expect(await shape(made.png)).toEqual(PREVIEW);
     expect(made.alt).toContain(graph.all.length + ' entries, ' + graph.edges.length + ' strings, '
-      + graph.edges.filter((l) => l.note).length + ' case notes');
+      + graph.edges.filter((l) => l.noted).length + ' case notes');
   });
 
   /* The prerenderer writes each page's image, size and alt into these tags;

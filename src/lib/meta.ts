@@ -9,12 +9,24 @@ import { entityById } from './files';
 import { paperOf } from './papers';
 import { viewById } from './views';
 import { hrefFor } from './url';
-import type { Graph, PageMeta, Route } from './types';
+import type { Entity, Graph, PageMeta, Route } from './types';
 
 const SITE = 'The AI Timeline';
 const TAGLINE = 'An investigation board of artificial intelligence, ' + FIRST + ' to ' + LAST + ' — every breakthrough, boardroom coup, lawsuit and breach, with the strings between them.';
 
 // Titles and descriptions live in the view registry.
+
+/* Most pages are described from what every page holds. Two kinds are described
+   from words only their own pages print: a name's page, from its bio or its
+   definition, and a clue, from its string's case note. Those words come in the
+   chunks of the pages that print them (lib/bodies/), which lend them here as
+   they arrive. The server holds every chunk before it describes a page, and
+   the browser a page's own chunk before it draws it, so both describe it
+   alike; a page drawn before its words arrive is described without them. */
+interface Lent { body?: (entity: Entity) => string; note?: (from: string, to: string) => string | undefined }
+const lent: Lent = {};
+/** Lend the describer the words a chunk brings. */
+export const describeWith = (words: Lent): void => { Object.assign(lent, words); };
 
 /** A search result shows about sixty-five characters of a title. A page's own
  *  words, its verdict where it has one, and the site's name stay; the words that
@@ -52,10 +64,11 @@ function describe(route: Route, graph?: Graph | null): { title: string; descript
     const b = graph.index[route.clue.to];
     const clue = route.clue;
     const link = graph.edges.find((l) => l.from === clue.from && l.to === clue.to);
+    const note = link && lent.note ? lent.note(link.from, link.to) : undefined;
     if (a && b) {
       return {
         title: a.year + ' ' + a.title + ' → ' + b.year + ' ' + b.title + ' · ' + SITE,
-        description: link ? a.title + ' ' + link.claim + ' ' + b.title + '.' + (link.note ? ' ' + link.note : '') : TAGLINE
+        description: link ? a.title + ' ' + link.claim + ' ' + b.title + '.' + (note ? ' ' + note : '') : TAGLINE
       };
     }
   }
@@ -103,8 +116,8 @@ function describe(route: Route, graph?: Graph | null): { title: string; descript
     if (x) {
       const kind = route.view === 'person' ? 'Person of interest' : route.view === 'org' ? 'Organisation' : 'Term';
       const lead = x.kind === 'term' ? x.short : x.role;
-      const body = x.kind === 'term' ? x.definition : x.bio;
-      return { title: titled(x.label, kind), description: (lead ? lead + ' ' : '') + (body || '') };
+      const body = lent.body ? lent.body(x) : '';
+      return { title: titled(x.label, kind), description: [lead, body].filter(Boolean).join(' ') };
     }
   }
   if (route.missing) return { title: 'Nothing filed here · ' + SITE, description: TAGLINE };

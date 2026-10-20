@@ -92,11 +92,15 @@ export type Dossier = Event & Papers;
 
 /** A string, as written in data/links.json. */
 export interface LinkRaw { from: string; to: string; claim: string; note?: string }
+/** A string as every page holds it (scripts/split-events.ts): its claim, and
+ *  whether it carries a case note. The note itself is read by the pages that
+ *  print one, by the string's two ends (src/lib/bodies/links.ts). */
+export interface LinkHead { from: string; to: string; claim: string; noted?: boolean }
 /** A string on the board: with the id the graph gives it. */
-export interface Edge extends LinkRaw { id: string }
+export interface Edge extends LinkHead { id: string }
 
 /** One end of a string as seen from a card: the other card, and the direction. */
-export interface Adjacent { id: string; claim: string; note?: string; out: boolean; edge: string }
+export interface Adjacent { id: string; claim: string; noted?: boolean; out: boolean; edge: string }
 
 export interface Graph {
   all: Event[];
@@ -107,7 +111,8 @@ export interface Graph {
 }
 
 /** A step of a walked chain: from one card to the next, by a claim. A rung of a
- *  lead is also a step, and says which lead and which rung. */
+ *  lead is also a step, and says which lead and which rung, and carries the
+ *  rung's words as its note (src/lib/bodies/leads.ts). */
 export interface Step {
   from: string;
   to: string;
@@ -139,10 +144,19 @@ export interface Lead {
   standing: string;
   rungs: RungRaw[];
 }
+/** What every page may know of a lead: enough to list it, find it, describe it
+ *  and draw its ladder. Where it stands and its rungs' words are its own
+ *  pages' (src/lib/bodies/leads.ts). */
+export type RungHead = Omit<RungRaw, 'text'>;
+export type LeadHead = Omit<Lead, 'standing' | 'rungs'> & { rungs: RungHead[] };
 
 /** A plain question a reader brings, answered from what the board's cards
  *  already say (data/questions.json). */
 export interface QuestionRecord { event: string; note: string }
+/** A card on a record's list, as every page holds it: which card it is. The
+ *  line the record gives it is printed on the record's own pages and on the
+ *  card's dossier (src/lib/bodies/notes.ts). */
+export type QuestionRecordHead = Omit<QuestionRecord, 'note'>;
 export interface Question {
   id: string;
   question: string;
@@ -153,6 +167,10 @@ export interface Question {
   open: string;
   leads: string[];
 }
+/** What every page may know of a plain question: enough to list it, and the
+ *  cards it rests on. The answer itself is its own page's
+ *  (src/lib/bodies/questions.ts). */
+export type QuestionHead = Pick<Question, 'id' | 'question' | 'short' | 'leads'> & { record: QuestionRecordHead[] };
 
 /** A widely reported AI headline set beside the primary account it rests on,
  *  quoted on both sides (data/checks.json). */
@@ -180,6 +198,10 @@ export interface Check {
   open: string;
   leads: string[];
 }
+/** What every page may know of a headline check: enough to list it, say its
+ *  verdict, and the cards it touches. The report, the primary accounts and the
+ *  lines checked are its own pages' (src/lib/bodies/checks.ts). */
+export type CheckHead = Pick<Check, 'id' | 'title' | 'checked' | 'verdict' | 'short' | 'leads'> & { record: QuestionRecordHead[] };
 
 /** A prediction about AI, quoted from where it was made, set beside what
  *  happened (data/predictions.json). */
@@ -216,9 +238,9 @@ export interface Prediction {
 }
 
 /** What every page may know of a prediction: enough to list it and to say how
- *  it went. Its words, its verdict at length and its sources are fetched by its
- *  own pages (src/lib/predictions.ts). */
-export type PredictionHead = Pick<Prediction, 'id' | 'title' | 'who' | 'people' | 'said' | 'by' | 'verdict' | 'came' | 'short' | 'record'>;
+ *  it went. Its words, its verdict at length and its sources are its own
+ *  pages' (src/lib/bodies/predictions.ts). */
+export type PredictionHead = Pick<Prediction, 'id' | 'title' | 'who' | 'people' | 'said' | 'by' | 'verdict' | 'came' | 'short'> & { record: QuestionRecordHead[] };
 
 /** Promises made (data/promises.json): a commitment a lab, a company or a
  *  government made in public, in words that can be quoted, set beside what the
@@ -253,8 +275,9 @@ export interface Pledge {
   leads: string[];
 }
 /** What every page may know of a promise: enough to list it and say how it
- *  stands. Its words, its reading and its sources are its own pages'. */
-export type PledgeHead = Pick<Pledge, 'id' | 'title' | 'who' | 'people' | 'orgs' | 'said' | 'by' | 'verdict' | 'settled' | 'short' | 'record'>;
+ *  stands. Its words, its reading and its sources are its own pages'
+ *  (src/lib/bodies/pledges.ts). */
+export type PledgeHead = Pick<Pledge, 'id' | 'title' | 'who' | 'people' | 'orgs' | 'said' | 'by' | 'verdict' | 'settled' | 'short'> & { record: QuestionRecordHead[] };
 
 /** Corrections (data/corrections.json): a change of fact the board made to
  *  its own record, dated by the commit that made it. */
@@ -295,6 +318,10 @@ export interface Machine {
   sources: MachineSource[];
   lead?: { id: string; rung: number };
 }
+/** What every page may know of a machine: which card runs it, and what it is
+ *  in a line. What is as it was, what is not and the papers it was rebuilt
+ *  from are the pages' that run it or list it (src/lib/bodies/machines.ts). */
+export type MachineHead = Pick<Machine, 'id' | 'event' | 'title' | 'short' | 'lead'>;
 
 /** One idea of the primer on the Start here page (data/primer.json): a term
  *  from the glossary, the idea in everyday words, and the cards it arrives on. */
@@ -312,13 +339,20 @@ export interface Change { kind: ChangeKind; id: string; added: string; changed: 
 export interface Person { id: string; name: string; aka?: string[]; role: string; bio: string }
 export interface Org { id: string; name: string; aka?: string[]; kind: string; role: string; bio: string }
 export interface Term { id: string; term: string; aka?: string[]; short: string; definition: string }
+/** What every page may know of a name on file: what it is called, and the line
+ *  it is listed with. A bio or a definition is its own page's
+ *  (src/lib/bodies/files.ts). */
+export type PersonHead = Omit<Person, 'bio'>;
+export type OrgHead = Omit<Org, 'bio'>;
+export type TermHead = Omit<Term, 'definition'>;
 
 export type EntityKind = 'person' | 'org' | 'term';
-/** A person, an organisation or a term, with the fields every kind shares. */
+/** A person, an organisation or a term, as every page holds it, with the
+ *  fields every kind shares. */
 export type Entity =
-  | (Person & { kind: 'person'; label: string })
-  | (Org & { kind: 'org'; label: string })
-  | (Term & { kind: 'term'; label: string });
+  | (PersonHead & { kind: 'person'; label: string })
+  | (OrgHead & { kind: 'org'; label: string })
+  | (TermHead & { kind: 'term'; label: string });
 
 export type Mode = 'brief' | 'full';
 
@@ -367,7 +401,7 @@ export interface Chain { steps: Step[]; start: number }
 export interface Horizon { id: 'near' | 'mid' | 'far'; label: string; from: number; to: number }
 
 /** A parent of a card, with the string that ties them. */
-export interface Parent { event: Event; claim: string; note?: string }
+export interface Parent { event: Event; claim: string; noted?: boolean }
 
 export interface Strand {
   parents: Parent[];
@@ -399,7 +433,7 @@ export interface ForwardLedger {
 export interface Standing { event: Event; into: Parent[] }
 
 /** One hop of a road: from a parent to its child, by a claim. */
-export interface Hop { from: Event; claim: string; note?: string; to: Event }
+export interface Hop { from: Event; claim: string; noted?: boolean; to: Event }
 export interface Roads { roads: Hop[][]; truncated: boolean; longest: number }
 
 export interface ThreadRow { thread: Thread; scenarios: Event[]; argued: number; recordCount: number; recordEndsAt: number | null }
@@ -409,20 +443,21 @@ export interface EraGroup { era: Era; items: Event[] }
 
 /* ─── Leads, resolved against the graph (leads.ts) ───────────────────────── */
 
-/** A rung with its number and its card. */
-export interface Rung extends RungRaw { n: number; card: Event }
-export interface LeadStep { from: Rung; to: Rung; string: Edge | null }
-export interface BuiltLead {
-  lead: Lead;
-  rungs: Rung[];
-  steps: LeadStep[];
+/** A rung with its number and its card: its head, or the rung in full when the
+ *  lead was built from a lead in full (bodies/leads.ts). */
+export type Rung<R extends RungHead = RungHead> = R & { n: number; card: Event };
+export interface LeadStep<R extends RungHead = RungHead> { from: Rung<R>; to: Rung<R>; string: Edge | null }
+export interface BuiltLead<R extends RungHead = RungHead> {
+  lead: LeadHead;
+  rungs: Rung<R>[];
+  steps: LeadStep<R>[];
   strung: number;
   span: { from: number; to: number } | null;
   threads: string[];
   record: number;
   scenarios: number;
 }
-export interface LeadOf { lead: Lead; index: number; rung: RungRaw }
+export interface LeadOf { lead: LeadHead; index: number; rung: RungHead }
 
 export interface SourceStrength {
   total: number; supporting: number; context: number; migrated: boolean; media: number;

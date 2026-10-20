@@ -340,7 +340,7 @@ function ChartsView({ graph }: ChartsViewProps) {
         {([
           [record, 'events on the record', FIRST + '–' + NOW],
           [graph.all.length - record, 'scenarios', 'after ' + NOW + ', each with a confidence'],
-          [graph.edges.length, 'strings', graph.edges.filter((x) => x.note).length + ' with a case note'],
+          [graph.edges.length, 'strings', graph.edges.filter((x) => x.noted).length + ' with a case note'],
           [l.total, 'rungs on ' + say(LEADS.length) + ' leads', 'the first in ' + l.first]
         ] as [number, string, string][]).map(([n, label, sub]) => (
           <div key={label} style={{ borderTop: ROW_RULE, paddingTop: 10 }}>

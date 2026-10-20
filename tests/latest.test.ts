@@ -2,7 +2,9 @@ import { describe, it, expect } from 'vitest';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { AS_OF, buildGraph } from '../src/lib/data';
-import { CHANGES, WATCH, changes, dateOf, dayOf, keptOf, lately, monthOf, watchList } from '../src/lib/latest';
+import { WATCH, dateOf, dayOf, lately, monthOf, watchList } from '../src/lib/latest';
+import { CHANGES, changes } from '../src/lib/changes';
+import { keptOf } from '../src/lib/dated';
 import { paperOf } from '../src/lib/papers';
 import { CHECKS } from '../src/lib/checks';
 import { hrefFor, parse } from '../src/lib/url';
@@ -121,6 +123,8 @@ describe('what changed on the board', () => {
       expect((kept as { filed: string }).filed).toMatch(/^\d{4}-\d{2}-\d{2}$/);
     });
     expect(keptOf('card', 'no-such-card')).toBeNull();
+    // Only a card's days reach the browser: no page prints another record's.
+    expect(keptOf('check', CHECKS[0].id)).toBeNull();
   });
 
   it('names only records the board holds, each with an address of its own', () => {

@@ -12,7 +12,6 @@ import type { Chunk } from './components/viewChunks';
 import { buildGraph, events as canonEvents, forwardLedger, FIRST, NOW } from './lib/data';
 import { matches } from './lib/files';
 import { papersFor, usePapers } from './lib/papers';
-import { predictionsFor } from './lib/predictions';
 import { useMedia } from './lib/wiki';
 import { useRoute } from './lib/url';
 import { useMode } from './lib/mode';
@@ -31,11 +30,10 @@ const LazyBoardView = lazy(() => loadBoard().then((Board) => ({ default: Board }
 
 const isBrowser = typeof window !== 'undefined';
 
-/** What a turn waits for: the page's own chunk (viewChunks.ts), its papers,
- *  and a prediction page's whole file. */
+/** What a turn waits for: the page's own chunk (viewChunks.ts) and its papers. */
 const waitFor = (next: Route, prev: Route | null): Promise<void> | null => {
   const chunk = chunkOf(next.view);
-  const all = [chunk && !chunk.now() ? chunk.load() : null, papersFor(next, prev), predictionsFor(next)].filter((p) => p !== null);
+  const all = [chunk && !chunk.now() ? chunk.load() : null, papersFor(next, prev)].filter((p) => p !== null);
   return all.length ? Promise.all(all).then(() => undefined) : null;
 };
 

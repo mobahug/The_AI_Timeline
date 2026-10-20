@@ -36,7 +36,7 @@
         "Shannon"
       ],
       "role": "Engineer · Bell Labs",
-      "bio": "Showed in 1937 that switching circuits do Boolean algebra, and in 1948 gave information a unit. The second paper is why a model's output can be measured in bits and its training in loss."
+      "bio": "Showed in 1937 that switching circuits do Boolean algebra, and in 1948 measured information in bits. The second paper is why a model's output can be measured in bits and its training in loss."
     },
     {
       "id": "warren-mcculloch",
@@ -125,7 +125,7 @@
         "Lighthill"
       ],
       "role": "Applied mathematician · Cambridge",
-      "bio": "Wrote the 1973 report for the British Science Research Council that found the field had not delivered on its promises. Funding stopped; the first winter is dated from it."
+      "bio": "Wrote the 1973 report for the British Science Research Council that found the field had not delivered on its promises. British confidence in the field collapsed for a decade, though Edinburgh kept its AI research; the first winter is dated from it."
     },
     {
       "id": "john-hopfield",
@@ -134,7 +134,7 @@
         "Hopfield"
       ],
       "role": "Physicist · Caltech, Princeton, Nobel physics 2024",
-      "bio": "Brought neural networks back in 1982 with a network that stores memories as energy minima. The Nobel forty-two years later cites that paper."
+      "bio": "Helped bring neural networks back in 1982 with a network that stores memories as energy minima. The Nobel forty-two years later cites that paper."
     },
     {
       "id": "geoffrey-hinton",
@@ -170,7 +170,7 @@
         "Schmidhuber"
       ],
       "role": "Researcher · IDSIA",
-      "bio": "With Sepp Hochreiter, published the LSTM in 1997 — the recurrent network that ran language and speech until the transformer replaced it."
+      "bio": "With Sepp Hochreiter, published the LSTM in 1997 — the recurrent network that, from the mid-2010s, ran speech recognition and translation until the transformer replaced it."
     },
     {
       "id": "fei-fei-li",
@@ -179,7 +179,7 @@
         "Fei-Fei Li"
       ],
       "role": "Researcher · Princeton, Stanford",
-      "bio": "Built ImageNet — fourteen million labelled images — when the field thought data was the boring part. The 2012 result that started the decade was on her benchmark."
+      "bio": "Led the team that built ImageNet, fourteen million labelled images by 2014, at a time when, as she tells it, colleagues advised her to do something more useful for her tenure. The 2012 result that started the decade was on her benchmark."
     },
     {
       "id": "jensen-huang",
@@ -204,7 +204,7 @@
         "Hassabis"
       ],
       "role": "Chief executive · Google DeepMind, Nobel chemistry 2024",
-      "bio": "Founded DeepMind in 2010, sold it to Google in 2014, and led the teams behind AlphaGo, AlphaZero, AlphaFold and the olympiad results. The Nobel is for AlphaFold."
+      "bio": "Co-founded DeepMind in 2010 with Shane Legg and Mustafa Suleyman, sold it to Google in 2014, and led the teams behind AlphaGo, AlphaZero, AlphaFold and the olympiad results. The Nobel is for AlphaFold."
     },
     {
       "id": "david-silver",
@@ -229,7 +229,7 @@
         "Musk"
       ],
       "role": "Founder · Tesla, SpaceX, xAI",
-      "bio": "Co-founded OpenAI as a counterweight to Google, left its board in 2018, sued it in 2024 over the abandonment of the mission, and founded a rival. On the board he is the string that provoked the string."
+      "bio": "Co-founded OpenAI as a counterweight to Google, left its board in 2018, founded a rival, and in 2024 sued OpenAI over the abandonment of the mission. On the board he is the string that provoked the string."
     },
     {
       "id": "greg-brockman",
@@ -247,7 +247,7 @@
         "Amodei"
       ],
       "role": "Chief executive · Anthropic",
-      "bio": "Led research at OpenAI through GPT-2 and GPT-3, left in 2021 with a group of colleagues to found Anthropic, and has since published the labs' most detailed public risk assessments alongside the models."
+      "bio": "Led research at OpenAI through GPT-2 and GPT-3, left at the end of 2020 with a group of colleagues and founded Anthropic in 2021, and has since published the labs' most detailed public risk assessments alongside the models."
     },
     {
       "id": "timnit-gebru",
@@ -327,7 +327,7 @@
       "name": "Noam Brown",
       "aka": [],
       "role": "Researcher · Carnegie Mellon, Meta, OpenAI",
-      "bio": "Built Libratus and Pluribus, the poker programs, then took the search-plus-learning recipe to OpenAI's reasoning models."
+      "bio": "Built Libratus and Pluribus, the poker programs, with Tuomas Sandholm, then took the search-plus-learning recipe to OpenAI's reasoning models."
     },
     {
       "id": "tuomas-sandholm",

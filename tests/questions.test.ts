@@ -1,12 +1,16 @@
 import { describe, it, expect } from 'vitest';
-import { QUESTIONS, questionById } from '../src/lib/questions';
+import { QUESTIONS as HEADS, questionById } from '../src/lib/questions';
+import { questionInFull } from '../src/lib/bodies/questions';
 import { leadById } from '../src/lib/leads';
 import { buildGraph, NOW } from '../src/lib/data';
 import { hrefFor, parse } from '../src/lib/url';
 import { metaFor } from '../src/lib/meta';
 import { tabOf } from '../src/lib/views';
+import type { Question } from '../src/lib/types';
 
 const graph = buildGraph();
+/* Each question in full, as its own page reads it: its head and its body. */
+const QUESTIONS = HEADS.map((h) => questionInFull(h.id) as Question);
 
 describe('plain questions are answered from the board', () => {
   it('has unique, stable ids', () => {

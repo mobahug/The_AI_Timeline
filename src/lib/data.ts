@@ -1,11 +1,11 @@
 import rawEvents from '../../data/events.json?cards';
-import rawLinks from '../../data/links.json';
+import rawLinks from '../../data/links.json?heads';
 import meta from '../../data/threads.json';
 import { LEAD_CARD_IDS } from './leads';
 import { paperOf } from './papers';
 import type {
   Accent, Adjacent, Category, Chain, Dossier, Edge, Era, Event, EventHead, EventRaw, ForwardLedger, Graph, Horizon, HorizonLedger,
-  LinkRaw, LoadRow, Parent, Roads, Hop, Source, SourceKind, SourceStrength, Standing, Step, Strand, Thread, ThreadRow, EraGroup
+  LinkHead, LinkRaw, LoadRow, Parent, Roads, Hop, Source, SourceKind, SourceStrength, Standing, Step, Strand, Thread, ThreadRow, EraGroup
 } from './types';
 
 /* The span of the board — the first year drawn, the present, the last year drawn —
@@ -34,7 +34,13 @@ const raise = (e: EventHead | EventRaw): Event => ({ ...e, thread: threadOf(e.ca
 
 export const events: Event[] = rawEvents.map(raise);
 
-export const links: LinkRaw[] = rawLinks as LinkRaw[];
+/** A string as every page holds it: whether it carries a case note, never the
+ *  note, which the pages that print one read by its ends (bodies/links.ts). A
+ *  string that comes with its note — one a test writes, or the file as a script
+ *  reads it whole, with no query answered — is marked the same way. */
+const headOf = ({ note, ...l }: LinkHead & { note?: string }): LinkHead => (note ? { ...l, noted: true } : l);
+
+export const links: LinkHead[] = rawLinks.map(headOf);
 
 /** Warm-to-cool accent for a category, faded as a projection gets further out. */
 export const fade = (year: number): number => (year <= NOW ? 0 : Math.min(1, (year - NOW) / (LAST - NOW)));
@@ -119,20 +125,20 @@ export function buildGraph(extra?: GraphExtra): Graph {
   const index: Record<string, Event> = Object.fromEntries(all.map((e) => [e.id, e]));
 
   const canon: Edge[] = links.map((l, i) => ({ ...l, id: 'c' + i }));
-  const added: Edge[] = (x.edges || []).map((l, i) => ({ ...l, id: 'x' + i }));
+  const added: Edge[] = (x.edges || []).map((l, i) => ({ ...headOf(l), id: 'x' + i }));
   const edges = [...canon, ...added].filter((l) => index[l.from] && index[l.to] && l.from !== l.to);
 
   const adjacency: Record<string, Adjacent[]> = {};
   edges.forEach((l) => {
-    (adjacency[l.from] = adjacency[l.from] || []).push({ id: l.to, claim: l.claim, note: l.note, out: true, edge: l.id });
-    (adjacency[l.to] = adjacency[l.to] || []).push({ id: l.from, claim: l.claim, note: l.note, out: false, edge: l.id });
+    (adjacency[l.from] = adjacency[l.from] || []).push({ id: l.to, claim: l.claim, noted: l.noted, out: true, edge: l.id });
+    (adjacency[l.to] = adjacency[l.to] || []).push({ id: l.from, claim: l.claim, noted: l.noted, out: false, edge: l.id });
   });
 
   // A landmark is what the board shows in brief: a featured card, a rung on a
   // lead, or either end of a string that carries a case note. Derived, never
   // tagged, so a new lead or a new note promotes its cards by itself.
   const noted = new Set<string>();
-  edges.forEach((l) => { if (l.note) { noted.add(l.from); noted.add(l.to); } });
+  edges.forEach((l) => { if (l.noted) { noted.add(l.from); noted.add(l.to); } });
   all.forEach((e) => { e.landmark = !!(e.featured || LEAD_CARD_IDS.has(e.id) || noted.has(e.id)); });
 
   return { all, index, edges, adjacency, landmarks: all.filter((e) => e.landmark).length };
@@ -151,7 +157,7 @@ export function buildChain(graph: Graph, id: string, via?: string | null): Chain
     const incoming = (graph.adjacency[cur] || []).filter((a) => !a.out && !seen.includes(a.id));
     if (!incoming.length) break;
     const pick = (i === 0 && via && incoming.find((a) => a.id === via)) || incoming[0];
-    steps.unshift({ from: pick.id, to: cur, claim: pick.claim, note: pick.note });
+    steps.unshift({ from: pick.id, to: cur, claim: pick.claim });
     cur = pick.id;
     seen.push(cur);
   }
@@ -160,7 +166,7 @@ export function buildChain(graph: Graph, id: string, via?: string | null): Chain
   for (let i = 0; i < 10; i++) {
     const outgoing = (graph.adjacency[cur] || []).filter((a) => a.out && !seen.includes(a.id));
     if (!outgoing.length) break;
-    steps.push({ from: cur, to: outgoing[0].id, claim: outgoing[0].claim, note: outgoing[0].note });
+    steps.push({ from: cur, to: outgoing[0].id, claim: outgoing[0].claim });
     cur = outgoing[0].id;
     seen.push(cur);
   }
@@ -211,7 +217,7 @@ export function groupByEra(items: Event[]): EraGroup[] {
 export function strandOf(graph: Graph, id: string): Strand {
   const self = graph.index[id];
   const parents: Parent[] = parentsOf(graph, id)
-    .map((a) => ({ event: graph.index[a.id], claim: a.claim, note: a.note }))
+    .map((a) => ({ event: graph.index[a.id], claim: a.claim, noted: a.noted }))
     .sort((a, b) => a.event.year - b.event.year);
 
   const depth: Record<string, number> = { [id]: 0 };
@@ -251,7 +257,7 @@ export function strandOf(graph: Graph, id: string): Strand {
     restsOn: ancestors.filter((a) => a.future).sort((a, b) => a.year - b.year),
     uncited: record.filter((a) => !a.url),
     roots: ancestors.filter((a) => !parentsOf(graph, a.id).length).sort((a, b) => a.year - b.year),
-    notes: parents.filter((p) => p.note).length,
+    notes: parents.filter((p) => p.noted).length,
     jump: newest ? self.year - newest : null
   };
 }
@@ -309,7 +315,7 @@ export function standingNow(graph: Graph): Standing[] {
       event: e,
       into: (graph.adjacency[e.id] || [])
         .filter((a) => a.out && graph.index[a.id] && graph.index[a.id].future)
-        .map((a) => ({ event: graph.index[a.id], claim: a.claim, note: a.note }))
+        .map((a) => ({ event: graph.index[a.id], claim: a.claim, noted: a.noted }))
         .sort((a, b) => a.event.year - b.event.year)
     }))
     .filter((s) => s.into.length)
@@ -333,7 +339,7 @@ export function roadsTo(graph: Graph, id: string, limit = 6, maxDepth = 12): Roa
     ups.forEach((p) => {
       if (seen.has(p.id)) return;
       seen.add(p.id);
-      walk(p.id, hops.concat({ from: graph.index[p.id], claim: p.claim, note: p.note, to: graph.index[node] }), seen);
+      walk(p.id, hops.concat({ from: graph.index[p.id], claim: p.claim, noted: p.noted, to: graph.index[node] }), seen);
       seen.delete(p.id);
     });
   };

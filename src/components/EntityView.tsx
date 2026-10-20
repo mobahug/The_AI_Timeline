@@ -3,11 +3,12 @@ import { accent, catLabel, fade } from '../lib/data';
 import { PEOPLE, ORGS, TERMS, byUse, coOccurring, entityById, appearancesOf } from '../lib/files';
 import type { CoOccurrence } from '../lib/files';
 import { leadsOf } from '../lib/leads';
+import { bodyOf } from '../lib/bodies/files';
 import { FORETOLD, predictionsBy } from '../lib/predictions';
 import { PLEDGED, pledgesBy } from '../lib/pledges';
 import { INK, MONO, SANS, SERIF, RULE, ROW_RULE, badge, ink, micro, shell, pageTitle } from '../lib/styles';
 import { Btn, Claim, CopyLink, Eyebrow, Link, NavRow, Ref, Section } from './kit';
-import type { Edge, Entity, EntityKind, Graph, Lead, Route, ViewId } from '../lib/types';
+import type { Edge, Entity, EntityKind, Graph, LeadHead, Route, ViewId } from '../lib/types';
 
 /* One entity — a person, an organisation or a term — and its trail across the
    board: every card that names it, in date order, and every string that runs
@@ -35,7 +36,7 @@ function EntityView({ graph, route }: EntityViewProps) {
   const alsoNamed = useMemo(() => (entity ? coOccurring(graph, entity, ['person', 'org']) : []), [graph, entity]);
   const alsoTerms = useMemo(() => (entity ? coOccurring(graph, entity, ['term']) : []), [graph, entity]);
   const leads = useMemo(() => {
-    const seen = new Map<string, { lead: Lead; n: number }>();
+    const seen = new Map<string, { lead: LeadHead; n: number }>();
     cards.forEach((e) => leadsOf(e.id).forEach(({ lead }) => {
       const row = seen.get(lead.id) || { lead, n: 0 };
       row.n += 1;
@@ -73,7 +74,7 @@ function EntityView({ graph, route }: EntityViewProps) {
   // The one-liner and the body, by kind: a person or an organisation has a
   // role and a bio; a term has a short line and a definition.
   const line = entity.kind === 'term' ? entity.short : entity.role;
-  const body = entity.kind === 'term' ? entity.definition : entity.bio;
+  const body = bodyOf(entity);
 
   const nav = (
     <NavRow

@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { AS_OF, HORIZONS, accent, catLabel, whenOf } from '../lib/data';
-import { CHANGES, changes, dateOf, dayOf, lately, watchList } from '../lib/latest';
+import { dateOf, dayOf, lately, watchList } from '../lib/latest';
+import { CHANGES, changes } from '../lib/changes';
 import { BASE } from '../lib/url';
 import { absolute, copyText } from '../lib/dom';
 import {

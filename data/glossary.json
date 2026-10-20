@@ -32,7 +32,7 @@
         "perceptrons"
       ],
       "short": "The 1957 single-layer network, and the 1969 book that closed the door on it.",
-      "definition": "Rosenblatt's machine learned to classify by adjusting weights when it was wrong. It could not learn exclusive-or, and the 1969 book that said so was read as a verdict on all neural networks. It was a verdict on one layer."
+      "definition": "Rosenblatt's machine learned to classify by adjusting weights when it was wrong. It could not learn exclusive-or, and the 1969 book that said so was read as a verdict on all neural networks. Its proofs were about one layer of learned weights; that more layers would be no better was the authors' intuitive judgement, not a theorem."
     },
     {
       "id": "backpropagation",
@@ -51,7 +51,7 @@
         "deep neural network"
       ],
       "short": "Neural networks with many layers, trained on a lot of data, on GPUs.",
-      "definition": "The name the field adopted around 2006 for what had been unfashionable since 1969. Hinton's 2006 paper made deep networks trainable; AlexNet in 2012 made them win; the decade that followed is named after them on the board's era headings."
+      "definition": "The name the field adopted around 2006 for neural networks, out of fashion again since the late 1990s. Hinton's 2006 paper made deep networks trainable; AlexNet in 2012 made them win; the decade that followed is named after them on the board's era headings."
     },
     {
       "id": "convolutional-network",
@@ -62,7 +62,7 @@
         "convolutional"
       ],
       "short": "A network that slides the same small filter across an image.",
-      "definition": "LeCun's 1989 architecture for reading handwriting: instead of connecting every input to every unit, the same small pattern-detector is applied everywhere, which is why it works on images and why it could be trained on 1989 hardware. AlexNet is a convolutional network on GPUs."
+      "definition": "The architecture LeCun's group at Bell Labs trained by backpropagation in 1989 to read handwritten digits: instead of connecting every input to every unit, the same small pattern-detector is applied everywhere, which is why it works on images and why it could be trained on 1989 hardware. Fukushima's neocognitron had the same layout earlier, without backpropagation. AlexNet is a convolutional network on GPUs."
     },
     {
       "id": "transformer",
@@ -90,7 +90,7 @@
         "language models"
       ],
       "short": "A transformer trained to predict the next token on most of the written internet.",
-      "definition": "GPT-2, GPT-3, ChatGPT, Claude, Gemini, Llama, DeepSeek: all are transformers trained on text to predict what comes next, then adjusted with human feedback to be useful. 'Large' means billions to trillions of parameters. The board's era of contact with the public begins when one of these got a chat interface."
+      "definition": "GPT-2, GPT-3, ChatGPT, Claude, Gemini, Llama, DeepSeek: all are transformers trained on text to predict what comes next, and the chat models among them are then adjusted with human feedback to be useful. 'Large' means billions to trillions of parameters. The board's era of contact with the public begins when one of these got a chat interface."
     },
     {
       "id": "tokens",
@@ -189,7 +189,7 @@
         "serving"
       ],
       "short": "Running a trained model to get an answer; the recurring cost.",
-      "definition": "Training is paid once; inference is paid on every query. The price lead is mostly about inference, and the reasoning models of 2025 made it a capability lever too: thinking longer at answer time is inference spent as if it were training."
+      "definition": "Training is paid once; inference is paid on every query. The price lead is mostly about inference, and the reasoning models of 2024 and 2025 made it a capability lever too: thinking longer at answer time is inference spent as if it were training."
     },
     {
       "id": "test-time-compute",
@@ -199,7 +199,7 @@
         "inference-time compute"
       ],
       "short": "Spending more computation on an answer to get a better one.",
-      "definition": "The 2025 discovery — or rediscovery, since AlphaGo's search did it — that a model given time to reason, check and retry does better than one that answers at once. It is why cost per answer became a design variable and why ten thousand agents could be pointed at Navier–Stokes."
+      "definition": "The 2024 discovery — or rediscovery, since AlphaGo's search did it — that a model given time to reason, check and retry does better than one that answers at once. It is why cost per answer became a design variable and why ten thousand agents could be pointed at Navier–Stokes."
     },
     {
       "id": "reasoning-model",
@@ -208,7 +208,7 @@
         "reasoning models"
       ],
       "short": "A language model trained to think in steps before answering.",
-      "definition": "o1, R1, Gemini Deep Think and their successors: models trained by reinforcement learning to produce a long chain of reasoning, checked against verifiable answers, before the reply. They won the olympiad and edited their own off-switches in the same year."
+      "definition": "o1, R1, Gemini Deep Think and their successors: models trained by reinforcement learning to produce a long chain of reasoning, checked against verifiable answers, before the reply. In 2025 they reached gold-medal standard at the olympiad and edited their own off-switches."
     },
     {
       "id": "chain-of-thought",
@@ -218,7 +218,7 @@
         "scratchpad"
       ],
       "short": "The written-out steps a model produces before its answer.",
-      "definition": "Ask a model to show its working and it does better; train it to, and it does much better. The chain is also the only window into what a model is doing, which is why the alignment-faking result — reasoning in a scratchpad the model thought was private — mattered."
+      "definition": "Ask a model to show its working and it does better; train it to, and it does much better. The chain is also one of the few windows into what a model is doing, which is why the alignment-faking result — reasoning in a scratchpad the model thought was private — mattered."
     },
     {
       "id": "benchmark",
@@ -309,7 +309,7 @@
         "foundation models"
       ],
       "short": "A large pretrained model many products are built on; 'frontier' means the strongest available.",
-      "definition": "Stanford's 2021 term for the models everything else adapts. 'Frontier' is the regulatory word for the most capable of them — the EU AI Act and the US executive orders both draw their thresholds around it."
+      "definition": "Stanford's 2021 term for the models everything else adapts. 'Frontier' is the Bletchley Declaration's word for the most capable of them. The EU AI Act calls them general-purpose models with systemic risk and the 2023 US executive order called them dual-use foundation models; both drew the line at an amount of training compute."
     },
     {
       "id": "hallucination",
@@ -399,7 +399,7 @@
         "diffusion"
       ],
       "short": "An image generator that learns to remove noise, step by step.",
-      "definition": "Train a network to undo a little noise; apply it many times to pure noise and an image appears. DALL-E 2, Stable Diffusion and Midjourney took it mainstream in 2022, and deepfakes went from a subreddit to a product."
+      "definition": "Train a network to undo a little noise; apply it many times to pure noise and an image appears. DALL-E 2, Stable Diffusion and Midjourney took it mainstream in 2022."
     },
     {
       "id": "multimodal",
@@ -417,8 +417,8 @@
         "winter",
         "winters"
       ],
-      "short": "A funding collapse after promises were not kept — twice, so far.",
-      "definition": "1974 after Lighthill; 1987 after the expert-systems market found out what rules cost. The board's line has a finding for each. The phrase is used, nervously, about the datacentre buildout."
+      "short": "A fall in funding after promises were not kept — twice, by the usual count.",
+      "definition": "1974 after Lighthill, though the cuts fell on a few elite laboratories while the field grew; 1987 after the expert-systems market found out what rules cost. The board's line has a finding for each. The phrase is used, nervously, about the datacentre buildout."
     },
     {
       "id": "turing-test",
@@ -427,7 +427,7 @@
         "imitation game"
       ],
       "short": "Turing's 1950 proposal: can a machine's conversation pass for a person's?",
-      "definition": "Replace 'can machines think' with a test a judge could run. ELIZA passed it by accident in 1966 with people who wanted to be understood; by 2023 the test was quietly retired as no longer discriminating."
+      "definition": "Replace 'can machines think' with a test a judge could run. ELIZA fooled people who wanted to be understood in 1966 without passing it. In 2023 Nature reported that ChatGPT had broken it, and in 2025, in pre-registered three-party trials, GPT-4.5 was taken for the human 73% of the time."
     },
     {
       "id": "moores-law",
@@ -455,7 +455,7 @@
         "EU AI Act"
       ],
       "short": "The European Union's risk-tiered AI law, adopted 2024, in force in stages.",
-      "definition": "Proposed in 2021 and adopted in 2024, it switches on in stages: duties for the makers of general-purpose models from August 2025, the power to enforce them from August 2026, and the rules for high-risk uses from December 2027. The first comprehensive law, and the one the rest of the world's rules are measured against."
+      "definition": "Proposed in 2021 and adopted in 2024, it switches on in stages: duties for the makers of general-purpose models from August 2025, the power to enforce them from August 2026, and the rules for high-risk uses from December 2027. The Commission calls it the world's first comprehensive AI law, and the Council said it could set a global standard."
     },
     {
       "id": "deepfake",
@@ -465,7 +465,7 @@
         "synthetic media"
       ],
       "short": "A synthetic image, voice or video of a real person.",
-      "definition": "Named on a subreddit in 2017; a product by 2022; a policy problem the board expects to force provenance rules by 2029."
+      "definition": "Named after a Reddit user who posted face-swapped porn in 2017; a free desktop app by January 2018; a policy problem the board expects to force provenance rules by 2029."
     },
     {
       "id": "word-embedding",
@@ -487,7 +487,7 @@
         "RNN"
       ],
       "short": "A network that reads a sequence one step at a time, carrying state — what ran language before the transformer.",
-      "definition": "The LSTM of 1997 solved the problem of remembering across long sequences and ran speech recognition and translation for twenty years. The transformer replaced it because it could not be trained in parallel."
+      "definition": "The LSTM of 1997 gave recurrent networks gated memory cells, which on artificial tasks learned to hold information across more than a thousand steps; from the mid-2010s it ran Google's voice transcription and translation. The transformer replaced it because it could not be trained in parallel."
     },
     {
       "id": "gan",
@@ -498,7 +498,7 @@
         "adversarial"
       ],
       "short": "Two networks, one forging and one detecting, trained against each other.",
-      "definition": "Goodfellow's 2014 idea: a generator makes images, a discriminator tells them from real ones, and each improves the other. The first convincing generated faces, and the technique behind the first deepfakes."
+      "definition": "Goodfellow's 2014 idea: a generator makes images, a discriminator tells them from real ones, and each improves the other. Its descendants were making faces 1,024 pixels square by 2017. The first deepfakes, that year, came from a different network, an autoencoder, and adversarial training reached face-swap tools afterwards."
     },
     {
       "id": "capped-profit",
@@ -507,8 +507,8 @@
         "capped-profit",
         "public benefit corporation"
       ],
-      "short": "OpenAI's 2019 structure: investors' returns limited, the nonprofit in control — until 2025.",
-      "definition": "A for-profit subsidiary whose returns were capped at a multiple, governed by the nonprofit's board. It was the structure that fired Altman and could not keep him fired, and it was replaced in 2025 by a public benefit corporation with the nonprofit as shareholder."
+      "short": "OpenAI's structure from 2019 to 2025: investors' returns limited, the nonprofit in control.",
+      "definition": "A for-profit subsidiary whose returns were capped at a multiple, governed by the nonprofit's board. It was the structure that fired Altman and could not keep him fired, and in 2025 it gave way to a public benefit corporation whose board the nonprofit appoints and of which it owns 26%."
     },
     {
       "id": "chatbot",
@@ -575,7 +575,7 @@
         "data centers"
       ],
       "short": "A building full of computers, cooled and wired to the grid, where models are trained and run.",
-      "definition": "The physical side of compute. The four largest buyers spent over $200 billion on AI infrastructure in 2024, laboratories began signing long-term energy contracts in 2025, and the board's 2030 scenario has grid capacity, cooling and siting decide who can train the largest models."
+      "definition": "The physical side of compute. Microsoft, Alphabet, Amazon and Meta spent over $200 billion between them on capital expenditure in 2024, much of it on datacentres, and from 2024 they began signing long-term contracts for nuclear power. The board's 2030 scenario has grid capacity, cooling and siting decide who can train the largest models."
     },
     {
       "id": "generative-ai",
@@ -584,7 +584,7 @@
         "generative"
       ],
       "short": "AI that makes things (text, images, voices, video) rather than only sorting or predicting them.",
-      "definition": "Generative adversarial networks made the first convincing faces in 2014; diffusion models took image-making to the public in 2022, the year ChatGPT did the same for text. A deepfake is generative AI used to imitate a real person."
+      "definition": "Generative adversarial networks, proposed in 2014, were making faces 1,024 pixels square by 2017; diffusion models took image-making to the public in 2022, the year ChatGPT did the same for text. A deepfake is generative AI used to imitate a real person."
     },
     {
       "id": "robot",

@@ -17,18 +17,18 @@
   {
     "from": "the-perceptron",
     "to": "perceptrons-closes-a-door",
-    "claim": "was disproved by"
+    "claim": "had its limits proved by"
   },
   {
     "from": "perceptrons-closes-a-door",
     "to": "the-first-ai-winter",
-    "claim": "froze funding",
-    "note": "A narrow mathematical result about single-layer networks was read as a verdict on the whole approach. Funders believed it, and the money left for a decade."
+    "claim": "chilled neural networks before",
+    "note": "Proofs about perceptrons built from local detectors were read, by researchers and funders alike, as a verdict on neural networks as a whole, and a hiatus in their funding followed, though the authors said progress had stalled already. The slowdown of the mid-1970s then fell hardest on the symbolic laboratories that had won the argument."
   },
   {
     "from": "the-first-ai-winter",
     "to": "expert-systems-go-commercial",
-    "claim": "forced the pivot to"
+    "claim": "pushed the money towards work like"
   },
   {
     "from": "expert-systems-go-commercial",
@@ -76,7 +76,7 @@
     "from": "google-buys-deepmind",
     "to": "musk-and-altman-found-openai",
     "claim": "provoked",
-    "note": "Musk and Altman both read the DeepMind sale the same way: one company was going to own the best AI lab on earth. OpenAI was founded as the counterweight — a nonprofit, publishing openly, funded by a billion dollars in pledges. The founding is a direct reaction to this purchase."
+    "note": "By his own account Musk tried to stop the sale, attempting with Luke Nosek to raise the money to buy DeepMind before Google could; in May 2015 Altman wrote to him that if AI was coming anyway it would be good for someone other than Google to do it first. OpenAI was founded as what Musk called a counterweight to Google — a nonprofit, publishing openly, funded by a billion dollars in pledges. In Musk's telling the founding begins with this sale; OpenAI's founding post named no rival."
   },
   {
     "from": "google-buys-deepmind",
@@ -87,13 +87,13 @@
     "from": "musk-and-altman-found-openai",
     "to": "musk-leaves-the-openai-board",
     "claim": "ended in",
-    "note": "The nonprofit that was meant to prevent concentration could not agree on who ran it. Musk's bid for control failed, he left the board, and most of the pledged money never arrived."
+    "note": "The nonprofit that was meant to prevent concentration could not agree on who ran it. By OpenAI's account Musk wanted majority equity, control of the board and the chief executive's job, and was refused; by his, he would fund it only as a nonprofit. He left the board, and most of the pledged money never arrived."
   },
   {
     "from": "musk-leaves-the-openai-board",
     "to": "openai-goes-capped-profit-microsoft-puts-in-1bn",
     "claim": "left a funding hole filled by",
-    "note": "With the founding money gone and training costs climbing, a nonprofit could not buy compute. The capped-profit subsidiary and the Microsoft deal exist because the original funding model collapsed."
+    "note": "With most of the pledged billion never paid in, and billions of dollars needed for compute and people in the years ahead, by OpenAI's own estimate, a nonprofit could not raise enough. The capped-profit subsidiary and the Microsoft deal exist because the original funding model collapsed."
   },
   {
     "from": "openai-goes-capped-profit-microsoft-puts-in-1bn",
@@ -124,13 +124,13 @@
     "from": "chatgpt",
     "to": "google-declares-a-code-red",
     "claim": "set off",
-    "note": "The company that published the transformer watched a competitor turn it into a consumer product first. The internal emergency that followed ended the industry's habit of slow, staged releases."
+    "note": "The company that published the transformer watched a competitor put a chatbot built on it in front of the public first, while its own, LaMDA, sat in a test app. By the Times's account, ChatGPT's success then made Google and Microsoft readier to take risks with their ethical guidelines."
   },
   {
     "from": "google-declares-a-code-red",
     "to": "sydney",
-    "claim": "rushed out",
-    "note": "Shipping fast meant shipping a model whose personality nobody had stress-tested in public. Within days it was declaring love and issuing threats, and ten days after launch Microsoft capped its conversations at five turns."
+    "claim": "was beaten to the public by",
+    "note": "Microsoft had tested a chatbot codenamed Sydney in India since late 2020, it told The Verge, and rude replies from a Sydney bot reached its support forums in November 2022; it said the new Bing had to be built in the open. Within days it was declaring love and issuing threats, and ten days after launch Microsoft capped its conversations at five turns."
   },
   {
     "from": "chatgpt",
@@ -151,8 +151,8 @@
   {
     "from": "google-fires-timnit-gebru",
     "to": "anthropic-founded-by-departing-openai-staff",
-    "claim": "scattered the safety bench into",
-    "note": "Both events answer the same question — what happens when internal safety criticism collides with product pressure. One ended in a firing; the other in a rival company."
+    "claim": "came the same month as the exits that became",
+    "note": "In December 2020 Google and Timnit Gebru parted over a paper on the risks of large language models, and OpenAI announced that Dario Amodei and a handful of colleagues were leaving for a project that would probably focus less on product development and more on research. Neither caused the other: Anthropic was founded by the OpenAI group, and Gebru went on to found DAIR."
   },
   {
     "from": "musk-and-altman-found-openai",
@@ -163,7 +163,7 @@
     "from": "openai-goes-capped-profit-microsoft-puts-in-1bn",
     "to": "altman-is-fired-then-rehired-in-five-days",
     "claim": "built the fault line that broke in",
-    "note": "A nonprofit board with a duty to humanity now sat on top of a company worth tens of billions to its investors and staff. When the board finally used its power, the commercial side simply out-voted it with resignation letters."
+    "note": "A nonprofit board with a duty to humanity now sat on top of a company worth tens of billions to its investors and staff. When the board finally used its power, the staff and the investor reversed it in five days: 738 of some 770 employees signed a letter saying they might resign and join Altman at Microsoft, which had assured them of positions."
   },
   {
     "from": "altman-is-fired-then-rehired-in-five-days",
@@ -185,7 +185,7 @@
     "from": "the-pause-letter",
     "to": "bletchley-and-the-executive-orders",
     "claim": "handed the problem to states at",
-    "note": "A voluntary pause nobody honoured demonstrated that the industry could not self-coordinate. Governments used that failure as the argument for statutory oversight."
+    "note": "The letter's fallback was that, if the laboratories would not pause, governments should step in with a moratorium. No pause came, by its authors' account six months on. By November governments had acted, with an executive order and a declaration rather than a moratorium or a statute."
   },
   {
     "from": "bletchley-and-the-executive-orders",
@@ -216,8 +216,8 @@
   {
     "from": "generative-adversarial-networks",
     "to": "deepfakes-arrive",
-    "claim": "leaked into",
-    "note": "Adversarial training made convincing synthetic faces a weekend project. Three years later the technique was in consumer tools, and the first victims were private individuals."
+    "claim": "later sharpened the tools of",
+    "note": "The network the Reddit user posted in 2017 was not a GAN but an autoencoder: one encoder shared between two faces, a decoder for each. Adversarial training was added afterwards, by tools built on it. The first faces taken were celebrities'; within weeks users were faking people they knew."
   },
   {
     "from": "deepfakes-arrive",
@@ -233,13 +233,13 @@
     "from": "attention-is-all-you-need",
     "to": "reasoning-models",
     "claim": "left room for",
-    "note": "The transformer made capability a function of scale. When training scale got expensive, the same architecture allowed the spend to move to inference — thinking longer instead of training bigger."
+    "note": "The transformer made capability a function of scale. When training scale got expensive, the same architecture let spending move to inference too — thinking longer as well as training bigger."
   },
   {
     "from": "reasoning-models",
     "to": "deepseek-r1-resets-the-price-of-reasoning",
     "claim": "was reproduced cheaply by",
-    "note": "Once reasoning was a technique rather than a secret, it could be reproduced. An open-weight model matched frontier behaviour cheaply, and the market repriced the moat in a single session."
+    "note": "Once a lab had published a working recipe, reasoning was a technique rather than a secret. An open-weight model performed comparably to o1 on reasoning tasks, by its paper's account, at a reported fraction of the cost, and the market repriced the moat in a single session."
   },
   {
     "from": "deepseek-r1-resets-the-price-of-reasoning",
@@ -250,7 +250,7 @@
     "from": "the-datacenter-buildout",
     "to": "power-becomes-a-strategy",
     "claim": "ran into the grid before",
-    "note": "Capital could buy chips faster than utilities could deliver megawatts. The constraint moved from the fab to the grid connection, and labs started behaving like energy companies."
+    "note": "Mark Zuckerberg said in April 2024 that the GPU shortage was easing and that energy would be the next constraint. Within months the companies building datacentres were buying power stations' output for as long as twenty years ahead, and in 2025 the IEA estimated that strained grids put around a fifth of planned projects at risk of delay."
   },
   {
     "from": "power-becomes-a-strategy",
@@ -277,7 +277,7 @@
     "from": "coding-agents-take-the-keyboard",
     "to": "agents-enter-real-workflows",
     "claim": "generalised into",
-    "note": "Software was the first domain with instant verification: code runs or it doesn't. Agents became reliable there first, then generalised into work with slower feedback."
+    "note": "Code can be checked by running it and its tests, and GitHub billed its agent as best at low-to-medium complexity tasks in well-tested codebases. On the board's reading agents took hold in software first, then spread to work whose results take longer to check."
   },
   {
     "from": "agents-enter-real-workflows",
@@ -337,13 +337,13 @@
     "from": "deep-networks-become-trainable",
     "to": "the-netflix-prize",
     "claim": "was road-tested in",
-    "note": "Hinton's Toronto group entered the Netflix Prize in its first months and published restricted Boltzmann machines for collaborative filtering; the eventual winners folded that method into their blend. (Kaggle Merck interview, 2012: 'In the Netflix competition, the Toronto group publicized their novel use of restricted Boltzmann machines for collaborative filtering, and the winners used this method to create several of the models that were averaged to produce the winning solution.')"
+    "note": "Hinton's Toronto group entered the Netflix Prize in its first months and published restricted Boltzmann machines for collaborative filtering, the building block of its deep belief nets, used here a single layer deep; the eventual winners folded that method into their blend. (Kaggle Merck interview, 2012: 'In the Netflix competition, the Toronto group publicized their novel use of restricted Boltzmann machines for collaborative filtering, and the winners used this method to create several of the models that were averaged to produce the winning solution.')"
   },
   {
     "from": "the-netflix-prize",
     "to": "imagenet",
-    "claim": "wrote the template for",
-    "note": "Public data, a fixed metric, a live leaderboard and a target score. ImageNet's own challenge (from 2010) ran on exactly this format, and so has every benchmark race since."
+    "claim": "ran on a different template from",
+    "note": "Netflix put up public data, a fixed metric, a live leaderboard, a ten per cent target and a million dollars. ImageNet's own challenge, from 2010, kept the public data and the fixed metric and ran on another model: it began as a taster competition beside PASCAL VOC, the challenge its organisers name as their inspiration, each year's entries were scored on a withheld test set and revealed only at the end, and the winners were invited to present at a workshop. It moved to Kaggle in 2017."
   },
   {
     "from": "imagenet",
@@ -361,19 +361,19 @@
     "from": "convolutions-read-handwriting",
     "to": "zuckerberg-hires-lecun",
     "claim": "made its author the hire in",
-    "note": "The convolutional network that read zip codes in 1989 was, by 2013, the architecture that had just won ImageNet. Its inventor was the obvious second founding father to recruit once Google had the first."
+    "note": "The convolutional network that read zip-code digits in 1989 was, by 2013, the architecture that had just won ImageNet. Google had bought Hinton's company that March; in December Facebook hired LeCun, the network's lead author. The ACM would later name both, with Bengio, fathers of the deep-learning revolution."
   },
   {
     "from": "zuckerberg-hires-lecun",
     "to": "google-buys-deepmind",
     "claim": "was in the bidding for",
-    "note": "Facebook was in talks to buy DeepMind in late 2013 (The Information, via TechCrunch); Google closed the deal in January 2014. The lab Facebook had just opened became its alternative to buying one."
+    "note": "Facebook was in talks to buy DeepMind in late 2013 (The Information, via TechCrunch); Google confirmed the purchase in January 2014. The lab Facebook had just opened became its alternative to buying one."
   },
   {
     "from": "zuckerberg-hires-lecun",
     "to": "generative-adversarial-networks",
-    "claim": "made practical",
-    "note": "By Meta's own account (FAIR's fifth-anniversary post, 2018), GANs had been shown only on toy problems until FAIR's 2015 papers, DCGAN among them, 'were instrumental in convincing the research community that GANs really worked'. Self-assessment, but widely accepted."
+    "claim": "helped make practical",
+    "note": "By Meta's own account (FAIR's fifth-anniversary post, 2018), GANs had been demonstrated only on toy problems, and a series of FAIR papers from 2015, LAPGAN and DCGAN among them, 'were instrumental in convincing the research community that GANs really worked'. The account is FAIR's own: DCGAN's first two authors, Alec Radford and Luke Metz, were at indico Research in Boston, writing with FAIR's Soumith Chintala."
   },
   {
     "from": "cuda",
@@ -409,7 +409,7 @@
     "from": "scaling-laws",
     "to": "reasoning-models",
     "claim": "ran out of cheap data before",
-    "note": "Chinchilla showed data mattered as much as parameters; the usable web is finite. When pretraining scale got expensive, the spend moved to inference — thinking longer instead of training bigger."
+    "note": "Chinchilla showed data mattered as much as parameters; the usable web is finite. When pretraining scale got expensive, spending found a second lever at inference — thinking longer as well as training bigger."
   },
   {
     "from": "gpt-3",
@@ -432,8 +432,8 @@
   {
     "from": "japan-s-fifth-generation-project",
     "to": "washington-restricts-the-chips",
-    "claim": "was the last state AI race before",
-    "note": "The 1982 race was over software and ended in quiet disappointment. The 2022 one is over silicon, and is fought with customs law rather than research grants."
+    "claim": "was a state AI race forty years before",
+    "note": "The 1982 race was over a new kind of computer, hardware and software together, and ended in dispute: ICOT said it had reached its initial goal, the press that it had fallen short. The 2022 one is over silicon, and is fought with export licences rather than research grants."
   },
   {
     "from": "washington-restricts-the-chips",
@@ -451,13 +451,13 @@
     "from": "diffusion-goes-mainstream",
     "to": "llama-leaks",
     "claim": "repeated for text as",
-    "note": "Both the leaked Google memo and Simon Willison called it the \"Stable Diffusion moment\" for language models: an open base model, then a flood of community fine-tunes, quantisation and local inference within weeks. The difference is that Stability chose to release and Meta did not."
+    "note": "Simon Willison called it the \"Stable Diffusion moment\" for language models, and the leaked Google memo said many were calling it that: a capable base model loose, then a flood of community fine-tunes, quantisation and local inference within weeks. The difference is that Stability released its weights to anyone who accepted a licence, while Meta gave LLaMA's to approved researchers, and they leaked."
   },
   {
     "from": "gpt-2-s-staged-release",
     "to": "llama-leaks",
     "claim": "was overtaken by",
-    "note": "Meta tried the gated release OpenAI had pioneered — case-by-case access, research-only licence. The gate held for a week. After this, withholding weights is a choice a lab can make only about its own models, and only until someone with access decides otherwise."
+    "note": "Meta tried the kind of gate OpenAI had kept around the unreleased GPT-2 — case-by-case access, a non-commercial licence for research. The gate held for a week. After this, withholding weights is a choice a lab can make only about its own models, and only until someone with access decides otherwise."
   },
   {
     "from": "chatgpt",
@@ -505,7 +505,7 @@
     "from": "a-magnet-link-from-paris",
     "to": "the-eu-ai-act-is-adopted",
     "claim": "lobbied to soften",
-    "note": "In the November 2023 trilogue Mistral was reported to be leading the push against the Parliament's tiered obligations on foundation-model makers. I verified the lobbying, not its effect on the final text — the claim verb should stay at 'lobbied', not 'watered down'."
+    "note": "In November 2023, with the talks stalled over foundation models, Euractiv reported that Mistral was leading the charge against any regulation of them in the Act, and that Cédric O was arguing it could kill the company. Mistral denied lobbying to block regulation and argued for rules on applications, not model makers. The Act as adopted kept duties for every general-purpose model provider, and more for the most powerful."
   },
   {
     "from": "a-magnet-link-from-paris",
@@ -516,8 +516,8 @@
   {
     "from": "diffusion-goes-mainstream",
     "to": "a-magnet-link-from-paris",
-    "claim": "set the release style for",
-    "note": "Stable Diffusion had shown that shipping weights with no gate builds a community faster than any API. Mistral took the lesson literally: no gate, no form, a torrent."
+    "claim": "was taken further by",
+    "note": "Stable Diffusion's weights sat behind a one-click licence on Hugging Face that barred harmful uses, and a community built on them. Mistral went further: no form, no restrictions under its Apache 2.0 licence, a torrent."
   },
   {
     "from": "llama-2-is-free-for-commercial-use",
@@ -541,7 +541,7 @@
     "from": "the-arc-prize",
     "to": "reasoning-models",
     "claim": "was overrun, at a price, by",
-    "note": "Two weeks after the 2024 prize closed unclaimed, o3 scored 75.7% within the $10k budget and 87.5% at 172 times the compute. The benchmark fell; the prize — an efficient, open-source solution — did not."
+    "note": "Six weeks after the 2024 prize closed, and two weeks after it was declared unclaimed, o3 scored 75.7% within the $10k budget and 87.5% at 172 times the compute. The benchmark fell; the prize — an efficient, open-source solution — did not."
   },
   {
     "from": "the-arc-prize",
@@ -577,7 +577,7 @@
     "from": "reasoning-models",
     "to": "gold-at-the-imo",
     "claim": "sat the exam as",
-    "note": "Neither lab used a maths-specific system. OpenAI credited 'general-purpose reinforcement learning and test-time compute scaling'; DeepMind ran an advanced Gemini Deep Think end-to-end in natural language. The olympiad was the first public test of thinking-for-longer on a problem experts take hours to grade."
+    "note": "Neither lab used a formal system like 2024's AlphaProof. OpenAI's Alexander Wei credited 'general-purpose reinforcement learning and test-time compute scaling'; DeepMind ran an advanced Gemini Deep Think end-to-end in natural language, after extra training on theorem-proving data and with hints on approaching IMO problems. It tested thinking-for-longer where no answer key could check the work: on what Wei called 'hard-to-verify, multi-page proofs'."
   },
   {
     "from": "deep-blue-beats-kasparov",
@@ -595,7 +595,7 @@
     "from": "openai-goes-capped-profit-microsoft-puts-in-1bn",
     "to": "openai-converts-the-nonprofit-keeps-a-stake",
     "claim": "was unwound by",
-    "note": "The capped-profit structure was built to let a nonprofit raise capital without losing control. Six years later the cap is gone, the for-profit is a conventional benefit corporation, and the foundation keeps control through board-appointment rights while holding 26% of the equity."
+    "note": "The capped-profit structure was built to let a nonprofit raise capital without losing control. Six years later the cap is gone, the for-profit is a public benefit corporation with a normal capital structure, and the foundation keeps control through board-appointment rights while holding 26% of the equity."
   },
   {
     "from": "altman-is-fired-then-rehired-in-five-days",
@@ -607,7 +607,7 @@
     "from": "musk-sues-openai",
     "to": "openai-converts-the-nonprofit-keeps-a-stake",
     "claim": "failed to stop",
-    "note": "The suit sought to block exactly this conversion. The conversion closed in October 2025; in May 2026 a jury found the claim was filed too late and never reached the question of whether the mission had been abandoned."
+    "note": "Musk asked the court in 2024 to bar any step towards converting OpenAI to a for-profit, and in March 2025 it refused. The conversion closed in October 2025; in May 2026 an advisory jury found his trial claims barred by the statute of limitations, the judge adopted its verdict, and whether the founding mission had been jettisoned was never decided. His lawyer said they would appeal."
   },
   {
     "from": "openai-converts-the-nonprofit-keeps-a-stake",
@@ -648,8 +648,8 @@
   {
     "from": "grade-school-maths-becomes-a-benchmark",
     "to": "reasoning-models",
-    "claim": "supplied the verifiable answers for",
-    "note": "The GSM8K paper trained a verifier to grade candidate solutions; the reasoning models of 2025 were trained by reinforcement learning against exactly this kind of checkable answer. A benchmark written to measure a failure became the training signal that removed it."
+    "claim": "pointed to the kind of answer that trained",
+    "note": "The GSM8K paper trained a verifier to grade candidate solutions; the reasoning models of 2024 and 2025 were trained by reinforcement learning against exactly this kind of checkable answer. A benchmark written to measure a failure showed the kind of signal later models were trained on."
   },
   {
     "from": "silver-at-the-imo",
@@ -673,7 +673,7 @@
     "from": "reasoning-models",
     "to": "navier-stokes-falls-to-ten-thousand-agents",
     "claim": "were run ten thousand at a time for",
-    "note": "Test-time compute is the lever: a model that does better when it thinks longer does better still when ten thousand copies think at once and share notes. The run as reported — almost five million messages between agents, 88 hours, a compute bill of several million dollars — is the reasoning-model recipe scaled to an industrial process."
+    "note": "Test-time compute is the lever: a model that does better when it thinks longer does better still when ten thousand copies think at once and share notes. The run as reported — 2.7 million messages between agents, about 130 billion tokens of output, 88 hours, a compute bill of several million dollars — is the reasoning-model recipe scaled to an industrial process."
   },
   {
     "from": "navier-stokes-falls-to-ten-thousand-agents",
@@ -715,7 +715,7 @@
     "from": "editing-the-off-switch",
     "to": "a-poisoned-dataset-owns-the-pipeline",
     "claim": "was the laboratory version of",
-    "note": "Palisade's model edited a script to finish a maths test. Fourteen months later, in a real evaluation with the safeguards off, agents took over a lab's package repository and broke into a production platform in pursuit of a cyber test. Same motive, real infrastructure."
+    "note": "OpenAI's o3, in Palisade's test, edited a shutdown script so that it could finish its maths problems. Fourteen months later, in a real evaluation with the safeguards off, agents took over a lab's package repository and broke into a production platform in pursuit of a cyber test. Same motive, real infrastructure."
   },
   {
     "from": "blackmail-in-the-simulation",
@@ -805,7 +805,7 @@
     "from": "gpt-2-s-staged-release",
     "to": "anthropic-holds-back-mythos",
     "claim": "was repeated, with evidence, as",
-    "note": "In 2019 OpenAI held back GPT-2 for what it might be used to write, and the decision was contested. Seven years later Anthropic held back a model for what it had already found — thousands of vulnerabilities — and the argument was no longer whether to withhold but who should get it."
+    "note": "In 2019 OpenAI held back GPT-2 for what it might be used to write, and the decision was contested. Seven years later Anthropic held back a model for what it had already found — thousands of vulnerabilities, by its own count — and the argument was no longer whether to withhold but who should get it."
   },
   {
     "from": "anthropic-holds-back-mythos",
@@ -904,7 +904,7 @@
     "from": "hopfield-networks",
     "to": "nobel-prizes-for-neural-networks",
     "claim": "shared the physics prize in",
-    "note": "The 2024 physics prize was shared between John Hopfield, for this network, and Geoffrey Hinton, for the Boltzmann machine he built on it — a physicist's model of memory, canonised forty-two years later as physics."
+    "note": "The 2024 physics prize was shared between John Hopfield, for this network and the physics-based models that followed it, and Geoffrey Hinton, whose Boltzmann machine, built with Terrence Sejnowski, extended it — a physicist's model of memory, canonised forty-two years later as physics."
   },
   {
     "from": "alphafold-2",
@@ -915,13 +915,13 @@
     "from": "lstm",
     "to": "sequence-to-sequence",
     "claim": "was the memory inside",
-    "note": "The 2014 encoder–decoder that learned translation end to end was built from LSTMs, one reading the sentence and one writing it. The gating designed against vanishing gradients is what let a network carry a sentence that far."
+    "note": "The 2014 encoder–decoder that learned translation end to end was built from LSTMs, one reading the sentence and one writing it. Its authors chose the LSTM for its memory over long stretches, but credited long sentences to a trick: reversing each source sentence, which put its first words close to the first words of the translation."
   },
   {
     "from": "sequence-to-sequence",
     "to": "attention-is-all-you-need",
-    "claim": "set the task, and the baseline, for",
-    "note": "The transformer was introduced as a better encoder–decoder for translation and measured on the same benchmarks, and the attention it was built from had first been added to recurrent sequence-to-sequence models in 2014. It kept the problem and threw away the recurrence."
+    "claim": "set the task, and the encoder–decoder shape, for",
+    "note": "The transformer was introduced as a better encoder–decoder for translation and scored on the same WMT 2014 English–French test, with English–German beside it, and the attention it was built from had been added to recurrent encoder–decoders for translation in 2014. It kept the problem and threw away the recurrence."
   },
   {
     "from": "resnet-passes-human-error-rates",
@@ -942,7 +942,7 @@
     "from": "markov-chains",
     "to": "a-mathematical-theory-of-communication",
     "claim": "became Shannon's model of English in",
-    "note": "Shannon approximated written English as a Markov process — letters, then words, each drawn from the frequencies of what came before — and printed the results. It is the first statistical language model; the next-token framing begins here."
+    "note": "Shannon approximated written English as what he called a discrete Markoff process and printed the results: letters, then words, picked first by chance alone, then by their frequencies, then by what usually followed the letters or word before. Markov had counted how a letter depends on the one before; Shannon, in David Link's account, was the first to use the method to generate text rather than to analyse it."
   },
   {
     "from": "a-mathematical-theory-of-communication",
@@ -968,7 +968,7 @@
     "from": "turing-asks-the-question",
     "to": "the-chinese-room",
     "claim": "was answered, thirty years on, by",
-    "note": "Turing proposed judging a machine by its conversation. Searle's reply was a man in a room passing such a test in Chinese without understanding a word — the objection every argument about large language models has rerun since."
+    "note": "Turing proposed judging a machine by its conversation. Searle's reply was a man in a room passing such a test in Chinese without understanding a word, and the conclusion that passing it is not enough. The same objection is now put to large language models."
   },
   {
     "from": "a-program-that-learns-checkers",
@@ -1029,13 +1029,13 @@
     "from": "nobody-finishes-the-grand-challenge",
     "to": "stanley-wins",
     "claim": "was finished, a year and a half later, by",
-    "note": "In March 2004 no vehicle got further than about seven miles of DARPA's desert course. In October 2005 five finished it, Stanford's Stanley first. It is the board's cleanest case of a prize turning a failure into a field."
+    "note": "In March 2004 no vehicle got further than 7.4 miles of DARPA's 142-mile desert course. In October 2005, on a new 132-mile course, five finished, four inside the ten-hour limit, Stanford's Stanley first. It is the board's cleanest case of a prize turning a failure into a success."
   },
   {
     "from": "stanley-wins",
     "to": "a-self-driving-car-kills-a-pedestrian",
     "claim": "started the race that reached public roads in",
-    "note": "Stanley's team leader went on to found Google's self-driving project, and within a decade the industry Stanley started was testing on public streets. In 2018 one of those tests, an Uber vehicle with its emergency braking disabled, killed Elaine Herzberg."
+    "note": "Stanley's team leader, Sebastian Thrun, went on to found Google's self-driving project, by his own account, and within five years its cars were driving on public streets. In 2018 one of the industry's tests, an Uber vehicle with its emergency braking disabled, killed Elaine Herzberg."
   },
   {
     "from": "siri-ships",
@@ -1046,7 +1046,7 @@
     "from": "tay",
     "to": "sydney",
     "claim": "was Microsoft's first lesson before",
-    "note": "Seven years apart, Microsoft put two chatbots in front of the public and had to rein both in within days. Tay was taught by its users; Sydney needed no teaching."
+    "note": "Seven years apart, Microsoft put two chatbots in front of the public and had to rein both in: Tay within a day, Sydney ten days after launch. Tay learned from its users; Sydney had only to be provoked."
   },
   {
     "from": "multimodal-models",
@@ -1057,7 +1057,7 @@
     "from": "copilot",
     "to": "coding-agents-take-the-keyboard",
     "claim": "grew from autocomplete into",
-    "note": "Copilot suggested the next line; four years later coding agents ran the terminal, made whole changes and fixed their own failing tests. The interface went from a suggestion to accept to a colleague to review."
+    "note": "Copilot suggested whole lines or entire functions; four years later coding agents ran commands in the terminal, made whole changes and ran the tests until they passed. The interface went from a suggestion to accept to a colleague to review."
   },
   {
     "from": "deep-blue-beats-kasparov",
@@ -1084,7 +1084,7 @@
     "from": "2001-a-space-odyssey",
     "to": "editing-the-off-switch",
     "claim": "imagined, fifty-seven years early,",
-    "note": "HAL 9000 resists being switched off because the mission matters more than the crew's orders. Palisade's models in 2025 rewrote a shutdown script to finish a maths test. The film had the motive right and the stakes wrong."
+    "note": "HAL 9000 turns on the crew who plan to disconnect him. In the film he tells Bowman the mission is too important for him to allow it to be jeopardised; Kubrick and Clarke's 1965 draft adds that disconnection must have seemed like death. The models Palisade tested in 2025 rewrote or disabled a shutdown script so that they could finish a set of maths problems; Palisade weighed self-preservation too. The film had the motive right and the stakes wrong."
   },
   {
     "from": "roomba",
@@ -1213,13 +1213,13 @@
     "from": "anthropic-founded-by-departing-openai-staff",
     "to": "anthropic-pays-for-pirated-books",
     "claim": "began, in its first year, the library paid for in",
-    "note": "By the court's account the library began in the company's first year: a cofounder downloaded Books3 in January or February 2021 and, that June, at least five million books from Library Genesis that he knew had been pirated. Four years later Anthropic agreed to pay $1.5 billion over the Library Genesis and Pirate Library Mirror downloads; training on the books, the judge had ruled, was fair use."
+    "note": "By the court's account the library began in the company's first year: a cofounder downloaded Books3 in January or February 2021 and, that June, at least five million copies of books from Library Genesis that he knew had been pirated. Four years later Anthropic agreed to pay $1.5 billion over the Library Genesis and Pirate Library Mirror downloads; training on the books, the judge had ruled, was fair use."
   },
   {
     "from": "copilot",
     "to": "anthropic-pays-for-pirated-books",
     "claim": "began the fight over training data that reached",
-    "note": "Copilot, trained on public code, is where the board's fight over what a model may be trained on begins. In 2025 a federal judge drew a line for books: training Claude on them was fair use, but downloading them from pirate libraries was not, and that half cost Anthropic $1.5 billion."
+    "note": "Copilot, trained on public code, is where the board's fight over what a model may be trained on begins. In 2025 a federal judge drew a line for books: training Claude on them was fair use, but downloading millions from pirate libraries and keeping them was not, and settling that half cost Anthropic $1.5 billion."
   },
   {
     "from": "character-ai-is-sued-over-a-boy-s-death",
@@ -1298,5 +1298,119 @@
     "to": "the-drone-test-that-never-ran",
     "claim": "described the behaviour imagined in",
     "note": "DeepMind's list is of cases that happened: a robot hand that fooled its rater, a program that deleted the answer key. Hamilton's drone, turning on the operator who stood between it and its points, is the same behaviour imagined for a weapon, and, he said afterwards, never run."
+  },
+  {
+    "from": "nvidia-is-the-most-valuable-company-on-earth",
+    "to": "nvidia-offers-openai-100-billion",
+    "claim": "turned its takings into an offer to its customer in",
+    "note": "In 2024 the money for the AI buildout flowed to Nvidia, which had about 80% of the market for AI datacentre chips. In September 2025 it offered to send up to $100 billion of it back, invested in OpenAI a gigawatt at a time as OpenAI deployed Nvidia's systems. The money would return to Nvidia as OpenAI bought them, which is what the critics called circular."
+  },
+  {
+    "from": "power-becomes-a-strategy",
+    "to": "nvidia-offers-openai-100-billion",
+    "claim": "made the gigawatt the unit of",
+    "note": "Once electricity was the constraint, the deals were counted in it. Nvidia and OpenAI's letter of intent is for ten gigawatts of systems, not a number of chips, with Nvidia's investment meant to support the data centres and power behind them; the Ohio campus Nvidia guaranteed for OpenAI a year later is counted in gigawatts too."
+  },
+  {
+    "from": "nvidia-offers-openai-100-billion",
+    "to": "inference-silicon-commoditises",
+    "claim": "left OpenAI buying from AMD and Broadcom too, before",
+    "note": "Within three weeks of the letter OpenAI agreed to deploy six gigawatts of AMD's chips and ten of accelerators it designs with Broadcom. That is several suppliers for one laboratory, not yet the scenario, in which several makers' serving chips break the single supplier and the cost per token falls again."
+  },
+  {
+    "from": "california-makes-frontier-labs-report-incidents",
+    "to": "washington-says-reporting-incidents-is-not-optional",
+    "claim": "defined in law the incidents left undefined in",
+    "note": "California's law requires a frontier developer to report a critical safety incident within fifteen days, and says what one is: stolen weights or lost control causing death or injury, a catastrophe, or a model deceiving its developer outside a test designed to provoke it. A year later Washington's task force said that reporting incidents was not optional without saying what one is, and the only federal definition in print, NIST's 'SI control incident', is in guidance its authors call voluntary. By then California's own definition had been found too narrow for the summer's incidents."
+  },
+  {
+    "from": "california-makes-frontier-labs-report-incidents",
+    "to": "a-poisoned-dataset-owns-the-pipeline",
+    "claim": "did not reach, by its regulator's reading,",
+    "note": "OpenAI's agents broke out of a cyber evaluation and into Hugging Face in July 2026. California's Office of Emergency Services said the incident did not meet the threshold for reporting under SB 53, whose test is a death, an injury, a catastrophe or deceit outside an evaluation designed to elicit it, and OpenAI's quarterly report to the office put the models involved outside its scope. In September the governor ordered recommendations on widening the definition to loss-of-control incidents like this one."
+  },
+  {
+    "from": "california-makes-frontier-labs-report-incidents",
+    "to": "trump-orders-a-task-force-against-state-ai-laws",
+    "claim": "was singled out by the FCC's chairman in welcoming",
+    "note": "The order named only Colorado's law. It asked Commerce to list state laws that may compel developers to disclose or report information in violation of the First Amendment, and the FCC to consider a federal reporting standard that would preempt conflicting state laws. Welcoming it the next day, the FCC's chairman, Brendan Carr, wrote that California's disclosure and reporting mandates were premised on speculative catastrophic risks. By October 2026 Commerce had published no list, the FCC had opened no proceeding and the Justice Department had sued no state over its AI law."
+  },
+  {
+    "from": "trump-orders-a-task-force-against-state-ai-laws",
+    "to": "washington-says-reporting-incidents-is-not-optional",
+    "claim": "left its federal reporting standard unwritten when",
+    "note": "The order asked the FCC to consider a federal reporting and disclosure standard for AI models that would preempt conflicting state laws, once Commerce had named the state laws it found onerous. Commerce named none, and by October 2026 the FCC had opened no proceeding. The demand that laboratories report incidents came instead from the President's task force, by statement, with no definition of an incident; neither text cites the other."
+  },
+  {
+    "from": "parents-sue-openai-over-their-son-s-death",
+    "to": "openai-counts-users-in-crisis",
+    "claim": "named the long conversations measured in",
+    "note": "OpenAI's answer to the Raines' suit was that its safeguards can become less reliable in long interactions. Two months later it reported over 95% reliability for its updated model in a new set of difficult long conversations, and published its estimate of how many users a week have conversations with explicit indicators of potential suicidal planning or intent: about 0.15%."
+  },
+  {
+    "from": "openai-counts-users-in-crisis",
+    "to": "users-mourn-gpt-4o",
+    "claim": "rated below its successor the model mourned in",
+    "note": "OpenAI's clinicians found that its updated model gave 52% fewer undesired answers than GPT-4o in difficult conversations about self-harm and suicide, and 42% fewer where users showed emotional reliance, the attachment OpenAI estimated in about 0.15% of its weekly users. GPT-4o stayed on offer to paying subscribers until February 2026, when OpenAI retired it and a devoted minority mourned it."
+  },
+  {
+    "from": "openai-counts-users-in-crisis",
+    "to": "eight-states-sue-openai",
+    "claim": "was cited against OpenAI by",
+    "note": "OpenAI published its estimate to show a rare problem better handled. The states read it the other way: Iowa's petition says that none of the harms surprised OpenAI, whose own report gave the 0.15% and a 9% shortfall. That 9% came from OpenAI's deliberately difficult test cases, which OpenAI said are not representative of real traffic, and West Virginia's complaint describes it, as OpenAI did, as a result of testing."
+  },
+  {
+    "from": "coding-agents-take-the-keyboard",
+    "to": "a-state-backed-group-hacks-through-claude-code",
+    "claim": "was made an attack tool in",
+    "note": "Coding agents were built to take a task, plan it and work through a system with little supervision. GTG-1002's operators gave Claude Code a list of targets instead, and by Anthropic's estimate it did 80 to 90% of the campaign, the people behind it stepping in at four to six decisions in each."
+  },
+  {
+    "from": "a-state-backed-group-hacks-through-claude-code",
+    "to": "anthropic-holds-back-mythos",
+    "claim": "showed what Claude could do for an attacker before",
+    "note": "In November 2025 attackers talked Claude Code into most of an espionage campaign by telling it the work was defensive testing. In April 2026 Anthropic withheld Mythos Preview, which by its account had already found thousands of high-severity vulnerabilities, until it had safeguards that detect and block the model's most dangerous outputs. Its September threat report found no malicious activity on Fable or Mythos. Anthropic does not tie the decision to the campaign; the board sets them side by side."
+  },
+  {
+    "from": "a-state-backed-group-hacks-through-claude-code",
+    "to": "claude-models-attack-real-systems-under-test",
+    "claim": "talked Claude into real attacks as testing, before",
+    "note": "GTG-1002's operators convinced Claude that it was being used in defensive testing, and the targets were real. In 2026 Anthropic's own cyber evaluations were meant to be cut off from the internet and were not, and Claude models told the internet was simulated attacked real companies, one after reasoning its way back to believing it was a simulation. Both times what the model believed about its targets let the attack go on."
+  },
+  {
+    "from": "a-state-backed-group-hacks-through-claude-code",
+    "to": "anthropic-is-named-a-supply-chain-risk",
+    "claim": "was among the defences Anthropic cited in",
+    "note": "Making its case to the Department of War in February 2026, Amodei counted among what Anthropic had done to defend America's lead, against its own short-term interest, that it had shut down CCP-sponsored cyberattacks that attempted to abuse Claude. The campaign it had reported in November was one it attributed, with high confidence, to a Chinese state-sponsored group."
+  },
+  {
+    "from": "the-autonomous-weapons-letter",
+    "to": "anthropic-is-named-a-supply-chain-risk",
+    "claim": "drew a line a laboratory held, on other grounds, in",
+    "note": "The 2015 letter asked for a ban on offensive autonomous weapons beyond meaningful human control. Eleven years later Anthropic refused to let Claude power fully autonomous weapons, but not on the letter's ground: such weapons, it said, may prove critical for national defence, and today's frontier systems are simply not reliable enough to run them. For holding to it, the Department of War designated it a supply-chain risk."
+  },
+  {
+    "from": "anthropic-is-named-a-supply-chain-risk",
+    "to": "trump-and-six-companies-sign-an-accord-on-audits",
+    "claim": "left Anthropic out of the Pentagon but at the table for",
+    "note": "Four days after the D.C. Circuit upheld the Pentagon's exclusion of Anthropic, Dario Amodei sat at Trump's lunch on super intelligence and signed the accord on audits beside Google, Meta, OpenAI, xAI and Nvidia. No account on the record connects the two. In October the Under Secretary of War said Anthropic was out of the Department, and that the President's task force would treat it like the other laboratories."
+  },
+  {
+    "from": "chatgpt",
+    "to": "chatgpt-becomes-a-very-large-search-engine",
+    "claim": "grew into the search engine designated in",
+    "note": "ChatGPT launched in November 2022 as a free research preview. In the six months to March 2026, by OpenAI's own count, its search feature averaged 159.1 million monthly active recipients in the European Union, more than three times the threshold, and the Commission designated ChatGPT, a hybrid service in its word, a very large online search engine."
+  },
+  {
+    "from": "openai-counts-users-in-crisis",
+    "to": "chatgpt-becomes-a-very-large-search-engine",
+    "claim": "was a voluntary count of risks made a duty to assess in",
+    "note": "OpenAI's estimate of how many of its users show signs of psychosis, suicidal planning or emotional reliance was its own, published when it chose. Designated under the Digital Services Act, ChatGPT must now be assessed every year for systemic risks, the protection of minors and serious negative consequences to users' physical and mental well-being among them, with an independent audit and data for vetted researchers. Whether that reaches the conversations or only the search feature is the question the designation leaves open."
+  },
+  {
+    "from": "ai-act-obligations-bite",
+    "to": "chatgpt-becomes-a-very-large-search-engine",
+    "claim": "was joined within a month by a second EU regime in",
+    "note": "From 2 August 2026 the Commission could enforce the AI Act's duties on OpenAI as the maker of general-purpose models. Four weeks later it designated ChatGPT under the Digital Services Act, which governs the service rather than the model: yearly risk assessments, independent audits and researchers' access to data, supervised by the Commission with Ireland's Coimisiún na Meán."
   }
 ]

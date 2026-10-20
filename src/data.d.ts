@@ -11,24 +11,140 @@ declare module '*/data/events.json?papers' {
   export default papers;
 }
 
-/* Said in advance, as most pages read it: each prediction's head only — see
-   scripts/split-events.ts and src/lib/predictions.ts. */
+/* The other files of records, each read in two parts — see SPLITS in
+   scripts/split-events.ts. A part keeps the file's shape: the records under
+   the same key, each cut to what that part keeps. The heads are what every
+   page lists from; the bodies are imported by the pages that print them
+   (src/lib/bodies/). */
+
 declare module '*/data/predictions.json?heads' {
-  const heads: import('./lib/types').PredictionHead[];
-  export default heads;
+  const file: { predictions: import('./lib/types').PredictionHead[] };
+  export default file;
+}
+declare module '*/data/predictions.json?bodies' {
+  const file: { predictions: (Pick<import('./lib/types').Prediction, 'id' | 'words' | 'source' | 'reported' | 'byWords' | 'reading' | 'evidence' | 'sources' | 'open' | 'checked' | 'leads'> & { record: Pick<import('./lib/types').QuestionRecord, 'note'>[] })[] };
+  export default file;
 }
 
-/* Promises made, likewise: each promise's head only — see src/lib/pledges.ts. */
 declare module '*/data/promises.json?heads' {
-  const heads: import('./lib/types').PledgeHead[];
-  export default heads;
+  const file: { promises: import('./lib/types').PledgeHead[] };
+  export default file;
+}
+declare module '*/data/promises.json?bodies' {
+  const file: { promises: (Pick<import('./lib/types').Pledge, 'id' | 'words' | 'source' | 'byWords' | 'reading' | 'evidence' | 'sources' | 'open' | 'checked' | 'leads'> & { record: Pick<import('./lib/types').QuestionRecord, 'note'>[] })[] };
+  export default file;
 }
 
-/* What changed on the board lately, dated from the git history at build time —
-   see scripts/board-changes.ts. */
+/* The strings: each one's claim, and whether it carries a case note; the notes
+   of those that do, by the string's two ends. */
+declare module '*/data/links.json?heads' {
+  const links: import('./lib/types').LinkHead[];
+  export default links;
+}
+declare module '*/data/links.json?bodies' {
+  const links: Required<Pick<import('./lib/types').LinkRaw, 'from' | 'to' | 'note'>>[];
+  export default links;
+}
+
+declare module '*/data/leads.json?heads' {
+  const file: { leads: import('./lib/types').LeadHead[] };
+  export default file;
+}
+declare module '*/data/leads.json?bodies' {
+  const file: { leads: (Pick<import('./lib/types').Lead, 'id' | 'standing'> & { rungs: Pick<import('./lib/types').RungRaw, 'text'>[] })[] };
+  export default file;
+}
+
+declare module '*/data/questions.json?heads' {
+  const file: { questions: import('./lib/types').QuestionHead[] };
+  export default file;
+}
+declare module '*/data/questions.json?bodies' {
+  const file: { questions: (Pick<import('./lib/types').Question, 'id' | 'answer' | 'inPractice' | 'open'> & { record: Pick<import('./lib/types').QuestionRecord, 'note'>[] })[] };
+  export default file;
+}
+
+declare module '*/data/checks.json?heads' {
+  const file: { checks: import('./lib/types').CheckHead[] };
+  export default file;
+}
+declare module '*/data/checks.json?bodies' {
+  const file: { checks: (Pick<import('./lib/types').Check, 'id' | 'reported' | 'primary' | 'claims' | 'reading' | 'open'> & { record: Pick<import('./lib/types').QuestionRecord, 'note'>[] })[] };
+  export default file;
+}
+
+declare module '*/data/machines.json?heads' {
+  const file: { machines: import('./lib/types').MachineHead[] };
+  export default file;
+}
+declare module '*/data/machines.json?bodies' {
+  const file: { machines: Pick<import('./lib/types').Machine, 'id' | 'lede' | 'try' | 'kept' | 'changed' | 'credit' | 'sources'>[] };
+  export default file;
+}
+
+declare module '*/data/people.json?heads' {
+  const file: { people: import('./lib/types').PersonHead[] };
+  export default file;
+}
+declare module '*/data/people.json?bodies' {
+  const file: { people: Pick<import('./lib/types').Person, 'id' | 'bio'>[] };
+  export default file;
+}
+
+declare module '*/data/orgs.json?heads' {
+  const file: { orgs: import('./lib/types').OrgHead[] };
+  export default file;
+}
+declare module '*/data/orgs.json?bodies' {
+  const file: { orgs: Pick<import('./lib/types').Org, 'id' | 'bio'>[] };
+  export default file;
+}
+
+declare module '*/data/glossary.json?heads' {
+  const file: { terms: import('./lib/types').TermHead[] };
+  export default file;
+}
+declare module '*/data/glossary.json?bodies' {
+  const file: { terms: Pick<import('./lib/types').Term, 'id' | 'definition'>[] };
+  export default file;
+}
+
+/* The corrections register, as a dossier reads it: each entry's day and card. */
+declare module '*/data/corrections.json?heads' {
+  const file: { corrections: Pick<import('./lib/types').Correction, 'id' | 'date' | 'event'>[] };
+  export default file;
+}
+
+/* The line each plain question, headline check, prediction and promise gives
+   each card on its record, and nothing else of its body: what a card's dossier
+   prints (src/lib/bodies/notes.ts). */
+declare module '*/data/questions.json?bodies=record' {
+  const file: { questions: { id: string; record: Pick<import('./lib/types').QuestionRecord, 'note'>[] }[] };
+  export default file;
+}
+declare module '*/data/checks.json?bodies=record' {
+  const file: { checks: { id: string; record: Pick<import('./lib/types').QuestionRecord, 'note'>[] }[] };
+  export default file;
+}
+declare module '*/data/predictions.json?bodies=record' {
+  const file: { predictions: { id: string; record: Pick<import('./lib/types').QuestionRecord, 'note'>[] }[] };
+  export default file;
+}
+declare module '*/data/promises.json?bodies=record' {
+  const file: { promises: { id: string; record: Pick<import('./lib/types').QuestionRecord, 'note'>[] }[] };
+  export default file;
+}
+
+/* What changed on the board lately, and when each card was filed and last
+   changed, dated from the git history at build time — see
+   scripts/board-changes.ts. The latest page imports the one, a card's dossier
+   the other. */
 declare module 'virtual:board-changes' {
   const changes: import('./lib/types').Change[];
   export default changes;
-  /** Every dated record, by `kind/id`: the day it was filed and the day it last changed. */
-  export const DATED: Record<string, [string, string]>;
+}
+declare module 'virtual:board-dated' {
+  /** Every dated card, by `card/id`: the day it was filed and the day it last changed. */
+  const dated: Record<string, [string, string]>;
+  export default dated;
 }

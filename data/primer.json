@@ -17,7 +17,7 @@
     },
     {
       "term": "deep-learning",
-      "plain": "Neural networks with many layers, trained on a great deal of data on graphics chips. They started winning in 2012, when AlexNet won an image-recognition contest by a wide margin, and the decade after is named for them.",
+      "plain": "Neural networks with many layers, trained on a great deal of data on graphics chips. In 2012 AlexNet won the main image-recognition contest by a wide margin, and the decade after is named for them.",
       "cards": ["cuda", "imagenet", "alexnet"]
     },
     {
@@ -42,12 +42,12 @@
     },
     {
       "term": "reasoning-model",
-      "plain": "A model trained to work a problem through in written steps before it answers: thinking for longer, checking and trying again. Models like this won gold at the International Mathematical Olympiad in 2025.",
+      "plain": "A model trained to work a problem through in written steps before it answers: thinking for longer, checking and trying again. Models like this reached gold-medal standard at the International Mathematical Olympiad in 2025.",
       "cards": ["reasoning-models", "gold-at-the-imo"]
     },
     {
       "term": "agents",
-      "plain": "A model given tools (a browser, a keyboard, the means to run programs) and left to carry out a task in many steps instead of only answering. By 2025 agents were writing software every day; in 2026 they reached legal, finance and sales work.",
+      "plain": "A model given tools (a browser, a keyboard, the means to run programs) and left to carry out a task in many steps instead of only answering. Coding agents shipped in 2025; by 2026 most developers using AI coding tools used them daily, and agents had reached legal, finance and sales work.",
       "cards": ["coding-agents-take-the-keyboard", "agents-enter-real-workflows"]
     },
     {

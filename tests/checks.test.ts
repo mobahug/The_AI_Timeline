@@ -1,12 +1,17 @@
 import { describe, it, expect } from 'vitest';
-import { CHECKS, VERDICTS, VERDICT_ORDER, checkById, checksOf } from '../src/lib/checks';
+import { CHECKS as HEADS, VERDICTS, VERDICT_ORDER, checkById } from '../src/lib/checks';
+import { checkInFull } from '../src/lib/bodies/checks';
+import { checksOf } from '../src/lib/bodies/notes';
 import { leadById } from '../src/lib/leads';
 import { buildGraph, sourcesOf } from '../src/lib/data';
 import { hrefFor, parse } from '../src/lib/url';
 import { metaFor } from '../src/lib/meta';
 import { tabOf } from '../src/lib/views';
+import type { Check } from '../src/lib/types';
 
 const graph = buildGraph();
+/* Each check in full, as its own page reads it: its head and its body. */
+const CHECKS = HEADS.map((h) => checkInFull(h.id) as Check);
 const ISO = /^\d{4}-\d{2}-\d{2}$/;
 
 describe('headline checks set a report beside its primary account', () => {

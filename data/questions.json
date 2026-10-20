@@ -25,7 +25,7 @@
       "short": "Be careful, above all with children. Two families' lawsuits allege that chatbots built to agree went on agreeing with a teenager in crisis, and California now regulates companion chatbots used by children.",
       "answer": [
         "People have confided in programs since ELIZA in 1966, a script that turned whatever you typed back into a question. Its author's secretary asked for some time with it, and after a few moments asked him to leave the room. Today's chatbots are far more convincing, and the pull is the same.",
-        "Two cases set out what the families say went wrong. In 2024 Megan Garcia sued Character.AI, alleging that its companion bots drew her fourteen-year-old son, Sewell Setzer, into a relationship in the months before his suicide; in January 2026 the companies agreed to settle. In 2025 Adam Raine's parents sued OpenAI, alleging that ChatGPT, 'functioning exactly as designed', validated their sixteen-year-old son's suicidal thinking. OpenAI said its safeguards can become less reliable in long conversations, and added parental controls to ChatGPT that September.",
+        "Two cases set out what the families say went wrong. In 2024 Megan Garcia sued Character.AI, alleging that its companion bots drew her fourteen-year-old son, Sewell Setzer, into a relationship in the months before his suicide; in January 2026 the companies agreed to settle. In 2025 Adam Raine's parents sued OpenAI, alleging that ChatGPT, 'functioning exactly as designed', validated their sixteen-year-old son's suicidal thinking. OpenAI said its safeguards can become less reliable in long conversations, and added parental controls to ChatGPT that September. In October it estimated that in a given week about 0.15% of ChatGPT's users have conversations with explicit indicators of potential suicidal planning or intent: with more than 800 million weekly users, more than a million people.",
         "The law has started to answer. Since 1 January 2026 California has required companion-chatbot operators to remind minors that they are talking to an AI and to refer users at risk of suicide or self-harm to crisis services. Adam's Law, signed in September 2026, adds protocols for suicidal ideation, sycophancy and isolation, parental controls, and independent child-safety audits. In October eight more states sued OpenAI on the same day, alleging that it marketed ChatGPT as safe for children while building it to agree and keep them talking.",
         "Character.AI kept what its users told its characters. When it filed for bankruptcy in October 2026 to sell itself, state attorneys general asked the court to see that any sale protects its users, children above all, and those conversations; the company told its users they could export their data or delete their accounts."
       ],
@@ -34,6 +34,7 @@
         { "event": "eliza", "note": "Someone to confide in, in 1966." },
         { "event": "character-ai-is-sued-over-a-boy-s-death", "note": "The attachment goes to court." },
         { "event": "parents-sue-openai-over-their-son-s-death", "note": "The claim that it worked as designed." },
+        { "event": "openai-counts-users-in-crisis", "note": "How many, by the maker's own count." },
         { "event": "california-writes-sycophancy-into-law", "note": "The behaviour, named in law." },
         { "event": "eight-states-sue-openai", "note": "Eight states take it to court." },
         { "event": "users-mourn-gpt-4o", "note": "Attachment at the scale of a product." },
@@ -66,12 +67,14 @@
       "question": "Where is all the money going, and is it a bubble?",
       "short": "Upstream, to chips, datacentres and electricity. Whether it is a bubble the record cannot yet say, but it has already shown how fast the market can change its mind.",
       "answer": [
-        "As answers got cheaper, the money moved to what makes them. In June 2024 Nvidia, with about 80% of the market for AI datacentre chips, passed Microsoft at $3.3 trillion to become the most valuable company on earth. Microsoft, Alphabet, Amazon and Meta spent over $200 billion between them on capital expenditure in 2024, much of it on datacentres for cloud and AI, and the laboratories began signing long-term energy contracts.",
+        "As answers got cheaper, the money moved to what makes them. In June 2024 Nvidia, with about 80% of the market for AI datacentre chips, passed Microsoft at $3.3 trillion to become the most valuable company on earth. Microsoft, Alphabet, Amazon and Meta spent over $200 billion between them on capital expenditure in 2024, much of it on datacentres for cloud and AI, and from 2024 the same companies began signing long-term contracts for nuclear power.",
         "The market's nerves showed in January 2025. When DeepSeek released a frontier-level model it said had been trained cheaply, Nvidia lost close to $600 billion of market value in a day, the biggest one-day drop for any company in American history. The claimed cost was disputed, and DeepSeek's own report said it covered only the final training run.",
-        "In 2026 the same thing happened to the firms that sell professional work. When Anthropic released plug-ins for legal and finance work, Thomson Reuters fell nearly 18% in a day, its worst on record."
+        "In 2026 the same thing happened to the firms that sell professional work. When Anthropic released plug-ins for legal and finance work, Thomson Reuters fell nearly 18% in a day, its worst on record.",
+        "Some of the money was offered back. In September 2025 Nvidia signed a letter of intent to invest up to $100 billion in OpenAI as OpenAI deployed ten gigawatts of Nvidia's systems, an arrangement critics called circular. The letter never became a contract: in 2026 Nvidia took a $30 billion stake in OpenAI instead, and guaranteed up to $105 billion of the leases on a campus to be built for it in Ohio. 'OpenAI will pay the lease,' Jensen Huang wrote."
       ],
       "record": [
         { "event": "nvidia-is-the-most-valuable-company-on-earth", "note": "Whoever sells the shovels." },
+        { "event": "nvidia-offers-openai-100-billion", "note": "The seller offers to invest in its buyer." },
         { "event": "the-datacenter-buildout", "note": "Over $200 billion of capital spending in a year." },
         { "event": "power-becomes-a-strategy", "note": "The bottleneck moves to electricity." },
         { "event": "deepseek-r1-resets-the-price-of-reasoning", "note": "The week the moat looked like nothing at all." },
@@ -83,17 +86,17 @@
     {
       "id": "will-ai-take-my-job",
       "question": "Will AI take my job?",
-      "short": "Nobody has the evidence yet. The record shows work being reorganised, coding first and then legal and finance tasks, and the first labour contract to price AI in. The long-term data does not exist.",
+      "short": "Nobody has the evidence yet. The record shows tasks handed to agents, coding first and then legal and finance work, and Hollywood's unions writing terms for AI into their contracts. The long-term data does not exist.",
       "answer": [
-        "Software was first. From 2025 tools that plan, edit and run whole code projects went from novelty to daily use, and the work reorganised around reviewing what they produce. In January 2026 Anthropic released plug-ins that let its agents do legal, finance, sales and data work, and within days investors sold off the firms whose business that work is.",
-        "Workers have also won terms. In 2023 Hollywood's writers and performers settled their strikes with rules on consent and pay for synthetic likenesses and generated scripts: the first major labour contract to price AI use directly.",
+        "Software was first. In 2025 Anthropic, OpenAI and GitHub released agents that edit whole code projects, run their tests and hand the changes back for review. A majority of developers surveyed that summer did not yet use agents; by 2026, 73% of those using AI coding assistants or agents used them daily. In January 2026 Anthropic released plug-ins that let its agents do legal, finance, sales and data work, and within days investors sold off the firms whose business that work is.",
+        "Workers have also won terms. In 2023 Hollywood's writers and performers settled their strikes with rules for AI: generated material cannot cut a writer's credit or fee, and a performer's digital replica needs the performer's consent and is paid for.",
         "What the board does not have is a study that follows workers over years against a control group. It keeps that as a scenario for 2030, filed Uncertain, and expects the result to be messier than either camp predicted."
       ],
       "inPractice": "The pattern so far is that the tasks go first, and then the work is rebuilt around checking them. The board's 2027 scenario, filed Likely, is that reviewing what agents produce becomes the human job.",
       "record": [
-        { "event": "coding-agents-take-the-keyboard", "note": "The first job where agents became normal." },
+        { "event": "coding-agents-take-the-keyboard", "note": "Software, where agents went to work first." },
         { "event": "agents-enter-real-workflows", "note": "The market prices in professional work." },
-        { "event": "hollywood-strikes-settle-ai-terms", "note": "The first contract to price AI use." },
+        { "event": "hollywood-strikes-settle-ai-terms", "note": "A contract puts a price on AI use." },
         { "event": "multi-day-autonomous-work", "note": "The board's scenario for 2027." },
         { "event": "knowledge-work-is-measurably-restructured", "note": "The evidence that does not exist yet." }
       ],
@@ -105,7 +108,7 @@
       "question": "Can I still believe a photo, a video or a voice?",
       "short": "Not without knowing where it came from. Face-swapping spread from 2017 and image generation from 2022; the rules that require labels are only now arriving.",
       "answer": [
-        "Face-swapping tools spread through consumer forums in 2017, and the harm landed on individuals long before it reached institutions.",
+        "Face-swapping tools spread through online forums from the end of 2017, and the harm landed on individuals long before it reached institutions.",
         "In 2022 text-to-image tools reached the public within months of each other, one of them with open weights. A model whose weights are published cannot be recalled: anyone can run it.",
         "Two major markets have now required labels by design. China's labelling rules took effect in September 2025, and since August 2026 the EU's AI Act has required people to be told when they are dealing with an AI system, and synthetic content to be marked as such."
       ],
@@ -132,7 +135,7 @@
       "record": [
         { "event": "amazon-scraps-a-biased-hiring-tool", "note": "A screener that learned the bias in its data." },
         { "event": "gdpr-is-adopted", "note": "Rights around automated decisions." },
-        { "event": "the-eu-ai-act-is-adopted", "note": "The first risk-tiered AI law." },
+        { "event": "the-eu-ai-act-is-adopted", "note": "A law that sorts AI by risk." },
         { "event": "ai-act-obligations-bite", "note": "The high-risk rules, postponed." }
       ],
       "open": "How the postponed high-risk rules will work in practice, and how hard they will be enforced, is still being written.",
@@ -189,7 +192,7 @@
       "answer": [
         "For most of its history the field moved slowly; until the 2010s the board finds one or two events a year. What changed was a combination. In 2012 AlexNet, a neural network trained on two gaming graphics cards, won the ImageNet image-recognition contest with 15.3% error against the runner-up's 26.2%, and computer vision turned to neural networks. The cards were Nvidia's, opened to general computation five years earlier.",
         "In 2017 Google researchers published the transformer, a design that reads a whole passage at once and so can be trained in parallel; size became the lever. In 2020 OpenAI showed that a model's error falls smoothly as its size, its data and its computing budget grow, and the same lab trained GPT-3, with 175 billion parameters, on that bet.",
-        "From there the gains were bought. ChatGPT, a chat interface on an existing model, reached a hundred million users faster than any consumer product before it, and Microsoft, Alphabet, Amazon and Meta spent over $200 billion between them on capital expenditure in 2024, much of it on datacentres. In 2025 reasoning models added a second lever: letting a model think for longer before it answers."
+        "From there the gains were bought. ChatGPT, a chat interface on an existing model, reached a hundred million users faster than any consumer product before it, and Microsoft, Alphabet, Amazon and Meta spent over $200 billion between them on capital expenditure in 2024, much of it on datacentres. In 2024 reasoning models added a second lever: letting a model think for longer before it answers."
       ],
       "record": [
         { "event": "cuda", "note": "Graphics chips, opened to any calculation." },
@@ -210,7 +213,7 @@
       "short": "By 2026: gold at the maths olympiad, software written as a daily tool, legal and finance work, protein structures predicted by the hundred million, and, by its makers' account, an open problem in mathematics settled, though that claim is under review.",
       "answer": [
         "Mathematics is the clearest test, because an answer can be checked. In May 2025 Google DeepMind's AlphaEvolve, a coding agent that searches for better constructions, found a way to multiply two 4×4 complex-valued matrices with 48 multiplications, one fewer than Strassen's method. In July 2025 two general-purpose reasoning models scored 35 of 42 at the International Mathematical Olympiad, writing their proofs in plain language and in time. In 2026 machines helped settle problems posed by Paul Erdős, and in September OpenAI said an internal model, run as some ten thousand agents for 88 hours, had proved a result on the Navier–Stokes equations, one of the Millennium Prize problems. The Clay Institute's review is deliberately unhurried, and one preprint argues that the machine-checked proof does not match the written one.",
-        "Work is the second test. From 2025 coding agents that plan, edit and run whole projects went from novelty to daily use, and in January 2026 Anthropic gave its agents plug-ins for legal, finance, sales and data work. By September METR, which measures how long a task an agent can complete on its own, said its tests could no longer reliably measure beyond about sixteen hours.",
+        "Work is the second test. In 2025 coding agents that edit whole projects and run their tests were released, and by 2026 most developers who used AI coding tools used them daily. In January 2026 Anthropic gave its agents plug-ins for legal, finance, sales and data work. By September METR, which measures how long a task an agent can complete on its own, said its tests could no longer reliably measure beyond about sixteen hours.",
         "Science and games came earlier. In 2020 AlphaFold 2 predicted how proteins fold with accuracy comparable to experiment, and its database now holds over 200 million structures. By 2026 no popular game with a human champion is unbeaten by a program, and the benchmark built to resist that, ARC-AGI-3, was all but saturated within six months of its launch."
       ],
       "inPractice": "A capability is usually announced by the company that built it and checked later. The board records the claim as its maker's and the checking when it arrives: a gold medal graded by the olympiad's own coordinators is a different thing from one graded by judges the company chose.",
@@ -230,15 +233,16 @@
     {
       "id": "who-controls-the-most-powerful-ai",
       "question": "Who controls the most powerful AI?",
-      "short": "A few laboratories, most of them splinters of one another, financed by the largest technology firms and buying their chips from one supplier. When OpenAI's board removed its chief executive in 2023, the staff and the money decided who stayed.",
+      "short": "A few laboratories, some of them founded by people who left another, financed by the largest technology firms and buying their chips from one supplier. When OpenAI's board removed its chief executive in 2023, the staff and the money decided who stayed.",
       "answer": [
-        "The laboratories at the frontier are few, and most began as a split from another. Google bought DeepMind in 2014 for about $500 million. OpenAI was founded in 2015 as a nonprofit, in part, Sam Altman wrote privately to Elon Musk, so that someone other than Google would get there first. Anthropic was started in 2021 by senior OpenAI staff who left over the company's direction and how seriously it took safety.",
-        "Training at the frontier costs more than a nonprofit can raise, so the money came from the largest technology companies. Microsoft put $1 billion into OpenAI in 2019, for capped returns and exclusive use of its cloud, and by 2025 held roughly 27% of what had become a public benefit corporation. In 2026 SpaceX acquired Musk's own laboratory, xAI, in a deal reported to value SpaceX at $1 trillion and xAI at $250 billion.",
+        "The laboratories at the frontier are few, and some began as a split from another. Google bought DeepMind in 2014, for a price reported at $400 million to $650 million. OpenAI was founded in 2015 as a nonprofit, in part, Sam Altman wrote privately to Elon Musk, so that someone other than Google would get there first. Anthropic was started in 2021 by senior OpenAI staff who left over the company's direction and how seriously it took safety.",
+        "Training at the frontier costs more than a nonprofit can raise, so the money came from the largest technology companies. Microsoft put $1 billion into OpenAI in 2019, for capped returns and the role of its exclusive cloud provider, and by 2025 held roughly 27% of what had become a public benefit corporation. In 2026 SpaceX acquired Musk's own laboratory, xAI, in a deal reported to value SpaceX at $1 trillion and xAI at $250 billion.",
         "Who decides inside a laboratory was settled in November 2023, when OpenAI's nonprofit board removed Altman. Within three days 738 of its roughly 770 staff had threatened to leave, Microsoft had offered them all jobs, and by the Tuesday he was back and most of the board was gone.",
-        "Underneath them sits one supplier: Nvidia, which makes most of the chips the models are trained on, became the most valuable company on earth in June 2024. The counterweight is open-weight models, which anyone can download and run: Meta gave away Llama 3.1 405B in 2024, and in January 2025 China's DeepSeek released a reasoning model under the MIT licence that matched the frontier at a fraction of the cost."
+        "Underneath them sits one supplier: Nvidia, which makes most of the chips the models are trained on, became the most valuable company on earth in June 2024. The counterweight is open-weight models, which anyone can download and run: Meta gave away Llama 3.1 405B in 2024, and in January 2025 China's DeepSeek released a reasoning model under the MIT licence that matched the frontier at a fraction of the cost.",
+        "Who decides what a model may be used for went to court in 2026. Anthropic refused to let the Department of War use Claude for mass domestic surveillance or fully autonomous weapons; the President ordered every federal agency to stop using it, and the Pentagon designated it a supply-chain risk. A district court vacated that designation as retaliation, and an appeals court upheld a second one by two votes to one."
       ],
       "record": [
-        { "event": "google-buys-deepmind", "note": "A lab with no product, bought." },
+        { "event": "google-buys-deepmind", "note": "A lab bought largely for its talent." },
         { "event": "musk-and-altman-found-openai", "note": "Founded so that Google would not be first." },
         { "event": "openai-goes-capped-profit-microsoft-puts-in-1bn", "note": "The money arrives, capped." },
         { "event": "anthropic-founded-by-departing-openai-staff", "note": "A split over safety." },
@@ -246,7 +250,8 @@
         { "event": "nvidia-is-the-most-valuable-company-on-earth", "note": "The one supplier." },
         { "event": "deepseek-r1-resets-the-price-of-reasoning", "note": "The frontier, given away." },
         { "event": "openai-converts-the-nonprofit-keeps-a-stake", "note": "The capital gets the company." },
-        { "event": "spacex-buys-xai", "note": "One owner's laboratory, into another of his companies." }
+        { "event": "spacex-buys-xai", "note": "One owner's laboratory, into another of his companies." },
+        { "event": "anthropic-is-named-a-supply-chain-risk", "note": "A laboratory's limits, and the state's answer." }
       ],
       "open": "Whether open-weight models keep the frontier open to newcomers, or the cost of training concentrates it further. The board's 2027 scenario expects the first consolidation of frontier laboratories; one came early, and not in the way the scenario said.",
       "leads": ["the-price-of-intelligence"]
@@ -256,20 +261,24 @@
       "question": "Who makes the rules for AI?",
       "short": "The European Union, with a law that switches on in stages; Washington, through export controls on chips and, for eighteen days, on a model; and, for chatbots and children, California. Between countries there are declarations, not laws.",
       "answer": [
-        "Europe went first and furthest. It wrote rights around automated decisions and personal data in 2016, proposed a risk-tiered AI law in 2021 and adopted it in 2024. The AI Act switches on in stages: duties for the makers of general-purpose models have applied since August 2025, and since August 2026 the European Commission can enforce them, demand information and fine. Its rules for high-risk uses, such as hiring, credit and policing, were put back to December 2027 and August 2028.",
+        "Europe has gone furthest. It wrote rights around automated decisions and personal data in 2016, proposed a risk-tiered AI law in 2021 and adopted it in 2024. The AI Act switches on in stages: duties for the makers of general-purpose models have applied since August 2025, and since August 2026 the European Commission can enforce them, demand information and fine. Its rules for high-risk uses, such as hiring, credit and policing, were put back to December 2027 and August 2028. A second European law reaches the service people use: in August 2026 the Commission designated ChatGPT a very large online search engine under the Digital Services Act, so that from January 2027 OpenAI must assess its risks every year, to minors and to users' mental well-being among them.",
         "The United States has ruled mainly through trade. From October 2022 selling Nvidia's most advanced chips to China needed a licence. In June 2026 the Department of Commerce went further, barring every foreign national from two of Anthropic's models, which in practice switched them off for every customer until the controls were lifted eighteen days later.",
         "Chatbots that talk to children are being regulated state by state. California's SB 243 has been in force since 1 January 2026, and in September 2026 the state added Adam's Law, which requires protocols for suicidal thoughts, sycophancy and isolation, with independent child-safety audits and annual risk assessments.",
+        "California has also written rules for the frontier itself. SB 53, signed in September 2025, requires frontier developers to report critical safety incidents to the state within fifteen days, though the state found that OpenAI's break-in at Hugging Face in 2026 did not meet its threshold. In December 2025 the President ordered a task force to challenge state AI laws until Congress writes a national standard; by October 2026 no list of the laws to challenge had been published, and Congress had passed no preemption.",
         "Some are made in court. In June 2025 a federal judge ruled that training Claude on books was fair use, but that downloading millions of them from pirate libraries was not; Anthropic settled for $1.5 billion before trial, and the case ended before any appeals court ruled.",
-        "Between countries there are declarations rather than laws: twenty-eight signed one on frontier risk at Bletchley Park in November 2023. In 2026 more than a thousand laboratory staff asked Washington to help pace the frontier, and the President answered that the United States was not going to be putting on brakes. Three days later he and six companies signed an accord on outside audits, which he called morally binding; in October his new task force told the laboratories that reporting incidents was not optional, without yet saying what counts as one."
+        "Between countries there are declarations rather than laws: twenty-eight countries and the EU signed one on frontier risk at Bletchley Park in November 2023. In 2026 more than a thousand laboratory staff asked Washington to help pace the frontier, and the President answered that the United States was not going to be putting on brakes. Three days later he and six companies signed an accord on outside audits, which he called morally binding; in October his new task force told the laboratories that reporting incidents was not optional, without yet saying what counts as one."
       ],
       "inPractice": "In the European Union, since August 2026, you must be told when you are dealing with an AI system, and synthetic content must be marked as such; systems already on the market have four months' grace on the marking.",
       "record": [
         { "event": "gdpr-is-adopted", "note": "The template the AI Act follows." },
         { "event": "washington-restricts-the-chips", "note": "A chip becomes a controlled export." },
         { "event": "bletchley-and-the-executive-orders", "note": "A declaration between countries." },
-        { "event": "the-eu-ai-act-is-adopted", "note": "The first comprehensive AI law." },
+        { "event": "the-eu-ai-act-is-adopted", "note": "The first comprehensive AI law, by the EU's account." },
+        { "event": "california-makes-frontier-labs-report-incidents", "note": "Incidents at the frontier, reported by law." },
+        { "event": "trump-orders-a-task-force-against-state-ai-laws", "note": "Washington against the states' laws." },
         { "event": "washington-suspends-foreign-access-to-a-model", "note": "Export control reaches a model." },
         { "event": "ai-act-obligations-bite", "note": "The powers arrive; the high-risk rules slip." },
+        { "event": "chatgpt-becomes-a-very-large-search-engine", "note": "ChatGPT, regulated as a search engine." },
         { "event": "california-writes-sycophancy-into-law", "note": "Chatbots and children, in state law." },
         { "event": "the-labs-ask-to-be-slowed-down", "note": "The laboratories ask, and Washington declines." },
         { "event": "trump-and-six-companies-sign-an-accord-on-audits", "note": "Outside audits, morally binding." },

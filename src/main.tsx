@@ -4,7 +4,6 @@ import App from './App';
 import { loadBoard } from './components/boardChunk';
 import { chunkOf } from './components/viewChunks';
 import { hasPapers, loadPapers, papersFor, papersVersion } from './lib/papers';
-import { predictionsFor } from './lib/predictions';
 import { parse } from './lib/url';
 
 declare global {
@@ -30,14 +29,12 @@ if (prerendered) {
       if (import.meta.env.DEV) console.warn('hydration', err);
     }
   });
-  // The page's own chunk is fetched apart from this script (viewChunks.ts), and
-  // a prediction page prints the whole of Said in advance, which the browser
-  // fetches apart too (predictions.ts); the printed page stays up until both
-  // are here, so the first render is the one the server made.
+  // The page's own chunk is fetched apart from this script (viewChunks.ts),
+  // with the words it prints (lib/bodies/); the printed page stays up until it
+  // is here, so the first render is the one the server made.
   const here = parse(window.location.pathname, window.location.search, window.location.hash);
   const own = chunkOf(here.view);
-  const foretold = predictionsFor(here);
-  if (own || foretold) Promise.all([own && own.load(), foretold]).then(hydrate, hydrate);
+  if (own) own.load().then(hydrate, hydrate);
   else hydrate();
 } else {
   const draw = () => {
@@ -54,10 +51,9 @@ if (prerendered) {
   const board = root.querySelector('[data-board-listing]') ? loadBoard() : null;
   const here = parse(window.location.pathname, window.location.search, window.location.hash);
   const papers = papersFor(here, null);
-  const foretold = predictionsFor(here);
   const own = chunkOf(here.view);
   const chunk = own ? own.load() : null;
-  if (board || papers || foretold || chunk) Promise.all([board, papers, foretold, chunk]).then(draw, draw);
+  if (board || papers || chunk) Promise.all([board, papers, chunk]).then(draw, draw);
   else draw();
 }
 

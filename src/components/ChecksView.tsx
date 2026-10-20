@@ -1,6 +1,8 @@
 import React from 'react';
 import { dayText } from '../lib/data';
 import { CHECKS, VERDICTS, VERDICT_ORDER } from '../lib/checks';
+import { checkInFull } from '../lib/bodies/checks';
+import type { Check } from '../lib/types';
 import { INK, MONO, SANS, SERIF, RULE, ink, micro, shell, pageTitle } from '../lib/styles';
 import { Btn, Eyebrow, Link, PageHead } from './kit';
 import { VerdictMark } from './CheckView';
@@ -10,7 +12,7 @@ import { VerdictMark } from './CheckView';
    headline is still going round. */
 
 function ChecksView() {
-  const checks = CHECKS.slice().sort((a, b) => b.reported.date.localeCompare(a.reported.date));
+  const checks = CHECKS.map((c) => checkInFull(c.id)).filter((c): c is Check => !!c).sort((a, b) => b.reported.date.localeCompare(a.reported.date));
   return (
     <div style={shell('route')}>
       <PageHead

@@ -1,7 +1,8 @@
 import React from 'react';
 import type { Graph, LeadKind, Media, Route } from '../lib/types';
 import { NOW, accent, catLabel } from '../lib/data';
-import { LEADS, leadById, buildLead } from '../lib/leads';
+import { LEADS, buildLead } from '../lib/leads';
+import { leadInFull } from '../lib/bodies/leads';
 import { INK, MONO, SANS, SERIF, RULE, ROW_RULE, PHOTO_FILTER, PLACEHOLDER, badge, frame, ink, micro, shell, pageTitle } from '../lib/styles';
 import { Anchor, Btn, Claim, CopyLink, Eyebrow, Link, NavRow, PageHead, Ref, Section } from './kit';
 import { LadderChart } from './SharedCharts';
@@ -16,7 +17,7 @@ const KIND: Record<LeadKind, string> = { capability: 'Capability', failure: 'Fai
 export interface LeadViewProps { graph: Graph; route: Route; media?: Media | null }
 
 function LeadView({ graph, route, media }: LeadViewProps) {
-  const lead = leadById[route.id as string];
+  const lead = leadInFull(route.id as string);
   if (!lead) {
     return (
       <div style={shell('route')}>

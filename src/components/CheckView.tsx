@@ -1,7 +1,8 @@
 import React from 'react';
 import type { CheckSource, Graph, Route, Verdict } from '../lib/types';
 import { catLabel, dayText } from '../lib/data';
-import { CHECKS, VERDICTS, checkById } from '../lib/checks';
+import { CHECKS, VERDICTS } from '../lib/checks';
+import { checkInFull } from '../lib/bodies/checks';
 import { leadById } from '../lib/leads';
 import { CYAN, GOLD, INK, MONO, RED_LIT, SANS, SERIF, RULE, ROW_RULE, DASHED_RULE, badge, ink, micro, shell, pageTitle } from '../lib/styles';
 import { Btn, CopyLink, Eyebrow, NavRow, PageHead, Quote, Ref, Section } from './kit';
@@ -36,7 +37,7 @@ const Said = ({ src, byline }: { src: CheckSource; byline?: string }) => (
 export interface CheckViewProps { graph: Graph; route: Route }
 
 function CheckView({ graph, route }: CheckViewProps) {
-  const c = checkById[route.id as string];
+  const c = checkInFull(route.id as string);
   if (!c) {
     return (
       <div style={shell('route')}>
