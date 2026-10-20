@@ -13,7 +13,7 @@
       "term": "Machine learning",
       "aka": [],
       "short": "Getting better at a task from data rather than from rules.",
-      "definition": "A name in print by 1953, and in the title of Samuel's checkers paper of 1959, for a program that improves with experience. In practice: a model with adjustable parameters, a measure of how wrong it is, and a procedure that nudges the parameters to be less wrong. Most of the methods on the board after 1988 are variants of this; everything before is mostly rules written by hand."
+      "definition": "A name in print by 1953, and in the title of Samuel's checkers paper of 1959, for a program that improves with experience. In practice: a model with adjustable parameters, a measure of how wrong it is, and a procedure that nudges the parameters to be less wrong. Most of the methods on the board after 1988 are variants of this; many of those before are rules written by hand."
     },
     {
       "id": "neural-network",
@@ -23,7 +23,7 @@
         "neural net"
       ],
       "short": "Layers of simple units, each a weighted sum and a threshold, learned from data.",
-      "definition": "McCulloch and Pitts drew them in 1943 as a model of how the brain's nerve cells work together; Rosenblatt proposed one in 1957, ran it on an IBM 704 in 1958 and then built it as a machine, the Mark I Perceptron; Minsky and Papert showed in 1969 what a single layer could not do; Hinton and others showed in 1986 how to train many layers. The word 'neural' is historical — the units are arithmetic, not biology — and the board keeps it because the field did."
+      "definition": "McCulloch and Pitts drew them in 1943 as a model of how the brain's nerve cells work together; Rosenblatt proposed one in 1957, ran it on an IBM 704 in 1958 and then built it as a machine, the Mark I Perceptron; Minsky and Papert showed in 1969 what a single layer could not do; Rumelhart, Hinton and Williams showed in 1986 how to train networks with hidden layers. The word 'neural' is historical — the units are arithmetic, not biology — and the board keeps it because the field did."
     },
     {
       "id": "perceptron",
@@ -40,8 +40,8 @@
       "aka": [
         "backprop"
       ],
-      "short": "The 1986 method for training networks with more than one layer.",
-      "definition": "Compute how wrong the output is, then work backwards through the layers assigning each weight its share of the blame, and adjust. The chain rule of calculus, applied at scale. It was known earlier and popularised in 1986; it is how every model on the board since has been trained."
+      "short": "The method for training networks with more than one layer, invented several times in the 1970s and 1980s and popularised in 1986.",
+      "definition": "Compute how wrong the output is, then work backwards through the layers assigning each weight its share of the blame, and adjust. The chain rule of calculus, applied at scale. It was known earlier and popularised in 1986; it is how the deep networks on the board since have been trained."
     },
     {
       "id": "deep-learning",
@@ -339,7 +339,7 @@
         "expert systems"
       ],
       "short": "Hand-written if-then rules from a domain expert; the 1980s' product.",
-      "definition": "MYCIN diagnosed infections with a few hundred rules; the 1980s sold thousands of such systems and discovered what they cost to maintain. The second winter is dated from the discovery."
+      "definition": "MYCIN diagnosed infections with a few hundred rules; in the 1980s companies built many such systems and learned what they cost to keep up: by 1987 about half of XCON's 6,200 rules changed every year. The second winter came when the market for the machines built to run them collapsed and doubts grew about what the systems could do."
     },
     {
       "id": "symbolic-ai",
@@ -418,7 +418,7 @@
         "winters"
       ],
       "short": "A fall in funding after promises were not kept — twice, by the usual count.",
-      "definition": "1974 after Lighthill, though the cuts fell on a few elite laboratories while the field grew; 1987 after the expert-systems market found out what rules cost. The board's line has a finding for each. The phrase is used, nervously, about the datacentre buildout."
+      "definition": "1974 after Lighthill, though the cuts fell on a few elite laboratories while the field grew; 1987, when the market for Lisp machines collapsed and doubts grew about what expert systems could do. The board's line has a finding for each. The phrase is used, nervously, about the datacentre buildout."
     },
     {
       "id": "turing-test",
@@ -594,7 +594,7 @@
         "robotics"
       ],
       "short": "A machine that senses and acts in the physical world; the word comes from a 1920 play.",
-      "definition": "Karel Čapek's R.U.R. gave the language the word. The Unimate, which the International Federation of Robotics calls the first industrial robot, started work at a General Motors plant in 1961, and SRI's Shakey planned, perceived and acted, slowly, in 1970. Most of what the board calls AI since has stayed on screens; its scenario for 2033 is the first genuinely useful household robot."
+      "definition": "Karel Čapek's R.U.R. gave the language the word. The Unimate, which the International Federation of Robotics calls the first industrial robot, started work at a General Motors plant in 1961, and SRI's Shakey planned, perceived and acted, slowly, from 1969. Most of what the board calls AI since has stayed on screens; its scenario for 2033 is the first genuinely useful household robot."
     }
   ]
 }

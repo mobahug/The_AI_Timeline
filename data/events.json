@@ -1820,12 +1820,51 @@
   {
     "id": "the-alpac-report",
     "year": 1966,
+    "date": "1966-11",
     "category": "incident",
     "title": "The ALPAC report",
-    "summary": "A US review finds machine translation slower and costlier than humans; funding is cut for a decade.",
+    "summary": "A US review finds machine translation slower and costlier than humans. Substantial American funding of the research ends, for some twenty years by John Hutchins's account.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/ALPAC",
-    "wikiTitle": "ALPAC"
+    "wikiTitle": "ALPAC",
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "National Academy of Sciences, National Research Council, Publication 1416 (scan, The John W. Hutchins Machine Translation Archive, European Association for Machine Translation)",
+        "title": "Language and Machines: Computers in Translation and Linguistics (Automatic Language Processing Advisory Committee)",
+        "url": "https://www.mt-archive.net/50/ALPAC-1966.pdf",
+        "date": "1966-11-01",
+        "quote": "Since JPRS could do the same amount of translation faster and for less than half the price, the Committee is at a loss to understand why the FTD does not rely on the services of the JPRS.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "MT News International, no. 14 (copy in The John W. Hutchins Machine Translation Archive, European Association for Machine Translation)",
+        "title": "ALPAC: the (in)famous report (John Hutchins)",
+        "url": "https://www.mt-archive.net/90/MTNI-1996-Hutchins.pdf",
+        "date": "1996-06-01",
+        "quote": "Its effect was to bring to an end the substantial funding of MT research in the United States for some twenty years.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "The John W. Hutchins Machine Translation Archive, European Association for Machine Translation",
+        "title": "The history of machine translation in a nutshell (John Hutchins)",
+        "url": "https://www.mt-archive.net/10/Hutchins-2014.pdf",
+        "date": "2014-01-01",
+        "quote": "which concluded in a famous 1966 report that MT was slower, less accurate and twice as expensive as human translation",
+        "supports": "claim"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "ALPAC",
+        "url": "https://en.wikipedia.org/wiki/ALPAC",
+        "date": "2026-10-20",
+        "quote": "Its report, issued in 1966, gained notoriety for being very skeptical of research done in machine translation so far, and emphasizing the need for basic research in computational linguistics; this eventually caused the U.S. government to reduce its funding of the topic dramatically.",
+        "supports": "context"
+      }
+    ]
   },
   {
     "id": "2001-a-space-odyssey",
@@ -1988,24 +2027,11 @@
     ]
   },
   {
-    "id": "arpanet-s-first-message",
-    "year": 1969,
-    "category": "adjacent",
-    "title": "ARPANET's first message",
-    "summary": "Two letters transmit before the system crashes. The network that later supplies the training data begins.",
-    "source": "Wikipedia",
-    "url": "https://en.wikipedia.org/wiki/ARPANET",
-    "wikiTitle": "ARPANET",
-    "orgs": [
-      "darpa"
-    ]
-  },
-  {
     "id": "shakey-the-robot",
-    "year": 1970,
+    "year": 1969,
     "category": "product",
     "title": "Shakey the robot",
-    "summary": "SRI's wheeled robot plans, perceives and acts — slowly — becoming the ancestor of every autonomous system.",
+    "summary": "SRI's wheeled robot plans, perceives and acts — slowly. Its methods, IEEE's plaque says, proved seminal in robotics and in the design of web servers, cars, factories, video games and Mars rovers.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/Shakey_the_robot",
     "wikiTitle": "Shakey the robot",
@@ -2015,6 +2041,159 @@
     "terms": [
       "symbolic-ai",
       "search"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "SRI International (Artificial Intelligence Center, Technical Note 323)",
+        "title": "Shakey the Robot (Nils J. Nilsson, ed.): abstract",
+        "url": "https://www.sri.com/publication/artificial-intelligence-pubs/shakey-the-robot-pub/",
+        "date": "1984-04-01",
+        "quote": "Endowed with a limited ability to perceive and model its environment, Shakey could perform tasks that required planning, route-finding, and the rearranging of simple objects.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "SRI International (Artificial Intelligence Center, Technical Note 323; copy hosted by the IEEE History Center's Engineering and Technology History Wiki)",
+        "title": "Shakey the Robot (Nils J. Nilsson, ed.)",
+        "url": "https://ethw-images.s3.us-east-va.perf.cloud.ovh.us/ieee/a/a1/Ref-01_AICTechNote323.pdf",
+        "date": "1984-04-01",
+        "quote": "Since the robot moves very slowly, we have taken great pains to permit the user to view the robot as behaving asynchronously",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Proceedings of the International Joint Conference on Artificial Intelligence, 1969 (ijcai.org)",
+        "title": "A Mobile Automaton: An Application of Artificial Intelligence Techniques (Nils J. Nilsson)",
+        "url": "https://www.ijcai.org/Proceedings/69/Papers/046.pdf",
+        "date": "1969-05-01",
+        "quote": "Commands from the SDS-940 computer to the vehicle and information from the vehicle to the computer are sent over two special radio",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "SRI International",
+        "title": "Shakey the Robot (SRI's history pages)",
+        "url": "https://www.sri.com/hoi/shakey-the-robot/",
+        "date": "2026-10-20",
+        "quote": "Life magazine referred to Shakey as the “first electronic person” in 1970.",
+        "supports": "context"
+      },
+      {
+        "kind": "article",
+        "publisher": "IEEE History Center (Engineering and Technology History Wiki), milestone proposal",
+        "title": "Milestone-Proposal: Shakey: The World’s First Mobile, Intelligent Robot, 1972",
+        "url": "https://ieeemilestones.ethw.org/Milestone-Proposal:Shakey:_The_World%E2%80%99s_First_Mobile,_Intelligent_Robot,_1972",
+        "date": "2016-01-01",
+        "quote": "It took two years of promotional efforts by Rosen to secure a first round of funding from ARPA (a part of the Department of Defense).",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "IEEE History Center (Engineering and Technology History Wiki)",
+        "title": "Milestones: SHAKEY: The World’s First Mobile Intelligent Robot, 1972",
+        "url": "https://ethw.org/Milestones:SHAKEY:_The_World%E2%80%99s_First_Mobile_Intelligent_Robot,_1972",
+        "date": "2017-02-16",
+        "quote": "SHAKEY's software architecture, computer vision, and methods for navigation and planning proved seminal in robotics and in the design of web servers, automobiles, factories, video games, and Mars rovers.",
+        "supports": "claim"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Shakey the robot",
+        "url": "https://en.wikipedia.org/wiki/Shakey_the_robot",
+        "date": "2026-10-20",
+        "quote": "Shakey was developed from approximately 1966 through 1972 with Charles Rosen, Nils Nilsson and Peter Hart as project managers.",
+        "supports": "context"
+      }
+    ]
+  },
+  {
+    "id": "arpanet-s-first-message",
+    "year": 1969,
+    "date": "1969-10-29",
+    "category": "adjacent",
+    "title": "ARPANET's first message",
+    "summary": "Two letters, L and O, reach SRI from UCLA before the computer at SRI crashes; the login works later that night. The network that grows into the internet begins.",
+    "source": "Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/ARPANET",
+    "wikiTitle": "ARPANET",
+    "orgs": [
+      "darpa"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Leonard Kleinrock (UCLA Computer Science Department)",
+        "title": "The Day the Infant Internet Uttered its First Words (Leonard Kleinrock)",
+        "url": "https://www.lk.cs.ucla.edu/internet_first_words.html",
+        "date": "2011-04-06",
+        "quote": "They succeeded in transmitting the \"l\" and the \"o\" and then the system crashed!",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "The Cloudflare Blog (guest post)",
+        "title": "Fifty Years Ago (Steve Crocker and Bill Duvall)",
+        "url": "https://blog.cloudflare.com/fifty-years-ago",
+        "date": "2019-10-29",
+        "quote": "Charley typed G, and there was silence. At SRI, Duvall quickly determined that an echo buffer had been sized too small",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "ICANN Blog (guest post)",
+        "title": "The First Message Transmission (Leonard Kleinrock)",
+        "url": "https://www.icann.org/en/blogs/details/the-first-message-transmission-29-10-2019-en",
+        "date": "2019-10-29",
+        "quote": "The ARPANET’s first host-to-host message was sent at 10:30 p.m. on October 29, 1969 when one of my programmers, Charley Kline, proceeded to “login” to the SRI host from the UCLA host.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Internet Society",
+        "title": "A Brief History of the Internet (Barry M. Leiner, Vinton G. Cerf, David D. Clark, Robert E. Kahn, Leonard Kleinrock, Daniel C. Lynch, Jon Postel, Larry G. Roberts and Stephen Wolff)",
+        "url": "https://www.internetsociety.org/internet/history-internet/brief-history-internet/",
+        "date": "1997-01-01",
+        "quote": "The original ARPANET grew into the Internet.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "DARPA (Innovation Timeline)",
+        "title": "ARPANET",
+        "url": "https://www.darpa.mil/about/innovation-timeline/arpanet",
+        "date": "2026-10-20",
+        "quote": "A seminal step in this sequence took place in 1968 when ARPA contracted BBN Technologies to build the first routers, which one year later enabled ARPANET to become operational.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "World Wide Web Consortium (w3.org)",
+        "title": "Frequently asked questions by the Press (Tim Berners-Lee)",
+        "url": "https://www.w3.org/People/Berners-Lee/FAQ.html",
+        "date": "1998-01-01",
+        "quote": "I was lucky enough to invent the Web at the time when the Internet already existed - and had for a decade and a half.",
+        "supports": "context"
+      },
+      {
+        "kind": "article",
+        "publisher": "Computer History Museum",
+        "title": "The First 50 Years of Living Online: ARPANET and Internet (Marc Weber)",
+        "url": "https://computerhistory.org/blog/history-of-the-future-october-29-1969-fifty-years-of-a-connected-world/",
+        "date": "2019-10-25",
+        "quote": "The bug was quickly fixed, and the connection fully up before they went home.",
+        "supports": "claim"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "ARPANET",
+        "url": "https://en.wikipedia.org/wiki/ARPANET",
+        "date": "2026-10-20",
+        "quote": "The ARPANET was formally decommissioned in 1990, after partnerships with the telecommunication and computer industry had assured private sector expansion and commercialization of an expanded worldwide network, known as the Internet.",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -2022,12 +2201,59 @@
     "year": 1972,
     "category": "research",
     "title": "Prolog",
-    "summary": "Logic programming lets researchers state facts and rules rather than procedures.",
+    "summary": "In Marseille, Alain Colmerauer and Philippe Roussel build Prolog for a system that talks in French. Its programs are facts and rules in logic, run by a theorem prover; Robert Kowalski showed they also read as procedures.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/Prolog",
     "wikiTitle": "Prolog",
     "terms": [
       "symbolic-ai"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "History of Programming Languages II, ACM (Wayback Machine capture of the copy hosted by Alain Colmerauer)",
+        "title": "The Birth of Prolog (Alain Colmerauer and Philippe Roussel)",
+        "url": "https://web.archive.org/web/20220321183535/http://alain.colmerauer.free.fr/alcol/ArchivesPublications/PrologHistory/19november92.pdf",
+        "date": "1992-11-01",
+        "quote": "Our contribution was to transform that theorem prover into a programming language.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Communications of the ACM 31(1) (copy hosted by Robert Kowalski, Imperial College London)",
+        "title": "The Early Years of Logic Programming (Robert A. Kowalski)",
+        "url": "https://www.doc.ic.ac.uk/~rak/papers/the%20early%20years.pdf",
+        "date": "1988-01-01",
+        "quote": "Roussel and Colmerauer designed and implemented the first Prolog system in Algol-W as an adaptation of Roussel’s existing SL-resolution theorem prover.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Handbook of the History of Logic, vol. 9, Elsevier (copy hosted by Robert Kowalski, Imperial College London)",
+        "title": "Logic Programming (Robert Kowalski), quoting his Predicate Logic as Programming Language (1974)",
+        "url": "https://www.doc.ic.ac.uk/~rak/papers/History.pdf",
+        "date": "2014-01-01",
+        "quote": "The interpretation of predicate logic as a programming language is based upon the interpretation of implications",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "Theory and Practice of Logic Programming (arXiv preprint, version 3)",
+        "title": "Fifty Years of Prolog and Beyond (Philipp Körner, Michael Leuschel, João Barbosa, Vítor Santos Costa, Verónica Dahl, Manuel V. Hermenegildo, Jose F. Morales, Jan Wielemaker, Daniel Diaz, Salvador Abreu and Giovanni Ciatto)",
+        "url": "https://arxiv.org/pdf/2201.10816",
+        "date": "2022-03-14",
+        "quote": "The technical objective was to build large parallel computers and apply them in artificial intelligence tasks, with logic programming as the basis, and in particular Prolog.",
+        "supports": "claim"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Prolog",
+        "url": "https://en.wikipedia.org/wiki/Prolog",
+        "date": "2026-10-20",
+        "quote": "the program is a set of facts and rules, which define relations.",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -2166,16 +2392,81 @@
     "year": 1976,
     "category": "product",
     "title": "MYCIN diagnoses infections",
-    "summary": "A rule-based system matches specialists at prescribing antibiotics — and is never deployed.",
+    "summary": "Stanford's MYCIN advises doctors on antibiotics from some 200 rules. In a blinded test on meningitis in 1979, experts accepted 65% of its choices and 42.5 to 62.5% of Stanford specialists'; it never entered routine use.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/Mycin",
-    "why": "Capability was never the blocker for clinical AI. Liability, integration and trust were. Still true.",
+    "why": "Its builders kept it off the wards for what they called mundane reasons, quite separate from its performance: doctors, they judged, felt little need for advice; a consultation meant finding a terminal, logging on and typing answers, many of them lab results already held on other computers, for up to an hour; and its knowledge was too narrow to repay the cost of the computers it ran on. High performance alone, they concluded, was not enough.",
     "wikiTitle": "Mycin",
     "orgs": [
       "stanford"
     ],
     "terms": [
       "expert-system"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Rule-Based Expert Systems: The MYCIN Experiments of the Stanford Heuristic Programming Project, Addison-Wesley (copy hosted by Edward H. Shortliffe, shortliffe.net)",
+        "title": "The Context of the MYCIN Experiments (Bruce G. Buchanan and Edward H. Shortliffe)",
+        "url": "https://www.shortliffe.net/Buchanan-Shortliffe-1984/Chapter-01.pdf",
+        "date": "1984-01-01",
+        "quote": "is an interactive computer program to provide physicians with consultative advice regarding an appropriate choice of antimicrobial therapy",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Rule-Based Expert Systems, Addison-Wesley; condensed from Computer-Based Medical Consultations: MYCIN, Elsevier, 1976 (copy hosted by Edward H. Shortliffe, shortliffe.net)",
+        "title": "Details of the Consultation System (Edward H. Shortliffe)",
+        "url": "https://www.shortliffe.net/Buchanan-Shortliffe-1984/Chapter-05.pdf",
+        "date": "1984-01-01",
+        "quote": "The 200 rules in the original MYCIN system consisted of a premise, an action",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Rule-Based Expert Systems, Addison-Wesley; first published in JAMA 242(12), 21 September 1979 (copy hosted by Edward H. Shortliffe, shortliffe.net)",
+        "title": "An Evaluation of MYCIN’s Advice (Victor L. Yu, Lawrence M. Fagan, Sharon Wraith Bennett, William J. Clancey, A. Carlisle Scott, John F. Hannigan, Robert L. Blum, Bruce G. Buchanan and Stanley N. Cohen)",
+        "url": "https://www.shortliffe.net/Buchanan-Shortliffe-1984/Chapter-31.pdf",
+        "date": "1984-01-01",
+        "quote": "Sixty-five percent of MYCIN’s prescriptions were rated as acceptable by the evaluators.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Rule-Based Expert Systems, Addison-Wesley (copy hosted by Edward H. Shortliffe, shortliffe.net)",
+        "title": "Human Engineering of Medical Expert Systems (Bruce G. Buchanan and Edward H. Shortliffe)",
+        "url": "https://www.shortliffe.net/Buchanan-Shortliffe-1984/Chapter-32.pdf",
+        "date": "1984-01-01",
+        "quote": "we have also noted that MYCIN was never used routinely in patient-care settings.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Rule-Based Expert Systems, Addison-Wesley (copy hosted by Edward H. Shortliffe, shortliffe.net)",
+        "title": "Major Lessons from This Work (Bruce G. Buchanan and Edward H. Shortliffe)",
+        "url": "https://www.shortliffe.net/Buchanan-Shortliffe-1984/Chapter-36.pdf",
+        "date": "1984-01-01",
+        "quote": "We also found that high performance alone was not sufficient reason for a practicing physician (or engineer or technician) to use a consultation program",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "National Research Council (National Academies Press)",
+        "title": "Funding a Revolution: Government Support for Computing Research, chapter 9: Developments in Artificial Intelligence",
+        "url": "https://nap.nationalacademies.org/read/6323/chapter/11",
+        "date": "1999-01-01",
+        "quote": "Moreover, the apparent success of these projects helped to touch off the rapid development of expert systems.",
+        "supports": "claim"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Mycin",
+        "url": "https://en.wikipedia.org/wiki/Mycin",
+        "date": "2026-10-20",
+        "quote": "MYCIN received an acceptability rating of 65%, which was comparable to the 42.5% to 62.5% rating of five faculty members.",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -2224,12 +2515,86 @@
     "year": 1979,
     "category": "product",
     "title": "The Stanford Cart crosses a room",
-    "summary": "Five hours, one obstacle course: the first serious attempt at autonomous visual navigation.",
+    "summary": "Steered by radio from a mainframe that sees through its sliding TV camera, the Stanford Cart weaves round chairs and other obstacles, a metre every ten to fifteen minutes. A 20-metre course takes about five hours.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/Vehicular_automation",
     "wikiTitle": "Vehicular automation",
     "orgs": [
       "stanford"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Stanford University, Computer Science Department (PhD thesis; web edition hosted by the author, Carnegie Mellon University)",
+        "title": "Obstacle Avoidance and Navigation in the Real World by a Seeing Robot Rover: Preface (Hans P. Moravec)",
+        "url": "https://frc.ri.cmu.edu/~hpm/project.archive/robot.papers/1975.cart/1980.html.thesis/index.html",
+        "date": "1980-03-02",
+        "quote": "The program has successfully driven the cart through several 20 meter indoor courses (each taking about five hours) complex enough to necessitate three or four avoiding swerves.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Hans Moravec (Carnegie Mellon University)",
+        "title": "1979: Stanford Cart 3D Localization, Mapping, Navigation (Hans Moravec)",
+        "url": "https://frc.ri.cmu.edu/~hpm/project.archive/robot.papers/2002/Commercial/1979.MRL.html",
+        "date": "2002-01-01",
+        "quote": "a robot called the Cart, radio-linked to a large mainframe computer, slowly negotiated obstacle courses, sliding a TV camera side to side to obtain stereoscopic views.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Stanford University, Computer Science Department (PhD thesis; web edition hosted by the author, Carnegie Mellon University)",
+        "title": "Obstacle Avoidance and Navigation in the Real World by a Seeing Robot Rover, chapter 9: Evaluation (Hans P. Moravec)",
+        "url": "https://frc.ri.cmu.edu/~hpm/project.archive/robot.papers/1975.cart/1980.html.thesis/p09.html",
+        "date": "1980-03-01",
+        "quote": "Three full (about 20 meter) runs were completed, two indoors and one outdoors.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Stanford University, Computer Science Department (PhD thesis; web edition hosted by the author, Carnegie Mellon University)",
+        "title": "Obstacle Avoidance and Navigation in the Real World by a Seeing Robot Rover, chapter 2: History (Hans P. Moravec)",
+        "url": "https://frc.ri.cmu.edu/~hpm/project.archive/robot.papers/1975.cart/1980.html.thesis/p02.html",
+        "date": "1980-03-01",
+        "quote": "Schmidt then wrote a program for the PDP-6 which drove the cart in real time (but with its motors set to run very slowly) along a wide white line.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Hans Moravec (Carnegie Mellon University)",
+        "title": "The Stanford Cart (and SRI's Shakey) (Hans Moravec, slides on robot evolution)",
+        "url": "https://frc.ri.cmu.edu/~hpm/talks/revo.slides/1970.html",
+        "date": "2000-01-01",
+        "quote": "were the first mobile robots controlled by computers (room-sized, radio linked). Both saw with TV cameras.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Proceedings of the IEEE, vol. 71 (1983), reprinted in Autonomous Robot Vehicles, Springer, 1990 (copy hosted by gwern.net)",
+        "title": "The Stanford Cart and the CMU Rover (Hans P. Moravec)",
+        "url": "https://www.gwern.net/doc/reinforcement-learning/robot/1990-moravec.pdf",
+        "date": "1983-07-01",
+        "quote": "The Cart moved 1 m every 10 to 15 min, in lurches.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Stanford University (Stanford Racing Team press kit)",
+        "title": "A timeline of AI at Stanford",
+        "url": "https://cs.stanford.edu/group/roadrunner/presskit/ai_timeline.pdf",
+        "date": "2005-01-01",
+        "quote": "1979: The Stanford Cart, under the tutelage of Hans Moravec, maneuvers across a chair-filled room without any human help.",
+        "supports": "claim"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Vehicular automation",
+        "url": "https://en.wikipedia.org/wiki/Vehicular_automation",
+        "date": "2026-10-20",
+        "quote": "The box rested on 4 bicycle wheels, and had a camera, battery and a radio antenna connecting it wirelessly to a remote computer.",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -2237,19 +2602,19 @@
     "year": 1980,
     "category": "product",
     "title": "Expert systems go commercial",
-    "summary": "DEC's XCON configures computers from rules and saves millions a year; industry decides AI means rules.",
+    "summary": "From January 1980 Digital Equipment Corporation configures its VAX computers with R1, or XCON, a rule-based program John McDermott wrote at Carnegie Mellon. Its success helps draw American firms to expert systems.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/Xcon",
-    "why": "Rules worked, and were the product. What nobody priced was maintaining them, which is the second winter in one sentence.",
+    "why": "The rules worked, and keeping them working had no end in sight. In 1983 Digital's Stephen Polit called maintenance perhaps the most important step, and probably the largest cost; by 1987 about half of XCON's 6,200 rules changed every year, and Digital kept a team on them. Other companies, the National Research Council found, met systems so brittle that a small change in knowledge or practice made them obsolete.",
     "wikiTitle": "Xcon",
     "figures": [
       {
         "label": "XCON's rules",
-        "value": "about 2,500 in 1980; some 10,000 by 1986"
+        "value": "772 in June 1980; 6,200 in 1987; 10,129 in September 1988"
       },
       {
         "label": "Savings claimed",
-        "value": "tens of millions of dollars a year"
+        "value": "over $40 million a year, net, by Digital's own estimate of 1989 for its configuration systems"
       }
     ],
     "orgs": [
@@ -2258,6 +2623,89 @@
     "terms": [
       "expert-system",
       "symbolic-ai"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "AI Magazine 2(2), AAAI (ojs.aaai.org)",
+        "title": "R1: The Formative Years (John McDermott)",
+        "url": "https://ojs.aaai.org/aimagazine/index.php/aimagazine/article/view/100",
+        "date": "1981-09-15",
+        "quote": "The program has been used on a regular basis by Digital Equipment Corporation's manufacturing organization since January of 1980.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Proceedings of the First National Conference on Artificial Intelligence (AAAI-80), AAAI (cdn.aaai.org)",
+        "title": "R1: An Expert in the Computer Systems Domain (John McDermott)",
+        "url": "https://cdn.aaai.org/AAAI/1980/AAAI80-076.pdf",
+        "date": "1980-08-01",
+        "quote": "currently has 772 rules that enable it to perform the task",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "AI Magazine 5(3), AAAI (ojs.aaai.org)",
+        "title": "R1 Revisited: Four Years in the Trenches (Judith Bachant and John McDermott)",
+        "url": "https://ojs.aaai.org/aimagazine/index.php/aimagazine/article/view/445",
+        "date": "1984-09-15",
+        "quote": "In 1980, Digital Equipment Corporation began to use a rule-based system called R1 by some and XCON by others to configure VAX-11 computer systems.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "AI Magazine 5(3), AAAI (ojs.aaai.org), full text",
+        "title": "R1 Revisited: Four Years in the Trenches (Judith Bachant and John McDermott)",
+        "url": "https://ojs.aaai.org/aimagazine/index.php/aimagazine/article/download/445/381",
+        "date": "1984-09-15",
+        "quote": "we expect it to continue to grow and evolve for as long as there is a configuration task",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "AI Magazine 5(4), AAAI (ojs.aaai.org); a presentation at AAAI-83",
+        "title": "R1 and Beyond: AI Technology Transfer at Digital Equipment Corporation (Stephen Polit)",
+        "url": "https://ojs.aaai.org/aimagazine/index.php/aimagazine/article/download/460/396",
+        "date": "1984-12-15",
+        "quote": "The final step, system maintenance, is perhaps the most important one.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Proceedings of the Sixth National Conference on Artificial Intelligence (AAAI-87), AAAI (cdn.aaai.org)",
+        "title": "Assessing the Maintainability of XCON-in-RIME: Coping with the Problems of a VERY Large Rule-Base (Elliot Soloway, Judy Bachant and Keith Jensen)",
+        "url": "https://cdn.aaai.org/AAAI/1987/AAAI87-148.pdf",
+        "date": "1987-07-01",
+        "quote": "Over 7 years, XCON has grown to 6,200 rules, of which approximately 50% change every year.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Communications of the ACM 32(3) (Wayback Machine capture of the ACM Digital Library PDF)",
+        "title": "Expert Systems for Configuration at Digital: XCON and Beyond (Virginia E. Barker and Dennis E. O’Connor, with Judith Bachant and Elliot Soloway)",
+        "url": "https://web.archive.org/web/20240801181433/https://dl.acm.org/doi/pdf/10.1145/62065.62067",
+        "date": "1989-03-01",
+        "quote": "overall the net return to Digital is estimated to be in excess of $40 million per year.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "National Research Council (National Academies Press)",
+        "title": "Funding a Revolution: Government Support for Computing Research, chapter 9: Developments in Artificial Intelligence",
+        "url": "https://nap.nationalacademies.org/read/6323/chapter/11",
+        "date": "1999-01-01",
+        "quote": "these expert systems were extremely \"brittle\" in that a small development in knowledge or change in practice rendered such programs obsolete or too narrow to use.",
+        "supports": "claim"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Xcon",
+        "url": "https://en.wikipedia.org/wiki/Xcon",
+        "date": "2026-10-20",
+        "quote": "XCON first went into use in 1980 in DEC's plant in Salem, New Hampshire, US.",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -2486,23 +2934,81 @@
   {
     "id": "the-terminator",
     "year": 1984,
+    "date": "1984-10-26",
     "category": "culture",
     "title": "The Terminator",
-    "summary": "Skynet enters the vocabulary; every subsequent safety conversation has to work around the image.",
+    "summary": "In James Cameron's film, written with Gale Anne Hurd, Skynet, a defence computer trusted to run everything, turns on humanity and sends a cyborg back to 1984 to kill the mother of the man who will lead the resistance.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/The_Terminator",
-    "wikiTitle": "The Terminator"
+    "why": "The franchise has shaped the public's picture of AI since 1984, a review by the Royal Society and Cambridge's Leverhulme Centre found in 2018: in Britain the Terminator was the image of choice for many news outlets in discussions of AI safety. In 2015 the Future of Life Institute had written that articles illustrated with such robots summed up the very scenario AI researchers do not worry about.",
+    "wikiTitle": "The Terminator",
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "The Internet Movie Script Database (transcription of the fourth draft, 20 April 1983)",
+        "title": "Terminator, screenplay (James Cameron)",
+        "url": "https://imsdb.com/scripts/Terminator.html",
+        "date": "1983-04-20",
+        "quote": "Defense network computer. New. Powerful. Hooked into everything. Trusted to run it all. They say it got smart",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "American Film Institute (AFI Catalog of Feature Films)",
+        "title": "The Terminator (1984)",
+        "url": "https://catalog.afi.com/Catalog/MovieDetails/57224",
+        "date": "2026-10-20",
+        "quote": "Director: James Cameron Writers: James Cameron, Gale Anne Hurd Producer: Gale Anne Hurd",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "The Royal Society and the Leverhulme Centre for the Future of Intelligence",
+        "title": "Portrayals and perceptions of AI and why they matter",
+        "url": "https://royalsociety.org/-/media/policy/projects/ai-narratives/AI-narratives-workshop-findings.pdf",
+        "date": "2018-12-11",
+        "quote": "In the UK, the Terminator is the image of choice for many print and online news media in discussions of AI safety.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Future of Life Institute",
+        "title": "Benefits & Risks of Artificial Intelligence (Ariel Conn)",
+        "url": "https://futureoflife.org/ai/benefits-risks-of-artificial-intelligence/",
+        "date": "2015-11-14",
+        "quote": "On a lighter note, such articles are actually rather impressive, because they succinctly summarize the scenario that AI researchers don’t worry about.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Scientific American",
+        "title": "How New Science Fiction Could Help Us Improve AI (Nick Hilden)",
+        "url": "https://www.scientificamerican.com/article/how-new-science-fiction-could-help-us-improve-ai/",
+        "date": "2024-05-16",
+        "quote": "“When we first started talking about AI risk, every article that came out about our work had a Terminator in it,” says Emilia Javorsky, director of the institute’s Futures program.",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "The Terminator",
+        "url": "https://en.wikipedia.org/wiki/The_Terminator",
+        "date": "2026-10-20",
+        "quote": "The Terminator is a 1984 American science fiction action film directed by James Cameron, who co-wrote it with producer Gale Anne Hurd.",
+        "supports": "context"
+      }
+    ]
   },
   {
     "id": "backpropagation-breaks-through",
     "year": 1986,
-    "date": "1986-10",
+    "date": "1986-10-09",
     "category": "research",
     "title": "Backpropagation breaks through",
-    "summary": "Rumelhart, Hinton and Williams show multi-layer networks can be trained end to end.",
+    "summary": "Rumelhart, Hinton and Williams show that back-propagation, which they call a new learning procedure, can train networks whose hidden units learn features of the task. Werbos, Parker and LeCun had found versions earlier.",
     "source": "Nature",
     "url": "https://www.nature.com/articles/323533a0",
-    "why": "The algorithm was ready in 1986. It waited twenty-five years for data and GPUs.",
+    "why": "It was in use within three years: in 1989 it trained LeCun's reader of zip-code digits, and from 1996 a cheque reader built on his group's networks was fielded in American banks. By the late 1990s, Hinton and his co-authors wrote in 2015, the machine-learning community had largely forsaken it; it had failed, by Hinton's own account, because computers were thousands of times too slow, labelled datasets hundreds of times too small, and deep networks too small and not sensibly initialised.",
     "wikiTitle": "Backpropagation",
     "figures": [
       {
@@ -2517,6 +3023,70 @@
       "backpropagation",
       "neural-network",
       "deep-learning"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Nature (Wayback Machine capture)",
+        "title": "Learning representations by back-propagating errors (David E. Rumelhart, Geoffrey E. Hinton and Ronald J. Williams)",
+        "url": "https://web.archive.org/web/20261001185007/https://www.nature.com/articles/323533a0",
+        "date": "1986-10-09",
+        "quote": "We describe a new learning procedure, back-propagation, for networks of neurone-like units.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "The Nobel Committee for Physics, Royal Swedish Academy of Sciences (nobelprize.org)",
+        "title": "Scientific Background to the Nobel Prize in Physics 2024 (The Nobel Committee for Physics)",
+        "url": "https://www.nobelprize.org/uploads/2024/11/advanced-physicsprize2024-3.pdf",
+        "date": "2024-10-08",
+        "quote": "Rumelhart, Hinton and Williams reinvented a scheme for this, which had previously been applied to related problems by others",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "University of Toronto (Neural Networks for Machine Learning, lecture slides)",
+        "title": "Lecture 13a: The ups and downs of backpropagation (Geoffrey Hinton, with Nitish Srivastava, Kevin Swersky, Tijmen Tieleman and Abdel-rahman Mohamed)",
+        "url": "https://www.cs.toronto.edu/~hinton/coursera/lecture13/lec13.pdf",
+        "date": "2012-11-08",
+        "quote": "The backpropagation algorithm for learning multiple layers of features was invented several times in the 70’s and 80’s",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "Nature (copy hosted by the University of Toronto)",
+        "title": "Deep learning (Yann LeCun, Yoshua Bengio and Geoffrey Hinton)",
+        "url": "https://www.cs.toronto.edu/~hinton/absps/NatureDeepReview.pdf",
+        "date": "2015-05-28",
+        "quote": "In the late 1990s, neural nets and backpropagation were largely forsaken by the machine-learning community and ignored by the computer-vision and speech-recognition communities.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "Advances in Neural Information Processing Systems 2 (NeurIPS proceedings)",
+        "title": "Handwritten Digit Recognition with a Back-Propagation Network (Le Cun, Boser, Denker, Henderson, Howard, Hubbard, Jackel)",
+        "url": "https://proceedings.neurips.cc/paper/1989/file/53c3bce66e43be4f209556518c2fcb54-Paper.pdf",
+        "date": "1990-01-01",
+        "quote": "The method has 1 % error rate and about a 9% reject rate on zipcode digits provided by the U.S. Postal Service.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "Proceedings of the IEEE (copy hosted by gwern.net)",
+        "title": "Gradient-Based Learning Applied to Document Recognition (LeCun, Bottou, Bengio, Haffner)",
+        "url": "https://gwern.net/doc/ai/nn/cnn/1998-lecun.pdf",
+        "date": "1998-11-01",
+        "quote": "It has been fielded in several banks across the United States since June 1996",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Nature",
+        "title": "Learning representations by back-propagating errors (David E. Rumelhart, Geoffrey E. Hinton and Ronald J. Williams)",
+        "url": "https://www.nature.com/articles/323533a0",
+        "date": "1986-10-09",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -2524,13 +3094,123 @@
     "year": 1987,
     "category": "incident",
     "title": "The second AI winter",
-    "summary": "The Lisp machine market collapses almost overnight; expert systems prove brittle and unmaintainable.",
+    "summary": "As cheaper workstations catch up, the market for Lisp machines collapses, and expert systems, which John McCarthy had called brittle, grow harder to change as their rules multiply.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/AI_winter",
     "wikiTitle": "AI winter",
     "terms": [
       "ai-winter",
       "expert-system"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Dan Weinreb's blog (archived by Dan Luu, danluu.com)",
+        "title": "Why Did Symbolics Fail? (Dan Weinreb)",
+        "url": "https://danluu.com/symbolics-lisp-machines/",
+        "date": "2007-11-01",
+        "quote": "The world changed out from under us very quickly. The new “workstation” category of computer appeared: the Suns and Apollos and so on.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Proceedings of the Sixth National Conference on Artificial Intelligence, AAAI-87 (AAAI)",
+        "title": "Assessing the Maintainability of XCON-in-RIME: Coping with the Problems of a VERY Large Rule-Base (Elliot Soloway, Judy Bachant and Keith Jensen)",
+        "url": "https://cdn.aaai.org/AAAI/1987/AAAI87-148.pdf",
+        "date": "1987-07-01",
+        "quote": "While the performance of XCON is satisfactory, it is increasingly becoming more difficult to change.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "AI Magazine, vol. 5, no. 3 (AAAI)",
+        "title": "R1 Revisited: Four Years in the Trenches (Judith Bachant and John McDermott)",
+        "url": "https://ojs.aaai.org/aimagazine/index.php/aimagazine/article/view/445/381",
+        "date": "1984-09-15",
+        "quote": "Depending on the number and type of objects the system is intended to deal with, large amounts of effort may be needed to collect and maintain the information about these objects.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "John McCarthy, Stanford University",
+        "title": "Some Expert Systems Need Common Sense (John McCarthy)",
+        "url": "https://www-formal.stanford.edu/jmc/someneed/someneed.html",
+        "date": "1984-01-01",
+        "quote": "By this is meant that they are difficult to extend beyond the scope originally contemplated by their designers, and they usually don't recognize their own limitations.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "AI Magazine, vol. 6, no. 4 (AAAI)",
+        "title": "CYC: Using Common Sense Knowledge to Overcome Brittleness and Knowledge Acquisition Bottlenecks (Doug Lenat, Mayank Prakash and Mary Shepherd)",
+        "url": "https://ojs.aaai.org/index.php/aimagazine/article/download/510/446",
+        "date": "1985-01-01",
+        "quote": "The recent history of expert systems, for example, highlights how constricting the brittleness and knowledge acquisition bottlenecks are.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Richard P. Gabriel, dreamsongs.com (first published 1991)",
+        "title": "Lisp: Good News, Bad News, How to Win Big (Richard P. Gabriel)",
+        "url": "https://www.dreamsongs.com/WIB.html",
+        "date": "1991-01-01",
+        "quote": "And several companies sprang up to put Common Lisp on stock hardware to compete against the Lisp machine companies.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "AI Magazine, vol. 6, no. 3 (AAAI)",
+        "title": "The Dark Ages of AI: A Panel Discussion at AAAI-84 (Drew McDermott, M. Mitchell Waldrop, B. Chandrasekaran, John McDermott and Roger Schank)",
+        "url": "https://ojs.aaai.org/aimagazine/index.php/aimagazine/article/view/494/430",
+        "date": "1985-09-15",
+        "quote": "This condition, called the “AI Winter” by some, prompted someone to ask me if “nuclear winter” were the situation where",
+        "supports": "context"
+      },
+      {
+        "kind": "paper",
+        "publisher": "The Knowledge Engineering Review, vol. 3 (Cambridge University Press; open-access page at Maximum Academic Press)",
+        "title": "Expert systems—the second wave (Tim Johnson, Julian Hewett, Christine Guilfoyle and Judith Jeffcoate)",
+        "url": "https://www.maxapress.com/article/doi/10.1017/S0269888900004446",
+        "date": "1988-01-01",
+        "quote": "The expert systems business has been through a terrible period in 1987–88.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "National Research Council (National Academies Press)",
+        "title": "Funding a Revolution: Government Support for Computing Research, chapter 9: Developments in Artificial Intelligence",
+        "url": "https://nap.nationalacademies.org/read/6323/chapter/11",
+        "date": "1999-01-01",
+        "quote": "Yet the rapid development of engineering workstations, especially those of Sun Microsystems, Inc., soon undermined the LISP machine industry.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Computer Business Review (archive at Tech Monitor)",
+        "title": "Symbolics to cut 10%, take big charge",
+        "url": "https://www.techmonitor.ai/?p=235706",
+        "date": "1988-01-10",
+        "quote": "The company will reduce its workforce of approximately 730 people by about 10% and the expenses associated with the lay-offs will be included in a substantial charge to second quarter earnings for the period to January 3.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "AIList Digest, vol. 8, no. 44 (archive at Virginia Tech, fox.cs.vt.edu)",
+        "title": "Summary of Spang Robinson Report on Artificial Intelligence, vol. 4, no. 6, June 1988 (Laurence Leff)",
+        "url": "https://fox.cs.vt.edu/VAD1/DOWN/AILIST/V8/N044",
+        "date": "1988-08-12",
+        "quote": "Cuts of between ten and thirty three percent are expected for AI research.",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "AI winter",
+        "url": "https://en.wikipedia.org/wiki/AI_winter",
+        "date": "2026-10-20",
+        "quote": "In 1987, three years after Minsky and Schank's prediction, the market for specialized LISP-based AI hardware collapsed.",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -2538,16 +3218,81 @@
     "year": 1988,
     "category": "research",
     "title": "Statistical machine translation",
-    "summary": "IBM's statistical models learn translation from bilingual corpora instead of hand-written grammar.",
+    "summary": "At IBM, Peter Brown and colleagues propose learning translation by statistics from the Canadian parliament's debates, kept in English and French, with little use of grammar. Their first translations followed in 1990.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/IBM_alignment_models",
-    "why": "Data beats rules — the lesson the field relearns every fifteen years.",
+    "why": "Statistics did not win at once. In ARPA's tests of 1992 and 1993, by the IBM group's account, its system wrote more fluent English than Systran, a commercial system some considered the world's best, but kept less of the meaning. In 2005 Google's statistical system topped NIST's evaluation by the BLEU score, yet most commercial systems, Google said the next year, were still built on rules.",
     "wikiTitle": "IBM alignment models",
     "orgs": [
       "ibm"
     ],
     "terms": [
       "machine-learning"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Proceedings of COLING 1988, Budapest (ACL Anthology)",
+        "title": "A Statistical Approach to Language Translation (P. Brown, J. Cocke, S. Della Pietra, V. Della Pietra, F. Jelinek, R. Mercer and P. Roossin)",
+        "url": "https://aclanthology.org/C88-1016.pdf",
+        "date": "1988-01-01",
+        "quote": "The method is based on the availability of pairs of large corresponding texts that are translations of each other.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "Computational Linguistics 16(2) (ACL Anthology)",
+        "title": "A Statistical Approach to Machine Translation (Peter F. Brown, John Cocke, Stephen A. Della Pietra, Vincent J. Della Pietra, Fredrick Jelinek, John D. Lafferty, Robert L. Mercer and Paul S. Roossin)",
+        "url": "https://aclanthology.org/J90-2002.pdf",
+        "date": "1990-06-01",
+        "quote": "By this criterion, the system performed successfully 48% of the time.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "Computational Linguistics 19(2) (ACL Anthology)",
+        "title": "The Mathematics of Statistical Machine Translation: Parameter Estimation (Peter F. Brown, Vincent J. Della Pietra, Stephen A. Della Pietra and Robert L. Mercer)",
+        "url": "https://aclanthology.org/J93-2003.pdf",
+        "date": "1993-06-01",
+        "quote": "because our algorithms have minimal linguistic content they would work well on other pairs",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "Human Language Technology: Proceedings of a Workshop held at Plainsboro, New Jersey, March 1994 (ACL Anthology)",
+        "title": "The Candide System for Machine Translation (Adam L. Berger, Peter F. Brown, Stephen A. Della Pietra, Vincent J. Della Pietra, John R. Gillett, John D. Lafferty, Robert L. Mercer, Harry Printz and Luboš Ureš)",
+        "url": "https://aclanthology.org/H94-1028.pdf",
+        "date": "1994-03-08",
+        "quote": "Systran .466 .540 .686 .743 Candide .511 .580 .575 .670",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "National Institute of Standards and Technology",
+        "title": "NIST 2005 Machine Translation Evaluation Official Results",
+        "url": "https://www.nist.gov/itl/iad/mltg/nist-2005-machine-translation-evaluation-official-results",
+        "date": "2005-08-01",
+        "quote": "Arabic-to-English Task, Large Data Track Table 1 Site BLEU-4 Score GOOGLE 0.5131",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Google Research blog",
+        "title": "Statistical machine translation live (Franz Och)",
+        "url": "https://research.google/blog/statistical-machine-translation-live/",
+        "date": "2006-04-28",
+        "quote": "Most state-of-the-art commercial machine translation systems in use today have been developed using a rules-based approach and require a lot of work by linguists to define vocabularies and grammars.",
+        "supports": "claim"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "IBM alignment models",
+        "url": "https://en.wikipedia.org/wiki/IBM_alignment_models",
+        "date": "2026-10-20",
+        "quote": "The IBM alignment models were published in parts in 1988 and 1990, and the entire series is published in 1993.",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -2639,12 +3384,61 @@
   {
     "id": "the-world-wide-web-is-proposed",
     "year": 1989,
+    "date": "1989-03",
     "category": "adjacent",
     "title": "The World Wide Web is proposed",
-    "summary": "Tim Berners-Lee's memo begins the accumulation of the corpus that later trains everything.",
+    "summary": "At CERN, Tim Berners-Lee proposes a distributed hypertext system for managing information about the laboratory's accelerators and experiments. In 1990, writing the code, he named it the World Wide Web.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/World_Wide_Web",
-    "wikiTitle": "World Wide Web"
+    "why": "Berners-Lee wrote for CERN's own records, though he called CERN a model in miniature of the rest of the world in a few years' time. Thirty-one years later most of GPT-3's training mix came from the web: 60% was filtered Common Crawl, a crawl of web pages from 2016 to 2019.",
+    "wikiTitle": "World Wide Web",
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "CERN (copy hosted by the World Wide Web Consortium, w3.org)",
+        "title": "Information Management: A Proposal (Tim Berners-Lee)",
+        "url": "https://www.w3.org/History/1989/proposal.html",
+        "date": "1989-03-01",
+        "quote": "This proposal concerns the management of general information about accelerators and experiments at CERN.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "CERN",
+        "title": "A short history of the Web",
+        "url": "https://home.cern/science/computing/the-birth-of-the-web/short-history-web/",
+        "date": "2026-10-20",
+        "quote": "Tim Berners-Lee wrote the first proposal for the World Wide Web in March 1989.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "arXiv (OpenAI)",
+        "title": "Language Models are Few-Shot Learners (Tom B. Brown et al.)",
+        "url": "https://arxiv.org/pdf/2005.14165",
+        "date": "2020-05-28",
+        "quote": "Common Crawl (filtered) 410 billion 60% 0.44 WebText2 19 billion 22% 2.9 Books1 12 billion 8% 1.9 Books2 55 billion 8% 0.43 Wikipedia 3 billion 3% 3.4",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Common Crawl",
+        "title": "Common Crawl: Open Repository of Web Crawl Data",
+        "url": "https://commoncrawl.org/",
+        "date": "2026-10-20",
+        "quote": "Common Crawl maintains a free, open repository of web crawl data that can be used by anyone.",
+        "supports": "claim"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "World Wide Web",
+        "url": "https://en.wikipedia.org/wiki/World_Wide_Web",
+        "date": "2026-10-20",
+        "quote": "The World Wide Web (also known as WWW, W3, or simply the Web) is a global interconnected information system that enables content sharing over the Internet.",
+        "supports": "context"
+      }
+    ]
   },
   {
     "id": "td-gammon",
@@ -7058,7 +7852,7 @@
     "date": "2023-05",
     "category": "power",
     "title": "Hinton leaves Google",
-    "summary": "After ten years inside Google, the man who made backpropagation work resigns so he can say what he thinks about AI without weighing what it costs his employer.",
+    "summary": "After ten years inside Google, one of the three authors of the 1986 backpropagation paper resigns so he can say what he thinks about AI without weighing what it costs his employer.",
     "source": "MIT Technology Review",
     "url": "https://www.technologyreview.com/2023/05/02/1072528/geoffrey-hinton-google-why-scared-ai/",
     "why": "The field's most senior insider becomes its most quoted critic. Every warning that follows carries his name on the work being warned about.",
