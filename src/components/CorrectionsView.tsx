@@ -86,15 +86,15 @@ function CorrectionsView({ graph, route, navigate }: { graph: Graph; route: Rout
   const page = registerPageOf(route);
   // An address can name an entry, or a month, on a page that newer entries
   // have since moved it off: a link from before, or from another site. The
-  // page that prints it now is looked up in the register's heads, which only
+  // page that prints it now is looked up in the register's index, which only
   // a reader sent on needs, and the reader is sent on to it.
   useEffect(() => {
     const hash = route.hash;
     if (!hash || document.getElementById(hash)) return;
     let live = true;
-    import('../lib/corrected').then(({ atRegister, pageOf }) => {
-      const at = pageOf(hash);
-      if (live && at && at !== page) navigate(atRegister(hash), true);
+    import('virtual:register-index').then(({ default: index }) => {
+      const at = Object.hasOwn(index, hash) ? index[hash] : null;
+      if (live && at && at !== page) navigate({ ...pageAt(at), hash }, true);
     }).catch(() => {});
     return () => { live = false; };
   }, [route.hash, page, navigate]);

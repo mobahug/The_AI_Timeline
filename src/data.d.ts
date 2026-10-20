@@ -120,6 +120,12 @@ declare module 'virtual:register-pages' {
   const pages: (() => Promise<{ default: import('./lib/register').RegisterPage }>)[];
   export default pages;
 }
+/* The page of the register that prints each anchor, an entry's or a month's
+   (`m-YYYY-MM`): what a page sends an old address on by. */
+declare module 'virtual:register-index' {
+  const index: Record<string, number>;
+  export default index;
+}
 
 /* The line each plain question, headline check, prediction and promise gives
    each card on its record, and nothing else of its body: what a card's dossier

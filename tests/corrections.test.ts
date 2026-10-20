@@ -136,13 +136,23 @@ describe('the register, a page at a time', () => {
 
   it('knows which page prints each entry and each month, and sends a link there', async () => {
     const { atRegister, pageOf } = await import('../src/lib/corrected');
+    // The index an old address is sent on by: every entry and every month, and
+    // no entry named like a month.
+    const { default: index } = await import('virtual:register-index');
+    const months = [...new Set(ALL.map((c) => 'm-' + c.date.slice(0, 7)))];
+    expect(Object.keys(index).sort()).toEqual([...ALL.map((c) => c.id), ...months].sort());
     PAGES.forEach((p, i) => {
       const n = i + 1;
       p.corrections.forEach((c) => {
         expect(pageOf(c.id), c.id).toBe(n);
+        expect(index[c.id], c.id).toBe(n);
         expect(atRegister(c.id), c.id).toEqual(n === 1 ? { view: 'corrections', hash: c.id } : { view: 'register', id: String(n), hash: c.id });
       });
-      Object.entries(p.months).forEach(([m, { before }]) => { if (before === 0) expect(pageOf('m-' + m), m).toBe(n); });
+      Object.entries(p.months).forEach(([m, { before }]) => {
+        if (before > 0) return;
+        expect(pageOf('m-' + m), m).toBe(n);
+        expect(index['m-' + m], m).toBe(n);
+      });
     });
     expect(pageOf('no-such-entry')).toBeNull();
   });

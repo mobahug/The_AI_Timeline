@@ -28,6 +28,21 @@ export function newestFirst<T extends Entry>(list: readonly T[]): T[] {
     .map(({ c }) => c);
 }
 
+/** The page that prints each anchor: every entry's, and every month's, on the
+ *  page where the month begins. Newer entries move an entry along the pages,
+ *  so an address made before them is sent on by this (scripts/split-events.ts
+ *  serves it as virtual:register-index). */
+export function registerIndex(list: readonly Entry[]): Record<string, number> {
+  const index: Record<string, number> = {};
+  newestFirst(list).forEach((c, i) => {
+    const page = Math.floor(i / PER_PAGE) + 1;
+    const month = 'm-' + c.date.slice(0, 7);
+    index[c.id] = page;
+    if (!index[month]) index[month] = page;
+  });
+  return index;
+}
+
 /** One page of the register, as the build writes it: its entries, and what it
  *  says of the whole register, which no page holds. */
 export interface RegisterPage<T extends Entry = Correction> {

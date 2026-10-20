@@ -20,7 +20,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import type { Plugin } from 'vite';
 import { TAG, entitiesFrom, speaks, wordsOf } from '../src/lib/names.ts';
-import { pageCount, registerPages } from '../src/lib/register.ts';
+import { pageCount, registerIndex, registerPages } from '../src/lib/register.ts';
 import { PAPER_FIELDS } from '../src/lib/types.ts';
 import type { Correction, Entity, EventHead, EventRaw, Named, Papers } from '../src/lib/types.ts';
 
@@ -206,14 +206,18 @@ const moduleOf = (data: unknown): string => 'export default JSON.parse(' + JSON.
 
      data/corrections.json?page=2   the register's second page, each entry whole
      virtual:register-pages         a loader for each page, first to last
+     virtual:register-index         the page that prints each entry, and each month
 
    The loaders ride in the main script, a line each, so a turn to any page of
    the register sends for its entries beside its chunk rather than after it.
    A page keeps the file's shape, `note` and `corrections`, with what it says
-   of the whole register beside them. Where every entry is printed — what a
-   dossier's link and an old address need — is read from the heads. */
+   of the whole register beside them. The index is sent for only by a page
+   asked for an anchor it does not print, an address made before newer
+   entries moved its entry along, to send the reader on. Where a dossier's
+   link points is read from the heads. */
 const REGISTER = fileURLToPath(new URL('../data/corrections.json', import.meta.url));
 const PAGES = 'virtual:register-pages';
+const INDEX = 'virtual:register-index';
 const readRegister = (file: string) => JSON.parse(readFileSync(file, 'utf8')) as { note: string; corrections: Correction[] };
 
 export function splitEvents(): Plugin {
@@ -222,12 +226,16 @@ export function splitEvents(): Plugin {
     // Before Vite's own loader, which would answer any query on the file with
     // the whole of it.
     enforce: 'pre',
-    resolveId(id) { return id === PAGES ? '\0' + PAGES : null; },
+    resolveId(id) { return id === PAGES || id === INDEX ? '\0' + id : null; },
     load(id) {
       if (id === '\0' + PAGES) {
         this.addWatchFile(REGISTER);
         const count = pageCount(readRegister(REGISTER).corrections.length);
         return 'export default [\n' + Array.from({ length: count }, (_, i) => '  () => import(' + JSON.stringify(REGISTER + '?page=' + (i + 1)) + ')').join(',\n') + '\n];\n';
+      }
+      if (id === '\0' + INDEX) {
+        this.addWatchFile(REGISTER);
+        return moduleOf(registerIndex(readRegister(REGISTER).corrections));
       }
       const [file, query] = id.split('?');
       if (!query) return null;
