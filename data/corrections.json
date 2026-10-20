@@ -2,6 +2,626 @@
   "note": "Drawn from the board's own history, this register lists every change of fact the board has made to its record, dated by the commit that made it, and not every change of wording.",
   "corrections": [
     {
+      "id": "svm-extended-a-method-of-1992",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "event": "support-vector-machines",
+      "kind": "attribution",
+      "was": "Cortes and Vapnik's method dominates practical machine learning for a decade;",
+      "now": "Cortes and Vapnik extend Boser, Guyon and Vapnik's margin-maximising algorithm of 1992 to data that cannot be separated without errors.",
+      "why": "The method was not Cortes and Vapnik's alone, and 1995 was not its start. Their paper says the idea behind the support-vector network was previously implemented for training data that can be separated without errors, and that they extend it to non-separable data; it credits Boser, Guyon and Vapnik's paper of 1992, a training algorithm that maximises the margin, with the step that allows polynomial decision surfaces of any degree. That the method then dominated practical machine learning for a decade is in no source found, and the card no longer says it.",
+      "source": {
+        "publisher": "Machine Learning, vol. 20, Kluwer (copy hosted by the University of Illinois Chicago)",
+        "title": "Support-Vector Networks (Corinna Cortes and Vladimir Vapnik)",
+        "url": "https://homepages.math.uic.edu/~lreyzin/papers/cortes95.pdf"
+      }
+    },
+    {
+      "id": "kernel-machines-helped-push-neural-nets-out",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "event": "support-vector-machines",
+      "kind": "fact",
+      "was": "neural nets stay unfashionable.",
+      "now": "Kernel machines like it help push neural networks out of fashion.",
+      "why": "Neural networks were not simply staying unfashionable. Their second wave lasted until the mid-1990s, Goodfellow, Bengio and Courville write, and the decline in their popularity that followed, lasting until 2007, had two causes: ventures that made unrealistically ambitious claims, and the good results of kernel machines, Boser, Guyon and Vapnik's and Cortes and Vapnik's among them, and of graphical models. LeCun, Bengio and Hinton put the forsaking of neural nets by the machine-learning community in the late 1990s.",
+      "source": {
+        "publisher": "MIT Press (the authors' online edition, deeplearningbook.org)",
+        "title": "Deep Learning, chapter 1: Introduction (Ian Goodfellow, Yoshua Bengio and Aaron Courville)",
+        "url": "https://www.deeplearningbook.org/contents/intro.html"
+      }
+    },
+    {
+      "id": "alexnets-rival-used-no-svms",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "where": {
+        "file": "data/links.json",
+        "id": "support-vector-machines>alexnet"
+      },
+      "kind": "fact",
+      "was": "was the method displaced by",
+      "now": "did the classifying for ImageNet's winners before",
+      "why": "AlexNet did not beat support vector machines in 2012. The entry it beat, ISI's, used Fisher vectors with linear classifiers trained by the Passive-Aggressive algorithm, the challenge's organisers record, and the AlexNet paper names its rival only as classifiers trained on Fisher vectors. Support vector machines had been the classifiers of the two winners before it: NEC's stochastic SVM in 2010 and XRCE's one-vs-all linear SVMs in 2011.",
+      "source": {
+        "publisher": "arXiv (full text, version 3)",
+        "title": "ImageNet Large Scale Visual Recognition Challenge (Olga Russakovsky, Jia Deng and others)",
+        "url": "https://arxiv.org/pdf/1409.0575"
+      }
+    },
+    {
+      "id": "google-a-stanford-prototype-in-1998",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "event": "pagerank",
+      "kind": "attribution",
+      "was": "Google turns the link graph into a ranking signal",
+      "now": "At Stanford, Sergey Brin and Larry Page turn the web's link graph into a ranking signal, PageRank, for their prototype search engine, Google",
+      "why": "In 1998 Google was a Stanford research prototype, not yet a company. Sergey Brin and Lawrence Page, PhD candidates at Stanford, presented it in their paper as a prototype of a large-scale search engine, and Stanford filed the PageRank patent in January 1998, with Page as the inventor. Google's own history has Google Inc. officially born in August 1998, with Andy Bechtolsheim's cheque.",
+      "source": {
+        "publisher": "Computer Networks and ISDN Systems, vol. 30 (abstract, Google Research)",
+        "title": "The Anatomy of a Large-Scale Hypertextual Web Search Engine (Sergey Brin and Lawrence Page)",
+        "url": "https://research.google/pubs/the-anatomy-of-a-large-scale-hypertextual-web-search-engine/"
+      }
+    },
+    {
+      "id": "link-graph-not-a-labelled-dataset",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "event": "pagerank",
+      "kind": "fact",
+      "was": " and, incidentally, into the largest labelled dataset yet.",
+      "now": ", and index the words of each link with the page it points to.",
+      "why": "Nothing on the record calls the link graph a labelled dataset, let alone the largest yet, and the card cited no source for it. What Brin and Page's paper says is narrower: Google associates the text of a link with the page the link points to, because anchors often describe a page more accurately than the page itself, and its crawl of 24 million pages indexed over 259 million anchors.",
+      "source": {
+        "publisher": "Stanford InfoLab (copy of infolab.stanford.edu/~backrub/google.html hosted by gwern.net)",
+        "title": "The Anatomy of a Large-Scale Hypertextual Web Search Engine (Sergey Brin and Lawrence Page)",
+        "url": "https://gwern.net/doc/www/infolab.stanford.edu/6f7c60d7e3beb371d089d6b926d4f523a4bdcd5c.html"
+      }
+    },
+    {
+      "id": "roomba-not-the-first-home-robot",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "event": "roomba",
+      "kind": "fact",
+      "was": "The first mass-market home robot",
+      "now": "iRobot's Roomba goes on sale at $199.95, a year after Electrolux's Trilobite.",
+      "why": "Roomba was not the first home robot on sale. Electrolux launched its Trilobite in 2001 and calls it the world's first mass-produced self-going vacuum cleaner; the AI100 study panel of 2016 calls the Trilobite the first commercial home robot, and Roomba, a year later, a tenth of its price. iRobot's own claim at launch was narrower, the first automatic floor vac available in the US; by 2006 it said industry experts and consumers had lauded Roomba as the first true practical and affordable home robot.",
+      "source": {
+        "publisher": "Electrolux Group (electroluxgroup.com)",
+        "title": "Electrolux celebrates 100 years since launch of the LUX 1 vacuum cleaner",
+        "url": "https://electroluxgroup.com/en/?p=14079"
+      }
+    },
+    {
+      "id": "roomba-a-carpet-sweeper-not-suction",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "event": "roomba",
+      "kind": "fact",
+      "was": " sells on suction, not intelligence —",
+      "now": " It cleans with a carpet sweeper and a small vacuum, steered by simple behaviours.",
+      "why": "Suction did little of the cleaning. Its designer, Joe Jones, writes that the enabling innovation was cleaning with a carpet sweeper; a small vacuum, on about a tenth of the robot's 30-watt power budget, went in only after a focus group, told it was a sweeper, halved the price it expected, and the vacuum worked mainly on hard floors. Nor was it sold without intelligence: iRobot named it the Intelligent FloorVac and sold its navigation, which was a few simple behaviours (a spiral, a run along the wall, straight runs, a turn at each bump) on a behaviour-based controller with 512 bytes of memory, by the AI100 panel's account.",
+      "source": {
+        "publisher": "IEEE Spectrum (adapted from Dancing with Roomba, Routledge, 2025)",
+        "title": "How Roomba Got Its Vacuum (Joe Jones)",
+        "url": "https://spectrum.ieee.org/irobot-roomba-history"
+      }
+    },
+    {
+      "id": "roomba-millions-by-2004-and-2006",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "event": "roomba",
+      "kind": "figure",
+      "was": " and ships in millions.",
+      "now": " A million are sold by October 2004, two million by May 2006.",
+      "why": "It did not ship in millions in 2002. iRobot announced more than a million Roombas sold on 25 October 2004 and more than two million on 22 May 2006.",
+      "source": {
+        "publisher": "iRobot (investor.irobot.com, Wayback Machine capture)",
+        "title": "iRobot's Roomba Robotic Floorvac Surpasses 1 Million In Sales",
+        "url": "https://web.archive.org/web/20251215064726/https://investor.irobot.com/node/7746"
+      }
+    },
+    {
+      "id": "roomba-no-source-for-a-lesson-ignored",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "event": "roomba",
+      "kind": "framing",
+      "was": " A lesson ignored repeatedly since.",
+      "now": " Shown it as an automatic floor cleaner, only two of some two dozen people in iRobot's focus groups called Roomba a robot, its designer Joe Jones recalls. In 2016 a Stanford study panel found surprisingly slow growth in the diversity of home robots' applications.",
+      "why": "Nothing on the record says the lesson was ignored, or by whom, so the sentence goes. In its place the reading rests on what the record does say: in Joe Jones's account the focus groups saw an automatic floor cleaner, not a robot, and in 2016 the AI100 study panel, Rodney Brooks among it, found surprisingly slow growth in the diversity of home robots' applications.",
+      "source": {
+        "publisher": "One Hundred Year Study on Artificial Intelligence, Stanford University (ai100.stanford.edu)",
+        "title": "Artificial Intelligence and Life in 2030, Home/Service Robots (Peter Stone, Rodney Brooks and the 2015–2016 Study Panel)",
+        "url": "https://ai100.stanford.edu/2016-report/section-ii-ai-domain/homeservice-robots"
+      }
+    },
+    {
+      "id": "useful-home-robots-since-2002",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "where": {
+        "file": "data/glossary.json",
+        "id": "robot"
+      },
+      "kind": "framing",
+      "was": "its scenario for 2033 is the first genuinely useful household robot.",
+      "now": "its scenario for 2033 is the first genuinely useful general-purpose household robot.",
+      "why": "The record has had a useful household robot since 2002: iRobot sold more than two million Roombas by May 2006, and Simson Garfinkel, reviewing it, found it was not a gimmick and got floors clean. What the 2033 scenario adds is generality, as its card's title, General-purpose robots at home, says.",
+      "source": {
+        "publisher": "iRobot (investor.irobot.com, Wayback Machine capture)",
+        "title": "Sales of iRobot Roomba Vacuuming Robot Surpass 2 Million Units",
+        "url": "https://web.archive.org/web/20251215070341/https://investor.irobot.com/node/7521"
+      },
+      "alsoIn": [
+        {
+          "file": "data/events.json",
+          "id": "general-purpose-robots-at-home"
+        }
+      ]
+    },
+    {
+      "id": "flash-crash-no-trillion-evaporated",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "event": "the-flash-crash",
+      "kind": "figure",
+      "was": "A trillion dollars evaporates from US markets in minutes as automated systems interact unpredictably.",
+      "now": "The Dow and the S&P 500 fall more than 5% in five minutes and almost entirely recover within minutes. Regulators say it began with one large trader's algorithm selling $4.1 billion of futures into a fragile market.",
+      "why": "Nothing evaporated for good. The SEC's chair told the Senate that the broad indexes dropped more than 5% in five minutes and almost entirely reversed the fall within a few minutes more, and the Dow closed the day 3.2% down. The regulators' joint report gives no market-value figure: the trillion dollars is what Senator Jack Reed and NYSE Euronext's chief operating officer told the same Senate subcommittee the Dow's low had briefly erased. Nor did the regulators find systems interacting at random: in the CFTC chairman's account a large trader put a $4.1 billion sale of 75,000 E-Mini contracts into an automated execution algorithm, in markets already frail and volatile.",
+      "source": {
+        "publisher": "U.S. Senate, Committee on Banking, Housing, and Urban Affairs, S. Hrg. 111-922 (U.S. Government Publishing Office, govinfo)",
+        "title": "Examining the Efficiency, Stability, and Integrity of the U.S. Capital Markets: prepared statement of Mary L. Schapiro, Chairman, Securities and Exchange Commission",
+        "url": "https://www.govinfo.gov/content/pkg/CHRG-111shrg65272/html/CHRG-111shrg65272.htm"
+      }
+    },
+    {
+      "id": "flash-crash-not-the-first",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "event": "the-flash-crash",
+      "kind": "framing",
+      "was": "The first mass demonstration that fast autonomous systems fail in ways no single operator can foresee.",
+      "now": "Orders could now ricochet across markets and set off other algorithms in milliseconds, the SEC's chair told the Senate; in 1987 investigators could follow trades on one or two markets. In 2015 the US Justice Department charged a British futures trader, Navinder Sarao, alleging that his manipulation contributed to the crash. In 2016 he pleaded guilty to spoofing and wire fraud.",
+      "why": "No source makes 2010 the first such failure. The SEC's chair set it beside the crash of October 1987, steeper and more lasting though trading then was slower and less reliant on technology, and what she said had changed was that orders could ricochet across markets and trigger algorithmic executions in milliseconds. The card also carried only one account of the cause: five years on, the Justice Department charged Navinder Sarao, alleging that his manipulation contributed to the crash, and in 2016 he pleaded guilty to wire fraud and spoofing. Both accounts are now on the card.",
+      "source": {
+        "publisher": "U.S. Senate, Committee on Banking, Housing, and Urban Affairs, S. Hrg. 111-774 (U.S. Government Publishing Office, govinfo)",
+        "title": "Examining the Causes and Lessons of the May 6th Market Plunge: prepared statement of Mary L. Schapiro, Chairman, Securities and Exchange Commission",
+        "url": "https://www.govinfo.gov/content/pkg/CHRG-111shrg62513/html/CHRG-111shrg62513.htm"
+      }
+    },
+    {
+      "id": "flash-crash-explained-within-five-months",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "event": "an-agent-driven-market-event",
+      "kind": "fact",
+      "was": "The 2010 flash crash took five years to explain, and the explanation was one trader.",
+      "now": "Regulators explained the 2010 flash crash within five months, starting from one large trader's selling algorithm in a fragile market; five years later prosecutors charged another trader, Navinder Sarao, with manipulation they said had contributed to it.",
+      "why": "The crash had an explanation within five months, in the regulators' joint report released on 1 October 2010, which in the CFTC chairman's account began with a large trader's $4.1 billion sale put into an automated execution algorithm. The trader charged in 2015 was another, and even then the Justice Department said only that his manipulation contributed to the drop; the CFTC's consent order of November 2016 found that his orders added to an extreme order-book imbalance, which, the regulators' preliminary findings had said, contributed to the crash in conjunction with other market events.",
+      "source": {
+        "publisher": "Commodity Futures Trading Commission (copy hosted by Mondo Visione)",
+        "title": "Federal Court in Chicago Orders U.K. Resident Navinder Singh Sarao to Pay More than $38 Million in Monetary Sanctions for Price Manipulation and Spoofing",
+        "url": "https://mondovisione.com/news/cftc-federal-court-in-chicago-orders-uk-resident-navinder-singh-sarao-to-pay-20161117/"
+      }
+    },
+    {
+      "id": "siri-on-one-phone-in-beta",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "event": "siri-ships",
+      "kind": "fact",
+      "was": "A voice assistant in every pocket",
+      "now": "Apple's iPhone 4S goes on sale with Siri, an assistant that, Apple says, helps you get things done just by asking. Apple releases it in beta, in English, French and German",
+      "why": "Not every pocket: Siri came on one phone, the iPhone 4S, in beta and in English, French and German, by Apple's release of 4 October 2011; owners of the iPhone 4 and 3GS got iOS 5 but not Siri. The phone went on sale on 14 October in seven countries, and Apple sold four million in the first three days.",
+      "source": {
+        "publisher": "Apple (Apple Newsroom)",
+        "title": "Apple Launches iPhone 4S, iOS 5 & iCloud",
+        "url": "https://www.apple.com/newsroom/2011/10/04Apple-Launches-iPhone-4S-iOS-5-iCloud/"
+      }
+    },
+    {
+      "id": "siri-expectations-a-reading",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "event": "siri-ships",
+      "kind": "framing",
+      "was": " sets expectations the technology cannot yet meet.",
+      "now": ".",
+      "why": "That the technology could not meet the expectation is a reading, and the card stated it as fact. The accounts differ: John Gruber, reviewing the phone, found that so many of the things he tried actually worked; Mat Honan of Gizmodo, after more than a month, called Siri a broken promise, and its beta label no disclaimer for buyers who saw the ads. The reading now sits in the card's why with both accounts.",
+      "source": {
+        "publisher": "Gizmodo",
+        "title": "Siri Is Apple’s Broken Promise (Mat Honan)",
+        "url": "https://gizmodo.com/siri-is-apples-broken-promise-5864293"
+      }
+    },
+    {
+      "id": "word-vectors-older-than-word2vec",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "event": "word2vec",
+      "kind": "fact",
+      "was": "Words become vectors with arithmetic —",
+      "now": "Tomas Mikolov's team at Google trains word vectors on 1.6 billion words in under a day, and the offsets between them hold relations:",
+      "why": "Words did not become vectors in 2013. The word2vec paper itself says that representing words as continuous vectors has a long history, and Bengio's neural language model of 2003 learned a vector for each word. What Mikolov, Chen, Corrado and Dean claimed was cost: high-quality vectors from 1.6 billion words in less than a day. The king and queen example stands in the tool's own words: vector('king') - vector('man') + vector('woman') is close to vector('queen').",
+      "source": {
+        "publisher": "arXiv",
+        "title": "Efficient Estimation of Word Representations in Vector Space (Tomas Mikolov, Kai Chen, Greg Corrado and Jeffrey Dean)",
+        "url": "https://arxiv.org/abs/1301.3781"
+      },
+      "alsoIn": [
+        {
+          "file": "data/glossary.json",
+          "id": "word-embedding"
+        }
+      ]
+    },
+    {
+      "id": "word2vec-did-not-make-everything-possible",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "event": "word2vec",
+      "kind": "framing",
+      "was": "Meaning as geometry: the representational idea that makes everything after it possible.",
+      "now": "Word vectors were older: Bengio's language model learned them in 2003. King minus man plus woman came from Mikolov's paper with Microsoft colleagues, on a recurrent network's vectors. What was new was the cost, and Google gave the code away. By 2018 the BERT paper called pre-trained word embeddings an integral part of modern NLP systems.",
+      "why": "Nothing on the record makes word2vec the idea that made everything after it possible. Its authors cite word vectors back to 1986, and the king and queen sum the card leads with was Mikolov's result with Wen-tau Yih and Geoffrey Zweig at Microsoft Research, on vectors learned by a recurrent-network language model; the word2vec paper cites it as already shown. What the record does carry is the lower cost, Google's open-source release of August 2013, and, in 2018, BERT's authors calling pre-trained word embeddings an integral part of modern NLP systems.",
+      "source": {
+        "publisher": "Proceedings of NAACL-HLT 2013 (ACL Anthology)",
+        "title": "Linguistic Regularities in Continuous Space Word Representations (Tomas Mikolov, Wen-tau Yih and Geoffrey Zweig)",
+        "url": "https://aclanthology.org/N13-1090.pdf"
+      }
+    },
+    {
+      "id": "elmo-made-word-vectors-contextual-first",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "where": {
+        "file": "data/links.json",
+        "id": "word2vec>bert-and-gpt-1"
+      },
+      "kind": "attribution",
+      "was": "was made contextual by",
+      "now": "was taken beyond single words by",
+      "why": "BERT and GPT-1 did not make word vectors contextual first. The BERT paper credits ELMo and its predecessor with extracting context-sensitive features from language models run left to right and right to left, and ELMo's deep contextualised word representations were posted in February 2018, before either. What GPT-1 claims for itself is what the string now says: word embeddings mainly transfer word-level information, whereas it aims to capture higher-level semantics.",
+      "source": {
+        "publisher": "arXiv (full text)",
+        "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding (Jacob Devlin, Ming-Wei Chang, Kenton Lee and Kristina Toutanova)",
+        "url": "https://arxiv.org/pdf/1810.04805"
+      }
+    },
+    {
+      "id": "word-embedding-not-every-language-model",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "where": {
+        "file": "data/glossary.json",
+        "id": "word-embedding"
+      },
+      "kind": "fact",
+      "was": "Every language model since represents its input this way.",
+      "now": "The transformer of 2017 learns them for its input tokens too.",
+      "why": "No source says every language model since 2013 represents its input this way, and n-gram models, which Mikolov, Yih and Zweig describe as working in discrete units with no inherent relationship to one another, do not. Neural language models had learned their own word vectors since Bengio's of 2003, and the transformer paper says it uses learned embeddings to convert its input and output tokens to vectors; the line now says only that.",
+      "source": {
+        "publisher": "arXiv (full text)",
+        "title": "Attention Is All You Need (Ashish Vaswani and others)",
+        "url": "https://arxiv.org/pdf/1706.03762"
+      }
+    },
+    {
+      "id": "resnet-claimed-nothing-about-people",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "event": "resnet-passes-human-error-rates",
+      "kind": "attribution",
+      "was": "ResNet passes human error rates",
+      "now": "ResNet goes 152 layers deep",
+      "why": "The ResNet paper makes no claim about people: the word human appears in it only in the title of a reference. That reference, the same team's paper of February 2015, claimed the first result to surpass human-level performance, 4.94% against 5.1%, and Google's batch-normalisation paper reported 4.8% five days later. By 14 February Andrej Karpathy, whose 5.1% it was, counted several results past it. What the ResNet paper claims is depth, residual nets of up to 152 layers, and first place in the 2015 challenge.",
+      "source": {
+        "publisher": "arXiv",
+        "title": "Delving Deep into Rectifiers: Surpassing Human-Level Performance on ImageNet Classification (Kaiming He, Xiangyu Zhang, Shaoqing Ren and Jian Sun)",
+        "url": "https://arxiv.org/abs/1502.01852"
+      }
+    },
+    {
+      "id": "human-error-rate-was-one-annotators",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "event": "resnet-passes-human-error-rates",
+      "kind": "attribution",
+      "was": "beat human accuracy on ImageNet.",
+      "now": "win ImageNet's 2015 challenge with 3.57% top-5 error, below the 5.1% one trained annotator, Andrej Karpathy, had scored.",
+      "why": "Human accuracy on ImageNet was one person's figure. The challenge's organisers report that their annotator A1, trained on the classes, made 5.1% top-5 errors on 1,500 test images, and that a second annotator, trained on 100 images, made 12.0% on 258; Karpathy, one of the paper's authors, gives the 5.1% as his own and writes that human accuracy is not a point but lies on a trade-off curve. ResNet's ensemble of six models made 3.57% on the test set and won the 2015 classification task.",
+      "source": {
+        "publisher": "arXiv (full text, version 3)",
+        "title": "ImageNet Large Scale Visual Recognition Challenge (Olga Russakovsky, Jia Deng and others)",
+        "url": "https://arxiv.org/pdf/1409.0575"
+      }
+    },
+    {
+      "id": "weapons-letter-asked-for-a-ban",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "event": "the-autonomous-weapons-letter",
+      "kind": "fact",
+      "was": "Thousands of researchers sign an open letter opposing offensive autonomous weapons.",
+      "now": "AI and robotics researchers call for a ban on offensive autonomous weapons beyond meaningful human control. The Future of Life Institute counts over 1,700 of them at the launch and over 3,000 by the year's end.",
+      "why": "The letter asked for a ban, not only for opposition, and only on offensive autonomous weapons beyond meaningful human control, as its closing sentence says. Thousands had not signed at the launch: the Future of Life Institute counted over 1,700 AI and robotics researchers and over 11,000 others when Stuart Russell and Toby Walsh announced it in Buenos Aires, and over 3,000 researchers and 17,000 others by the end of 2015. The Guardian, a day earlier, reported over 1,000. The record note on Google's weapons pledge in Promises made repeated the summary and now says what the letter asked.",
+      "source": {
+        "publisher": "Future of Life Institute",
+        "title": "Open letter on AI weapons (Max Tegmark)",
+        "url": "https://futureoflife.org/ai/open-letter-on-ai-weapons/"
+      }
+    },
+    {
+      "id": "weapons-letter-not-the-first-call",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "event": "the-autonomous-weapons-letter",
+      "kind": "framing",
+      "was": "The research community's first collective attempt to set a red line ahead of capability.",
+      "now": "Researchers tried to draw a line ahead of the weapons, whose deployment, the letter said, was feasible within years, not decades. They were not the first to try: in 2013 more than 270 engineers, computing and AI experts and roboticists, gathered by the International Committee for Robot Arms Control, had called for a ban on weapons that make the decision to use violent force themselves.",
+      "why": "The letter was not the research community's first collective attempt. In October 2013 the International Committee for Robot Arms Control published a call, signed by 272 engineers, computing and artificial intelligence experts and roboticists from 37 countries, for a ban on weapon systems that make the decision to apply violent force autonomously. The line drawn ahead of the weapons is the letter's own framing: it says their deployment is feasible within years, not decades. The reading of Google's weapons pledge in Promises made repeated both errors and is corrected with them.",
+      "source": {
+        "publisher": "International Committee for Robot Arms Control (ICRAC)",
+        "title": "Computing experts from 37 countries call for ban on killer robots",
+        "url": "https://www.icrac.net/computing-experts-from-37-countries-call-for-ban-on-killer-robots/"
+      }
+    },
+    {
+      "id": "supply-chain-label-followed-two-lines",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "where": {
+        "file": "data/links.json",
+        "id": "the-autonomous-weapons-letter>anthropic-is-named-a-supply-chain-risk"
+      },
+      "kind": "framing",
+      "was": "For holding to it, the Department of War designated it a supply-chain risk.",
+      "now": "When it held to that line, and to a second against mass domestic surveillance, the Department of War designated it a supply-chain risk.",
+      "why": "Anthropic held two lines, not one: the Department wanted any lawful use, and threatened the designation, Amodei wrote, if Anthropic kept its safeguards on mass domestic surveillance as well as on fully autonomous weapons. Why the label followed is contested on the record: a district court found it was retaliation for Anthropic's public criticism, and the appeals court in Washington called the dispute contractual. The note now says when, not why.",
+      "source": {
+        "publisher": "Anthropic",
+        "title": "Statement from Dario Amodei on our discussions with the Department of War",
+        "url": "https://www.anthropic.com/news/statement-department-of-war"
+      }
+    },
+    {
+      "id": "automated-decision-right-dates-from-1995",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "event": "gdpr-is-adopted",
+      "kind": "fact",
+      "was": "Europe writes rights around automated decisions and personal data two years before enforcement begins.",
+      "now": "The EU adopts the General Data Protection Regulation in place of its 1995 directive. It keeps the right not to be subject to decisions based solely on automated processing, and applies from 25 May 2018.",
+      "why": "The rights were not new in 2016. The data-protection directive of 1995, which the European Parliament's release on the final vote says the reform replaces, already required Member States to grant every person the right not to be subject to a decision based solely on automated processing (its Article 15); the regulation's Article 22 keeps that right. For 25 May 2018 the regulation's own word is apply (Article 99), and it is the day the directive is repealed (Article 94), when one law took over from the other; the card now uses the regulation's word.",
+      "source": {
+        "publisher": "Official Journal of the European Communities (copy hosted by legislation.gov.uk, The National Archives)",
+        "title": "Directive 95/46/EC of 24 October 1995 on the protection of individuals with regard to the processing of personal data and on the free movement of such data (as adopted)",
+        "url": "https://www.legislation.gov.uk/eudr/1995/46/pdfs/eudr_19950046_adopted_en.pdf"
+      },
+      "alsoIn": [
+        {
+          "file": "data/questions.json",
+          "id": "is-ai-making-decisions-about-me"
+        },
+        {
+          "file": "data/questions.json",
+          "id": "who-makes-the-rules-for-ai"
+        }
+      ]
+    },
+    {
+      "id": "gdpr-template-is-the-boards-reading",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "event": "gdpr-is-adopted",
+      "kind": "framing",
+      "was": "Sets the template — extraterritorial, risk-based, slow-burning — that the AI Act later follows.",
+      "now": "It reaches companies outside the Union, scales its duties to risk, and applied only from May 2018, two years after its adoption. The board reads it as the template for the AI Act, whose proposal of 2021 says it complements the GDPR.",
+      "why": "That the AI Act follows the GDPR's template is the board's reading, not the record's, and the card now says so. The Commission's proposal of 2021 says it is without prejudice to the GDPR and complements it, and that the checks on stand-alone high-risk systems follow the model of the New Legislative Framework, the EU's law on marketing products. The three features the card names are the GDPR's own: its Article 3 reaches controllers outside the Union, its Article 24 scales a controller's measures to the risks, and its Article 99 applies it from 25 May 2018, two years after its adoption; the Commission's statement on the adoption says non-EU companies offering services in the EU must apply the same rules.",
+      "source": {
+        "publisher": "EUR-Lex (Wayback Machine capture)",
+        "title": "Proposal for a Regulation laying down harmonised rules on artificial intelligence (Artificial Intelligence Act), COM(2021) 206 final",
+        "url": "https://web.archive.org/web/20260926150823/https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A52021PC0206"
+      },
+      "alsoIn": [
+        {
+          "file": "data/links.json",
+          "id": "gdpr-is-adopted>the-eu-proposes-the-ai-act"
+        },
+        {
+          "file": "data/questions.json",
+          "id": "who-makes-the-rules-for-ai"
+        }
+      ]
+    },
+    {
+      "id": "amazon-tool-dropped-by-2017",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "event": "amazon-scraps-a-biased-hiring-tool",
+      "kind": "date",
+      "was": "Amazon scraps a biased hiring tool",
+      "now": "Amazon's biased hiring tool comes to light",
+      "why": "Amazon did not scrap the tool in 2018. By Reuters' account the team behind it was disbanded by the start of 2017; what happened in 2018, on 10 October, was Reuters' report, the first of the experiment. The card keeps its year and its id; the title now says what the year holds.",
+      "source": {
+        "publisher": "Reuters (copy hosted by CNBC)",
+        "title": "Amazon scraps secret AI recruiting tool that showed bias against women (Jeffrey Dastin)",
+        "url": "https://www.cnbc.com/2018/10/10/amazon-scraps-a-secret-ai-recruiting-tool-that-showed-bias-against-women.html"
+      }
+    },
+    {
+      "id": "amazons-statement-beside-reuters",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "event": "amazon-scraps-a-biased-hiring-tool",
+      "kind": "attribution",
+      "was": "A résumé screener trained on a decade of applications learns to penalise women and is abandoned.",
+      "now": "Reuters reports that Amazon's résumé screener, trained on a decade of applications mostly from men, learned to prefer men; its team was disbanded by 2017. Amazon says recruiters never used it to evaluate candidates.",
+      "why": "Everything known of the screener comes from Reuters' report of 10 October 2018, resting on five people familiar with the effort: the models were trained on résumés submitted over ten years, most of them from men, and taught themselves that male candidates were preferable. The team was disbanded by the start of 2017, because executives lost hope for the project, not in 2018 and not, on that account, for the bias alone. Amazon's own word, given to Reuters, is that the tool was never used by its recruiters to evaluate candidates; the card now carries it beside the report. The register's earlier correction, applications rather than hires, stands. Reuters' sources, that recruiters looked at its recommendations but never relied on them alone, now stand in the card's file beside Amazon's word.",
+      "source": {
+        "publisher": "Reuters (copy hosted by Global News)",
+        "title": "Amazon scraps secret AI recruiting tool that showed bias against women (Jeffrey Dastin)",
+        "url": "https://globalnews.ca/news/4532172/amazon-jobs-ai-bias/"
+      },
+      "alsoIn": [
+        {
+          "file": "data/questions.json",
+          "id": "is-ai-making-decisions-about-me"
+        }
+      ]
+    },
+    {
+      "id": "amazon-trained-on-applications-not-decisions",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "where": {
+        "file": "data/questions.json",
+        "id": "is-ai-making-decisions-about-me"
+      },
+      "kind": "fact",
+      "was": "A model trained on past decisions inherits their history.",
+      "now": "A model trained on past applications inherits their history.",
+      "why": "The screener was not trained on past decisions but, by Reuters' account, on résumés submitted to Amazon over ten years, the point of the register's correction of 11 September 2026 (applications, not hires).",
+      "source": {
+        "publisher": "Reuters (copy hosted by Global News)",
+        "title": "Amazon scraps secret AI recruiting tool that showed bias against women (Jeffrey Dastin)",
+        "url": "https://globalnews.ca/news/4532172/amazon-jobs-ai-bias/"
+      }
+    },
+    {
+      "id": "ai-act-proposal-listed-not-made-high-risk",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "where": {
+        "file": "data/links.json",
+        "id": "amazon-scraps-a-biased-hiring-tool>the-eu-proposes-the-ai-act"
+      },
+      "kind": "framing",
+      "was": "is the kind of system made high-risk by",
+      "now": "is the kind of system listed as high-risk in",
+      "why": "A proposal makes nothing high-risk. The Commission's proposal of 21 April 2021 identified as high-risk AI used in employment, workers management and access to self-employment, for example CV-sorting software for recruitment procedures, which is what Amazon's screener was. The classification became law with the Act adopted in 2024, whose obligations for such systems now apply from 2 December 2027, as the board's card on them records.",
+      "source": {
+        "publisher": "European Commission (press release IP/21/1682)",
+        "title": "Europe fit for the Digital Age: Commission proposes new rules and actions for excellence and trust in Artificial Intelligence",
+        "url": "https://ec.europa.eu/commission/presscorner/detail/en/ip_21_1682"
+      }
+    },
+    {
+      "id": "gpt1-and-bert-did-not-invent-the-recipe",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "event": "bert-and-gpt-1",
+      "kind": "attribution",
+      "was": "Pretrain on unlabelled text, then fine-tune: the recipe that becomes the default for language.",
+      "now": "OpenAI pretrains a transformer on unlabelled text to predict the next word, then fine-tunes it for each task. In October Google's BERT learns instead by filling in masked words, reading both ways at every layer.",
+      "why": "The recipe was older than both papers, and both said so. OpenAI called its approach a combination of two existing ideas, transformers and unsupervised pre-training, built on Andrew Dai and Quoc Le's semi-supervised sequence learning of 2015 and extending ULMFiT; Google said BERT built on that work, on ELMo and on OpenAI's. The summary now says what each paper did: OpenAI's pretrained a transformer language model and fine-tuned it task by task, and BERT, posted on 11 October 2018, learned by predicting masked words from both sides in all its layers. That the recipe became the default moves to the card's reading, as Stanford's account: its foundation-models report of 2021 says that after 2019 using BERT became the norm.",
+      "source": {
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "Improving Language Understanding with Unsupervised Learning",
+        "url": "https://web.archive.org/web/20180613194942/https://blog.openai.com/language-unsupervised/"
+      },
+      "alsoIn": [
+        {
+          "file": "data/links.json",
+          "id": "attention-is-all-you-need>bert-and-gpt-1"
+        }
+      ]
+    },
+    {
+      "id": "gpt-3-scaled-only-the-gpt-line",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "where": {
+        "file": "data/links.json",
+        "id": "bert-and-gpt-1>gpt-3"
+      },
+      "kind": "fact",
+      "was": "scaled into",
+      "now": "had their GPT half scaled into",
+      "why": "Only GPT-1's line scaled into GPT-3. GPT-3's paper says it used GPT-2's model and architecture, and GPT-2's paper that its model largely followed GPT-1's; GPT-3's experiments, its authors wrote, did not include any bidirectional architectures, which is what BERT was. GPT-3 also dropped the fine-tuning both 2018 papers relied on, and was given its tasks in the prompt.",
+      "source": {
+        "publisher": "arXiv (OpenAI)",
+        "title": "Language Models are Few-Shot Learners (Brown et al.)",
+        "url": "https://arxiv.org/pdf/2005.14165v1"
+      }
+    },
+    {
+      "id": "transformer-almost-every-llm",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "where": {
+        "file": "data/glossary.json",
+        "id": "transformer"
+      },
+      "kind": "fact",
+      "was": "The 2017 architecture built entirely from attention; every large language model since.",
+      "now": "The 2017 architecture built entirely from attention; almost every large language model since.",
+      "why": "Not every large language model since 2017 has been a transformer: in 2023 the RWKV team trained a recurrent network of 14 billion parameters, by far the largest dense RNN ever trained by its paper's account, and found it on par with transformers of its size. The attention card was corrected to say almost every on 12 October 2026; this line and the primer's were not. The primer's line on the transformer said every as well, and is corrected with it.",
+      "source": {
+        "publisher": "arXiv",
+        "title": "RWKV: Reinventing RNNs for the Transformer Era (Bo Peng and others)",
+        "url": "https://arxiv.org/abs/2305.13048"
+      }
+    },
+    {
+      "id": "audio-not-in-openais-model-in-2023",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "event": "multimodal-models",
+      "kind": "fact",
+      "was": "Images, audio and text enter the same context window; assistants stop being text boxes.",
+      "now": "GPT-4 accepts images as well as text; from September ChatGPT can look at photos and talk, its voice run by separate speech models. In December Google says Gemini was trained on text, images, audio and video together.",
+      "why": "In 2023 only images went into OpenAI's model beside the text. ChatGPT's voice, launched on 25 September, used Whisper to turn speech into text and a new text-to-speech model to answer aloud, and in May 2024 OpenAI described that voice mode as a pipeline of three separate models, which GPT-4o replaced with one. The old claim held for Gemini by Google's account: its report of December 2023 says video frames or images can be interleaved with text or audio in the model's input. The Gemini Pro that Google put into Bard that month took text-based prompts only.",
+      "source": {
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "Hello GPT-4o",
+        "url": "https://web.archive.org/web/20240513183723/https://openai.com/index/hello-gpt-4o/"
+      }
+    },
+    {
+      "id": "sky-ran-through-separate-speech-models",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "where": {
+        "file": "data/glossary.json",
+        "id": "multimodal"
+      },
+      "kind": "fact",
+      "was": "GPT-4 with vision, Gemini, the voice that sounded like her: one model over several kinds of input.",
+      "now": "GPT-4 with vision, Gemini and GPT-4o: one model over several kinds of input. ChatGPT's voices of 2023, Sky among them, ran through separate speech models.",
+      "why": "Sky, the voice that sounded like her, was one of the five voices OpenAI launched into ChatGPT on 25 September 2023, read out by a new text-to-speech model after Whisper had transcribed the user; OpenAI later called that voice mode a pipeline of three separate models. One model over text, images and audio came with GPT-4o, shown in May 2024, whose new voice mode was still weeks from release when Sky was paused.",
+      "source": {
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "How the voices for ChatGPT were chosen",
+        "url": "https://web.archive.org/web/20240520122422/https://openai.com/index/how-the-voices-for-chatgpt-were-chosen/"
+      }
+    },
+    {
+      "id": "mata-sanctioned-for-bad-faith",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "event": "fabricated-citations-reach-a-courtroom",
+      "kind": "fact",
+      "was": "Lawyers file a brief containing cases that never existed and are sanctioned.",
+      "now": "In a federal court filing, two lawyers cite six cases that ChatGPT invented, and stand by them after the court asks to see them. The judge finds bad faith and fines them and their firm $5,000.",
+      "why": "The filing was not a brief but an affirmation in opposition to a motion to dismiss, which, Judge Castel noted, should have been a memorandum of law; Peter LoDuca signed it and Steven Schwartz wrote it, using ChatGPT, which fabricated the cases. Nor were they sanctioned for filing it alone: the court's Opinion and Order on Sanctions of 22 June 2023 holds that they stood by the fake opinions after judicial orders called their existence into question, finds bad faith in conscious avoidance and false and misleading statements to the court, and imposes a $5,000 penalty jointly on both lawyers and their firm, Levidow, Levidow & Oberman. The court's order of 4 May had counted six bogus decisions. The primer's line on hallucination said the same, and now says what the court found.",
+      "source": {
+        "publisher": "United States District Court for the Southern District of New York (CourtListener RECAP copy)",
+        "title": "Mata v. Avianca, Inc., No. 22-cv-1461 (PKC): Opinion and Order on Sanctions (Judge P. Kevin Castel)",
+        "url": "https://storage.courtlistener.com/recap/gov.uscourts.nysd.575368/gov.uscourts.nysd.575368.54.0.pdf"
+      },
+      "alsoIn": [
+        {
+          "file": "data/questions.json",
+          "id": "can-i-trust-what-a-chatbot-tells-me"
+        }
+      ]
+    },
+    {
       "id": "alpac-funding-ended-for-twenty-years",
       "date": "2026-10-20",
       "commit": "e156fe4",
