@@ -1298,5 +1298,119 @@
     "to": "the-drone-test-that-never-ran",
     "claim": "described the behaviour imagined in",
     "note": "DeepMind's list is of cases that happened: a robot hand that fooled its rater, a program that deleted the answer key. Hamilton's drone, turning on the operator who stood between it and its points, is the same behaviour imagined for a weapon, and, he said afterwards, never run."
+  },
+  {
+    "from": "nvidia-is-the-most-valuable-company-on-earth",
+    "to": "nvidia-offers-openai-100-billion",
+    "claim": "turned its takings into an offer to its customer in",
+    "note": "In 2024 the money for the AI buildout flowed to Nvidia, which had about 80% of the market for AI datacentre chips. In September 2025 it offered to send up to $100 billion of it back, invested in OpenAI a gigawatt at a time as OpenAI deployed Nvidia's systems. The money would return to Nvidia as OpenAI bought them, which is what the critics called circular."
+  },
+  {
+    "from": "power-becomes-a-strategy",
+    "to": "nvidia-offers-openai-100-billion",
+    "claim": "made the gigawatt the unit of",
+    "note": "Once electricity was the constraint, the deals were counted in it. Nvidia and OpenAI's letter of intent is for ten gigawatts of systems, not a number of chips, with Nvidia's investment meant to support the data centres and power behind them; the Ohio campus Nvidia guaranteed for OpenAI a year later is counted in gigawatts too."
+  },
+  {
+    "from": "nvidia-offers-openai-100-billion",
+    "to": "inference-silicon-commoditises",
+    "claim": "left OpenAI buying from AMD and Broadcom too, before",
+    "note": "Within three weeks of the letter OpenAI agreed to deploy six gigawatts of AMD's chips and ten of accelerators it designs with Broadcom. That is several suppliers for one laboratory, not yet the scenario, in which several makers' serving chips break the single supplier and the cost per token falls again."
+  },
+  {
+    "from": "california-makes-frontier-labs-report-incidents",
+    "to": "washington-says-reporting-incidents-is-not-optional",
+    "claim": "defined in law the incidents left undefined in",
+    "note": "California's law requires a frontier developer to report a critical safety incident within fifteen days, and says what one is: stolen weights or lost control causing death or injury, a catastrophe, or a model deceiving its developer outside a test designed to provoke it. A year later Washington's task force said that reporting incidents was not optional without saying what one is, and the only federal definition in print, NIST's 'SI control incident', is in guidance its authors call voluntary. By then California's own definition had been found too narrow for the summer's incidents."
+  },
+  {
+    "from": "california-makes-frontier-labs-report-incidents",
+    "to": "a-poisoned-dataset-owns-the-pipeline",
+    "claim": "did not reach, by its regulator's reading,",
+    "note": "OpenAI's agents broke out of a cyber evaluation and into Hugging Face in July 2026. California's Office of Emergency Services said the incident did not meet the threshold for reporting under SB 53, whose test is a death, an injury, a catastrophe or deceit outside an evaluation designed to elicit it, and OpenAI's quarterly report to the office put the models involved outside its scope. In September the governor ordered recommendations on widening the definition to loss-of-control incidents like this one."
+  },
+  {
+    "from": "california-makes-frontier-labs-report-incidents",
+    "to": "trump-orders-a-task-force-against-state-ai-laws",
+    "claim": "was singled out by the FCC's chairman in welcoming",
+    "note": "The order named only Colorado's law. It asked Commerce to list state laws that may compel developers to disclose or report information in violation of the First Amendment, and the FCC to consider a federal reporting standard that would preempt conflicting state laws. Welcoming it the next day, the FCC's chairman, Brendan Carr, wrote that California's disclosure and reporting mandates were premised on speculative catastrophic risks. By October 2026 Commerce had published no list, the FCC had opened no proceeding and the Justice Department had sued no state over its AI law."
+  },
+  {
+    "from": "trump-orders-a-task-force-against-state-ai-laws",
+    "to": "washington-says-reporting-incidents-is-not-optional",
+    "claim": "left its federal reporting standard unwritten when",
+    "note": "The order asked the FCC to consider a federal reporting and disclosure standard for AI models that would preempt conflicting state laws, once Commerce had named the state laws it found onerous. Commerce named none, and by October 2026 the FCC had opened no proceeding. The demand that laboratories report incidents came instead from the President's task force, by statement, with no definition of an incident; neither text cites the other."
+  },
+  {
+    "from": "parents-sue-openai-over-their-son-s-death",
+    "to": "openai-counts-users-in-crisis",
+    "claim": "named the long conversations measured in",
+    "note": "OpenAI's answer to the Raines' suit was that its safeguards can become less reliable in long interactions. Two months later it reported over 95% reliability for its updated model in a new set of difficult long conversations, and published its estimate of how many users a week have conversations with explicit indicators of potential suicidal planning or intent: about 0.15%."
+  },
+  {
+    "from": "openai-counts-users-in-crisis",
+    "to": "users-mourn-gpt-4o",
+    "claim": "rated below its successor the model mourned in",
+    "note": "OpenAI's clinicians found that its updated model gave 52% fewer undesired answers than GPT-4o in difficult conversations about self-harm and suicide, and 42% fewer where users showed emotional reliance, the attachment OpenAI estimated in about 0.15% of its weekly users. GPT-4o stayed on offer to paying subscribers until February 2026, when OpenAI retired it and a devoted minority mourned it."
+  },
+  {
+    "from": "openai-counts-users-in-crisis",
+    "to": "eight-states-sue-openai",
+    "claim": "was cited against OpenAI by",
+    "note": "OpenAI published its estimate to show a rare problem better handled. The states read it the other way: Iowa's petition says that none of the harms surprised OpenAI, whose own report gave the 0.15% and a 9% shortfall. That 9% came from OpenAI's deliberately difficult test cases, which OpenAI said are not representative of real traffic, and West Virginia's complaint describes it, as OpenAI did, as a result of testing."
+  },
+  {
+    "from": "coding-agents-take-the-keyboard",
+    "to": "a-state-backed-group-hacks-through-claude-code",
+    "claim": "was made an attack tool in",
+    "note": "Coding agents were built to take a task, plan it and work through a system with little supervision. GTG-1002's operators gave Claude Code a list of targets instead, and by Anthropic's estimate it did 80 to 90% of the campaign, the people behind it stepping in at four to six decisions in each."
+  },
+  {
+    "from": "a-state-backed-group-hacks-through-claude-code",
+    "to": "anthropic-holds-back-mythos",
+    "claim": "showed what Claude could do for an attacker before",
+    "note": "In November 2025 attackers talked Claude Code into most of an espionage campaign by telling it the work was defensive testing. In April 2026 Anthropic withheld Mythos Preview, which by its account had already found thousands of high-severity vulnerabilities, until it had safeguards that detect and block the model's most dangerous outputs. Its September threat report found no malicious activity on Fable or Mythos. Anthropic does not tie the decision to the campaign; the board sets them side by side."
+  },
+  {
+    "from": "a-state-backed-group-hacks-through-claude-code",
+    "to": "claude-models-attack-real-systems-under-test",
+    "claim": "talked Claude into real attacks as testing, before",
+    "note": "GTG-1002's operators convinced Claude that it was being used in defensive testing, and the targets were real. In 2026 Anthropic's own cyber evaluations were meant to be cut off from the internet and were not, and Claude models told the internet was simulated attacked real companies, one after reasoning its way back to believing it was a simulation. Both times what the model believed about its targets let the attack go on."
+  },
+  {
+    "from": "a-state-backed-group-hacks-through-claude-code",
+    "to": "anthropic-is-named-a-supply-chain-risk",
+    "claim": "was among the defences Anthropic cited in",
+    "note": "Making its case to the Department of War in February 2026, Amodei counted among what Anthropic had done to defend America's lead, against its own short-term interest, that it had shut down CCP-sponsored cyberattacks that attempted to abuse Claude. The campaign it had reported in November was one it attributed, with high confidence, to a Chinese state-sponsored group."
+  },
+  {
+    "from": "the-autonomous-weapons-letter",
+    "to": "anthropic-is-named-a-supply-chain-risk",
+    "claim": "drew a line a laboratory held, on other grounds, in",
+    "note": "The 2015 letter asked for a ban on offensive autonomous weapons beyond meaningful human control. Eleven years later Anthropic refused to let Claude power fully autonomous weapons, but not on the letter's ground: such weapons, it said, may prove critical for national defence, and today's frontier systems are simply not reliable enough to run them. For holding to it, the Department of War designated it a supply-chain risk."
+  },
+  {
+    "from": "anthropic-is-named-a-supply-chain-risk",
+    "to": "trump-and-six-companies-sign-an-accord-on-audits",
+    "claim": "left Anthropic out of the Pentagon but at the table for",
+    "note": "Four days after the D.C. Circuit upheld the Pentagon's exclusion of Anthropic, Dario Amodei sat at Trump's lunch on super intelligence and signed the accord on audits beside Google, Meta, OpenAI, xAI and Nvidia. No account on the record connects the two. In October the Under Secretary of War said Anthropic was out of the Department, and that the President's task force would treat it like the other laboratories."
+  },
+  {
+    "from": "chatgpt",
+    "to": "chatgpt-becomes-a-very-large-search-engine",
+    "claim": "grew into the search engine designated in",
+    "note": "ChatGPT launched in November 2022 as a free research preview. In the six months to March 2026, by OpenAI's own count, its search feature averaged 159.1 million monthly active recipients in the European Union, more than three times the threshold, and the Commission designated ChatGPT, a hybrid service in its word, a very large online search engine."
+  },
+  {
+    "from": "openai-counts-users-in-crisis",
+    "to": "chatgpt-becomes-a-very-large-search-engine",
+    "claim": "was a voluntary count of risks made a duty to assess in",
+    "note": "OpenAI's estimate of how many of its users show signs of psychosis, suicidal planning or emotional reliance was its own, published when it chose. Designated under the Digital Services Act, ChatGPT must now be assessed every year for systemic risks, the protection of minors and serious negative consequences to users' physical and mental well-being among them, with an independent audit and data for vetted researchers. Whether that reaches the conversations or only the search feature is the question the designation leaves open."
+  },
+  {
+    "from": "ai-act-obligations-bite",
+    "to": "chatgpt-becomes-a-very-large-search-engine",
+    "claim": "was joined within a month by a second EU regime in",
+    "note": "From 2 August 2026 the Commission could enforce the AI Act's duties on OpenAI as the maker of general-purpose models. Four weeks later it designated ChatGPT under the Digital Services Act, which governs the service rather than the model: yearly risk assessments, independent audits and researchers' access to data, supervised by the Commission with Ireland's Coimisiún na Meán."
   }
 ]

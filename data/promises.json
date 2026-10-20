@@ -196,6 +196,10 @@
         {
           "event": "the-autonomous-weapons-letter",
           "note": "2015: thousands of researchers sign an open letter opposing offensive autonomous weapons."
+        },
+        {
+          "event": "anthropic-is-named-a-supply-chain-risk",
+          "note": "April 2026: Google agrees terms for Gemini on the Pentagon’s classified networks, saying AI should not be used for autonomous weaponry without appropriate human oversight."
         }
       ],
       "open": "Whether Google has since designed or deployed AI for weapons is not on the board’s record. The verdict is on the words, which were withdrawn, not on any work done since.",
@@ -851,6 +855,10 @@
         {
           "event": "bletchley-and-the-executive-orders",
           "note": "November 2023: twenty-eight countries sign a joint declaration on frontier risk at Bletchley Park, the summit Paris commended beside Seoul."
+        },
+        {
+          "event": "california-makes-frontier-labs-report-incidents",
+          "note": "September 2025: California’s SB 53 requires developers with annual revenue over $500 million to publish a frontier AI framework."
         },
         {
           "event": "ai-act-obligations-bite",

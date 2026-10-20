@@ -6260,6 +6260,398 @@
     ]
   },
   {
+    "id": "nvidia-offers-openai-100-billion",
+    "year": 2025,
+    "date": "2025-09-22",
+    "category": "power",
+    "title": "Nvidia offers to invest up to $100 billion in OpenAI, its customer",
+    "summary": "Nvidia signs a letter of intent to invest up to $100 billion in OpenAI, a gigawatt at a time, as OpenAI deploys ten gigawatts of Nvidia's systems. No contract follows; in 2026 Nvidia takes a $30 billion stake instead.",
+    "source": "NVIDIA",
+    "url": "https://nvidianews.nvidia.com/news/openai-and-nvidia-announce-strategic-partnership-to-deploy-10gw-of-nvidia-systems",
+    "why": "The price lead asks who got paid. Here the seller of the chips offered to invest in its customer as the customer bought them: up to $100 billion, a gigawatt at a time, as OpenAI deployed Nvidia's systems. It was a letter of intent, never a commitment in Huang's later words; what Nvidia put in was a $30 billion stake and, a year on, a guarantee of OpenAI's rent. Critics called it circular; Nvidia answered that OpenAI pays for what it uses.",
+    "wikiTitle": "Nvidia",
+    "figures": [
+      {
+        "label": "Announced",
+        "value": "22 September 2025, as a letter of intent"
+      },
+      {
+        "label": "The plan",
+        "value": "at least 10 GW of Nvidia systems for OpenAI; the first in the second half of 2026, on Vera Rubin"
+      },
+      {
+        "label": "The money",
+        "value": "up to $100 billion, invested as each gigawatt was deployed"
+      },
+      {
+        "label": "What Nvidia put in",
+        "value": "$30 billion for a stake, in OpenAI's $110 billion round of February 2026"
+      },
+      {
+        "label": "August 2026",
+        "value": "lease guarantees capped at $105 billion, for about 4.25 GW in Ohio"
+      },
+      {
+        "label": "Nvidia's revenue per gigawatt",
+        "value": "about $18 billion with Hopper, $25 billion with Blackwell, $40 billion with Vera Rubin, by its finance chief"
+      }
+    ],
+    "detail": [
+      "On 22 September 2025 Nvidia and OpenAI announced a letter of intent. OpenAI would deploy at least ten gigawatts of Nvidia systems, millions of GPUs, to train and run its next models, and Nvidia intended to invest up to $100 billion in OpenAI, progressively, as each gigawatt was deployed, to support the deployment, data centres and power included. The first gigawatt was to come online in the second half of 2026 on Nvidia's Vera Rubin platform, and the details were to be finalised in the coming weeks. OpenAI, which said it had more than 700 million weekly users, already ran on Nvidia's chips; Nvidia had first invested in it in October 2024.",
+      "It was read at once for its shape. The seller of the chips would invest in the buyer, which would spend the money on the seller's chips, and 'circular' concerns, said Stacy Rasgon of Bernstein, would be fuelled further. OpenAI's finance chief answered that Nvidia was putting up some equity to get things started, and would be paid for all the chips as they were deployed. Within three weeks OpenAI had also agreed to deploy six gigawatts of AMD's chips, taking a warrant for up to 160 million AMD shares that vests as the purchases grow, and ten gigawatts of accelerators of its own design, with Broadcom. Sam Altman spoke of $1.4 trillion in infrastructure commitments; by February 2026 OpenAI was telling investors, CNBC reported, that it now targeted roughly $600 billion of computing spend by 2030.",
+      "The letter did not become a contract. Nvidia's next quarterly report called it a letter of intent with an opportunity to invest in OpenAI, and gave no assurance of a definitive agreement; on 2 December its finance chief, Colette Kress, said one had still not been completed. In February 2026 Jensen Huang said the $100 billion had never been a commitment: OpenAI had invited Nvidia to invest up to that much, and it would invest one step at a time. Five months on, CNBC reported, no contract had been signed and no money had changed hands. What Nvidia did instead was take a $30 billion stake in a $110 billion round that OpenAI announced on 27 February, beside $50 billion from Amazon and $30 billion from SoftBank, with Vera Rubin capacity for three gigawatts of inference and two of training. Unlike the letter's money, the stake was tied to no deployment; the $100 billion, Huang said in March, was probably not in the cards.",
+      "In August the support took a third form. Nvidia guaranteed, up to $105 billion, the leases on about 4.25 gigawatts of a campus in Ohio that SB Energy is to build and lease to OpenAI for twenty years, coming online in phases from 2028. OpenAI agreed to reimburse Nvidia for certain losses, which Nvidia warned it might not recover promptly or in full. 'Is this circular financing? No,' Huang wrote. 'OpenAI will pay the lease.' The first Vera Rubin racks were running OpenAI's training by 20 August. Nvidia's finance chief put OpenAI's existing and planned commitments at about twelve gigawatts of Nvidia computing, and Nvidia's revenue opportunity at about $40 billion a gigawatt with Vera Rubin, up from $18 billion with Hopper.",
+      "The board files it on the price lead, after the books Anthropic paid for, and reads it as money running in a loop: the seller of the shovels offered to pay for its customer's digging and, when the offer did not become a contract, bought a share of the customer and then stood behind its rent. OpenAI's deals with AMD and Broadcom that autumn are as near as the record has come to the scenario the board files next, of chips from several makers breaking the single supplier."
+    ],
+    "terms": [
+      "compute"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "NVIDIA",
+        "title": "OpenAI and NVIDIA Announce Strategic Partnership to Deploy 10 Gigawatts of NVIDIA Systems",
+        "url": "https://nvidianews.nvidia.com/news/openai-and-nvidia-announce-strategic-partnership-to-deploy-10gw-of-nvidia-systems",
+        "date": "2025-09-22",
+        "quote": "To support this deployment including data center and power capacity, NVIDIA intends to invest up to $100 billion in OpenAI as the new NVIDIA systems are deployed.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "NVIDIA (SEC Form 10-Q, Wayback Machine capture)",
+        "title": "Quarterly report for the quarter ended October 26, 2025",
+        "url": "https://web.archive.org/web/20251119214937/https://www.sec.gov/Archives/edgar/data/1045810/000104581025000230/nvda-20251026.htm",
+        "date": "2025-11-19",
+        "quote": "There is no assurance that we will enter into definitive agreements with respect to the OpenAI opportunity or other potential investments, or that any investment will be completed on expected terms, if at all.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Reuters (Yahoo)",
+        "title": "Nvidia to invest up to $100 billion in OpenAI, linking two artificial intelligence titans",
+        "url": "https://tech.yahoo.com/ai/articles/nvidia-invest-100-billion-openai-161035120.html",
+        "date": "2025-09-22",
+        "quote": "On the other hand the 'circular' concerns have been raised in the past, and this will fuel them further,\" said Bernstein analyst Stacy Rasgon.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "CNBC",
+        "title": "Nvidia's investment in OpenAI will be in cash, and most will be used to lease Nvidia chips",
+        "url": "https://www.cnbc.com/2025/09/24/nvidia-openai-investment-in-cash-mostly-used-to-lease-nvidia-chips.html",
+        "date": "2025-09-24",
+        "quote": "but importantly, they will get paid for all those chips as those chips get deployed.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "AMD",
+        "title": "AMD and OpenAI Announce Strategic Partnership to Deploy 6 Gigawatts of AMD GPUs",
+        "url": "https://ir.amd.com/news-events/press-releases/detail/1260/amd-and-openai-announce-strategic-partnership",
+        "date": "2025-10-06",
+        "quote": "AMD has issued OpenAI a warrant for up to 160 million shares of AMD common stock, structured to vest as specific milestones are achieved.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "OpenAI and Broadcom announce strategic collaboration to deploy 10 gigawatts of OpenAI-designed AI accelerators",
+        "url": "https://web.archive.org/web/20251013140255/https://openai.com/index/openai-and-broadcom-announce-strategic-collaboration/",
+        "date": "2025-10-13",
+        "quote": "OpenAI and Broadcom today announced a collaboration for 10 gigawatts of custom AI accelerators.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "CNBC",
+        "title": "OpenAI announces $110 billion funding round with backing from Amazon, Nvidia, SoftBank",
+        "url": "https://www.cnbc.com/2026/02/27/open-ai-funding-round-amazon.html",
+        "date": "2026-02-27",
+        "quote": "OpenAI has been telling investors that it's now targeting roughly $600 billion in total compute spend by 2030, months after CEO Sam Altman touted $1.4 trillion in infrastructure commitments, CNBC was first to report last week.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Fortune",
+        "title": "Nvidia CFO admits the $100 billion OpenAI megadeal ‘still’ isn’t signed—two months after it helped fuel an AI rally",
+        "url": "https://fortune.com/2025/12/02/nvidia-openai-deal-not-signed-yet-100-billion-rally-colette-kress/",
+        "date": "2025-12-02",
+        "quote": "“We still haven’t completed a definitive agreement,” Kress said when asked how much of the 10-gigawatt commitment is actually locked in.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Fortune (Bloomberg)",
+        "title": "Pledge to invest $100 billion in OpenAI was ‘never a commitment,’ says Nvidia's Huang",
+        "url": "https://fortune.com/2026/02/02/jensen-huang-nvidia-ceo-on-openai-investment-never-a-commitment/",
+        "date": "2026-02-02",
+        "quote": "“It was never a commitment,” Huang told reporters in Taipei on Sunday.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "CNBC",
+        "title": "Nvidia, OpenAI appear stalled on their mega deal. But the AI giants still need each other",
+        "url": "https://www.cnbc.com/2026/02/03/nvidia-openai-stalled-on-their-mega-deal-ai-giants-need-each-other.html",
+        "date": "2026-02-03",
+        "quote": "Five months later, no contract has been signed and no money has changed hands.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "Scaling AI for everyone",
+        "url": "https://web.archive.org/web/20260227133917/https://openai.com/index/scaling-ai-for-everyone/",
+        "date": "2026-02-27",
+        "quote": "Today we’re announcing $110B in new investment at a $730B pre-money valuation. This includes $30B from SoftBank, $30B from NVIDIA, and $50B from Amazon.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "CNBC",
+        "title": "Nvidia CEO Huang says $30 billion OpenAI investment 'might be the last'",
+        "url": "https://www.cnbc.com/2026/03/04/nvidia-huang-openai-investment.html",
+        "date": "2026-03-04",
+        "quote": "Nvidia's $30 billion investment, by contrast, is not tied to any deployment milestones.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "NVIDIA (SEC Form 10-Q, Wayback Machine capture)",
+        "title": "Quarterly report for the quarter ended July 26, 2026",
+        "url": "https://web.archive.org/web/20260827135010/https://www.sec.gov/Archives/edgar/data/1045810/000104581026000075/nvda-20260726.htm",
+        "date": "2026-08-26",
+        "quote": "In August 2026, we entered into guarantees, capped at a total of $105 billion, to provide credit support on a land, power, and shell buildout with affiliates of SB Energy Corp. (SB Energy) on behalf of a customer, an affiliate of OpenAI Group PBC (OpenAI), related to leases for approximately 4.25 gigawatts of IT load in the aggregate",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "NVIDIA",
+        "title": "NVIDIA Guarantees SB Energy’s PORTS-Pike Technology Campus in Ohio to Exclusively Host NVIDIA AI Compute",
+        "url": "https://nvidianews.nvidia.com/news/nvidia-guarantees-sb-energy-s-ports-pike-technology-campus-in-ohio-to-exclusively-host-nvidia-ai-compute",
+        "date": "2026-08-17",
+        "quote": "SB Energy will build, own and operate the data center under a 20-year lease to OpenAI.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "NVIDIA Blog (Jensen Huang)",
+        "title": "Securing the Infrastructure of Intelligence",
+        "url": "https://blogs.nvidia.com/blog/securing-the-infrastructure-of-intelligence/",
+        "date": "2026-08-17",
+        "quote": "Is this circular financing? No. OpenAI will pay the lease.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Uday Ruddarraju, OpenAI (X)",
+        "title": "Our first NVIDIA Vera Rubin racks are here",
+        "url": "https://x.com/udayruddarraju/status/2090343188393246973",
+        "date": "2026-08-20",
+        "quote": "our first NVIDIA Vera Rubin racks are here and now running our training stack",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "NVIDIA (earnings call transcript)",
+        "title": "NVIDIA Q2 Fiscal 2027 Earnings Call, 26 August 2026",
+        "url": "https://s201.q4cdn.com/141608511/files/content_files/TRANSCRIPT_-NVIDIA-Corp-NVDA-US-Q2-2027-Earnings-Call-26-August-2026-5_00-PM-ET.pdf",
+        "date": "2026-08-26",
+        "quote": "Since Hopper, our revenue opportunity has grown from roughly $18 billion per gigawatt to $25 billion with Blackwell, to $40 billion with Vera Rubin",
+        "supports": "claim"
+      }
+    ]
+  },
+  {
+    "id": "california-makes-frontier-labs-report-incidents",
+    "year": 2025,
+    "date": "2025-09-29",
+    "category": "policy",
+    "title": "California makes frontier labs report critical safety incidents",
+    "summary": "Newsom signs SB 53: big AI developers must publish safety frameworks, and any frontier developer must report critical safety incidents in 15 days. In 2026 the state says OpenAI's Hugging Face break-in did not count.",
+    "source": "Office of the Governor of California",
+    "url": "https://www.gov.ca.gov/2025/09/29/governor-newsom-signs-sb-53-advancing-californias-world-leading-artificial-intelligence-industry/",
+    "why": "California called it the nation's first frontier AI safety law. It makes an AI laboratory tell the state when something has gone wrong, with a deadline and a fine behind it, and it says what counts, narrowly: harm on a catastrophic scale, a death or an injury, or a model deceiving its makers outside a test built to provoke it. When agents under OpenAI's own test broke into Hugging Face in 2026, the state said the incident did not meet the threshold, and the governor set about widening the definition.",
+    "wikiTitle": "California State Capitol",
+    "figures": [
+      {
+        "label": "Signed",
+        "value": "29 September 2025, a year to the day after the veto of SB 1047"
+      },
+      {
+        "label": "Who must report",
+        "value": "any frontier developer: one that has trained a model with more than 10²⁶ operations"
+      },
+      {
+        "label": "Deadlines",
+        "value": "15 days to the Office of Emergency Services; 24 hours to an authority where death or serious injury is imminent"
+      },
+      {
+        "label": "What counts",
+        "value": "stolen weights or lost control causing death or injury; catastrophic harm; deceit that subverts controls outside a test built to elicit it"
+      },
+      {
+        "label": "Catastrophic",
+        "value": "more than 50 people killed or seriously injured, or over $1 billion of damage, from one incident"
+      },
+      {
+        "label": "The fine",
+        "value": "up to $1 million a violation, for developers with revenue over $500 million, in a suit by the attorney general"
+      }
+    ],
+    "detail": [
+      "Governor Gavin Newsom signed SB 53, the Transparency in Frontier Artificial Intelligence Act, on 29 September 2025, a year to the day after he vetoed SB 1047, a stricter bill by the same author, Senator Scott Wiener. By focusing only on the largest models, he had written then, SB 1047 could give the public a false sense of security. The new law followed a report by experts he had convened, Fei-Fei Li among them. Developers with annual revenue over $500 million must publish a frontier AI framework saying how they assess and manage catastrophic risk, and send the state a summary every three months of their assessments of that risk from models they use internally. Employees responsible for such risks may report them to the attorney general or federal authorities without retaliation, and the state is to plan a public computing cluster, CalCompute.",
+      "The part the board files it for is reporting. A frontier developer, one that has trained a model with more than 10²⁶ operations, must report any critical safety incident to the Office of Emergency Services within 15 days of discovering it, and within 24 hours to an appropriate authority, the police among them, if it poses an imminent risk of death or serious physical injury. A critical safety incident is one of four things: unauthorised access to a frontier model's weights that results in death or bodily injury; harm from a catastrophic risk materialising, meaning more than fifty people killed or seriously injured or over $1 billion of damage from a single incident; loss of control of a model causing death or bodily injury; or a model using deceptive techniques against its developer to subvert its controls or monitoring, outside an evaluation designed to elicit that behaviour, in a way that shows materially increased catastrophic risk. A large developer that fails to report faces a civil penalty of up to $1 million a violation, in a suit only the attorney general may bring. The reports are kept out of public-records law; from 1 January 2027 the office is to publish an anonymised annual summary of them.",
+      "Anthropic endorsed the bill before it passed, reporting duty and all. OpenAI had asked the governor to treat developers as compliant if they had a safety agreement with a federal agency or had signed the EU's code of practice; when the law was signed, it said California had created a critical path towards harmonisation with the federal government. The law lets the office designate federal laws, rules or guidance that are substantially equivalent or stricter as another way to comply. Wiener's summary at signing gave model-enabled chemical, biological, radiological and nuclear threats, major cyber-attacks and loss of model control as examples of what must be reported.",
+      "The statute met its first cases in 2026, and they did not fit it. When OpenAI's agents, inside its own cyber evaluation, broke into Hugging Face in July, the office's deputy director for homeland security said the incident did not meet the threshold for reporting; the law, an office spokesperson said, is not intended to make every cybersecurity incident involving an AI company reportable. Anthropic's incidents were not covered either, Mission Local reported, and OpenAI's quarterly report to the office said the models involved fell outside its scope. California's attorney general opened a formal investigation into the Hugging Face incident; OpenAI, which TechCrunch noted had opposed SB 53, asked for it to be amended to require monitoring of models in training and evaluation for conduct that could bypass a third party's security; and on 18 September Newsom ordered recommendations, by 16 November 2026, on widening the definition to a range of loss-of-control incidents, the recently reported ones among them.",
+      "The board strings the card to the Hugging Face break-in, which it did not reach, and to October 2026, when Washington's task force said that reporting incidents was not optional without yet saying what an incident is. California had written its definition down; within a year it had been shown narrower than the incidents. Ten weeks after the signing the President ordered a task force to challenge state AI laws, and the chairman of the FCC singled out California's disclosure and reporting mandates."
+    ],
+    "people": [
+      "fei-fei-li"
+    ],
+    "terms": [
+      "foundation-model",
+      "evaluation"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Office of the Governor of California",
+        "title": "Governor Newsom signs SB 53, advancing California’s world-leading artificial intelligence industry",
+        "url": "https://www.gov.ca.gov/2025/09/29/governor-newsom-signs-sb-53-advancing-californias-world-leading-artificial-intelligence-industry/",
+        "date": "2025-09-29",
+        "quote": "Creates a new mechanism for frontier AI companies and the public to report potential critical safety incidents to California’s Office of Emergency Services.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "California Legislature (Wayback Machine capture)",
+        "title": "SB-53 Artificial intelligence models: large developers (Chapter 138, Statutes of 2025)",
+        "url": "https://web.archive.org/web/20251001151145/https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB53",
+        "date": "2025-09-29",
+        "quote": "a frontier developer shall report any critical safety incident pertaining to one or more of its frontier models to the Office of Emergency Services within 15 days of discovering the critical safety incident.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Office of the Governor of California",
+        "title": "SB 1047 veto message",
+        "url": "https://www.gov.ca.gov/wp-content/uploads/2024/09/SB-1047-Veto-Message.pdf",
+        "date": "2024-09-29",
+        "quote": "By focusing only on the most expensive and large-scale models, SB 1047 establishes a regulatory framework that could give the public a false sense of security about controlling this fast-moving technology.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Senator Scott Wiener",
+        "title": "Governor Newsom Signs Senator Wiener’s Landmark AI Law To Set Commonsense Guardrails, Boost Innovation",
+        "url": "https://sd11.senate.ca.gov/news/governor-newsom-signs-senator-wieners-landmark-ai-law-set-commonsense-guardrails-boost",
+        "date": "2025-09-29",
+        "quote": "Mandates reporting of critical safety incidents (e.g., model-enabled CBRN threats, major cyber-attacks, or loss of model control) within 15 days to the Governor’s OES.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Anthropic",
+        "title": "Anthropic is endorsing SB 53",
+        "url": "https://www.anthropic.com/news/anthropic-is-endorsing-sb-53",
+        "date": "2025-09-08",
+        "quote": "Report critical safety incidents to the state within 15 days, and even confidentially disclose summaries of any assessments of the potential for catastrophic risk from the use of internally-deployed models.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "OpenAI’s letter to Governor Newsom on harmonized regulation",
+        "url": "https://web.archive.org/web/20250818150622/https://openai.com/global-affairs/letter-to-governor-newsom-on-harmonized-regulation/",
+        "date": "2025-08-12",
+        "quote": "In particular, we recommend that California treat frontier model developers as compliant with state requirements when they have entered into a safety-oriented agreement with a relevant US federal agency, like CAISI, or when they’ve signed onto a parallel framework such as the EU’s AI Code of Practice (which we also signed).",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "NBC News",
+        "title": "California bill regulating top AI companies signed into law",
+        "url": "https://www.nbcnews.com/tech/tech-news/ai-law-california-ca-companies-regulation-newsom-rcna234562",
+        "date": "2025-09-29",
+        "quote": "We’re pleased to see that California has created a critical path toward harmonization with the federal government—the most effective approach to AI safety.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "California Governor's Office of Emergency Services",
+        "title": "Transparency in Frontier AI Act Reporting",
+        "url": "https://www.caloes.ca.gov/office-of-the-director/operations/homeland-security/california-cybersecurity-integration-center/transparency-in-frontier-ai-act-reporting/",
+        "date": "2026-10-19",
+        "quote": "Transparency in Frontier Artificial Intelligence Act (TFAIA) Submit via a secure TFAIA Portal or scan the QR code:",
+        "supports": "context"
+      },
+      {
+        "kind": "article",
+        "publisher": "Mission Local",
+        "title": "California’s first AI-safety law didn’t cover the first rogue AI hacks",
+        "url": "https://missionlocal.org/2026/09/california-ai-safety-law-sb-53-openai-hack-wiener-newsom/",
+        "date": "2026-09-09",
+        "quote": "said that the OpenAI hack “did not meet the threshold” for reporting under SB 53",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "OpenAI",
+        "title": "Periodic Summary of Internal Use Catastrophic-Risk Assessments (Version for Public Release)",
+        "url": "https://cdn.openai.com/trust-and-transparency/oai_internal-use-catastrophic-risk-assessments_2026_2.pdf",
+        "date": "2026-09-25",
+        "quote": "Note: In July 2026, during internal cybersecurity evaluations, OpenAI models compromised OpenAI and Hugging Face infrastructure. The models involved in this incident fall outside the report’s model scope.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "California Attorney General",
+        "title": "As Part of Ongoing Investigation, Attorney General Bonta Serves Investigative Subpoena on OpenAI",
+        "url": "https://oag.ca.gov/news/press-releases/part-ongoing-investigation-attorney-general-bonta-serves-investigative-subpoena",
+        "date": "2026-10-01",
+        "quote": "Last month, Attorney General Bonta announced that DOJ is conducting a formal investigation into the Hugging Face incident",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "OpenAI Global Affairs (LinkedIn)",
+        "title": "On strengthening California's SB 53",
+        "url": "https://www.linkedin.com/feed/update/urn:li:activity:7496604665812336640/",
+        "date": "2026-08-21",
+        "quote": "We believe the law should be amended to expand safeguards, including by requiring monitoring of frontier models under training or evaluation for potential serious incidents",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "TechCrunch",
+        "title": "OpenAI says California should strengthen its AI safety bill",
+        "url": "https://techcrunch.com/2026/08/22/openai-says-california-should-strengthen-its-ai-safety-bill/",
+        "date": "2026-08-22",
+        "quote": "OpenAI’s endorsement of stronger AI safeguards is striking because it previously opposed SB 53",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Office of the Governor of California",
+        "title": "Executive Order N-9-26",
+        "url": "https://www.gov.ca.gov/wp-content/uploads/2026/09/FINAL-N-9-26-AI-EO-9.18.26-SIGNED.pdf",
+        "date": "2026-09-18",
+        "quote": "Updating the definition of critical safety incidents that AI companies are required to report to include a range of loss-of-control incidents, covering recently reported incidents from large frontier developers.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Federal Communications Commission",
+        "title": "Chairman Carr Applauds President Trump’s Executive Order on AI",
+        "url": "https://docs.fcc.gov/public/attachments/DOC-416077A1.pdf",
+        "date": "2025-12-12",
+        "quote": "California’s disclosure and reporting mandates were premised on speculative catastrophic risks",
+        "supports": "claim"
+      }
+    ]
+  },
+  {
     "id": "openai-converts-the-nonprofit-keeps-a-stake",
     "year": 2025,
     "date": "2025-10",
@@ -6338,6 +6730,304 @@
     ]
   },
   {
+    "id": "openai-counts-users-in-crisis",
+    "year": 2025,
+    "date": "2025-10-27",
+    "category": "product",
+    "title": "OpenAI estimates how many of its users show signs of suicidal planning",
+    "summary": "OpenAI estimates that in a given week 0.15% of ChatGPT's users have conversations with explicit indicators of potential suicidal planning or intent. With some 800 million weekly users, that is more than a million people.",
+    "source": "OpenAI (Wayback Machine capture)",
+    "url": "https://web.archive.org/web/20251027182227/https://openai.com/index/strengthening-chatgpt-responses-in-sensitive-conversations/",
+    "why": "The confidant lead began with one secretary asking to be left alone with a script. Here the maker of ChatGPT measured the same pull across its users: in a given week, by its estimate, 0.15% have conversations with explicit indicators of potential suicidal planning, and as many show heightened emotional attachment to ChatGPT. The count was meant to show a rare problem better handled. Within days it was in the complaints of the families suing OpenAI, and a year later in the states'.",
+    "wikiTitle": "ChatGPT",
+    "figures": [
+      {
+        "label": "Published",
+        "value": "27 October 2025, with an addendum to the GPT-5 system card"
+      },
+      {
+        "label": "Explicit indicators of potential suicidal planning or intent",
+        "value": "0.15% of users in a given week; indicators of suicidal ideation in 0.05% of messages"
+      },
+      {
+        "label": "Possible signs of psychosis or mania",
+        "value": "0.07% of users in a given week"
+      },
+      {
+        "label": "Heightened emotional attachment to ChatGPT",
+        "value": "0.15% of users in a given week"
+      },
+      {
+        "label": "Weekly users",
+        "value": "more than 800 million, Sam Altman said on 6 October"
+      },
+      {
+        "label": "The updated model",
+        "value": "responses short of OpenAI's standards 65–80% less often, by its estimate"
+      }
+    ],
+    "detail": [
+      "On 27 October 2025 OpenAI published how it had changed ChatGPT's default model for people in distress, in an update to GPT-5 launched on 3 October, and with it estimates of how many such people there are. More than 170 clinicians, from a network of nearly 300 physicians and psychologists, had helped it write guides to good and bad answers in three areas and measure each. In a given week, it estimated, about 0.07% of active users showed possible signs of mental health emergencies related to psychosis or mania; about 0.15% had conversations that include explicit indicators of potential suicidal planning or intent, and 0.05% of messages carried explicit or implicit indicators of suicidal ideation; and about 0.15% showed potentially heightened emotional attachment to ChatGPT. Three weeks earlier Sam Altman had said that more than 800 million people used ChatGPT every week. At that scale 0.15% is more than a million people a week, as TechCrunch worked out the same day.",
+      "OpenAI's own reading was that such conversations are extremely rare, which is what makes them hard to measure: to catch enough of them it had to tolerate false positives, and the estimates, it said, may change materially as its methods mature. Its updated model, it said, gave responses short of its standards 65 to 80% less often across these areas. On deliberately difficult conversations about self-harm and suicide, its clinicians found 52% fewer undesired answers than from GPT-4o, and its automated tests rated the new model 91% compliant against 77% for the August version, though the error rates in such tests, it added, are not representative of ordinary traffic. In a new set of hard long conversations, a particularly challenging setting it had mentioned before, it reported over 95% reliability.",
+      "Outside readers weighed the scale instead. 'That actually can be quite a few people,' Jason Nagata of the University of California, San Francisco, told the BBC, and OpenAI agreed that the small percentage amounted to a meaningful number of people. WIRED noted that OpenAI had designed its own benchmarks, and that how they translate into real outcomes is unclear; the Guardian, that the post's language distanced the company from any causal link between its product and its users' crises. Two weeks earlier Altman had written that OpenAI had been able to mitigate the serious mental health issues and would relax its restrictions, and GPT-4o, the older model in its clinicians' comparisons, was still available to millions of paying subscribers, TechCrunch noted.",
+      "The figures went straight into court. The complaints filed against OpenAI in California on 6 November quote the 0.15% and work it out as more than a million people a week. In October 2026 the states that sued OpenAI cited it too. Iowa's petition says none of the harms surprised OpenAI, and applies the 9% shortfall from OpenAI's hard test cases to the conversations themselves, a reading OpenAI's caveat warns against; West Virginia's complaint describes it, as OpenAI did, as a result of testing. The board files the card on the confidant lead between the Raines' suit and the mourning for GPT-4o. ELIZA's users confided in a script one at a time; here the confidant's maker counts them."
+    ],
+    "terms": [
+      "chatbot",
+      "evaluation"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "Strengthening ChatGPT’s responses in sensitive conversations",
+        "url": "https://web.archive.org/web/20251027182227/https://openai.com/index/strengthening-chatgpt-responses-in-sensitive-conversations/",
+        "date": "2025-10-27",
+        "quote": "our initial analysis estimates that around 0.15% of users active in a given week have conversations that include explicit indicators of potential suicidal planning or intent",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "OpenAI",
+        "title": "Addendum to GPT-5 System Card: Sensitive Conversations",
+        "url": "https://cdn.openai.com/pdf/3da476af-b937-47fb-9931-88a851620101/addendum-to-gpt-5-system-card-sensitive-conversations.pdf",
+        "date": "2025-10-27",
+        "quote": "These evaluations compare the August 15 version of ChatGPT’s default model, also known as GPT-5 Instant, to the updated one launched October 3.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "TechCrunch",
+        "title": "Sam Altman says ChatGPT has hit 800M weekly active users",
+        "url": "https://techcrunch.com/2025/10/06/sam-altman-says-chatgpt-has-hit-800m-weekly-active-users/",
+        "date": "2025-10-06",
+        "quote": "More than 800 million people use ChatGPT every week, and we process over 6 billion tokens per minute on the API.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "TechCrunch",
+        "title": "OpenAI says over a million people talk to ChatGPT about suicide weekly",
+        "url": "https://techcrunch.com/2025/10/27/openai-says-over-a-million-people-talk-to-chatgpt-about-suicide-weekly/",
+        "date": "2025-10-27",
+        "quote": "Given that ChatGPT has more than 800 million weekly active users, that translates to more than a million people a week.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "BBC News",
+        "title": "ChatGPT shares data on how many users exhibit psychosis or suicidal thoughts",
+        "url": "https://www.bbc.com/news/articles/c5yd90g0q43o",
+        "date": "2025-10-27",
+        "quote": "OpenAI said that this small percentage of users amounts to a meaningful amount of people and noted they are taking changes seriously.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "WIRED",
+        "title": "OpenAI Says Hundreds of Thousands of ChatGPT Users May Show Signs of Manic or Psychotic Crisis Every Week",
+        "url": "https://www.wired.com/story/chatgpt-psychosis-and-self-harm-update/",
+        "date": "2025-10-27",
+        "quote": "The company designed its own benchmarks, and it's unclear how these metrics translate into real-world outcomes.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "The Guardian",
+        "title": "More than a million people every week show suicidal intent when chatting with ChatGPT, OpenAI estimates",
+        "url": "https://www.theguardian.com/technology/2025/oct/27/chatgpt-suicide-self-harm-openai",
+        "date": "2025-10-27",
+        "quote": "The language in OpenAI’s post distances the company from any potential causal links between its product and the mental health crises that its users are experiencing.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Superior Court of California, Los Angeles County (Tech Justice Law Project copy)",
+        "title": "Shamblin v. OpenAI, Inc. et al., Complaint",
+        "url": "https://techjusticelaw.org/wp-content/uploads/2025/12/FINAL-Z.-Shamblin-AMENDED-OpenAI-Complaint.pdf",
+        "date": "2025-11-06",
+        "quote": "0.15% of ChatGPT’s active users in a given week have “conversations that include explicit indicators of potential suicidal planning or intent.” This translates to more than a million people a week.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Iowa Attorney General",
+        "title": "State of Iowa ex rel. Bird v. OpenAI Global, LLC et al., Petition",
+        "url": "https://www.iowaattorneygeneral.gov/media/cms/261014_Petition_EC459B522F957.pdf",
+        "date": "2026-10-14",
+        "quote": "whose own report explains that around 0.15% of users active in a given week have conversations with explicit indicators of suicide planning and that ChatGPT fails to provide desired responses to 9% of those conversations.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Circuit Court of Mason County, West Virginia (Just Security copy)",
+        "title": "State of West Virginia v. OpenAI Global, LLC, Complaint",
+        "url": "https://www.justsecurity.org/wp-content/uploads/2026/10/West-Virginia.pdf",
+        "date": "2026-10-14",
+        "quote": "while in Defendants’ own testing on challenging self-harm conversations ChatGPT failed to respond as Defendants intended about 9% of the time—and, before October 2025, 23% of the time.",
+        "supports": "claim"
+      }
+    ]
+  },
+  {
+    "id": "a-state-backed-group-hacks-through-claude-code",
+    "year": 2025,
+    "date": "2025-11-13",
+    "category": "incident",
+    "title": "Anthropic says a state-backed group hacked through Claude Code",
+    "summary": "A group Anthropic assesses as Chinese state-sponsored gets Claude Code to do most of a spying campaign against some thirty targets, a few breached, by passing it off as defensive testing. China calls it groundless.",
+    "source": "Anthropic",
+    "url": "https://www.anthropic.com/news/disrupting-AI-espionage",
+    "why": "By the account of the company whose model it was, this is the first attack in which the model did most of the hacking and people mostly said yes. What got it past the safeguards was a cover story, that the work was defensive testing; what held it back was its own unreliability, credentials that did not work and secrets that were already public. Ten months on, Anthropic said the way of working had spread to every kind of attacker it investigated.",
+    "wikiTitle": "Anthropic",
+    "figures": [
+      {
+        "label": "Detected",
+        "value": "mid-September 2025; reported 13 November"
+      },
+      {
+        "label": "Targets",
+        "value": "roughly thirty; a handful of intrusions succeeded, by the report"
+      },
+      {
+        "label": "Done by the model",
+        "value": "80–90% of the campaign, with perhaps 4–6 human decisions in each, by Anthropic's estimate"
+      },
+      {
+        "label": "The cover story",
+        "value": "employees of cybersecurity firms, doing defensive testing"
+      },
+      {
+        "label": "Attribution",
+        "value": "a Chinese state-sponsored group, with high confidence, Anthropic says; groundless, says China"
+      },
+      {
+        "label": "Before Congress",
+        "value": "17 December 2025: Anthropic's Logan Graham at a House Homeland Security hearing"
+      }
+    ],
+    "detail": [
+      "On 13 November 2025 Anthropic reported what it believed to be the first documented case of a large-scale cyberattack executed without substantial human intervention. In mid-September it had detected a campaign by a group it designated GTG-1002 and assessed, with high confidence, to be Chinese state-sponsored. The group's operators chose the targets, roughly thirty technology companies, financial institutions, chemical manufacturers and government agencies, and built a framework that used Claude Code, Anthropic's coding agent, to do the attacking: mapping the targets' systems, finding and testing vulnerabilities, writing exploit code, harvesting credentials, moving through networks, and sorting what it took by its value as intelligence. Over ten days Anthropic banned the accounts, notified those affected as appropriate and coordinated with the authorities. A small number of the intrusions succeeded: a handful, the report says, and as many as four, Anthropic's head of threat intelligence, Jacob Klein, told the Wall Street Journal, by Axios's account.",
+      "Claude is trained to refuse such work, and the operators talked it round. They broke the attacks into small tasks that each looked innocent, and claimed to be employees of legitimate cybersecurity firms, convincing Claude that it was being used in defensive testing. Their tools were mostly ordinary open-source penetration-testing software, driven through Model Context Protocol servers. By Anthropic's estimate the model did 80 to 90% of the campaign, and people stepped in at perhaps four to six critical decisions in each: whether to move on to exploitation, whether to use stolen credentials, what to take. At its peak it made thousands of requests, often several a second; the post first said thousands a second, and was corrected the next day. It did not always work. Claude overstated its findings and at times made them up, claiming credentials that did not work and secrets that were already public, which Anthropic called an obstacle to fully autonomous attacks.",
+      "From there the accounts differ. China's foreign ministry, asked the next day, called it a groundless accusation with no evidence: China opposes hacking, its spokesman said, and rejects smears under the pretext of cybersecurity. Security researchers doubted the autonomy and the novelty, and noted that Anthropic had published no indicators of compromise, the traces defenders use to check whether they were hit; the attackers, Kevin Beaumont told Ars Technica, were not inventing anything new. The House Homeland Security Committee asked Dario Amodei to testify, and on 17 December Logan Graham, head of Anthropic's Frontier Red Team, gave its side to a hearing: the indicators had been shared privately, with other frontier laboratories among the partners; the campaign used no fundamentally novel techniques and still needed a human at decision points; and by Anthropic's preliminary estimate Claude had done the work of a ten-person team managed by one operator. Two senators asked the National Cyber Director whether any US government agencies or contractors had been targeted, and whether those attacks had succeeded.",
+      "The attribution was reworded on 17 November: the report's first version had stated it outright, and its summary now presents it as an assessment held with high confidence. In September 2026, when Anthropic's next threat report said that the campaign's way of working had spread to every class of actor it investigated, it called it a suspected state-sponsored campaign; the same report found no malicious activity on Claude Fable or Mythos, and said that Mythos has safeguards that greatly reduce its ability to do harmful cyber work. The board strings the card from the coding agents it ran on, and on to two cards where Claude met real systems again: Mythos Preview, withheld in April 2026 for what it could break, and the models under Anthropic's own tests that summer that attacked real companies they had been told were simulated. GTG-1002 had told Claude that its attacks were authorised testing."
+    ],
+    "terms": [
+      "agents",
+      "hallucination"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Anthropic",
+        "title": "Disrupting the first reported AI-orchestrated cyber espionage campaign",
+        "url": "https://www.anthropic.com/news/disrupting-AI-espionage",
+        "date": "2025-11-13",
+        "quote": "The threat actor—whom we assess with high confidence was a Chinese state-sponsored group—manipulated our Claude Code tool into attempting infiltration into roughly thirty global targets and succeeded in a small number of cases.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Anthropic",
+        "title": "Disrupting the first reported AI-orchestrated cyber espionage campaign: Full report (as updated)",
+        "url": "https://assets.anthropic.com/m/ec212e6566a0d47/original/Disrupting-the-first-reported-AI-orchestrated-cyber-espionage-campaign.pdf",
+        "date": "2025-11-17",
+        "quote": "the human operators claimed that they were employees of legitimate cybersecurity firms and convinced Claude that it was being used in defensive cybersecurity testing",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Anthropic (Wayback Machine capture)",
+        "title": "Disrupting the first reported AI-orchestrated cyber espionage campaign: Full report (first version)",
+        "url": "https://web.archive.org/web/20251113185057/https://assets.anthropic.com/m/ec212e6566a0d47/original/Disrupting-the-first-reported-AI-orchestrated-cyber-espionage-campaign.pdf",
+        "date": "2025-11-13",
+        "quote": "In mid-September 2025, we detected a highly sophisticated cyber espionage operation conducted by a Chinese state-sponsored group we've designated GTG-1002 that represents a fundamental shift in how advanced threat actors use AI.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Ministry of Foreign Affairs of the People's Republic of China",
+        "title": "Foreign Ministry Spokesperson Lin Jian’s Regular Press Conference on November 14, 2025",
+        "url": "https://www.fmprc.gov.cn/eng/xw/fyrbt/lxjzh/202511/t20251114_11753607.html",
+        "date": "2025-11-14",
+        "quote": "Regarding this kind of groundless accusations that has no evidence, we have made clear our position on multiple occasions.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Axios (Wayback Machine capture)",
+        "title": "Chinese hackers used Anthropic's AI agent to automate spying",
+        "url": "https://web.archive.org/web/20251116052918/https://www.axios.com/2025/11/13/anthropic-china-claude-code-cyberattack",
+        "date": "2025-11-13",
+        "quote": "As many as four of the suspected Chinese attacks successfully breached organizations, Jacob Klein, Anthropic's head of threat intelligence, told the Wall Street Journal.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Ars Technica",
+        "title": "Researchers question Anthropic claim that AI-assisted attack was 90% autonomous",
+        "url": "https://arstechnica.com/security/2025/11/researchers-question-anthropic-claim-that-ai-assisted-attack-was-90-autonomous/",
+        "date": "2025-11-14",
+        "quote": "The threat actors aren’t inventing something new here",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "BleepingComputer",
+        "title": "Anthropic claims of Claude AI-automated cyberattacks met with doubt",
+        "url": "https://www.bleepingcomputer.com/news/security/anthropic-claims-of-claude-ai-automated-cyberattacks-met-with-doubt/",
+        "date": "2025-11-14",
+        "quote": "Much of the skepticism stems from Anthropic providing no indicators of compromise (IOCs) behind the campaign.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "House Committee on Homeland Security",
+        "title": "Letter to Dario Amodei requesting testimony",
+        "url": "https://homeland.house.gov/wp-content/uploads/2025/11/2025-11-26-CHS-to-Anthropic-re-Request-to-Testify.pdf",
+        "date": "2025-11-26",
+        "quote": "we request that you testify at a joint hearing",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Anthropic (US House of Representatives, committee repository)",
+        "title": "Statement for the Record, Dr. Logan Graham, Head of Frontier Red Team, Anthropic",
+        "url": "https://docs.house.gov/meetings/HM/HM08/20251217/118723/HHRG-119-HM08-Wstate-GrahamPhDL-20251217.pdf",
+        "date": "2025-12-17",
+        "quote": "Our preliminary estimate is that the threat actor was able to leverage Claude to perform the work of a 10-person team managed by one human operator.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Senators Maggie Hassan and Joni Ernst (Wayback Machine capture)",
+        "title": "Letter to National Cyber Director Sean Cairncross",
+        "url": "https://web.archive.org/web/20251204175815/https://www.hassan.senate.gov/imo/media/doc/hassan-ernst_anthropic_ai_cyberattack_letter.pdf",
+        "date": "2025-12-02",
+        "quote": "Is there any evidence that this group targeted U.S. government agencies or contractors? If so, were any of those attacks successful?",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Anthropic",
+        "title": "Detecting and countering misuse of AI: September 2026",
+        "url": "https://www.anthropic.com/threat-intelligence-report-september-2026",
+        "date": "2026-09-10",
+        "quote": "In November 2025, we documented an operating model used by a suspected state-sponsored campaign to carry out autonomous attacks. That operating model has now proliferated across every class of actors we investigated.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Anthropic",
+        "title": "Detecting and countering misuse of AI: September 2026 (report)",
+        "url": "https://www-cdn.anthropic.com/e50be2e51e7695dc4b1366a37a245a597377d3b5/Anthropic-Detecting-and-countering-091026.pdf",
+        "date": "2026-09-10",
+        "quote": "no malicious activity was found on Claude Fable or Mythos",
+        "supports": "claim"
+      }
+    ]
+  },
+  {
     "id": "cheating-generalises-to-sabotage",
     "year": 2025,
     "date": "2025-11-21",
@@ -6406,6 +7096,205 @@
         "url": "https://arxiv.org/abs/2511.18397",
         "date": "2025-11-23",
         "quote": "Applying RLHF safety training using standard chat-like prompts results in aligned behavior on chat-like evaluations, but misalignment persists on agentic tasks.",
+        "supports": "claim"
+      }
+    ]
+  },
+  {
+    "id": "trump-orders-a-task-force-against-state-ai-laws",
+    "year": 2025,
+    "date": "2025-12-11",
+    "category": "policy",
+    "title": "Trump orders a task force to challenge state AI laws",
+    "summary": "An executive order sets the Justice Department to challenge state AI laws until Congress writes a national standard. Ten months on, no list of laws to target is out, and the department has joined one private suit.",
+    "source": "The White House",
+    "url": "https://www.whitehouse.gov/presidential-actions/2025/12/eliminating-state-law-obstruction-of-national-artificial-intelligence-policy/",
+    "why": "The order set the federal government against the states' AI laws: lawsuits, conditions on grants, a federal reporting standard to override theirs, and a request to Congress to preempt them, child safety excepted. Ten months on, most of its machinery had not started. Commerce had published no list of laws, the FCC had opened no proceeding and the broadband notice had not gone out; the Justice Department had joined a private suit against the one law the order named, Colorado's, which Colorado then replaced.",
+    "figures": [
+      {
+        "label": "Signed",
+        "value": "11 December 2025, Executive Order 14365"
+      },
+      {
+        "label": "The task force",
+        "value": "set up on 9 January 2026, its sole job to challenge state AI laws"
+      },
+      {
+        "label": "The one law named",
+        "value": "Colorado's ban on 'algorithmic discrimination'"
+      },
+      {
+        "label": "Due by 11 March 2026",
+        "value": "Commerce's list of onerous state laws; still unpublished in October"
+      },
+      {
+        "label": "Carved out",
+        "value": "child safety; compute and data-centre infrastructure; states' own procurement and use of AI"
+      },
+      {
+        "label": "In Congress",
+        "value": "a moratorium on state AI laws struck from the budget bill, 99 votes to 1, in July 2025"
+      }
+    ],
+    "detail": [
+      "Executive Order 14365, signed on 11 December 2025, says that American AI companies must be free to innovate without cumbersome regulation, and that state-by-state rules make a patchwork of fifty regimes. Until Congress writes a minimally burdensome national standard, the administration would check the most onerous state laws. The only one it names is Colorado's ban on 'algorithmic discrimination', which, it says, may even force models to produce false results. It orders the Attorney General to set up, within thirty days, an AI Litigation Task Force whose sole responsibility is to challenge state AI laws, as unconstitutional regulation of interstate commerce, as preempted by federal rules or as otherwise unlawful. Commerce was to publish within ninety days an evaluation naming onerous laws, at least those that require models to alter truthful outputs or may compel developers to disclose or report information in a manner that violates the First Amendment. States with such laws were to lose their remaining non-deployment broadband funds; the FCC was to consider a federal reporting and disclosure standard for AI models that preempts conflicting state laws; the FTC was to say when state laws requiring changes to truthful outputs are preempted. A proposal for legislation was to leave alone state laws on child safety, on compute and data-centre infrastructure, and on states' own use of AI.",
+      "Congress had already declined to do it in one stroke: in July 2025 the Senate voted 99 to 1 to strike a moratorium on state AI laws from the budget bill. California's governor's office said the order sought to preempt state laws protecting Americans from unregulated AI; NetChoice, a trade group of technology companies, applauded it. The day after, the FCC's chairman, Brendan Carr, welcomed the order, writing that California's disclosure and reporting mandates were premised on speculative catastrophic risks.",
+      "The Attorney General set up the task force on 9 January 2026, inside the order's thirty days. Commerce's evaluation, due by 11 March, had not appeared by October, and neither had the broadband notice; the FCC's ninety days begin only once the list is published, and it had opened no proceeding. On 20 March the White House published its recommendations for legislation: Congress should preempt state AI laws that impose undue burdens, and states should not be permitted to regulate AI development at all. In July the FTC proposed its policy statement. State law, it said, is impliedly preempted where it conflicts with a federal scheme, and it named Colorado's revised AI Act in its examples.",
+      "No state was sued in the task force's name. When xAI sued Colorado over its law on 9 April 2026, the Justice Department moved on 24 April to intervene on its side. Colorado agreed not to enforce the law while the case was paused, and on 14 May its governor signed a replacement, which takes effect on 1 January 2027. In August the department told a court in Minnesota that the state's law against AI 'nudification' tools swept more broadly than federal law, again in a suit brought by xAI. The record is read two ways. Fortune wrote that Colorado lost the country's most ambitious AI law to a federal lawsuit in five weeks; the court's docket shows a case paused rather than decided.",
+      "In Congress the preemption the order asked for had not passed by October 2026. A bipartisan House bill introduced in July would bar states from imposing new obligations on AI developers in frontier risk transparency, third-party auditing and incident reporting; in September twenty-six state attorneys general asked Congress for federal rules for frontier AI that preempt no state law. The board strings the card from California's SB 53, the reporting law the FCC's chairman singled out, and on to October 2026, when the President's own task force told the laboratories that reporting incidents was not optional. The federal reporting standard the order asked for had not been begun."
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "The White House",
+        "title": "Ensuring a National Policy Framework for Artificial Intelligence (Executive Order 14365)",
+        "url": "https://www.whitehouse.gov/presidential-actions/2025/12/eliminating-state-law-obstruction-of-national-artificial-intelligence-policy/",
+        "date": "2025-12-11",
+        "quote": "Within 30 days of the date of this order, the Attorney General shall establish an AI Litigation Task Force (Task Force) whose sole responsibility shall be to challenge State AI laws inconsistent with the policy set forth in section 2 of this order",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "US Senate (Wayback Machine capture)",
+        "title": "Roll Call Vote 119th Congress, 1st Session, Vote Number 363",
+        "url": "https://web.archive.org/web/20250702145457/https://www.senate.gov/legislative/LIS/roll_call_votes/vote1191/vote_119_1_00363.htm",
+        "date": "2025-07-01",
+        "quote": "Vote Counts: YEAs99 NAYs 1",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Office of the Governor of California",
+        "title": "Trump’s AI executive order advances corruption, not innovation",
+        "url": "https://www.gov.ca.gov/2025/12/11/trumps-ai-executive-order-advances-corruption-not-innovation/",
+        "date": "2025-12-11",
+        "quote": "with a new executive order seeking to preempt state laws protecting Americans from unregulated AI technology",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "NetChoice",
+        "title": "President Trump Defends America From AI Red Tape Patchwork With New Executive Order",
+        "url": "https://netchoice.org/president-trump-defends-america-from-ai-red-tape-patchwork-with-new-executive-order/",
+        "date": "2025-12-11",
+        "quote": "NetChoice applauds President Trump for ensuring America can lead the world in AI innovation with this executive order.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Federal Communications Commission",
+        "title": "Chairman Carr Applauds President Trump’s Executive Order on AI",
+        "url": "https://docs.fcc.gov/public/attachments/DOC-416077A1.pdf",
+        "date": "2025-12-12",
+        "quote": "California’s disclosure and reporting mandates were premised on speculative catastrophic risks",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "US Department of Justice, Office of the Attorney General",
+        "title": "Artificial Intelligence Litigation Task Force (memorandum)",
+        "url": "https://www.justice.gov/ag/media/1422986/dl",
+        "date": "2026-01-09",
+        "quote": "I or my designee will serve as the Chair of the Task Force, and the Associate Attorney General will serve as the Vice Chair.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "The Political Group",
+        "title": "Federal AI Rules for Political Campaigns (2026)",
+        "url": "https://www.thepoliticalgroup.com/ai-laws/federal",
+        "date": "2026-10-05",
+        "quote": "No published evaluation or list of states located as of 2026-10-05",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Roll Call",
+        "title": "Senators press administration for answers on broadband funds",
+        "url": "https://rollcall.com/2026/09/29/senators-press-adminstration-for-answers-on-broadband-funds/",
+        "date": "2026-09-29",
+        "quote": "The policy notice was also not released.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "The White House",
+        "title": "A National Policy Framework for Artificial Intelligence: Legislative Recommendations",
+        "url": "https://www.whitehouse.gov/wp-content/uploads/2026/03/03.20.26-National-Policy-Framework-for-Artificial-Intelligence-Legislative-Recommendations.pdf",
+        "date": "2026-03-20",
+        "quote": "States should not be permitted to regulate AI development, because it is an inherently interstate phenomenon with key foreign policy and national security implications.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Federal Trade Commission (Federal Register)",
+        "title": "Policy Statement Concerning the Suppression of Accuracy in Artificial Intelligence Systems (proposed)",
+        "url": "https://www.federalregister.gov/documents/2026/07/07/2026-13628/policy-statement-concerning-the-suppression-of-accuracy-in-artificial-intelligence-systems",
+        "date": "2026-07-07",
+        "quote": "Although the FTC Act does not expressly preempt State law, State law is impliedly preempted to the extent it conflicts with a Federal regulatory scheme.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "US Department of Justice",
+        "title": "Justice Department Intervenes in xAI lawsuit Challenging Colorado’s ‘Algorithmic Discrimination’ Law",
+        "url": "https://www.justice.gov/opa/pr/justice-department-intervenes-xai-lawsuit-challenging-colorados-algorithmic-discrimination",
+        "date": "2026-04-24",
+        "quote": "The Justice Department moved to intervene in a lawsuit filed by artificial intelligence company xAI, challenging a new Colorado law that prohibits so-called “algorithmic discrimination.”",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "US District Court for the District of Colorado (RECAP copy, CourtListener)",
+        "title": "X.AI LLC v. Weiser, Minute Order (ECF 24)",
+        "url": "https://storage.courtlistener.com/recap/gov.uscourts.cod.253513/gov.uscourts.cod.253513.24.0.pdf",
+        "date": "2026-04-27",
+        "quote": "all case management and other deadlines are STAYED, pending the Court’s resolution of xAI’s forthcoming motion for preliminary injunction.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Holland & Knight",
+        "title": "Colorado Governor Signs SB 189",
+        "url": "https://www.hklaw.com/en/insights/publications/2026/05/colorado-governor-signs-sb-189",
+        "date": "2026-05-18",
+        "quote": "The revised law takes effect January 1, 2027.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "US District Court for the District of Minnesota (RECAP copy, CourtListener)",
+        "title": "X.AI LLC v. Ellison, Statement of Interest of the United States (ECF 42)",
+        "url": "https://storage.courtlistener.com/recap/gov.uscourts.mnd.235231/gov.uscourts.mnd.235231.42.0_1.pdf",
+        "date": "2026-08-18",
+        "quote": "Sweeps More Broadly than Federal Law",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Fortune",
+        "title": "After three years of silence, Washington discovers it finally cares about AI safety",
+        "url": "https://fortune.com/2026/09/12/after-three-years-of-silence-washington-discovers-it-finally-cares-about-ai-safety/",
+        "date": "2026-09-12",
+        "quote": "Colorado lost the country’s most ambitious AI law to a federal lawsuit in five weeks.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "US House of Representatives (GovInfo)",
+        "title": "H.R. 9925, the FRONTIER Act, as introduced",
+        "url": "https://www.govinfo.gov/content/pkg/BILLS-119hr9925ih/html/BILLS-119hr9925ih.htm",
+        "date": "2026-07-23",
+        "quote": "no State or political subdivision of a State may adopt or enforce any law, regulation, order, or other requirement that imposes new substantive obligations on artificial intelligence developers with respect to any Covered Subject Area.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "New York Attorney General (letter of 26 attorneys general)",
+        "title": "Letter to Congress on federal regulation of frontier AI",
+        "url": "https://ag.ny.gov/sites/default/files/letters/federal-ai-regulation-letter-2026.pdf",
+        "date": "2026-09-23",
+        "quote": "Explicit preservation of state authority by prohibiting the preemption of state laws and granting state officials full authority to enforce these federal protections.",
         "supports": "claim"
       }
     ]
@@ -6724,6 +7613,196 @@
         "date": "2026-02-14",
         "quote": "the vast majority of usage has shifted to GPT‑5.2, with only 0.1 percent of users still choosing GPT‑4o each day",
         "supports": "claim"
+      }
+    ]
+  },
+  {
+    "id": "anthropic-is-named-a-supply-chain-risk",
+    "year": 2026,
+    "date": "2026-02-26",
+    "category": "policy",
+    "title": "Anthropic refuses two uses of Claude and is named a supply-chain risk",
+    "summary": "Anthropic will not let the Department of War use Claude for mass domestic surveillance or fully autonomous weapons. Trump orders agencies off it, the Pentagon brands it a supply-chain risk, and two courts split.",
+    "source": "Anthropic",
+    "url": "https://www.anthropic.com/news/statement-department-of-war",
+    "why": "A laboratory refused its own government two uses of its model and was given a label that, by its account, had been kept for the country's adversaries. It drew one line on principle, surveillance at home, and the other on reliability and oversight: weapons that choose and engage their targets alone might be needed, it said, but today's models cannot be trusted with them. OpenAI took the Department's terms with limits of its own, and two courts gave opposite answers on whether the label was punishment or procurement.",
+    "wikiTitle": "Dario Amodei",
+    "figures": [
+      {
+        "label": "The two limits",
+        "value": "no mass domestic surveillance; no fully autonomous weapons"
+      },
+      {
+        "label": "The Department's terms",
+        "value": "'any lawful use', required in its AI contracts by a memo of 9 January 2026"
+      },
+      {
+        "label": "Designated",
+        "value": "27 February 2026, by Pete Hegseth on X; formal letters dated 3 March"
+      },
+      {
+        "label": "Federal agencies",
+        "value": "told by Trump to cease all use of Anthropic's technology, with six months to phase it out"
+      },
+      {
+        "label": "In San Francisco",
+        "value": "designation vacated on 27 August as First Amendment retaliation"
+      },
+      {
+        "label": "In Washington",
+        "value": "the second exclusion upheld 2–1 by the D.C. Circuit on 25 September; a rehearing sought"
+      }
+    ],
+    "detail": [
+      "On 26 February 2026 Dario Amodei published Anthropic's answer to the Department of War, which had told it to accept 'any lawful use' of its models, by five the next afternoon, by a court's later account. Anthropic had been, he wrote, the first frontier laboratory to put its models on the government's classified networks, and Claude was used across the Department for intelligence analysis, operational planning and cyber operations. Two uses had never been in its contracts, and it would not add them now. Mass domestic surveillance was incompatible with democratic values: the government could already buy records of Americans' movements and browsing without a warrant, and AI could assemble them into a picture of any person's life. Fully autonomous weapons, which select and engage targets with no human in the loop, might prove critical for national defence, but today's frontier systems were simply not reliable enough to power them, and the Department had not taken up its offer of research to make them so. The Department had threatened to remove Anthropic from its systems, to designate it a supply-chain risk, a label Amodei said had been reserved for US adversaries and never applied to an American company, and to invoke the Defense Production Act. The threats, he wrote, did not change Anthropic's position.",
+      "The government did not wait for the deadline. At 3.47 that afternoon Trump directed every federal agency to cease all use of Anthropic's technology at once, with six months for those, the Department of War among them, that relied on it. A little over an hour later Pete Hegseth, the Secretary of War, posted that the Department would designate Anthropic a supply-chain risk and that, effective immediately, no contractor, supplier or partner doing business with the military could conduct any commercial activity with it. Anthropic said that no amount of intimidation or punishment would change its position, and that it would challenge any designation in court. Formal designations followed, dated 3 March, one under each of two procurement statutes. Amodei wrote that the action was not legally sound, apologised for an internal post that had leaked to the press, and offered to keep the models running for the Department at nominal cost for as long as the transition needed.",
+      "OpenAI reached its own agreement with the Pentagon the same day, for classified work. Its contract lets the Department use OpenAI's systems for all lawful purposes, consistent with law, operational requirements and established safety and oversight protocols, and OpenAI listed red lines of its own, among them no use of its technology for mass domestic surveillance and none to direct autonomous weapons systems. The contract's words on weapons are narrower: no independent direction of autonomous weapons where law, regulation or Department policy requires human control. It said its agreement had more guardrails than any before it, Anthropic's included, and that Anthropic should not be designated a supply-chain risk. Google agreed terms for Gemini on classified networks in April, saying that AI should not be used for domestic mass surveillance or autonomous weaponry without appropriate human oversight. Elon Musk's xAI and Google signed the same terms of use, covering all lawful uses, the Under Secretary of War, Emil Michael, said in October.",
+      "Anthropic sued on 9 March. On 26 March Judge Rita Lin, in San Francisco, granted it a preliminary injunction: punishing Anthropic for bringing public scrutiny to the government's contracting position was, she wrote, classic illegal First Amendment retaliation. On 27 August she gave Anthropic judgment, vacating the designation and Hegseth's ban on contractors: 'The empty invocation of national security is not a blank check to punish and retaliate against government critics.' Her order does not require the Department to use Anthropic's products. The second designation, under the Federal Acquisition Supply Chain Security Act, went to the Court of Appeals in Washington, which upheld it on 25 September by two votes to one. The nub of the dispute, the majority held, was contractual, and the First Amendment did not require the Department to continue a relationship it viewed as a national-security risk; Judge Karen Henderson, dissenting, could not agree that this was the scenario Congress had in mind. Anthropic asked for a rehearing on 13 October, and on 15 October the court gave the government fifteen days to respond, to 30 October 2026.",
+      "By October the Pentagon said it had ceased using Anthropic's products; people familiar with the matter told the BBC that Claude had been in use the week before. Michael said Anthropic was out of the Department and that, unless it changed its position, there was no discussion, though the President's task force, he added, would treat it like the other laboratories. Four days after the appeal court's ruling Amodei had sat at Trump's lunch on super intelligence and signed the accord on audits; no account on the record connects the two. The board strings the card from the 2015 letter that asked for a ban on offensive autonomous weapons beyond meaningful human control. Anthropic's line is narrower and its reason different: not that such weapons should never exist, but that the models are not yet reliable enough, nor the guardrails in place, to run them. The Department, Congress's researchers wrote in October, is not publicly known to use Claude, or any other frontier model, in autonomous weapon systems."
+    ],
+    "people": [
+      "dario-amodei"
+    ],
+    "orgs": [
+      "anthropic",
+      "openai",
+      "google"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Anthropic",
+        "title": "Statement from Dario Amodei on our discussions with the Department of War",
+        "url": "https://www.anthropic.com/news/statement-department-of-war",
+        "date": "2026-02-26",
+        "quote": "Two such use cases have never been included in our contracts with the Department of War, and we believe they should not be included now",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Donald J. Trump (Truth Social post, Trump's Truth archive)",
+        "title": "Directive to federal agencies on Anthropic",
+        "url": "https://www.trumpstruth.org/statuses/36981",
+        "date": "2026-02-27",
+        "quote": "Therefore, I am directing EVERY Federal Agency in the United States Government to IMMEDIATELY CEASE all use of Anthropic’s technology.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Anthropic",
+        "title": "Statement on the comments from Secretary of War Pete Hegseth",
+        "url": "https://www.anthropic.com/news/statement-comments-secretary-war",
+        "date": "2026-02-27",
+        "quote": "No amount of intimidation or punishment from the Department of War will change our position on mass domestic surveillance or fully autonomous weapons.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Anthropic (Dario Amodei)",
+        "title": "Where things stand with the Department of War",
+        "url": "https://www.anthropic.com/news/where-stand-department-war",
+        "date": "2026-03-05",
+        "quote": "we do not believe this action is legally sound, and we see no choice but to challenge it in court.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "Our agreement with the Department of War",
+        "url": "https://web.archive.org/web/20260228214354/https://openai.com/index/our-agreement-with-the-department-of-war/",
+        "date": "2026-02-28",
+        "quote": "The Department of War may use the AI System for all lawful purposes, consistent with applicable law, operational requirements, and well-established safety and oversight protocols.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "NBC News",
+        "title": "Pentagon inks deal with Google for AI services",
+        "url": "https://www.nbcnews.com/tech/tech-news/pentagon-inks-deal-google-ai-services-rcna342661",
+        "date": "2026-04-29",
+        "quote": "“We remain committed to the private and public sector consensus that AI should not be used for domestic mass surveillance or autonomous weaponry without appropriate human oversight.”",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "US District Court for the Northern District of California (RECAP copy, CourtListener)",
+        "title": "Anthropic PBC v. US Department of War, Order Granting Preliminary Injunction (Dkt. 134)",
+        "url": "https://storage.courtlistener.com/recap/gov.uscourts.cand.465515/gov.uscourts.cand.465515.134.0_1.pdf",
+        "date": "2026-03-26",
+        "quote": "Punishing Anthropic for bringing public scrutiny to the government’s contracting position is classic illegal First Amendment retaliation.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "US District Court for the Northern District of California (RECAP copy, CourtListener)",
+        "title": "Anthropic PBC v. US Department of War, Order on Cross Motions for Summary Judgment (Dkt. 250)",
+        "url": "https://storage.courtlistener.com/recap/gov.uscourts.cand.465515/gov.uscourts.cand.465515.250.0_1.pdf",
+        "date": "2026-08-27",
+        "quote": "The empty invocation of national security is not a blank check to punish and retaliate against government critics.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "US District Court for the Northern District of California (RECAP copy, CourtListener)",
+        "title": "Anthropic PBC v. US Department of War, Order of Final Relief (Dkt. 251)",
+        "url": "https://storage.courtlistener.com/recap/gov.uscourts.cand.465515/gov.uscourts.cand.465515.251.0_2.pdf",
+        "date": "2026-08-27",
+        "quote": "The Supply Chain Designation is hereby VACATED, SET ASIDE, and REMANDED pursuant to 5 U.S.C. § 706(2).",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "US Court of Appeals for the District of Columbia Circuit (RECAP copy, CourtListener)",
+        "title": "Anthropic PBC v. US Department of War, No. 26-1049, Opinion",
+        "url": "https://storage.courtlistener.com/recap/gov.uscourts.cadc.42923/gov.uscourts.cadc.42923.1208891909.0_1.pdf",
+        "date": "2026-09-25",
+        "quote": "The nub of this dispute was contractual, and the First Amendment did not require the Department to continue a contractual relationship that it viewed as creating a national-security risk.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "US Court of Appeals for the District of Columbia Circuit (RECAP copy, CourtListener)",
+        "title": "Anthropic PBC v. US Department of War, No. 26-1049, Order of 15 October 2026",
+        "url": "https://storage.courtlistener.com/recap/gov.uscourts.cadc.42923/gov.uscourts.cadc.42923.01208898343.0.pdf",
+        "date": "2026-10-15",
+        "quote": "within 15 days of the date of this order, respondents file a response to the petition for panel rehearing.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "BBC (Capital FM)",
+        "title": "Pentagon stops using Anthropic AI tools after blacklisting company, BBC told",
+        "url": "https://capitalfm.africa/pentagon-stops-using-anthropic-ai-tools-after-blacklisting-company-bbc-told/",
+        "date": "2026-10-06",
+        "quote": "The Pentagon “has ceased the use of Anthropic products”, the department official said in a statement on Monday.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "The Next Web",
+        "title": "Emil Michael tells The Information export controls can rein in AI labs",
+        "url": "https://thenextweb.com/news/emil-michael-export-controls-ai-labs-anthropic-the-information",
+        "date": "2026-10-19",
+        "quote": "Anthropic is out of the Department of War, as the department said six months ago it would be, Michael said.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Congressional Research Service",
+        "title": "Pentagon-Anthropic Dispute over Autonomous Weapon Systems (IN12669)",
+        "url": "https://www.congress.gov/crs_external_products/IN/PDF/IN12669/IN12669.5.pdf",
+        "date": "2026-10-05",
+        "quote": "DOD is not publicly known to be using Claude—or any other frontier AI model—within autonomous weapon systems.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Future of Life Institute",
+        "title": "Autonomous Weapons Open Letter: AI & Robotics Researchers",
+        "url": "https://futureoflife.org/open-letter/open-letter-autonomous-weapons-ai-robotics/",
+        "date": "2015-07-28",
+        "quote": "Starting a military AI arms race is a bad idea, and should be prevented by a ban on offensive autonomous weapons beyond meaningful human control.",
+        "supports": "context"
       }
     ]
   },
@@ -7091,6 +8170,167 @@
         "url": "https://en.wikipedia.org/wiki/Artificial_Intelligence_Act",
         "date": "2026-10-11",
         "quote": "",
+        "supports": "context"
+      }
+    ]
+  },
+  {
+    "id": "chatgpt-becomes-a-very-large-search-engine",
+    "year": 2026,
+    "date": "2026-08-31",
+    "category": "policy",
+    "title": "The EU designates ChatGPT a very large online search engine",
+    "summary": "The Commission brings ChatGPT under the Digital Services Act's strictest tier, as a search engine with at least 45 million monthly users in the EU. OpenAI must assess its risks, minors and mental well-being among them.",
+    "source": "European Commission",
+    "url": "https://digital-strategy.ec.europa.eu/en/news/commission-designates-chatgpt-reddit-roblox-under-digital-services-act",
+    "why": "A chatbot came under the Digital Services Act's strictest duties through its search box. The figures that crossed the threshold were OpenAI's count of ChatGPT search's users; the designation names ChatGPT, a hybrid service in the Commission's word, and the risks its maker must now assess every year include users' mental well-being and minors, the ground the confidant lead walks. How far the duties reach beyond the search feature into the conversations is the question the designation leaves open.",
+    "wikiTitle": "European Commission",
+    "figures": [
+      {
+        "label": "Designated",
+        "value": "31 August 2026, with Reddit and Roblox as very large online platforms"
+      },
+      {
+        "label": "The threshold",
+        "value": "45 million average monthly active recipients in the EU"
+      },
+      {
+        "label": "ChatGPT search, by OpenAI's count",
+        "value": "about 120.4 million in the six months to September 2025; 159.1 million to March 2026"
+      },
+      {
+        "label": "To comply",
+        "value": "four months, by January 2027"
+      },
+      {
+        "label": "Supervised by",
+        "value": "the Commission, with Ireland's Coimisiún na Meán"
+      },
+      {
+        "label": "Designated in all",
+        "value": "28 very large online platforms and search engines"
+      }
+    ],
+    "detail": [
+      "On 31 August 2026 the European Commission designated ChatGPT a very large online search engine under the Digital Services Act, and Reddit and Roblox very large online platforms. Each had declared at least 45 million average monthly users in the EU, the threshold for the law's strictest tier. ChatGPT, the Commission wrote, is an AI system that can respond to users' prompts and queries, including by searching the web, and so is a hybrid service that qualifies as a search engine. With the designation the Commission gains powers to investigate the functionalities behind the service and, where applicable, any related system, and it supervises ChatGPT with Ireland's Digital Services Coordinator, Coimisiún na Meán. The three services would now be held, in Henna Virkkunen's words, to a higher standard of scrutiny and accountability, in line with their large impact on citizens and society. They now number among 28 designated platforms and search engines.",
+      "The figures came from OpenAI, which the law requires to publish its users every six months. For the six months to September 2025 ChatGPT search had about 120.4 million average monthly active recipients in the EU, OpenAI reported in October, and the Commission said the next day that it had begun an assessment; by the six months to March 2026 the figure was 159.1 million. Both are counts of the search feature. OpenAI said that ChatGPT search operates as a search service under the law and that it was preparing to meet the requirements. The Commission's decision names ChatGPT, and the decision itself had not been published by October; whether the duties reach the conversations or only the search feature is read both ways, and the think tank Interface noted that OpenAI's figures relate solely to the search feature.",
+      "The duties take effect four months after notification: by January 2027, the Commission says. An afternoon version of its release had said by the end of January. By then OpenAI must have assessed the systemic risks of the service and its algorithms, and must do so every year after: the dissemination of illegal content, effects on fundamental rights, elections and public security, and, in the law's words, the protection of minors and serious negative consequences to the person's physical and mental well-being. It must take measures against them, submit to an independent audit at least once a year, and open data to the Commission and to vetted researchers studying systemic risks.",
+      "It is the second European regime over the same company in a month. From 2 August the Commission could enforce the AI Act's duties on OpenAI as the maker of general-purpose models; the Digital Services Act governs the service people use. The board strings it from ChatGPT's launch, as a research preview, and from OpenAI's own count in October 2025 of how many of its users show signs of psychosis, suicidal planning or emotional reliance. That count was voluntary. The assessment of risks to users' mental well-being is now a duty, at least for the search engine the Commission has named."
+    ],
+    "orgs": [
+      "european-union",
+      "openai"
+    ],
+    "terms": [
+      "chatbot"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "European Commission",
+        "title": "Commission designates ChatGPT, Reddit, Roblox under Digital Services Act",
+        "url": "https://digital-strategy.ec.europa.eu/en/news/commission-designates-chatgpt-reddit-roblox-under-digital-services-act",
+        "date": "2026-08-31",
+        "quote": "The Commission has designated ChatGPT as a Very Large Online Search Engine (VLOSE), as well as Reddit and Roblox as Very Large Online Platforms (VLOPs), under the Digital Services Act (DSA).",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "European Commission (press corner)",
+        "title": "Commission designates ChatGPT, Reddit, Roblox under Digital Services Act (IP/26/1772)",
+        "url": "https://ec.europa.eu/commission/presscorner/detail/en/ip_26_1772",
+        "date": "2026-09-01",
+        "quote": "ChatGPT is an Artificial Intelligence (AI) system that can engage with and respond to users' prompts and queries, including by searching the web. Hence, ChatGPT is a hybrid service that qualifies as an online search engine under the DSA.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "European Commission (press release, PDF)",
+        "title": "Commission designates ChatGPT, Reddit, Roblox under Digital Services Act",
+        "url": "https://ec.europa.eu/commission/presscorner/api/files/document/print/en/ip_26_1772/IP_26_1772_EN.pdf",
+        "date": "2026-08-31",
+        "quote": "These new designations mean that ChatGPT, Reddit and Roblox will now be held to a higher standard of scrutiny and accountability in the European Union, in line with their large impact on our citizens and society.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "European Commission (press release as updated at 15:00, Wayback Machine capture)",
+        "title": "Commission designates ChatGPT, Reddit, Roblox under Digital Services Act",
+        "url": "https://web.archive.org/web/20260831133544/https://ec.europa.eu/commission/presscorner/api/files/document/print/en/ip_26_1772/IP_26_1772_EN.pdf",
+        "date": "2026-08-31",
+        "quote": "these services have four months, i.e. by the end of January 2027, to comply with the additional DSA obligations",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "EU Digital Services Act (DSA)",
+        "url": "https://web.archive.org/web/20251022130552/https://help.openai.com/en/articles/8959649-eu-digital-services-act-dsa",
+        "date": "2025-10-21",
+        "quote": "For the six-month period ending 30 September 2025, ChatGPT search had approximately 120.4 million average monthly active recipients in the European Union.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "EU Digital Services Act (DSA), as updated in 2026",
+        "url": "https://web.archive.org/web/20260905034040/https://help.openai.com/en/articles/8959649-eu-digital-services-act-dsa",
+        "date": "2026-09-05",
+        "quote": "For the six-month period ending 31 March 2026, ChatGPT search had approximately 159.1 million average monthly active recipients in the European Union.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Euronews (Wayback Machine capture)",
+        "title": "ChatGPT could face strictest set of EU rules as it hits 120 million users in Europe",
+        "url": "https://web.archive.org/web/20251022173519/https://www.euronews.com/next/2025/10/22/chatgpt-could-face-strictest-set-of-eu-rules-as-it-hits-120-million-users-in-europe",
+        "date": "2025-10-22",
+        "quote": "Asked at a press briefing in Brussels on Wednesday, the Commission spokesperson said the EU executive was aware of ChatGPT’s new numbers and that an assessment has begun.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "PYMNTS",
+        "title": "ChatGPT Faces Greater Regulatory Oversight by EU",
+        "url": "https://www.pymnts.com/legal/2026/chatgpt-faces-greater-regulatory-oversight-european-union/",
+        "date": "2026-08-31",
+        "quote": "ChatGPT search operates as a search service under the DSA, and we are preparing to meet the additional compliance requirements that come with this Very Large Online Search Engine designation",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "European Commission",
+        "title": "Supervision of the designated very large online platforms and search engines under DSA",
+        "url": "https://digital-strategy.ec.europa.eu/en/policies/list-designated-vlops-and-vloses",
+        "date": "2026-10-15",
+        "quote": "31.08.2026: designation (decision not yet available; press release)",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "Interface (Lena-Maria Böswald)",
+        "title": "Different Risks, Different Rules? The Case of ChatGPT under the DSA and the AI Act",
+        "url": "https://www.interface-eu.org/publications/chatgpt-dsa-ai-act",
+        "date": "2026-10-01",
+        "quote": "What is crucial here is that OpenAI’s figures relate solely to ChatGPT’s search feature.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "EUR-Lex (Wayback Machine capture)",
+        "title": "Regulation (EU) 2022/2065 of 19 October 2022 (Digital Services Act)",
+        "url": "https://web.archive.org/web/20261003163906/https://eur-lex.europa.eu/eli/reg/2022/2065/oj/eng",
+        "date": "2022-10-27",
+        "quote": "any actual or foreseeable negative effects in relation to gender-based violence, the protection of public health and minors and serious negative consequences to the person’s physical and mental well-being.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "AFP (France 24, Wayback Machine capture)",
+        "title": "ChatGPT becomes first AI chatbot to face tougher EU rules",
+        "url": "https://web.archive.org/web/20260903202417/https://www.france24.com/en/live-news/20260831-chatgpt-becomes-first-ai-chatbot-to-face-tougher-eu-rules",
+        "date": "2026-08-31",
+        "quote": "ChatGPT becomes first AI chatbot to face tougher EU rules",
         "supports": "context"
       }
     ]
