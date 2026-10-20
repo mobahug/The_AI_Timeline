@@ -61,9 +61,11 @@ describe('corrections: every change of fact, as the history has it', () => {
   });
 
   it.skipIf(shallow)('is dated by commits that are in the history, on the days they were made', () => {
+    // One lookup per commit: many corrections share one.
+    const days = new Map<string, string>();
     ALL.forEach((c) => {
-      const day = execFileSync('git', ['show', '-s', '--format=%ad', '--date=short', c.commit], { cwd: root, encoding: 'utf8' }).trim();
-      expect(day, c.id + ' @ ' + c.commit).toBe(c.date);
+      if (!days.has(c.commit)) days.set(c.commit, execFileSync('git', ['show', '-s', '--format=%ad', '--date=short', c.commit], { cwd: root, encoding: 'utf8' }).trim());
+      expect(days.get(c.commit), c.id + ' @ ' + c.commit).toBe(c.date);
     });
   });
 });
