@@ -71,17 +71,17 @@ describe('corrections: every change of fact, as the history has it', () => {
 });
 
 describe('a dossier, on its corrections', () => {
-  it('counts each card’s corrections from the heads alone, and links the newest', async () => {
+  it('counts each card’s corrections from its papers, and links the newest the register lists', async () => {
     const { correctedOf } = await import('../src/lib/corrected');
     const cards = new Set(ALL.map((c) => c.event).filter(Boolean) as string[]);
     cards.forEach((id) => {
       const full = correctionsOf(id);
-      const seen = correctedOf(id);
+      const seen = correctedOf(graph.index[id]);
       expect(seen, id).not.toBeNull();
       expect(seen && seen.n, id).toBe(full.length);
       expect(seen && seen.id, id).toBe(full[0].id);
       expect(seen && seen.date, id).toBe(full[0].date);
     });
-    expect(correctedOf('no-such-card')).toBeNull();
+    graph.all.filter((e) => !cards.has(e.id)).forEach((e) => expect(correctedOf(e), e.id).toBeNull());
   });
 });

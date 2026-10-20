@@ -5,9 +5,10 @@ import type { Correction } from './types';
    its history has it — what a card said, what it says now, why, and the source
    that settled it, dated by the commit that made the change. Wording that
    changed without a fact changing is not listed, nor a quote matched to its
-   page's own curly marks. Read by the register and by the dossiers it touches,
-   both pages of their own (components/viewChunks.ts), so the main script never
-   carries it. */
+   page's own curly marks. Read by the register, a page of its own
+   (components/viewChunks.ts), so the main script never carries it; a dossier
+   reads only its own card's count, filed with the card's papers
+   (lib/corrected.ts). */
 
 export const CORRECTIONS_NOTE: string = file.note;
 

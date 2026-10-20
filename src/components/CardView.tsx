@@ -138,7 +138,7 @@ function CardView({ graph, route, media, embedded }: CardViewProps) {
   const machine = machineOf(event.id);
   const foretold = predictionsOf(event);
   const pledged = pledgesOf(event);
-  const corrected = correctedOf(event.id);
+  const corrected = correctedOf(event);
   // Species-style: the one source the entry is based on, named up front.
   const basedOn = sources.find((s) => s.supports === 'claim') || sources[0] || null;
 

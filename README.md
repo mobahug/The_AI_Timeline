@@ -135,8 +135,9 @@ year, title, summary, tags, the link it is cited to — is in the main bundle, w
 names its words use worked out at build time. Its papers — the reading, the file, the
 figures and the sources, two thirds of `events.json` — are a chunk of their own,
 fetched when a page needs them: a dossier, the board's panel, the search. The build
-files two more with them that only a dossier prints: the days the card was filed and
-last revised, and the line each question, check, prediction and promise gives it. Every
+files three more with them that only a dossier prints: the days the card was filed and
+last revised, the line each question, check, prediction and promise gives it, and how
+often the corrections register lists it corrected, with the newest. Every
 prerendered page carries the papers it prints, so it hydrates without waiting for
 them, and a dossier carries its own card's alone. See `scripts/split-events.ts` and
 `src/lib/papers.ts`.

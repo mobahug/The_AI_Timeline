@@ -109,12 +109,6 @@ declare module '*/data/glossary.json?bodies' {
   export default file;
 }
 
-/* The corrections register, as a dossier reads it: each entry's day and card. */
-declare module '*/data/corrections.json?heads' {
-  const file: { corrections: Pick<import('./lib/types').Correction, 'id' | 'date' | 'event'>[] };
-  export default file;
-}
-
 /* What changed on the board lately, dated from the git history at build time
    — see scripts/board-changes.ts. The latest page imports it; the days each
    card was filed and last changed are filed with its papers. */

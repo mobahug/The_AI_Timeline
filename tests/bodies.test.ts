@@ -163,12 +163,14 @@ describe('heads and bodies', () => {
     }
   });
 
-  it('keeps the board’s history out of it too: what changed lately, and when each card was filed', () => {
+  it('keeps the board’s history out of it too: what changed lately, when each card was filed, and what was corrected', () => {
     for (const [file, specs] of reachedFromMain()) {
       const at = file.slice(root.length);
       expect(specs.includes('virtual:board-changes'), at + ' imports virtual:board-changes').toBe(false);
-      // A card's days, and the lines on it, are filed with its papers.
+      // A card's days, the lines on it and its corrections are filed with its papers.
       expect(specs.some((s) => s.endsWith('events.json?papers')), at + ' imports the papers').toBe(false);
+      // The register is read by its own page alone.
+      expect(specs.some((s) => s.includes('corrections.json')), at + ' imports the corrections').toBe(false);
     }
   });
 });
