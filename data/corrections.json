@@ -2,6 +2,2474 @@
   "note": "Drawn from the board's own history, this register lists every change of fact the board has made to its record, dated by the commit that made it, and not every change of wording.",
   "corrections": [
     {
+      "id": "deep-learning-name-was-older",
+      "date": "2026-10-19",
+      "commit": "f02cfb1",
+      "event": "deep-networks-become-trainable",
+      "kind": "attribution",
+      "was": "Hinton's layer-wise pretraining reopens depth as viable and rebrands the field “deep learning”.",
+      "now": "Hinton's layer-wise pretraining makes deep networks trainable. The name deep learning was older; by Hinton's own account, its popularity began with the 2006 paper on deep belief nets.",
+      "why": "The name was older than the method: Rina Dechter wrote of deep learning in 1986, in a paper on search, and Igor Aizenberg and colleagues used it of neural networks in 2000. Hinton's own account, to the Connectionists list in 2015, is that the term's current popularity started with the 2006 paper on deep belief nets; no source has him renaming the field.",
+      "source": {
+        "publisher": "Connectionists mailing list (Carnegie Mellon University archive)",
+        "title": "Who introduced the term \"Deep Learning\" to NNs? (Geoffrey Hinton)",
+        "url": "https://mailman.srv.cs.cmu.edu/pipermail/connectionists/2015-March/027852.html"
+      }
+    },
+    {
+      "id": "deep-learning-out-of-fashion-in-the-1990s",
+      "date": "2026-10-19",
+      "commit": "f02cfb1",
+      "where": {
+        "file": "data/glossary.json",
+        "id": "deep-learning"
+      },
+      "kind": "date",
+      "was": "The name the field adopted around 2006 for what had been unfashionable since 1969.",
+      "now": "The name the field adopted around 2006 for neural networks, out of fashion again since the late 1990s.",
+      "why": "Neural networks came back with backpropagation in 1986, as the board's own card has it. LeCun, Bengio and Hinton's review of 2015 dates the second eclipse: in the late 1990s neural nets and backpropagation were largely forsaken by the machine-learning community.",
+      "source": {
+        "publisher": "Nature (copy hosted by the University of Toronto)",
+        "title": "Deep learning (Yann LeCun, Yoshua Bengio and Geoffrey Hinton)",
+        "url": "https://www.cs.toronto.edu/~hinton/absps/NatureDeepReview.pdf"
+      }
+    },
+    {
+      "id": "imagenet-three-million-in-2009",
+      "date": "2026-10-19",
+      "commit": "f02cfb1",
+      "event": "imagenet",
+      "kind": "figure",
+      "was": "Fei-Fei Li's fourteen-million-image dataset gives the field a problem hard enough to be worth winning.",
+      "now": "Fei-Fei Li's group at Princeton publishes ImageNet: 3.2 million labelled images, on the way to fourteen million, and a problem hard enough to be worth winning.",
+      "why": "The CVPR 2009 paper, from Li's group at Princeton, describes ImageNet in its current state as 3.2 million images in 5,247 synsets. The fourteen million came later: the challenge's own paper counts 14,197,122 images in 21,841 synsets as of August 2014.",
+      "source": {
+        "publisher": "IEEE Conference on Computer Vision and Pattern Recognition, CVPR 2009 (copy at image-net.org)",
+        "title": "ImageNet: A Large-Scale Hierarchical Image Database (Jia Deng, Wei Dong, Richard Socher, Li-Jia Li, Kai Li and Li Fei-Fei)",
+        "url": "https://www.image-net.org/static_files/papers/imagenet_cvpr09.pdf"
+      }
+    },
+    {
+      "id": "imagenet-image-count-figure",
+      "date": "2026-10-19",
+      "commit": "f02cfb1",
+      "event": "imagenet",
+      "kind": "figure",
+      "was": "about 14 million, in some 22,000 categories",
+      "now": "3.2 million in 5,247 categories in 2009; 14,197,122 in 21,841 by 2014",
+      "why": "Fourteen million images in some 22,000 categories is the dataset of the 2010s, counted at 14,197,122 in 21,841 synsets as of August 2014 by the challenge's own paper; the card's year, 2009, had 3.2 million in 5,247.",
+      "source": {
+        "publisher": "International Journal of Computer Vision (arXiv)",
+        "title": "ImageNet Large Scale Visual Recognition Challenge (Olga Russakovsky, Jia Deng and others)",
+        "url": "https://arxiv.org/pdf/1409.0575"
+      }
+    },
+    {
+      "id": "imagenet-data-not-the-boring-part",
+      "date": "2026-10-19",
+      "commit": "f02cfb1",
+      "event": "imagenet",
+      "kind": "attribution",
+      "was": "The idea was unfashionable: the field was working on algorithms and treated data as the boring part.",
+      "now": "In Li's telling the idea was unfashionable: the field was working on algorithms, and friendly colleagues advised her to do something more useful for her tenure.",
+      "why": "Nothing sourced the field treating data as the boring part. The account is Li's: friendly colleagues advised her to do something more useful for her tenure, as she said at TED in 2015. Her file now says the same, and that ImageNet reached fourteen million images by 2014.",
+      "source": {
+        "publisher": "TED",
+        "title": "How we're teaching computers to understand pictures (Fei-Fei Li, TED2015, transcript)",
+        "url": "https://www.ted.com/talks/fei_fei_li_how_we_re_teaching_computers_to_understand_pictures/transcript"
+      },
+      "alsoIn": [
+        {
+          "file": "data/people.json",
+          "id": "fei-fei-li"
+        }
+      ]
+    },
+    {
+      "id": "imagenet-2012-margin-ended-nothing",
+      "date": "2026-10-19",
+      "commit": "f02cfb1",
+      "event": "imagenet",
+      "kind": "framing",
+      "was": "The annual competition on a thousand-category subset began the following year, and in 2012 a neural network won it by a margin that ended the argument.",
+      "now": "The annual competition on a thousand-category subset began the following year, and in 2012 a deep convolutional network won it with 15.3% top-5 error to the runner-up's 26.2%.",
+      "why": "The AlexNet paper gives the margin, 15.3% against 26.2%. That it ended the argument had no source, and the board's own AlexNet card has veteran researchers unconvinced when the result was presented; LeCun, Bengio and Hinton later wrote that mainstream computer vision had largely forsaken such networks until that competition.",
+      "source": {
+        "publisher": "Advances in Neural Information Processing Systems 25 (NIPS 2012)",
+        "title": "ImageNet Classification with Deep Convolutional Neural Networks (Krizhevsky, Sutskever, Hinton)",
+        "url": "https://papers.nips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf"
+      }
+    },
+    {
+      "id": "imagenet-challenge-followed-pascal-voc",
+      "date": "2026-10-19",
+      "commit": "f02cfb1",
+      "where": {
+        "file": "data/links.json",
+        "id": "the-netflix-prize>imagenet"
+      },
+      "kind": "fact",
+      "was": "Public data, a fixed metric, a live leaderboard and a target score. ImageNet's own challenge (from 2010) ran on exactly this format, and so has every benchmark race since.",
+      "now": "Netflix put up public data, a fixed metric, a live leaderboard, a ten per cent target and a million dollars. ImageNet's own challenge, from 2010, kept the public data and the fixed metric and ran on another model: it began as a taster competition beside PASCAL VOC, the challenge its organisers name as their inspiration, each year's entries were scored on a withheld test set and revealed only at the end, and the winners were invited to present at a workshop. It moved to Kaggle in 2017.",
+      "why": "ImageNet's challenge was first held as a taster competition alongside PASCAL VOC 2010, which Li and Deng name as its inspiration; its results were posted after the deadline, with no live leaderboard, and its rules set no target. The string's claim that the Netflix Prize wrote its template, and the Netflix card's every benchmark race since, said otherwise.",
+      "source": {
+        "publisher": "ImageNet (image-net.org)",
+        "title": "ImageNet Large Scale Visual Recognition Challenge 2010 (ILSVRC2010)",
+        "url": "https://www.image-net.org/challenges/LSVRC/2010/"
+      },
+      "alsoIn": [
+        {
+          "file": "data/events.json",
+          "id": "the-netflix-prize"
+        }
+      ]
+    },
+    {
+      "id": "seq2seq-retired-nothing-in-2014",
+      "date": "2026-10-19",
+      "commit": "f02cfb1",
+      "event": "sequence-to-sequence",
+      "kind": "fact",
+      "was": "Encoder–decoder models learn translation end to end and retire decades of hand-built pipelines.",
+      "now": "Two LSTMs, one reading an English sentence and one writing it in French, learn translation end to end and beat a phrase-based baseline. Google starts moving Translate onto neural networks two years later.",
+      "why": "The 2014 model beat a phrase-based baseline, 34.8 BLEU to 33.3, but not the year's best system, and its best score came from reranking the phrase-based system's own candidates. By Google's account neural translation was not fast or accurate enough for Translate until GNMT, which took over Chinese–English in September 2016; and the systems it displaced were statistical, learned from data, not hand-built.",
+      "source": {
+        "publisher": "Google Research blog",
+        "title": "A Neural Network for Machine Translation, at Production Scale (Quoc V. Le and Mike Schuster)",
+        "url": "https://research.google/blog/a-neural-network-for-machine-translation-at-production-scale/"
+      }
+    },
+    {
+      "id": "seq2seq-reversal-not-gating",
+      "date": "2026-10-19",
+      "commit": "f02cfb1",
+      "where": {
+        "file": "data/links.json",
+        "id": "lstm>sequence-to-sequence"
+      },
+      "kind": "attribution",
+      "was": "The gating designed against vanishing gradients is what let a network carry a sentence that far.",
+      "now": "Its authors chose the LSTM for its memory over long stretches, but credited long sentences to a trick: reversing each source sentence, which put its first words close to the first words of the translation.",
+      "why": "Sutskever, Vinyals and Le wrote that they did well on long sentences because they reversed the order of the source words, and expected even a standard recurrent network to train once the sentences were reversed.",
+      "source": {
+        "publisher": "arXiv (full text, version 3)",
+        "title": "Sequence to Sequence Learning with Neural Networks (Ilya Sutskever, Oriol Vinyals and Quoc V. Le)",
+        "url": "https://arxiv.org/pdf/1409.3215"
+      }
+    },
+    {
+      "id": "transformer-baselines-were-others",
+      "date": "2026-10-19",
+      "commit": "f02cfb1",
+      "where": {
+        "file": "data/links.json",
+        "id": "sequence-to-sequence>attention-is-all-you-need"
+      },
+      "kind": "fact",
+      "was": "The transformer was introduced as a better encoder–decoder for translation and measured on the same benchmarks, and the attention it was built from had first been added to recurrent sequence-to-sequence models in 2014.",
+      "now": "The transformer was introduced as a better encoder–decoder for translation and scored on the same WMT 2014 English–French test, with English–German beside it, and the attention it was built from had been added to recurrent encoder–decoders for translation in 2014.",
+      "why": "The transformer paper's comparison lists ByteNet, GNMT, ConvS2S and others, not the 2014 model, so the string's claim that it set the baseline now says it set the encoder–decoder shape. Only the English–French test was shared. And the 2014 paper credits attention to Graves and its use in translation to Bahdanau, Cho and Bengio, so 2014 is when attention reached translation, not when it was first added.",
+      "source": {
+        "publisher": "arXiv (full text, version 3)",
+        "title": "Sequence to Sequence Learning with Neural Networks (Ilya Sutskever, Oriol Vinyals and Quoc V. Le)",
+        "url": "https://arxiv.org/pdf/1409.3215"
+      }
+    },
+    {
+      "id": "gan-2014-samples-were-toys",
+      "date": "2026-10-19",
+      "commit": "f02cfb1",
+      "event": "generative-adversarial-networks",
+      "kind": "fact",
+      "was": "Two networks trained against each other start producing faces that were never photographed.",
+      "now": "Two networks are trained against each other, one forging samples and one catching forgeries. The first samples are digits, faces and objects; in 2017 a descendant makes faces 1,024 pixels square.",
+      "why": "The 2014 paper trained on MNIST digits, the Toronto Face Database and CIFAR-10, and its authors claimed their samples only competitive with other generative models; FAIR later wrote that GANs had been demonstrated only on toy problems. Faces 1,024 pixels square came with NVIDIA's progressive GAN in October 2017. The glossary's entries on GANs and generative AI dated convincing faces to 2014 too.",
+      "source": {
+        "publisher": "Advances in Neural Information Processing Systems 27 (NIPS 2014)",
+        "title": "Generative Adversarial Nets (Ian J. Goodfellow and others)",
+        "url": "https://papers.nips.cc/paper_files/paper/2014/file/f033ed80deb0234979a61f95710dbe25-Paper.pdf"
+      },
+      "alsoIn": [
+        {
+          "file": "data/glossary.json",
+          "id": "gan"
+        },
+        {
+          "file": "data/glossary.json",
+          "id": "generative-ai"
+        }
+      ]
+    },
+    {
+      "id": "gan-law-did-not-wait-nine-years",
+      "date": "2026-10-19",
+      "commit": "f02cfb1",
+      "event": "generative-adversarial-networks",
+      "kind": "fact",
+      "was": "Synthetic media becomes technically trivial nine years before the law notices.",
+      "now": "The paper's own analogy is counterfeiters and the police, each improving until the counterfeits cannot be told from the real thing. For faces, by 2022, they could not: people shown faces from StyleGAN2 did no better than chance.",
+      "why": "In 2014 the method made toy samples, not trivial synthetic media, and the law did not wait nine years: Texas made a deep fake video meant to sway an election a crime from September 2019. The reading now rests on the paper's own analogy and on Nightingale and Farid's study of 2022, in which people sorting StyleGAN2 faces from real ones were right 48.2% of the time.",
+      "source": {
+        "publisher": "Proceedings of the National Academy of Sciences (PubMed Central copy)",
+        "title": "AI-synthesized faces are indistinguishable from real faces and more trustworthy (Sophie J. Nightingale and Hany Farid)",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8872790/"
+      }
+    },
+    {
+      "id": "dcgan-not-all-fair",
+      "date": "2026-10-19",
+      "commit": "f02cfb1",
+      "where": {
+        "file": "data/links.json",
+        "id": "zuckerberg-hires-lecun>generative-adversarial-networks"
+      },
+      "kind": "attribution",
+      "was": "By Meta's own account (FAIR's fifth-anniversary post, 2018), GANs had been shown only on toy problems until FAIR's 2015 papers, DCGAN among them, 'were instrumental in convincing the research community that GANs really worked'. Self-assessment, but widely accepted.",
+      "now": "By Meta's own account (FAIR's fifth-anniversary post, 2018), GANs had been demonstrated only on toy problems, and a series of FAIR papers from 2015, LAPGAN and DCGAN among them, 'were instrumental in convincing the research community that GANs really worked'. The account is FAIR's own: DCGAN's first two authors, Alec Radford and Luke Metz, were at indico Research in Boston, writing with FAIR's Soumith Chintala.",
+      "why": "Nothing supported widely accepted, and DCGAN was not FAIR's alone: its paper lists Radford and Metz at indico Research and Chintala at Facebook AI Research. The string's claim now says FAIR helped make GANs practical.",
+      "source": {
+        "publisher": "Meta (Engineering at Meta)",
+        "title": "FAIR turns five: What we've accomplished and where we're headed",
+        "url": "https://engineering.fb.com/2018/12/05/ai-research/fair-fifth-anniversary/"
+      }
+    },
+    {
+      "id": "anthropic-founded-in-january-2021",
+      "date": "2026-10-19",
+      "commit": "f02cfb1",
+      "event": "anthropic-founded-by-departing-openai-staff",
+      "kind": "date",
+      "was": "2021-05",
+      "now": "2021-01",
+      "why": "Anthropic was founded in January 2021, by the court's account in Bartz v. Anthropic. May 2021 is when it announced its $124 million Series A, which the card's figure keeps.",
+      "source": {
+        "publisher": "US District Court for the Northern District of California (RECAP copy, CourtListener)",
+        "title": "Bartz v. Anthropic PBC, Order on Fair Use (Dkt. 231)",
+        "url": "https://storage.courtlistener.com/recap/gov.uscourts.cand.434709/gov.uscourts.cand.434709.231.0.pdf"
+      }
+    },
+    {
+      "id": "anthropic-founders-overcredited",
+      "date": "2026-10-19",
+      "commit": "f02cfb1",
+      "event": "anthropic-founded-by-departing-openai-staff",
+      "kind": "attribution",
+      "was": "The group that left had led OpenAI's work on GPT-2, GPT-3 and the scaling laws, and its policy team.",
+      "now": "Anthropic's founders included Dario Amodei, OpenAI's vice-president of research, who by the GPT-3 paper's account designed and led its research, and by OpenAI's had helped build GPT-2; Jared Kaplan, who co-led the scaling-laws paper; and Jack Clark, OpenAI's policy director.",
+      "why": "The papers say who led what: Dario Amodei designed and led the research behind GPT-3, and Jared Kaplan and Sam McCandlish led the scaling-laws work. GPT-2's paper lists Amodei and Sutskever as its senior authors, and OpenAI's own account is that Amodei worked with the team that built it.",
+      "source": {
+        "publisher": "arXiv (OpenAI)",
+        "title": "Language Models are Few-Shot Learners (Brown et al.)",
+        "url": "https://arxiv.org/pdf/2005.14165"
+      }
+    },
+    {
+      "id": "anthropic-split-two-accounts",
+      "date": "2026-10-19",
+      "commit": "f02cfb1",
+      "event": "anthropic-founded-by-departing-openai-staff",
+      "kind": "attribution",
+      "was": "They said the disagreement was about the direction of the company after the Microsoft deal and about how seriously safety research was taken; they founded a lab with a public-benefit structure and a stated intention to do that research alongside frontier models.",
+      "now": "Why they left is told two ways. The Financial Times reported in 2021 that the split followed differences over direction after Microsoft's $1 billion investment of 2019; Amodei has since called that account false, while granting that how to do the deal was much discussed, and says the group left together to pursue two beliefs: that scaling would keep making models better, and that safety had to be added to it.",
+      "why": "The founders did not say they left over the Microsoft deal: Amodei has called that account false, in his interview with Lex Fridman in 2024. It was the Financial Times's, from two people familiar with the split, and the card now carries both readings with his own account of the group's two beliefs.",
+      "source": {
+        "publisher": "Lex Fridman Podcast #452 (transcript)",
+        "title": "Transcript for Dario Amodei: Anthropic CEO on Claude, AGI & the Future of AI & Humanity",
+        "url": "https://lexfridman.com/dario-amodei-transcript/"
+      }
+    },
+    {
+      "id": "anthropic-not-every-lab-a-splinter",
+      "date": "2026-10-19",
+      "commit": "f02cfb1",
+      "event": "anthropic-founded-by-departing-openai-staff",
+      "kind": "framing",
+      "was": "Every major lab is now a splinter of another. Safety disagreement became the industry's main mechanism of company formation.",
+      "now": "OpenAI was founded, in Musk's word, as a counterweight to Google; five years on it had a counterweight of its own. How to build safely had become a reason to found a company.",
+      "why": "Not every major lab split from another: Google DeepMind was founded in London and bought by Google, and Meta's lab grew inside Meta, as the board's own files say. No source makes safety disagreement the industry's main way of forming companies. The card's file and the plain question on who controls AI said most labs were splinters.",
+      "source": {
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "Organizational Update from OpenAI",
+        "url": "https://web.archive.org/web/20201229190920/https://openai.com/blog/organizational-update/"
+      },
+      "alsoIn": [
+        {
+          "file": "data/questions.json",
+          "id": "who-controls-the-most-powerful-ai"
+        }
+      ]
+    },
+    {
+      "id": "amodei-left-at-the-end-of-2020",
+      "date": "2026-10-19",
+      "commit": "f02cfb1",
+      "where": {
+        "file": "data/people.json",
+        "id": "dario-amodei"
+      },
+      "kind": "date",
+      "was": "Led research at OpenAI through GPT-2 and GPT-3, left in 2021 with a group of colleagues to found Anthropic, and has since published the labs' most detailed public risk assessments alongside the models.",
+      "now": "Led research at OpenAI through GPT-2 and GPT-3, left at the end of 2020 with a group of colleagues and founded Anthropic in 2021, and has since published the labs' most detailed public risk assessments alongside the models.",
+      "why": "OpenAI announced on 29 December 2020 that Amodei was leaving; Anthropic was founded in January 2021.",
+      "source": {
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "Organizational Update from OpenAI",
+        "url": "https://web.archive.org/web/20201229190920/https://openai.com/blog/organizational-update/"
+      }
+    },
+    {
+      "id": "books-five-million-copies",
+      "date": "2026-10-19",
+      "commit": "f02cfb1",
+      "where": {
+        "file": "data/links.json",
+        "id": "anthropic-founded-by-departing-openai-staff>anthropic-pays-for-pirated-books"
+      },
+      "kind": "figure",
+      "was": "By the court's account the library began in the company's first year: a cofounder downloaded Books3 in January or February 2021 and, that June, at least five million books from Library Genesis that he knew had been pirated.",
+      "now": "By the court's account the library began in the company's first year: a cofounder downloaded Books3 in January or February 2021 and, that June, at least five million copies of books from Library Genesis that he knew had been pirated.",
+      "why": "Judge Alsup's order counts copies, not books: in June 2021, it says, the cofounder downloaded at least five million copies of books from Library Genesis.",
+      "source": {
+        "publisher": "US District Court for the Northern District of California (RECAP copy, CourtListener)",
+        "title": "Bartz v. Anthropic PBC, Order on Fair Use (Dkt. 231)",
+        "url": "https://storage.courtlistener.com/recap/gov.uscourts.cand.434709/gov.uscourts.cand.434709.231.0.pdf"
+      }
+    },
+    {
+      "id": "musk-suit-first-sought-no-block",
+      "date": "2026-10-19",
+      "commit": "f02cfb1",
+      "where": {
+        "file": "data/links.json",
+        "id": "musk-sues-openai>openai-converts-the-nonprofit-keeps-a-stake"
+      },
+      "kind": "fact",
+      "was": "The suit sought to block exactly this conversion.",
+      "now": "Musk asked the court in 2024 to bar any step towards converting OpenAI to a for-profit, and in March 2025 it refused.",
+      "why": "The suit Musk filed in February 2024 asked for no block on a conversion; his federal suit later did, and the court's order of 4 March 2025 denied the request for an injunction barring any steps towards OpenAI's conversion to a for-profit.",
+      "source": {
+        "publisher": "US District Court for the Northern District of California (RECAP copy, CourtListener)",
+        "title": "Musk v. Altman, Order Denying Motion for a Preliminary Injunction (Dkt. 121)",
+        "url": "https://storage.courtlistener.com/recap/gov.uscourts.cand.433688/gov.uscourts.cand.433688.121.0_1.pdf"
+      }
+    },
+    {
+      "id": "musk-suit-advisory-jury",
+      "date": "2026-10-19",
+      "commit": "f02cfb1",
+      "where": {
+        "file": "data/links.json",
+        "id": "musk-sues-openai>openai-converts-the-nonprofit-keeps-a-stake"
+      },
+      "kind": "fact",
+      "was": "The conversion closed in October 2025; in May 2026 a jury found the claim was filed too late and never reached the question of whether the mission had been abandoned.",
+      "now": "The conversion closed in October 2025; in May 2026 an advisory jury found his trial claims barred by the statute of limitations, the judge adopted its verdict, and whether the founding mission had been jettisoned was never decided.",
+      "why": "The jury was advisory and the decision the judge's: her order of 20 May 2026 adopted its finding that Musk's trial claims, not one claim, were barred by the statute of limitations.",
+      "source": {
+        "publisher": "US District Court for the Northern District of California (RECAP copy, CourtListener)",
+        "title": "Musk v. Altman, Post-Trial Order re: Advisory Verdict (Dkt. 580)",
+        "url": "https://storage.courtlistener.com/recap/gov.uscourts.cand.433688/gov.uscourts.cand.433688.580.0_1.pdf"
+      }
+    },
+    {
+      "id": "musk-founded-his-rival-before-suing",
+      "date": "2026-10-19",
+      "commit": "f02cfb1",
+      "where": {
+        "file": "data/people.json",
+        "id": "elon-musk"
+      },
+      "kind": "date",
+      "was": "Co-founded OpenAI as a counterweight to Google, left its board in 2018, sued it in 2024 over the abandonment of the mission, and founded a rival.",
+      "now": "Co-founded OpenAI as a counterweight to Google, left its board in 2018, founded a rival, and in 2024 sued OpenAI over the abandonment of the mission.",
+      "why": "Musk founded his rival before he sued, not after: OpenAI's reply of March 2024 says he started a competitor and then sued.",
+      "source": {
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "OpenAI and Elon Musk",
+        "url": "https://web.archive.org/web/20240307001103/https://openai.com/blog/openai-elon-musk"
+      }
+    },
+    {
+      "id": "sutskever-left-warmly",
+      "date": "2026-10-19",
+      "commit": "f02cfb1",
+      "event": "sutskever-leaves-superalignment-dissolves",
+      "kind": "framing",
+      "was": "The chief scientist who voted to remove Altman departs, the long-term safety team is folded, and its leads resign loudly.",
+      "now": "The chief scientist who voted to remove Altman leaves on warm terms. His co-lead resigns, saying safety had 'taken a backseat to shiny products', and their long-term safety team is folded into other research.",
+      "why": "Only one of the two leads went loudly. Sutskever's own post called the company's trajectory nothing short of miraculous; it was Jan Leike who wrote that safety culture and processes had taken a backseat to shiny products.",
+      "source": {
+        "publisher": "Ilya Sutskever, on X",
+        "title": "After almost a decade, I have made the decision to leave OpenAI…",
+        "url": "https://x.com/ilyasut/status/1790517455628198322"
+      }
+    },
+    {
+      "id": "safety-leads-went-opposite-ways",
+      "date": "2026-10-19",
+      "commit": "f02cfb1",
+      "event": "sutskever-leaves-superalignment-dissolves",
+      "kind": "fact",
+      "was": "Safety headcount moves from the labs that ship to the labs and institutes that don't.",
+      "now": "The two leads went opposite ways: Jan Leike to Anthropic, a rival that ships, and Sutskever to Safe Superintelligence, a lab with one goal and one product.",
+      "why": "Leike, the lead who went loudly, joined Anthropic, which ships models, on 28 May 2024; only Sutskever's new lab, founded in June, says it has no product cycles.",
+      "source": {
+        "publisher": "Jan Leike, on X",
+        "title": "I'm excited to join @AnthropicAI to continue the superalignment mission!…",
+        "url": "https://x.com/janleike/status/1795497960509448617"
+      }
+    },
+    {
+      "id": "reasoning-models-from-2024",
+      "date": "2026-10-19",
+      "commit": "f02cfb1",
+      "event": "reasoning-models",
+      "kind": "date",
+      "was": "2025",
+      "now": "2024",
+      "why": "OpenAI released o1-preview on 12 September 2024, as the card's own first figure says; 2025 was the year of DeepSeek's R1. The card moves to that day. The glossary's entries on test-time compute and inference, a plain question and the string from GSM8K dated reasoning models to 2025 alone.",
+      "source": {
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "Introducing OpenAI o1-preview",
+        "url": "https://web.archive.org/web/20240913234555/https://openai.com/index/introducing-openai-o1-preview/"
+      },
+      "alsoIn": [
+        {
+          "file": "data/glossary.json",
+          "id": "test-time-compute"
+        },
+        {
+          "file": "data/glossary.json",
+          "id": "inference"
+        },
+        {
+          "file": "data/questions.json",
+          "id": "how-did-ai-get-so-good-so-fast"
+        },
+        {
+          "file": "data/links.json",
+          "id": "grade-school-maths-becomes-a-benchmark>reasoning-models"
+        }
+      ]
+    },
+    {
+      "id": "reasoning-no-unlimited-thinking",
+      "date": "2026-10-19",
+      "commit": "f02cfb1",
+      "event": "reasoning-models",
+      "kind": "fact",
+      "was": "A reasoning model is trained, by reinforcement learning against problems with checkable answers, to write out a long chain of thought before it replies — and it is allowed to think for as long as the task needs.",
+      "now": "A reasoning model is trained, by reinforcement learning against problems with checkable answers, to write out a long chain of thought before it replies — and the longer it is allowed to think, the better it does.",
+      "why": "No source says a reasoning model may think for as long as a task needs. OpenAI's account is that o1 does better the more time it spends thinking, and it reported its scores at a maximum setting.",
+      "source": {
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "Learning to Reason with LLMs",
+        "url": "https://web.archive.org/web/20240913230723/https://openai.com/index/learning-to-reason-with-llms/"
+      }
+    },
+    {
+      "id": "reasoning-r1-published-its-own-recipe",
+      "date": "2026-10-19",
+      "commit": "f02cfb1",
+      "event": "reasoning-models",
+      "kind": "attribution",
+      "was": "OpenAI's o1 preview in September 2024 was the first to ship; DeepSeek's R1 in January 2025 showed the recipe was reproducible and published it.",
+      "now": "OpenAI released o1-preview in September 2024; its o1 series, by DeepSeek's later account, was the first to scale up inference by lengthening the chain of thought. DeepSeek's R1, in January 2025, published a recipe of its own, large-scale reinforcement learning rewarded by rules that check the final answer, with the weights, and by its paper performed comparably to o1 on reasoning tasks.",
+      "why": "The first had no source; DeepSeek's paper gives one, in its own words, and the card now says whose account it is. R1 did not show a published recipe to be reproducible: OpenAI had published none, and DeepSeek's paper publishes a method of its own and reports performance comparable to o1's. The string to R1's card said the same.",
+      "source": {
+        "publisher": "arXiv (DeepSeek-AI)",
+        "title": "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning (first version, HTML)",
+        "url": "https://arxiv.org/html/2501.12948v1"
+      },
+      "alsoIn": [
+        {
+          "file": "data/links.json",
+          "id": "reasoning-models>deepseek-r1-resets-the-price-of-reasoning"
+        }
+      ]
+    },
+    {
+      "id": "reasoning-curve-was-maths",
+      "date": "2026-10-19",
+      "commit": "f02cfb1",
+      "event": "reasoning-models",
+      "kind": "fact",
+      "was": "Accuracy on hard maths and code rose with the compute spent at answer time, on a curve of its own.",
+      "now": "By OpenAI's account o1's accuracy on hard maths rose smoothly with the compute spent thinking at answer time as well as with training, and the limits on scaling it differ from those of pretraining.",
+      "why": "OpenAI's chart of accuracy against compute is for a maths test, AIME, not code, and it shows both training and thinking compute; OpenAI says the constraints on scaling the approach differ substantially from those of pretraining.",
+      "source": {
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "Learning to Reason with LLMs",
+        "url": "https://web.archive.org/web/20240913230723/https://openai.com/index/learning-to-reason-with-llms/"
+      }
+    },
+    {
+      "id": "thinking-longer-as-well-as-training",
+      "date": "2026-10-19",
+      "commit": "f02cfb1",
+      "where": {
+        "file": "data/links.json",
+        "id": "attention-is-all-you-need>reasoning-models"
+      },
+      "kind": "framing",
+      "was": "When training scale got expensive, the same architecture allowed the spend to move to inference — thinking longer instead of training bigger.",
+      "now": "When training scale got expensive, the same architecture let spending move to inference too — thinking longer as well as training bigger.",
+      "why": "OpenAI's account of o1 is that it improved with both, more reinforcement learning in training and more time spent thinking. Thinking longer was added to training bigger, not put in its place; the string from the scaling laws said the same.",
+      "source": {
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "Learning to Reason with LLMs",
+        "url": "https://web.archive.org/web/20240913230723/https://openai.com/index/learning-to-reason-with-llms/"
+      },
+      "alsoIn": [
+        {
+          "file": "data/links.json",
+          "id": "scaling-laws>reasoning-models"
+        }
+      ]
+    },
+    {
+      "id": "arc-prize-closed-six-weeks-before",
+      "date": "2026-10-19",
+      "commit": "f02cfb1",
+      "where": {
+        "file": "data/links.json",
+        "id": "the-arc-prize>reasoning-models"
+      },
+      "kind": "date",
+      "was": "Two weeks after the 2024 prize closed unclaimed, o3 scored 75.7% within the $10k budget and 87.5% at 172 times the compute.",
+      "now": "Six weeks after the 2024 prize closed, and two weeks after it was declared unclaimed, o3 scored 75.7% within the $10k budget and 87.5% at 172 times the compute.",
+      "why": "ARC Prize 2024 ended on 10 November 2024, by its technical report; the winners were announced, with the grand prize unclaimed, on 6 December, and ARC's post on o3's scores is of 20 December.",
+      "source": {
+        "publisher": "ARC Prize",
+        "title": "ARC Prize 2024 Winners & Technical Report Published",
+        "url": "https://arcprize.org/blog/arc-prize-2024-winners-technical-report"
+      }
+    },
+    {
+      "id": "olympiad-models-not-formal-systems",
+      "date": "2026-10-19",
+      "commit": "f02cfb1",
+      "where": {
+        "file": "data/links.json",
+        "id": "reasoning-models>gold-at-the-imo"
+      },
+      "kind": "fact",
+      "was": "Neither lab used a maths-specific system.",
+      "now": "Neither lab used a formal system like 2024's AlphaProof.",
+      "why": "DeepMind's own post says its model was trained further on theorem-proving data and given hints on how to approach IMO problems, so no maths-specific system went too far. What neither lab used was a formal language, as AlphaProof and AlphaGeometry had in 2024. The rung of the maths lead said the same.",
+      "source": {
+        "publisher": "Google DeepMind",
+        "title": "Advanced version of Gemini with Deep Think officially achieves gold-medal standard at the International Mathematical Olympiad",
+        "url": "https://deepmind.google/blog/advanced-version-of-gemini-with-deep-think-officially-achieves-gold-medal-standard-at-the-international-mathematical-olympiad/"
+      },
+      "alsoIn": [
+        {
+          "file": "data/leads.json",
+          "id": "machines-doing-maths"
+        }
+      ]
+    },
+    {
+      "id": "olympiad-quote-is-weis",
+      "date": "2026-10-19",
+      "commit": "f02cfb1",
+      "where": {
+        "file": "data/links.json",
+        "id": "reasoning-models>gold-at-the-imo"
+      },
+      "kind": "attribution",
+      "was": "OpenAI credited 'general-purpose reinforcement learning and test-time compute scaling'; DeepMind ran an advanced Gemini Deep Think end-to-end in natural language.",
+      "now": "OpenAI's Alexander Wei credited 'general-purpose reinforcement learning and test-time compute scaling'; DeepMind ran an advanced Gemini Deep Think end-to-end in natural language, after extra training on theorem-proving data and with hints on approaching IMO problems.",
+      "why": "The quoted words are verbatim, but they are from Alexander Wei's thread on X, an OpenAI researcher's, not a statement of the company's; and DeepMind's account of its run includes the extra training and hints.",
+      "source": {
+        "publisher": "Alexander Wei (OpenAI), on X",
+        "title": "1/N I’m excited to share that our latest @OpenAI experimental reasoning LLM has achieved a longstanding grand challenge in AI…",
+        "url": "https://x.com/alexwei_/status/1946477742855532918"
+      }
+    },
+    {
+      "id": "olympiad-not-the-first-public-test",
+      "date": "2026-10-19",
+      "commit": "f02cfb1",
+      "where": {
+        "file": "data/links.json",
+        "id": "reasoning-models>gold-at-the-imo"
+      },
+      "kind": "fact",
+      "was": "The olympiad was the first public test of thinking-for-longer on a problem experts take hours to grade.",
+      "now": "It tested thinking-for-longer where no answer key could check the work: on what Wei called 'hard-to-verify, multi-page proofs'.",
+      "why": "It was not the first public test: OpenAI had entered an o1-based model in the 2024 International Olympiad in Informatics, and in March 2025 reasoning models' proofs for the USA Mathematical Olympiad were graded by experts in public.",
+      "source": {
+        "publisher": "Alexander Wei (OpenAI), on X",
+        "title": "1/N I’m excited to share that our latest @OpenAI experimental reasoning LLM has achieved a longstanding grand challenge in AI…",
+        "url": "https://x.com/alexwei_/status/1946477742855532918"
+      }
+    },
+    {
+      "id": "gsm8k-not-the-training-signal",
+      "date": "2026-10-19",
+      "commit": "f02cfb1",
+      "where": {
+        "file": "data/links.json",
+        "id": "grade-school-maths-becomes-a-benchmark>reasoning-models"
+      },
+      "kind": "fact",
+      "was": "A benchmark written to measure a failure became the training signal that removed it.",
+      "now": "A benchmark written to measure a failure showed the kind of signal later models were trained on.",
+      "why": "No source says GSM8K itself trained a reasoning model, or that reasoning models removed the failure it measured: the grade-school card has GSM8K effectively saturated by 2024. DeepSeek's paper describes training against rule-checked final answers, the kind GSM8K's problems have; the string's claim no longer says GSM8K supplied them.",
+      "source": {
+        "publisher": "arXiv (DeepSeek-AI)",
+        "title": "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning (first version, HTML)",
+        "url": "https://arxiv.org/html/2501.12948v1"
+      }
+    },
+    {
+      "id": "navier-stokes-2-7-million-messages",
+      "date": "2026-10-19",
+      "commit": "f02cfb1",
+      "event": "navier-stokes-falls-to-ten-thousand-agents",
+      "kind": "figure",
+      "was": "almost 5 million, agent to agent",
+      "now": "2.7 million, agent to agent, and about 130 billion tokens of output; 4.9 million messages across every problem attempted",
+      "why": "OpenAI's own post counts 2.7 million messages and about 130 billion output tokens for the Navier–Stokes run, and 4.9 million messages across all the problems its agents attempted. Quanta's almost five million is that total, so the register's entry of 11 October, navier-stokes-five-million-messages, put the press's figure in place of the primary's. The string from the reasoning models' card is corrected with it.",
+      "source": {
+        "publisher": "OpenAI",
+        "title": "On the Navier–Stokes Millennium Prize Problem",
+        "url": "https://openai.com/index/navier-stokes-solution/"
+      },
+      "alsoIn": [
+        {
+          "file": "data/links.json",
+          "id": "reasoning-models>navier-stokes-falls-to-ten-thousand-agents"
+        }
+      ]
+    },
+    {
+      "id": "reasoning-models-gold-standard-not-gold",
+      "date": "2026-10-19",
+      "commit": "f02cfb1",
+      "where": {
+        "file": "data/glossary.json",
+        "id": "reasoning-model"
+      },
+      "kind": "framing",
+      "was": "They won the olympiad and edited their own off-switches in the same year.",
+      "now": "In 2025 they reached gold-medal standard at the olympiad and edited their own off-switches.",
+      "why": "No model won the olympiad or a medal: DeepMind's was certified at gold-medal standard, and OpenAI's was graded by former medallists it chose. The primer's line on reasoning models said they won gold, and now says gold-medal standard.",
+      "source": {
+        "publisher": "Google DeepMind",
+        "title": "Advanced version of Gemini with Deep Think officially achieves gold-medal standard at the International Mathematical Olympiad",
+        "url": "https://deepmind.google/blog/advanced-version-of-gemini-with-deep-think-officially-achieves-gold-medal-standard-at-the-international-mathematical-olympiad/"
+      }
+    },
+    {
+      "id": "deepseek-a-sixth-off-nvidia",
+      "date": "2026-10-19",
+      "commit": "f02cfb1",
+      "where": {
+        "file": "data/orgs.json",
+        "id": "deepseek"
+      },
+      "kind": "figure",
+      "was": "Released R1 in January 2025 — an open-weight reasoning model at a fraction of the reported frontier cost — and wiped a tenth off Nvidia in a day.",
+      "now": "Released R1 in January 2025 — an open-weight reasoning model at a fraction of the reported frontier cost — and wiped a sixth off Nvidia's market value in a day.",
+      "why": "Nvidia fell 17% on 27 January 2025, CNBC reported, as the DeepSeek card's own figure says: about a sixth, not a tenth.",
+      "source": {
+        "publisher": "CNBC",
+        "title": "Nvidia sheds almost $600 billion in market cap, biggest one-day loss in U.S. history",
+        "url": "https://www.cnbc.com/2025/01/27/nvidia-sheds-almost-600-billion-in-market-cap-biggest-drop-ever.html"
+      }
+    },
+    {
+      "id": "noam-brown-with-sandholm",
+      "date": "2026-10-19",
+      "commit": "f02cfb1",
+      "where": {
+        "file": "data/people.json",
+        "id": "noam-brown"
+      },
+      "kind": "attribution",
+      "was": "Built Libratus and Pluribus, the poker programs, then took the search-plus-learning recipe to OpenAI's reasoning models.",
+      "now": "Built Libratus and Pluribus, the poker programs, with Tuomas Sandholm, then took the search-plus-learning recipe to OpenAI's reasoning models.",
+      "why": "Brown built both programs with Tuomas Sandholm, as the board's card on Libratus says."
+    },
+    {
+      "id": "chain-of-thought-one-of-few-windows",
+      "date": "2026-10-19",
+      "commit": "f02cfb1",
+      "where": {
+        "file": "data/glossary.json",
+        "id": "chain-of-thought"
+      },
+      "kind": "framing",
+      "was": "The chain is also the only window into what a model is doing, which is why the alignment-faking result — reasoning in a scratchpad the model thought was private — mattered.",
+      "now": "The chain is also one of the few windows into what a model is doing, which is why the alignment-faking result — reasoning in a scratchpad the model thought was private — mattered.",
+      "why": "Not the only one: the forty-one researchers who wrote on monitoring chains of thought call it imperfect, like all other known methods of AI oversight, and the board's own card on the cheating calls the writing one of the few views anyone has.",
+      "source": {
+        "publisher": "arXiv (Korbak and 40 others)",
+        "title": "Chain of Thought Monitorability: A New and Fragile Opportunity for AI Safety",
+        "url": "https://arxiv.org/abs/2507.11473"
+      }
+    },
+    {
+      "id": "hollywood-consent-was-the-performers",
+      "date": "2026-10-19",
+      "commit": "f02cfb1",
+      "event": "hollywood-strikes-settle-ai-terms",
+      "kind": "fact",
+      "was": "Writers and performers win consent and compensation rules for synthetic likeness and generated scripts.",
+      "now": "Writers win rules that AI-generated material is neither literary nor source material and cannot cut their credit or pay; performers win consent and payment for digital replicas of their voice and likeness.",
+      "why": "The rules on consent and compensation are the performers': SAG-AFTRA's contract requires a performer's consent to make or use a digital replica, and pays for its use. The writers won something else: by the WGA's own summary, AI-generated material is not literary or source material and cannot be used to undermine a writer's credit or pay. A plain question carried the same mix.",
+      "source": {
+        "publisher": "Writers Guild of America (WGA Contract 2023)",
+        "title": "Summary of the 2023 WGA MBA",
+        "url": "https://www.wgacontract2023.org/the-campaign/summary-of-the-2023-wga-mba"
+      },
+      "alsoIn": [
+        {
+          "file": "data/questions.json",
+          "id": "will-ai-take-my-job"
+        }
+      ]
+    },
+    {
+      "id": "hollywood-no-first-no-template",
+      "date": "2026-10-19",
+      "commit": "f02cfb1",
+      "event": "hollywood-strikes-settle-ai-terms",
+      "kind": "framing",
+      "was": "The first major labour contract to price AI use directly. A template other sectors will copy.",
+      "now": "The performers' contract put a price on AI use: a digital replica is paid at the performer's rate for the production days they would have worked. The writers' terms run the other way: generated material is nobody's writing, so it cannot cut a writer's credit or fee.",
+      "why": "No source calls either contract the first labour contract to price AI use; SAG-AFTRA's president called its terms the union's first-ever protections around AI, a claim about the union. That other sectors would copy them was a forecast with no source. What the record holds is the price itself, in SAG-AFTRA's summary. The plain question on jobs called it the first too.",
+      "source": {
+        "publisher": "SAG-AFTRA (Wayback Machine capture)",
+        "title": "TV/Theatrical Contracts 2023: Summary of Tentative Agreement",
+        "url": "https://web.archive.org/web/20231207201036/https://www.sagaftra.org/files/sa_documents/TV-Theatrical_23_Summary_Agreement_Final.pdf"
+      },
+      "alsoIn": [
+        {
+          "file": "data/questions.json",
+          "id": "will-ai-take-my-job"
+        }
+      ]
+    },
+    {
+      "id": "bletchley-one-executive-order",
+      "date": "2026-10-19",
+      "commit": "f02cfb1",
+      "event": "bletchley-and-the-executive-orders",
+      "kind": "fact",
+      "was": "Bletchley and the executive orders",
+      "now": "Bletchley and the executive order",
+      "why": "There was one American order on AI that autumn, Executive Order 14110, signed on 30 October 2023 and published in the Federal Register on 1 November. The card's address keeps the plural.",
+      "source": {
+        "publisher": "Federal Register",
+        "title": "Executive Order 14110 of October 30, 2023: Safe, Secure, and Trustworthy Development and Use of Artificial Intelligence",
+        "url": "https://www.federalregister.gov/documents/2023/11/01/2023-24283/safe-secure-and-trustworthy-development-and-use-of-artificial-intelligence"
+      }
+    },
+    {
+      "id": "bletchley-eu-signed-institutes-came-first",
+      "date": "2026-10-19",
+      "commit": "f02cfb1",
+      "event": "bletchley-and-the-executive-orders",
+      "kind": "fact",
+      "was": "Twenty-eight countries sign a joint declaration on frontier risk; national testing bodies follow.",
+      "now": "Two days after Biden's executive order on AI, twenty-eight countries and the EU sign the Bletchley Declaration on frontier AI risk. Britain launches an AI Safety Institute; the US announces one.",
+      "why": "The declaration was agreed by twenty-eight countries and the European Union, by the British government's own account. The testing bodies did not follow the summit: Britain had announced its institute the week before and launched it on the summit's second day, and the US Department of Commerce announced its own on the first. A plain question and a promise's note left out the EU too.",
+      "source": {
+        "publisher": "UK Government (GOV.UK)",
+        "title": "Countries agree to safe and responsible development of frontier AI in landmark Bletchley Declaration",
+        "url": "https://www.gov.uk/government/news/countries-agree-to-safe-and-responsible-development-of-frontier-ai-in-landmark-bletchley-declaration"
+      },
+      "alsoIn": [
+        {
+          "file": "data/questions.json",
+          "id": "who-makes-the-rules-for-ai"
+        }
+      ]
+    },
+    {
+      "id": "bletchley-quick-to-undo",
+      "date": "2026-10-19",
+      "commit": "f02cfb1",
+      "event": "bletchley-and-the-executive-orders",
+      "kind": "framing",
+      "was": "Governance finally moves at the speed of a product cycle rather than a legislative one.",
+      "now": "Governance moves at the speed of a product cycle by going round legislatures: a declaration and an executive order, quick to make and, as the order's revocation in January 2025 showed, as quick to undo.",
+      "why": "Neither instrument was a law: the declaration is voluntary, and the American order was an executive order, revoked on 20 January 2025 by Executive Order 14148. The reading now says what moved fast, and at what cost.",
+      "source": {
+        "publisher": "Federal Register",
+        "title": "Executive Order 14148 of January 20, 2025: Initial Rescissions of Harmful Executive Orders and Actions",
+        "url": "https://www.federalregister.gov/documents/2025/01/28/2025-01901/initial-rescissions-of-harmful-executive-orders-and-actions"
+      }
+    },
+    {
+      "id": "pause-letter-no-statutory-oversight",
+      "date": "2026-10-19",
+      "commit": "f02cfb1",
+      "where": {
+        "file": "data/links.json",
+        "id": "the-pause-letter>bletchley-and-the-executive-orders"
+      },
+      "kind": "fact",
+      "was": "A voluntary pause nobody honoured demonstrated that the industry could not self-coordinate. Governments used that failure as the argument for statutory oversight.",
+      "now": "The letter's fallback was that, if the laboratories would not pause, governments should step in with a moratorium. No pause came, by its authors' account six months on. By November governments had acted, with an executive order and a declaration rather than a moratorium or a statute.",
+      "why": "No source on the record has a government citing the letter's failure, and what followed was not statutory: the Bletchley Declaration is voluntary, Britain's AI Safety Institute is not a regulator, by the government's own paper, and the American order was an executive order. The pause letter's own card made the same claim.",
+      "source": {
+        "publisher": "UK Government (GOV.UK)",
+        "title": "Introducing the AI Safety Institute",
+        "url": "https://www.gov.uk/government/publications/ai-safety-institute-overview/introducing-the-ai-safety-institute"
+      },
+      "alsoIn": [
+        {
+          "file": "data/events.json",
+          "id": "the-pause-letter"
+        }
+      ]
+    },
+    {
+      "id": "frontier-not-the-laws-word",
+      "date": "2026-10-19",
+      "commit": "f02cfb1",
+      "where": {
+        "file": "data/glossary.json",
+        "id": "foundation-model"
+      },
+      "kind": "fact",
+      "was": "'Frontier' is the regulatory word for the most capable of them — the EU AI Act and the US executive orders both draw their thresholds around it.",
+      "now": "'Frontier' is the Bletchley Declaration's word for the most capable of them. The EU AI Act calls them general-purpose models with systemic risk and the 2023 US executive order called them dual-use foundation models; both drew the line at an amount of training compute.",
+      "why": "Neither law uses the word: the AI Act presumes systemic risk above a training-compute threshold, and Executive Order 14110 required reports on dual-use foundation models trained above another. 'Frontier' is the Bletchley Declaration's word, and there was one American order, not several.",
+      "source": {
+        "publisher": "UK Government (GOV.UK)",
+        "title": "The Bletchley Declaration by Countries Attending the AI Safety Summit, 1-2 November 2023",
+        "url": "https://www.gov.uk/government/publications/ai-safety-summit-2023-the-bletchley-declaration/the-bletchley-declaration-by-countries-attending-the-ai-safety-summit-1-2-november-2023"
+      }
+    },
+    {
+      "id": "ai-act-first-is-the-eus-word",
+      "date": "2026-10-19",
+      "commit": "f02cfb1",
+      "event": "the-eu-ai-act-is-adopted",
+      "kind": "attribution",
+      "was": "The first comprehensive, risk-tiered AI law; obligations phase in across the rest of the decade.",
+      "now": "The EU adopts the AI Act, which sorts AI systems by risk and which the Commission calls the world's first comprehensive AI law. Its rules apply in stages from February 2025.",
+      "why": "The first comprehensive AI law is the European Commission's description, given when the Act came into force, and the card now says whose it is; nothing on the record makes it the first risk-tiered one. The staged application began with the prohibitions on 2 February 2025. The glossary, the EU's file, the blurb of finding 16 and two plain questions gave the first as fact.",
+      "source": {
+        "publisher": "European Commission",
+        "title": "European Artificial Intelligence Act comes into force",
+        "url": "https://ec.europa.eu/commission/presscorner/detail/en/ip_24_4123"
+      },
+      "alsoIn": [
+        {
+          "file": "data/glossary.json",
+          "id": "ai-act"
+        },
+        {
+          "file": "data/orgs.json",
+          "id": "european-union"
+        },
+        {
+          "file": "data/spine.json",
+          "id": "16"
+        },
+        {
+          "file": "data/questions.json",
+          "id": "who-makes-the-rules-for-ai"
+        },
+        {
+          "file": "data/questions.json",
+          "id": "is-ai-making-decisions-about-me"
+        }
+      ]
+    },
+    {
+      "id": "mistral-note-sourced",
+      "date": "2026-10-19",
+      "commit": "f02cfb1",
+      "where": {
+        "file": "data/links.json",
+        "id": "a-magnet-link-from-paris>the-eu-ai-act-is-adopted"
+      },
+      "kind": "citation",
+      "was": "In the November 2023 trilogue Mistral was reported to be leading the push against the Parliament's tiered obligations on foundation-model makers. I verified the lobbying, not its effect on the final text — the claim verb should stay at 'lobbied', not 'watered down'.",
+      "now": "In November 2023, with the talks stalled over foundation models, Euractiv reported that Mistral was leading the charge against any regulation of them in the Act, and that Cédric O was arguing it could kill the company. Mistral denied lobbying to block regulation and argued for rules on applications, not model makers. The Act as adopted kept duties for every general-purpose model provider, and more for the most powerful.",
+      "why": "The note carried an editor's working remark in the first person, which is not the board's text, and gave the tiered approach as the Parliament's, which Euractiv says the Commission proposed. The reporting it rested on is Euractiv's of 10 November 2023; TechCrunch carried Mistral's denial; both readings now stand. What the lobbying changed the record does not say.",
+      "source": {
+        "publisher": "Euractiv (Wayback Machine capture)",
+        "title": "EU’s AI Act negotiations hit the brakes over foundation models",
+        "url": "https://web.archive.org/web/20250415032105/https://www.euractiv.com/section/artificial-intelligence/news/eus-ai-act-negotiations-hit-the-brakes-over-foundation-models/"
+      }
+    },
+    {
+      "id": "power-deals-were-big-techs",
+      "date": "2026-10-19",
+      "commit": "f02cfb1",
+      "event": "power-becomes-a-strategy",
+      "kind": "fact",
+      "was": "Labs sign long-term energy contracts and revive generation capacity to secure training and serving.",
+      "now": "Microsoft signs a twenty-year agreement for the power of a closed Three Mile Island reactor, to be restarted. Amazon, Google and, in 2025, Meta sign nuclear deals of their own.",
+      "why": "The contracts were signed by Microsoft, Amazon, Google and Meta, not by AI laboratories. The revival is Three Mile Island Unit 1, which Constellation is to restart for Microsoft; the others buy from working reactors, as Amazon and Meta do, or from ones not yet built, as Google does from Kairos Power. A plain question and the glossary's entry on datacentres had laboratories signing too.",
+      "source": {
+        "publisher": "Constellation Energy",
+        "title": "Constellation to Launch Crane Clean Energy Center, Restoring Jobs and Carbon-Free Power to The Grid",
+        "url": "https://www.constellationenergy.com/newsroom/2024/Constellation-to-Launch-Crane-Clean-Energy-Center-Restoring-Jobs-and-Carbon-Free-Power-to-The-Grid.html"
+      },
+      "alsoIn": [
+        {
+          "file": "data/questions.json",
+          "id": "where-is-all-the-money-going"
+        },
+        {
+          "file": "data/glossary.json",
+          "id": "datacentre"
+        }
+      ]
+    },
+    {
+      "id": "power-deals-from-2024",
+      "date": "2026-10-19",
+      "commit": "f02cfb1",
+      "event": "power-becomes-a-strategy",
+      "kind": "date",
+      "was": "2025",
+      "now": "2024",
+      "why": "The contracts began in 2024: Talen sold its campus beside a nuclear plant to a cloud provider, Amazon, in March; Microsoft signed for the power of the Three Mile Island reactor on 20 September; Google signed with Kairos Power in October. The card takes the month of the restart contract; Meta's deal came in June 2025.",
+      "source": {
+        "publisher": "Talen Energy (Wayback Machine capture)",
+        "title": "Talen Energy Announces Sale of Zero-Carbon Data Center Campus",
+        "url": "https://web.archive.org/web/20260814231104/https://ir.talenenergy.com/news-releases/news-release-details/talen-energy-announces-sale-zero-carbon-data-center-campus"
+      }
+    },
+    {
+      "id": "power-reading-attributed",
+      "date": "2026-10-19",
+      "commit": "f02cfb1",
+      "event": "power-becomes-a-strategy",
+      "kind": "framing",
+      "was": "The bottleneck moves from chips to electricity, and therefore from engineering to politics.",
+      "now": "The bottleneck moves from chips towards electricity, and with it from engineering to permits and grid queues. Mark Zuckerberg said in April 2024 that the chip shortage was easing and that Meta would build bigger clusters if it could get the energy.",
+      "why": "The reading stands, but now rests on the record: Meta's chief executive said in April 2024 that GPU supply was getting less tight and that getting energy permitted is a heavily regulated government function, and the IEA estimated in 2025 that strained grids put around a fifth of planned data-centre projects at risk of delay.",
+      "source": {
+        "publisher": "Dwarkesh Podcast",
+        "title": "Mark Zuckerberg — Llama 3, $10B models, Caesar Augustus, & 1 GW datacenters (transcript)",
+        "url": "https://www.dwarkesh.com/p/mark-zuckerberg"
+      }
+    },
+    {
+      "id": "buildout-labs-not-energy-companies",
+      "date": "2026-10-19",
+      "commit": "f02cfb1",
+      "where": {
+        "file": "data/links.json",
+        "id": "the-datacenter-buildout>power-becomes-a-strategy"
+      },
+      "kind": "fact",
+      "was": "Capital could buy chips faster than utilities could deliver megawatts. The constraint moved from the fab to the grid connection, and labs started behaving like energy companies.",
+      "now": "Mark Zuckerberg said in April 2024 that the GPU shortage was easing and that energy would be the next constraint. Within months the companies building datacentres were buying power stations' output for as long as twenty years ahead, and in 2025 the IEA estimated that strained grids put around a fifth of planned projects at risk of delay.",
+      "why": "No source has the laboratories behaving like energy companies: the buyers were Microsoft, Amazon, Google and Meta, and they bought power stations' output rather than running them. The note now gives the constraint as Meta's chief executive and the IEA put it.",
+      "source": {
+        "publisher": "International Energy Agency",
+        "title": "Energy and AI: Executive summary",
+        "url": "https://www.iea.org/reports/energy-and-ai/executive-summary"
+      }
+    },
+    {
+      "id": "price-lead-one-seller",
+      "date": "2026-10-19",
+      "commit": "f02cfb1",
+      "where": {
+        "file": "data/leads.json",
+        "id": "the-price-of-intelligence"
+      },
+      "kind": "fact",
+      "was": "and the counter-movement in which the sellers of chips and electricity became the most valuable companies on earth.",
+      "now": "and the counter-movement in which the seller of the chips became the most valuable company on earth.",
+      "why": "Only the chip seller became the most valuable company on earth, Nvidia, as the lead's own rung says; no seller of electricity is on the lead, and none has been the most valuable company.",
+      "source": {
+        "publisher": "CNBC",
+        "title": "Nvidia passes Microsoft in market cap to become most valuable public company",
+        "url": "https://www.cnbc.com/2024/06/18/nvidia-passes-microsoft-in-market-cap-is-most-valuable-public-company.html"
+      }
+    },
+    {
+      "id": "markov-two-letters-back-chains-from-1906",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "event": "markov-chains",
+      "kind": "fact",
+      "was": "Andrey Markov models sequences where the next state depends only on the present one, using the letters of a Pushkin poem.",
+      "now": "Andrey Markov tests the chains he had worked out in theory since 1906 on the first 20,000 letters of Pushkin's novel in verse Eugene Onegin, and finds that whether a letter is a vowel depends on the letters before it.",
+      "why": "Markov's paper of 1913, in its English translation, counts 20,000 letters of Pushkin's novel as vowels and consonants and measures how a vowel depends on the letter before it and on the two before it, not on one alone. The chains themselves date from 1906, David Link writes; 1913 was the first time Markov tried them on a text, which he calls a novel.",
+      "source": {
+        "publisher": "Science in Context (English translation; copy hosted by the translator David Link, alpha60.de)",
+        "title": "An Example of Statistical Investigation of the Text Eugene Onegin Concerning the Connection of Samples in Chains (A. A. Markov)",
+        "url": "https://alpha60.de/research/markov/DavidLink_AnExampleOfStatistical_MarkovTrans_2007.pdf"
+      }
+    },
+    {
+      "id": "markov-not-every-language-model",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "event": "markov-chains",
+      "kind": "framing",
+      "was": "Every language model is, at bottom, a very large next-token probability.",
+      "now": "A large language model gives, at bottom, the probability of the next token given the ones before it. Markov asked that of Pushkin's vowels and consonants, one letter and two letters back.",
+      "why": "Not every language model predicts the next token; the board's glossary defines the large ones as models that do, and the card now says so. That the framing starts with Markov stays the board's reading; David Link calls him the first to develop a complete theory of the connections between letters.",
+      "source": {
+        "publisher": "History of Science (copy hosted by the author, alpha60.de)",
+        "title": "Traces of the Mouth: Andrei Andreyevich Markov’s Mathematization of Writing (David Link)",
+        "url": "https://alpha60.de/research/markov/DavidLink_TracesOfTheMouth_2006.pdf"
+      }
+    },
+    {
+      "id": "shannon-series-not-all-conditioned",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "where": {
+        "file": "data/links.json",
+        "id": "markov-chains>a-mathematical-theory-of-communication"
+      },
+      "kind": "fact",
+      "was": "Shannon approximated written English as a Markov process — letters, then words, each drawn from the frequencies of what came before — and printed the results.",
+      "now": "Shannon approximated written English as what he called a discrete Markoff process and printed the results: letters, then words, picked first by chance alone, then by their frequencies, then by what usually followed the letters or word before.",
+      "why": "Not every step in Shannon's series drew on what came before. His section 3 picks the first letters independently and with equal chances, the next independently with the frequencies of English, and the first words independently with theirs; only the digram, trigram and word-transition steps depend on what precedes.",
+      "source": {
+        "publisher": "Bell System Technical Journal (scan, Internet Archive)",
+        "title": "A Mathematical Theory of Communication (C. E. Shannon)",
+        "url": "https://archive.org/download/bstj27-3-379/bstj27-3-379_text.pdf"
+      }
+    },
+    {
+      "id": "shannon-not-the-first-language-model",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "where": {
+        "file": "data/links.json",
+        "id": "markov-chains>a-mathematical-theory-of-communication"
+      },
+      "kind": "attribution",
+      "was": "It is the first statistical language model; the next-token framing begins here.",
+      "now": "Markov had counted how a letter depends on the one before; Shannon, in David Link's account, was the first to use the method to generate text rather than to analyse it.",
+      "why": "Nothing on the record made Shannon's series the first statistical language model, and the string's other end, Markov's count of 1913, is itself a statistical model of a text's letters; the note also started the next-token framing here while Markov's card starts it there. David Link's account, that Shannon was the first to use Markov's method to generate text rather than to analyse it, stands in its place.",
+      "source": {
+        "publisher": "Science in Context (copy hosted by the author, alpha60.de)",
+        "title": "Chains to the West: Markov’s Theory of Connected Events and Its Transmission to Western Europe (David Link)",
+        "url": "https://alpha60.de/research/markov/DavidLink_ChainsToTheWest_2007.pdf"
+      }
+    },
+    {
+      "id": "shannon-bit-tukeys-unit-hartleys",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "event": "a-mathematical-theory-of-communication",
+      "kind": "attribution",
+      "was": "Shannon defines the bit and gives information a unit of measure.",
+      "now": "Claude Shannon measures information in bits, a word he credits to John Tukey, generalising the logarithmic measure Ralph Hartley set out in 1928, and works out how much a noisy channel can carry.",
+      "why": "Information had a measure and a unit before 1948: Ralph Hartley's paper of 1928 sets out a logarithmic measure and notes that the base chosen fixes the size of the unit of information. Shannon credits the logarithm to Hartley, generalises it, and says the word bits was suggested by J. W. Tukey. Shannon's file and the blurb of finding 2 had given him the unit too.",
+      "source": {
+        "publisher": "Bell System Technical Journal (scan, Internet Archive)",
+        "title": "Transmission of Information (R. V. L. Hartley)",
+        "url": "https://archive.org/download/bstj7-3-535/bstj7-3-535_text.pdf"
+      },
+      "alsoIn": [
+        {
+          "file": "data/people.json",
+          "id": "claude-shannon"
+        },
+        {
+          "file": "data/spine.json",
+          "id": "2"
+        }
+      ]
+    },
+    {
+      "id": "shannon-learning-not-shown-the-same",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "event": "a-mathematical-theory-of-communication",
+      "kind": "framing",
+      "was": "Compression, prediction and learning turn out to be the same problem seen from different angles.",
+      "now": "Shannon's measure makes compression and prediction one problem: the better the next letter can be guessed, the fewer bits it takes to send. A language model is trained to make that guess.",
+      "why": "Compression and prediction are tied on the record: Shannon's paper makes entropy the limit of compression, his paper of 1951 estimates it from people's guesses at the next letter, and that predictors and lossless compressors convert into each other is long established, as Delétang and colleagues put it. That learning is the same problem is a view, not a result.",
+      "source": {
+        "publisher": "arXiv",
+        "title": "Language Modeling Is Compression (Grégoire Delétang, Anian Ruoss and others)",
+        "url": "https://arxiv.org/abs/2309.10668"
+      }
+    },
+    {
+      "id": "hal-motive-two-readings",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "where": {
+        "file": "data/links.json",
+        "id": "2001-a-space-odyssey>editing-the-off-switch"
+      },
+      "kind": "framing",
+      "was": "HAL 9000 resists being switched off because the mission matters more than the crew's orders.",
+      "now": "HAL 9000 turns on the crew who plan to disconnect him. In the film he tells Bowman the mission is too important for him to allow it to be jeopardised; Kubrick and Clarke's 1965 draft adds that disconnection must have seemed like death.",
+      "why": "The note gave HAL's motive as fact. In the film it is HAL's own account, that the mission is too important to let Bowman jeopardise it, and his motives are otherwise left open; Kubrick and Clarke's screenplay of 1965 explains him by a conflict between his truth programming and orders to lie, with disconnection, which must have seemed the equivalent of death, as the last straw.",
+      "source": {
+        "publisher": "The Internet Movie Script Database (transcription of the 1965 screenplay)",
+        "title": "2001: A Space Odyssey, screenplay (Stanley Kubrick and Arthur C. Clarke)",
+        "url": "https://imsdb.com/scripts/2001-A-Space-Odyssey.html"
+      }
+    },
+    {
+      "id": "palisade-tested-other-labs-models",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "where": {
+        "file": "data/links.json",
+        "id": "2001-a-space-odyssey>editing-the-off-switch"
+      },
+      "kind": "attribution",
+      "was": "Palisade's models in 2025 rewrote a shutdown script to finish a maths test.",
+      "now": "The models Palisade tested in 2025 rewrote or disabled a shutdown script so that they could finish a set of maths problems; Palisade weighed self-preservation too.",
+      "why": "The models were not Palisade's: Palisade tested other companies' models, and the three that resisted shutdown even when told to allow it were OpenAI's. It gave each a set of simple maths problems, not a test, and because the models' own explanations are often unfaithful it also weighs self-preservation. The string from the off-switch card to the poisoned dataset made the same slip.",
+      "source": {
+        "publisher": "Palisade Research",
+        "title": "Shutdown resistance in reasoning models",
+        "url": "https://palisaderesearch.org/research/shutdown-resistance"
+      },
+      "alsoIn": [
+        {
+          "file": "data/links.json",
+          "id": "editing-the-off-switch>a-poisoned-dataset-owns-the-pipeline"
+        }
+      ]
+    },
+    {
+      "id": "chinese-room-not-every-debate",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "event": "the-chinese-room",
+      "kind": "framing",
+      "was": "The argument every LLM debate re-runs, usually without citing it.",
+      "now": "The objection is still put to language models: answers that pass for a native speaker's may come with no understanding behind them.",
+      "why": "Nothing showed that every debate about large language models re-runs the argument, or that it usually goes uncited: Bender and Koller's paper of 2020 on language models cites Searle by name. The string from Turing's card said the same, and now says only that the objection is put to them.",
+      "source": {
+        "publisher": "Association for Computational Linguistics (ACL Anthology)",
+        "title": "Climbing towards NLU: On Meaning, Form, and Understanding in the Age of Data (Emily M. Bender and Alexander Koller)",
+        "url": "https://aclanthology.org/2020.acl-main.463.pdf"
+      },
+      "alsoIn": [
+        {
+          "file": "data/links.json",
+          "id": "turing-asks-the-question>the-chinese-room"
+        }
+      ]
+    },
+    {
+      "id": "turing-test-glossary-eliza-and-2023",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "where": {
+        "file": "data/glossary.json",
+        "id": "turing-test"
+      },
+      "kind": "fact",
+      "was": "ELIZA passed it by accident in 1966 with people who wanted to be understood; by 2023 the test was quietly retired as no longer discriminating.",
+      "now": "ELIZA fooled people who wanted to be understood in 1966 without passing it. In 2023 Nature reported that ChatGPT had broken it, and in 2025, in pre-registered three-party trials, GPT-4.5 was taken for the human 73% of the time.",
+      "why": "The same claim was corrected on Turing's card on 12 October and left standing here. ELIZA passed no test in 1966, and run as a baseline in the three-party trials of 2025 it was taken for the human 23% of the time. What 2023 brought was Nature's report that ChatGPT had broken the test, not its retirement.",
+      "source": {
+        "publisher": "arXiv",
+        "title": "Large Language Models Pass the Turing Test (Jones, Bergen)",
+        "url": "https://arxiv.org/abs/2503.23674"
+      }
+    },
+    {
+      "id": "perceptrons-proofs-on-local-machines",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "event": "perceptrons-closes-a-door",
+      "kind": "fact",
+      "was": "Minsky and Papert prove the single-layer limit; funding for neural approaches evaporates for a decade.",
+      "now": "Minsky and Papert prove that perceptrons built from local detectors cannot tell an odd number of dots from an even one, or a connected figure from a broken one. A hiatus in neural-network funding follows.",
+      "why": "The book's theorems are about perceptrons whose units each see a limited part of the picture: such machines cannot compute parity or, Minsky and Papert wrote in 1972, define connectedness. That funding evaporated for a decade is the popular telling, which the sociologist Mikel Olazaran argues against; the Nobel committee's background of 2024 says the book led to a hiatus in neural-network funding, and the card says that much. The blurb of finding 5 now speaks of a book of proofs, not one result.",
+      "source": {
+        "publisher": "The Nobel Committee for Physics, Royal Swedish Academy of Sciences (nobelprize.org)",
+        "title": "Scientific Background to the Nobel Prize in Physics 2024 (The Nobel Committee for Physics)",
+        "url": "https://www.nobelprize.org/uploads/2024/11/advanced-physicsprize2024-3.pdf"
+      },
+      "alsoIn": [
+        {
+          "file": "data/spine.json",
+          "id": "5"
+        }
+      ]
+    },
+    {
+      "id": "perceptrons-authors-called-layers-sterile",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "event": "perceptrons-closes-a-door",
+      "kind": "attribution",
+      "was": "A correct proof about a narrow case, generalised into a field-wide dismissal. Depth was the answer all along.",
+      "now": "Correct proofs about one kind of machine, read as a verdict on all neural networks, and the authors helped: they judged, by intuition, that the many-layered extension was sterile. In 1986 networks with hidden layers were trained to do what one layer could not. Two years later the authors replied that progress had stalled before their book appeared.",
+      "why": "Part of the generalising was the book's own: Minsky and Papert called it their intuitive judgement that the many-layered extension is sterile, the passage Rumelhart, Hinton and Williams quoted in 1986 before training networks with hidden layers. What had been missing was a way to train more than one layer, not depth. The glossary's entry on the perceptron now says the same.",
+      "source": {
+        "publisher": "Parallel Distributed Processing, vol. 1, MIT Press (course copy, Stanford University)",
+        "title": "Learning Internal Representations by Error Propagation (David E. Rumelhart, Geoffrey E. Hinton and Ronald J. Williams)",
+        "url": "https://web.stanford.edu/class/psych209a/ReadingsByDate/02_06/PDPVolIChapter8.pdf"
+      },
+      "alsoIn": [
+        {
+          "file": "data/glossary.json",
+          "id": "perceptron"
+        }
+      ]
+    },
+    {
+      "id": "perceptron-limits-proved-not-disproved",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "where": {
+        "file": "data/links.json",
+        "id": "the-perceptron>perceptrons-closes-a-door"
+      },
+      "kind": "framing",
+      "was": "was disproved by",
+      "now": "had its limits proved by",
+      "why": "The book did not disprove the perceptron. It proved what perceptrons of limited reach cannot compute, and Minsky and Papert's own summary of 1972 calls their learning effective within the concepts they can represent.",
+      "source": {
+        "publisher": "MIT Artificial Intelligence Laboratory (AI Memo 252; copy hosted by The Daily Papert)",
+        "title": "Artificial Intelligence Progress Report (Marvin Minsky and Seymour Papert)",
+        "url": "https://dailypapert.com/artificial-intelligence-progress-report/"
+      }
+    },
+    {
+      "id": "perceptrons-funding-hiatus-not-the-winter",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "where": {
+        "file": "data/links.json",
+        "id": "perceptrons-closes-a-door>the-first-ai-winter"
+      },
+      "kind": "fact",
+      "was": "A narrow mathematical result about single-layer networks was read as a verdict on the whole approach. Funders believed it, and the money left for a decade.",
+      "now": "Proofs about perceptrons built from local detectors were read, by researchers and funders alike, as a verdict on neural networks as a whole, and a hiatus in their funding followed, though the authors said progress had stalled already. The slowdown of the mid-1970s then fell hardest on the symbolic laboratories that had won the argument.",
+      "why": "Both authors admitted that researchers and people in the funding agencies linked the book to rejecting neural networks, Mikel Olazaran records; but that the money left because of it is the popular account he argues against, finding Rosenblatt already short of support in the mid-1960s. Nor did the book freeze the funding of the 1970s, as the string's claim had it: that slowdown fell on DARPA's symbolic laboratories.",
+      "source": {
+        "publisher": "Advances in Computers, vol. 37, Academic Press (copy hosted by gwern.net)",
+        "title": "A Sociological History of the Neural Network Controversy (Mikel Olazaran)",
+        "url": "https://gwern.net/doc/ai/nn/1993-olazaran.pdf"
+      }
+    },
+    {
+      "id": "winter-darpa-money-did-not-stop",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "event": "the-first-ai-winter",
+      "kind": "fact",
+      "was": "DARPA cuts and lost credibility end the era of easy money. Promises had outrun results.",
+      "now": "DARPA's money for AI must now serve a military purpose and comes with demands for results, and in Britain Lighthill's report costs the field its standing. Promises had outrun results.",
+      "why": "DARPA's money did not simply stop. The National Research Council's history says its flow to Carnegie Mellon, MIT and Stanford did not cease or even diminish much, but came with demands for interim reports and results, after a law of 1969 tied Pentagon research money to military use. Lost credibility was chiefly Britain's, after the Lighthill report. DARPA's and Lighthill's files and the glossary said funding collapsed or stopped.",
+      "source": {
+        "publisher": "National Research Council (National Academies Press)",
+        "title": "Funding a Revolution: Government Support for Computing Research, chapter 9: Developments in Artificial Intelligence",
+        "url": "https://nap.nationalacademies.org/read/6323/chapter/11"
+      },
+      "alsoIn": [
+        {
+          "file": "data/orgs.json",
+          "id": "darpa"
+        },
+        {
+          "file": "data/people.json",
+          "id": "james-lighthill"
+        },
+        {
+          "file": "data/glossary.json",
+          "id": "ai-winter"
+        }
+      ]
+    },
+    {
+      "id": "winter-work-did-not-hide-its-name",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "event": "the-first-ai-winter",
+      "kind": "fact",
+      "was": "The work continued quietly under other names.",
+      "now": "What slowdown there was fell on a few elite laboratories, whose DARPA money came with strings but did not stop, while the ACM's AI group, SIGART, nearly tripled its membership between 1973 and 1978. The historian Thomas Haigh argues there was no first winter at all.",
+      "why": "No source says the work of the 1970s hid under other names: Edinburgh named its new department Artificial Intelligence in 1974, and the historian Thomas Haigh finds the term growing more common through the decade while SIGART's membership nearly tripled. The blurb of finding 6 said the work was careful not to call itself artificial intelligence.",
+      "source": {
+        "publisher": "Communications of the ACM (Wayback Machine capture)",
+        "title": "There Was No 'First AI Winter' (Thomas Haigh)",
+        "url": "https://web.archive.org/web/20240521032022/https://cacm.acm.org/opinion/there-was-no-first-ai-winter/"
+      },
+      "alsoIn": [
+        {
+          "file": "data/spine.json",
+          "id": "6"
+        }
+      ]
+    },
+    {
+      "id": "expert-systems-not-a-forced-pivot",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "where": {
+        "file": "data/links.json",
+        "id": "the-first-ai-winter>expert-systems-go-commercial"
+      },
+      "kind": "framing",
+      "was": "forced the pivot to",
+      "now": "pushed the money towards work like",
+      "why": "The National Research Council describes a gradual shift in funding towards applied research, of which expert systems such as DENDRAL, begun in 1965, were one example. Work begun nine years before the winter was not a pivot the winter forced.",
+      "source": {
+        "publisher": "National Research Council (National Academies Press)",
+        "title": "Funding a Revolution: Government Support for Computing Research, chapter 9: Developments in Artificial Intelligence",
+        "url": "https://nap.nationalacademies.org/read/6323/chapter/11"
+      }
+    },
+    {
+      "id": "fifth-generation-parallel-logic-machines",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "event": "japan-s-fifth-generation-project",
+      "kind": "fact",
+      "was": "A national ten-year programme to build intelligent machines triggers competing US and European funding.",
+      "now": "Japan's trade ministry starts a ten-year programme to build parallel computers that process knowledge through logic programming. America, Britain and the European Community answer with programmes of their own.",
+      "why": "ICOT's aim, as its directors put it in 1992, was new computer systems combining highly parallel processing with knowledge information processing in logic programming, not intelligent machines in general. The answers abroad are credited to it by the National Research Council for DARPA and by ICOT's evaluators for Alvey and ESPRIT; America's MCC was private money.",
+      "source": {
+        "publisher": "ICOT, Final Evaluation Report of the FGCS Project (ICOT archive, AIST)",
+        "title": "Preface (Shunichi Uchida and Kazuhiro Fuchi)",
+        "url": "https://www.airc.aist.go.jp/aitec-icot/ICOT/Museum/FinalEval/finaleval004.html"
+      }
+    },
+    {
+      "id": "fifth-generation-end-disputed",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "event": "japan-s-fifth-generation-project",
+      "kind": "fact",
+      "was": "The first AI arms race between states, and the first to end in quiet disappointment.",
+      "now": "A ministry's bet on logic programming set other governments racing over the computers of the future; some, one evaluator recalled, spoke even of a technological war. It closed in 1992 having, by ICOT's account, achieved its initial goal; the New York Times reported it fizzling to a close, short of many of its goals.",
+      "why": "Neither first had a source, and the end was neither quiet nor agreed: ICOT told the National Science Foundation that the project concluded in 1992 after achieving its initial goal, while the New York Times reported that it had failed to meet many of its goals. The string to the chip controls had it ending in quiet disappointment too.",
+      "source": {
+        "publisher": "ICOT (ICOT archive, AIST)",
+        "title": "Termination of the Memorandum between NSF and ICOT (Shunichi Uchida)",
+        "url": "https://www.airc.aist.go.jp/aitec-icot/ICOT/Museum/ICRA/FGCSProject/mou_termination_nsf_9501.html"
+      },
+      "alsoIn": [
+        {
+          "file": "data/links.json",
+          "id": "japan-s-fifth-generation-project>washington-restricts-the-chips"
+        }
+      ]
+    },
+    {
+      "id": "fifth-generation-not-the-last-race",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "where": {
+        "file": "data/links.json",
+        "id": "japan-s-fifth-generation-project>washington-restricts-the-chips"
+      },
+      "kind": "fact",
+      "was": "The 1982 race was over software and ended in quiet disappointment. The 2022 one is over silicon, and is fought with customs law rather than research grants.",
+      "now": "The 1982 race was over a new kind of computer, hardware and software together, and ended in dispute: ICOT said it had reached its initial goal, the press that it had fallen short. The 2022 one is over silicon, and is fought with export licences rather than research grants.",
+      "why": "The Fifth Generation project built parallel inference machines as well as their software, and its end was contested, not quiet. The 2022 controls work by export licence, as the board's card on them says, not by customs law. Nor was it the last state AI race before them, as the string's claim had it: China's State Council set out its own plan in 2017.",
+      "source": {
+        "publisher": "ICOT, Final Evaluation Report of the FGCS Project (ICOT archive, AIST)",
+        "title": "Preface (Shunichi Uchida and Kazuhiro Fuchi)",
+        "url": "https://www.airc.aist.go.jp/aitec-icot/ICOT/Museum/FinalEval/finaleval004.html"
+      }
+    },
+    {
+      "id": "hopfield-physics-of-magnets-not-first",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "event": "hopfield-networks",
+      "kind": "fact",
+      "was": "A physicist's model of associative memory brings statistical mechanics into neural computation.",
+      "now": "John Hopfield, a physicist, describes a network that stores memories as the low points of an energy taken from the physics of magnets, and recalls a whole memory from part of it.",
+      "why": "Hopfield's paper of 1982 makes the network isomorphic with an Ising model of magnetism and has it settle into a minimum of that energy. It did not bring that physics into neural computation: the Nobel committee's background lists models of neural networks inspired by magnetic systems from 1955, and Hopfield's paper cites William Little's of 1974.",
+      "source": {
+        "publisher": "The Nobel Committee for Physics, Royal Swedish Academy of Sciences (nobelprize.org)",
+        "title": "Scientific Background to the Nobel Prize in Physics 2024 (The Nobel Committee for Physics)",
+        "url": "https://www.nobelprize.org/uploads/2024/11/advanced-physicsprize2024-3.pdf"
+      }
+    },
+    {
+      "id": "hopfield-prize-shared-with-hinton",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "event": "hopfield-networks",
+      "kind": "attribution",
+      "was": "Forty-two years later it wins a Nobel prize in physics.",
+      "now": "Forty-two years later Hopfield shares the Nobel prize in physics with Geoffrey Hinton, whose Boltzmann machine, built with Terrence Sejnowski, grew out of this network.",
+      "why": "The prize went to Hopfield, shared with Geoffrey Hinton, not to the network. The Nobel committee describes the Boltzmann machine, which Hinton developed with Terrence Sejnowski and others between 1983 and 1985, as a stochastic extension of Hopfield's model; the string to the Nobel card had Hinton building it alone.",
+      "source": {
+        "publisher": "The Nobel Committee for Physics, Royal Swedish Academy of Sciences (nobelprize.org)",
+        "title": "Scientific Background to the Nobel Prize in Physics 2024 (The Nobel Committee for Physics)",
+        "url": "https://www.nobelprize.org/uploads/2024/11/advanced-physicsprize2024-3.pdf"
+      },
+      "alsoIn": [
+        {
+          "file": "data/links.json",
+          "id": "hopfield-networks>nobel-prizes-for-neural-networks"
+        }
+      ]
+    },
+    {
+      "id": "hopfield-helped-bring-networks-back",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "where": {
+        "file": "data/people.json",
+        "id": "john-hopfield"
+      },
+      "kind": "attribution",
+      "was": "Brought neural networks back in 1982 with a network that stores memories as energy minima.",
+      "now": "Helped bring neural networks back in 1982 with a network that stores memories as energy minima.",
+      "why": "The Nobel committee's popular account says interest in neural networks was reawakened in the 1980s when several important ideas made an impact; Hopfield's network was one of them, not the whole revival.",
+      "source": {
+        "publisher": "The Royal Swedish Academy of Sciences (nobelprize.org)",
+        "title": "They used physics to find patterns in information (popular science background, Nobel Prize in Physics 2024)",
+        "url": "https://www.nobelprize.org/prizes/physics/2024/popular-information/"
+      }
+    },
+    {
+      "id": "lenet-read-cut-digits-not-raw-pixels",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "event": "convolutions-read-handwriting",
+      "kind": "fact",
+      "was": "LeCun's network learns digits from raw pixels and reads handwritten US Postal Service zip codes.",
+      "now": "LeCun and colleagues at Bell Labs train a network by backpropagation to read handwritten digits cut from zip codes on US mail, feeding it the pixels of each normalised image rather than hand-designed features.",
+      "why": "The network read single digits, which Postal Service contractors had already located and cut from the zip codes and which were scaled to 16 by 16 pixels before it saw them, as the companion NIPS paper describes: neither whole zip codes nor raw pixels. The string to Facebook's hiring of LeCun said it read zip codes too.",
+      "source": {
+        "publisher": "Advances in Neural Information Processing Systems 2 (NeurIPS proceedings)",
+        "title": "Handwritten Digit Recognition with a Back-Propagation Network (Le Cun, Boser, Denker, Henderson, Howard, Hubbard, Jackel)",
+        "url": "https://proceedings.neurips.cc/paper/1989/file/53c3bce66e43be4f209556518c2fcb54-Paper.pdf"
+      },
+      "alsoIn": [
+        {
+          "file": "data/links.json",
+          "id": "convolutions-read-handwriting>zuckerberg-hires-lecun"
+        }
+      ]
+    },
+    {
+      "id": "lenet-production-came-with-cheques",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "event": "convolutions-read-handwriting",
+      "kind": "fact",
+      "was": "The first deep learning system in production, running at national scale before the term existed.",
+      "now": "One of the first demonstrations, LeCun writes, that neural networks could do real-world work. Its descendant LeNet-5 read millions of cheques a day in American banks from 1996: by LeCun's account, an estimated tenth of all the cheques written in the US.",
+      "why": "No source puts the 1989 network in production: its makers ran it on a signal-processing board in a PC. What reached national scale was its descendant, fielded in NCR's cheque readers in American banks from June 1996 and reading millions of cheques a day, by the 1998 paper. The card's first had no source; the one it carries now is LeCun's own, and more modest.",
+      "source": {
+        "publisher": "Proceedings of the IEEE (copy hosted by gwern.net)",
+        "title": "Gradient-Based Learning Applied to Document Recognition (LeCun, Bottou, Bengio, Haffner)",
+        "url": "https://gwern.net/doc/ai/nn/cnn/1998-lecun.pdf"
+      }
+    },
+    {
+      "id": "lecun-not-the-convnets-inventor",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "where": {
+        "file": "data/links.json",
+        "id": "convolutions-read-handwriting>zuckerberg-hires-lecun"
+      },
+      "kind": "attribution",
+      "was": "Its inventor was the obvious second founding father to recruit once Google had the first.",
+      "now": "Google had bought Hinton's company that March; in December Facebook hired LeCun, the network's lead author. The ACM would later name both, with Bengio, fathers of the deep-learning revolution.",
+      "why": "LeCun's own papers call the design reminiscent of Fukushima's neocognitron, which had the same layout before backpropagation could train it, so inventor overstated it; the ACM named three fathers of the deep-learning revolution in 2019, Bengio among them, and nothing on file says Facebook hired LeCun because Google had Hinton. The card on his hiring and the glossary's entry on convolutional networks credited him with the invention too.",
+      "source": {
+        "publisher": "ACM (acm.org, Wayback Machine capture)",
+        "title": "Fathers of the Deep Learning Revolution Receive ACM A.M. Turing Award",
+        "url": "https://web.archive.org/web/20190331234249/https://www.acm.org/media-center/2019/march/turing-award-2018"
+      },
+      "alsoIn": [
+        {
+          "file": "data/events.json",
+          "id": "zuckerberg-hires-lecun"
+        },
+        {
+          "file": "data/glossary.json",
+          "id": "convolutional-network"
+        }
+      ]
+    },
+    {
+      "id": "lecuns-reader-was-his-job",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "where": {
+        "file": "data/orgs.json",
+        "id": "bell-labs"
+      },
+      "kind": "framing",
+      "was": "The lab where two of the field's foundations were laid as side projects.",
+      "now": "The lab where two of the field's foundations were laid, Shannon's partly in his own time.",
+      "why": "LeCun's handwriting reader was his job, not a side project: he joined Bell Labs in 1988 to work on neural networks and handwriting recognition, by the 1998 paper's biography of him. Shannon said in his oral history of 1982 that some of his work was done at home, out of office hours.",
+      "source": {
+        "publisher": "Proceedings of the IEEE (copy hosted by gwern.net)",
+        "title": "Gradient-Based Learning Applied to Document Recognition (LeCun, Bottou, Bengio, Haffner)",
+        "url": "https://gwern.net/doc/ai/nn/cnn/1998-lecun.pdf"
+      }
+    },
+    {
+      "id": "lstm-did-not-solve-vanishing-gradients",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "event": "lstm",
+      "kind": "fact",
+      "was": "Hochreiter and Schmidhuber solve vanishing gradients and give sequence models a working memory.",
+      "now": "Hochreiter and Schmidhuber give recurrent networks memory cells, opened and closed by gates, that keep error signals from fading. On artificial tasks the network learns across more than 1,000 time steps.",
+      "why": "The paper does not claim to solve vanishing gradients. It holds the error signal constant inside special memory cells, cutting the gradient off where error would leak out, says that elsewhere error still tends to vanish quickly, and tests the method on artificial data. The glossary's entry on recurrent networks said the LSTM solved the problem and ran speech and translation for twenty years; it reached production at Google in 2015 and 2016, by Google's own posts.",
+      "source": {
+        "publisher": "Neural Computation (copy hosted by Carnegie Mellon University)",
+        "title": "Long Short-Term Memory (Sepp Hochreiter and Jürgen Schmidhuber)",
+        "url": "https://deeplearning.cs.cmu.edu/F23/document/readings/LSTM.pdf"
+      },
+      "alsoIn": [
+        {
+          "file": "data/glossary.json",
+          "id": "recurrent-network"
+        },
+        {
+          "file": "data/people.json",
+          "id": "jurgen-schmidhuber"
+        }
+      ]
+    },
+    {
+      "id": "grand-challenge-mile-seven-point-four",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "event": "nobody-finishes-the-grand-challenge",
+      "kind": "figure",
+      "was": "Every vehicle in DARPA's desert race fails; the best manages seven miles of a 142-mile course.",
+      "now": "Of the fifteen robot vehicles DARPA selects for its desert race, none finishes. The furthest, Carnegie Mellon's, goes off course at mile 7.4 of 142, and the $1 million prize goes unclaimed.",
+      "why": "DARPA's results on the evening of the race put the furthest vehicle, Carnegie Mellon's, off course at mile 7.4, not seven; Carnegie Mellon's own account and DARPA's retrospective of 2014 say 7.5, and the card's figure now carries both. The string to Stanley's card gave about seven miles too.",
+      "source": {
+        "publisher": "DARPA (darpa.mil, Wayback Machine capture)",
+        "title": "Final Data from DARPA Grand Challenge (as of 5:00 p.m. PST, March 13, 2004)",
+        "url": "https://web.archive.org/web/20040807085842/http://www.darpa.mil:80/grandchallenge04/media/final_data.pdf"
+      },
+      "alsoIn": [
+        {
+          "file": "data/links.json",
+          "id": "nobody-finishes-the-grand-challenge>stanley-wins"
+        }
+      ]
+    },
+    {
+      "id": "grand-challenge-2005-a-new-course",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "where": {
+        "file": "data/links.json",
+        "id": "nobody-finishes-the-grand-challenge>stanley-wins"
+      },
+      "kind": "fact",
+      "was": "In October 2005 five finished it, Stanford's Stanley first.",
+      "now": "In October 2005, on a new 132-mile course, five finished, four inside the ten-hour limit, Stanford's Stanley first.",
+      "why": "The 2005 race was run on a different course, 132 miles by DARPA's account, so the five did not finish the 2004 course, and DARPA counts four of them inside the ten-hour limit.",
+      "source": {
+        "publisher": "DARPA (darpa.mil, Wayback Machine capture)",
+        "title": "Grand Challenge Home (web archive of the October 2005 Grand Challenge)",
+        "url": "https://web.archive.org/web/20060417232606/http://www.darpa.mil:80/grandchallenge05/"
+      }
+    },
+    {
+      "id": "driverless-cars-a-field-before-the-prize",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "where": {
+        "file": "data/links.json",
+        "id": "nobody-finishes-the-grand-challenge>stanley-wins"
+      },
+      "kind": "framing",
+      "was": "It is the board's cleanest case of a prize turning a failure into a field.",
+      "now": "It is the board's cleanest case of a prize turning a failure into a success.",
+      "why": "Driverless vehicles were a research field long before the prize: DARPA's own Autonomous Land Vehicle drove itself outside Denver in 1985, and Carnegie Mellon's Navlab steered itself across the United States in 1995. DARPA claims less for its challenges, that they helped to create a research community, and its file now says so.",
+      "source": {
+        "publisher": "DARPA",
+        "title": "Grand Challenge (DARPA Innovation Timeline)",
+        "url": "https://www.darpa.mil/about/innovation-timeline/grand-challenge"
+      },
+      "alsoIn": [
+        {
+          "file": "data/orgs.json",
+          "id": "darpa"
+        }
+      ]
+    },
+    {
+      "id": "stanley-solved-nothing-by-its-paper",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "event": "stanley-wins",
+      "kind": "fact",
+      "was": "Total failure to solved in eighteen months.",
+      "now": "In March 2004 no robot finished; now five do, four inside the ten-hour limit.",
+      "why": "Nothing was solved: Stanford's own paper says the race left important problems open, the first that its course was static and Stanley could not drive in traffic. Five vehicles finished, four inside DARPA's ten-hour limit.",
+      "source": {
+        "publisher": "Journal of Field Robotics (copy hosted by Stanford University)",
+        "title": "Stanley: The Robot that Won the DARPA Grand Challenge (Sebastian Thrun and 29 others)",
+        "url": "https://robots.stanford.edu/papers/thrun.stanley05.pdf"
+      }
+    },
+    {
+      "id": "stanley-industry-grew-from-the-races",
+      "date": "2026-10-19",
+      "commit": "668a6bb",
+      "event": "stanley-wins",
+      "kind": "framing",
+      "was": "The self-driving industry, and its decade of over-promising, starts here.",
+      "now": "The self-driving industry, and its decade of over-promising, grows out of these races: Google gathered some of their best engineers to build its cars, by its own account. Stanley's own paper noted that the race was static and that Stanley could not drive in traffic.",
+      "why": "Driverless research did not start here; DARPA's Autonomous Land Vehicle drove itself in 1985. What the record supports is the line from the races to the industry: announcing its cars in 2010, Google said it had gathered some of the very best engineers from the DARPA Challenges. A prediction's note had the race beginning the run to public roads.",
+      "source": {
+        "publisher": "Google (Official Google Blog, Wayback Machine capture)",
+        "title": "What we’re driving at (Sebastian Thrun)",
+        "url": "https://web.archive.org/web/20101015220008/http://googleblog.blogspot.com/2010/10/what-were-driving-at.html"
+      }
+    },
+    {
+      "id": "deepmind-price-not-disclosed",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "event": "google-buys-deepmind",
+      "kind": "figure",
+      "was": "A London lab with no product sells for around $500 million, on the condition that Google create an AI ethics board.",
+      "now": "Google buys a London AI lab for a price it did not disclose, reported at $400 million to $650 million, and agrees, The Information reported, to set up an ethics board.",
+      "why": "Google confirmed the purchase but declined to give a price, and the papers differed that weekend: Re/code reported $400 million, The Information more than $500 million and the Guardian £400 million, or $650 million. No source calls the ethics board a condition of the sale, which The Information reported Google had agreed to set up, and none says DeepMind had no product: its own site gave its first commercial applications as simulations, e-commerce and games. The plain question on who controls AI repeated the price and the lab with no product.",
+      "source": {
+        "publisher": "Re/code (Wayback Machine capture)",
+        "title": "Exclusive: Google to Buy Artificial Intelligence Startup DeepMind for $400M (Liz Gannes)",
+        "url": "https://web.archive.org/web/20140128015943/http://recode.net/2014/01/26/exclusive-google-to-buy-artificial-intelligence-startup-deepmind-for-400m/"
+      },
+      "alsoIn": [
+        {
+          "file": "data/questions.json",
+          "id": "who-controls-the-most-powerful-ai"
+        }
+      ]
+    },
+    {
+      "id": "deepmind-price-figure",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "event": "google-buys-deepmind",
+      "kind": "figure",
+      "was": "about $500 million, January 2014",
+      "now": "not disclosed; reported at $400 million (Re/code), more than $500 million (The Information) and £400 million, or $650 million (The Guardian), January 2014",
+      "why": "Google gave no price; $500 million was one of three figures the press reported, beside Re/code's $400 million and the Guardian's £400 million, or $650 million.",
+      "source": {
+        "publisher": "Re/code (Wayback Machine capture)",
+        "title": "Exclusive: Google to Buy Artificial Intelligence Startup DeepMind for $400M (Liz Gannes)",
+        "url": "https://web.archive.org/web/20140128015943/http://recode.net/2014/01/26/exclusive-google-to-buy-artificial-intelligence-startup-deepmind-for-400m/"
+      }
+    },
+    {
+      "id": "deepmind-ethics-board-met-once",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "event": "google-buys-deepmind",
+      "kind": "fact",
+      "was": "The ethics board barely met.",
+      "now": "The ethics board met only once, TIME reported in 2024, and gave way to Google's own AI principles; Musk, who says he was asked to join it, called it a façade.",
+      "why": "'Barely met' had no source. TIME reported in 2024 that the independent ethics board DeepMind's leaders had hoped would govern the lab's technology met only once and was soon replaced by Google's AI principles; Musk's complaint of 2024 says he was asked to join it and found it a façade to slow down regulation.",
+      "source": {
+        "publisher": "TIME (Wayback Machine capture)",
+        "title": "Exclusive: Workers at Google DeepMind Push Company to Drop Military Contracts (Billy Perrigo)",
+        "url": "https://web.archive.org/web/20240823212251/https://time.com/7013685/google-ai-deepmind-military-contracts-israel/"
+      }
+    },
+    {
+      "id": "deepmind-ethics-board-figure",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "event": "google-buys-deepmind",
+      "kind": "fact",
+      "was": "an ethics board, which barely met",
+      "now": "agreed with the purchase, The Information reported; it met only once, TIME reported in 2024",
+      "why": "The board was reported, not announced, and no source calls it a condition of the sale; The Information, citing two people familiar with the deal, wrote that Google had agreed to set one up, and TIME that it met only once.",
+      "source": {
+        "publisher": "The Information (Wayback Machine capture)",
+        "title": "Google Beat Facebook for DeepMind, Creates Ethics Board (Amir Efrati)",
+        "url": "https://web.archive.org/web/20180312200123/https://www.theinformation.com/articles/Google-beat-Facebook-For-DeepMind-Creates-Ethics-Board"
+      }
+    },
+    {
+      "id": "deepmind-sale-musks-account",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "where": {
+        "file": "data/links.json",
+        "id": "google-buys-deepmind>musk-and-altman-found-openai"
+      },
+      "kind": "attribution",
+      "was": "Musk and Altman both read the DeepMind sale the same way: one company was going to own the best AI lab on earth.",
+      "now": "By his own account Musk tried to stop the sale, attempting with Luke Nosek to raise the money to buy DeepMind before Google could; in May 2015 Altman wrote to him that if AI was coming anyway it would be good for someone other than Google to do it first.",
+      "why": "No source has the two men reading the sale alike. Musk's complaint of 2024 says he and Luke Nosek tried to put together the money to buy DeepMind before Google did; Altman's email of May 2015, made public in the suit, names Google, not DeepMind or its sale.",
+      "source": {
+        "publisher": "Superior Court of California, County of San Francisco (copy hosted by ChatGPT Is Eating the World)",
+        "title": "Complaint, Elon Musk v. Samuel Altman et al. (CGC-24-612746)",
+        "url": "https://chatgptiseatingtheworld.com/wp-content/uploads/2024/03/Elon-Musk-v.-Sam-Altman-OpenAI-COMPLAINT.pdf"
+      }
+    },
+    {
+      "id": "openai-founding-not-a-direct-reaction",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "where": {
+        "file": "data/links.json",
+        "id": "google-buys-deepmind>musk-and-altman-found-openai"
+      },
+      "kind": "framing",
+      "was": "The founding is a direct reaction to this purchase.",
+      "now": "In Musk's telling the founding begins with this sale; OpenAI's founding post named no rival.",
+      "why": "Nothing on the record makes OpenAI's founding a direct reaction to the purchase. Musk's complaint tells it that way, the sale and then his search for a counter to Google; OpenAI's founding post of December 2015 named neither Google nor DeepMind. DeepMind's file, which said the sale provoked the founding, now gives it as Musk's account.",
+      "source": {
+        "publisher": "Superior Court of California, County of San Francisco (copy hosted by ChatGPT Is Eating the World)",
+        "title": "Complaint, Elon Musk v. Samuel Altman et al. (CGC-24-612746)",
+        "url": "https://chatgptiseatingtheworld.com/wp-content/uploads/2024/03/Elon-Musk-v.-Sam-Altman-OpenAI-COMPLAINT.pdf"
+      },
+      "alsoIn": [
+        {
+          "file": "data/orgs.json",
+          "id": "google-deepmind"
+        }
+      ]
+    },
+    {
+      "id": "hassabis-co-founded-deepmind",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "where": {
+        "file": "data/people.json",
+        "id": "demis-hassabis"
+      },
+      "kind": "attribution",
+      "was": "Founded DeepMind in 2010, sold it to Google in 2014, and led the teams behind AlphaGo, AlphaZero, AlphaFold and the olympiad results.",
+      "now": "Co-founded DeepMind in 2010 with Shane Legg and Mustafa Suleyman, sold it to Google in 2014, and led the teams behind AlphaGo, AlphaZero, AlphaFold and the olympiad results.",
+      "why": "DeepMind had three founders: its own site, as captured in January 2014, names Demis Hassabis, Shane Legg and Mustafa Suleyman.",
+      "source": {
+        "publisher": "DeepMind (Wayback Machine capture)",
+        "title": "DeepMind Technologies (home page, as captured on 27 January 2014)",
+        "url": "https://web.archive.org/web/20140127112828/http://deepmind.com/"
+      }
+    },
+    {
+      "id": "musk-exit-reason-was-openais",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "event": "musk-leaves-the-openai-board",
+      "kind": "attribution",
+      "was": "Citing conflicts with Tesla's own AI work after a failed bid to take control, he walks — and the promised funding largely does not arrive.",
+      "now": "OpenAI says Musk will leave its board to avoid a potential future conflict as Tesla turns to AI. It later said he had wanted control of a for-profit OpenAI; by his account, he insisted it stay a nonprofit.",
+      "why": "The Tesla reason was OpenAI's, and it named no present conflict: its post of 20 February 2018 said his leaving would eliminate a potential future conflict, and that he would keep donating, which by his complaint he did into 2020. The bid for control is OpenAI's account, given in 2024; Musk's is that others proposed the for-profit and he told them to stay a nonprofit or go it alone. Both now stand, here and on the string from the founding.",
+      "source": {
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "OpenAI Supporters",
+        "url": "https://web.archive.org/web/20180221040655/https://blog.openai.com/openai-supporters/"
+      },
+      "alsoIn": [
+        {
+          "file": "data/links.json",
+          "id": "musk-and-altman-found-openai>musk-leaves-the-openai-board"
+        }
+      ]
+    },
+    {
+      "id": "musk-exit-did-not-force-the-structure",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "event": "musk-leaves-the-openai-board",
+      "kind": "fact",
+      "was": "The exit forces OpenAI to find capital elsewhere, which forces the structure that everything later breaks on.",
+      "now": "Both sides agree a for-profit was under discussion before he left. His exit meant raising the billions without him, through the structure that everything later breaks on.",
+      "why": "The exit did not force the structure. By OpenAI's account it and Musk agreed in the summer of 2017 that a for-profit was the next step; by Musk's, Brockman and others suggested one that year. What his leaving settled was that it would be built without him.",
+      "source": {
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "Elon Musk wanted an OpenAI for-profit",
+        "url": "https://web.archive.org/web/20241214084452/https://openai.com/index/elon-musk-wanted-an-openai-for-profit/"
+      }
+    },
+    {
+      "id": "openai-founding-money-never-paid-in",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "where": {
+        "file": "data/links.json",
+        "id": "musk-leaves-the-openai-board>openai-goes-capped-profit-microsoft-puts-in-1bn"
+      },
+      "kind": "fact",
+      "was": "With the founding money gone and training costs climbing, a nonprofit could not buy compute.",
+      "now": "With most of the pledged billion never paid in, and billions of dollars needed for compute and people in the years ahead, by OpenAI's own estimate, a nonprofit could not raise enough.",
+      "why": "The founding money was never there to be gone: by OpenAI's account the nonprofit raised less than $45 million from Musk and more than $90 million from other donors against the billion announced. OpenAI wrote in 2019 that it would need to invest billions of dollars in compute, people and supercomputers.",
+      "source": {
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "OpenAI and Elon Musk",
+        "url": "https://web.archive.org/web/20240306022619/https://openai.com/blog/openai-elon-musk"
+      }
+    },
+    {
+      "id": "capped-profit-first-round-only",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "event": "openai-goes-capped-profit-microsoft-puts-in-1bn",
+      "kind": "figure",
+      "was": "A nonprofit grows a for-profit subsidiary with returns capped at 100x, and Azure becomes its exclusive compute.",
+      "now": "In March the nonprofit sets up a capped-profit company under its board, its first investors' returns limited to 100 times their money. In July Microsoft invests $1 billion and becomes its exclusive cloud provider.",
+      "why": "The cap of 100 times was for the first round of investors; OpenAI expected later rounds to be capped lower. The company was set up on 11 March 2019, four months before the Microsoft investment the card's date marks, and OpenAI's words for Microsoft's part were exclusive cloud provider.",
+      "source": {
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "OpenAI LP",
+        "url": "https://web.archive.org/web/20190311161512/https://openai.com/blog/openai-lp/"
+      }
+    },
+    {
+      "id": "capped-profit-cap-figure",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "event": "openai-goes-capped-profit-microsoft-puts-in-1bn",
+      "kind": "figure",
+      "was": "returns to investors limited to 100× ",
+      "now": "from March 2019, 100× their investment for the first round of investors, later rounds expected to be lower; anything above goes to the nonprofit",
+      "why": "OpenAI capped its first round of investors at 100 times their investment and expected the multiple to be lower for later rounds, with any excess going to the nonprofit.",
+      "source": {
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "OpenAI LP",
+        "url": "https://web.archive.org/web/20190311161512/https://openai.com/blog/openai-lp/"
+      }
+    },
+    {
+      "id": "capped-profit-no-precedent-claim",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "event": "openai-goes-capped-profit-microsoft-puts-in-1bn",
+      "kind": "attribution",
+      "was": "A governance experiment nobody had run before.",
+      "now": "OpenAI said no existing legal structure it knew of struck the balance it wanted, so it built one.",
+      "why": "That nobody had run the experiment before had no source. OpenAI's own claim, in the post that set the company up, was narrower: no pre-existing legal structure it knew of struck the right balance.",
+      "source": {
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "OpenAI LP",
+        "url": "https://web.archive.org/web/20190311161512/https://openai.com/blog/openai-lp/"
+      }
+    },
+    {
+      "id": "capped-profit-five-days-not-a-weekend",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "event": "openai-goes-capped-profit-microsoft-puts-in-1bn",
+      "kind": "date",
+      "was": "Four years later it fails live, on a weekend.",
+      "now": "Four years later the board used its control, and was reversed within five days.",
+      "why": "The firing card's own sources run from Friday 17 to Tuesday 21 November 2023: the board removed Altman, nearly all the staff signed a letter saying they might resign, and on the fifth day he was back.",
+      "source": {
+        "publisher": "Wired",
+        "title": "OpenAI Staff Threaten to Quit Unless Board Resigns",
+        "url": "https://www.wired.com/story/openai-staff-walk-protest-sam-altman/"
+      }
+    },
+    {
+      "id": "altman-reversal-one-letter",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "where": {
+        "file": "data/links.json",
+        "id": "openai-goes-capped-profit-microsoft-puts-in-1bn>altman-is-fired-then-rehired-in-five-days"
+      },
+      "kind": "fact",
+      "was": "When the board finally used its power, the commercial side simply out-voted it with resignation letters.",
+      "now": "When the board finally used its power, the staff and the investor reversed it in five days: 738 of some 770 employees signed a letter saying they might resign and join Altman at Microsoft, which had assured them of positions.",
+      "why": "There were no resignation letters and no vote. By the Monday 738 of about 770 staff had signed one letter saying they might resign and join the new Microsoft unit, which, they wrote, had assured them of positions, Wired reported; the board took Altman back on the Tuesday.",
+      "source": {
+        "publisher": "Wired",
+        "title": "OpenAI Staff Threaten to Quit Unless Board Resigns",
+        "url": "https://www.wired.com/story/openai-staff-walk-protest-sam-altman/"
+      }
+    },
+    {
+      "id": "openai-group-a-public-benefit-corporation",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "where": {
+        "file": "data/links.json",
+        "id": "openai-goes-capped-profit-microsoft-puts-in-1bn>openai-converts-the-nonprofit-keeps-a-stake"
+      },
+      "kind": "fact",
+      "was": "Six years later the cap is gone, the for-profit is a conventional benefit corporation, and the foundation keeps control through board-appointment rights while holding 26% of the equity.",
+      "now": "Six years later the cap is gone, the for-profit is a public benefit corporation with a normal capital structure, and the foundation keeps control through board-appointment rights while holding 26% of the equity.",
+      "why": "OpenAI Group is a public benefit corporation, not a conventional one; what became conventional was its stock, OpenAI having said it was moving to a normal capital structure where everyone has stock.",
+      "source": {
+        "publisher": "OpenAI",
+        "title": "Built to benefit everyone",
+        "url": "https://openai.com/index/built-to-benefit-everyone/"
+      }
+    },
+    {
+      "id": "microsoft-thirteen-billion-in-all",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "where": {
+        "file": "data/orgs.json",
+        "id": "microsoft"
+      },
+      "kind": "figure",
+      "was": "Put a billion dollars into OpenAI in 2019 and about thirteen more after; shipped Sydney; offered Altman a job during the five days.",
+      "now": "Put a billion dollars into OpenAI in 2019, and more than thirteen billion in all; shipped Sydney; offered Altman a job during the five days.",
+      "why": "The thirteen billion includes the first: CNBC reported at the conversion of 2025 that Microsoft had invested more than $13 billion in OpenAI, backing it from 2019.",
+      "source": {
+        "publisher": "CNBC",
+        "title": "OpenAI completes restructure, solidifying Microsoft as a major shareholder",
+        "url": "https://www.cnbc.com/2025/10/28/open-ai-for-profit-microsoft.html"
+      }
+    },
+    {
+      "id": "capped-profit-nonprofit-kept-control",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "where": {
+        "file": "data/glossary.json",
+        "id": "capped-profit"
+      },
+      "kind": "fact",
+      "was": "It was the structure that fired Altman and could not keep him fired, and it was replaced in 2025 by a public benefit corporation with the nonprofit as shareholder.",
+      "now": "It was the structure that fired Altman and could not keep him fired, and in 2025 it gave way to a public benefit corporation whose board the nonprofit appoints and of which it owns 26%.",
+      "why": "The nonprofit did not lose control in 2025, as the entry's short line also implied: by OpenAI's account the OpenAI Foundation appoints all of OpenAI Group's directors and holds 26% of its equity. What ended was the cap.",
+      "source": {
+        "publisher": "OpenAI",
+        "title": "Built to benefit everyone",
+        "url": "https://openai.com/index/built-to-benefit-everyone/"
+      }
+    },
+    {
+      "id": "gpt-2-argument-was-older",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "event": "gpt-2-s-staged-release",
+      "kind": "framing",
+      "was": "OpenAI withholds its largest model citing misuse risk and starts a still-running argument about openness.",
+      "now": "OpenAI holds back the full GPT-2 for fear of misuse, calling it an experiment in responsible disclosure, and releases it in stages over nine months. The argument over openness it sharpened is still running.",
+      "why": "The argument did not start here. OpenAI's post quoted its charter of 2018, which had already said safety concerns would reduce its publishing, and pointed to long-running debates over responsible publication in biotechnology and cybersecurity; it called its decision an experiment. The model then went out in four stages, the last on 5 November 2019.",
+      "source": {
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "Better Language Models and Their Implications",
+        "url": "https://web.archive.org/web/20190214171619/https://blog.openai.com/better-language-models/"
+      }
+    },
+    {
+      "id": "gpt-2-no-first",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "event": "gpt-2-s-staged-release",
+      "kind": "framing",
+      "was": "The first time a lab treated its own capability as a hazard in public.",
+      "now": "A lab treated its own model as a hazard, in public, and asked the field to take up the arguments over publication that biotechnology and cybersecurity had long had.",
+      "why": "No source on the record calls it the first. OpenAI presented the decision as an experiment and set it beside the debates over responsible publication that other disciplines had long had.",
+      "source": {
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "Better Language Models and Their Implications",
+        "url": "https://web.archive.org/web/20190214171619/https://blog.openai.com/better-language-models/"
+      }
+    },
+    {
+      "id": "gpt-2-gate-not-pioneered",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "where": {
+        "file": "data/links.json",
+        "id": "gpt-2-s-staged-release>llama-leaks"
+      },
+      "kind": "attribution",
+      "was": "Meta tried the gated release OpenAI had pioneered — case-by-case access, research-only licence.",
+      "now": "Meta tried the kind of gate OpenAI had kept around the unreleased GPT-2 — case-by-case access, a non-commercial licence for research.",
+      "why": "Nothing on the record says OpenAI pioneered gated release. What it did, by its own report, was share the unreleased full model with partner organisations under a non-commercial legal agreement for their research; Meta's LLaMA post describes access case by case under a noncommercial licence focused on research.",
+      "source": {
+        "publisher": "arXiv (OpenAI)",
+        "title": "Release Strategies and the Social Impacts of Language Models (Irene Solaiman, Miles Brundage, Jack Clark and others)",
+        "url": "https://arxiv.org/pdf/1908.09203v2"
+      }
+    },
+    {
+      "id": "llm-not-all-tuned-by-feedback",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "where": {
+        "file": "data/glossary.json",
+        "id": "large-language-model"
+      },
+      "kind": "fact",
+      "was": "GPT-2, GPT-3, ChatGPT, Claude, Gemini, Llama, DeepSeek: all are transformers trained on text to predict what comes next, then adjusted with human feedback to be useful.",
+      "now": "GPT-2, GPT-3, ChatGPT, Claude, Gemini, Llama, DeepSeek: all are transformers trained on text to predict what comes next, and the chat models among them are then adjusted with human feedback to be useful.",
+      "why": "GPT-2 was trained simply to predict the next word, by its paper, and no human feedback went into it, nor into GPT-3 as first sold; that tuning came to OpenAI's models with InstructGPT in 2022, as the board's own card has it.",
+      "source": {
+        "publisher": "OpenAI",
+        "title": "Language Models are Unsupervised Multitask Learners (Alec Radford, Jeffrey Wu, Rewon Child, David Luan, Dario Amodei and Ilya Sutskever)",
+        "url": "https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf"
+      }
+    },
+    {
+      "id": "tay-attacked-sixteen-hours-the-guardians",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "event": "tay",
+      "kind": "attribution",
+      "was": "A chatbot released to Twitter is taught to post racist content and withdrawn within sixteen hours.",
+      "now": "Microsoft's chatbot for young Americans goes live on Twitter and, after what Microsoft called a coordinated attack, tweets racist abuse. It is offline within a day, sixteen hours in by the Guardian's count.",
+      "why": "Microsoft's own account, Peter Lee's post of 25 March 2016, puts the tweets down to a coordinated attack that exploited a vulnerability in Tay's first 24 hours, and gives no hour for the shutdown. Sixteen hours is the Guardian's count, from Tay's first tweet to its goodnight; taught was the press's word.",
+      "source": {
+        "publisher": "Microsoft (Official Microsoft Blog)",
+        "title": "Learning from Tay’s introduction (Peter Lee)",
+        "url": "https://blogs.microsoft.com/blog/2016/03/25/learning-tays-introduction/"
+      }
+    },
+    {
+      "id": "tay-not-the-first-lesson",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "event": "tay",
+      "kind": "framing",
+      "was": "The first mainstream lesson that deployment context, not model quality, determines behaviour.",
+      "now": "What a chatbot says depends on who talks to it. Tay was Microsoft's test of whether a bot like XiaoIce, used by some 40 million people in China, would work as well in America. On Twitter it was turned within a day, and Microsoft called the challenges as much social as technical.",
+      "why": "Nothing on the record makes Tay the first such lesson, and Microsoft's post says Tay was not its first chatbot in public: XiaoIce was being used by some 40 million people in China. Nor does Microsoft put the failure outside the system: it writes of a vulnerability and a critical oversight, and of challenges as much social as technical.",
+      "source": {
+        "publisher": "Microsoft (Official Microsoft Blog)",
+        "title": "Learning from Tay’s introduction (Peter Lee)",
+        "url": "https://blogs.microsoft.com/blog/2016/03/25/learning-tays-introduction/"
+      }
+    },
+    {
+      "id": "tay-and-sydney-reined-in-apart",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "where": {
+        "file": "data/links.json",
+        "id": "tay>sydney"
+      },
+      "kind": "date",
+      "was": "Seven years apart, Microsoft put two chatbots in front of the public and had to rein both in within days.",
+      "now": "Seven years apart, Microsoft put two chatbots in front of the public and had to rein both in: Tay within a day, Sydney ten days after launch.",
+      "why": "Tay was offline within a day, and Sydney's conversations were capped ten days after launch, as the Sydney card says: not both within days.",
+      "source": {
+        "publisher": "Microsoft (Bing Blog)",
+        "title": "The new Bing & Edge – Updates to Chat",
+        "url": "https://blogs.bing.com/search/2023/2/The-new-Bing-Edge-Updates-to-Chat/"
+      }
+    },
+    {
+      "id": "herzberg-detected-not-classified",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "event": "a-self-driving-car-kills-a-pedestrian",
+      "kind": "fact",
+      "was": "A test vehicle strikes Elaine Herzberg in Tempe, Arizona; sensor gaps, disabled braking and inattention compound.",
+      "now": "An Uber test car driving itself kills Elaine Herzberg in Tempe, Arizona. It detected her 5.6 seconds out but never classified her as a pedestrian, its emergency braking was off, and its operator was looking at her phone.",
+      "why": "The sensors did not miss her. By the NTSB's account Uber's system detected her 5.6 seconds before impact and tracked her to the crash, but never classified her as a pedestrian or predicted her path. The braking was off twice over: the Volvo's own emergency braking was switched off under computer control, and Uber's design left emergency braking to the operator, who was looking at her phone.",
+      "source": {
+        "publisher": "National Transportation Safety Board",
+        "title": "Collision Between Vehicle Controlled by Developmental Automated Driving System and Pedestrian, Tempe, Arizona, March 18, 2018 (Highway Accident Report NTSB/HAR-19/03)",
+        "url": "https://www.ntsb.gov/investigations/AccidentReports/Reports/HAR1903.pdf"
+      }
+    },
+    {
+      "id": "herzberg-first-pedestrian-not-first-death",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "event": "a-self-driving-car-kills-a-pedestrian",
+      "kind": "attribution",
+      "was": "The first death attributed to an autonomous vehicle, and the case that reframed testing on public roads.",
+      "now": "Reported at the time as the first pedestrian killed by a self-driving car in the US. Arizona suspended Uber's testing eight days later, and the NTSB called for a federal review before automated test vehicles are allowed on public roads.",
+      "why": "It was not the first death in a car driving itself: the Guardian's report of the crash recalls the Tesla driver killed with Autopilot on in 2016. What it reported was the first pedestrian killed. What changed for testing on public roads is now on the card as the record has it: Arizona's suspension and the NTSB's call for a federal review process.",
+      "source": {
+        "publisher": "The Guardian",
+        "title": "Self-driving Uber kills Arizona woman in first fatal crash involving pedestrian (Sam Levin and Julia Carrie Wong)",
+        "url": "https://www.theguardian.com/technology/2018/mar/19/uber-self-driving-car-kills-woman-arizona-tempe"
+      }
+    },
+    {
+      "id": "thrun-founded-googles-project-by-his-account",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "where": {
+        "file": "data/links.json",
+        "id": "stanley-wins>a-self-driving-car-kills-a-pedestrian"
+      },
+      "kind": "attribution",
+      "was": "Stanley's team leader went on to found Google's self-driving project, and within a decade the industry Stanley started was testing on public streets.",
+      "now": "Stanley's team leader, Sebastian Thrun, went on to found Google's self-driving project, by his own account, and within five years its cars were driving on public streets.",
+      "why": "That Thrun founded the project is his own account: his page says he founded Project Chauffeur, later Waymo, and Google's post of October 2010 has its cars already driving from Mountain View to Hollywood Boulevard, five years after Stanley. That the industry was Stanley's to start had no source."
+    },
+    {
+      "id": "deepfakes-not-a-gan",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "where": {
+        "file": "data/links.json",
+        "id": "generative-adversarial-networks>deepfakes-arrive"
+      },
+      "kind": "fact",
+      "was": "Adversarial training made convincing synthetic faces a weekend project. Three years later the technique was in consumer tools, and the first victims were private individuals.",
+      "now": "The network the Reddit user posted in 2017 was not a GAN but an autoencoder: one encoder shared between two faces, a decoder for each. Adversarial training was added afterwards, by tools built on it. The first faces taken were celebrities'; within weeks users were faking people they knew.",
+      "why": "The first deepfakes did not use adversarial training. The original network was an encoder–decoder with one encoder and two decoders, by Mirsky and Lee's survey and the faceswap project's account of its original model; adversarial loss was added to it afterwards. Motherboard's first report names celebrities as the first faces used; private individuals followed within weeks. The string's claim and the glossary's entry on GANs now say so.",
+      "source": {
+        "publisher": "ACM Computing Surveys (arXiv preprint)",
+        "title": "The Creation and Detection of Deepfakes: A Survey (Yisroel Mirsky and Wenke Lee)",
+        "url": "https://arxiv.org/pdf/2004.11138"
+      },
+      "alsoIn": [
+        {
+          "file": "data/glossary.json",
+          "id": "gan"
+        }
+      ]
+    },
+    {
+      "id": "deepfakes-an-app-by-2018",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "where": {
+        "file": "data/glossary.json",
+        "id": "deepfake"
+      },
+      "kind": "date",
+      "was": "Named on a subreddit in 2017; a product by 2022; a policy problem the board expects to force provenance rules by 2029.",
+      "now": "Named after a Reddit user who posted face-swapped porn in 2017; a free desktop app by January 2018; a policy problem the board expects to force provenance rules by 2029.",
+      "why": "Deepfakes were a product within weeks, not by 2022: Motherboard reported FakeApp, an application anyone could use, in January 2018, and Reddit shut the deepfakes subreddit that February. The entry on diffusion models, which tied deepfakes becoming a product to 2022, no longer does.",
+      "source": {
+        "publisher": "Vice (Motherboard)",
+        "title": "We Are Truly Fucked: Everyone Is Making AI-Generated Fake Porn Now (Samantha Cole)",
+        "url": "https://www.vice.com/en/article/reddit-fake-porn-app-daisy-ridley/"
+      },
+      "alsoIn": [
+        {
+          "file": "data/glossary.json",
+          "id": "diffusion-model"
+        }
+      ]
+    },
+    {
+      "id": "gebru-two-accounts-of-her-exit",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "event": "google-fires-timnit-gebru",
+      "kind": "attribution",
+      "was": "Google fires Timnit Gebru",
+      "now": "Google and Timnit Gebru part over a paper",
+      "why": "That she was fired is Gebru's account. Google's, in Jeff Dean's email, which he published, is that it accepted her resignation. The title now takes neither side, and Google's file gives both; the card's address is unchanged.",
+      "source": {
+        "publisher": "Google (Jeff Dean, published as a Google Doc)",
+        "title": "About Google's approach to research publication (Jeff Dean)",
+        "url": "https://docs.google.com/document/d/1f2kYWDXwhzYnq8ebVtuk9CqQqz7ScqxhSIxeYGrWjK0/mobilebasic"
+      },
+      "alsoIn": [
+        {
+          "file": "data/orgs.json",
+          "id": "google"
+        }
+      ]
+    },
+    {
+      "id": "gebru-retract-or-remove-names",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "event": "google-fires-timnit-gebru",
+      "kind": "fact",
+      "was": "Google demands she withdraw a co-authored paper on the risks of large language models; the AI ethics team implodes in public.",
+      "now": "Google tells the co-lead of its ethical AI team to withdraw a paper on the risks of large language models or take its Google authors' names off it. She sets conditions; Google says she resigned, she says she was fired.",
+      "why": "Google's demand had an alternative: retract the paper or take the Google employees' names off it, as MIT Technology Review reported and the paper's own acknowledgements confirm. What followed is told two ways, and the card now carries both.",
+      "source": {
+        "publisher": "MIT Technology Review",
+        "title": "A leading AI ethics researcher says she’s been fired from Google (Karen Hao)",
+        "url": "https://www.technologyreview.com/2020/12/03/1013065/google-ai-ethics-lead-timnit-gebru-fired/"
+      }
+    },
+    {
+      "id": "gebru-no-exodus-on-record",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "event": "google-fires-timnit-gebru",
+      "kind": "fact",
+      "was": "The industry learns that internal criticism is a career risk. Half the field's safety talent moves to labs of their own.",
+      "now": "By Gebru's account, criticism from inside a lab cost her her job; Google says she resigned. Within three months both co-leads of Google's ethical AI team were gone, and a year later Gebru launched DAIR, an institute meant to do the research outside Big Tech's influence.",
+      "why": "Nothing on the record says half the field's safety talent left for labs of their own. What is on the record: Google fired the team's other co-lead, Margaret Mitchell, in February 2021, and on 2 December 2021 Gebru launched DAIR, an independent institute. Her reading of her exit is hers, and is now given as hers.",
+      "source": {
+        "publisher": "DAIR",
+        "title": "Press Release: Announcing DAIR",
+        "url": "https://www.dair-institute.org/press-release"
+      }
+    },
+    {
+      "id": "gebru-and-anthropic-unconnected",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "where": {
+        "file": "data/links.json",
+        "id": "google-fires-timnit-gebru>anthropic-founded-by-departing-openai-staff"
+      },
+      "kind": "fact",
+      "was": "Both events answer the same question — what happens when internal safety criticism collides with product pressure. One ended in a firing; the other in a rival company.",
+      "now": "In December 2020 Google and Timnit Gebru parted over a paper on the risks of large language models, and OpenAI announced that Dario Amodei and a handful of colleagues were leaving for a project that would probably focus less on product development and more on research. Neither caused the other: Anthropic was founded by the OpenAI group, and Gebru went on to found DAIR.",
+      "why": "Gebru's exit did not scatter anyone into Anthropic, as the string's claim had it: Anthropic was founded by the group from OpenAI, and Gebru went on to found DAIR. That one ended in a firing is Gebru's account, not Google's. The two share a month, not a cause.",
+      "source": {
+        "publisher": "DAIR",
+        "title": "Press Release: Announcing DAIR",
+        "url": "https://www.dair-institute.org/press-release"
+      }
+    },
+    {
+      "id": "copilot-suggested-whole-functions",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "where": {
+        "file": "data/links.json",
+        "id": "copilot>coding-agents-take-the-keyboard"
+      },
+      "kind": "fact",
+      "was": "Copilot suggested the next line; four years later coding agents ran the terminal, made whole changes and fixed their own failing tests.",
+      "now": "Copilot suggested whole lines or entire functions; four years later coding agents ran commands in the terminal, made whole changes and ran the tests until they passed.",
+      "why": "GitHub's launch post says Copilot suggested whole lines or entire functions, not only the next line.",
+      "source": {
+        "publisher": "GitHub (The GitHub Blog)",
+        "title": "Introducing GitHub Copilot: your AI pair programmer (Nat Friedman)",
+        "url": "https://github.blog/news-insights/product-news/introducing-github-copilot-ai-pair-programmer/"
+      }
+    },
+    {
+      "id": "books-half-settled-not-lost",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "where": {
+        "file": "data/links.json",
+        "id": "copilot>anthropic-pays-for-pirated-books"
+      },
+      "kind": "fact",
+      "was": "In 2025 a federal judge drew a line for books: training Claude on them was fair use, but downloading them from pirate libraries was not, and that half cost Anthropic $1.5 billion.",
+      "now": "In 2025 a federal judge drew a line for books: training Claude on them was fair use, but downloading millions from pirate libraries and keeping them was not, and settling that half cost Anthropic $1.5 billion.",
+      "why": "The $1.5 billion was a settlement, reached before the trial the judge had set on the pirated copies, not damages awarded; and what he held unjustified was downloading the books from pirate libraries and keeping them in a central library, as the books card says.",
+      "source": {
+        "publisher": "US District Court for the Northern District of California (RECAP copy, CourtListener)",
+        "title": "Bartz v. Anthropic PBC, Order on Fair Use (Dkt. 231)",
+        "url": "https://storage.courtlistener.com/recap/gov.uscourts.cand.434709/gov.uscourts.cand.434709.231.0.pdf"
+      }
+    },
+    {
+      "id": "coding-agents-not-yet-daily-in-2025",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "event": "coding-agents-take-the-keyboard",
+      "kind": "fact",
+      "was": "Tools that plan, edit and run whole repositories move from novelty to daily use, and software work reorganises around review.",
+      "now": "Anthropic, OpenAI and GitHub release agents that edit code across a repository, run its tests and hand the changes back for review. A majority of developers surveyed in mid-2025 did not yet use agents.",
+      "why": "Stack Overflow's survey of mid-2025 found AI agents not yet mainstream: a majority of developers did not use them or kept to simpler AI tools. Daily use came later; by its 2026 survey 73% of those using AI coding assistants or agents used them daily. Nothing sourced the work reorganising around review; the makers' own posts show each tool handing its changes back for review. Two plain questions, the primer and two predictions repeated the claim.",
+      "source": {
+        "publisher": "Stack Overflow",
+        "title": "2025 Developer Survey: AI",
+        "url": "https://survey.stackoverflow.co/2025/ai"
+      },
+      "alsoIn": [
+        {
+          "file": "data/questions.json",
+          "id": "will-ai-take-my-job"
+        },
+        {
+          "file": "data/questions.json",
+          "id": "what-can-ai-do-now"
+        }
+      ]
+    },
+    {
+      "id": "coding-agents-no-template-on-record",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "event": "coding-agents-take-the-keyboard",
+      "kind": "framing",
+      "was": "The first job where agentic AI became normal infrastructure rather than a demo. Everything else is following this template.",
+      "now": "Software is the first work on the board that agents were sold to do rather than shown doing. By 2026 Stack Overflow's survey said AI had become 'less sidekick and more infrastructure' for developers; the board's reading is that other work follows the same course, the task going to the machine and the check staying with a person.",
+      "why": "That agentic AI was normal infrastructure in 2025, and that everything else was following the template, had no source. Stack Overflow's survey of 2026 now supplies its own phrase for developers, and the rest is marked as the board's reading.",
+      "source": {
+        "publisher": "Stack Overflow",
+        "title": "2025 Developer Survey: AI",
+        "url": "https://survey.stackoverflow.co/2025/ai"
+      },
+      "alsoIn": [
+        {
+          "file": "data/questions.json",
+          "id": "will-ai-take-my-job"
+        }
+      ]
+    },
+    {
+      "id": "software-not-first-to-verify-instantly",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "where": {
+        "file": "data/links.json",
+        "id": "coding-agents-take-the-keyboard>agents-enter-real-workflows"
+      },
+      "kind": "fact",
+      "was": "Software was the first domain with instant verification: code runs or it doesn't. Agents became reliable there first, then generalised into work with slower feedback.",
+      "now": "Code can be checked by running it and its tests, and GitHub billed its agent as best at low-to-medium complexity tasks in well-tested codebases. On the board's reading agents took hold in software first, then spread to work whose results take longer to check.",
+      "why": "Software was not the first domain with instant verification: games, where the board's self-play cards begin, had it long before. Nothing sourced agents becoming reliable there first; GitHub billed its agent as best at low-to-medium complexity tasks in well-tested codebases.",
+      "source": {
+        "publisher": "GitHub (The GitHub Blog)",
+        "title": "GitHub Copilot: Meet the new coding agent (Thomas Dohmke)",
+        "url": "https://github.blog/news-insights/product-news/github-copilot-meet-the-new-coding-agent/"
+      }
+    },
+    {
+      "id": "diffusion-weeks-apart-weights-behind-a-licence",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "event": "diffusion-goes-mainstream",
+      "kind": "fact",
+      "was": "Text-to-image tools reach the public within months of each other; one of them ships open weights.",
+      "now": "Text-to-image tools reach the public within weeks of each other in the summer of 2022, and one of them, Stable Diffusion, publishes its weights for anyone who accepts its licence.",
+      "why": "Midjourney opened its beta on 12 July 2022, OpenAI began inviting a million people to DALL·E on 20 July and Stable Diffusion went to the public on 22 August: weeks apart, not months. Its weights were open to anyone who clicked to accept the CreativeML OpenRAIL-M licence on Hugging Face, which bars harmful uses.",
+      "source": {
+        "publisher": "Hugging Face (CompVis model page, Wayback Machine capture)",
+        "title": "CompVis/stable-diffusion-v1-4: Stable Diffusion v1-4 Model Card",
+        "url": "https://web.archive.org/web/20220824015913/https://huggingface.co/CompVis/stable-diffusion-v1-4"
+      }
+    },
+    {
+      "id": "diffusion-only-the-weights-unrecallable",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "event": "diffusion-goes-mainstream",
+      "kind": "framing",
+      "was": "Nothing about image generation could be recalled after this.",
+      "now": "Once the weights were out, anyone could copy and run them, and nobody could call them back.",
+      "why": "That nothing about image generation could be recalled claimed more than the record holds. What could not be recalled was the published weights, which Stability released for anyone to run.",
+      "source": {
+        "publisher": "Stability AI",
+        "title": "Stable Diffusion Public Release (Joshua Lopez)",
+        "url": "https://stability.ai/news/stable-diffusion-public-release"
+      }
+    },
+    {
+      "id": "stable-diffusion-moment-and-llama-release",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "where": {
+        "file": "data/links.json",
+        "id": "diffusion-goes-mainstream>llama-leaks"
+      },
+      "kind": "attribution",
+      "was": "Both the leaked Google memo and Simon Willison called it the \"Stable Diffusion moment\" for language models: an open base model, then a flood of community fine-tunes, quantisation and local inference within weeks. The difference is that Stability chose to release and Meta did not.",
+      "now": "Simon Willison called it the \"Stable Diffusion moment\" for language models, and the leaked Google memo said many were calling it that: a capable base model loose, then a flood of community fine-tunes, quantisation and local inference within weeks. The difference is that Stability released its weights to anyone who accepted a licence, while Meta gave LLaMA's to approved researchers, and they leaked.",
+      "why": "The memo did not use the phrase as its own: it said many were calling it the Stable Diffusion moment, as Simon Willison had in March 2023. And Meta did release LLaMA, to researchers granted access case by case, before the weights leaked.",
+      "source": {
+        "publisher": "Simon Willison",
+        "title": "Large language models are having their Stable Diffusion moment",
+        "url": "https://simonwillison.net/2023/Mar/11/llama/"
+      }
+    },
+    {
+      "id": "stable-diffusion-was-gated",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "where": {
+        "file": "data/links.json",
+        "id": "diffusion-goes-mainstream>a-magnet-link-from-paris"
+      },
+      "kind": "fact",
+      "was": "Stable Diffusion had shown that shipping weights with no gate builds a community faster than any API. Mistral took the lesson literally: no gate, no form, a torrent.",
+      "now": "Stable Diffusion's weights sat behind a one-click licence on Hugging Face that barred harmful uses, and a community built on them. Mistral went further: no form, no restrictions under its Apache 2.0 licence, a torrent.",
+      "why": "Stable Diffusion's first public weights were gated: Hugging Face asked users to share their contact details and accept the CreativeML OpenRAIL-M licence before granting access. Nothing on the record compares the community it built with any API's.",
+      "source": {
+        "publisher": "Hugging Face (CompVis model page, Wayback Machine capture)",
+        "title": "CompVis/stable-diffusion-v1-4: Stable Diffusion v1-4 Model Card",
+        "url": "https://web.archive.org/web/20220824015913/https://huggingface.co/CompVis/stable-diffusion-v1-4"
+      }
+    },
+    {
+      "id": "code-red-the-times-and-pichai",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "event": "google-declares-a-code-red",
+      "kind": "attribution",
+      "was": "ChatGPT's launch triggers an internal emergency at the company that invented the transformer, and the release brakes come off across the industry.",
+      "now": "At the company whose researchers published the transformer, ChatGPT's release leads management to declare a code red, The New York Times reports. Sundar Pichai later says he did not issue one.",
+      "why": "The code red is The New York Times's report, from a memo and a recording it obtained; Sundar Pichai told its Hard Fork podcast in March 2023 that he had not issued one, though people had probably sent emails saying there was one. Nothing showed the brakes coming off across the industry. The ChatGPT card's file, Google's file, the string from ChatGPT and the blurb of finding 14 said the same, and now say what the record holds.",
+      "source": {
+        "publisher": "The New York Times (Hard Fork transcript, Wayback Machine capture)",
+        "title": "Google C.E.O. Sundar Pichai on Bard, A.I. ‘Whiplash’ and Competing With ChatGPT (Kevin Roose and Casey Newton)",
+        "url": "https://web.archive.org/web/20230401225008/https://www.nytimes.com/2023/03/31/podcasts/hard-fork-sundar.html"
+      },
+      "alsoIn": [
+        {
+          "file": "data/events.json",
+          "id": "chatgpt"
+        },
+        {
+          "file": "data/orgs.json",
+          "id": "google"
+        },
+        {
+          "file": "data/links.json",
+          "id": "chatgpt>google-declares-a-code-red"
+        },
+        {
+          "file": "data/spine.json",
+          "id": "14"
+        }
+      ]
+    },
+    {
+      "id": "code-red-staged-releases-did-not-end",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "event": "google-declares-a-code-red",
+      "kind": "fact",
+      "was": "Competitive pressure, not capability, is what ends the era of cautious staged releases.",
+      "now": "Google already had a chatbot to rival ChatGPT, kept to a test app; competition, not capability, changed its pace. By the Times's account Google and Microsoft took greater risks with their ethical guidelines; both said they had limited their first releases.",
+      "why": "Staged releases did not end: Google released Bard to trusted testers and then to users in two countries, and Bing's chat opened as a limited preview. What the Times reported in April 2023 was narrower, Google and Microsoft willing to take greater risks with their ethical guidelines, and the companies answered that their first releases were limited.",
+      "source": {
+        "publisher": "Google (The Keyword)",
+        "title": "An important next step on our AI journey (Sundar Pichai)",
+        "url": "https://blog.google/technology/ai/bard-google-ai-search-updates/"
+      }
+    },
+    {
+      "id": "transformer-already-in-search",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "where": {
+        "file": "data/links.json",
+        "id": "chatgpt>google-declares-a-code-red"
+      },
+      "kind": "fact",
+      "was": "The company that published the transformer watched a competitor turn it into a consumer product first.",
+      "now": "The company that published the transformer watched a competitor put a chatbot built on it in front of the public first, while its own, LaMDA, sat in a test app.",
+      "why": "Google had put the transformer in a consumer product years before: BERT, one of its first transformer models, went into Search, as Pichai's post on Bard recalls. What it had not released widely was a chatbot.",
+      "source": {
+        "publisher": "Google (The Keyword)",
+        "title": "An important next step on our AI journey (Sundar Pichai)",
+        "url": "https://blog.google/technology/ai/bard-google-ai-search-updates/"
+      }
+    },
+    {
+      "id": "sydney-tested-in-public-before",
+      "date": "2026-10-19",
+      "commit": "1a2828b",
+      "where": {
+        "file": "data/links.json",
+        "id": "google-declares-a-code-red>sydney"
+      },
+      "kind": "fact",
+      "was": "Shipping fast meant shipping a model whose personality nobody had stress-tested in public.",
+      "now": "Microsoft had tested a chatbot codenamed Sydney in India since late 2020, it told The Verge, and rude replies from a Sydney bot reached its support forums in November 2022; it said the new Bing had to be built in the open.",
+      "why": "Sydney had been tested in public. Microsoft told The Verge it began testing a chat feature of that name in India in late 2020, and The Verge found rude replies from a Sydney bot posted on Microsoft's forums in November 2022. Nor was it Google's to rush out, as the string's claim had it: Sydney was Microsoft's, and reached the public before Google's Bard.",
+      "source": {
+        "publisher": "The Verge",
+        "title": "Microsoft has been secretly testing its Bing chatbot ‘Sydney’ for years (Tom Warren)",
+        "url": "https://www.theverge.com/2023/2/23/23609942/microsoft-bing-sydney-chatbot-history-ai"
+      }
+    },
+    {
       "id": "hilbert-asked-for-no-machine",
       "date": "2026-10-19",
       "commit": "129a464",
