@@ -2,6 +2,613 @@
   "note": "Drawn from the board's own history, this register lists every change of fact the board has made to its record, dated by the commit that made it, and not every change of wording.",
   "corrections": [
     {
+      "id": "robot-word-josef-capeks",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "event": "r-u-r-gives-us-the-word-robot",
+      "kind": "attribution",
+      "was": "Karel Čapek's play stages artificial workers who rebel, and hands the language a name for the anxiety.",
+      "now": "Karel Čapek's play, published in 1920, stages artificial workers who rebel. Its word for them, robot, was his brother Josef's, Karel wrote in 1933.",
+      "why": "The word was not Karel Čapek's own, by his account in Lidové noviny on 24 December 1933: he had thought of calling the artificial workers laboři, and his brother Josef, painting with a brush in his mouth, told him to call them roboti. That it handed the language a name for an anxiety had no source, and the fear it came to carry, of machines taking people's place, is one the author disowned in 1935. The play was in print in 1920 and first staged in January 1921. Čapek's own words of 1935, that his robots were not mechanisms but were made by a chemical path, now stand in the card's reading.",
+      "source": {
+        "publisher": "Lidové noviny (text reprinted by Novinky.cz)",
+        "title": "O slově robot (Karel Čapek)",
+        "url": "https://www.novinky.cz/historie/clanek/pred-130-lety-se-narodil-literarni-velikan-ktery-dal-svetu-robota-toto-slovo-vsak-nevymyslel-40309280"
+      }
+    },
+    {
+      "id": "maschinenmensch-schulze-mittendorffs",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "event": "metropolis",
+      "kind": "attribution",
+      "was": "Fritz Lang's Maschinenmensch fixes the humanoid machine in the visual imagination for a century.",
+      "now": "Fritz Lang's film of Thea von Harbou's novel premieres in Berlin. Its Maschinenmensch, a steel robot given the likeness of the workers' leader Maria, is the work of the sculptor Walter Schulze-Mittendorff.",
+      "why": "The machine-man was not Lang's alone. The film is based on Thea von Harbou's novel of 1925, in which Fredersen orders machine-men from the inventor Rotwang, and she wrote the screenplay, with Lang uncredited; the figure itself was made by the sculptor Walter Schulze-Mittendorff, whose biography on the German film institute's filmportal says he created the Machine Man Maria. That it fixed the humanoid machine in the imagination for a century had no source, and a century has not yet passed since the premiere; an attributed reading now stands in the card's why.",
+      "source": {
+        "publisher": "DFF – Deutsches Filminstitut & Filmmuseum (filmportal.de; biography by Bertina Schulze-Mittendorff)",
+        "title": "Walter Schulze-Mittendorff",
+        "url": "https://www.filmportal.de/en/person/walter-schulze-mittendorff_f2ffd2d9bea38862e03053d50b370800"
+      }
+    },
+    {
+      "id": "godel-did-not-open-the-argument-about-machine-minds",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "event": "godel-s-incompleteness-theorems",
+      "kind": "framing",
+      "was": "The first hard limit on formal reasoning, and the opening move in a debate about machine minds that never closed.",
+      "now": "It limits what any one formal system can prove. Turing, in 1950, answered the objection that it and results like it show machines to be limited in a way people are not; J. R. Lucas argued in 1961 that it proves minds cannot be explained as machines.",
+      "why": "No source made the theorems the first limit on formal reasoning, and the debate about machine minds did not open with them: the paper of 1950 in which Turing answers the objection drawn from Gödel's theorem also answers Lady Lovelace's, from her memoir of 1842, and Gödel's paper itself says nothing of minds or machines. Turing weighed the argument from the late 1940s, by the Stanford Encyclopedia's account, and answered it in 1950; Lucas pressed it in 1961. That the debate never closed had no source.",
+      "source": {
+        "publisher": "Mind (transcription hosted by the University of Maryland, Baltimore County)",
+        "title": "Computing Machinery and Intelligence (A. M. Turing)",
+        "url": "https://redirect.cs.umbc.edu/courses/471/papers/turing.pdf"
+      }
+    },
+    {
+      "id": "turing-called-his-result-quite-different-from-godels",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "where": {
+        "file": "data/links.json",
+        "id": "godel-s-incompleteness-theorems>on-computable-numbers"
+      },
+      "kind": "framing",
+      "was": "set the limit Turing extended in",
+      "now": "ruled out a quick answer to the problem settled in",
+      "why": "Turing did not present his result as an extension of Gödel's. His paper calls its conclusions superficially similar to Gödel's and what it proves quite different; the link it draws is that, had the negation of Gödel's result been proved, the Entscheidungsproblem would have had an immediate solution. Gödel, for his part, later credited Turing's definition of a formal system with making his theorems fully general, the Stanford Encyclopedia records.",
+      "source": {
+        "publisher": "Proceedings of the London Mathematical Society (transcription hosted by the University of Oxford, Department of Computer Science)",
+        "title": "On Computable Numbers, with an Application to the Entscheidungsproblem (A. M. Turing)",
+        "url": "https://www.cs.ox.ac.uk/activities/ieg/e-library/sources/tp2-ie.pdf"
+      }
+    },
+    {
+      "id": "the-decision-limit-is-turings",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "where": {
+        "file": "data/people.json",
+        "id": "kurt-godel"
+      },
+      "kind": "attribution",
+      "was": "The result is the fence around everything a machine can be asked to decide.",
+      "now": "The limit on what a machine can decide is Turing's, of 1936, which he called quite different from Gödel's results.",
+      "why": "The fence around what a machine can decide is Turing's, on the board's own record and on Turing's: his paper of 1936 calls what it proves quite different from the well-known results of Gödel, and in 1950 he wrote that his result refers directly to machines, while the others can be used only in a comparatively indirect argument. Gödel's theorems limit what a formal system can prove.",
+      "source": {
+        "publisher": "Proceedings of the London Mathematical Society (transcription hosted by the University of Oxford, Department of Computer Science)",
+        "title": "On Computable Numbers, with an Application to the Entscheidungsproblem (A. M. Turing)",
+        "url": "https://www.cs.ox.ac.uk/activities/ieg/e-library/sources/tp2-ie.pdf"
+      }
+    },
+    {
+      "id": "hilbert-programme-generally-taken-to-be-ruled-out",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "where": {
+        "file": "data/people.json",
+        "id": "david-hilbert"
+      },
+      "kind": "framing",
+      "was": "the programme — to put all of mathematics on a finite, checkable footing — that Gödel and Turing answered in the negative.",
+      "now": "the programme — to put all of mathematics on a finite, checkable footing — that Gödel's theorems are generally taken to rule out, and whose decision problem Turing answered in the negative.",
+      "why": "Gödel did not answer the programme in the negative in 1931: his paper notes expressly that its theorem on consistency proofs is no contradiction of Hilbert's formalistic standpoint, since finitary proofs that cannot be stated in his system are conceivable. He came to hold, after Turing's definition of a formal system, that the theorems refuted the programme; that they are generally taken to show it cannot be carried out is the Stanford Encyclopedia's reading, which Hilbert's card already gives. Turing answered the programme's decision problem, not the programme.",
+      "source": {
+        "publisher": "Monatshefte für Mathematik und Physik (English translation by B. Meltzer; course copy, University of the Basque Country)",
+        "title": "On Formally Undecidable Propositions of Principia Mathematica and Related Systems (Kurt Gödel)",
+        "url": "https://gtts.ehu.es/German/Docencia/2021/MTBYC/pdf/Godel.pdf"
+      }
+    },
+    {
+      "id": "shannon-thesis-an-algebra-for-circuits",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "event": "switching-circuits-are-boolean-algebra",
+      "kind": "framing",
+      "was": "Claude Shannon's master's thesis shows electrical relays can compute logic.",
+      "now": "Claude Shannon's master's thesis at MIT shows that Boolean algebra describes relay and switching circuits, so that a circuit can be analysed, or designed to order, by calculation.",
+      "why": "The thesis gives relay circuits an algebra. That relays could carry out logical operations was not its result: they already did, in automatic telephone exchanges and industrial motor controls, as its first paragraph says, and the thesis mentions using circuits to represent logical relations only as the analogy run the other way, with results it calls of no importance there. Its result is a calculus, shown to be exactly analogous to the calculus of propositions, in which each circuit is written as equations, used both to analyse a given circuit and to find a circuit with given characteristics. N. J. A. Sloane and A. D. Wyner, editors of his collected papers, sum the thesis up as Boolean algebra used in the analysis and synthesis of switching circuits.",
+      "source": {
+        "publisher": "Transactions of the American Institute of Electrical Engineers, vol. 57 (course copy, Iowa State University)",
+        "title": "A Symbolic Analysis of Relay and Switching Circuits (Claude E. Shannon)",
+        "url": "https://home.engineering.iastate.edu/alexs/classes/2022_Fall_281/readings/Shannon_1938.pdf"
+      }
+    },
+    {
+      "id": "shannon-not-the-only-bridge",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "event": "switching-circuits-are-boolean-algebra",
+      "kind": "framing",
+      "was": "Thought becomes wiring — the bridge from mathematics to hardware.",
+      "now": "The analogy runs both ways: a circuit can be checked and simplified as algebra, and any operation that can be described in a finite number of steps with the words 'if', 'or' and 'and', Shannon writes, can be done automatically with relays. Others found the link independently in the Soviet Union and in Japan, Toma Kawanishi records, but Shannon's work overshadowed theirs.",
+      "why": "Shannon's was not the only bridge. Research linking relay circuits to Boolean algebra began independently in the 1930s in the United States, with Shannon, in the Soviet Union, with Viktor Shestakov, and in Japan, with Akira Nakashima of NEC and his colleague Masao Hanzawa, the historian Toma Kawanishi writes, though Shannon has overshadowed the others. What the thesis itself says of the hardware side is that any operation that can be completely described in a finite number of steps with if, or and and can be done automatically with relays.",
+      "source": {
+        "publisher": "Historia Scientiarum, History of Science Society of Japan (J-STAGE)",
+        "title": "Prehistory of Switching Theory in Japan: Akira Nakashima and His Relay-circuit Theory (Toma Kawanishi)",
+        "url": "https://www.jstage.jst.go.jp/article/historiascientiarum/29/1/29_136/_pdf"
+      }
+    },
+    {
+      "id": "shannon-thesis-not-tied-to-the-edvac",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "where": {
+        "file": "data/links.json",
+        "id": "switching-circuits-are-boolean-algebra>the-stored-program-computer"
+      },
+      "kind": "fact",
+      "was": "turned logic into the circuits of",
+      "now": "gave circuit design an algebra before",
+      "why": "Nothing on the record ties Shannon's thesis to the EDVAC. Von Neumann's report of 1945 builds its logic from idealised neurons and cites McCulloch and Pitts for them; besides them it names only Aiken, Stibitz and Mauchly, for a multiplication scheme, an arithmetic trick and a rounding rule. Shannon is not in it, and Eckert's, Goldstine's and Warren's accounts of the work do not connect him to it. What the record does show is the order: Shannon's algebra of switching circuits is dated 1937, eight years before the report.",
+      "source": {
+        "publisher": "Moore School of Electrical Engineering, University of Pennsylvania (edition corrected by Michael D. Godfrey; course copy, Australian National University)",
+        "title": "First Draft of a Report on the EDVAC (John von Neumann)",
+        "url": "https://comp.anu.edu.au/courses/comp2310-2020/Papers/1945/von%20Neumann/The%20First%20Draft%20Report%20on.pdf"
+      }
+    },
+    {
+      "id": "mcculloch-pitts-justified-turings-definition",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "event": "the-mcculloch-pitts-neuron",
+      "kind": "fact",
+      "was": "A brain cell is modelled as a logical threshold unit: the first claim that thinking might be computable.",
+      "now": "Warren McCulloch and Walter Pitts treat nerve cells as all-or-none units with thresholds, show that their nets realise logical expressions, and argue that an organism can compute just what a Turing machine can.",
+      "why": "The paper does not claim to be the first to make thinking computable. It offers itself as a psychological justification of Turing's definition of computability, published in 1936 and on the board, and argues that any number an organism can compute is computable by that definition, and conversely. What it does claim is that nets of all-or-none neurons, each fired only when enough of its synapses are excited at once, can be described in propositional logic, and that for any logical expression meeting certain conditions a net can be found that behaves as it describes.",
+      "source": {
+        "publisher": "Bulletin of Mathematical Biology, vol. 52, 1990 reprint (course copy, Carnegie Mellon University)",
+        "title": "A Logical Calculus of the Ideas Immanent in Nervous Activity (Warren S. McCulloch and Walter Pitts)",
+        "url": "https://www.cs.cmu.edu/~epxing/Class/10715/reading/McCulloch.and.Pitts.pdf"
+      }
+    },
+    {
+      "id": "mcculloch-pitts-a-launch-pad",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "event": "the-mcculloch-pitts-neuron",
+      "kind": "framing",
+      "was": "Everything called a neural network descends from this abstraction.",
+      "now": "The Nobel committee called it in 2024 a launch pad for later research into neural networks, biological and artificial.",
+      "why": "Nothing on the record says that everything called a neural network descends from the paper. Rosenblatt, whose perceptron the board strings to it, counted McCulloch and Pitts in 1958 among the authors of brain models that were logical contrivances, and built his own in probability theory on the position of Hebb and Hayek. The Nobel committee's background of 2024 says what the record bears out: their work became a launch pad for later research into both biological and artificial neural networks. The register's entry of 11 September 2026, which took out the two pages, is untouched: the paper's length is not stated.",
+      "source": {
+        "publisher": "The Nobel Committee for Physics, Royal Swedish Academy of Sciences (nobelprize.org)",
+        "title": "Scientific Background to the Nobel Prize in Physics 2024 (The Nobel Committee for Physics)",
+        "url": "https://www.nobelprize.org/uploads/2024/11/advanced-physicsprize2024-3.pdf"
+      }
+    },
+    {
+      "id": "perceptron-recast-mcculloch-pitts-in-probability",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "where": {
+        "file": "data/links.json",
+        "id": "the-mcculloch-pitts-neuron>the-perceptron"
+      },
+      "kind": "framing",
+      "was": "became the hardware of",
+      "now": "was recast in probability theory by",
+      "why": "The perceptron was not built of McCulloch and Pitts's neurons. Rosenblatt's paper of 1958 lists their model among brain models that amount to logical contrivances for particular algorithms, and says that analysing systems whose precise structure is unknown led him to formulate his own in terms of probability theory rather than symbolic logic. His units do fire, as theirs do, all or nothing once their summed input reaches a threshold; but the Mark I's hardware, by the perceptron card's own figures, was photocells and weights turned by motors.",
+      "source": {
+        "publisher": "Psychological Review, vol. 65 (copy hosted by the University of Illinois Chicago)",
+        "title": "The Perceptron: A Probabilistic Model for Information Storage and Organization in the Brain (F. Rosenblatt)",
+        "url": "https://homepages.math.uic.edu/~lreyzin/papers/rosenblatt58.pdf"
+      }
+    },
+    {
+      "id": "mcculloch-bio-no-first-network-on-paper",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "where": {
+        "file": "data/people.json",
+        "id": "warren-mcculloch"
+      },
+      "kind": "fact",
+      "was": "With Walter Pitts, modelled the nerve cell as a logic gate in 1943 — the first neural network on paper, and the reason the word 'neuron' survived into the deep-learning decade.",
+      "now": "With Walter Pitts, modelled the nerve cell as a logic gate in 1943 — a launch pad, the Nobel committee wrote in 2024, for later research into neural networks, biological and artificial.",
+      "why": "No primary on the record makes the 1943 paper the first neural network on paper: Rosenblatt in 1958 put it in a list of brain models of the same logical kind that begins with Rashevsky's book of 1938, and the Nobel committee's background of 2024 says only that McCulloch and Pitts proposed their model as early as 1943, and that their work became a launch pad for later research into biological and artificial neural networks, which the file now says. Nor does any source say the word neuron survived because of them; the board's own glossary says only that the field kept the word 'neural'.",
+      "source": {
+        "publisher": "The Nobel Committee for Physics, Royal Swedish Academy of Sciences (nobelprize.org)",
+        "title": "Scientific Background to the Nobel Prize in Physics 2024 (The Nobel Committee for Physics)",
+        "url": "https://www.nobelprize.org/uploads/2024/11/advanced-physicsprize2024-3.pdf"
+      }
+    },
+    {
+      "id": "neural-network-glossary-no-first",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "where": {
+        "file": "data/glossary.json",
+        "id": "neural-network"
+      },
+      "kind": "fact",
+      "was": "McCulloch and Pitts drew the first one in 1943 as a model of the nerve cell",
+      "now": "McCulloch and Pitts drew them in 1943 as a model of how the brain's nerve cells work together",
+      "why": "The 1943 paper models nets of neurons, not the single cell: the Nobel committee calls it a model for how the neurons in the brain cooperate. That it was the first neural network is in no primary on the record, and the first goes, as on McCulloch's file.",
+      "source": {
+        "publisher": "The Nobel Committee for Physics, Royal Swedish Academy of Sciences (nobelprize.org)",
+        "title": "Scientific Background to the Nobel Prize in Physics 2024 (The Nobel Committee for Physics)",
+        "url": "https://www.nobelprize.org/uploads/2024/11/advanced-physicsprize2024-3.pdf"
+      }
+    },
+    {
+      "id": "edvac-credit-disputed",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "event": "the-stored-program-computer",
+      "kind": "attribution",
+      "was": "Von Neumann's EDVAC report describes machines that hold instructions in the same memory as data.",
+      "now": "Von Neumann's draft report on the EDVAC has the machine take its orders from the memory that holds its numbers. Eckert said von Neumann more or less claimed the team's work as his own; Goldstine credited von Neumann.",
+      "why": "The report is von Neumann's; whose ideas it set down is disputed, and the card gave them to him alone. J. Presper Eckert, co-inventor of the ENIAC with John Mauchly, told the Charles Babbage Institute in 1977 that von Neumann grasped what they were doing quite quickly and then more or less claimed it as his own. The report names Mauchly once, for a rounding rule, and Eckert not at all, and S. Reid Warren, the Moore School's supervisor of the EDVAC project, agreed that putting it out without proper acknowledgement was unethical. Herman Goldstine said in 1980 that in his mind von Neumann invented the stored program, owing Turing a debt he could not measure. The report describes one machine, the EDVAC, whose control takes its orders from the same place where the numbers are stored.",
+      "source": {
+        "publisher": "Charles Babbage Institute, University of Minnesota (OH 13; University Digital Conservancy)",
+        "title": "An Interview with J. Presper Eckert (interview by Nancy Stern)",
+        "url": "https://conservancy.umn.edu/server/api/core/bitstreams/7de38347-6391-4c97-a1b5-725fe083187e/content"
+      }
+    },
+    {
+      "id": "fire-together-wire-together-is-from-1992",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "event": "hebbian-learning",
+      "kind": "attribution",
+      "was": "Neurons that fire together wire together — Donald Hebb gives learning a physical mechanism.",
+      "now": "Donald Hebb postulates that when one nerve cell repeatedly takes part in firing another, some growth or metabolic change makes it better at doing so. The slogan “cells that fire together wire together” came in 1992.",
+      "why": "The slogan is not Hebb's. Stanford's magazine credits Carla Shatz with coining it, and she printed it in Scientific American in September 1992; Siegrid Löwel and Wolf Singer wrote in Science the same year that neurons wire together if they fire together. Hebb's own words, in The Organization of Behavior, are a postulate: when an axon of cell A repeatedly or persistently takes part in firing cell B, some growth process or metabolic change makes A more efficient as one of the cells firing B. He put it forward as an assumption, under the heading of a neurophysiological postulate, and the Nobel committee writes that he proposed a mechanism for learning and memories.",
+      "source": {
+        "publisher": "John Wiley & Sons (scan, Digital Library of India, Internet Archive)",
+        "title": "The Organization of Behavior: A Neuropsychological Theory (D. O. Hebb)",
+        "url": "https://archive.org/stream/in.ernet.dli.2015.168156/2015.168156.The-Organization-Of-Behavior-A-Neuropsychological-Theory_djvu.txt"
+      },
+      "alsoIn": [
+        {
+          "file": "data/people.json",
+          "id": "donald-hebb"
+        }
+      ]
+    },
+    {
+      "id": "hebb-not-every-learning-rule",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "where": {
+        "file": "data/people.json",
+        "id": "donald-hebb"
+      },
+      "kind": "fact",
+      "was": "Every learning rule on the board, backpropagation included, is a formalisation of the idea.",
+      "now": "Rumelhart, Hinton and McClelland wrote in 1986 that virtually all learning rules for networks like theirs, the delta rule among them, could be considered variants of his rule.",
+      "why": "Not every learning rule on the board formalises Hebb's postulate: the board's reinforcement learners learn from a reward, and backpropagation from an error, neither of which the postulate mentions. The authors of backpropagation claimed less in the second chapter of Parallel Distributed Processing: virtually all learning rules for models of their type can be considered a variant of Hebb's, among them the delta rule, which learns from the difference between the activation a unit reaches and the target a teacher gives.",
+      "source": {
+        "publisher": "Parallel Distributed Processing, vol. 1, MIT Press (James McClelland's copy, Stanford University; Wayback Machine capture)",
+        "title": "A General Framework for Parallel Distributed Processing (D. E. Rumelhart, G. E. Hinton and J. L. McClelland)",
+        "url": "https://web.archive.org/web/20260514140214/https://web.stanford.edu/~jlmcc/papers/PDP/Chapter2.pdf"
+      }
+    },
+    {
+      "id": "snarc-not-settled-as-the-first",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "event": "snarc-the-first-neural-net-machine",
+      "kind": "fact",
+      "was": "SNARC, the first neural net machine",
+      "now": "SNARC, a learning machine of forty neurons",
+      "why": "No primary on the record makes SNARC the first neural-net machine. Minsky's own biography claims a narrower first, the first randomly wired neural network learning machine; Jeremy Bernstein, who interviewed Minsky for The New Yorker in 1981, called it one of the first electronic learning machines, and perhaps the very first; the MIT Media Lab's memorial page calls it the first neural network simulator. The title now says what Minsky said it was, forty neurons that learned, and the card's reading carries the firsts, attributed. The register's entry of 20 October 2026 (minsky-snarc-one-of-the-first) took the same first out of Minsky's file; the card now follows it. The id keeps its old words.",
+      "source": {
+        "publisher": "Marvin Minsky's home page, MIT Media Lab (copy hosted at web.mit.edu)",
+        "title": "Brief Academic Biography of Marvin Minsky",
+        "url": "https://web.mit.edu/dxh/www/marvin/web.media.mit.edu/~minsky/minskybiog.html"
+      }
+    },
+    {
+      "id": "snarc-three-hundred-tubes",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "event": "snarc-the-first-neural-net-machine",
+      "kind": "figure",
+      "was": "Minsky and Edmonds wire 3,000 vacuum tubes into a machine that learns to run a maze.",
+      "now": "Marvin Minsky and Dean Edmonds, graduate students at Princeton, build at Harvard a machine of about three hundred vacuum tubes in which a simulated rat learns its way through a maze.",
+      "why": "Minsky told Jeremy Bernstein in 1981 that the machine had three hundred tubes, nearly three hundred with the thousands of connections soldered, from a design of six tubes and a motor for each of its forty neurons: not three thousand. He and Edmonds, graduate students at Princeton in mathematics and in physics, built it at Harvard in the summer of 1951. The machine did not itself run a maze: a simulated rat, made of its forty neurons, learned a path through a copy of a maze Claude Shannon had built, as Minsky told Web of Stories in 2011.",
+      "source": {
+        "publisher": "The New Yorker",
+        "title": "A.I. (Jeremy Bernstein)",
+        "url": "https://www.newyorker.com/magazine/1981/12/14/a-i"
+      }
+    },
+    {
+      "id": "snarc-built-at-harvard",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "event": "snarc-the-first-neural-net-machine",
+      "kind": "attribution",
+      "was": "MIT",
+      "now": "no organisation; the summary names Harvard and Princeton",
+      "why": "MIT had no part in SNARC. Minsky and Edmonds were graduate students at Princeton who built it at Harvard in the summer of 1951, with money George Miller of Harvard found; Minsky and McCarthy set up their group at MIT in 1958, Bernstein records. The board has no file for Harvard or Princeton, and the summary now names both. The field goes.",
+      "source": {
+        "publisher": "The New Yorker",
+        "title": "A.I. (Jeremy Bernstein)",
+        "url": "https://www.newyorker.com/magazine/1981/12/14/a-i"
+      }
+    },
+    {
+      "id": "perceptron-proposed-in-1957",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "event": "the-perceptron",
+      "kind": "fact",
+      "was": "Frank Rosenblatt builds a machine that learns from examples;",
+      "now": "Frank Rosenblatt proposes a machine that learns from examples.",
+      "why": "Rosenblatt built nothing in 1957. His report of January 1957 proposed the machine, which the Nobel committee's background of 2024 describes as proposed that year; in 1958 his paper in Psychological Review still called it a hypothetical nervous system, or machine. The Office of Naval Research's newsletter of July 1960 says the Mark I was built to prove a concept that had until then been simulated on digital computers.",
+      "source": {
+        "publisher": "Psychological Review, vol. 65, no. 6 (scan, University of Illinois Chicago)",
+        "title": "The perceptron: a probabilistic model for information storage and organization in the brain (F. Rosenblatt)",
+        "url": "https://homepages.math.uic.edu/~lreyzin/papers/rosenblatt58.pdf"
+      }
+    },
+    {
+      "id": "perceptron-walking-was-the-navys-expectation",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "event": "the-perceptron",
+      "kind": "attribution",
+      "was": "the press predicts machines that walk and reproduce.",
+      "now": "In July 1958 the Navy shows it as a simulation on an IBM 704, and a wire report says the Navy expects it to walk, talk and reproduce itself.",
+      "why": "The press reported the prediction rather than making it: the United Press International report printed in The New York Times on 8 July 1958 says the Navy expects the machine to walk, talk, see, write, reproduce itself and be conscious of its existence. What the Office of Naval Research showed reporters in Washington was a simulation on a digital computer, as Mikel Olazaran's history records; the Mark I did not yet exist.",
+      "source": {
+        "publisher": "The New York Times (United Press International; Wayback Machine capture)",
+        "title": "New Navy Device Learns by Doing; Psychologist Shows Embryo of Computer Designed to Read and Grow Wiser",
+        "url": "https://web.archive.org/web/20251016122049/https://www.nytimes.com/1958/07/08/archives/new-navy-device-learns-by-doing-psychologist-shows-embryo-of.html"
+      }
+    },
+    {
+      "id": "perceptron-no-fifteen-year-cycle",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "event": "the-perceptron",
+      "kind": "framing",
+      "was": "The first full hype cycle: overclaim, backlash, winter. It repeats roughly every fifteen years.",
+      "now": "A full hype cycle: an overclaim, a backlash, then a hiatus in funding for neural networks. The shape recurs on the board, at no fixed interval.",
+      "why": "No source on the record makes this the first full hype cycle, and none sets a fifteen-year rhythm; the board's own winters fall in 1974 and 1987. What followed the 1969 book, in the Nobel committee's words, was a hiatus funding-wise for neural-network research, which the line now names in place of a winter. The card's file, which said the cycle had repeated on roughly fifteen-year turns since, now says the shape comes round again at no fixed interval.",
+      "source": {
+        "publisher": "The Nobel Committee for Physics, Royal Swedish Academy of Sciences (nobelprize.org)",
+        "title": "Scientific Background to the Nobel Prize in Physics 2024 (The Nobel Committee for Physics)",
+        "url": "https://www.nobelprize.org/uploads/2024/11/advanced-physicsprize2024-3.pdf"
+      }
+    },
+    {
+      "id": "mark-i-first-shown-in-1960",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "event": "the-perceptron",
+      "kind": "date",
+      "was": "400 photocells, wired to weights turned by motors, 1958",
+      "now": "400 photocells, wired to weights turned by motors; first shown in public in June 1960",
+      "why": "The Mark I did not exist in 1958: that summer Rosenblatt wrote that a working model was scheduled for completion within the next year. The Office of Naval Research's newsletter of July 1960 reports that the Mark I was demonstrated publicly for the first time in June, at Cornell Aeronautical Laboratory. The perceptron machine's notes, which gave its rule of correcting only wrong answers to Rosenblatt's paper of 1958, now give it to the laboratory's account of the Mark I of 1960: the 1958 paper reinforced every response, positively when it was right and negatively when it was wrong.",
+      "source": {
+        "publisher": "Office of Naval Research, Mathematical Sciences Division (scan, Defense Technical Information Center, Internet Archive)",
+        "title": "Digital Computer Newsletter, vol. 12, no. 3: Perceptron Mark I, Cornell Aeronautical Laboratory",
+        "url": "https://archive.org/download/DTIC_AD0694633/DTIC_AD0694633_djvu.txt"
+      }
+    },
+    {
+      "id": "perceptron-press-conference-ran-a-simulation",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "event": "the-perceptron",
+      "kind": "fact",
+      "was": "At its 1958 press conference the Navy said it expected the machine to walk, talk, see, write, reproduce itself and be conscious of its existence, and the newspapers printed it.",
+      "now": "At the Navy's press conference of July 1958, before the Mark I was built, the perceptron ran as a simulation on an IBM 704, and a United Press International report in The New York Times said the Navy expected the machine to walk, talk, see, write, reproduce itself and be conscious of its existence. Rosenblatt himself wrote that summer that a perceptron could in principle read print and script and respond to spoken commands, and later blamed the popular press, which he said fell to the task with the discretion of a pack of happy bloodhounds.",
+      "why": "The press conference was not the Mark I's: in July 1958 the machine was still being designed, and Rosenblatt demonstrated the perceptron as a simulation on a digital computer, an IBM 704, as Mikel Olazaran's history records from the reports of the day. The expectation that it would walk and talk is the Navy's as United Press International reported it; the board has no text of the Navy's own statement. Nor was the overclaim the Navy's and the newspapers' alone: Rosenblatt's own article in his laboratory's magazine, Research Trends, that summer says the perceptron can in principle read print and script and respond to verbal commands, and in 1961 he blamed the popular press for its handling of the first announcement.",
+      "source": {
+        "publisher": "Advances in Computers, vol. 37, Academic Press (copy hosted by gwern.net)",
+        "title": "A Sociological History of the Neural Network Controversy (Mikel Olazaran)",
+        "url": "https://gwern.net/doc/ai/nn/1993-olazaran.pdf"
+      }
+    },
+    {
+      "id": "perceptron-an-ancestor-not-every-networks",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "event": "the-perceptron",
+      "kind": "framing",
+      "was": "The machine itself was the ancestor of every network on the board; the press conference was the ancestor of every launch.",
+      "now": "The machine was an ancestor of the feedforward networks on the board, and the press conference an early model of its launches.",
+      "why": "Not every network on the board descends from the perceptron. The Nobel committee's background calls Rosenblatt's a feedforward network and describes a parallel development, inspired by magnetic systems, that led to recurrent networks such as Hopfield's, which has a card of its own. That every launch descends from the press conference had no source.",
+      "source": {
+        "publisher": "The Nobel Committee for Physics, Royal Swedish Academy of Sciences (nobelprize.org)",
+        "title": "Scientific Background to the Nobel Prize in Physics 2024 (The Nobel Committee for Physics)",
+        "url": "https://www.nobelprize.org/uploads/2024/11/advanced-physicsprize2024-3.pdf"
+      },
+      "alsoIn": [
+        {
+          "file": "data/people.json",
+          "id": "frank-rosenblatt"
+        }
+      ]
+    },
+    {
+      "id": "dartmouth-did-not-fund-the-perceptron",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "where": {
+        "file": "data/links.json",
+        "id": "dartmouth-names-the-field>the-perceptron"
+      },
+      "kind": "fact",
+      "was": "funded",
+      "now": "named the field Rosenblatt kept apart from",
+      "why": "The Dartmouth project funded nothing of Rosenblatt's: its summer ran on $7,500 from the Rockefeller Foundation, as the board's Dartmouth card says. The perceptron began in Cornell Aeronautical Laboratory's own research programme and was paid for from July 1957 by the Office of Naval Research, Rosenblatt wrote; and he set it apart from the field Dartmouth had named, writing that critics failed to see the difference in motivation between the perceptron programme and work on artificial intelligence.",
+      "source": {
+        "publisher": "Spartan Books (scan, Internet Archive)",
+        "title": "Principles of Neurodynamics: Perceptrons and the Theory of Brain Mechanisms, 1962 edition (Frank Rosenblatt)",
+        "url": "https://archive.org/download/principles-of-neurodynamics/Principles%20of%20neurodynamics_djvu.txt"
+      }
+    },
+    {
+      "id": "rosenblatt-promise-not-the-first-broken",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "where": {
+        "file": "data/people.json",
+        "id": "frank-rosenblatt"
+      },
+      "kind": "fact",
+      "was": "The promise was the first the field could not keep;",
+      "now": "The expectation ran far ahead of the machine;",
+      "why": "No source makes it the first promise the field could not keep, and the board's own Said in advance files earlier ones scored late: the Dartmouth proposal of August 1955 and Simon and Newell's forecasts of November 1957. Nor was this promise the field's own: by the United Press International report in The New York Times of 8 July 1958, the expectation was the Navy's.",
+      "source": {
+        "publisher": "The New York Times (United Press International; Wayback Machine capture)",
+        "title": "New Navy Device Learns by Doing; Psychologist Shows Embryo of Computer Designed to Read and Grow Wiser",
+        "url": "https://web.archive.org/web/20251016122049/https://www.nytimes.com/1958/07/08/archives/new-navy-device-learns-by-doing-psychologist-shows-embryo-of.html"
+      }
+    },
+    {
+      "id": "lisp-the-language-of-ai-by-the-1980s",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "event": "lisp",
+      "kind": "attribution",
+      "was": "John McCarthy's language treats code as data and becomes the lingua franca of AI research for thirty years.",
+      "now": "John McCarthy's list-processing language, implemented at MIT from 1958, writes its programs as lists, the data it computes with. By the mid-1980s, Guy Steele and Richard Gabriel write, it was the language of AI.",
+      "why": "No source on the record gives Lisp thirty years as the lingua franca of AI research. Guy Steele and Richard Gabriel, in their history of Lisp for the second History of Programming Languages conference, write that when Common Lisp was published, in 1984, AI was on the rise and Lisp was the language of AI; the same paper names Lisp and Prolog as the two perhaps foremost families of AI programming languages. That Lisp's programs are its own data stands, in McCarthy's account: the notation for LISP functions as LISP data was invented to write eval for his paper of 1960, with no thought that programs would be written in it, and S. R. Russell then hand-coded eval as the interpreter. The implementation began at MIT in the autumn of 1958.",
+      "source": {
+        "publisher": "ACM SIGPLAN Notices, vol. 28, no. 3, HOPL-II (copy hosted by Richard P. Gabriel, dreamsongs.com)",
+        "title": "The Evolution of Lisp (Guy L. Steele Jr. and Richard P. Gabriel)",
+        "url": "https://www.dreamsongs.com/Files/Hopl2.pdf"
+      }
+    },
+    {
+      "id": "mccarthy-proposal-of-1955",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "where": {
+        "file": "data/people.json",
+        "id": "john-mccarthy"
+      },
+      "kind": "date",
+      "was": "Coined 'artificial intelligence' for the 1956 Dartmouth proposal and invented Lisp two years later.",
+      "now": "Coined 'artificial intelligence' in the Dartmouth proposal of 1955 and invented Lisp in 1958.",
+      "why": "The proposal that coined the name is dated 31 August 1955, as the board's Dartmouth card records; the workshop it proposed ran in the summer of 1956. Lisp's implementation began in the autumn of 1958, by McCarthy's own history: three years after the proposal, not two.",
+      "source": {
+        "publisher": "AI Magazine (reprint of the 1955 proposal)",
+        "title": "A Proposal for the Dartmouth Summer Research Project on Artificial Intelligence",
+        "url": "https://ojs.aaai.org/aimagazine/index.php/aimagazine/article/download/1904/1802"
+      }
+    },
+    {
+      "id": "lisp-not-the-first-ai-language",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "where": {
+        "file": "data/people.json",
+        "id": "john-mccarthy"
+      },
+      "kind": "fact",
+      "was": "The field's name, and its first language, are his.",
+      "now": "The field's name, and one of its first programming languages, are his.",
+      "why": "Lisp was not the field's first language. McCarthy's own history records that at the Dartmouth meeting of 1956 Newell, Shaw and Simon described IPL 2, a list-processing language for the RAND Corporation's JOHNNIAC computer in which they had implemented their Logic Theorist; IBM's FORTRAN List Processing Language, used for its geometry program, also came before LISP.",
+      "source": {
+        "publisher": "Stanford University (John McCarthy's pages)",
+        "title": "History of Lisp: LISP prehistory, Summer 1956 through Summer 1958 (John McCarthy)",
+        "url": "https://www-formal.stanford.edu/jmc/history/lisp/node2.html"
+      }
+    },
+    {
+      "id": "machine-learning-in-print-before-samuel",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "event": "machine-learning-gets-its-name",
+      "kind": "attribution",
+      "was": "“Machine learning” gets its name",
+      "now": "Samuel's studies in machine learning",
+      "why": "The name did not begin with Samuel's paper of 1959. Andrew and Kathleen Booth's Automatic Digital Calculators of 1953 closes with sections on machine learning and intelligence, as A. C. Aitken's review in Nature of March 1955 records, and Werner Buchholz's review of its second edition in the Proceedings of the IRE of November 1956 mentions its tidbits of machine learning. What Samuel did in July 1959 was publish his checkers studies under that name.",
+      "source": {
+        "publisher": "Nature, vol. 175, no. 4455 (scan, Internet Archive)",
+        "title": "Automatic Digital Calculating Machines (A. C. Aitken), a review of Automatic Digital Calculators by Andrew D. Booth and Kathleen H. V. Booth (Butterworths, 1953)",
+        "url": "https://archive.org/stream/sim_nature-uk_1955-03-19_175_4455/sim_nature-uk_1955-03-19_175_4455_djvu.txt"
+      }
+    },
+    {
+      "id": "samuel-coined-it-is-ibms-account",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "event": "machine-learning-gets-its-name",
+      "kind": "attribution",
+      "was": "Samuel coins the term for programs that improve without being explicitly told how.",
+      "now": "Arthur Samuel writes up his checkers-playing program in the IBM Journal as a study in machine learning. IBM credits him with coining the term; it was in print by 1953.",
+      "why": "That Samuel coined the term is IBM's account; the phrase was in print six years earlier, in the Booths' Automatic Digital Calculators of 1953, the year Merriam-Webster gives for its first known use. Samuel's paper does not claim the coinage: it speaks of the subject of machine learning, to which he had given his spare time for some years. Nor does it say 'without being explicitly programmed': that line is a later paraphrase, which John Koza used in the 1990s with the words 'Paraphrasing Arthur Samuel (1959)'.",
+      "source": {
+        "publisher": "IBM",
+        "title": "The games that helped AI evolve",
+        "url": "https://www.ibm.com/history/early-games"
+      },
+      "alsoIn": [
+        {
+          "file": "data/people.json",
+          "id": "arthur-samuel"
+        },
+        {
+          "file": "data/glossary.json",
+          "id": "machine-learning"
+        }
+      ]
+    },
+    {
+      "id": "machine-learning-not-everything-after-1988",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "where": {
+        "file": "data/glossary.json",
+        "id": "machine-learning"
+      },
+      "kind": "framing",
+      "was": "Everything on the board after 1988 is a variant of this;",
+      "now": "Most of the methods on the board after 1988 are variants of this;",
+      "why": "Not everything: IBM says Deep Blue, on the board for 1997, derived its chess prowess through brute force computing power, and the board's own card calls it brute-force search with an evaluation function tuned with grandmasters' help. No source supports the 'everything'.",
+      "source": {
+        "publisher": "IBM",
+        "title": "Deep Blue",
+        "url": "https://www.ibm.com/history/deep-blue"
+      }
+    },
+    {
+      "id": "unimate-first-is-the-ifrs-account",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "event": "unimate-joins-the-assembly-line",
+      "kind": "attribution",
+      "was": "The first industrial robot starts work at a General Motors plant in New Jersey.",
+      "now": "A Unimate arm, which the International Federation of Robotics calls the first industrial robot, starts work at a General Motors plant in New Jersey, taking hot metal parts from a die-casting machine.",
+      "why": "The first is an attribution, not a fact the record settles. The International Federation of Robotics and IEEE Spectrum's robot guide call the Unimate the first industrial robot, and The Henry Ford, which holds a Unimate it says was the first installed, says that Unimate made the first successful industrial robots; Assembly magazine, on the fiftieth anniversary, said the Unimate was not the first robot to hit the market, AMF's Versatran having been developed a year earlier. The job, by IEEE Spectrum's and The Henry Ford's accounts, was taking hot metal parts from a die-casting machine.",
+      "source": {
+        "publisher": "International Federation of Robotics (ifr.org)",
+        "title": "History of industrial robots",
+        "url": "https://ifr.org/robot-history"
+      },
+      "alsoIn": [
+        {
+          "file": "data/glossary.json",
+          "id": "robot"
+        }
+      ]
+    },
+    {
+      "id": "office-computers-came-with-the-unimate",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "event": "unimate-joins-the-assembly-line",
+      "kind": "fact",
+      "was": "Automation of the body arrives sixty years before automation of the desk, and the labour debate rhymes.",
+      "now": "Automation of the arm reaches the factory floor as the computer reaches the office desk, and the argument about jobs arrives with both. It rhymes with today's.",
+      "why": "Automation of the desk did not wait sixty years. In May 1960 the Bureau of Labor Statistics reported on twenty offices that had installed large-scale electronic computers for business data, and on the concern over staff adjustment that their introduction had brought; the next March American Machinist reported the Unimate as a robot designed to replace human labour in routine factory jobs. Both arguments were under way in the same years.",
+      "source": {
+        "publisher": "US Department of Labor, Bureau of Labor Statistics, Bulletin No. 1276 (copy hosted by FRASER, Federal Reserve Bank of St. Louis)",
+        "title": "Adjustments to the Introduction of Office Automation",
+        "url": "https://fraser.stlouisfed.org/files/docs/publications/bls/bls_1276_1960.pdf"
+      }
+    },
+    {
       "id": "lighthill-cost-confidence-not-all-funding",
       "date": "2026-10-20",
       "commit": "7f9ba1f",
