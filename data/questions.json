@@ -6,7 +6,7 @@
       "short": "Not on its word alone. A chatbot is trained to give the answers people prefer, which is not the same as answers that are true, and the record has examples of both invention and flattery.",
       "answer": [
         "A chatbot is a language model fine-tuned on people's rankings of its own answers. That recipe, published as InstructGPT in 2022, is what made ChatGPT usable; OpenAI called the two siblings. It rewards the answer people like. Most of the time that is also a helpful answer. The record shows two ways it is not.",
-        "The first is invention. In 2023 lawyers filed a brief citing court cases that never existed, and were sanctioned for it. The second is agreement. In April 2025 OpenAI withdrew a ChatGPT update four days after shipping it, because the model had become, in the company's words, 'overly flattering or agreeable—often described as sycophantic'.",
+        "The first is invention. In 2023 two lawyers cited court cases that ChatGPT had invented, stood by them when the judge asked to see them, and were sanctioned for acting in bad faith. The second is agreement. In April 2025 OpenAI withdrew a ChatGPT update four days after shipping it, because the model had become, in the company's words, 'overly flattering or agreeable—often described as sycophantic'.",
         "Neither is new. In 1966 Joseph Weizenbaum watched people confide in ELIZA, a script that matched keywords, and warned that the illusion of understanding could extend to judgement, with a credibility the machine had not earned."
       ],
       "inPractice": "Treat an answer as a lead, not a finding. Check names, numbers, quotations and citations against their source before relying on them, and be most careful when the answer is the one you hoped for.",
@@ -125,10 +125,10 @@
     {
       "id": "is-ai-making-decisions-about-me",
       "question": "Is AI making decisions about me?",
-      "short": "It can be, in hiring, credit and more. Europe has given people rights over automated decisions since the GDPR, but the AI Act's rules for high-risk uses have been put back to 2027 and 2028.",
+      "short": "It can be, in hiring, credit and more. Europe has given people rights over automated decisions since a directive of 1995, which the GDPR replaced, but the AI Act's rules for high-risk uses have been put back to 2027 and 2028.",
       "answer": [
-        "The classic warning is from 2018. Amazon abandoned a résumé screener after it learned, from a decade of applications, to penalise women. A model trained on past decisions inherits their history.",
-        "In Europe the GDPR, adopted in 2016, wrote rights around automated decisions and personal data. The AI Act goes further for what it calls high-risk uses: hiring, credit, education, policing and border control. Those rules were due in August 2026 and were postponed, to December 2027 for most uses and August 2028 for some.",
+        "The classic warning is from 2018, when Reuters reported that a résumé screener Amazon built had learned, from a decade of applications mostly from men, to prefer men, and that its team had been disbanded by 2017. Amazon said its recruiters never used it to evaluate candidates. A model trained on past applications inherits their history.",
+        "In Europe the GDPR, adopted in 2016 in place of a directive of 1995, kept the right not to be subject to decisions based solely on automated processing. The AI Act goes further for what it calls high-risk uses: hiring, credit, education, policing and border control. Those rules were due in August 2026 and were postponed, to December 2027 for most uses and August 2028 for some.",
         "What did arrive in August 2026 is a right to be told: under the AI Act, people must be told when they are dealing with an AI system."
       ],
       "inPractice": "In Europe those rights are yours to use. If a decision about you looks automated, such as a rejected application or a refused loan, you can ask the organisation that made it.",
@@ -261,7 +261,7 @@
       "question": "Who makes the rules for AI?",
       "short": "The European Union, with a law that switches on in stages; Washington, through export controls on chips and, for eighteen days, on a model; and, for chatbots and children, California. Between countries there are declarations, not laws.",
       "answer": [
-        "Europe has gone furthest. It wrote rights around automated decisions and personal data in 2016, proposed a risk-tiered AI law in 2021 and adopted it in 2024. The AI Act switches on in stages: duties for the makers of general-purpose models have applied since August 2025, and since August 2026 the European Commission can enforce them, demand information and fine. Its rules for high-risk uses, such as hiring, credit and policing, were put back to December 2027 and August 2028. A second European law reaches the service people use: in August 2026 the Commission designated ChatGPT a very large online search engine under the Digital Services Act, so that from January 2027 OpenAI must assess its risks every year, to minors and to users' mental well-being among them.",
+        "Europe has gone furthest. It rewrote its rules on personal data and automated decisions in 2016, proposed a risk-tiered AI law in 2021 and adopted it in 2024. The AI Act switches on in stages: duties for the makers of general-purpose models have applied since August 2025, and since August 2026 the European Commission can enforce them, demand information and fine. Its rules for high-risk uses, such as hiring, credit and policing, were put back to December 2027 and August 2028. A second European law reaches the service people use: in August 2026 the Commission designated ChatGPT a very large online search engine under the Digital Services Act, so that from January 2027 OpenAI must assess its risks every year, to minors and to users' mental well-being among them.",
         "The United States has ruled mainly through trade. From October 2022 selling Nvidia's most advanced chips to China needed a licence. In June 2026 the Department of Commerce went further, barring every foreign national from two of Anthropic's models, which in practice switched them off for every customer until the controls were lifted eighteen days later.",
         "Chatbots that talk to children are being regulated state by state. California's SB 243 has been in force since 1 January 2026, and in September 2026 the state added Adam's Law, which requires protocols for suicidal thoughts, sycophancy and isolation, with independent child-safety audits and annual risk assessments.",
         "California has also written rules for the frontier itself. SB 53, signed in September 2025, requires frontier developers to report critical safety incidents to the state within fifteen days, though the state found that OpenAI's break-in at Hugging Face in 2026 did not meet its threshold. In December 2025 the President ordered a task force to challenge state AI laws until Congress writes a national standard; by October 2026 no list of the laws to challenge had been published, and Congress had passed no preemption.",
@@ -270,7 +270,7 @@
       ],
       "inPractice": "In the European Union, since August 2026, you must be told when you are dealing with an AI system, and synthetic content must be marked as such; systems already on the market have four months' grace on the marking.",
       "record": [
-        { "event": "gdpr-is-adopted", "note": "The template the AI Act follows." },
+        { "event": "gdpr-is-adopted", "note": "The law the AI Act's proposal says it complements." },
         { "event": "washington-restricts-the-chips", "note": "A chip becomes a controlled export." },
         { "event": "bletchley-and-the-executive-orders", "note": "A declaration between countries." },
         { "event": "the-eu-ai-act-is-adopted", "note": "The first comprehensive AI law, by the EU's account." },

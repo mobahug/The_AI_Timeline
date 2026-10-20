@@ -125,7 +125,7 @@
       "short": "The perceptron's rule, correcting its weights only when it is wrong, on points you place, including four it can never get right.",
       "lede": "A perceptron adds up what it sees, each input times a weight, and says yes when the sum is big enough. It learns by being told when it is wrong: then, and only then, its weights are moved towards the right answer. Here it sees points on a plane and must say yes to the filled ones and no to the open ones. Train it on two groups and it soon finds a line between them. Then load the exclusive or, four points no straight line can part, and watch it never settle. That is the limit the 1969 book turned on.",
       "kept": [
-        "The rule: a weighted sum against a threshold, and weights moved towards the right answer only when the answer is wrong, the training Rosenblatt's 1958 paper calls positive and negative reinforcement.",
+        "The rule: a weighted sum against a threshold, and weights moved towards the right answer only when the answer is wrong, the error-correction training that Cornell Aeronautical Laboratory described for the Mark I in 1960.",
         "Each pass shows it every point once, in the same order, and corrects each mistake as it is made."
       ],
       "changed": [
@@ -141,6 +141,14 @@
           "url": "https://homepages.math.uic.edu/~lreyzin/papers/rosenblatt58.pdf",
           "date": "1958-11-01",
           "quote": "Under these conditions, a perceptron appears to be capable of trial-and-error learning."
+        },
+        {
+          "kind": "primary",
+          "publisher": "Research Trends, vol. 8, no. 1, Cornell Aeronautical Laboratory (scan, Internet Archive)",
+          "title": "Mark I Perceptron (John C. Hay and Charles W. Wightman)",
+          "url": "https://archive.org/download/sim_research-trends_spring-1960_8_1/sim_research-trends_spring-1960_8_1_djvu.txt",
+          "date": "1960-03-01",
+          "quote": "In the error correction technique, the correct response is reinforced only when the perceptron gives the wrong response."
         }
       ]
     }

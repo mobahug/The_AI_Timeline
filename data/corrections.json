@@ -2,6 +2,1857 @@
   "note": "Drawn from the board's own history, this register lists every change of fact the board has made to its record, dated by the commit that made it, and not every change of wording.",
   "corrections": [
     {
+      "id": "lighthill-faulted-robots-not-the-whole-field",
+      "date": "2026-10-20",
+      "commit": "cd969aa",
+      "event": "the-lighthill-report",
+      "kind": "fact",
+      "was": "A damning UK review finds AI has failed its grand objectives; British confidence in the field, its funders' included, collapses for almost a decade.",
+      "now": "Asked for a personal view, Lighthill finds no part of AI has had the major impact once promised, robot-building least of all; British confidence in the field, its funders' included, collapses for almost a decade.",
+      "why": "The report damned one part of the field, not all of it. Lighthill, asked by the Science Research Council's chairman for what he called a highly personal view, found that no part of AI had produced the major impact once promised, but credited advanced automation and computer studies of the nervous system with respectable achievements. It was robot-building, his bridge between the two, whose progress he found even slower and more discouraging.",
+      "source": {
+        "publisher": "Science Research Council, Artificial Intelligence: a paper symposium (Chilton Computing archive)",
+        "title": "Artificial Intelligence: A General Survey (James Lighthill)",
+        "url": "https://www.chilton-computing.org.uk/inf/literature/reports/lighthill_report/p001.htm"
+      }
+    },
+    {
+      "id": "lighthill-funding-reading-rests-on-michie",
+      "date": "2026-10-20",
+      "commit": "cd969aa",
+      "event": "the-lighthill-report",
+      "kind": "attribution",
+      "was": "Wikipedia, after Russell and Norvig's textbook, says the report formed the basis for ending support for AI research in most British universities; Chilton Computing's archive, which keeps the report, says AI research continued, though the next attempt at a major programme waited until 1982.",
+      "now": "Donald Michie, whose Edinburgh robot project the Science Research Council stopped paying for in February 1973, wrote that the collapse of funding drove British talent abroad; Chilton Computing's archive, which keeps the report, says AI research continued, though the next attempt at a major programme waited until 1982.",
+      "why": "The reading that the money went with the confidence rested on a textbook, by way of Wikipedia. The primary accounts give it ground and scope: The Times reported in June 1973 that the Science Research Council had failed to renew Michie's chief grant, and Michie dates the axeing of his FREDDY robot project to February 1973 and writes that the collapse of funding forced trained British talent overseas. Wikipedia's line stays in the card's sources.",
+      "source": {
+        "publisher": "The Knowledge Engineering Review, vol. 5, no. 4 (Cambridge University Press; copy hosted by Maximum Academic Press)",
+        "title": "Comments on Martin Lam's article Lighthill 17 years on: end of a shotgun divorce (Donald Michie)",
+        "url": "https://www.maxapress.com/data/article/ker/preview/pdf/S0269888900005506.pdf"
+      }
+    },
+    {
+      "id": "svm-extended-a-method-of-1992",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "event": "support-vector-machines",
+      "kind": "attribution",
+      "was": "Cortes and Vapnik's method dominates practical machine learning for a decade;",
+      "now": "Cortes and Vapnik extend Boser, Guyon and Vapnik's margin-maximising algorithm of 1992 to data that cannot be separated without errors.",
+      "why": "The method was not Cortes and Vapnik's alone, and 1995 was not its start. Their paper says the idea behind the support-vector network was previously implemented for training data that can be separated without errors, and that they extend it to non-separable data; it credits Boser, Guyon and Vapnik's paper of 1992, a training algorithm that maximises the margin, with the step that allows polynomial decision surfaces of any degree. That the method then dominated practical machine learning for a decade is in no source found, and the card no longer says it.",
+      "source": {
+        "publisher": "Machine Learning, vol. 20, Kluwer (copy hosted by the University of Illinois Chicago)",
+        "title": "Support-Vector Networks (Corinna Cortes and Vladimir Vapnik)",
+        "url": "https://homepages.math.uic.edu/~lreyzin/papers/cortes95.pdf"
+      }
+    },
+    {
+      "id": "kernel-machines-helped-push-neural-nets-out",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "event": "support-vector-machines",
+      "kind": "fact",
+      "was": "neural nets stay unfashionable.",
+      "now": "Kernel machines like it help push neural networks out of fashion.",
+      "why": "Neural networks were not simply staying unfashionable. Their second wave lasted until the mid-1990s, Goodfellow, Bengio and Courville write, and the decline in their popularity that followed, lasting until 2007, had two causes: ventures that made unrealistically ambitious claims, and the good results of kernel machines, Boser, Guyon and Vapnik's and Cortes and Vapnik's among them, and of graphical models. LeCun, Bengio and Hinton put the forsaking of neural nets by the machine-learning community in the late 1990s.",
+      "source": {
+        "publisher": "MIT Press (the authors' online edition, deeplearningbook.org)",
+        "title": "Deep Learning, chapter 1: Introduction (Ian Goodfellow, Yoshua Bengio and Aaron Courville)",
+        "url": "https://www.deeplearningbook.org/contents/intro.html"
+      }
+    },
+    {
+      "id": "alexnets-rival-used-no-svms",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "where": {
+        "file": "data/links.json",
+        "id": "support-vector-machines>alexnet"
+      },
+      "kind": "fact",
+      "was": "was the method displaced by",
+      "now": "did the classifying for ImageNet's winners before",
+      "why": "AlexNet did not beat support vector machines in 2012. The entry it beat, ISI's, used Fisher vectors with linear classifiers trained by the Passive-Aggressive algorithm, the challenge's organisers record, and the AlexNet paper names its rival only as classifiers trained on Fisher vectors. Support vector machines had been the classifiers of the two winners before it: NEC's stochastic SVM in 2010 and XRCE's one-vs-all linear SVMs in 2011.",
+      "source": {
+        "publisher": "arXiv (full text, version 3)",
+        "title": "ImageNet Large Scale Visual Recognition Challenge (Olga Russakovsky, Jia Deng and others)",
+        "url": "https://arxiv.org/pdf/1409.0575"
+      }
+    },
+    {
+      "id": "google-a-stanford-prototype-in-1998",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "event": "pagerank",
+      "kind": "attribution",
+      "was": "Google turns the link graph into a ranking signal",
+      "now": "At Stanford, Sergey Brin and Larry Page turn the web's link graph into a ranking signal, PageRank, for their prototype search engine, Google",
+      "why": "In 1998 Google was a Stanford research prototype, not yet a company. Sergey Brin and Lawrence Page, PhD candidates at Stanford, presented it in their paper as a prototype of a large-scale search engine, and Stanford filed the PageRank patent in January 1998, with Page as the inventor. Google's own history has Google Inc. officially born in August 1998, with Andy Bechtolsheim's cheque.",
+      "source": {
+        "publisher": "Computer Networks and ISDN Systems, vol. 30 (abstract, Google Research)",
+        "title": "The Anatomy of a Large-Scale Hypertextual Web Search Engine (Sergey Brin and Lawrence Page)",
+        "url": "https://research.google/pubs/the-anatomy-of-a-large-scale-hypertextual-web-search-engine/"
+      }
+    },
+    {
+      "id": "link-graph-not-a-labelled-dataset",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "event": "pagerank",
+      "kind": "fact",
+      "was": " and, incidentally, into the largest labelled dataset yet.",
+      "now": ", and index the words of each link with the page it points to.",
+      "why": "Nothing on the record calls the link graph a labelled dataset, let alone the largest yet, and the card cited no source for it. What Brin and Page's paper says is narrower: Google associates the text of a link with the page the link points to, because anchors often describe a page more accurately than the page itself, and its crawl of 24 million pages indexed over 259 million anchors.",
+      "source": {
+        "publisher": "Stanford InfoLab (copy of infolab.stanford.edu/~backrub/google.html hosted by gwern.net)",
+        "title": "The Anatomy of a Large-Scale Hypertextual Web Search Engine (Sergey Brin and Lawrence Page)",
+        "url": "https://gwern.net/doc/www/infolab.stanford.edu/6f7c60d7e3beb371d089d6b926d4f523a4bdcd5c.html"
+      }
+    },
+    {
+      "id": "roomba-not-the-first-home-robot",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "event": "roomba",
+      "kind": "fact",
+      "was": "The first mass-market home robot",
+      "now": "iRobot's Roomba goes on sale at $199.95, a year after Electrolux's Trilobite.",
+      "why": "Roomba was not the first home robot on sale. Electrolux launched its Trilobite in 2001 and calls it the world's first mass-produced self-going vacuum cleaner; the AI100 study panel of 2016 calls the Trilobite the first commercial home robot, and Roomba, a year later, a tenth of its price. iRobot's own claim at launch was narrower, the first automatic floor vac available in the US; by 2006 it said industry experts and consumers had lauded Roomba as the first true practical and affordable home robot.",
+      "source": {
+        "publisher": "Electrolux Group (electroluxgroup.com)",
+        "title": "Electrolux celebrates 100 years since launch of the LUX 1 vacuum cleaner",
+        "url": "https://electroluxgroup.com/en/?p=14079"
+      }
+    },
+    {
+      "id": "roomba-a-carpet-sweeper-not-suction",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "event": "roomba",
+      "kind": "fact",
+      "was": " sells on suction, not intelligence —",
+      "now": " It cleans with a carpet sweeper and a small vacuum, steered by simple behaviours.",
+      "why": "Suction did little of the cleaning. Its designer, Joe Jones, writes that the enabling innovation was cleaning with a carpet sweeper; a small vacuum, on about a tenth of the robot's 30-watt power budget, went in only after a focus group, told it was a sweeper, halved the price it expected, and the vacuum worked mainly on hard floors. Nor was it sold without intelligence: iRobot named it the Intelligent FloorVac and sold its navigation, which was a few simple behaviours (a spiral, a run along the wall, straight runs, a turn at each bump) on a behaviour-based controller with 512 bytes of memory, by the AI100 panel's account.",
+      "source": {
+        "publisher": "IEEE Spectrum (adapted from Dancing with Roomba, Routledge, 2025)",
+        "title": "How Roomba Got Its Vacuum (Joe Jones)",
+        "url": "https://spectrum.ieee.org/irobot-roomba-history"
+      }
+    },
+    {
+      "id": "roomba-millions-by-2004-and-2006",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "event": "roomba",
+      "kind": "figure",
+      "was": " and ships in millions.",
+      "now": " A million are sold by October 2004, two million by May 2006.",
+      "why": "It did not ship in millions in 2002. iRobot announced more than a million Roombas sold on 25 October 2004 and more than two million on 22 May 2006.",
+      "source": {
+        "publisher": "iRobot (investor.irobot.com, Wayback Machine capture)",
+        "title": "iRobot's Roomba Robotic Floorvac Surpasses 1 Million In Sales",
+        "url": "https://web.archive.org/web/20251215064726/https://investor.irobot.com/node/7746"
+      }
+    },
+    {
+      "id": "roomba-no-source-for-a-lesson-ignored",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "event": "roomba",
+      "kind": "framing",
+      "was": " A lesson ignored repeatedly since.",
+      "now": " Shown it as an automatic floor cleaner, only two of some two dozen people in iRobot's focus groups called Roomba a robot, its designer Joe Jones recalls. In 2016 a Stanford study panel found surprisingly slow growth in the diversity of home robots' applications.",
+      "why": "Nothing on the record says the lesson was ignored, or by whom, so the sentence goes. In its place the reading rests on what the record does say: in Joe Jones's account the focus groups saw an automatic floor cleaner, not a robot, and in 2016 the AI100 study panel, Rodney Brooks among it, found surprisingly slow growth in the diversity of home robots' applications.",
+      "source": {
+        "publisher": "One Hundred Year Study on Artificial Intelligence, Stanford University (ai100.stanford.edu)",
+        "title": "Artificial Intelligence and Life in 2030, Home/Service Robots (Peter Stone, Rodney Brooks and the 2015–2016 Study Panel)",
+        "url": "https://ai100.stanford.edu/2016-report/section-ii-ai-domain/homeservice-robots"
+      }
+    },
+    {
+      "id": "useful-home-robots-since-2002",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "where": {
+        "file": "data/glossary.json",
+        "id": "robot"
+      },
+      "kind": "framing",
+      "was": "its scenario for 2033 is the first genuinely useful household robot.",
+      "now": "its scenario for 2033 is the first genuinely useful general-purpose household robot.",
+      "why": "The record has had a useful household robot since 2002: iRobot sold more than two million Roombas by May 2006, and Simson Garfinkel, reviewing it, found it was not a gimmick and got floors clean. What the 2033 scenario adds is generality, as its card's title, General-purpose robots at home, says.",
+      "source": {
+        "publisher": "iRobot (investor.irobot.com, Wayback Machine capture)",
+        "title": "Sales of iRobot Roomba Vacuuming Robot Surpass 2 Million Units",
+        "url": "https://web.archive.org/web/20251215070341/https://investor.irobot.com/node/7521"
+      },
+      "alsoIn": [
+        {
+          "file": "data/events.json",
+          "id": "general-purpose-robots-at-home"
+        }
+      ]
+    },
+    {
+      "id": "flash-crash-no-trillion-evaporated",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "event": "the-flash-crash",
+      "kind": "figure",
+      "was": "A trillion dollars evaporates from US markets in minutes as automated systems interact unpredictably.",
+      "now": "The Dow and the S&P 500 fall more than 5% in five minutes and almost entirely recover within minutes. Regulators say it began with one large trader's algorithm selling $4.1 billion of futures into a fragile market.",
+      "why": "Nothing evaporated for good. The SEC's chair told the Senate that the broad indexes dropped more than 5% in five minutes and almost entirely reversed the fall within a few minutes more, and the Dow closed the day 3.2% down. The regulators' joint report gives no market-value figure: the trillion dollars is what Senator Jack Reed and NYSE Euronext's chief operating officer told the same Senate subcommittee the Dow's low had briefly erased. Nor did the regulators find systems interacting at random: in the CFTC chairman's account a large trader put a $4.1 billion sale of 75,000 E-Mini contracts into an automated execution algorithm, in markets already frail and volatile.",
+      "source": {
+        "publisher": "U.S. Senate, Committee on Banking, Housing, and Urban Affairs, S. Hrg. 111-922 (U.S. Government Publishing Office, govinfo)",
+        "title": "Examining the Efficiency, Stability, and Integrity of the U.S. Capital Markets: prepared statement of Mary L. Schapiro, Chairman, Securities and Exchange Commission",
+        "url": "https://www.govinfo.gov/content/pkg/CHRG-111shrg65272/html/CHRG-111shrg65272.htm"
+      }
+    },
+    {
+      "id": "flash-crash-not-the-first",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "event": "the-flash-crash",
+      "kind": "framing",
+      "was": "The first mass demonstration that fast autonomous systems fail in ways no single operator can foresee.",
+      "now": "Orders could now ricochet across markets and set off other algorithms in milliseconds, the SEC's chair told the Senate; in 1987 investigators could follow trades on one or two markets. In 2015 the US Justice Department charged a British futures trader, Navinder Sarao, alleging that his manipulation contributed to the crash. In 2016 he pleaded guilty to spoofing and wire fraud.",
+      "why": "No source makes 2010 the first such failure. The SEC's chair set it beside the crash of October 1987, steeper and more lasting though trading then was slower and less reliant on technology, and what she said had changed was that orders could ricochet across markets and trigger algorithmic executions in milliseconds. The card also carried only one account of the cause: five years on, the Justice Department charged Navinder Sarao, alleging that his manipulation contributed to the crash, and in 2016 he pleaded guilty to wire fraud and spoofing. Both accounts are now on the card.",
+      "source": {
+        "publisher": "U.S. Senate, Committee on Banking, Housing, and Urban Affairs, S. Hrg. 111-774 (U.S. Government Publishing Office, govinfo)",
+        "title": "Examining the Causes and Lessons of the May 6th Market Plunge: prepared statement of Mary L. Schapiro, Chairman, Securities and Exchange Commission",
+        "url": "https://www.govinfo.gov/content/pkg/CHRG-111shrg62513/html/CHRG-111shrg62513.htm"
+      }
+    },
+    {
+      "id": "flash-crash-explained-within-five-months",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "event": "an-agent-driven-market-event",
+      "kind": "fact",
+      "was": "The 2010 flash crash took five years to explain, and the explanation was one trader.",
+      "now": "Regulators explained the 2010 flash crash within five months, starting from one large trader's selling algorithm in a fragile market; five years later prosecutors charged another trader, Navinder Sarao, with manipulation they said had contributed to it.",
+      "why": "The crash had an explanation within five months, in the regulators' joint report released on 1 October 2010, which in the CFTC chairman's account began with a large trader's $4.1 billion sale put into an automated execution algorithm. The trader charged in 2015 was another, and even then the Justice Department said only that his manipulation contributed to the drop; the CFTC's consent order of November 2016 found that his orders added to an extreme order-book imbalance, which, the regulators' preliminary findings had said, contributed to the crash in conjunction with other market events.",
+      "source": {
+        "publisher": "Commodity Futures Trading Commission (copy hosted by Mondo Visione)",
+        "title": "Federal Court in Chicago Orders U.K. Resident Navinder Singh Sarao to Pay More than $38 Million in Monetary Sanctions for Price Manipulation and Spoofing",
+        "url": "https://mondovisione.com/news/cftc-federal-court-in-chicago-orders-uk-resident-navinder-singh-sarao-to-pay-20161117/"
+      }
+    },
+    {
+      "id": "siri-on-one-phone-in-beta",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "event": "siri-ships",
+      "kind": "fact",
+      "was": "A voice assistant in every pocket",
+      "now": "Apple's iPhone 4S goes on sale with Siri, an assistant that, Apple says, helps you get things done just by asking. Apple releases it in beta, in English, French and German",
+      "why": "Not every pocket: Siri came on one phone, the iPhone 4S, in beta and in English, French and German, by Apple's release of 4 October 2011; owners of the iPhone 4 and 3GS got iOS 5 but not Siri. The phone went on sale on 14 October in seven countries, and Apple sold four million in the first three days.",
+      "source": {
+        "publisher": "Apple (Apple Newsroom)",
+        "title": "Apple Launches iPhone 4S, iOS 5 & iCloud",
+        "url": "https://www.apple.com/newsroom/2011/10/04Apple-Launches-iPhone-4S-iOS-5-iCloud/"
+      }
+    },
+    {
+      "id": "siri-expectations-a-reading",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "event": "siri-ships",
+      "kind": "framing",
+      "was": " sets expectations the technology cannot yet meet.",
+      "now": ".",
+      "why": "That the technology could not meet the expectation is a reading, and the card stated it as fact. The accounts differ: John Gruber, reviewing the phone, found that so many of the things he tried actually worked; Mat Honan of Gizmodo, after more than a month, called Siri a broken promise, and its beta label no disclaimer for buyers who saw the ads. The reading now sits in the card's why with both accounts.",
+      "source": {
+        "publisher": "Gizmodo",
+        "title": "Siri Is Apple’s Broken Promise (Mat Honan)",
+        "url": "https://gizmodo.com/siri-is-apples-broken-promise-5864293"
+      }
+    },
+    {
+      "id": "word-vectors-older-than-word2vec",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "event": "word2vec",
+      "kind": "fact",
+      "was": "Words become vectors with arithmetic —",
+      "now": "Tomas Mikolov's team at Google trains word vectors on 1.6 billion words in under a day, and the offsets between them hold relations:",
+      "why": "Words did not become vectors in 2013. The word2vec paper itself says that representing words as continuous vectors has a long history, and Bengio's neural language model of 2003 learned a vector for each word. What Mikolov, Chen, Corrado and Dean claimed was cost: high-quality vectors from 1.6 billion words in less than a day. The king and queen example stands in the tool's own words: vector('king') - vector('man') + vector('woman') is close to vector('queen').",
+      "source": {
+        "publisher": "arXiv",
+        "title": "Efficient Estimation of Word Representations in Vector Space (Tomas Mikolov, Kai Chen, Greg Corrado and Jeffrey Dean)",
+        "url": "https://arxiv.org/abs/1301.3781"
+      },
+      "alsoIn": [
+        {
+          "file": "data/glossary.json",
+          "id": "word-embedding"
+        }
+      ]
+    },
+    {
+      "id": "word2vec-did-not-make-everything-possible",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "event": "word2vec",
+      "kind": "framing",
+      "was": "Meaning as geometry: the representational idea that makes everything after it possible.",
+      "now": "Word vectors were older: Bengio's language model learned them in 2003. King minus man plus woman came from Mikolov's paper with Microsoft colleagues, on a recurrent network's vectors. What was new was the cost, and Google gave the code away. By 2018 the BERT paper called pre-trained word embeddings an integral part of modern NLP systems.",
+      "why": "Nothing on the record makes word2vec the idea that made everything after it possible. Its authors cite word vectors back to 1986, and the king and queen sum the card leads with was Mikolov's result with Wen-tau Yih and Geoffrey Zweig at Microsoft Research, on vectors learned by a recurrent-network language model; the word2vec paper cites it as already shown. What the record does carry is the lower cost, Google's open-source release of August 2013, and, in 2018, BERT's authors calling pre-trained word embeddings an integral part of modern NLP systems.",
+      "source": {
+        "publisher": "Proceedings of NAACL-HLT 2013 (ACL Anthology)",
+        "title": "Linguistic Regularities in Continuous Space Word Representations (Tomas Mikolov, Wen-tau Yih and Geoffrey Zweig)",
+        "url": "https://aclanthology.org/N13-1090.pdf"
+      }
+    },
+    {
+      "id": "elmo-made-word-vectors-contextual-first",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "where": {
+        "file": "data/links.json",
+        "id": "word2vec>bert-and-gpt-1"
+      },
+      "kind": "attribution",
+      "was": "was made contextual by",
+      "now": "was taken beyond single words by",
+      "why": "BERT and GPT-1 did not make word vectors contextual first. The BERT paper credits ELMo and its predecessor with extracting context-sensitive features from language models run left to right and right to left, and ELMo's deep contextualised word representations were posted in February 2018, before either. What GPT-1 claims for itself is what the string now says: word embeddings mainly transfer word-level information, whereas it aims to capture higher-level semantics.",
+      "source": {
+        "publisher": "arXiv (full text)",
+        "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding (Jacob Devlin, Ming-Wei Chang, Kenton Lee and Kristina Toutanova)",
+        "url": "https://arxiv.org/pdf/1810.04805"
+      }
+    },
+    {
+      "id": "word-embedding-not-every-language-model",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "where": {
+        "file": "data/glossary.json",
+        "id": "word-embedding"
+      },
+      "kind": "fact",
+      "was": "Every language model since represents its input this way.",
+      "now": "The transformer of 2017 learns them for its input tokens too.",
+      "why": "No source says every language model since 2013 represents its input this way, and n-gram models, which Mikolov, Yih and Zweig describe as working in discrete units with no inherent relationship to one another, do not. Neural language models had learned their own word vectors since Bengio's of 2003, and the transformer paper says it uses learned embeddings to convert its input and output tokens to vectors; the line now says only that.",
+      "source": {
+        "publisher": "arXiv (full text)",
+        "title": "Attention Is All You Need (Ashish Vaswani and others)",
+        "url": "https://arxiv.org/pdf/1706.03762"
+      }
+    },
+    {
+      "id": "resnet-claimed-nothing-about-people",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "event": "resnet-passes-human-error-rates",
+      "kind": "attribution",
+      "was": "ResNet passes human error rates",
+      "now": "ResNet goes 152 layers deep",
+      "why": "The ResNet paper makes no claim about people: the word human appears in it only in the title of a reference. That reference, the same team's paper of February 2015, claimed the first result to surpass human-level performance, 4.94% against 5.1%, and Google's batch-normalisation paper reported 4.8% five days later. By 14 February Andrej Karpathy, whose 5.1% it was, counted several results past it. What the ResNet paper claims is depth, residual nets of up to 152 layers, and first place in the 2015 challenge.",
+      "source": {
+        "publisher": "arXiv",
+        "title": "Delving Deep into Rectifiers: Surpassing Human-Level Performance on ImageNet Classification (Kaiming He, Xiangyu Zhang, Shaoqing Ren and Jian Sun)",
+        "url": "https://arxiv.org/abs/1502.01852"
+      }
+    },
+    {
+      "id": "human-error-rate-was-one-annotators",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "event": "resnet-passes-human-error-rates",
+      "kind": "attribution",
+      "was": "beat human accuracy on ImageNet.",
+      "now": "win ImageNet's 2015 challenge with 3.57% top-5 error, below the 5.1% one trained annotator, Andrej Karpathy, had scored.",
+      "why": "Human accuracy on ImageNet was one person's figure. The challenge's organisers report that their annotator A1, trained on the classes, made 5.1% top-5 errors on 1,500 test images, and that a second annotator, trained on 100 images, made 12.0% on 258; Karpathy, one of the paper's authors, gives the 5.1% as his own and writes that human accuracy is not a point but lies on a trade-off curve. ResNet's ensemble of six models made 3.57% on the test set and won the 2015 classification task.",
+      "source": {
+        "publisher": "arXiv (full text, version 3)",
+        "title": "ImageNet Large Scale Visual Recognition Challenge (Olga Russakovsky, Jia Deng and others)",
+        "url": "https://arxiv.org/pdf/1409.0575"
+      }
+    },
+    {
+      "id": "weapons-letter-asked-for-a-ban",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "event": "the-autonomous-weapons-letter",
+      "kind": "fact",
+      "was": "Thousands of researchers sign an open letter opposing offensive autonomous weapons.",
+      "now": "AI and robotics researchers call for a ban on offensive autonomous weapons beyond meaningful human control. The Future of Life Institute counts over 1,700 of them at the launch and over 3,000 by the year's end.",
+      "why": "The letter asked for a ban, not only for opposition, and only on offensive autonomous weapons beyond meaningful human control, as its closing sentence says. Thousands had not signed at the launch: the Future of Life Institute counted over 1,700 AI and robotics researchers and over 11,000 others when Stuart Russell and Toby Walsh announced it in Buenos Aires, and over 3,000 researchers and 17,000 others by the end of 2015. The Guardian, a day earlier, reported over 1,000. The record note on Google's weapons pledge in Promises made repeated the summary and now says what the letter asked.",
+      "source": {
+        "publisher": "Future of Life Institute",
+        "title": "Open letter on AI weapons (Max Tegmark)",
+        "url": "https://futureoflife.org/ai/open-letter-on-ai-weapons/"
+      }
+    },
+    {
+      "id": "weapons-letter-not-the-first-call",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "event": "the-autonomous-weapons-letter",
+      "kind": "framing",
+      "was": "The research community's first collective attempt to set a red line ahead of capability.",
+      "now": "Researchers tried to draw a line ahead of the weapons, whose deployment, the letter said, was feasible within years, not decades. They were not the first to try: in 2013 more than 270 engineers, computing and AI experts and roboticists, gathered by the International Committee for Robot Arms Control, had called for a ban on weapons that make the decision to use violent force themselves.",
+      "why": "The letter was not the research community's first collective attempt. In October 2013 the International Committee for Robot Arms Control published a call, signed by 272 engineers, computing and artificial intelligence experts and roboticists from 37 countries, for a ban on weapon systems that make the decision to apply violent force autonomously. The line drawn ahead of the weapons is the letter's own framing: it says their deployment is feasible within years, not decades. The reading of Google's weapons pledge in Promises made repeated both errors and is corrected with them.",
+      "source": {
+        "publisher": "International Committee for Robot Arms Control (ICRAC)",
+        "title": "Computing experts from 37 countries call for ban on killer robots",
+        "url": "https://www.icrac.net/computing-experts-from-37-countries-call-for-ban-on-killer-robots/"
+      }
+    },
+    {
+      "id": "supply-chain-label-followed-two-lines",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "where": {
+        "file": "data/links.json",
+        "id": "the-autonomous-weapons-letter>anthropic-is-named-a-supply-chain-risk"
+      },
+      "kind": "framing",
+      "was": "For holding to it, the Department of War designated it a supply-chain risk.",
+      "now": "When it held to that line, and to a second against mass domestic surveillance, the Department of War designated it a supply-chain risk.",
+      "why": "Anthropic held two lines, not one: the Department wanted any lawful use, and threatened the designation, Amodei wrote, if Anthropic kept its safeguards on mass domestic surveillance as well as on fully autonomous weapons. Why the label followed is contested on the record: a district court found it was retaliation for Anthropic's public criticism, and the appeals court in Washington called the dispute contractual. The note now says when, not why.",
+      "source": {
+        "publisher": "Anthropic",
+        "title": "Statement from Dario Amodei on our discussions with the Department of War",
+        "url": "https://www.anthropic.com/news/statement-department-of-war"
+      }
+    },
+    {
+      "id": "automated-decision-right-dates-from-1995",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "event": "gdpr-is-adopted",
+      "kind": "fact",
+      "was": "Europe writes rights around automated decisions and personal data two years before enforcement begins.",
+      "now": "The EU adopts the General Data Protection Regulation in place of its 1995 directive. It keeps the right not to be subject to decisions based solely on automated processing, and applies from 25 May 2018.",
+      "why": "The rights were not new in 2016. The data-protection directive of 1995, which the European Parliament's release on the final vote says the reform replaces, already required Member States to grant every person the right not to be subject to a decision based solely on automated processing (its Article 15); the regulation's Article 22 keeps that right. For 25 May 2018 the regulation's own word is apply (Article 99), and it is the day the directive is repealed (Article 94), when one law took over from the other; the card now uses the regulation's word.",
+      "source": {
+        "publisher": "Official Journal of the European Communities (copy hosted by legislation.gov.uk, The National Archives)",
+        "title": "Directive 95/46/EC of 24 October 1995 on the protection of individuals with regard to the processing of personal data and on the free movement of such data (as adopted)",
+        "url": "https://www.legislation.gov.uk/eudr/1995/46/pdfs/eudr_19950046_adopted_en.pdf"
+      },
+      "alsoIn": [
+        {
+          "file": "data/questions.json",
+          "id": "is-ai-making-decisions-about-me"
+        },
+        {
+          "file": "data/questions.json",
+          "id": "who-makes-the-rules-for-ai"
+        }
+      ]
+    },
+    {
+      "id": "gdpr-template-is-the-boards-reading",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "event": "gdpr-is-adopted",
+      "kind": "framing",
+      "was": "Sets the template — extraterritorial, risk-based, slow-burning — that the AI Act later follows.",
+      "now": "It reaches companies outside the Union, scales its duties to risk, and applied only from May 2018, two years after its adoption. The board reads it as the template for the AI Act, whose proposal of 2021 says it complements the GDPR.",
+      "why": "That the AI Act follows the GDPR's template is the board's reading, not the record's, and the card now says so. The Commission's proposal of 2021 says it is without prejudice to the GDPR and complements it, and that the checks on stand-alone high-risk systems follow the model of the New Legislative Framework, the EU's law on marketing products. The three features the card names are the GDPR's own: its Article 3 reaches controllers outside the Union, its Article 24 scales a controller's measures to the risks, and its Article 99 applies it from 25 May 2018, two years after its adoption; the Commission's statement on the adoption says non-EU companies offering services in the EU must apply the same rules.",
+      "source": {
+        "publisher": "EUR-Lex (Wayback Machine capture)",
+        "title": "Proposal for a Regulation laying down harmonised rules on artificial intelligence (Artificial Intelligence Act), COM(2021) 206 final",
+        "url": "https://web.archive.org/web/20260926150823/https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A52021PC0206"
+      },
+      "alsoIn": [
+        {
+          "file": "data/links.json",
+          "id": "gdpr-is-adopted>the-eu-proposes-the-ai-act"
+        },
+        {
+          "file": "data/questions.json",
+          "id": "who-makes-the-rules-for-ai"
+        }
+      ]
+    },
+    {
+      "id": "amazon-tool-dropped-by-2017",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "event": "amazon-scraps-a-biased-hiring-tool",
+      "kind": "date",
+      "was": "Amazon scraps a biased hiring tool",
+      "now": "Amazon's biased hiring tool comes to light",
+      "why": "Amazon did not scrap the tool in 2018. By Reuters' account the team behind it was disbanded by the start of 2017; what happened in 2018, on 10 October, was Reuters' report, the first of the experiment. The card keeps its year and its id; the title now says what the year holds.",
+      "source": {
+        "publisher": "Reuters (copy hosted by CNBC)",
+        "title": "Amazon scraps secret AI recruiting tool that showed bias against women (Jeffrey Dastin)",
+        "url": "https://www.cnbc.com/2018/10/10/amazon-scraps-a-secret-ai-recruiting-tool-that-showed-bias-against-women.html"
+      }
+    },
+    {
+      "id": "amazons-statement-beside-reuters",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "event": "amazon-scraps-a-biased-hiring-tool",
+      "kind": "attribution",
+      "was": "A résumé screener trained on a decade of applications learns to penalise women and is abandoned.",
+      "now": "Reuters reports that Amazon's résumé screener, trained on a decade of applications mostly from men, learned to prefer men; its team was disbanded by 2017. Amazon says recruiters never used it to evaluate candidates.",
+      "why": "Everything known of the screener comes from Reuters' report of 10 October 2018, resting on five people familiar with the effort: the models were trained on résumés submitted over ten years, most of them from men, and taught themselves that male candidates were preferable. The team was disbanded by the start of 2017, because executives lost hope for the project, not in 2018 and not, on that account, for the bias alone. Amazon's own word, given to Reuters, is that the tool was never used by its recruiters to evaluate candidates; the card now carries it beside the report. The register's earlier correction, applications rather than hires, stands. Reuters' sources, that recruiters looked at its recommendations but never relied on them alone, now stand in the card's file beside Amazon's word.",
+      "source": {
+        "publisher": "Reuters (copy hosted by Global News)",
+        "title": "Amazon scraps secret AI recruiting tool that showed bias against women (Jeffrey Dastin)",
+        "url": "https://globalnews.ca/news/4532172/amazon-jobs-ai-bias/"
+      },
+      "alsoIn": [
+        {
+          "file": "data/questions.json",
+          "id": "is-ai-making-decisions-about-me"
+        }
+      ]
+    },
+    {
+      "id": "amazon-trained-on-applications-not-decisions",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "where": {
+        "file": "data/questions.json",
+        "id": "is-ai-making-decisions-about-me"
+      },
+      "kind": "fact",
+      "was": "A model trained on past decisions inherits their history.",
+      "now": "A model trained on past applications inherits their history.",
+      "why": "The screener was not trained on past decisions but, by Reuters' account, on résumés submitted to Amazon over ten years, the point of the register's correction of 11 September 2026 (applications, not hires).",
+      "source": {
+        "publisher": "Reuters (copy hosted by Global News)",
+        "title": "Amazon scraps secret AI recruiting tool that showed bias against women (Jeffrey Dastin)",
+        "url": "https://globalnews.ca/news/4532172/amazon-jobs-ai-bias/"
+      }
+    },
+    {
+      "id": "ai-act-proposal-listed-not-made-high-risk",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "where": {
+        "file": "data/links.json",
+        "id": "amazon-scraps-a-biased-hiring-tool>the-eu-proposes-the-ai-act"
+      },
+      "kind": "framing",
+      "was": "is the kind of system made high-risk by",
+      "now": "is the kind of system listed as high-risk in",
+      "why": "A proposal makes nothing high-risk. The Commission's proposal of 21 April 2021 identified as high-risk AI used in employment, workers management and access to self-employment, for example CV-sorting software for recruitment procedures, which is what Amazon's screener was. The classification became law with the Act adopted in 2024, whose obligations for such systems now apply from 2 December 2027, as the board's card on them records.",
+      "source": {
+        "publisher": "European Commission (press release IP/21/1682)",
+        "title": "Europe fit for the Digital Age: Commission proposes new rules and actions for excellence and trust in Artificial Intelligence",
+        "url": "https://ec.europa.eu/commission/presscorner/detail/en/ip_21_1682"
+      }
+    },
+    {
+      "id": "gpt1-and-bert-did-not-invent-the-recipe",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "event": "bert-and-gpt-1",
+      "kind": "attribution",
+      "was": "Pretrain on unlabelled text, then fine-tune: the recipe that becomes the default for language.",
+      "now": "OpenAI pretrains a transformer on unlabelled text to predict the next word, then fine-tunes it for each task. In October Google's BERT learns instead by filling in masked words, reading both ways at every layer.",
+      "why": "The recipe was older than both papers, and both said so. OpenAI called its approach a combination of two existing ideas, transformers and unsupervised pre-training, built on Andrew Dai and Quoc Le's semi-supervised sequence learning of 2015 and extending ULMFiT; Google said BERT built on that work, on ELMo and on OpenAI's. The summary now says what each paper did: OpenAI's pretrained a transformer language model and fine-tuned it task by task, and BERT, posted on 11 October 2018, learned by predicting masked words from both sides in all its layers. That the recipe became the default moves to the card's reading, as Stanford's account: its foundation-models report of 2021 says that after 2019 using BERT became the norm.",
+      "source": {
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "Improving Language Understanding with Unsupervised Learning",
+        "url": "https://web.archive.org/web/20180613194942/https://blog.openai.com/language-unsupervised/"
+      },
+      "alsoIn": [
+        {
+          "file": "data/links.json",
+          "id": "attention-is-all-you-need>bert-and-gpt-1"
+        }
+      ]
+    },
+    {
+      "id": "gpt-3-scaled-only-the-gpt-line",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "where": {
+        "file": "data/links.json",
+        "id": "bert-and-gpt-1>gpt-3"
+      },
+      "kind": "fact",
+      "was": "scaled into",
+      "now": "had their GPT half scaled into",
+      "why": "Only GPT-1's line scaled into GPT-3. GPT-3's paper says it used GPT-2's model and architecture, and GPT-2's paper that its model largely followed GPT-1's; GPT-3's experiments, its authors wrote, did not include any bidirectional architectures, which is what BERT was. GPT-3 also dropped the fine-tuning both 2018 papers relied on, and was given its tasks in the prompt.",
+      "source": {
+        "publisher": "arXiv (OpenAI)",
+        "title": "Language Models are Few-Shot Learners (Brown et al.)",
+        "url": "https://arxiv.org/pdf/2005.14165v1"
+      }
+    },
+    {
+      "id": "transformer-almost-every-llm",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "where": {
+        "file": "data/glossary.json",
+        "id": "transformer"
+      },
+      "kind": "fact",
+      "was": "The 2017 architecture built entirely from attention; every large language model since.",
+      "now": "The 2017 architecture built entirely from attention; almost every large language model since.",
+      "why": "Not every large language model since 2017 has been a transformer: in 2023 the RWKV team trained a recurrent network of 14 billion parameters, by far the largest dense RNN ever trained by its paper's account, and found it on par with transformers of its size. The attention card was corrected to say almost every on 12 October 2026; this line and the primer's were not. The primer's line on the transformer said every as well, and is corrected with it.",
+      "source": {
+        "publisher": "arXiv",
+        "title": "RWKV: Reinventing RNNs for the Transformer Era (Bo Peng and others)",
+        "url": "https://arxiv.org/abs/2305.13048"
+      }
+    },
+    {
+      "id": "audio-not-in-openais-model-in-2023",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "event": "multimodal-models",
+      "kind": "fact",
+      "was": "Images, audio and text enter the same context window; assistants stop being text boxes.",
+      "now": "GPT-4 accepts images as well as text; from September ChatGPT can look at photos and talk, its voice run by separate speech models. In December Google says Gemini was trained on text, images, audio and video together.",
+      "why": "In 2023 only images went into OpenAI's model beside the text. ChatGPT's voice, launched on 25 September, used Whisper to turn speech into text and a new text-to-speech model to answer aloud, and in May 2024 OpenAI described that voice mode as a pipeline of three separate models, which GPT-4o replaced with one. The old claim held for Gemini by Google's account: its report of December 2023 says video frames or images can be interleaved with text or audio in the model's input. The Gemini Pro that Google put into Bard that month took text-based prompts only.",
+      "source": {
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "Hello GPT-4o",
+        "url": "https://web.archive.org/web/20240513183723/https://openai.com/index/hello-gpt-4o/"
+      }
+    },
+    {
+      "id": "sky-ran-through-separate-speech-models",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "where": {
+        "file": "data/glossary.json",
+        "id": "multimodal"
+      },
+      "kind": "fact",
+      "was": "GPT-4 with vision, Gemini, the voice that sounded like her: one model over several kinds of input.",
+      "now": "GPT-4 with vision, Gemini and GPT-4o: one model over several kinds of input. ChatGPT's voices of 2023, Sky among them, ran through separate speech models.",
+      "why": "Sky, the voice that sounded like her, was one of the five voices OpenAI launched into ChatGPT on 25 September 2023, read out by a new text-to-speech model after Whisper had transcribed the user; OpenAI later called that voice mode a pipeline of three separate models. One model over text, images and audio came with GPT-4o, shown in May 2024, whose new voice mode was still weeks from release when Sky was paused.",
+      "source": {
+        "publisher": "OpenAI (Wayback Machine capture)",
+        "title": "How the voices for ChatGPT were chosen",
+        "url": "https://web.archive.org/web/20240520122422/https://openai.com/index/how-the-voices-for-chatgpt-were-chosen/"
+      }
+    },
+    {
+      "id": "mata-sanctioned-for-bad-faith",
+      "date": "2026-10-20",
+      "commit": "8bcfcde",
+      "event": "fabricated-citations-reach-a-courtroom",
+      "kind": "fact",
+      "was": "Lawyers file a brief containing cases that never existed and are sanctioned.",
+      "now": "In a federal court filing, two lawyers cite six cases that ChatGPT invented, and stand by them after the court asks to see them. The judge finds bad faith and fines them and their firm $5,000.",
+      "why": "The filing was not a brief but an affirmation in opposition to a motion to dismiss, which, Judge Castel noted, should have been a memorandum of law; Peter LoDuca signed it and Steven Schwartz wrote it, using ChatGPT, which fabricated the cases. Nor were they sanctioned for filing it alone: the court's Opinion and Order on Sanctions of 22 June 2023 holds that they stood by the fake opinions after judicial orders called their existence into question, finds bad faith in conscious avoidance and false and misleading statements to the court, and imposes a $5,000 penalty jointly on both lawyers and their firm, Levidow, Levidow & Oberman. The court's order of 4 May had counted six bogus decisions. The primer's line on hallucination said the same, and now says what the court found.",
+      "source": {
+        "publisher": "United States District Court for the Southern District of New York (CourtListener RECAP copy)",
+        "title": "Mata v. Avianca, Inc., No. 22-cv-1461 (PKC): Opinion and Order on Sanctions (Judge P. Kevin Castel)",
+        "url": "https://storage.courtlistener.com/recap/gov.uscourts.nysd.575368/gov.uscourts.nysd.575368.54.0.pdf"
+      },
+      "alsoIn": [
+        {
+          "file": "data/questions.json",
+          "id": "can-i-trust-what-a-chatbot-tells-me"
+        }
+      ]
+    },
+    {
+      "id": "alpac-funding-ended-for-twenty-years",
+      "date": "2026-10-20",
+      "commit": "e156fe4",
+      "event": "the-alpac-report",
+      "kind": "fact",
+      "was": "; funding is cut for a decade.",
+      "now": ". Substantial American funding of the research ends, for some twenty years by John Hutchins's account.",
+      "why": "The funding stopped for longer than a decade. John Hutchins, the historian of machine translation, wrote in 1996 that the report's effect was to end the substantial funding of machine-translation research in the United States for some twenty years; ten years was his figure for the field's neglect, and in 2014 for research all but ended. The report itself had recommended less support for short-term aims in translation, and its chairman more for computational linguistics.",
+      "source": {
+        "publisher": "MT News International, no. 14 (copy in The John W. Hutchins Machine Translation Archive, European Association for Machine Translation)",
+        "title": "ALPAC: the (in)famous report (John Hutchins)",
+        "url": "https://www.mt-archive.net/90/MTNI-1996-Hutchins.pdf"
+      }
+    },
+    {
+      "id": "alpac-reported-on-translation-not-ai",
+      "date": "2026-10-20",
+      "commit": "e156fe4",
+      "where": {
+        "file": "data/spine.json",
+        "id": "4"
+      },
+      "kind": "fact",
+      "was": "and a government report asks what any of it has actually delivered.",
+      "now": "and a committee advising the American government asks what machine translation has actually delivered.",
+      "why": "The report of 1966 on the board is ALPAC's, and it asked what machine translation had delivered, not AI as a whole: it found no machine translation of general scientific text, and none in immediate prospect. Nor was it the government's own. A committee of the National Academy of Sciences wrote it, formed at the National Science Foundation's request to advise the Defense Department, the CIA and the Foundation.",
+      "source": {
+        "publisher": "National Academy of Sciences, National Research Council, Publication 1416 (scan, The John W. Hutchins Machine Translation Archive, European Association for Machine Translation)",
+        "title": "Language and Machines: Computers in Translation and Linguistics (Automatic Language Processing Advisory Committee)",
+        "url": "https://www.mt-archive.net/50/ALPAC-1966.pdf"
+      }
+    },
+    {
+      "id": "arpanet-crashed-at-sri-and-logged-in-that-night",
+      "date": "2026-10-20",
+      "commit": "e156fe4",
+      "event": "arpanet-s-first-message",
+      "kind": "fact",
+      "was": "Two letters transmit before the system crashes.",
+      "now": "Two letters, L and O, reach SRI from UCLA before the computer at SRI crashes; the login works later that night.",
+      "why": "The crash was not the end of it. By Leonard Kleinrock's account the l and the o got through before the system crashed, and the full login was done about an hour later; Steve Crocker and Bill Duvall, who was at the SRI end, write that the G brought silence, that Duvall found an echo buffer at SRI sized too small, resized it and restarted the system, and that the login was then completed. The card now says which computer crashed and that the login worked the same night.",
+      "source": {
+        "publisher": "The Cloudflare Blog (guest post)",
+        "title": "Fifty Years Ago (Steve Crocker and Bill Duvall)",
+        "url": "https://blog.cloudflare.com/fifty-years-ago"
+      }
+    },
+    {
+      "id": "arpanet-grew-into-the-internet",
+      "date": "2026-10-20",
+      "commit": "e156fe4",
+      "event": "arpanet-s-first-message",
+      "kind": "framing",
+      "was": "The network that later supplies the training data begins.",
+      "now": "The network that grows into the internet begins.",
+      "why": "The ARPANET supplied no training data. It grew into the internet, as the Brief History of the Internet by its builders puts it, and was itself decommissioned in 1990. The web was invented on the internet that already existed, in Tim Berners-Lee's account, and the text that trains language models came from the web, which the board strings to GPT-3 from the web's own card.",
+      "source": {
+        "publisher": "Internet Society",
+        "title": "A Brief History of the Internet (Barry M. Leiner, Vinton G. Cerf, David D. Clark, Robert E. Kahn, Leonard Kleinrock, Daniel C. Lynch, Jon Postel, Larry G. Roberts and Stephen Wolff)",
+        "url": "https://www.internetsociety.org/internet/history-internet/brief-history-internet/"
+      }
+    },
+    {
+      "id": "arpanet-not-the-network-under-the-web",
+      "date": "2026-10-20",
+      "commit": "e156fe4",
+      "where": {
+        "file": "data/links.json",
+        "id": "arpanet-s-first-message>the-world-wide-web-is-proposed"
+      },
+      "kind": "fact",
+      "was": "became the network under",
+      "now": "grew into the internet under",
+      "why": "The ARPANET itself never carried the web: it grew into the internet, one network among many, and was decommissioned in 1990, as the Internet Society's history records. Berners-Lee says he invented the web when the internet already existed, and had for a decade and a half; his proposal of 1989 names no network, and his plan of 1990 put the web's servers on machines with Internet, DECnet and BITNET connections.",
+      "source": {
+        "publisher": "Internet Society",
+        "title": "A Brief History of the Internet (Barry M. Leiner, Vinton G. Cerf, David D. Clark, Robert E. Kahn, Leonard Kleinrock, Daniel C. Lynch, Jon Postel, Larry G. Roberts and Stephen Wolff)",
+        "url": "https://www.internetsociety.org/internet/history-internet/brief-history-internet/"
+      }
+    },
+    {
+      "id": "darpa-commissioned-the-arpanet",
+      "date": "2026-10-20",
+      "commit": "e156fe4",
+      "where": {
+        "file": "data/orgs.json",
+        "id": "darpa"
+      },
+      "kind": "attribution",
+      "was": "and built the network the web runs on.",
+      "now": "and commissioned the ARPANET, which grew into the internet the web runs on.",
+      "why": "DARPA did not build the network itself: by its own account ARPA contracted BBN Technologies in 1968 to build the first routers, which a year later made the ARPANET operational. Nor is the ARPANET the network the web runs on; it grew into the internet, which is, as the Internet Society's history and Berners-Lee's own account have it.",
+      "source": {
+        "publisher": "DARPA (Innovation Timeline)",
+        "title": "ARPANET",
+        "url": "https://www.darpa.mil/about/innovation-timeline/arpanet"
+      }
+    },
+    {
+      "id": "shakey-legacy-is-ieees-to-state",
+      "date": "2026-10-20",
+      "commit": "e156fe4",
+      "event": "shakey-the-robot",
+      "kind": "framing",
+      "was": "SRI's wheeled robot plans, perceives and acts — slowly — becoming the ancestor of every autonomous system.",
+      "now": "SRI's wheeled robot plans, perceives and acts — slowly. Its methods, IEEE's plaque says, proved seminal in robotics and in the design of web servers, cars, factories, video games and Mars rovers.",
+      "why": "No source makes Shakey the ancestor of every autonomous system. IEEE's milestone plaque of 2017 says its software architecture, computer vision, and methods for navigation and planning proved seminal in robotics and in the design of web servers, automobiles, factories, video games and Mars rovers, and the card now says that much, as IEEE's. The rest stands: SRI's report of 1984 says Shakey could perform tasks that required planning, route-finding and the rearranging of simple objects, and that the robot moved very slowly.",
+      "source": {
+        "publisher": "IEEE History Center (Engineering and Technology History Wiki)",
+        "title": "Milestones: SHAKEY: The World’s First Mobile Intelligent Robot, 1972",
+        "url": "https://ethw.org/Milestones:SHAKEY:_The_World%E2%80%99s_First_Mobile_Intelligent_Robot,_1972"
+      }
+    },
+    {
+      "id": "shakey-from-1969",
+      "date": "2026-10-20",
+      "commit": "e156fe4",
+      "event": "shakey-the-robot",
+      "kind": "date",
+      "was": "1970",
+      "now": "1969",
+      "why": "1970 is the year Life called Shakey the first electronic person, as SRI's history records, not a year in the robot's own record. By the project's report of 1984, SRI completed its first integrated robot system, a vehicle with a TV camera and other sensors, radio-controlled by an SDS-940 computer, in 1969, and a more powerful PDP-10 system in 1971; Nilsson described the first at the International Joint Conference on Artificial Intelligence in May 1969. The card moves to 1969, which keeps it in the finding that begins that year. IEEE's milestone is named for 1972, when the project ended.",
+      "source": {
+        "publisher": "SRI International (Artificial Intelligence Center, Technical Note 323; copy hosted by the IEEE History Center's Engineering and Technology History Wiki)",
+        "title": "Shakey the Robot (Nils J. Nilsson, ed.)",
+        "url": "https://ethw-images.s3.us-east-va.perf.cloud.ovh.us/ieee/a/a1/Ref-01_AICTechNote323.pdf"
+      },
+      "alsoIn": [
+        {
+          "file": "data/glossary.json",
+          "id": "robot"
+        }
+      ]
+    },
+    {
+      "id": "prolog-clauses-read-as-procedures-too",
+      "date": "2026-10-20",
+      "commit": "e156fe4",
+      "event": "prolog",
+      "kind": "fact",
+      "was": "Logic programming lets researchers state facts and rules rather than procedures.",
+      "now": "In Marseille, Alain Colmerauer and Philippe Roussel build Prolog for a system that talks in French. Its programs are facts and rules in logic, run by a theorem prover; Robert Kowalski showed they also read as procedures.",
+      "why": "Prolog's facts and rules were not offered in place of procedures. Robert Kowalski, whose SL-resolution the first Prolog adapted, wrote in 1974 that logic as a programming language rests on reading its implications as procedure declarations, and in 1988 that the same knowledge can be understood both declaratively and procedurally. The card also left out who made it and why: Alain Colmerauer and Philippe Roussel built it in Marseille in 1972, for a project in processing French, and describe their contribution as transforming a theorem prover into a programming language.",
+      "source": {
+        "publisher": "History of Programming Languages II, ACM (Wayback Machine capture of the copy hosted by Alain Colmerauer)",
+        "title": "The Birth of Prolog (Alain Colmerauer and Philippe Roussel)",
+        "url": "https://web.archive.org/web/20220321183535/http://alain.colmerauer.free.fr/alcol/ArchivesPublications/PrologHistory/19november92.pdf"
+      }
+    },
+    {
+      "id": "mycin-one-blinded-test-in-1979",
+      "date": "2026-10-20",
+      "commit": "e156fe4",
+      "event": "mycin-diagnoses-infections",
+      "kind": "fact",
+      "was": "A rule-based system matches specialists at prescribing antibiotics",
+      "now": "Stanford's MYCIN advises doctors on antibiotics from some 200 rules. In a blinded test on meningitis in 1979, experts accepted 65% of its choices and 42.5 to 62.5% of Stanford specialists'",
+      "why": "The match with specialists came from one test, on ten cases of meningitis, published in JAMA in September 1979, three years after the card's year: eight outside experts, blind to who had prescribed what, rated 65% of MYCIN's prescriptions acceptable and between 42.5% and 62.5% of those of five Stanford faculty specialists. Its authors said MYCIN compared favourably with the specialists; the card now gives the figures. MYCIN itself, in its makers' words, gave physicians advice on the choice of antimicrobial therapy, from 200 rules in its original form.",
+      "source": {
+        "publisher": "Rule-Based Expert Systems, Addison-Wesley; first published in JAMA 242(12), 21 September 1979 (copy hosted by Edward H. Shortliffe, shortliffe.net)",
+        "title": "An Evaluation of MYCIN’s Advice (Victor L. Yu, Lawrence M. Fagan, Sharon Wraith Bennett, William J. Clancey, A. Carlisle Scott, John F. Hannigan, Robert L. Blum, Bruce G. Buchanan and Stanley N. Cohen)",
+        "url": "https://www.shortliffe.net/Buchanan-Shortliffe-1984/Chapter-31.pdf"
+      }
+    },
+    {
+      "id": "mycin-kept-off-the-wards-for-mundane-reasons",
+      "date": "2026-10-20",
+      "commit": "e156fe4",
+      "event": "mycin-diagnoses-infections",
+      "kind": "framing",
+      "was": "Capability was never the blocker for clinical AI. Liability, integration and trust were. Still true.",
+      "now": "Its builders kept it off the wards for what they called mundane reasons, quite separate from its performance: doctors, they judged, felt little need for advice; a consultation meant finding a terminal, logging on and typing answers, many of them lab results already held on other computers, for up to an hour; and its knowledge was too narrow to repay the cost of the computers it ran on. High performance alone, they concluded, was not enough.",
+      "why": "The reasons were the board's, not MYCIN's makers'. Buchanan and Shortliffe write that MYCIN was likely to be unacceptable for mundane reasons quite separate from its decision-making performance: practitioners felt no need of it, and using it meant finding a terminal, logging on and answering questions, many of them transcriptions of lab results already on other Stanford computers, for as long as half an hour or an hour when the shared machine was loaded. In 1984 they added that the computers it ran on were too expensive and its knowledge too narrow for it to be cost-effective, so capability was part of the case after all. Legal questions appear in their account only as open ones, in the evaluation of 1979, and nothing on the record supported 'Still true'.",
+      "source": {
+        "publisher": "Rule-Based Expert Systems, Addison-Wesley (copy hosted by Edward H. Shortliffe, shortliffe.net)",
+        "title": "Human Engineering of Medical Expert Systems (Bruce G. Buchanan and Edward H. Shortliffe)",
+        "url": "https://www.shortliffe.net/Buchanan-Shortliffe-1984/Chapter-32.pdf"
+      }
+    },
+    {
+      "id": "mycin-not-xcons-prototype",
+      "date": "2026-10-20",
+      "commit": "e156fe4",
+      "where": {
+        "file": "data/links.json",
+        "id": "mycin-diagnoses-infections>expert-systems-go-commercial"
+      },
+      "kind": "fact",
+      "was": "was the prototype for",
+      "now": "helped set off",
+      "why": "MYCIN was not the prototype for XCON. John McDermott wrote R1, the program Digital called XCON, at Carnegie-Mellon in OPS4, a production-system language from that university, not in MYCIN's shell; his paper of 1980 says only that its development paralleled that of the Stanford Heuristic Programming Project's systems, and thanks MYCIN's Bruce Buchanan and Ted Shortliffe among those who lent their knowledge-engineering expertise. MYCIN's part was wider: the National Research Council writes that the apparent success of DENDRAL and MYCIN helped to touch off the rapid development of expert systems.",
+      "source": {
+        "publisher": "National Research Council (National Academies Press)",
+        "title": "Funding a Revolution: Government Support for Computing Research, chapter 9: Developments in Artificial Intelligence",
+        "url": "https://nap.nationalacademies.org/read/6323/chapter/11"
+      }
+    },
+    {
+      "id": "stanford-cart-several-courses-not-the-first",
+      "date": "2026-10-20",
+      "commit": "e156fe4",
+      "event": "the-stanford-cart-crosses-a-room",
+      "kind": "fact",
+      "was": "Five hours, one obstacle course: the first serious attempt at autonomous visual navigation.",
+      "now": "Steered by radio from a mainframe that sees through its sliding TV camera, the Stanford Cart weaves round chairs and other obstacles, a metre every ten to fifteen minutes. A 20-metre course takes about five hours.",
+      "why": "There was not one course. Moravec's thesis of 1980 says the program drove the cart through several 20-metre indoor courses, each taking about five hours, and that three full runs were completed in the last week, two indoors and one outdoors, where the cart hit an obstacle. Nor was it the first serious attempt at visual navigation: Moravec counts SRI's Shakey among the Cart's predecessors, and writes that the Cart and Shakey, both seeing with TV cameras, were the first mobile robots controlled by computers; the same cart had been driven by computer along a white line years before. The card now says what Moravec records.",
+      "source": {
+        "publisher": "Stanford University, Computer Science Department (PhD thesis; web edition hosted by the author, Carnegie Mellon University)",
+        "title": "Obstacle Avoidance and Navigation in the Real World by a Seeing Robot Rover: Preface (Hans P. Moravec)",
+        "url": "https://frc.ri.cmu.edu/~hpm/project.archive/robot.papers/1975.cart/1980.html.thesis/index.html"
+      }
+    },
+    {
+      "id": "stanford-cart-not-stanfords-first-run",
+      "date": "2026-10-20",
+      "commit": "e156fe4",
+      "where": {
+        "file": "data/links.json",
+        "id": "the-stanford-cart-crosses-a-room>stanley-wins"
+      },
+      "kind": "fact",
+      "was": "was Stanford's first run at",
+      "now": "was an earlier Stanford run at",
+      "why": "The crossing of 1979 was not Stanford's first run at a vehicle that drives itself. The same cart had followed a white line under computer control years before, in Rodney Schmidt's program, as Moravec's thesis records, and the Computer History Museum dates its reconfiguration for self-driving experiments to 1966. Stanford's own timeline of its AI work lists the Cart's crossing in 1979 and Stanley's entry in 2005.",
+      "source": {
+        "publisher": "Stanford University, Computer Science Department (PhD thesis; web edition hosted by the author, Carnegie Mellon University)",
+        "title": "Obstacle Avoidance and Navigation in the Real World by a Seeing Robot Rover, chapter 2: History (Hans P. Moravec)",
+        "url": "https://frc.ri.cmu.edu/~hpm/project.archive/robot.papers/1975.cart/1980.html.thesis/p02.html"
+      }
+    },
+    {
+      "id": "xcon-written-at-carnegie-mellon-used-from-1980",
+      "date": "2026-10-20",
+      "commit": "e156fe4",
+      "event": "expert-systems-go-commercial",
+      "kind": "attribution",
+      "was": "DEC's XCON configures computers from rules and saves millions a year",
+      "now": "From January 1980 Digital Equipment Corporation configures its VAX computers with R1, or XCON, a rule-based program John McDermott wrote at Carnegie Mellon",
+      "why": "The card gave Digital the program and the year a saving it had not yet claimed. R1, which Digital called XCON, was written by John McDermott at Carnegie Mellon, and Digital's manufacturing organisation used it from January 1980 to configure orders for VAX computers. The savings were Digital's estimate of 1989, for its configuration systems together, and now sit in the figures with their date.",
+      "source": {
+        "publisher": "AI Magazine 2(2), AAAI (ojs.aaai.org)",
+        "title": "R1: The Formative Years (John McDermott)",
+        "url": "https://ojs.aaai.org/aimagazine/index.php/aimagazine/article/view/100"
+      }
+    },
+    {
+      "id": "industry-did-not-decide-ai-meant-rules",
+      "date": "2026-10-20",
+      "commit": "e156fe4",
+      "event": "expert-systems-go-commercial",
+      "kind": "framing",
+      "was": "; industry decides AI means rules.",
+      "now": ". Its success helps draw American firms to expert systems.",
+      "why": "No source had industry deciding that AI meant rules. Digital's Stephen Polit, speaking in 1983, recalled that after the success of several academic expert systems and the commercial success of XCON, AI was widely publicised in the popular press, and a number of American corporations became interested in developing expert systems; the card now says that much.",
+      "source": {
+        "publisher": "AI Magazine 5(4), AAAI (ojs.aaai.org); a presentation at AAAI-83",
+        "title": "R1 and Beyond: AI Technology Transfer at Digital Equipment Corporation (Stephen Polit)",
+        "url": "https://ojs.aaai.org/aimagazine/index.php/aimagazine/article/download/460/396"
+      }
+    },
+    {
+      "id": "xcon-maintenance-was-priced",
+      "date": "2026-10-20",
+      "commit": "e156fe4",
+      "event": "expert-systems-go-commercial",
+      "kind": "framing",
+      "was": "Rules worked, and were the product. What nobody priced was maintaining them, which is the second winter in one sentence.",
+      "now": "The rules worked, and keeping them working had no end in sight. In 1983 Digital's Stephen Polit called maintenance perhaps the most important step, and probably the largest cost; by 1987 about half of XCON's 6,200 rules changed every year, and Digital kept a team on them. Other companies, the National Research Council found, met systems so brittle that a small change in knowledge or practice made them obsolete.",
+      "why": "Maintenance was priced, by the company that paid for it. Digital's Stephen Polit called it in 1983 perhaps the most important step in an expert system's life and probably its largest cost; Bachant and McDermott wrote in 1984 that they no longer believed R1 would ever be done; and in 1987 two of Digital's engineers, writing with Elliot Soloway, reported that about half of XCON's 6,200 rules changed every year. XCON was not a product either: Digital used it in its own business. That this was the second winter in one sentence had no source; the National Research Council's account of the slump turns on the collapse of the Lisp-machine market and on doubts about what expert systems could do, some of which proved brittle.",
+      "source": {
+        "publisher": "AI Magazine 5(4), AAAI (ojs.aaai.org); a presentation at AAAI-83",
+        "title": "R1 and Beyond: AI Technology Transfer at Digital Equipment Corporation (Stephen Polit)",
+        "url": "https://ojs.aaai.org/aimagazine/index.php/aimagazine/article/download/460/396"
+      }
+    },
+    {
+      "id": "xcon-rule-counts",
+      "date": "2026-10-20",
+      "commit": "e156fe4",
+      "event": "expert-systems-go-commercial",
+      "kind": "figure",
+      "was": "about 2,500 in 1980; some 10,000 by 1986",
+      "now": "772 in June 1980; 6,200 in 1987; 10,129 in September 1988",
+      "why": "R1 had 772 rules in June 1980, by McDermott's paper of that year, and about 3,300 in November 1983, by Bachant and McDermott; Two of Digital's engineers, writing with Elliot Soloway, counted 6,200 in 1987, and Digital's configuration group 10,129 in September 1988. The 2,500 was the count Digital's Stephen Polit gave in 1983, and no source had 10,000 by 1986.",
+      "source": {
+        "publisher": "Proceedings of the First National Conference on Artificial Intelligence (AAAI-80), AAAI (cdn.aaai.org)",
+        "title": "R1: An Expert in the Computer Systems Domain (John McDermott)",
+        "url": "https://cdn.aaai.org/AAAI/1980/AAAI80-076.pdf"
+      }
+    },
+    {
+      "id": "xcon-savings-digitals-1989-estimate",
+      "date": "2026-10-20",
+      "commit": "e156fe4",
+      "event": "expert-systems-go-commercial",
+      "kind": "attribution",
+      "was": "tens of millions of dollars a year",
+      "now": "over $40 million a year, net, by Digital's own estimate of 1989 for its configuration systems",
+      "why": "The claim was Digital's, made in 1989 by the managers of its configuration systems, and it covered those systems together, not XCON alone: they put the net return at over $40 million a year, and wrote that the systems were saving Digital tens of millions of dollars each year.",
+      "source": {
+        "publisher": "Communications of the ACM 32(3) (Wayback Machine capture of the ACM Digital Library PDF)",
+        "title": "Expert Systems for Configuration at Digital: XCON and Beyond (Virginia E. Barker and Dennis E. O’Connor, with Judith Bachant and Elliot Soloway)",
+        "url": "https://web.archive.org/web/20240801181433/https://dl.acm.org/doi/pdf/10.1145/62065.62067"
+      }
+    },
+    {
+      "id": "xcon-did-not-collapse",
+      "date": "2026-10-20",
+      "commit": "e156fe4",
+      "where": {
+        "file": "data/links.json",
+        "id": "expert-systems-go-commercial>the-second-ai-winter"
+      },
+      "kind": "fact",
+      "was": "collapsed into",
+      "now": "fell short of expectations in",
+      "why": "XCON did not collapse: in 1987 two of Digital's engineers, writing with Elliot Soloway, reported no problem with its performance, and by September 1988 it had 10,129 rules. What collapsed, by the National Research Council's account, was the market for Lisp machines, undermined by cheaper workstations, while doubts about what expert systems could do hampered their sale; the Council calls them a failure to meet expectations as much as a failure of technology.",
+      "source": {
+        "publisher": "National Research Council (National Academies Press)",
+        "title": "Funding a Revolution: Government Support for Computing Research, chapter 9: Developments in Artificial Intelligence",
+        "url": "https://nap.nationalacademies.org/read/6323/chapter/11"
+      }
+    },
+    {
+      "id": "expert-systems-not-thousands-sold",
+      "date": "2026-10-20",
+      "commit": "e156fe4",
+      "where": {
+        "file": "data/glossary.json",
+        "id": "expert-system"
+      },
+      "kind": "fact",
+      "was": "the 1980s sold thousands of such systems and discovered what they cost to maintain.",
+      "now": "in the 1980s companies built many such systems and learned what they cost to keep up: by 1987 about half of XCON's 6,200 rules changed every year.",
+      "why": "No source counted thousands of expert systems sold in the 1980s; the National Research Council's figure, more than 12,000 in use, is an estimate of 1997. What the upkeep came to, two of Digital's engineers and Elliot Soloway set down: by 1987 about half of XCON's 6,200 rules changed every year.",
+      "source": {
+        "publisher": "Proceedings of the Sixth National Conference on Artificial Intelligence (AAAI-87), AAAI (cdn.aaai.org)",
+        "title": "Assessing the Maintainability of XCON-in-RIME: Coping with the Problems of a VERY Large Rule-Base (Elliot Soloway, Judy Bachant and Keith Jensen)",
+        "url": "https://cdn.aaai.org/AAAI/1987/AAAI87-148.pdf"
+      }
+    },
+    {
+      "id": "second-winter-not-dated-from-a-discovery",
+      "date": "2026-10-20",
+      "commit": "e156fe4",
+      "where": {
+        "file": "data/glossary.json",
+        "id": "expert-system"
+      },
+      "kind": "fact",
+      "was": "The second winter is dated from the discovery.",
+      "now": "The second winter came when the market for the machines built to run them collapsed and doubts grew about what the systems could do.",
+      "why": "The cost of upkeep was no late discovery: Digital's Stephen Polit called maintenance probably the largest cost of an expert system in 1983, four years before the board's second winter. The National Research Council puts the slump down to the collapse of the market for Lisp machines, undermined by cheaper workstations, and to doubts about the capabilities and flexibility of expert systems.",
+      "source": {
+        "publisher": "National Research Council (National Academies Press)",
+        "title": "Funding a Revolution: Government Support for Computing Research, chapter 9: Developments in Artificial Intelligence",
+        "url": "https://nap.nationalacademies.org/read/6323/chapter/11"
+      },
+      "alsoIn": [
+        {
+          "file": "data/glossary.json",
+          "id": "ai-winter"
+        }
+      ]
+    },
+    {
+      "id": "skynet-no-source-for-the-vocabulary",
+      "date": "2026-10-20",
+      "commit": "e156fe4",
+      "event": "the-terminator",
+      "kind": "fact",
+      "was": "Skynet enters the vocabulary; every subsequent safety conversation has to work around the image.",
+      "now": "In James Cameron's film, written with Gale Anne Hurd, Skynet, a defence computer trusted to run everything, turns on humanity and sends a cyborg back to 1984 to kill the mother of the man who will lead the resistance.",
+      "why": "Nothing on the record has Skynet entering the vocabulary, and every subsequent safety conversation was an unsourced every. The summary now says what happens in the film, from Cameron's fourth draft of the screenplay: Skynet is a defence network computer, hooked into everything and trusted to run it all, that saw all people as a threat, and the cyborg is sent to kill the mother of John Connor, who will lead the fight against it. The AFI Catalog records the writing credit Cameron shares with Gale Anne Hurd. The reading moves to the card's why, where it now rests on the Royal Society's review of 2018.",
+      "source": {
+        "publisher": "The Internet Movie Script Database (transcription of the fourth draft, 20 April 1983)",
+        "title": "Terminator, screenplay (James Cameron)",
+        "url": "https://imsdb.com/scripts/Terminator.html"
+      }
+    },
+    {
+      "id": "backpropagation-did-not-wait-twenty-five-years",
+      "date": "2026-10-20",
+      "commit": "e156fe4",
+      "event": "backpropagation-breaks-through",
+      "kind": "fact",
+      "was": "The algorithm was ready in 1986. It waited twenty-five years for data and GPUs.",
+      "now": "It was in use within three years: in 1989 it trained LeCun's reader of zip-code digits, and from 1996 a cheque reader built on his group's networks was fielded in American banks. By the late 1990s, Hinton and his co-authors wrote in 2015, the machine-learning community had largely forsaken it; it had failed, by Hinton's own account, because computers were thousands of times too slow, labelled datasets hundreds of times too small, and deep networks too small and not sensibly initialised.",
+      "why": "The algorithm did not wait twenty-five years. By the board's own string it made LeCun's network of 1989 trainable, which read handwritten zip-code digits from the US Postal Service with a 1% error rate, rejecting about 9%, and a cheque reader built on LeCun's group's networks was fielded in American banks from June 1996. It was set aside afterwards: LeCun, Bengio and Hinton's review of 2015 says neural nets and backpropagation were largely forsaken by the machine-learning community in the late 1990s. That computing and data were what it lacked is Hinton's own reading, in his lecture on the ups and downs of backpropagation, and the card now gives it as his.",
+      "source": {
+        "publisher": "Advances in Neural Information Processing Systems 2 (NeurIPS proceedings)",
+        "title": "Handwritten Digit Recognition with a Back-Propagation Network (Le Cun, Boser, Denker, Henderson, Howard, Hubbard, Jackel)",
+        "url": "https://proceedings.neurips.cc/paper/1989/file/53c3bce66e43be4f209556518c2fcb54-Paper.pdf"
+      }
+    },
+    {
+      "id": "backpropagation-invented-several-times",
+      "date": "2026-10-20",
+      "commit": "e156fe4",
+      "where": {
+        "file": "data/glossary.json",
+        "id": "backpropagation"
+      },
+      "kind": "fact",
+      "was": "The 1986 method for training networks with more than one layer.",
+      "now": "The method for training networks with more than one layer, invented several times in the 1970s and 1980s and popularised in 1986.",
+      "why": "It was not a method of 1986. Hinton's own lecture says the backpropagation algorithm for learning multiple layers of features was invented several times in the 1970s and 1980s, and the Nobel committee says Rumelhart, Hinton and Williams reinvented it. The entry's own definition already said it was known earlier and popularised in 1986; the short line now agrees.",
+      "source": {
+        "publisher": "University of Toronto (Neural Networks for Machine Learning, lecture slides)",
+        "title": "Lecture 13a: The ups and downs of backpropagation (Geoffrey Hinton, with Nitish Srivastava, Kevin Swersky, Tijmen Tieleman and Abdel-rahman Mohamed)",
+        "url": "https://www.cs.toronto.edu/~hinton/coursera/lecture13/lec13.pdf"
+      }
+    },
+    {
+      "id": "backpropagation-not-every-model",
+      "date": "2026-10-20",
+      "commit": "e156fe4",
+      "where": {
+        "file": "data/glossary.json",
+        "id": "backpropagation"
+      },
+      "kind": "fact",
+      "was": "it is how every model on the board since has been trained.",
+      "now": "it is how the deep networks on the board since have been trained.",
+      "why": "Not every model on the board after 1986 was trained by it: IBM's statistical translation models of 1988 to 1993 had their parameters estimated by the EM algorithm, and Deep Blue won by search. LeCun, Bengio and Hinton's review of 2015 describes deep learning as using the backpropagation algorithm to set the parameters of each layer, which is what the definition now claims.",
+      "source": {
+        "publisher": "Nature (copy hosted by the University of Toronto)",
+        "title": "Deep learning (Yann LeCun, Yoshua Bengio and Geoffrey Hinton)",
+        "url": "https://www.cs.toronto.edu/~hinton/absps/NatureDeepReview.pdf"
+      }
+    },
+    {
+      "id": "backpropagation-paper-was-three-authors",
+      "date": "2026-10-20",
+      "commit": "e156fe4",
+      "where": {
+        "file": "data/glossary.json",
+        "id": "neural-network"
+      },
+      "kind": "attribution",
+      "was": "Hinton and others showed in 1986 how to train many layers.",
+      "now": "Rumelhart, Hinton and Williams showed in 1986 how to train networks with hidden layers.",
+      "why": "The 1986 paper's first author was David Rumelhart, with Hinton and Ronald Williams, and the Nobel committee credits the three, in that order, with demonstrating how architectures with one or more hidden layers could be trained. Many layers was more than the record says.",
+      "source": {
+        "publisher": "The Nobel Committee for Physics, Royal Swedish Academy of Sciences (nobelprize.org)",
+        "title": "Scientific Background to the Nobel Prize in Physics 2024 (The Nobel Committee for Physics)",
+        "url": "https://www.nobelprize.org/uploads/2024/11/advanced-physicsprize2024-3.pdf"
+      }
+    },
+    {
+      "id": "hinton-one-of-three-authors",
+      "date": "2026-10-20",
+      "commit": "e156fe4",
+      "event": "hinton-leaves-google",
+      "kind": "attribution",
+      "was": "the man who made backpropagation work",
+      "now": "one of the three authors of the 1986 backpropagation paper",
+      "why": "No source makes Hinton the man who made backpropagation work. The 1986 demonstration was Rumelhart's, Hinton's and Williams's, by Nature's own page and the Nobel committee's account, and the method had been invented several times before, as Hinton's own lecture says. MIT Technology Review's framing, that he proposed it with a pair of colleagues, is the press's; the record does not make it his alone.",
+      "source": {
+        "publisher": "The Nobel Committee for Physics, Royal Swedish Academy of Sciences (nobelprize.org)",
+        "title": "Scientific Background to the Nobel Prize in Physics 2024 (The Nobel Committee for Physics)",
+        "url": "https://www.nobelprize.org/uploads/2024/11/advanced-physicsprize2024-3.pdf"
+      }
+    },
+    {
+      "id": "second-winter-lisp-machines-not-overnight",
+      "date": "2026-10-20",
+      "commit": "e156fe4",
+      "event": "the-second-ai-winter",
+      "kind": "fact",
+      "was": "The Lisp machine market collapses almost overnight",
+      "now": "As cheaper workstations catch up, the market for Lisp machines collapses",
+      "why": "No source found says overnight. Dan Weinreb, a founder of Symbolics, writes that the world changed out from under the company very quickly once Sun and Apollo workstations appeared and Lisp ran well enough on conventional hardware; the National Research Council, that engineering workstations soon undermined the Lisp machine industry. Richard Gabriel of Lucid writes that companies sprang up to put Common Lisp on stock hardware after 1984, and that within four years virtually every major computer company had one.",
+      "source": {
+        "publisher": "Dan Weinreb's blog (archived by Dan Luu, danluu.com)",
+        "title": "Why Did Symbolics Fail? (Dan Weinreb)",
+        "url": "https://danluu.com/symbolics-lisp-machines/"
+      }
+    },
+    {
+      "id": "second-winter-xcon-was-maintained",
+      "date": "2026-10-20",
+      "commit": "e156fe4",
+      "event": "the-second-ai-winter",
+      "kind": "fact",
+      "was": "; expert systems prove brittle and unmaintainable.",
+      "now": ", and expert systems, which John McCarthy had called brittle, grow harder to change as their rules multiply.",
+      "why": "Expert systems did not prove unmaintainable. DEC's own engineers wrote in 1987 that XCON, grown to 6,200 rules of which about half changed every year, performed satisfactorily but was becoming more difficult to change, and that they were rewriting it in a new language to ease its maintenance. Brittle was John McCarthy's word in 1984, for systems difficult to extend beyond the scope their designers had in mind; the card now gives it to him.",
+      "source": {
+        "publisher": "Proceedings of the Sixth National Conference on Artificial Intelligence, AAAI-87 (AAAI)",
+        "title": "Assessing the Maintainability of XCON-in-RIME: Coping with the Problems of a VERY Large Rule-Base (Elliot Soloway, Judy Bachant and Keith Jensen)",
+        "url": "https://cdn.aaai.org/AAAI/1987/AAAI87-148.pdf"
+      }
+    },
+    {
+      "id": "second-winter-funding-rose-until-1988",
+      "date": "2026-10-20",
+      "commit": "e156fe4",
+      "where": {
+        "file": "data/spine.json",
+        "id": "7"
+      },
+      "kind": "fact",
+      "was": "and the funding goes away again.",
+      "now": "and the companies built on them run into losses as DARPA cuts back.",
+      "why": "The money did not go away. Federal funding for AI research rose from $106 million in 1984 to $274 million in 1988, by the National Research Council's figures, and DARPA's cuts came at the end of the decade: a trade report of June 1988 expected cuts of ten to thirty-three per cent in its AI research. What fell first was the business, with the leading expert-systems companies and Symbolics in losses in 1987–88.",
+      "source": {
+        "publisher": "National Research Council (National Academies Press)",
+        "title": "Funding a Revolution: Government Support for Computing Research, chapter 9: Developments in Artificial Intelligence",
+        "url": "https://nap.nationalacademies.org/read/6323/chapter/11"
+      }
+    },
+    {
+      "id": "ibm-1988-paper-had-no-translations-yet",
+      "date": "2026-10-20",
+      "commit": "e156fe4",
+      "event": "statistical-machine-translation",
+      "kind": "fact",
+      "was": "IBM's statistical models learn translation from bilingual corpora instead of hand-written grammar.",
+      "now": "At IBM, Peter Brown and colleagues propose learning translation by statistics from the Canadian parliament's debates, kept in English and French, with little use of grammar. Their first translations followed in 1990.",
+      "why": "In 1988 the models did not yet translate. The COLING paper outlines the approach, says its authors are not yet able to give examples of French–English translation and offers intermediate results instead; the first translations came in their paper of 1990, reasonable by the authors' own measure 48% of the time, on 73 sentences and a 1,000-word English vocabulary. Instead of hand-written grammar also made a principle of what the 1988 paper calls an omission that is not essential: it says very little about conventional grammars and keeps an open mind, and in 1993 the authors described their algorithms as having minimal linguistic content. The texts were the Hansards, the proceedings of the Canadian parliament, kept in both French and English.",
+      "source": {
+        "publisher": "Proceedings of COLING 1988, Budapest (ACL Anthology)",
+        "title": "A Statistical Approach to Language Translation (P. Brown, J. Cocke, S. Della Pietra, V. Della Pietra, F. Jelinek, R. Mercer and P. Roossin)",
+        "url": "https://aclanthology.org/C88-1016.pdf"
+      }
+    },
+    {
+      "id": "statistics-did-not-win-at-once",
+      "date": "2026-10-20",
+      "commit": "e156fe4",
+      "event": "statistical-machine-translation",
+      "kind": "framing",
+      "was": "Data beats rules — the lesson the field relearns every fifteen years.",
+      "now": "Statistics did not win at once. In ARPA's tests of 1992 and 1993, by the IBM group's account, its system wrote more fluent English than Systran, a commercial system some considered the world's best, but kept less of the meaning. In 2005 Google's statistical system topped NIST's evaluation by the BLEU score, yet most commercial systems, Google said the next year, were still built on rules.",
+      "why": "The fifteen-year cycle had no source, and the lesson was not learned at once. In the ARPA evaluations of 1992 and 1993, as the IBM group reported in 1994, its system scored above Systran on fluency, .511 and .580 against .466 and .540, but below it on adequacy, the measure of how much of the meaning comes through, .575 and .670 against .686 and .743. In NIST's evaluation of 2005 Google's statistical system had the highest BLEU score in both language pairs, while Google's post of April 2006 says most commercial systems were still rule-based and needed linguists to define vocabularies and grammars. The authors themselves wrote in 1993 that they meant neither to ignore linguistics nor to replace it.",
+      "source": {
+        "publisher": "Human Language Technology: Proceedings of a Workshop held at Plainsboro, New Jersey, March 1994 (ACL Anthology)",
+        "title": "The Candide System for Machine Translation (Adam L. Berger, Peter F. Brown, Stephen A. Della Pietra, Vincent J. Della Pietra, John R. Gillett, John D. Lafferty, Robert L. Mercer, Harry Printz and Luboš Ureš)",
+        "url": "https://aclanthology.org/H94-1028.pdf"
+      }
+    },
+    {
+      "id": "learning-on-the-board-before-1988",
+      "date": "2026-10-20",
+      "commit": "e156fe4",
+      "where": {
+        "file": "data/glossary.json",
+        "id": "machine-learning"
+      },
+      "kind": "fact",
+      "was": "everything before is mostly rules written by hand.",
+      "now": "many of those before are rules written by hand.",
+      "why": "The second of two unsourced alls in the sentence; the first, about the board after 1988, was corrected the same day. Learning was on the board well before 1988: in the perceptron, Samuel's checkers player and the backpropagation paper of 1986, whose procedure adjusts a network's weights from examples. Many says what the board shows.",
+      "source": {
+        "publisher": "Nature (Wayback Machine capture)",
+        "title": "Learning representations by back-propagating errors (David E. Rumelhart, Geoffrey E. Hinton and Ronald J. Williams)",
+        "url": "https://web.archive.org/web/20261001185007/https://www.nature.com/articles/323533a0"
+      }
+    },
+    {
+      "id": "web-proposal-was-about-cerns-information",
+      "date": "2026-10-20",
+      "commit": "e156fe4",
+      "event": "the-world-wide-web-is-proposed",
+      "kind": "fact",
+      "was": "Tim Berners-Lee's memo begins the accumulation of the corpus that later trains everything.",
+      "now": "At CERN, Tim Berners-Lee proposes a distributed hypertext system for managing information about the laboratory's accelerators and experiments. In 1990, writing the code, he named it the World Wide Web.",
+      "why": "The proposal was about CERN's own information: its first line says it concerns the management of general information about accelerators and experiments at CERN, and it proposes a distributed hypertext system. It began no corpus, and nothing on the record says the web's text later trains everything; GPT-3's own paper lists what trained that model, and not all of it was web pages. Berners-Lee's note on the copy at w3.org says the only name he had for it then was Mesh, and that he chose World Wide Web when writing the code in 1990. The reading moves to the card's why, on GPT-3's own figures.",
+      "source": {
+        "publisher": "CERN (copy hosted by the World Wide Web Consortium, w3.org)",
+        "title": "Information Management: A Proposal (Tim Berners-Lee)",
+        "url": "https://www.w3.org/History/1989/proposal.html"
+      }
+    },
+    {
+      "id": "gpt-3-most-not-all-text-from-the-web",
+      "date": "2026-10-20",
+      "commit": "e156fe4",
+      "where": {
+        "file": "data/links.json",
+        "id": "the-world-wide-web-is-proposed>gpt-3"
+      },
+      "kind": "fact",
+      "was": "accumulated the text that trained",
+      "now": "accumulated most of the text that trained",
+      "why": "Not all of GPT-3's training text came from web pages. Its paper's mix was 60% filtered Common Crawl, 22% WebText2 and 3% Wikipedia; the other 16% came from two internet-based books corpora, Books1 and Books2.",
+      "source": {
+        "publisher": "arXiv (OpenAI)",
+        "title": "Language Models are Few-Shot Learners (Tom B. Brown et al.)",
+        "url": "https://arxiv.org/pdf/2005.14165"
+      }
+    },
+    {
+      "id": "robot-word-josef-capeks",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "event": "r-u-r-gives-us-the-word-robot",
+      "kind": "attribution",
+      "was": "Karel Čapek's play stages artificial workers who rebel, and hands the language a name for the anxiety.",
+      "now": "Karel Čapek's play, published in 1920, stages artificial workers who rebel. Its word for them, robot, was his brother Josef's, Karel wrote in 1933.",
+      "why": "The word was not Karel Čapek's own, by his account in Lidové noviny on 24 December 1933: he had thought of calling the artificial workers laboři, and his brother Josef, painting with a brush in his mouth, told him to call them roboti. That it handed the language a name for an anxiety had no source, and the fear it came to carry, of machines taking people's place, is one the author disowned in 1935. The play was in print in 1920 and first staged in January 1921. Čapek's own words of 1935, that his robots were not mechanisms but were made by a chemical path, now stand in the card's reading.",
+      "source": {
+        "publisher": "Lidové noviny (text reprinted by Novinky.cz)",
+        "title": "O slově robot (Karel Čapek)",
+        "url": "https://www.novinky.cz/historie/clanek/pred-130-lety-se-narodil-literarni-velikan-ktery-dal-svetu-robota-toto-slovo-vsak-nevymyslel-40309280"
+      }
+    },
+    {
+      "id": "maschinenmensch-schulze-mittendorffs",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "event": "metropolis",
+      "kind": "attribution",
+      "was": "Fritz Lang's Maschinenmensch fixes the humanoid machine in the visual imagination for a century.",
+      "now": "Fritz Lang's film of Thea von Harbou's novel premieres in Berlin. Its Maschinenmensch, a steel robot given the likeness of the workers' leader Maria, is the work of the sculptor Walter Schulze-Mittendorff.",
+      "why": "The machine-man was not Lang's alone. The film is based on Thea von Harbou's novel of 1925, in which Fredersen orders machine-men from the inventor Rotwang, and she wrote the screenplay, with Lang uncredited; the figure itself was made by the sculptor Walter Schulze-Mittendorff, whose biography on the German film institute's filmportal says he created the Machine Man Maria. That it fixed the humanoid machine in the imagination for a century had no source, and a century has not yet passed since the premiere; an attributed reading now stands in the card's why.",
+      "source": {
+        "publisher": "DFF – Deutsches Filminstitut & Filmmuseum (filmportal.de; biography by Bertina Schulze-Mittendorff)",
+        "title": "Walter Schulze-Mittendorff",
+        "url": "https://www.filmportal.de/en/person/walter-schulze-mittendorff_f2ffd2d9bea38862e03053d50b370800"
+      }
+    },
+    {
+      "id": "godel-did-not-open-the-argument-about-machine-minds",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "event": "godel-s-incompleteness-theorems",
+      "kind": "framing",
+      "was": "The first hard limit on formal reasoning, and the opening move in a debate about machine minds that never closed.",
+      "now": "It limits what any one formal system can prove. Turing, in 1950, answered the objection that it and results like it show machines to be limited in a way people are not; J. R. Lucas argued in 1961 that it proves minds cannot be explained as machines.",
+      "why": "No source made the theorems the first limit on formal reasoning, and the debate about machine minds did not open with them: the paper of 1950 in which Turing answers the objection drawn from Gödel's theorem also answers Lady Lovelace's, from her memoir of 1842, and Gödel's paper itself says nothing of minds or machines. Turing weighed the argument from the late 1940s, by the Stanford Encyclopedia's account, and answered it in 1950; Lucas pressed it in 1961. That the debate never closed had no source.",
+      "source": {
+        "publisher": "Mind (transcription hosted by the University of Maryland, Baltimore County)",
+        "title": "Computing Machinery and Intelligence (A. M. Turing)",
+        "url": "https://redirect.cs.umbc.edu/courses/471/papers/turing.pdf"
+      }
+    },
+    {
+      "id": "turing-called-his-result-quite-different-from-godels",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "where": {
+        "file": "data/links.json",
+        "id": "godel-s-incompleteness-theorems>on-computable-numbers"
+      },
+      "kind": "framing",
+      "was": "set the limit Turing extended in",
+      "now": "ruled out a quick answer to the problem settled in",
+      "why": "Turing did not present his result as an extension of Gödel's. His paper calls its conclusions superficially similar to Gödel's and what it proves quite different; the link it draws is that, had the negation of Gödel's result been proved, the Entscheidungsproblem would have had an immediate solution. Gödel, for his part, later credited Turing's definition of a formal system with making his theorems fully general, the Stanford Encyclopedia records.",
+      "source": {
+        "publisher": "Proceedings of the London Mathematical Society (transcription hosted by the University of Oxford, Department of Computer Science)",
+        "title": "On Computable Numbers, with an Application to the Entscheidungsproblem (A. M. Turing)",
+        "url": "https://www.cs.ox.ac.uk/activities/ieg/e-library/sources/tp2-ie.pdf"
+      }
+    },
+    {
+      "id": "the-decision-limit-is-turings",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "where": {
+        "file": "data/people.json",
+        "id": "kurt-godel"
+      },
+      "kind": "attribution",
+      "was": "The result is the fence around everything a machine can be asked to decide.",
+      "now": "The limit on what a machine can decide is Turing's, of 1936, which he called quite different from Gödel's results.",
+      "why": "The fence around what a machine can decide is Turing's, on the board's own record and on Turing's: his paper of 1936 calls what it proves quite different from the well-known results of Gödel, and in 1950 he wrote that his result refers directly to machines, while the others can be used only in a comparatively indirect argument. Gödel's theorems limit what a formal system can prove.",
+      "source": {
+        "publisher": "Proceedings of the London Mathematical Society (transcription hosted by the University of Oxford, Department of Computer Science)",
+        "title": "On Computable Numbers, with an Application to the Entscheidungsproblem (A. M. Turing)",
+        "url": "https://www.cs.ox.ac.uk/activities/ieg/e-library/sources/tp2-ie.pdf"
+      }
+    },
+    {
+      "id": "hilbert-programme-generally-taken-to-be-ruled-out",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "where": {
+        "file": "data/people.json",
+        "id": "david-hilbert"
+      },
+      "kind": "framing",
+      "was": "the programme — to put all of mathematics on a finite, checkable footing — that Gödel and Turing answered in the negative.",
+      "now": "the programme — to put all of mathematics on a finite, checkable footing — that Gödel's theorems are generally taken to rule out, and whose decision problem Turing answered in the negative.",
+      "why": "Gödel did not answer the programme in the negative in 1931: his paper notes expressly that its theorem on consistency proofs is no contradiction of Hilbert's formalistic standpoint, since finitary proofs that cannot be stated in his system are conceivable. He came to hold, after Turing's definition of a formal system, that the theorems refuted the programme; that they are generally taken to show it cannot be carried out is the Stanford Encyclopedia's reading, which Hilbert's card already gives. Turing answered the programme's decision problem, not the programme.",
+      "source": {
+        "publisher": "Monatshefte für Mathematik und Physik (English translation by B. Meltzer; course copy, University of the Basque Country)",
+        "title": "On Formally Undecidable Propositions of Principia Mathematica and Related Systems (Kurt Gödel)",
+        "url": "https://gtts.ehu.es/German/Docencia/2021/MTBYC/pdf/Godel.pdf"
+      }
+    },
+    {
+      "id": "shannon-thesis-an-algebra-for-circuits",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "event": "switching-circuits-are-boolean-algebra",
+      "kind": "framing",
+      "was": "Claude Shannon's master's thesis shows electrical relays can compute logic.",
+      "now": "Claude Shannon's master's thesis at MIT shows that Boolean algebra describes relay and switching circuits, so that a circuit can be analysed, or designed to order, by calculation.",
+      "why": "The thesis gives relay circuits an algebra. That relays could carry out logical operations was not its result: they already did, in automatic telephone exchanges and industrial motor controls, as its first paragraph says, and the thesis mentions using circuits to represent logical relations only as the analogy run the other way, with results it calls of no importance there. Its result is a calculus, shown to be exactly analogous to the calculus of propositions, in which each circuit is written as equations, used both to analyse a given circuit and to find a circuit with given characteristics. N. J. A. Sloane and A. D. Wyner, editors of his collected papers, sum the thesis up as Boolean algebra used in the analysis and synthesis of switching circuits.",
+      "source": {
+        "publisher": "Transactions of the American Institute of Electrical Engineers, vol. 57 (course copy, Iowa State University)",
+        "title": "A Symbolic Analysis of Relay and Switching Circuits (Claude E. Shannon)",
+        "url": "https://home.engineering.iastate.edu/alexs/classes/2022_Fall_281/readings/Shannon_1938.pdf"
+      }
+    },
+    {
+      "id": "shannon-not-the-only-bridge",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "event": "switching-circuits-are-boolean-algebra",
+      "kind": "framing",
+      "was": "Thought becomes wiring — the bridge from mathematics to hardware.",
+      "now": "The analogy runs both ways: a circuit can be checked and simplified as algebra, and any operation that can be described in a finite number of steps with the words 'if', 'or' and 'and', Shannon writes, can be done automatically with relays. Others found the link independently in the Soviet Union and in Japan, Toma Kawanishi records, but Shannon's work overshadowed theirs.",
+      "why": "Shannon's was not the only bridge. Research linking relay circuits to Boolean algebra began independently in the 1930s in the United States, with Shannon, in the Soviet Union, with Viktor Shestakov, and in Japan, with Akira Nakashima of NEC and his colleague Masao Hanzawa, the historian Toma Kawanishi writes, though Shannon has overshadowed the others. What the thesis itself says of the hardware side is that any operation that can be completely described in a finite number of steps with if, or and and can be done automatically with relays.",
+      "source": {
+        "publisher": "Historia Scientiarum, History of Science Society of Japan (J-STAGE)",
+        "title": "Prehistory of Switching Theory in Japan: Akira Nakashima and His Relay-circuit Theory (Toma Kawanishi)",
+        "url": "https://www.jstage.jst.go.jp/article/historiascientiarum/29/1/29_136/_pdf"
+      }
+    },
+    {
+      "id": "shannon-thesis-not-tied-to-the-edvac",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "where": {
+        "file": "data/links.json",
+        "id": "switching-circuits-are-boolean-algebra>the-stored-program-computer"
+      },
+      "kind": "fact",
+      "was": "turned logic into the circuits of",
+      "now": "gave circuit design an algebra before",
+      "why": "Nothing on the record ties Shannon's thesis to the EDVAC. Von Neumann's report of 1945 builds its logic from idealised neurons and cites McCulloch and Pitts for them; besides them it names only Aiken, Stibitz and Mauchly, for a multiplication scheme, an arithmetic trick and a rounding rule. Shannon is not in it, and Eckert's, Goldstine's and Warren's accounts of the work do not connect him to it. What the record does show is the order: Shannon's algebra of switching circuits is dated 1937, eight years before the report.",
+      "source": {
+        "publisher": "Moore School of Electrical Engineering, University of Pennsylvania (edition corrected by Michael D. Godfrey; course copy, Australian National University)",
+        "title": "First Draft of a Report on the EDVAC (John von Neumann)",
+        "url": "https://comp.anu.edu.au/courses/comp2310-2020/Papers/1945/von%20Neumann/The%20First%20Draft%20Report%20on.pdf"
+      }
+    },
+    {
+      "id": "mcculloch-pitts-justified-turings-definition",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "event": "the-mcculloch-pitts-neuron",
+      "kind": "fact",
+      "was": "A brain cell is modelled as a logical threshold unit: the first claim that thinking might be computable.",
+      "now": "Warren McCulloch and Walter Pitts treat nerve cells as all-or-none units with thresholds, show that their nets realise logical expressions, and argue that an organism can compute just what a Turing machine can.",
+      "why": "The paper does not claim to be the first to make thinking computable. It offers itself as a psychological justification of Turing's definition of computability, published in 1936 and on the board, and argues that any number an organism can compute is computable by that definition, and conversely. What it does claim is that nets of all-or-none neurons, each fired only when enough of its synapses are excited at once, can be described in propositional logic, and that for any logical expression meeting certain conditions a net can be found that behaves as it describes.",
+      "source": {
+        "publisher": "Bulletin of Mathematical Biology, vol. 52, 1990 reprint (course copy, Carnegie Mellon University)",
+        "title": "A Logical Calculus of the Ideas Immanent in Nervous Activity (Warren S. McCulloch and Walter Pitts)",
+        "url": "https://www.cs.cmu.edu/~epxing/Class/10715/reading/McCulloch.and.Pitts.pdf"
+      }
+    },
+    {
+      "id": "mcculloch-pitts-a-launch-pad",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "event": "the-mcculloch-pitts-neuron",
+      "kind": "framing",
+      "was": "Everything called a neural network descends from this abstraction.",
+      "now": "The Nobel committee called it in 2024 a launch pad for later research into neural networks, biological and artificial.",
+      "why": "Nothing on the record says that everything called a neural network descends from the paper. Rosenblatt, whose perceptron the board strings to it, counted McCulloch and Pitts in 1958 among the authors of brain models that were logical contrivances, and built his own in probability theory on the position of Hebb and Hayek. The Nobel committee's background of 2024 says what the record bears out: their work became a launch pad for later research into both biological and artificial neural networks. The register's entry of 11 September 2026, which took out the two pages, is untouched: the paper's length is not stated.",
+      "source": {
+        "publisher": "The Nobel Committee for Physics, Royal Swedish Academy of Sciences (nobelprize.org)",
+        "title": "Scientific Background to the Nobel Prize in Physics 2024 (The Nobel Committee for Physics)",
+        "url": "https://www.nobelprize.org/uploads/2024/11/advanced-physicsprize2024-3.pdf"
+      }
+    },
+    {
+      "id": "perceptron-recast-mcculloch-pitts-in-probability",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "where": {
+        "file": "data/links.json",
+        "id": "the-mcculloch-pitts-neuron>the-perceptron"
+      },
+      "kind": "framing",
+      "was": "became the hardware of",
+      "now": "was recast in probability theory by",
+      "why": "The perceptron was not built of McCulloch and Pitts's neurons. Rosenblatt's paper of 1958 lists their model among brain models that amount to logical contrivances for particular algorithms, and says that analysing systems whose precise structure is unknown led him to formulate his own in terms of probability theory rather than symbolic logic. His units do fire, as theirs do, all or nothing once their summed input reaches a threshold; but the Mark I's hardware, by the perceptron card's own figures, was photocells and weights turned by motors.",
+      "source": {
+        "publisher": "Psychological Review, vol. 65 (copy hosted by the University of Illinois Chicago)",
+        "title": "The Perceptron: A Probabilistic Model for Information Storage and Organization in the Brain (F. Rosenblatt)",
+        "url": "https://homepages.math.uic.edu/~lreyzin/papers/rosenblatt58.pdf"
+      }
+    },
+    {
+      "id": "mcculloch-bio-no-first-network-on-paper",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "where": {
+        "file": "data/people.json",
+        "id": "warren-mcculloch"
+      },
+      "kind": "fact",
+      "was": "With Walter Pitts, modelled the nerve cell as a logic gate in 1943 — the first neural network on paper, and the reason the word 'neuron' survived into the deep-learning decade.",
+      "now": "With Walter Pitts, modelled the nerve cell as a logic gate in 1943 — a launch pad, the Nobel committee wrote in 2024, for later research into neural networks, biological and artificial.",
+      "why": "No primary on the record makes the 1943 paper the first neural network on paper: Rosenblatt in 1958 put it in a list of brain models of the same logical kind that begins with Rashevsky's book of 1938, and the Nobel committee's background of 2024 says only that McCulloch and Pitts proposed their model as early as 1943, and that their work became a launch pad for later research into biological and artificial neural networks, which the file now says. Nor does any source say the word neuron survived because of them; the board's own glossary says only that the field kept the word 'neural'.",
+      "source": {
+        "publisher": "The Nobel Committee for Physics, Royal Swedish Academy of Sciences (nobelprize.org)",
+        "title": "Scientific Background to the Nobel Prize in Physics 2024 (The Nobel Committee for Physics)",
+        "url": "https://www.nobelprize.org/uploads/2024/11/advanced-physicsprize2024-3.pdf"
+      }
+    },
+    {
+      "id": "neural-network-glossary-no-first",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "where": {
+        "file": "data/glossary.json",
+        "id": "neural-network"
+      },
+      "kind": "fact",
+      "was": "McCulloch and Pitts drew the first one in 1943 as a model of the nerve cell",
+      "now": "McCulloch and Pitts drew them in 1943 as a model of how the brain's nerve cells work together",
+      "why": "The 1943 paper models nets of neurons, not the single cell: the Nobel committee calls it a model for how the neurons in the brain cooperate. That it was the first neural network is in no primary on the record, and the first goes, as on McCulloch's file.",
+      "source": {
+        "publisher": "The Nobel Committee for Physics, Royal Swedish Academy of Sciences (nobelprize.org)",
+        "title": "Scientific Background to the Nobel Prize in Physics 2024 (The Nobel Committee for Physics)",
+        "url": "https://www.nobelprize.org/uploads/2024/11/advanced-physicsprize2024-3.pdf"
+      }
+    },
+    {
+      "id": "edvac-credit-disputed",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "event": "the-stored-program-computer",
+      "kind": "attribution",
+      "was": "Von Neumann's EDVAC report describes machines that hold instructions in the same memory as data.",
+      "now": "Von Neumann's draft report on the EDVAC has the machine take its orders from the memory that holds its numbers. Eckert said von Neumann more or less claimed the team's work as his own; Goldstine credited von Neumann.",
+      "why": "The report is von Neumann's; whose ideas it set down is disputed, and the card gave them to him alone. J. Presper Eckert, co-inventor of the ENIAC with John Mauchly, told the Charles Babbage Institute in 1977 that von Neumann grasped what they were doing quite quickly and then more or less claimed it as his own. The report names Mauchly once, for a rounding rule, and Eckert not at all, and S. Reid Warren, the Moore School's supervisor of the EDVAC project, agreed that putting it out without proper acknowledgement was unethical. Herman Goldstine said in 1980 that in his mind von Neumann invented the stored program, owing Turing a debt he could not measure. The report describes one machine, the EDVAC, whose control takes its orders from the same place where the numbers are stored.",
+      "source": {
+        "publisher": "Charles Babbage Institute, University of Minnesota (OH 13; University Digital Conservancy)",
+        "title": "An Interview with J. Presper Eckert (interview by Nancy Stern)",
+        "url": "https://conservancy.umn.edu/server/api/core/bitstreams/7de38347-6391-4c97-a1b5-725fe083187e/content"
+      }
+    },
+    {
+      "id": "fire-together-wire-together-is-from-1992",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "event": "hebbian-learning",
+      "kind": "attribution",
+      "was": "Neurons that fire together wire together — Donald Hebb gives learning a physical mechanism.",
+      "now": "Donald Hebb postulates that when one nerve cell repeatedly takes part in firing another, some growth or metabolic change makes it better at doing so. The slogan “cells that fire together wire together” came in 1992.",
+      "why": "The slogan is not Hebb's. Stanford's magazine credits Carla Shatz with coining it, and she printed it in Scientific American in September 1992; Siegrid Löwel and Wolf Singer wrote in Science the same year that neurons wire together if they fire together. Hebb's own words, in The Organization of Behavior, are a postulate: when an axon of cell A repeatedly or persistently takes part in firing cell B, some growth process or metabolic change makes A more efficient as one of the cells firing B. He put it forward as an assumption, under the heading of a neurophysiological postulate, and the Nobel committee writes that he proposed a mechanism for learning and memories.",
+      "source": {
+        "publisher": "John Wiley & Sons (scan, Digital Library of India, Internet Archive)",
+        "title": "The Organization of Behavior: A Neuropsychological Theory (D. O. Hebb)",
+        "url": "https://archive.org/stream/in.ernet.dli.2015.168156/2015.168156.The-Organization-Of-Behavior-A-Neuropsychological-Theory_djvu.txt"
+      },
+      "alsoIn": [
+        {
+          "file": "data/people.json",
+          "id": "donald-hebb"
+        }
+      ]
+    },
+    {
+      "id": "hebb-not-every-learning-rule",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "where": {
+        "file": "data/people.json",
+        "id": "donald-hebb"
+      },
+      "kind": "fact",
+      "was": "Every learning rule on the board, backpropagation included, is a formalisation of the idea.",
+      "now": "Rumelhart, Hinton and McClelland wrote in 1986 that virtually all learning rules for networks like theirs, the delta rule among them, could be considered variants of his rule.",
+      "why": "Not every learning rule on the board formalises Hebb's postulate: the board's reinforcement learners learn from a reward, and backpropagation from an error, neither of which the postulate mentions. The authors of backpropagation claimed less in the second chapter of Parallel Distributed Processing: virtually all learning rules for models of their type can be considered a variant of Hebb's, among them the delta rule, which learns from the difference between the activation a unit reaches and the target a teacher gives.",
+      "source": {
+        "publisher": "Parallel Distributed Processing, vol. 1, MIT Press (James McClelland's copy, Stanford University; Wayback Machine capture)",
+        "title": "A General Framework for Parallel Distributed Processing (D. E. Rumelhart, G. E. Hinton and J. L. McClelland)",
+        "url": "https://web.archive.org/web/20260514140214/https://web.stanford.edu/~jlmcc/papers/PDP/Chapter2.pdf"
+      }
+    },
+    {
+      "id": "snarc-not-settled-as-the-first",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "event": "snarc-the-first-neural-net-machine",
+      "kind": "fact",
+      "was": "SNARC, the first neural net machine",
+      "now": "SNARC, a learning machine of forty neurons",
+      "why": "No primary on the record makes SNARC the first neural-net machine. Minsky's own biography claims a narrower first, the first randomly wired neural network learning machine; Jeremy Bernstein, who interviewed Minsky for The New Yorker in 1981, called it one of the first electronic learning machines, and perhaps the very first; the MIT Media Lab's memorial page calls it the first neural network simulator. The title now says what Minsky said it was, forty neurons that learned, and the card's reading carries the firsts, attributed. The register's entry of 20 October 2026 (minsky-snarc-one-of-the-first) took the same first out of Minsky's file; the card now follows it. The id keeps its old words.",
+      "source": {
+        "publisher": "Marvin Minsky's home page, MIT Media Lab (copy hosted at web.mit.edu)",
+        "title": "Brief Academic Biography of Marvin Minsky",
+        "url": "https://web.mit.edu/dxh/www/marvin/web.media.mit.edu/~minsky/minskybiog.html"
+      }
+    },
+    {
+      "id": "snarc-three-hundred-tubes",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "event": "snarc-the-first-neural-net-machine",
+      "kind": "figure",
+      "was": "Minsky and Edmonds wire 3,000 vacuum tubes into a machine that learns to run a maze.",
+      "now": "Marvin Minsky and Dean Edmonds, graduate students at Princeton, build at Harvard a machine of about three hundred vacuum tubes in which a simulated rat learns its way through a maze.",
+      "why": "Minsky told Jeremy Bernstein in 1981 that the machine had three hundred tubes, nearly three hundred with the thousands of connections soldered, from a design of six tubes and a motor for each of its forty neurons: not three thousand. He and Edmonds, graduate students at Princeton in mathematics and in physics, built it at Harvard in the summer of 1951. The machine did not itself run a maze: a simulated rat, made of its forty neurons, learned a path through a copy of a maze Claude Shannon had built, as Minsky told Web of Stories in 2011.",
+      "source": {
+        "publisher": "The New Yorker",
+        "title": "A.I. (Jeremy Bernstein)",
+        "url": "https://www.newyorker.com/magazine/1981/12/14/a-i"
+      }
+    },
+    {
+      "id": "snarc-built-at-harvard",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "event": "snarc-the-first-neural-net-machine",
+      "kind": "attribution",
+      "was": "MIT",
+      "now": "no organisation; the summary names Harvard and Princeton",
+      "why": "MIT had no part in SNARC. Minsky and Edmonds were graduate students at Princeton who built it at Harvard in the summer of 1951, with money George Miller of Harvard found; Minsky and McCarthy set up their group at MIT in 1958, Bernstein records. The board has no file for Harvard or Princeton, and the summary now names both. The field goes.",
+      "source": {
+        "publisher": "The New Yorker",
+        "title": "A.I. (Jeremy Bernstein)",
+        "url": "https://www.newyorker.com/magazine/1981/12/14/a-i"
+      }
+    },
+    {
+      "id": "perceptron-proposed-in-1957",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "event": "the-perceptron",
+      "kind": "fact",
+      "was": "Frank Rosenblatt builds a machine that learns from examples;",
+      "now": "Frank Rosenblatt proposes a machine that learns from examples.",
+      "why": "Rosenblatt built nothing in 1957. His report of January 1957 proposed the machine, which the Nobel committee's background of 2024 describes as proposed that year; in 1958 his paper in Psychological Review still called it a hypothetical nervous system, or machine. The Office of Naval Research's newsletter of July 1960 says the Mark I was built to prove a concept that had until then been simulated on digital computers.",
+      "source": {
+        "publisher": "Psychological Review, vol. 65, no. 6 (scan, University of Illinois Chicago)",
+        "title": "The perceptron: a probabilistic model for information storage and organization in the brain (F. Rosenblatt)",
+        "url": "https://homepages.math.uic.edu/~lreyzin/papers/rosenblatt58.pdf"
+      }
+    },
+    {
+      "id": "perceptron-walking-was-the-navys-expectation",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "event": "the-perceptron",
+      "kind": "attribution",
+      "was": "the press predicts machines that walk and reproduce.",
+      "now": "In July 1958 the Navy shows it as a simulation on an IBM 704, and a wire report says the Navy expects it to walk, talk and reproduce itself.",
+      "why": "The press reported the prediction rather than making it: the United Press International report printed in The New York Times on 8 July 1958 says the Navy expects the machine to walk, talk, see, write, reproduce itself and be conscious of its existence. What the Office of Naval Research showed reporters in Washington was a simulation on a digital computer, as Mikel Olazaran's history records; the Mark I did not yet exist.",
+      "source": {
+        "publisher": "The New York Times (United Press International; Wayback Machine capture)",
+        "title": "New Navy Device Learns by Doing; Psychologist Shows Embryo of Computer Designed to Read and Grow Wiser",
+        "url": "https://web.archive.org/web/20251016122049/https://www.nytimes.com/1958/07/08/archives/new-navy-device-learns-by-doing-psychologist-shows-embryo-of.html"
+      }
+    },
+    {
+      "id": "perceptron-no-fifteen-year-cycle",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "event": "the-perceptron",
+      "kind": "framing",
+      "was": "The first full hype cycle: overclaim, backlash, winter. It repeats roughly every fifteen years.",
+      "now": "A full hype cycle: an overclaim, a backlash, then a hiatus in funding for neural networks. The shape recurs on the board, at no fixed interval.",
+      "why": "No source on the record makes this the first full hype cycle, and none sets a fifteen-year rhythm; the board's own winters fall in 1974 and 1987. What followed the 1969 book, in the Nobel committee's words, was a hiatus funding-wise for neural-network research, which the line now names in place of a winter. The card's file, which said the cycle had repeated on roughly fifteen-year turns since, now says the shape comes round again at no fixed interval.",
+      "source": {
+        "publisher": "The Nobel Committee for Physics, Royal Swedish Academy of Sciences (nobelprize.org)",
+        "title": "Scientific Background to the Nobel Prize in Physics 2024 (The Nobel Committee for Physics)",
+        "url": "https://www.nobelprize.org/uploads/2024/11/advanced-physicsprize2024-3.pdf"
+      }
+    },
+    {
+      "id": "mark-i-first-shown-in-1960",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "event": "the-perceptron",
+      "kind": "date",
+      "was": "400 photocells, wired to weights turned by motors, 1958",
+      "now": "400 photocells, wired to weights turned by motors; first shown in public in June 1960",
+      "why": "The Mark I did not exist in 1958: that summer Rosenblatt wrote that a working model was scheduled for completion within the next year. The Office of Naval Research's newsletter of July 1960 reports that the Mark I was demonstrated publicly for the first time in June, at Cornell Aeronautical Laboratory. The perceptron machine's notes, which gave its rule of correcting only wrong answers to Rosenblatt's paper of 1958, now give it to the laboratory's account of the Mark I of 1960: the 1958 paper reinforced every response, positively when it was right and negatively when it was wrong.",
+      "source": {
+        "publisher": "Office of Naval Research, Mathematical Sciences Division (scan, Defense Technical Information Center, Internet Archive)",
+        "title": "Digital Computer Newsletter, vol. 12, no. 3: Perceptron Mark I, Cornell Aeronautical Laboratory",
+        "url": "https://archive.org/download/DTIC_AD0694633/DTIC_AD0694633_djvu.txt"
+      }
+    },
+    {
+      "id": "perceptron-press-conference-ran-a-simulation",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "event": "the-perceptron",
+      "kind": "fact",
+      "was": "At its 1958 press conference the Navy said it expected the machine to walk, talk, see, write, reproduce itself and be conscious of its existence, and the newspapers printed it.",
+      "now": "At the Navy's press conference of July 1958, before the Mark I was built, the perceptron ran as a simulation on an IBM 704, and a United Press International report in The New York Times said the Navy expected the machine to walk, talk, see, write, reproduce itself and be conscious of its existence. Rosenblatt himself wrote that summer that a perceptron could in principle read print and script and respond to spoken commands, and later blamed the popular press, which he said fell to the task with the discretion of a pack of happy bloodhounds.",
+      "why": "The press conference was not the Mark I's: in July 1958 the machine was still being designed, and Rosenblatt demonstrated the perceptron as a simulation on a digital computer, an IBM 704, as Mikel Olazaran's history records from the reports of the day. The expectation that it would walk and talk is the Navy's as United Press International reported it; the board has no text of the Navy's own statement. Nor was the overclaim the Navy's and the newspapers' alone: Rosenblatt's own article in his laboratory's magazine, Research Trends, that summer says the perceptron can in principle read print and script and respond to verbal commands, and in 1961 he blamed the popular press for its handling of the first announcement.",
+      "source": {
+        "publisher": "Advances in Computers, vol. 37, Academic Press (copy hosted by gwern.net)",
+        "title": "A Sociological History of the Neural Network Controversy (Mikel Olazaran)",
+        "url": "https://gwern.net/doc/ai/nn/1993-olazaran.pdf"
+      }
+    },
+    {
+      "id": "perceptron-an-ancestor-not-every-networks",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "event": "the-perceptron",
+      "kind": "framing",
+      "was": "The machine itself was the ancestor of every network on the board; the press conference was the ancestor of every launch.",
+      "now": "The machine was an ancestor of the feedforward networks on the board, and the press conference an early model of its launches.",
+      "why": "Not every network on the board descends from the perceptron. The Nobel committee's background calls Rosenblatt's a feedforward network and describes a parallel development, inspired by magnetic systems, that led to recurrent networks such as Hopfield's, which has a card of its own. That every launch descends from the press conference had no source.",
+      "source": {
+        "publisher": "The Nobel Committee for Physics, Royal Swedish Academy of Sciences (nobelprize.org)",
+        "title": "Scientific Background to the Nobel Prize in Physics 2024 (The Nobel Committee for Physics)",
+        "url": "https://www.nobelprize.org/uploads/2024/11/advanced-physicsprize2024-3.pdf"
+      },
+      "alsoIn": [
+        {
+          "file": "data/people.json",
+          "id": "frank-rosenblatt"
+        }
+      ]
+    },
+    {
+      "id": "dartmouth-did-not-fund-the-perceptron",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "where": {
+        "file": "data/links.json",
+        "id": "dartmouth-names-the-field>the-perceptron"
+      },
+      "kind": "fact",
+      "was": "funded",
+      "now": "named the field Rosenblatt kept apart from",
+      "why": "The Dartmouth project funded nothing of Rosenblatt's: its summer ran on $7,500 from the Rockefeller Foundation, as the board's Dartmouth card says. The perceptron began in Cornell Aeronautical Laboratory's own research programme and was paid for from July 1957 by the Office of Naval Research, Rosenblatt wrote; and he set it apart from the field Dartmouth had named, writing that critics failed to see the difference in motivation between the perceptron programme and work on artificial intelligence.",
+      "source": {
+        "publisher": "Spartan Books (scan, Internet Archive)",
+        "title": "Principles of Neurodynamics: Perceptrons and the Theory of Brain Mechanisms, 1962 edition (Frank Rosenblatt)",
+        "url": "https://archive.org/download/principles-of-neurodynamics/Principles%20of%20neurodynamics_djvu.txt"
+      }
+    },
+    {
+      "id": "rosenblatt-promise-not-the-first-broken",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "where": {
+        "file": "data/people.json",
+        "id": "frank-rosenblatt"
+      },
+      "kind": "fact",
+      "was": "The promise was the first the field could not keep;",
+      "now": "The expectation ran far ahead of the machine;",
+      "why": "No source makes it the first promise the field could not keep, and the board's own Said in advance files earlier ones scored late: the Dartmouth proposal of August 1955 and Simon and Newell's forecasts of November 1957. Nor was this promise the field's own: by the United Press International report in The New York Times of 8 July 1958, the expectation was the Navy's.",
+      "source": {
+        "publisher": "The New York Times (United Press International; Wayback Machine capture)",
+        "title": "New Navy Device Learns by Doing; Psychologist Shows Embryo of Computer Designed to Read and Grow Wiser",
+        "url": "https://web.archive.org/web/20251016122049/https://www.nytimes.com/1958/07/08/archives/new-navy-device-learns-by-doing-psychologist-shows-embryo-of.html"
+      }
+    },
+    {
+      "id": "lisp-the-language-of-ai-by-the-1980s",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "event": "lisp",
+      "kind": "attribution",
+      "was": "John McCarthy's language treats code as data and becomes the lingua franca of AI research for thirty years.",
+      "now": "John McCarthy's list-processing language, implemented at MIT from 1958, writes its programs as lists, the data it computes with. By the mid-1980s, Guy Steele and Richard Gabriel write, it was the language of AI.",
+      "why": "No source on the record gives Lisp thirty years as the lingua franca of AI research. Guy Steele and Richard Gabriel, in their history of Lisp for the second History of Programming Languages conference, write that when Common Lisp was published, in 1984, AI was on the rise and Lisp was the language of AI; the same paper names Lisp and Prolog as the two perhaps foremost families of AI programming languages. That Lisp's programs are its own data stands, in McCarthy's account: the notation for LISP functions as LISP data was invented to write eval for his paper of 1960, with no thought that programs would be written in it, and S. R. Russell then hand-coded eval as the interpreter. The implementation began at MIT in the autumn of 1958.",
+      "source": {
+        "publisher": "ACM SIGPLAN Notices, vol. 28, no. 3, HOPL-II (copy hosted by Richard P. Gabriel, dreamsongs.com)",
+        "title": "The Evolution of Lisp (Guy L. Steele Jr. and Richard P. Gabriel)",
+        "url": "https://www.dreamsongs.com/Files/Hopl2.pdf"
+      }
+    },
+    {
+      "id": "mccarthy-proposal-of-1955",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "where": {
+        "file": "data/people.json",
+        "id": "john-mccarthy"
+      },
+      "kind": "date",
+      "was": "Coined 'artificial intelligence' for the 1956 Dartmouth proposal and invented Lisp two years later.",
+      "now": "Coined 'artificial intelligence' in the Dartmouth proposal of 1955 and invented Lisp in 1958.",
+      "why": "The proposal that coined the name is dated 31 August 1955, as the board's Dartmouth card records; the workshop it proposed ran in the summer of 1956. Lisp's implementation began in the autumn of 1958, by McCarthy's own history: three years after the proposal, not two.",
+      "source": {
+        "publisher": "AI Magazine (reprint of the 1955 proposal)",
+        "title": "A Proposal for the Dartmouth Summer Research Project on Artificial Intelligence",
+        "url": "https://ojs.aaai.org/aimagazine/index.php/aimagazine/article/download/1904/1802"
+      }
+    },
+    {
+      "id": "lisp-not-the-first-ai-language",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "where": {
+        "file": "data/people.json",
+        "id": "john-mccarthy"
+      },
+      "kind": "fact",
+      "was": "The field's name, and its first language, are his.",
+      "now": "The field's name, and one of its first programming languages, are his.",
+      "why": "Lisp was not the field's first language. McCarthy's own history records that at the Dartmouth meeting of 1956 Newell, Shaw and Simon described IPL 2, a list-processing language for the RAND Corporation's JOHNNIAC computer in which they had implemented their Logic Theorist; IBM's FORTRAN List Processing Language, used for its geometry program, also came before LISP.",
+      "source": {
+        "publisher": "Stanford University (John McCarthy's pages)",
+        "title": "History of Lisp: LISP prehistory, Summer 1956 through Summer 1958 (John McCarthy)",
+        "url": "https://www-formal.stanford.edu/jmc/history/lisp/node2.html"
+      }
+    },
+    {
+      "id": "machine-learning-in-print-before-samuel",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "event": "machine-learning-gets-its-name",
+      "kind": "attribution",
+      "was": "“Machine learning” gets its name",
+      "now": "Samuel's studies in machine learning",
+      "why": "The name did not begin with Samuel's paper of 1959. Andrew and Kathleen Booth's Automatic Digital Calculators of 1953 closes with sections on machine learning and intelligence, as A. C. Aitken's review in Nature of March 1955 records, and Werner Buchholz's review of its second edition in the Proceedings of the IRE of November 1956 mentions its tidbits of machine learning. What Samuel did in July 1959 was publish his checkers studies under that name.",
+      "source": {
+        "publisher": "Nature, vol. 175, no. 4455 (scan, Internet Archive)",
+        "title": "Automatic Digital Calculating Machines (A. C. Aitken), a review of Automatic Digital Calculators by Andrew D. Booth and Kathleen H. V. Booth (Butterworths, 1953)",
+        "url": "https://archive.org/stream/sim_nature-uk_1955-03-19_175_4455/sim_nature-uk_1955-03-19_175_4455_djvu.txt"
+      }
+    },
+    {
+      "id": "samuel-coined-it-is-ibms-account",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "event": "machine-learning-gets-its-name",
+      "kind": "attribution",
+      "was": "Samuel coins the term for programs that improve without being explicitly told how.",
+      "now": "Arthur Samuel writes up his checkers-playing program in the IBM Journal as a study in machine learning. IBM credits him with coining the term; it was in print by 1953.",
+      "why": "That Samuel coined the term is IBM's account; the phrase was in print six years earlier, in the Booths' Automatic Digital Calculators of 1953, the year Merriam-Webster gives for its first known use. Samuel's paper does not claim the coinage: it speaks of the subject of machine learning, to which he had given his spare time for some years. Nor does it say 'without being explicitly programmed': that line is a later paraphrase, which John Koza used in the 1990s with the words 'Paraphrasing Arthur Samuel (1959)'.",
+      "source": {
+        "publisher": "IBM",
+        "title": "The games that helped AI evolve",
+        "url": "https://www.ibm.com/history/early-games"
+      },
+      "alsoIn": [
+        {
+          "file": "data/people.json",
+          "id": "arthur-samuel"
+        },
+        {
+          "file": "data/glossary.json",
+          "id": "machine-learning"
+        }
+      ]
+    },
+    {
+      "id": "machine-learning-not-everything-after-1988",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "where": {
+        "file": "data/glossary.json",
+        "id": "machine-learning"
+      },
+      "kind": "framing",
+      "was": "Everything on the board after 1988 is a variant of this;",
+      "now": "Most of the methods on the board after 1988 are variants of this;",
+      "why": "Not everything: IBM says Deep Blue, on the board for 1997, derived its chess prowess through brute force computing power, and the board's own card calls it brute-force search with an evaluation function tuned with grandmasters' help. No source supports the 'everything'.",
+      "source": {
+        "publisher": "IBM",
+        "title": "Deep Blue",
+        "url": "https://www.ibm.com/history/deep-blue"
+      }
+    },
+    {
+      "id": "unimate-first-is-the-ifrs-account",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "event": "unimate-joins-the-assembly-line",
+      "kind": "attribution",
+      "was": "The first industrial robot starts work at a General Motors plant in New Jersey.",
+      "now": "A Unimate arm, which the International Federation of Robotics calls the first industrial robot, starts work at a General Motors plant in New Jersey, taking hot metal parts from a die-casting machine.",
+      "why": "The first is an attribution, not a fact the record settles. The International Federation of Robotics and IEEE Spectrum's robot guide call the Unimate the first industrial robot, and The Henry Ford, which holds a Unimate it says was the first installed, says that Unimate made the first successful industrial robots; Assembly magazine, on the fiftieth anniversary, said the Unimate was not the first robot to hit the market, AMF's Versatran having been developed a year earlier. The job, by IEEE Spectrum's and The Henry Ford's accounts, was taking hot metal parts from a die-casting machine.",
+      "source": {
+        "publisher": "International Federation of Robotics (ifr.org)",
+        "title": "History of industrial robots",
+        "url": "https://ifr.org/robot-history"
+      },
+      "alsoIn": [
+        {
+          "file": "data/glossary.json",
+          "id": "robot"
+        }
+      ]
+    },
+    {
+      "id": "office-computers-came-with-the-unimate",
+      "date": "2026-10-20",
+      "commit": "5ab8d55",
+      "event": "unimate-joins-the-assembly-line",
+      "kind": "fact",
+      "was": "Automation of the body arrives sixty years before automation of the desk, and the labour debate rhymes.",
+      "now": "Automation of the arm reaches the factory floor as the computer reaches the office desk, and the argument about jobs arrives with both. It rhymes with today's.",
+      "why": "Automation of the desk did not wait sixty years. In May 1960 the Bureau of Labor Statistics reported on twenty offices that had installed large-scale electronic computers for business data, and on the concern over staff adjustment that their introduction had brought; the next March American Machinist reported the Unimate as a robot designed to replace human labour in routine factory jobs. Both arguments were under way in the same years.",
+      "source": {
+        "publisher": "US Department of Labor, Bureau of Labor Statistics, Bulletin No. 1276 (copy hosted by FRASER, Federal Reserve Bank of St. Louis)",
+        "title": "Adjustments to the Introduction of Office Automation",
+        "url": "https://fraser.stlouisfed.org/files/docs/publications/bls/bls_1276_1960.pdf"
+      }
+    },
+    {
       "id": "lighthill-cost-confidence-not-all-funding",
       "date": "2026-10-20",
       "commit": "7f9ba1f",
