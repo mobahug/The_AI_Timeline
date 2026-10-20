@@ -52,7 +52,10 @@ Each source: `{ kind, publisher, title, url, date (YYYY-MM-DD), quote, supports 
 A source only `supports: "claim"` when it carries a verbatim `quote`; otherwise it is context.
 One url per entry, never twice. `npm run check:quotes -- --cards` fetches every page the cards'
 quotes cite and reports any quote not found in it character for character, with where the page
-parts from it; `-- --cards <id>` checks one card, as after an edit.
+parts from it; `-- --cards <id>` checks one card, as after an edit. It reads the quotes of checks,
+predictions and promises the same way: only runs of whitespace are folded, and a word a PDF
+breaks at a line's end is read whole, so it is quoted whole. A compound the PDF breaks at its own
+hyphen reads as one word too, so a quote does not cross one.
 
 ## `data/links.json` — array of strings
 

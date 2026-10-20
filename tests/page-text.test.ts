@@ -1,5 +1,5 @@
 import { afterEach, beforeAll, describe, it, expect, vi } from 'vitest';
-import { Unread, decode, flightOf, fold, nextDataOf, pace, pageText, parting, read, routeOf, textOf } from '../scripts/page-text';
+import { Unread, decode, flightOf, fold, nextDataOf, pace, pageText, parting, read, routeOf, textOf, unbroken } from '../scripts/page-text';
 
 /* The quote checker reads every cited page through scripts/page-text.ts. These
    hold its reading to small invented pages. No request leaves the machine:
@@ -28,6 +28,26 @@ describe('a page is reduced to the text a reader sees', () => {
 
   it('drops the zero-width characters Reuters and Guardian copies hide inside words', () => {
     expect(fold(textOf('<p>arti\u200Bficial intel\u200Cligence, word\u2060s, ze&#8203;ro</p>'))).toBe('artificial intelligence, words, zero');
+  });
+});
+
+describe('a PDF is read by its words, not by where its lines end', () => {
+  it('reads a word broken at a line’s end whole', () => {
+    const text = fold(unbroken('2. That within ten years a digital computer will discover and prove an im-\nportant new mathematical theorem.'));
+    expect(parting(text, 'That within ten years a digital computer will discover and prove an important new mathematical theorem.')).toBeNull();
+  });
+
+  it('keeps a hyphen inside a line, and one before a capital, a figure or a space', () => {
+    const lines = 'ill-structured, the Newell-Simon-\nShaw team, GPT-\n3.5, a pause -\nthen';
+    expect(unbroken(lines)).toBe(lines);
+  });
+
+  it('reads a compound broken at its own hyphen as one word too, as the text layer cannot tell them apart', () => {
+    expect(fold(unbroken('ill-\nstructured problems'))).toBe('illstructured problems');
+  });
+
+  it('leaves a web page’s lines alone, since its browser sets them', () => {
+    expect(fold(pageText('<p>The Rock-\nefeller Foundation</p>'))).toBe('The Rock- efeller Foundation');
   });
 });
 
