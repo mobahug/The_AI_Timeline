@@ -9,7 +9,7 @@ import type { CheckHead, Verdict } from './types';
    Every page may list a check from its head: the headline, the verdict, the
    reading in short and the cards it touches. The report, the primary accounts
    and the lines checked are its own pages' (bodies/checks.ts), and the line it
-   gives each card is printed there and on the card's dossier (bodies/notes.ts). */
+   gives each card is printed there and on the card's dossier (notes.ts). */
 
 export const CHECKS: CheckHead[] = raw.checks;
 export const checkById: Record<string, CheckHead> = Object.fromEntries(CHECKS.map((c) => [c.id, c]));

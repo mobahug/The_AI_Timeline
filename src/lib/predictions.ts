@@ -10,7 +10,7 @@ import type { Foretold, PredictionHead } from './types';
    The rest — the words, the verdict at length, the quotes, the sources — is
    most of the file, and only the prediction pages print it, from their chunk
    (bodies/predictions.ts); the line it gives each card is printed there and on
-   the card's dossier (bodies/notes.ts). */
+   the card's dossier (notes.ts). */
 
 export const PREDICTIONS: PredictionHead[] = heads.predictions.slice().sort((a, b) => a.said.localeCompare(b.said));
 export const predictionById: Record<string, PredictionHead> = Object.fromEntries(PREDICTIONS.map((p) => [p.id, p]));

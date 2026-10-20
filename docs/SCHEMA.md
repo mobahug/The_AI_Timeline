@@ -42,7 +42,9 @@ a string never runs backwards inside a year: `npm test` checks both.
 
 `why`, `detail`, `figures` and `sources` are the card's papers. The build serves them
 apart from the rest of the card (`scripts/split-events.ts`) and the site reads them
-only through `src/lib/papers.ts`; nothing changes in how they are written.
+only through `src/lib/papers.ts`; nothing changes in how they are written. It files two
+more with them that are not written on the card: the days the history dates it to, and
+the `note` each question, check, prediction and promise gives it.
 
 Each source: `{ kind, publisher, title, url, date (YYYY-MM-DD), quote, supports }`.
 `kind` is one of `primary, paper, article, video, podcast, interview, encyclopedia`.

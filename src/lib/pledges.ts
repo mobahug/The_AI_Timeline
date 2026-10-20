@@ -10,7 +10,7 @@ import type { PledgeHead, PledgeVerdict } from './types';
    Every page may list a promise from its head (scripts/split-events.ts). Its
    words, its reading and its sources are its own pages', which bring them in
    their chunk (bodies/pledges.ts), and the line it gives each card is printed
-   there and on the card's dossier (bodies/notes.ts). */
+   there and on the card's dossier (notes.ts). */
 
 export const PLEDGES: PledgeHead[] = heads.promises.slice().sort((a, b) => a.said.localeCompare(b.said));
 export const pledgeById: Record<string, PledgeHead> = Object.fromEntries(PLEDGES.map((p) => [p.id, p]));

@@ -5,7 +5,8 @@
 //
 //   data/events.json?cards    every card's head and the names its words use:
 //                             what the wall is drawn from, in the main bundle
-//   data/events.json?papers   every card's papers, by id: the browser imports
+//   data/events.json?papers   every card's papers, by id, with the two the build
+//                             files beside them (papersIn): the browser imports
 //                             it when a page needs it, the server imports it whole
 //
 // The other files of records are read in two parts the same way, `?heads` and
@@ -19,9 +20,10 @@ import { readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import type { Plugin } from 'vite';
+import { boardChangesOf } from './board-changes.ts';
 import { TAG, entitiesFrom, speaks, wordsOf } from '../src/lib/names.ts';
 import { PAPER_FIELDS } from '../src/lib/types.ts';
-import type { Entity, EventHead, EventRaw, Named, Papers } from '../src/lib/types.ts';
+import type { Entity, EventHead, EventRaw, Named, Notes, PaperField, Papers, QuestionRecord, WrittenField } from '../src/lib/types.ts';
 
 /** Every name on file, read whole from the three files in `dir`: all the rule
  *  below asks of them is their names, which the build has either way. */
@@ -57,14 +59,73 @@ export function headOf(card: EventRaw, entities?: Entity[]): EventHead {
   return head as EventHead;
 }
 
+/** A paper a card has written on it, rather than one the build files beside it. */
+const written = (f: PaperField): f is WrittenField => f !== 'kept' && f !== 'notes';
+
 /** A card's papers, as written: only the fields it has. */
 export function papersOf(card: EventRaw): Papers {
-  return Object.fromEntries(PAPER_FIELDS.filter((f) => card[f] !== undefined).map((f) => [f, card[f]])) as Papers;
+  return Object.fromEntries(PAPER_FIELDS.filter(written).filter((f) => card[f] !== undefined).map((f) => [f, card[f]])) as Papers;
 }
 
-const PARTS: Record<string, (cards: EventRaw[], dir: string) => unknown> = {
+/** The files whose records rest on cards with a line on each, by the kind of
+ *  record each holds. Each file's records sit under its own name. */
+const RESTING: Record<keyof Notes, string> = { question: 'questions', check: 'checks', prediction: 'predictions', promise: 'promises' };
+
+/** A kind's records in the order every page lists them: as written, but Said
+ *  in advance and Promises made by the day each was said, as
+ *  src/lib/predictions.ts and pledges.ts list them. */
+export function listed<R extends { said?: string }>(kind: keyof Notes, records: R[]): R[] {
+  return kind === 'prediction' || kind === 'promise' ? records.slice().sort((a, b) => (a.said || '').localeCompare(b.said || '')) : records;
+}
+
+/** The line each plain question, headline check, prediction and promise gives
+ *  each card it rests on, by the card's id and the kind of record, read whole
+ *  from the four files in `dir`. They are filed in the order a page lists the
+ *  records, so a dossier reads them off in that order (src/lib/notes.ts). */
+export function notesIn(dir: string): Record<string, Notes> {
+  const out: Record<string, Notes> = {};
+  for (const kind of Object.keys(RESTING) as (keyof Notes)[]) {
+    const records = JSON.parse(readFileSync(join(dir, RESTING[kind] + '.json'), 'utf8'))[RESTING[kind]] as { said?: string; record: QuestionRecord[] }[];
+    for (const { record } of listed(kind, records)) for (const { event, note } of record) {
+      const notes = out[event] || (out[event] = {});
+      (notes[kind] || (notes[kind] = [])).push(note);
+    }
+  }
+  return out;
+}
+
+/** The days each dated card was filed and last changed, by id, from the
+ *  history (scripts/board-changes.ts). The build refuses a clone without it,
+ *  as the feed does; the dev server and the tests are let off with none and a
+ *  warning. */
+function keptIn(root: string, strict: boolean): Record<string, [string, string]> {
+  try {
+    return boardChangesOf(root).dated;
+  } catch (err) {
+    if (strict) throw err;
+    console.warn('split-events: ' + (err instanceof Error ? err.message : String(err)) + ' No dossier says when its card was filed.');
+    return {};
+  }
+}
+
+/** Every card's papers, by id: those written on it, and the two no file
+ *  writes there, which only its dossier prints — the days the history dates
+ *  it to, and the line each record resting on it gives it. Filed with its
+ *  papers, they reach a page as the papers do: a dossier the server printed
+ *  carries its own card's, and the rest come when the browser sends for the
+ *  papers. */
+export function papersIn(cards: EventRaw[], notes: Record<string, Notes>, kept: Record<string, [string, string]>): Record<string, Papers> {
+  return Object.fromEntries(cards.map((c) => {
+    const papers = papersOf(c);
+    if (kept[c.id]) papers.kept = kept[c.id];
+    if (notes[c.id]) papers.notes = notes[c.id];
+    return [c.id, papers];
+  }));
+}
+
+const PARTS: Record<string, (cards: EventRaw[], dir: string, strict: boolean) => unknown> = {
   cards: (cards, dir) => { const names = namesIn(dir); return cards.map((c) => headOf(c, names)); },
-  papers: (cards) => Object.fromEntries(cards.map((c) => [c.id, papersOf(c)]))
+  papers: (cards, dir, strict) => papersIn(cards, notesIn(dir), keptIn(dirname(dir), strict))
 };
 
 /* ─── Heads and bodies ───────────────────────────────────────────────────
@@ -85,15 +146,12 @@ const PARTS: Record<string, (cards: EventRaw[], dir: string) => unknown> = {
    field of a record is in one part or the other: one in neither stops the
    build, rather than going missing from both.
 
-   A page that prints a little of a body asks for that much of it, by field:
-
-     data/<file>.json?bodies=record   each record's body, cut to `record`
-
    A plain question, a headline check, a prediction and a promise each list
    the cards they rest on, with a line on each. Every page knows the cards
    (the heads); the record's own pages print the lines with the rest of its
-   body, and a card's dossier prints the lines alone, under each record that
-   names the card (src/lib/bodies/notes.ts). */
+   body, and a card's dossier prints the lines on its card, under each record
+   that names it (src/lib/notes.ts). Those are filed with the card's papers
+   (papersIn, above), so a dossier brings its own card's lines and no other's. */
 
 /** The fields a part keeps of a record: a field by name, or a list field as
  *  `[name, fields]`, keeping those fields of each of its items. */
@@ -171,10 +229,9 @@ function placed(file: string, split: Split, r: Rec): void {
   }
 }
 
-/** One part of a split file, in the file's shape: a body cut to the fields
- *  named in `only`, if any are. A body that keeps nothing but the record's
- *  name — a string with no note — is left out. */
-export function project(file: string, split: Split, whole: unknown, part: 'heads' | 'bodies', only?: readonly string[]): unknown {
+/** One part of a split file, in the file's shape. A body that keeps nothing
+ *  but the record's name — a string with no note — is left out. */
+export function project(file: string, split: Split, whole: unknown, part: 'heads' | 'bodies'): unknown {
   const records = (split.key ? (whole as Record<string, Rec[]>)[split.key] : whole) as Rec[];
   records.forEach((r) => placed(file, split, r));
   let out: Rec[];
@@ -185,11 +242,7 @@ export function project(file: string, split: Split, whole: unknown, part: 'heads
       return head;
     });
   } else {
-    (only || []).forEach((f) => {
-      if (!split.bodies.some((b) => named(b) === f)) throw new Error('split-events: ' + file.slice(1) + ': "' + f + '" is not in its body (SPLITS)');
-    });
-    const bodies = only ? split.bodies.filter((b) => only.includes(named(b))) : split.bodies;
-    out = records.map((r) => ({ id: keep(r, split.id), body: keep(r, bodies) }))
+    out = records.map((r) => ({ id: keep(r, split.id), body: keep(r, split.bodies) }))
       .filter((x) => Object.keys(x.body).length)
       .map((x) => ({ ...x.id, ...x.body }));
   }
@@ -200,11 +253,13 @@ export function project(file: string, split: Split, whole: unknown, part: 'heads
 const moduleOf = (data: unknown): string => 'export default JSON.parse(' + JSON.stringify(JSON.stringify(data)) + ');\n';
 
 export function splitEvents(): Plugin {
+  let strict = false;
   return {
     name: 'split-events',
     // Before Vite's own loader, which would answer any query on the file with
     // the whole of it.
     enforce: 'pre',
+    configResolved(config) { strict = config.command === 'build'; },
     load(id) {
       const [file, query] = id.split('?');
       if (!query) return null;
@@ -213,19 +268,19 @@ export function splitEvents(): Plugin {
       if (split) {
         const part = params.has('heads') ? 'heads' : params.has('bodies') ? 'bodies' : null;
         if (!part) return null;
-        // `?bodies=record`: the body, cut to the fields named.
-        const fields = part === 'bodies' ? params.get('bodies') : null;
         this.addWatchFile(file);
-        return moduleOf(project(split, SPLITS[split], JSON.parse(readFileSync(file, 'utf8')), part, fields ? fields.split(',') : undefined));
+        return moduleOf(project(split, SPLITS[split], JSON.parse(readFileSync(file, 'utf8')), part));
       }
       if (!file.endsWith('/data/events.json')) return null;
       const part = Object.keys(PARTS).find((p) => params.has(p));
       if (!part) return null;
       this.addWatchFile(file);
-      // The names a card uses are read from the three files beside it.
+      // The names a card uses are read from the three files beside it, and the
+      // lines on it from the four whose records rest on it.
       const dir = dirname(file);
       if (part === 'cards') ['people.json', 'orgs.json', 'glossary.json'].forEach((f) => this.addWatchFile(join(dir, f)));
-      return moduleOf(PARTS[part](JSON.parse(readFileSync(file, 'utf8')) as EventRaw[], dir));
+      if (part === 'papers') Object.values(RESTING).forEach((f) => this.addWatchFile(join(dir, f + '.json')));
+      return moduleOf(PARTS[part](JSON.parse(readFileSync(file, 'utf8')) as EventRaw[], dir, strict));
     }
   };
 }

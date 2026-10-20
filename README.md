@@ -92,10 +92,10 @@ The build writes `feed.xml`, an Atom feed of the cards, leads, plain questions,
 headline checks, predictions and promises most recently added or changed. Its dates come from the git history of
 `data/`, not from the data, so the build needs the whole history: a shallow clone is
 refused (the deploy checks out with `fetch-depth: 0`). See `scripts/feed.ts`. The latest
-page prints the same list on the site, and every dossier says at its foot when its card
-was filed and last revised, from two modules the build makes out of the same history
-(`virtual:board-changes` and `virtual:board-dated`, `scripts/board-changes.ts`), each in
-the chunk of the page that prints it; the dev server and the tests run on
+page prints the same list on the site, from a module the build makes out of the same
+history (`virtual:board-changes`, `scripts/board-changes.ts`), and every dossier says at
+its foot when its card was filed and last revised, from the days the build files with
+the card's papers; the dev server and the tests run on
 a shallow clone too, with no dates and a warning. The dates are read once per commit
 and kept in `node_modules/.cache`. After each deploy the workflow tells the engines that
 take IndexNow which addresses changed (`scripts/indexnow.ts`); getting the site into
@@ -134,9 +134,12 @@ A card is written in one place, but the browser reads it in two parts. Its head 
 year, title, summary, tags, the link it is cited to — is in the main bundle, with the
 names its words use worked out at build time. Its papers — the reading, the file, the
 figures and the sources, two thirds of `events.json` — are a chunk of their own,
-fetched when a page needs them: a dossier, the board's panel, the search. Every
+fetched when a page needs them: a dossier, the board's panel, the search. The build
+files two more with them that only a dossier prints: the days the card was filed and
+last revised, and the line each question, check, prediction and promise gives it. Every
 prerendered page carries the papers it prints, so it hydrates without waiting for
-them. See `scripts/split-events.ts` and `src/lib/papers.ts`.
+them, and a dossier carries its own card's alone. See `scripts/split-events.ts` and
+`src/lib/papers.ts`.
 
 The other files of records are read in two parts the same way. Every page lists a
 record from its head: a lead's question and the cards of its rungs, a name and the
@@ -145,7 +148,8 @@ it rests on, which strings carry a case note. The rest — bios and definitions,
 rungs' sentences, the answers, the checks' quotes, the words predicted and promised,
 what each machine keeps and changes, the case notes themselves — travels in the chunks
 of the pages that print it (`src/lib/bodies/`). A dossier prints the line each
-question, check, prediction and promise gives its card, and brings those lines alone.
+question, check, prediction and promise gives its card; those lines travel with the
+card's papers too, so a dossier brings its own card's alone.
 
 See [docs/SCHEMA.md](docs/SCHEMA.md) for the field reference. The board is kept by
 its author; it is not open to outside contribution, and the licence below says why.

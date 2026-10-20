@@ -2,16 +2,16 @@ import { describe, it, expect } from 'vitest';
 import { existsSync, readFileSync, statSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { SPLITS, project } from '../scripts/split-events';
+import { SPLITS, listed, project } from '../scripts/split-events';
 import { buildGraph } from '../src/lib/data';
 import { PEOPLE, TERMS } from '../src/lib/files';
 import { bodyOf } from '../src/lib/bodies/files';
 import { noteOf } from '../src/lib/bodies/links';
-import { checksOf, pledgesOf, predictionsOf, questionsOf } from '../src/lib/bodies/notes';
-import { questionById } from '../src/lib/questions';
-import { checkById } from '../src/lib/checks';
-import { predictionById } from '../src/lib/predictions';
-import { pledgeById } from '../src/lib/pledges';
+import { checksOf, pledgesOf, predictionsOf, questionsOf } from '../src/lib/notes';
+import { QUESTIONS, questionById } from '../src/lib/questions';
+import { CHECKS, checkById } from '../src/lib/checks';
+import { PREDICTIONS, predictionById } from '../src/lib/predictions';
+import { PLEDGES, pledgeById } from '../src/lib/pledges';
 import { clip, metaFor } from '../src/lib/meta';
 import type { LinkRaw, QuestionRecord, Route } from '../src/lib/types';
 
@@ -70,20 +70,12 @@ describe('heads and bodies', () => {
     }
   });
 
-  it('gives a page that prints a little of a body only that much of it', () => {
-    const file = '/data/questions.json';
-    const written = read(file.slice(1));
-    const lines = recordsOf(project(file, SPLITS[file], written, 'bodies', ['record']), 'questions');
-    expect(lines).toEqual(recordsOf(written, 'questions').map((q) => ({ id: q.id, record: (q.record as QuestionRecord[]).map((r) => ({ note: r.note })) })));
-    expect(() => project(file, SPLITS[file], written, 'bodies', ['question'])).toThrow(/"question" is not in its body/);
-  });
-
   it('tells a card’s dossier the line each record gives the card', () => {
     const kinds = [
-      { file: 'data/questions.json', key: 'questions', on: (event: string) => questionsOf(event).map((x) => ({ head: x.question, note: x.note })), byId: questionById },
-      { file: 'data/checks.json', key: 'checks', on: (event: string) => checksOf(event).map((x) => ({ head: x.check, note: x.note })), byId: checkById },
-      { file: 'data/predictions.json', key: 'predictions', on: (event: string) => predictionsOf(event).map((x) => ({ head: x.prediction, note: x.note })), byId: predictionById },
-      { file: 'data/promises.json', key: 'promises', on: (event: string) => pledgesOf(event).map((x) => ({ head: x.pledge, note: x.note })), byId: pledgeById }
+      { file: 'data/questions.json', key: 'questions', on: (event: string) => questionsOf(graph.index[event]).map((x) => ({ head: x.question, note: x.note })), byId: questionById },
+      { file: 'data/checks.json', key: 'checks', on: (event: string) => checksOf(graph.index[event]).map((x) => ({ head: x.check, note: x.note })), byId: checkById },
+      { file: 'data/predictions.json', key: 'predictions', on: (event: string) => predictionsOf(graph.index[event]).map((x) => ({ head: x.prediction, note: x.note })), byId: predictionById },
+      { file: 'data/promises.json', key: 'promises', on: (event: string) => pledgesOf(graph.index[event]).map((x) => ({ head: x.pledge, note: x.note })), byId: pledgeById }
     ];
     for (const { file, key, on, byId } of kinds) {
       const records = recordsOf(read(file), key) as { id: string; record: QuestionRecord[] }[];
@@ -94,6 +86,21 @@ describe('heads and bodies', () => {
       // And no line it does not give.
       const given = records.reduce((n, r) => n + r.record.length, 0);
       expect(graph.all.reduce((n, e) => n + on(e.id).length, 0), file).toBe(given);
+    }
+  });
+
+  it('files the lines on a card in the order every page lists the records', () => {
+    // A dossier reads a card's lines off in the order its records are listed.
+    // Said in advance lists by the day said, which data/predictions.json is not
+    // written in, so the build has to list them as the page does.
+    const kinds = [
+      { kind: 'question', file: 'data/questions.json', key: 'questions', list: QUESTIONS },
+      { kind: 'check', file: 'data/checks.json', key: 'checks', list: CHECKS },
+      { kind: 'prediction', file: 'data/predictions.json', key: 'predictions', list: PREDICTIONS },
+      { kind: 'promise', file: 'data/promises.json', key: 'promises', list: PLEDGES }
+    ] as const;
+    for (const { kind, file, key, list } of kinds) {
+      expect(listed(kind, recordsOf(read(file), key)).map((r) => r.id), file).toEqual(list.map((r) => r.id));
     }
   });
 
@@ -158,7 +165,10 @@ describe('heads and bodies', () => {
 
   it('keeps the board’s history out of it too: what changed lately, and when each card was filed', () => {
     for (const [file, specs] of reachedFromMain()) {
-      ['virtual:board-changes', 'virtual:board-dated'].forEach((v) => expect(specs.includes(v), file.slice(root.length) + ' imports ' + v).toBe(false));
+      const at = file.slice(root.length);
+      expect(specs.includes('virtual:board-changes'), at + ' imports virtual:board-changes').toBe(false);
+      // A card's days, and the lines on it, are filed with its papers.
+      expect(specs.some((s) => s.endsWith('events.json?papers')), at + ' imports the papers').toBe(false);
     }
   });
 });

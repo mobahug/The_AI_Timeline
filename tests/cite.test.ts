@@ -32,7 +32,7 @@ describe('a card, cited', () => {
 
   it('cites every card on the board', () => {
     for (const e of events) {
-      const c = citation(e, keptOf('card', e.id));
+      const c = citation(e, keptOf(e));
       expect(c, e.id).toContain(e.title);
       expect(c, e.id).toContain(cardAddress(e.id));
     }
