@@ -56,9 +56,13 @@ const INVISIBLE = /[\u200B\u200C\u2060]/g;
 
 /** A page's readable text: no scripts or styles, tags gone (block tags leave a
  *  space, inline ones nothing, so a word split by <em> stays whole), entities
- *  decoded, zero-width characters dropped, whitespace folded to single spaces. */
+ *  decoded, zero-width characters dropped, whitespace folded to single spaces.
+ *  An <svg/> closed in its own tag is empty, as a browser reads it, and does
+ *  not run on to the next </svg>: chilton-computing.org.uk sets one above the
+ *  Lighthill report's text. */
 export function textOf(html: string): string {
   return html
+    .replace(/<svg\b[^>]*\/>/gi, ' ')
     .replace(/<(script|style|noscript|svg)\b[\s\S]*?<\/\1>/gi, ' ')
     .replace(/<\/?(p|div|h[1-6]|li|ul|ol|br|blockquote|figcaption|section|article|header|footer|tr|td|th|title)\b[^>]*>/gi, ' ')
     .replace(/<[^>]+>/g, '')
@@ -372,13 +376,23 @@ function request(url: string): Promise<Answer> {
  *  characters: an old page's curly quotes and dashes are here. */
 const CP1252 = '€\u0081‚ƒ„…†‡ˆ‰Š‹Œ\u008DŽ\u008F\u0090‘’“”•–—˜™š›œ\u009DžŸ';
 
+/** Whether the bytes can be UTF-16: they open with its byte-order mark, or
+ *  carry the NUL byte it sets beside every ASCII character, which no page in
+ *  an ASCII-based charset holds. */
+const utf16 = (bytes: Uint8Array) =>
+  (bytes[0] === 0xfe && bytes[1] === 0xff) || (bytes[0] === 0xff && bytes[1] === 0xfe) || bytes.subarray(0, 4096).includes(0);
+
 /** The bytes as text, in the charset the page names — in its headers or in
- *  its own <meta> — and as UTF-8 where it names none. */
+ *  its own <meta> — and as UTF-8 where it names none. A page that names UTF-16
+ *  over bytes that are not is read as UTF-8, as a browser reads a <meta> that
+ *  names it: chilton-computing.org.uk's pages, the Lighthill report's among
+ *  them, say utf-16 over plain ASCII. */
 export function decode(bytes: Uint8Array, contentType: string | null): string {
   const named = /charset=["']?([\w:-]+)/i.exec(contentType ?? '')?.[1]
     ?? /<meta[^>]+charset=["']?([\w:-]+)/i.exec(new TextDecoder('latin1').decode(bytes.subarray(0, 4096)))?.[1];
   let decoder: TextDecoder;
   try { decoder = new TextDecoder(named ?? 'utf-8'); } catch { decoder = new TextDecoder(); }
+  if (decoder.encoding.startsWith('utf-16') && !utf16(bytes)) decoder = new TextDecoder();
   if (decoder.encoding !== 'windows-1252') return decoder.decode(bytes);
   const units = Uint16Array.from(bytes, (b) => b >= 0x80 && b < 0xa0 ? CP1252.charCodeAt(b - 0x80) : b);
   let text = '';

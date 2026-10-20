@@ -16,6 +16,11 @@ describe('a page is reduced to the text a reader sees', () => {
     expect(fold(text)).toBe('It’s ‘here’ & now');
   });
 
+  it('reads past an <svg/> closed in its own tag, as chilton-computing.org.uk draws one above the Lighthill report', () => {
+    const html = '<p>Before</p><svg id="dots" width="170" height="25"/><p>The report</p><svg width="18"><path d="m2,6"/></svg><p>After</p>';
+    expect(fold(textOf(html))).toBe('Before The report After');
+  });
+
   it('decodes a letter with a mark as HTML names it', () => {
     expect(fold(textOf('<p>Erd&odblac;s, Poincar&eacute;, &Ccedil;a, na&iuml;ve, stra&szlig;e &frac12;</p>'))).toBe('Erdős, Poincaré, Ça, naïve, straße ½');
     expect(fold(textOf('<p>&notanentity; &Amp;</p>'))).toBe('&notanentity; &');
@@ -153,6 +158,19 @@ describe('a page is decoded in the charset it names', () => {
 
   it('reads UTF-8 where nothing is named', () => {
     expect(decode(new TextEncoder().encode('Erdős'), null)).toBe('Erdős');
+  });
+
+  it('reads a page that names UTF-16 over bytes that are not as UTF-8, as chilton-computing.org.uk serves the Lighthill report', () => {
+    const page = '<meta http-equiv="Content-type" content="text/html;charset=utf-16"/><p>In no part of the field’s</p>';
+    expect(decode(new TextEncoder().encode(page), 'text/html')).toBe(page);
+    expect(decode(new TextEncoder().encode('<p>Plain</p>'), 'text/html; charset=utf-16')).toBe('<p>Plain</p>');
+  });
+
+  it('reads UTF-16 where the bytes are, with a byte-order mark or without', () => {
+    const page = '<meta charset="utf-16"><p>Erdős</p>';
+    const le = [...page].flatMap((c) => [c.charCodeAt(0) & 0xff, c.charCodeAt(0) >> 8]);
+    expect(decode(new Uint8Array([0xff, 0xfe, ...le]), 'text/html; charset=utf-16')).toBe(page);
+    expect(decode(new Uint8Array(le), 'text/html; charset=utf-16le')).toBe(page);
   });
 });
 
