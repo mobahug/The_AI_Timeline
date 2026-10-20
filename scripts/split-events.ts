@@ -20,8 +20,9 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import type { Plugin } from 'vite';
 import { TAG, entitiesFrom, speaks, wordsOf } from '../src/lib/names.ts';
+import { pageCount, registerPages } from '../src/lib/register.ts';
 import { PAPER_FIELDS } from '../src/lib/types.ts';
-import type { Entity, EventHead, EventRaw, Named, Papers } from '../src/lib/types.ts';
+import type { Correction, Entity, EventHead, EventRaw, Named, Papers } from '../src/lib/types.ts';
 
 /** Every name on file, read whole from the three files in `dir`: all the rule
  *  below asks of them is their names, which the build has either way. */
@@ -199,16 +200,46 @@ export function project(file: string, split: Split, whole: unknown, part: 'heads
 /** The module that answers an import: its JSON, parsed from a string. */
 const moduleOf = (data: unknown): string => 'export default JSON.parse(' + JSON.stringify(JSON.stringify(data)) + ');\n';
 
+/* ─── The register, a page at a time ───────────────────────────────────
+   The corrections register prints PER_PAGE entries to a page, newest first
+   (src/lib/register.ts), and a page's script carries that page's entries:
+
+     data/corrections.json?page=2   the register's second page, each entry whole
+     virtual:register-pages         a loader for each page, first to last
+
+   The loaders ride in the main script, a line each, so a turn to any page of
+   the register sends for its entries beside its chunk rather than after it.
+   A page keeps the file's shape, `note` and `corrections`, with what it says
+   of the whole register beside them. Where every entry is printed — what a
+   dossier's link and an old address need — is read from the heads. */
+const REGISTER = fileURLToPath(new URL('../data/corrections.json', import.meta.url));
+const PAGES = 'virtual:register-pages';
+const readRegister = (file: string) => JSON.parse(readFileSync(file, 'utf8')) as { note: string; corrections: Correction[] };
+
 export function splitEvents(): Plugin {
   return {
     name: 'split-events',
     // Before Vite's own loader, which would answer any query on the file with
     // the whole of it.
     enforce: 'pre',
+    resolveId(id) { return id === PAGES ? '\0' + PAGES : null; },
     load(id) {
+      if (id === '\0' + PAGES) {
+        this.addWatchFile(REGISTER);
+        const count = pageCount(readRegister(REGISTER).corrections.length);
+        return 'export default [\n' + Array.from({ length: count }, (_, i) => '  () => import(' + JSON.stringify(REGISTER + '?page=' + (i + 1)) + ')').join(',\n') + '\n];\n';
+      }
       const [file, query] = id.split('?');
       if (!query) return null;
       const params = new URLSearchParams(query);
+      if (file.endsWith('/data/corrections.json') && params.has('page')) {
+        const whole = readRegister(file);
+        const pages = registerPages(whole.corrections, whole.note);
+        const n = Number(params.get('page'));
+        if (!Number.isInteger(n) || n < 1 || n > pages.length) throw new Error('split-events: data/corrections.json has no page ' + params.get('page') + ' (it fills ' + pages.length + ')');
+        this.addWatchFile(file);
+        return moduleOf(pages[n - 1]);
+      }
       const split = Object.keys(SPLITS).find((f) => file.endsWith(f));
       if (split) {
         const part = params.has('heads') ? 'heads' : params.has('bodies') ? 'bodies' : null;

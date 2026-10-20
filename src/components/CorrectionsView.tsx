@@ -1,18 +1,22 @@
-import React from 'react';
-import type { Correction, Graph, RoutePatch } from '../lib/types';
-import { CORRECTIONS, CORRECTIONS_NOTE, CORRECTION_KIND } from '../lib/corrections';
+import React, { use, useEffect } from 'react';
+import type { Correction, Graph, Route, RoutePatch } from '../lib/types';
+import type { Navigate } from '../lib/url';
+import { CORRECTION_KIND, REGISTER_PAGES, loadRegisterPage, registerPageNow, registerPageOf } from '../lib/corrections';
+import { PER_PAGE } from '../lib/register';
 import { dayText } from '../lib/data';
 import { leadById } from '../lib/leads';
 import { entityById } from '../lib/files';
 import { questionById } from '../lib/questions';
 import { findingByNumber } from '../lib/spine';
 import { INK, MONO, SANS, SERIF, RULE, ROW_RULE, ink, micro, shell, pageTitle } from '../lib/styles';
-import { Btn, Link, PageHead, Ref } from './kit';
+import { Btn, Link, NavRow, PageHead, Ref, Segmented } from './kit';
 
 /* Corrections: every change of fact the board has made to its own record,
    newest first, as its history has it. Each says what the record said, what it
    says now, why, and which source settled it, and links the commit that made
-   the change, so the change itself can be read. */
+   the change, so the change itself can be read. The register prints them a
+   page at a time (lib/register.ts): the newest at /corrections/, the ones
+   before at /corrections/2/ and on. */
 
 const COMMIT = 'https://github.com/mobahug/The_AI_Timeline/commit/';
 
@@ -75,31 +79,93 @@ function Entry({ c, graph }: { c: Correction; graph: Graph }) {
   );
 }
 
-function CorrectionsView({ graph }: { graph: Graph }) {
+/** The address of a page of the register. */
+const pageAt = (n: number): RoutePatch => (n === 1 ? { view: 'corrections' } : { view: 'register', id: String(n) });
+
+function CorrectionsView({ graph, route, navigate }: { graph: Graph; route: Route; navigate: Navigate }) {
+  const page = registerPageOf(route);
+  // An address can name an entry, or a month, on a page that newer entries
+  // have since moved it off: a link from before, or from another site. The
+  // page that prints it now is looked up in the register's heads, which only
+  // a reader sent on needs, and the reader is sent on to it.
+  useEffect(() => {
+    const hash = route.hash;
+    if (!hash || document.getElementById(hash)) return;
+    let live = true;
+    import('../lib/corrected').then(({ atRegister, pageOf }) => {
+      const at = pageOf(hash);
+      if (live && at && at !== page) navigate(atRegister(hash), true);
+    }).catch(() => {});
+    return () => { live = false; };
+  }, [route.hash, page, navigate]);
+
+  if (!page) {
+    return (
+      <div style={shell('route')}>
+        <div style={{ padding: '80px 0', ...micro(5) }}>There is no page {route.id} of the register. It has {REGISTER_PAGES}.</div>
+        <Btn to={{ view: 'corrections' }}>← The newest corrections</Btn>
+      </div>
+    );
+  }
+  // A turn here waits for the page's entries (App's waitFor), and the server
+  // and the hydration have them from the start; a page drawn without them
+  // waits for them here.
+  const here = registerPageNow(page) || use(loadRegisterPage(page));
   const months: { month: string; items: Correction[] }[] = [];
-  for (const c of CORRECTIONS) {
+  for (const c of here.corrections) {
     const month = c.date.slice(0, 7);
     const last = months[months.length - 1];
     if (last && last.month === month) last.items.push(c); else months.push({ month, items: [c] });
   }
-  const cards = new Set(CORRECTIONS.map((c) => c.event).filter(Boolean)).size;
+  const paged = REGISTER_PAGES > 1;
+  const turn = (
+    <NavRow
+      prev={page > 1 ? { label: 'Newer corrections', to: pageAt(page - 1) } : null}
+      next={page < REGISTER_PAGES ? { label: 'Older corrections', to: pageAt(page + 1) } : null}
+    />
+  );
   return (
     <div style={shell('route')}>
       <PageHead
-        eyebrow={'Corrections · ' + CORRECTIONS.length + ' corrections · ' + cards + ' cards · from the board’s history'}
+        eyebrow={'Corrections · ' + here.total + ' corrections · ' + here.cards + ' cards · from the board’s history'
+          + (paged ? ' · page ' + page + ' of ' + REGISTER_PAGES : '')}
         title="Corrections."
-        lede={CORRECTIONS_NOTE + ' Most were found by reading a card against its own primary source; each names the source that settled it and links the change itself.'}
+        lede={here.note + ' Most were found by reading a card against its own primary source; each names the source that settled it and links the change itself.'}
         h1Style={pageTitle('index')}
       />
-      {months.map(({ month, items }) => (
-        <section key={month} id={'m-' + month} style={{ marginTop: 40, borderTop: RULE, paddingTop: 20 }}>
-          <h2 style={{ margin: '0 0 6px', font: '400 clamp(22px,2.6vw,28px)/1.1 ' + SERIF, letterSpacing: '-0.02em', color: INK }}>{dayText(month)}</h2>
-          <div style={{ ...micro(5) }}>{items.length} {items.length === 1 ? 'correction' : 'corrections'}</div>
-          <ol style={{ listStyle: 'none', margin: '14px 0 0', padding: 0 }}>
-            {items.map((c) => <Entry key={c.id} c={c} graph={graph} />)}
-          </ol>
-        </section>
-      ))}
+      {paged && page > 1 && <div style={{ marginTop: 28 }}>{turn}</div>}
+      {months.map(({ month, items }) => {
+        // A month the page before began, or the page after goes on with, says
+        // which of its entries this page prints.
+        const { total, before } = here.months[month];
+        const whole = before === 0 && items.length === total;
+        return (
+          <section key={month} id={before === 0 ? 'm-' + month : undefined} style={{ marginTop: 40, borderTop: RULE, paddingTop: 20 }}>
+            <h2 style={{ margin: '0 0 6px', font: '400 clamp(22px,2.6vw,28px)/1.1 ' + SERIF, letterSpacing: '-0.02em', color: INK }}>{dayText(month)}{before > 0 ? ', continued' : ''}</h2>
+            <div style={{ ...micro(5) }}>
+              {total} {total === 1 ? 'correction' : 'corrections'}{whole ? '' : ' · ' + (before + 1) + (items.length > 1 ? '–' + (before + items.length) : '') + ' on this page'}
+            </div>
+            <ol style={{ listStyle: 'none', margin: '14px 0 0', padding: 0 }}>
+              {items.map((c) => <Entry key={c.id} c={c} graph={graph} />)}
+            </ol>
+          </section>
+        );
+      })}
+      {paged && (
+        <div style={{ borderTop: RULE, marginTop: 30, paddingTop: 22, display: 'flex', flexDirection: 'column', gap: 14 }}>
+          {turn}
+          <Segmented
+            label="Pages of the register"
+            value={String(page)}
+            items={Array.from({ length: REGISTER_PAGES }, (_, i) => ({
+              id: String(i + 1),
+              label: String(i + 1),
+              to: pageAt(i + 1),
+              hint: 'Corrections ' + (i * PER_PAGE + 1) + '–' + Math.min((i + 1) * PER_PAGE, here.total) + ', newest first'
+            }))}
+          />
+        </div>
+      )}
       <div style={{ borderTop: RULE, marginTop: 30, paddingTop: 22, display: 'flex', gap: 10, flexWrap: 'wrap' }}>
         <Btn to={{ view: 'latest', hash: 'changes' }}>Everything that changed lately →</Btn>
         <Btn to={{ view: 'about' }}>How the board is kept →</Btn>

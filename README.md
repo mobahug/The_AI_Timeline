@@ -54,7 +54,7 @@ verbs. The switch is in the header; `?mode=full` on any link opens the whole fil
 | Said in advance | `/predictions/`, `/prediction/<id>/` | Famous predictions about AI, each quoted from where it was made, with the year it named and what happened; and the board's own scenarios the record has overtaken in part |
 | Run the original | `/machines/`, `/card/<id>/#machine` | Programs from the record rebuilt from their own papers and run on their cards: ELIZA (1965 DOCTOR script), MENACE, Shannon's approximations to English, the perceptron |
 | Promises made | `/promises/`, `/promise/<id>/` | Promises that labs, companies and governments made in public about AI, each in their own words, set beside what the record shows they did |
-| Corrections | `/corrections/` | Every fact the board has corrected in its own record: what a card said, what it says now, why, the source that settled it, and the commit |
+| Corrections | `/corrections/`, `/corrections/<n>/` | Every fact the board has corrected in its own record, newest first and forty to a page: what a card said, what it says now, why, the source that settled it, and the commit |
 
 Every chart is HTML laid out in percentages, so it is prerendered like any page and keeps
 the site's own type sizes on a phone. One Tab reaches a plot and the arrow keys walk its

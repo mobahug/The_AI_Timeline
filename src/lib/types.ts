@@ -360,7 +360,7 @@ export type Mode = 'brief' | 'full';
 export type ViewId =
   | 'landing' | 'line' | 'finding' | 'case' | 'horizon' | 'board' | 'card'
   | 'leads' | 'lead' | 'questions' | 'question' | 'checks' | 'check' | 'archive' | 'plates' | 'mosaic' | 'files' | 'person' | 'org' | 'glossary' | 'term' | 'about'
-  | 'start' | 'latest' | 'charts' | 'machines' | 'predictions' | 'prediction' | 'promises' | 'promise' | 'corrections';
+  | 'start' | 'latest' | 'charts' | 'machines' | 'predictions' | 'prediction' | 'promises' | 'promise' | 'corrections' | 'register';
 
 /** The board's geometry for one window, from layout.ts. */
 export interface Metrics {

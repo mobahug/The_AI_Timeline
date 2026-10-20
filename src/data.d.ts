@@ -114,6 +114,12 @@ declare module '*/data/corrections.json?heads' {
   const file: { corrections: Pick<import('./lib/types').Correction, 'id' | 'date' | 'event'>[] };
   export default file;
 }
+/* The register a page at a time (src/lib/register.ts): a loader for each
+   page's entries, first to last — see scripts/split-events.ts. */
+declare module 'virtual:register-pages' {
+  const pages: (() => Promise<{ default: import('./lib/register').RegisterPage }>)[];
+  export default pages;
+}
 
 /* The line each plain question, headline check, prediction and promise gives
    each card on its record, and nothing else of its body: what a card's dossier

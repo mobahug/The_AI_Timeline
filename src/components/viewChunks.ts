@@ -66,9 +66,9 @@ export const CHUNKS = {
   corrections: chunk('src/components/CorrectionsView.tsx', () => import('./CorrectionsView'))
 };
 
-/** The views that share a chunk with another: the archive's three costumes, and the three kinds of file. */
+/** The views that share a chunk with another: the archive's three costumes, the three kinds of file, and the register's pages. */
 const SHARED: Partial<Record<ViewId, keyof typeof CHUNKS>> = {
-  plates: 'archive', mosaic: 'archive', person: 'entity', org: 'entity', term: 'entity'
+  plates: 'archive', mosaic: 'archive', person: 'entity', org: 'entity', term: 'entity', register: 'corrections'
 };
 
 /** The chunk a view is drawn from, or null for one the main script carries (the front page, the board's listing). */
@@ -77,5 +77,6 @@ export function chunkOf(view: ViewId): Chunk<never> | null {
   return key ? CHUNKS[key] as Chunk<never> : null;
 }
 
-/** Every chunk, fetched: what the server and the tests do before they render a page. */
+/** Every chunk, fetched: what the server and the tests do before they render a
+ *  page. They hold every page of the corrections register too (lib/corrections.ts). */
 export const loadAll = (): Promise<unknown> => Promise.all(Object.values(CHUNKS).map((c) => c.load()));

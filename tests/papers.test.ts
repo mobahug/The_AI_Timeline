@@ -18,6 +18,7 @@ import { QUESTIONS } from '../src/lib/questions';
 import { CHECKS } from '../src/lib/checks';
 import { PREDICTIONS } from '../src/lib/predictions';
 import { PLEDGES } from '../src/lib/pledges';
+import corrections from '../data/corrections.json';
 import { headOf, papersOf } from '../scripts/split-events';
 import { PAPER_FIELDS } from '../src/lib/types';
 import type { Carried } from '../src/lib/papers';
@@ -72,7 +73,7 @@ describe('the split', () => {
 });
 
 /* Every address the prerenderer writes: the list it writes them from. */
-const ROUTES: string[] = pages({ findings: FINDINGS, events, leads: LEADS, questions: QUESTIONS, checks: CHECKS, predictions: PREDICTIONS, promises: PLEDGES, people: PEOPLE, orgs: ORGS, terms: TERMS })
+const ROUTES: string[] = pages({ findings: FINDINGS, events, leads: LEADS, questions: QUESTIONS, checks: CHECKS, predictions: PREDICTIONS, promises: PLEDGES, people: PEOPLE, orgs: ORGS, terms: TERMS, corrections: corrections.corrections })
   .map((p) => '/' + p.path);
 
 /** What the prerenderer does for one address: the page, its meta, and the papers it read. */

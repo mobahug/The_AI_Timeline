@@ -3,6 +3,7 @@ import { createRoot, hydrateRoot } from 'react-dom/client';
 import App from './App';
 import { loadBoard } from './components/boardChunk';
 import { chunkOf } from './components/viewChunks';
+import { registerFor } from './lib/corrections';
 import { hasPapers, loadPapers, papersFor, papersVersion } from './lib/papers';
 import { parse } from './lib/url';
 
@@ -30,11 +31,13 @@ if (prerendered) {
     }
   });
   // The page's own chunk is fetched apart from this script (viewChunks.ts),
-  // with the words it prints (lib/bodies/); the printed page stays up until it
-  // is here, so the first render is the one the server made.
+  // with the words it prints (lib/bodies/), and a page of the corrections
+  // register its entries beside it (lib/corrections.ts); the printed page
+  // stays up until they are here, so the first render is the one the server made.
   const here = parse(window.location.pathname, window.location.search, window.location.hash);
   const own = chunkOf(here.view);
-  if (own) own.load().then(hydrate, hydrate);
+  const entries = registerFor(here);
+  if (own || entries) Promise.all([own ? own.load() : null, entries]).then(hydrate, hydrate);
   else hydrate();
 } else {
   const draw = () => {
@@ -53,14 +56,16 @@ if (prerendered) {
   const papers = papersFor(here, null);
   const own = chunkOf(here.view);
   const chunk = own ? own.load() : null;
-  if (board || papers || chunk) Promise.all([board, papers, chunk]).then(draw, draw);
+  const entries = registerFor(here);
+  if (board || papers || chunk || entries) Promise.all([board, papers, chunk, entries]).then(draw, draw);
   else draw();
 }
 
 /* A turn to a page waits for its chunk and for any papers that are not here
-   (viewChunks.ts, papers.ts). A pointer resting on a link, a finger on it or the
-   focus on it sends for both before the click, so the wait is seldom felt;
-   once a thing is here there is nothing left to send for. */
+   (viewChunks.ts, papers.ts), and a page of the register for its entries. A
+   pointer resting on a link, a finger on it or the focus on it sends for them
+   before the click, so the wait is seldom felt; once a thing is here there is
+   nothing left to send for. */
 const WARM = ['pointerover', 'focusin', 'touchstart'] as const;
 const warm = (e: Event) => {
   const a = e.target instanceof Element ? e.target.closest('a[href]') : null;
@@ -69,5 +74,7 @@ const warm = (e: Event) => {
   if (!papersVersion() && !hasPapers(to)) loadPapers().catch(() => {});
   const own = chunkOf(to.view);
   if (own && !own.now()) own.load().catch(() => {});
+  const entries = registerFor(to);
+  if (entries) entries.catch(() => {});
 };
 WARM.forEach((type) => document.addEventListener(type, warm, { passive: true }));

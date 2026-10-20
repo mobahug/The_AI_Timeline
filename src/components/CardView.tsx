@@ -12,7 +12,7 @@ import { checksOf, pledgesOf, predictionsOf, questionsOf } from '../lib/bodies/n
 import { machineOf } from '../lib/machines';
 import { FORETOLD } from '../lib/predictions';
 import { PLEDGED } from '../lib/pledges';
-import { correctedOf } from '../lib/corrected';
+import { atRegister, correctedOf } from '../lib/corrected';
 import { dayOf } from '../lib/latest';
 import { keptOf } from '../lib/dated';
 import { bibtex, citation } from '../lib/cite';
@@ -432,7 +432,7 @@ function CardView({ graph, route, media, embedded }: CardViewProps) {
           {corrected && (
             <p style={{ margin: embedded ? '12px 0 0' : '0 0 20px', font: '400 11.5px/1.8 ' + MONO, color: ink(4), maxWidth: '72ch', textWrap: 'pretty' }}>
               Corrected {corrected.n === 1 ? 'once' : corrected.n + ' times'}, most recently on {dayOf(corrected.date)}.{' '}
-              <Link to={{ view: 'corrections', hash: corrected.id }} className="ix-ref" style={{ color: ink(2) }}>What was corrected, and why →</Link>
+              <Link to={atRegister(corrected.id)} className="ix-ref" style={{ color: ink(2) }}>What was corrected, and why →</Link>
             </p>
           )}
           {!embedded && nav}

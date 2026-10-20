@@ -43,6 +43,7 @@ const promises = JSON.parse(await readFile(join(root, 'data', 'promises.json'), 
 const people = JSON.parse(await readFile(join(root, 'data', 'people.json'), 'utf8')).people as Person[];
 const orgs = JSON.parse(await readFile(join(root, 'data', 'orgs.json'), 'utf8')).orgs as Org[];
 const terms = JSON.parse(await readFile(join(root, 'data', 'glossary.json'), 'utf8')).terms as Term[];
+const corrections = JSON.parse(await readFile(join(root, 'data', 'corrections.json'), 'utf8')).corrections as { id: string }[];
 const fallbacks = JSON.parse(await readFile(join(root, 'data', 'image-fallbacks.json'), 'utf8')) as Record<string, string>;
 const NOW = JSON.parse(await readFile(join(root, 'data', 'threads.json'), 'utf8')).span.now as number;
 /* When each card, lead, question and check was filed on the board and last
@@ -64,7 +65,7 @@ const esc = (s: unknown): string => String(s || '').replace(/&/g, '&amp;').repla
 const enc = (s: string | null): string => encodeURIComponent(s as string);
 
 /** Every address the site has, as paths under the base (src/lib/pages.ts). */
-const routes: string[] = pages({ findings: spine.findings, events, leads, questions, checks, predictions, promises, people, orgs, terms }).map((p) => p.path);
+const routes: string[] = pages({ findings: spine.findings, events, leads, questions, checks, predictions, promises, people, orgs, terms, corrections }).map((p) => p.path);
 
 /** Structured data for a route, as JSON-LD. Only what the page states. */
 function jsonLd(route: Route, meta: PageMeta, url: string, image: string): Record<string, unknown>[] {
@@ -208,9 +209,12 @@ function page(route: Route, html: string, meta: PageMeta, media: WikiCache, pape
     out = out.replace('<html lang="en">', '<html lang="en" data-client-render>');
     out = out.replace('</head>', '  <link rel="preload" href="' + BASE + 'fonts/plex-mono-500-latin.woff2" as="font" type="font/woff2" crossorigin />\n  </head>');
   }
-  // The page's own chunk and what it imports, named beside the main script.
+  // The page's own chunk and what it imports, named beside the main script;
+  // and on a page of the corrections register, the chunk of its own entries.
   const own = clientOnly ? BOARD_SRC : (chunkOf(route.view) || { src: '' }).src;
-  if (own) out = out.replace('</head>', preloadsOf(own).map((f) => '  <link rel="modulepreload" crossorigin href="' + BASE + f + '">\n').join('') + '  </head>');
+  const entries = route.view === 'corrections' ? 1 : route.view === 'register' ? Number(route.id) : 0;
+  const named = [...new Set([...(own ? preloadsOf(own) : []), ...(entries ? preloadsOf(REGISTER_SRC + entries) : [])])];
+  if (named.length) out = out.replace('</head>', named.map((f) => '  <link rel="modulepreload" crossorigin href="' + BASE + f + '">\n').join('') + '  </head>');
   out = out.replace('<div id="root"></div>', '<div id="root">' + html + '</div>');
   return out;
 }
@@ -268,6 +272,8 @@ function preloadsOf(src: string): string[] {
   return [...reach(src)].filter((k) => !SHIPPED.has(k)).map((k) => MANIFEST[k].file);
 }
 const BOARD_SRC = 'src/components/BoardView.tsx';
+/** A page of the corrections register, as the manifest names it, but for its number (scripts/split-events.ts). */
+const REGISTER_SRC = 'data/corrections.json?page=';
 if (!Object.keys(BOARD_MEDIA).length) throw new Error('prerender: no photographs for the board — is public/wiki-cache.json missing?');
 
 let n = 0;

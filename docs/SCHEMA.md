@@ -193,8 +193,9 @@ matches every promise's words and evidence against their pages, as it does predi
 
 ## `data/corrections.json`
 
-`corrections` — every change of fact the board has made to its own record, at `/corrections/`, newest first, and
-at the foot of each card it touched. Wording that changed without a fact changing is not listed, nor a quote
+`corrections` — every change of fact the board has made to its own record, at `/corrections/`, newest first and
+forty to a page (`/corrections/2/` and on; `src/lib/register.ts` sets the number), and at the foot of each card it
+touched. An entry's anchor finds it on whichever page prints it. Wording that changed without a fact changing is not listed, nor a quote
 matched to its page's own marks. `note` is the sentence the page prints about how the register is kept.
 
 | Field | Type | Required | Notes |

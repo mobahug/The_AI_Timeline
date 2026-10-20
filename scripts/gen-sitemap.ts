@@ -27,6 +27,7 @@ const promises = (await read('promises.json')).promises as { id: string }[];
 const people = (await read('people.json')).people as Person[];
 const orgs = (await read('orgs.json')).orgs as Org[];
 const terms = (await read('glossary.json')).terms as Term[];
+const corrections = (await read('corrections.json')).corrections as { id: string }[];
 
 // A shallow clone cannot be dated; the sitemap is still written, undated, and
 // the feed's own step refuses the clone with the reason.
@@ -38,13 +39,13 @@ const day = (key: string): string | undefined => { const d = dated.get(key); ret
 const newest = [...dated.values()].map((d) => d.changed.date.slice(0, 10)).sort().pop();
 
 const PRIORITY: Record<PageKind, string> = {
-  view: '0.8', lead: '0.8', question: '0.8', check: '0.8', prediction: '0.8', promise: '0.8', finding: '0.7', card: '0.5', person: '0.4', org: '0.4', term: '0.3'
+  view: '0.8', lead: '0.8', question: '0.8', check: '0.8', prediction: '0.8', promise: '0.8', finding: '0.7', card: '0.5', person: '0.4', org: '0.4', term: '0.3', register: '0.3'
 };
 /** The kinds of record the history dates (scripts/feed.ts). */
 const DATED_KINDS = new Set<PageKind>(['card', 'lead', 'question', 'check', 'prediction', 'promise']);
 const featured = new Set(events.filter((e) => e.featured).map((e) => e.id));
 const urls: { loc: string; priority: string; lastmod?: string }[] =
-  pages({ findings: spine.findings, events, leads, questions, checks, predictions, promises, people, orgs, terms }).map((p) => ({
+  pages({ findings: spine.findings, events, leads, questions, checks, predictions, promises, people, orgs, terms, corrections }).map((p) => ({
     loc: ORIGIN + p.path,
     priority: p.path === '' ? '1.0' : p.kind === 'card' && featured.has(p.id) ? '0.6' : PRIORITY[p.kind],
     lastmod: p.path === '' || (p.kind === 'view' && p.id === 'latest') ? newest : DATED_KINDS.has(p.kind) ? day(p.kind + '/' + p.id) : undefined
