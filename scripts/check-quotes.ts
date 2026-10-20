@@ -5,7 +5,8 @@
  * reported article and every primary source of each check in data/checks.json,
  * reduces each page to its text, and reports every quote that cannot be found
  * in it character for character — curly quotes, dashes and all; only runs of
- * whitespace are folded. Nothing is paraphrased into a match.
+ * whitespace are folded, and a word a PDF breaks at a line's end is read
+ * whole. Nothing is paraphrased into a match.
  *
  * Said in advance is checked the same way: each prediction's words against the
  * page they were said on, and every quote on what happened against its source

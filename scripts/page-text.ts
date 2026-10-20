@@ -1,8 +1,9 @@
 // How a cited page is read for its quotes: fetched, reduced to the text a
 // reader sees, and searched for each quote character for character — curly
-// quotes, dashes and all; only runs of whitespace are folded. Nothing is
-// paraphrased into a match. scripts/check-quotes.ts reads the headline checks,
-// Said in advance and the cards' sources through it.
+// quotes, dashes and all; only runs of whitespace are folded, and a word a
+// PDF breaks at a line's end is read whole. Nothing is paraphrased into a
+// match. scripts/check-quotes.ts reads the headline checks, Said in advance
+// and the cards' sources through it.
 //
 // The routes the board relies on are taken here, so that every quote is read
 // the same way:
@@ -475,6 +476,14 @@ async function latest(url: string): Promise<{ answer: Answer; captured: string }
   return { answer, captured: stamp ? day(stamp) : '' };
 }
 
+/** A PDF's lines are its typesetter's, as a page's are the browser's: a word
+ *  broken at a line's end, a hyphen between two lowercase letters, is read
+ *  whole, "im-" and "portant" as "important". The text layer cannot tell a
+ *  compound broken at its own hyphen from a broken word, so "ill-" and
+ *  "structured" read as one word too, and a quote across one is reported. */
+const BROKEN = /(\p{Ll})-\n(?=\p{Ll})/gu;
+export const unbroken = (s: string) => s.replace(BROKEN, '$1');
+
 /* A PDF's text layer, read by macOS PDFKit from the bytes on standard input.
    No reader is to be had elsewhere without adding a dependency. */
 const PDFKIT = `ObjC.import('PDFKit');
@@ -512,7 +521,7 @@ export async function read(url: string, opts: ReadOptions): Promise<Page> {
   if (!ok(status)) throw new Unread('HTTP ' + status);
   if (/application\/pdf/i.test(type ?? '') || new TextDecoder().decode(bytes.subarray(0, 5)) === '%PDF-') {
     if (!canReadPdf) throw new Unread(NO_PDF, true);
-    const text = fold((await pdfText(bytes)).replace(INVISIBLE, ''));
+    const text = fold(unbroken((await pdfText(bytes)).replace(INVISIBLE, '')));
     if (!text) throw new Unread('it has no text layer', true);
     return { text, via, captured };
   }
