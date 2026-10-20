@@ -157,21 +157,171 @@
     "year": 1920,
     "category": "culture",
     "title": "R.U.R. gives us the word robot",
-    "summary": "Karel Čapek's play stages artificial workers who rebel, and hands the language a name for the anxiety.",
+    "summary": "Karel Čapek's play, published in 1920, stages artificial workers who rebel. Its word for them, robot, was his brother Josef's, Karel wrote in 1933.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/R.U.R.",
-    "why": "Public expectation of AI has been shaped by fiction for longer than by engineering.",
-    "wikiTitle": "R.U.R."
+    "why": "Public expectation of AI has been shaped by fiction for longer than by engineering. Čapek's robots were made by chemistry; when the word came to mean machines of metal, he protested in 1935 that his robots were not mechanisms.",
+    "wikiTitle": "R.U.R.",
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Lidové noviny (text reprinted by Novinky.cz)",
+        "title": "O slově robot (Karel Čapek)",
+        "url": "https://www.novinky.cz/historie/clanek/pred-130-lety-se-narodil-literarni-velikan-ktery-dal-svetu-robota-toto-slovo-vsak-nevymyslel-40309280",
+        "date": "1933-12-24",
+        "quote": "„Tak jim řekni roboti,“ mumlal malíř se štětcem v ústech a maloval dál. A bylo to. Tím způsobem se tedy zrodilo slovo robot; budiž tímto přiřčeno svému skutečnému původci.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Wikisource (Czech text of the Prague City Library edition)",
+        "title": "R.U.R.: Předehra (Karel Čapek)",
+        "url": "https://cs.wikisource.org/wiki/R.U.R./P%C5%99edehra",
+        "date": "1920-01-01",
+        "quote": "A vyrábět umělé dělníky je stejné jako vyrábět naftové motory.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Samuel French (English version by Paul Selver and Nigel Playfair; Project Gutenberg)",
+        "title": "R.U.R. (Rossum's Universal Robots) (Karel Čapek)",
+        "url": "https://www.gutenberg.org/cache/epub/59112/pg59112-images.html",
+        "date": "1923-01-01",
+        "quote": "We, the first International organization of Rossum’s Universal Robots, proclaim man our enemy, and an outlaw in the universe.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Městská knihovna v Praze (Prague City Library edition)",
+        "title": "R.U.R. (Karel Čapek), with the edition's list of first editions of his books",
+        "url": "https://web2.mlp.cz/koweb/00/04/29/90/48/rur.pdf",
+        "date": "2018-01-19",
+        "quote": "1920 – Loupežník – Kritika slov – R.U.R.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Lidové noviny (English translation from R.U.R. and the Vision of Artificial Life, MIT Press; excerpt in IEEE Spectrum)",
+        "title": "The Author of the Robots Defends Himself (Karel Čapek)",
+        "url": "https://spectrum.ieee.org/karel-capek-robots",
+        "date": "1935-06-09",
+        "quote": "For his robots were not mechanisms. They were not made of sheet metal and cogwheels.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Národní divadlo (National Theatre archive, Prague)",
+        "title": "R.U.R. (Rossum's Universal Robots), drama production of 1921",
+        "url": "https://archiv.narodni-divadlo.cz/inscenace/911",
+        "date": "2026-10-20",
+        "quote": "Národní divadlo, od 25.01.1921 do 25.12.1927 (63x)",
+        "supports": "context"
+      },
+      {
+        "kind": "article",
+        "publisher": "ČT24 (Czech Television)",
+        "title": "Před sto lety svět poprvé uslyšel slovo „robot“. Karel Čapek inspiroval ke vzniku strojů, které vládnou dnešním továrnám",
+        "url": "https://ct24.ceskatelevize.cz/clanek/veda/pred-sto-lety-svet-poprve-uslysel-slovo-robot-karel-capek-inspiroval-ke-vzniku-stroju-ktere-vladnou-39198",
+        "date": "2021-01-25",
+        "quote": "Tak se světová premiéra odehrála 2. ledna 1921 na prknech scény v Hradci Králové.",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "R.U.R.",
+        "url": "https://en.wikipedia.org/wiki/R.U.R.",
+        "date": "2026-10-20",
+        "quote": "The work was published in two differing versions in Prague by Aventinum, first in 1920, followed by a revised version in 1921.",
+        "supports": "context"
+      }
+    ]
   },
   {
     "id": "metropolis",
     "year": 1927,
+    "date": "1927-01-10",
     "category": "culture",
     "title": "Metropolis",
-    "summary": "Fritz Lang's Maschinenmensch fixes the humanoid machine in the visual imagination for a century.",
+    "summary": "Fritz Lang's film of Thea von Harbou's novel premieres in Berlin. Its Maschinenmensch, a steel robot given the likeness of the workers' leader Maria, is the work of the sculptor Walter Schulze-Mittendorff.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/Metropolis_(1927_film)",
-    "wikiTitle": "Metropolis (1927 film)"
+    "why": "Germany's film institute calls the robot Maria an icon of pop culture: hardly an account of robots, mechanical men and artificial intelligence, it writes, goes without a picture of the figure.",
+    "wikiTitle": "Metropolis (1927 film)",
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Friedrich-Wilhelm-Murnau-Stiftung",
+        "title": "100 Jahre METROPOLIS",
+        "url": "https://www.murnau-stiftung.de/metropolis-100",
+        "date": "2026-10-20",
+        "quote": "Am 10. Januar 1927 erlebte der monumentale Stummfilm METROPOLIS von Regisseur Fritz Lang im Berliner Ufa-Palast am Zoo seine Welturaufführung.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Projekt Gutenberg (text of the Ozeanische Bibliothek edition, 1984)",
+        "title": "Metropolis, chapter 4 (Thea von Harbou)",
+        "url": "https://projekt-gutenberg.org/authors/thea-von-harbou/books/metropolis/chapter/5",
+        "date": "1925-01-01",
+        "quote": "Ich habe Maschinenmenschen bei dir bestellt, Rotwang, die ich an meinen Maschinen brauchen kann.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Internationale Filmfestspiele Berlin (press release)",
+        "title": "Restaurierte Originalfassung von Fritz Langs Metropolis feiert Premiere bei der Berlinale 2010",
+        "url": "https://www.berlinale.de/media/download/presse/pressemitteilungen/60_berlinale/12_pm_metropolis_29_10_09.pdf",
+        "date": "2009-10-29",
+        "quote": "Die Verstümmelung des Monumentalfilmes hatte unmittelbar nach seiner Premiere am 10. Januar 1927 im Berliner Ufa-Palast am Zoo begonnen.",
+        "supports": "context"
+      },
+      {
+        "kind": "article",
+        "publisher": "DFF – Deutsches Filminstitut & Filmmuseum (filmportal.de)",
+        "title": "Metropolis (Germany 1925/1926)",
+        "url": "https://www.filmportal.de/en/movie/metropolis_ea43d4a6990b5006e03053d50b37753d",
+        "date": "2026-10-20",
+        "quote": "At the same time, Rotwang, the inventor, creates a steel robot and is instructed by Fredersen to model it after Maria.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "DFF – Deutsches Filminstitut & Filmmuseum (filmportal.de)",
+        "title": "Metropolis (Deutschland 1925/1926): Darsteller",
+        "url": "https://www.filmportal.de/film/metropolis_6329d4cc9d134d2386233262b52d274d",
+        "date": "2026-10-20",
+        "quote": "Darsteller Brigitte Helm Maria / Maschinenmensch",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "DFF – Deutsches Filminstitut & Filmmuseum (filmportal.de; biography by Bertina Schulze-Mittendorff)",
+        "title": "Walter Schulze-Mittendorff",
+        "url": "https://www.filmportal.de/en/person/walter-schulze-mittendorff_f2ffd2d9bea38862e03053d50b370800",
+        "date": "2026-10-20",
+        "quote": "Schulze-Mittendorff creates the Machine Man \"Maria\", the head of \"Hel\", the \"Seven-Headed Phantastic Beast\", and the figure group \"Death and the Seven Deadly Sins\".",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "DFF – Deutsches Filminstitut & Filmmuseum (filmportal.de)",
+        "title": "Fritz Lang’s “Metropolis” Over Time",
+        "url": "https://www.filmportal.de/en/topic/fritz-langs-metropolis-over-time",
+        "date": "2026-10-20",
+        "quote": "There is hardly an account of robots, mechanical men, and artificial intelligence that dispenses with an illustration of the figure created by the sculptor Walter Schultze-Mittendorf",
+        "supports": "claim"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Metropolis (1927 film)",
+        "url": "https://en.wikipedia.org/wiki/Metropolis_(1927_film)",
+        "date": "2026-10-20",
+        "quote": "The Maschinenmensch – the robot built by Rotwang to resurrect his lost love Hel – was created by sculptor Walter Schulze-Mittendorff.",
+        "supports": "context"
+      }
+    ]
   },
   {
     "id": "godel-s-incompleteness-theorems",
@@ -181,11 +331,94 @@
     "summary": "Any consistent formal system rich enough for arithmetic contains true statements it cannot prove.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/G%C3%B6del%27s_incompleteness_theorems",
-    "why": "The first hard limit on formal reasoning, and the opening move in a debate about machine minds that never closed.",
+    "why": "It limits what any one formal system can prove. Turing, in 1950, answered the objection that it and results like it show machines to be limited in a way people are not; J. R. Lucas argued in 1961 that it proves minds cannot be explained as machines.",
     "wikiTitle": "Gödel's incompleteness theorems",
     "people": [
       "kurt-godel",
       "david-hilbert"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Monatshefte für Mathematik und Physik (English translation by B. Meltzer; course copy, University of the Basque Country)",
+        "title": "On Formally Undecidable Propositions of Principia Mathematica and Related Systems (Kurt Gödel)",
+        "url": "https://gtts.ehu.es/German/Docencia/2021/MTBYC/pdf/Godel.pdf",
+        "date": "1962-01-01",
+        "quote": "Hence in every formal system that satisfies assumptions 1 and 2 and is ω-consistent, undecidable propositions exist of the form (x) F(x), where F is a recursively defined property of natural numbers",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Monatshefte für Mathematik und Physik (English translation of sections 1 and 2 by Martin Hirzel; translator's copy)",
+        "title": "On formally undecidable propositions of Principia Mathematica and related systems I (Kurt Gödel)",
+        "url": "https://hirzels.com/martin/papers/canon00-goedel.pdf",
+        "date": "2000-11-27",
+        "quote": "it immediately follows that Rq(q) is correct, since Rq(q) is in fact unprovable (because it is undecidable).",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Mind (transcription hosted by the University of Maryland, Baltimore County)",
+        "title": "Computing Machinery and Intelligence (A. M. Turing)",
+        "url": "https://redirect.cs.umbc.edu/courses/471/papers/turing.pdf",
+        "date": "1950-10-01",
+        "quote": "This is the mathematical result: it is argued that it proves a disability of machines to which the human intellect is not subject.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Philosophy (Cambridge University Press)",
+        "title": "Minds, Machines and Gödel (J. R. Lucas)",
+        "url": "https://www.cambridge.org/core/journals/philosophy/article/minds-machines-and-godel1/727219EDEB5DD3679E56CF3D335C90C1",
+        "date": "1961-04-01",
+        "quote": "seems to me to prove that Mechanism is false, that is, that minds cannot be explained as machines.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Proceedings of the London Mathematical Society (transcription hosted by the University of Oxford, Department of Computer Science)",
+        "title": "On Computable Numbers, with an Application to the Entscheidungsproblem (A. M. Turing)",
+        "url": "https://www.cs.ox.ac.uk/activities/ieg/e-library/sources/tp2-ie.pdf",
+        "date": "1936-12-23",
+        "quote": "what I shall prove is quite different from the well-known results of Gödel",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Proceedings of the London Mathematical Society (scan, University of Virginia)",
+        "title": "On Computable Numbers, with an Application to the Entscheidungsproblem (A. M. Turing)",
+        "url": "https://www.cs.virginia.edu/~robins/Turing_Paper_1936.pdf",
+        "date": "1936-12-23",
+        "quote": "then we should have an immediate solution of the Entscheidungsproblem.",
+        "supports": "claim"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Stanford Encyclopedia of Philosophy",
+        "title": "Gödel’s Incompleteness Theorems (Panu Raatikainen)",
+        "url": "https://plato.stanford.edu/entries/goedel-incompleteness/",
+        "date": "2025-10-08",
+        "quote": "Such a Gödelian argument against mechanism was considered, if only in order to refute it, already by Turing in the late 1940s",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Stanford Encyclopedia of Philosophy",
+        "title": "Kurt Gödel, supplement: Did the Incompleteness Theorems Refute Hilbert’s Program? (Juliette Kennedy)",
+        "url": "https://plato.stanford.edu/entries/goedel/incompleteness-hilbert.html",
+        "date": "2025-09-10",
+        "quote": "Gödel himself remarked that it was largely Turing’s work, in particular the “precise and unquestionably adequate definition of the notion of formal system” given in Turing 1937, which convinced him that his incompleteness theorems, being fully general, refuted the Hilbert program.",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Gödel's incompleteness theorems",
+        "url": "https://en.wikipedia.org/wiki/G%C3%B6del%27s_incompleteness_theorems",
+        "date": "2026-10-20",
+        "quote": "The resulting theorem (incorporating Rosser's improvement) may be paraphrased in English as follows, where \"formal system\" includes the assumption that the system is effectively generated.",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -270,12 +503,13 @@
   {
     "id": "switching-circuits-are-boolean-algebra",
     "year": 1937,
+    "date": "1937-08-10",
     "category": "research",
     "title": "Switching circuits are Boolean algebra",
-    "summary": "Claude Shannon's master's thesis shows electrical relays can compute logic.",
+    "summary": "Claude Shannon's master's thesis at MIT shows that Boolean algebra describes relay and switching circuits, so that a circuit can be analysed, or designed to order, by calculation.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/Claude_Shannon",
-    "why": "Thought becomes wiring — the bridge from mathematics to hardware.",
+    "why": "The analogy runs both ways: a circuit can be checked and simplified as algebra, and any operation that can be described in a finite number of steps with the words 'if', 'or' and 'and', Shannon writes, can be done automatically with relays. Others found the link independently in the Soviet Union and in Japan, Toma Kawanishi records, but Shannon's work overshadowed theirs.",
     "wikiTitle": "Claude Shannon",
     "people": [
       "claude-shannon"
@@ -283,6 +517,62 @@
     "orgs": [
       "mit",
       "bell-labs"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Transactions of the American Institute of Electrical Engineers, vol. 57 (course copy, Iowa State University)",
+        "title": "A Symbolic Analysis of Relay and Switching Circuits (Claude E. Shannon)",
+        "url": "https://home.engineering.iastate.edu/alexs/classes/2022_Fall_281/readings/Shannon_1938.pdf",
+        "date": "1938-12-01",
+        "quote": "Table 1. Analogue Between the Calculus of Propositions and the Symbolic Relay Analysis",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Massachusetts Institute of Technology, Department of Electrical Engineering (scan of the thesis; course copy, MIT Center for Bits and Atoms)",
+        "title": "A Symbolic Analysis of Relay and Switching Circuits, thesis for the degree of Master of Science (Claude Elwood Shannon)",
+        "url": "https://fab.cba.mit.edu/classes/862.16/notes/computation/Shannon-1937.pdf",
+        "date": "1937-08-10",
+        "quote": "Department of Electrical Engineering, August 10, 1937",
+        "supports": "claim"
+      },
+      {
+        "kind": "interview",
+        "publisher": "IEEE History Center (Engineering and Technology History Wiki)",
+        "title": "Oral-History: Claude E. Shannon (interview by Robert Price)",
+        "url": "https://ethw.org/Oral-History:Claude_E._Shannon",
+        "date": "1982-07-28",
+        "quote": "Thornton Fry came up to M.I.T. to see various people and talked to me, and offered me a summer job because of my work on switching.",
+        "supports": "context"
+      },
+      {
+        "kind": "paper",
+        "publisher": "Historia Scientiarum, History of Science Society of Japan (J-STAGE)",
+        "title": "Prehistory of Switching Theory in Japan: Akira Nakashima and His Relay-circuit Theory (Toma Kawanishi)",
+        "url": "https://www.jstage.jst.go.jp/article/historiascientiarum/29/1/29_136/_pdf",
+        "date": "2019-09-27",
+        "quote": "This pioneering research began independently in various countries, which shared similar situations, namely, United States (Claude Shannon)",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Claude Elwood Shannon: Collected Papers, IEEE Press (copy hosted by N. J. A. Sloane)",
+        "title": "Biography of Claude Elwood Shannon (N. J. A. Sloane and A. D. Wyner)",
+        "url": "https://neilsloane.com/doc/shannonbio.html",
+        "date": "1993-01-01",
+        "quote": "He developed these ideas during the summer of 1937, which he spent at Bell Telephone Laboratories in New York City, and, back at M.I.T., in his master's thesis, where he showed how Boolean algebra could be used in the analysis and synthesis of switching and computer circuits.",
+        "supports": "claim"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Claude Shannon",
+        "url": "https://en.wikipedia.org/wiki/Claude_Shannon",
+        "date": "2026-10-20",
+        "quote": "In 1937, he wrote his master's degree thesis, A Symbolic Analysis of Relay and Switching Circuits, with a paper from this thesis published in 1938.",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -290,10 +580,10 @@
     "year": 1943,
     "category": "research",
     "title": "The McCulloch–Pitts neuron",
-    "summary": "A brain cell is modelled as a logical threshold unit: the first claim that thinking might be computable.",
+    "summary": "Warren McCulloch and Walter Pitts treat nerve cells as all-or-none units with thresholds, show that their nets realise logical expressions, and argue that an organism can compute just what a Turing machine can.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/Artificial_neuron",
-    "why": "Everything called a neural network descends from this abstraction.",
+    "why": "The Nobel committee called it in 2024 a launch pad for later research into neural networks, biological and artificial.",
     "wikiTitle": "Artificial neuron",
     "figures": [
       {
@@ -306,18 +596,140 @@
     ],
     "terms": [
       "neural-network"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Bulletin of Mathematical Biophysics, vol. 5 (scan, California State University, Long Beach)",
+        "title": "A Logical Calculus of the Ideas Immanent in Nervous Activity (Warren S. McCulloch and Walter Pitts)",
+        "url": "https://home.csulb.edu/~cwallis/382/readings/482/mccolloch.logical.calculus.ideas.1943.pdf",
+        "date": "1943-12-01",
+        "quote": "It is found that the behavior of every net can be described in these terms, with the addition of more complicated logical means for nets containing circles; and that for any logical expression satisfying certain conditions, one can find a net behaving in the fashion it describes.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Bulletin of Mathematical Biology, vol. 52, 1990 reprint (course copy, Carnegie Mellon University)",
+        "title": "A Logical Calculus of the Ideas Immanent in Nervous Activity (Warren S. McCulloch and Walter Pitts)",
+        "url": "https://www.cs.cmu.edu/~epxing/Class/10715/reading/McCulloch.and.Pitts.pdf",
+        "date": "1943-12-01",
+        "quote": "This is of interest as affording a psychological justification of the Turing definition of computability and its equivalents",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "The Nobel Committee for Physics, Royal Swedish Academy of Sciences (nobelprize.org)",
+        "title": "Scientific Background to the Nobel Prize in Physics 2024 (The Nobel Committee for Physics)",
+        "url": "https://www.nobelprize.org/uploads/2024/11/advanced-physicsprize2024-3.pdf",
+        "date": "2024-10-08",
+        "quote": "In their model, a neuron formed a weighted sum of binary incoming signals from other neurons, which determined a binary outgoing signal. Their work became a launch pad for later research into both biological and artificial neural networks.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "Psychological Review, vol. 65 (course copy, University of Pennsylvania)",
+        "title": "The Perceptron: A Probabilistic Model for Information Storage and Organization in the Brain (F. Rosenblatt)",
+        "url": "https://www.ling.upenn.edu/courses/cogs501/Rosenblatt1958.pdf",
+        "date": "1958-11-01",
+        "quote": "in response to sequences of stimuli—e.g., Rashevsky (14), McCulloch (10), McCulloch & Pitts (11), Culbertson (2), Kleene (8), and Minsky (13).",
+        "supports": "context"
+      },
+      {
+        "kind": "paper",
+        "publisher": "Psychological Review, vol. 65 (copy hosted by the University of Illinois Chicago)",
+        "title": "The Perceptron: A Probabilistic Model for Information Storage and Organization in the Brain (F. Rosenblatt)",
+        "url": "https://homepages.math.uic.edu/~lreyzin/papers/rosenblatt58.pdf",
+        "date": "1958-11-01",
+        "quote": "has led the author to formulate the current model in terms of probability theory rather than symbolic logic",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Artificial neuron",
+        "url": "https://en.wikipedia.org/wiki/Artificial_neuron",
+        "date": "2026-10-20",
+        "quote": "The model was specifically targeted as a computational model of the \"nerve net\" in the brain.",
+        "supports": "context"
+      }
     ]
   },
   {
     "id": "the-stored-program-computer",
     "year": 1945,
+    "date": "1945-06-30",
     "category": "adjacent",
     "title": "The stored-program computer",
-    "summary": "Von Neumann's EDVAC report describes machines that hold instructions in the same memory as data.",
+    "summary": "Von Neumann's draft report on the EDVAC has the machine take its orders from the memory that holds its numbers. Eckert said von Neumann more or less claimed the team's work as his own; Goldstine credited von Neumann.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/Von_Neumann_architecture",
     "why": "Programs become data — the precondition for software that writes software.",
-    "wikiTitle": "Von Neumann architecture"
+    "wikiTitle": "Von Neumann architecture",
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Moore School of Electrical Engineering, University of Pennsylvania (edition corrected by Michael D. Godfrey; course copy, Australian National University)",
+        "title": "First Draft of a Report on the EDVAC (John von Neumann)",
+        "url": "https://comp.anu.edu.au/courses/comp2310-2020/Papers/1945/von%20Neumann/The%20First%20Draft%20Report%20on.pdf",
+        "date": "1945-06-30",
+        "quote": "The orders which are received by CC come from M, i.e. from the same place where the numerical material is stored.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Moore School of Electrical Engineering, University of Pennsylvania (scan of a mimeographed copy, Smithsonian Libraries, Internet Archive)",
+        "title": "First Draft of a Report on the EDVAC (John von Neumann)",
+        "url": "https://archive.org/download/firstdraftofrepo00vonn/firstdraftofrepo00vonn.pdf",
+        "date": "1945-06-30",
+        "quote": "it is nevertheless tempting to treat the entire memory as one organ",
+        "supports": "claim"
+      },
+      {
+        "kind": "interview",
+        "publisher": "Charles Babbage Institute, University of Minnesota (OH 13; University Digital Conservancy)",
+        "title": "An Interview with J. Presper Eckert (interview by Nancy Stern)",
+        "url": "https://conservancy.umn.edu/server/api/core/bitstreams/7de38347-6391-4c97-a1b5-725fe083187e/content",
+        "date": "1977-10-28",
+        "quote": "He grasped what we were doing quite quickly. I didn't know he was going to go out and more or less claim it as his own.",
+        "supports": "claim"
+      },
+      {
+        "kind": "interview",
+        "publisher": "Charles Babbage Institute, University of Minnesota (OH 18; University Digital Conservancy)",
+        "title": "An Interview with Herman Goldstine (interview by Nancy Stern)",
+        "url": "https://conservancy.umn.edu/server/api/core/bitstreams/e2e3f67c-47fa-4ea6-a201-49bc2b2b9175/content",
+        "date": "1980-08-11",
+        "quote": "In my mind von Neumann invented it, if you will--but how much of it he owed to Turing I can't tell",
+        "supports": "claim"
+      },
+      {
+        "kind": "interview",
+        "publisher": "Charles Babbage Institute, University of Minnesota (OH 38; University Digital Conservancy)",
+        "title": "An Interview with S. Reid Warren (interview by Nancy Stern)",
+        "url": "https://conservancy.umn.edu/server/api/core/bitstreams/65261f3b-7c6d-4bfa-a45b-2a33c7e82c9a/content",
+        "date": "1977-10-05",
+        "quote": "and then we heard that it had been sent to England and a number of other places... and at that point the lack of naming of people with different ideas became crucial.",
+        "supports": "context"
+      },
+      {
+        "kind": "paper",
+        "publisher": "The Nature of Computation, Springer LNCS 7921 (preprint hosted by the author, tomandmaria.com)",
+        "title": "'Stored Program Concept' Considered Harmful: History and Historiography (Thomas Haigh)",
+        "url": "https://www.tomandmaria.com/Tom/Writing/StoredProgramConsideredHarmfulPREPRINT.pdf",
+        "date": "2013-01-01",
+        "quote": "While the true balance of credit for the ideas contained in this document is widely and heatedly debated, its fundamental influence on the development of modern computing is not.",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Von Neumann architecture",
+        "url": "https://en.wikipedia.org/wiki/Von_Neumann_architecture",
+        "date": "2026-10-20",
+        "quote": "is a computer architecture based on the First Draft of a Report on the EDVAC, written by John von Neumann in 1945, describing designs by John Mauchly and J. Presper Eckert at the University of Pennsylvania's Moore School of Electrical Engineering.",
+        "supports": "context"
+      }
+    ]
   },
   {
     "id": "a-mathematical-theory-of-communication",
@@ -407,7 +819,7 @@
     "year": 1949,
     "category": "research",
     "title": "Hebbian learning",
-    "summary": "Neurons that fire together wire together — Donald Hebb gives learning a physical mechanism.",
+    "summary": "Donald Hebb postulates that when one nerve cell repeatedly takes part in firing another, some growth or metabolic change makes it better at doing so. The slogan “cells that fire together wire together” came in 1992.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/Hebbian_theory",
     "wikiTitle": "Hebbian theory",
@@ -416,6 +828,80 @@
     ],
     "terms": [
       "neural-network"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "John Wiley & Sons (scan, Digital Library of India, Internet Archive)",
+        "title": "The Organization of Behavior: A Neuropsychological Theory (D. O. Hebb)",
+        "url": "https://archive.org/stream/in.ernet.dli.2015.168156/2015.168156.The-Organization-Of-Behavior-A-Neuropsychological-Theory_djvu.txt",
+        "date": "1949-01-01",
+        "quote": "When an axon of cell A is near enough to excite a cell B and repeatedly or persistently takes part in firing it, some growth process or metabolic change takes place in one or both cells such that A’s efficiency, as one of the cells firing B, is increased.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "John Wiley & Sons (second scan, Digital Library of India, Internet Archive)",
+        "title": "The Organization of Behavior (D. O. Hebb)",
+        "url": "https://archive.org/stream/in.ernet.dli.2015.97836/2015.97836.The-Organization-Of-Behavior_djvu.txt",
+        "date": "1949-01-01",
+        "quote": "The general idea is an old one, that any two cells or systems of cells that are repeatedly active at the same time will tend to become",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "The Nobel Committee for Physics, Royal Swedish Academy of Sciences (nobelprize.org)",
+        "title": "Scientific Background to the Nobel Prize in Physics 2024 (The Nobel Committee for Physics)",
+        "url": "https://www.nobelprize.org/uploads/2024/11/advanced-physicsprize2024-3.pdf",
+        "date": "2024-10-08",
+        "quote": "In 1949, Hebb proposed a mechanism for learning and memories, where the simultaneous and repeated activation of two neurons leads to an increased strength of the synapse between them.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Scientific American",
+        "title": "The Developing Brain (Carla J. Shatz)",
+        "url": "https://www.scientificamerican.com/article/the-developing-brain/",
+        "date": "1992-09-01",
+        "quote": "This article was published with the title “The Developing Brain” in Scientific American Magazine Vol. 267 No. 3 (September 1992), p. 60",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Stanford Medicine magazine, Stanford University School of Medicine",
+        "title": "From the eye to the brain (Nathan Collins)",
+        "url": "https://stanmed.stanford.edu/2017summer/carla-shatz-vision-brain.html",
+        "date": "2017-08-21",
+        "quote": "Those results eventually led Shatz to coin what may be the best-known aphorism in neuroscience, “neurons that fire together wire together,” and its corollary, “out of sync, lose your link.”",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "University of Göttingen (Siegrid Löwel's faculty page)",
+        "title": "Löwel, Siegrid, Prof. Dr. – Systems Neuroscience",
+        "url": "https://uni-goettingen.de/en/201987.html",
+        "date": "2026-10-20",
+        "quote": "We were e.g. the first to demonstrate that the learning rule for the development of long-range cortical circuits is correlated activity: \"neurons wire together if they fire together\" (Löwel & Singer, 1992, Science 255: 209-212).",
+        "supports": "claim"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Carla J. Shatz",
+        "url": "https://en.wikipedia.org/wiki/Carla_J._Shatz",
+        "date": "2026-10-20",
+        "quote": "In a sense, then, cells that fire together wire together. The timing of action-potential activity is critical in determining which synaptic connections are strengthened and retained and which are weakened and eliminated.",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Hebbian theory",
+        "url": "https://en.wikipedia.org/wiki/Hebbian_theory",
+        "date": "2026-10-20",
+        "quote": "However, Hebb emphasized that cell A needs to \"take part in firing\" cell B, and such causality can occur only if cell A fires just before, not at the same time as, cell B.",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -505,20 +991,74 @@
     "id": "snarc-the-first-neural-net-machine",
     "year": 1951,
     "category": "product",
-    "title": "SNARC, the first neural net machine",
-    "summary": "Minsky and Edmonds wire 3,000 vacuum tubes into a machine that learns to run a maze.",
+    "title": "SNARC, a learning machine of forty neurons",
+    "summary": "Marvin Minsky and Dean Edmonds, graduate students at Princeton, build at Harvard a machine of about three hundred vacuum tubes in which a simulated rat learns its way through a maze.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/Marvin_Minsky",
+    "why": "Minsky's own biography calls it the first randomly wired neural-network learning machine; Jeremy Bernstein, who interviewed him in 1981, one of the first electronic learning machines, and perhaps the very first. The maze it learned was a copy of Claude Shannon's.",
     "wikiTitle": "Marvin Minsky",
     "people": [
       "marvin-minsky"
     ],
-    "orgs": [
-      "mit"
-    ],
     "terms": [
       "neural-network",
       "reinforcement-learning"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Marvin Minsky's home page, MIT Media Lab (copy hosted at web.mit.edu)",
+        "title": "Brief Academic Biography of Marvin Minsky",
+        "url": "https://web.mit.edu/dxh/www/marvin/web.media.mit.edu/~minsky/minskybiog.html",
+        "date": "2006-01-01",
+        "quote": "In 1951 he built the first randomly wired neural network learning machine (called SNARC, for Stochastic Neural-Analog Reinforcement Computer), based on reinforcing the synaptic connections that contributed to recent reactions.",
+        "supports": "claim"
+      },
+      {
+        "kind": "interview",
+        "publisher": "The New Yorker",
+        "title": "A.I. (Jeremy Bernstein)",
+        "url": "https://www.newyorker.com/magazine/1981/12/14/a-i",
+        "date": "1981-12-14",
+        "quote": "in the summer of 1951 Dean Edmonds and I went up to Harvard and built our machine. It had three hundred tubes and a lot of motors.",
+        "supports": "claim"
+      },
+      {
+        "kind": "interview",
+        "publisher": "Web of Stories (Marvin Minsky, interviewed by Christopher Sykes)",
+        "title": "Building my randomly wired neural network machine (Marvin Minsky)",
+        "url": "https://www.webofstories.com/play/53178",
+        "date": "2011-05-13",
+        "quote": "another graduate student at Princeton in physics named Dean Edmond... Edmonds, who was good at electronics",
+        "supports": "claim"
+      },
+      {
+        "kind": "interview",
+        "publisher": "Web of Stories (Marvin Minsky, interviewed by Christopher Sykes)",
+        "title": "Show and tell: My neural network machine (Marvin Minsky)",
+        "url": "https://www.webofstories.com/play/53179",
+        "date": "2011-05-13",
+        "quote": "So, I could make a simulated rat out of 40 of these. It had a big plug board and you just wire them all in random... this thing connected to that and so forth. And it could learn. It could learn and we built a maze which was a copy of a maze that Shannon had built.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "MIT Media Lab",
+        "title": "In memory: Marvin Minsky (Stacie Slotnick)",
+        "url": "https://www.media.mit.edu/posts/in-memory-marvin-minsky",
+        "date": "2017-01-20",
+        "quote": "In 1951 he built the SNARC, the first neural network simulator.",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Marvin Minsky",
+        "url": "https://en.wikipedia.org/wiki/Marvin_Minsky",
+        "date": "2026-10-20",
+        "quote": "In 1951, Minsky built SNARC, which is often considered the first artificial neural network.",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -717,16 +1257,16 @@
     "id": "the-perceptron",
     "year": 1957,
     "category": "research",
-    "title": "The Perceptron",
-    "summary": "Frank Rosenblatt builds a machine that learns from examples; the press predicts machines that walk and reproduce.",
+    "title": "The perceptron",
+    "summary": "Frank Rosenblatt proposes a machine that learns from examples. In July 1958 the Navy shows it as a simulation on an IBM 704, and a wire report says the Navy expects it to walk, talk and reproduce itself.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/Perceptron",
-    "why": "The first full hype cycle: overclaim, backlash, winter. It repeats roughly every fifteen years.",
+    "why": "A full hype cycle: an overclaim, a backlash, then a hiatus in funding for neural networks. The shape recurs on the board, at no fixed interval.",
     "wikiTitle": "Perceptron",
     "figures": [
       {
         "label": "Mark I Perceptron",
-        "value": "400 photocells, wired to weights turned by motors, 1958"
+        "value": "400 photocells, wired to weights turned by motors; first shown in public in June 1960"
       },
       {
         "label": "Funded by",
@@ -734,8 +1274,8 @@
       }
     ],
     "detail": [
-      "Rosenblatt's perceptron learned to sort simple images by adjusting weights whenever it was wrong. The Mark I, built at Cornell Aeronautical Laboratory for the Navy, had a grid of four hundred photocells and weights turned by electric motors. At its 1958 press conference the Navy said it expected the machine to walk, talk, see, write, reproduce itself and be conscious of its existence, and the newspapers printed it.",
-      "The board keeps the card for the shape: an overclaim, a backlash — the 1969 book — and a winter, repeating on roughly a fifteen-year cycle since. The machine itself was the ancestor of every network on the board; the press conference was the ancestor of every launch."
+      "Rosenblatt's perceptron learned to sort simple images by adjusting weights whenever it was wrong. The Mark I, built at Cornell Aeronautical Laboratory for the Navy, had a grid of four hundred photocells and weights turned by electric motors. At the Navy's press conference of July 1958, before the Mark I was built, the perceptron ran as a simulation on an IBM 704, and a United Press International report in The New York Times said the Navy expected the machine to walk, talk, see, write, reproduce itself and be conscious of its existence. Rosenblatt himself wrote that summer that a perceptron could in principle read print and script and respond to spoken commands, and later blamed the popular press, which he said fell to the task with the discretion of a pack of happy bloodhounds.",
+      "The board keeps the card for the shape: an overclaim, a backlash — the 1969 book — and a hiatus in funding for neural networks. The shape comes round again, at no fixed interval. The machine was an ancestor of the feedforward networks on the board, and the press conference an early model of its launches."
     ],
     "people": [
       "frank-rosenblatt"
@@ -743,6 +1283,98 @@
     "terms": [
       "perceptron",
       "neural-network"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Psychological Review, vol. 65, no. 6 (scan, University of Illinois Chicago)",
+        "title": "The perceptron: a probabilistic model for information storage and organization in the brain (F. Rosenblatt)",
+        "url": "https://homepages.math.uic.edu/~lreyzin/papers/rosenblatt58.pdf",
+        "date": "1958-11-01",
+        "quote": "The theory has been developed for a hypothetical nervous system, or machine, called a perceptron.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Research Trends, vol. 6, no. 2, Cornell Aeronautical Laboratory (scan, Internet Archive)",
+        "title": "The Design of an Intelligent Automaton (Frank Rosenblatt)",
+        "url": "https://archive.org/download/sim_research-trends_summer-1958_6_2/sim_research-trends_summer-1958_6_2_djvu.txt",
+        "date": "1958-06-01",
+        "quote": "In principle, the perceptron can not only read print and script, but can respond to verbal commands as well.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Cornell Aeronautical Laboratory, Report VG-1196-G-8 (scan, Defense Technical Information Center, Internet Archive)",
+        "title": "Principles of Neurodynamics: Perceptrons and the Theory of Brain Mechanisms (Frank Rosenblatt)",
+        "url": "https://archive.org/download/DTIC_AD0256582/DTIC_AD0256582_djvu.txt",
+        "date": "1961-03-15",
+        "quote": "Second, was the handling of the first public announcement of the program in 1958 by the popular press, which fell to the task with all of the exuberance and sense of discretion of a pack of happy bloodhounds.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Spartan Books (scan, Internet Archive)",
+        "title": "Principles of Neurodynamics: Perceptrons and the Theory of Brain Mechanisms, 1962 edition (Frank Rosenblatt)",
+        "url": "https://archive.org/download/principles-of-neurodynamics/Principles%20of%20neurodynamics_djvu.txt",
+        "date": "1962-01-01",
+        "quote": "The Mark I (Frontispiece) employs motor-driven potentiometers for integrators, and a large patch-panel for connections - both intolerable solutions for very large systems.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Research Trends, vol. 8, no. 1, Cornell Aeronautical Laboratory (scan, Internet Archive)",
+        "title": "Mark I Perceptron (John C. Hay and Charles W. Wightman)",
+        "url": "https://archive.org/download/sim_research-trends_spring-1960_8_1/sim_research-trends_spring-1960_8_1_djvu.txt",
+        "date": "1960-03-01",
+        "quote": "The sensory device is a 20x 20 square array of photo-resistive cells mounted in a phenolic base plate.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Office of Naval Research, Mathematical Sciences Division (scan, Defense Technical Information Center, Internet Archive)",
+        "title": "Digital Computer Newsletter, vol. 12, no. 3: Perceptron Mark I, Cornell Aeronautical Laboratory",
+        "url": "https://archive.org/download/DTIC_AD0694633/DTIC_AD0694633_djvu.txt",
+        "date": "1960-07-01",
+        "quote": "was demonstrated publicly for the first time in June at the Cornell Aeronautical Laboratory. The perceptron research program is under the sponsorship of the Information Systems Branch of the Office of Naval Research with the assistance of the Rome Air Development Center of the Air Research and Development Command.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "The New York Times (United Press International; Wayback Machine capture)",
+        "title": "New Navy Device Learns by Doing; Psychologist Shows Embryo of Computer Designed to Read and Grow Wiser",
+        "url": "https://web.archive.org/web/20251016122049/https://www.nytimes.com/1958/07/08/archives/new-navy-device-learns-by-doing-psychologist-shows-embryo-of.html",
+        "date": "1958-07-08",
+        "quote": "WASHINGTON, July 7 (UPI) -- The Navy revealed the embryo of an electronic computer today that it expects will be able to walk, talk, see, write, reproduce itself and be conscious of its existence.",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "Advances in Computers, vol. 37, Academic Press (copy hosted by gwern.net)",
+        "title": "A Sociological History of the Neural Network Controversy (Mikel Olazaran)",
+        "url": "https://gwern.net/doc/ai/nn/1993-olazaran.pdf",
+        "date": "1993-01-01",
+        "quote": "There, ONR announced its financial support for Rosenblatt’s project, and Rosenblatt made a demonstration of the capabilities of the perceptron simulating it on a digital computer.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "The Nobel Committee for Physics, Royal Swedish Academy of Sciences (nobelprize.org)",
+        "title": "Scientific Background to the Nobel Prize in Physics 2024 (The Nobel Committee for Physics)",
+        "url": "https://www.nobelprize.org/uploads/2024/11/advanced-physicsprize2024-3.pdf",
+        "date": "2024-10-08",
+        "quote": "In 1957, Frank Rosenblatt proposed a feedforward network for image interpretation, which was also implemented in computer hardware [3].",
+        "supports": "claim"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Perceptron",
+        "url": "https://en.wikipedia.org/wiki/Perceptron",
+        "date": "2026-10-20",
+        "quote": "Rosenblatt's team assembled and tested it at the Cornell Aeronautical Laboratory (CAL) in Buffalo, NY, USA between June 1959 and December 14, 1959.",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -750,7 +1382,7 @@
     "year": 1958,
     "category": "research",
     "title": "LISP",
-    "summary": "John McCarthy's language treats code as data and becomes the lingua franca of AI research for thirty years.",
+    "summary": "John McCarthy's list-processing language, implemented at MIT from 1958, writes its programs as lists, the data it computes with. By the mid-1980s, Guy Steele and Richard Gabriel write, it was the language of AI.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/Lisp_(programming_language)",
     "wikiTitle": "Lisp (programming language)",
@@ -762,14 +1394,71 @@
     ],
     "terms": [
       "symbolic-ai"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "Stanford University (John McCarthy's pages)",
+        "title": "History of Lisp: The implementation of LISP (John McCarthy)",
+        "url": "https://www-formal.stanford.edu/jmc/history/lisp/node3.html",
+        "date": "1979-02-12",
+        "quote": "Writing eval required inventing a notation representing LISP functions as LISP data, and such a notation was devised for the purposes of the paper with no thought that it would be used to express LISP programs in practice.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Stanford University (John McCarthy's pages)",
+        "title": "History of Lisp: Introduction (John McCarthy)",
+        "url": "https://www-formal.stanford.edu/jmc/history/lisp/node1.html",
+        "date": "1979-02-12",
+        "quote": "Fall 1958 through 1962 when the programming language was implemented and applied to problems of artificial intelligence.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Communications of the ACM, vol. 3, no. 4 (author's copy, Stanford University)",
+        "title": "Recursive Functions of Symbolic Expressions and Their Computation by Machine, Part I (John McCarthy)",
+        "url": "https://www-formal.stanford.edu/jmc/recursive.pdf",
+        "date": "1960-04-01",
+        "quote": "A programming system called LISP (for LISt Processor) has been developed for the IBM 704 computer by the Artificial Intelligence group at M.I.T.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Stanford University (John McCarthy's pages)",
+        "title": "History of Lisp: LISP prehistory, Summer 1956 through Summer 1958 (John McCarthy)",
+        "url": "https://www-formal.stanford.edu/jmc/history/lisp/node2.html",
+        "date": "1979-02-12",
+        "quote": "During this meeting, Newell, Shaw and Simon described IPL 2, a list processing language for Rand Corporation's JOHNNIAC computer in which they implemented their Logic Theorist program.",
+        "supports": "context"
+      },
+      {
+        "kind": "paper",
+        "publisher": "ACM SIGPLAN Notices, vol. 28, no. 3, HOPL-II (copy hosted by Richard P. Gabriel, dreamsongs.com)",
+        "title": "The Evolution of Lisp (Guy L. Steele Jr. and Richard P. Gabriel)",
+        "url": "https://www.dreamsongs.com/Files/Hopl2.pdf",
+        "date": "1993-03-01",
+        "quote": "AI was on the rise, and Lisp was the language of AI",
+        "supports": "claim"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Lisp (programming language)",
+        "url": "https://en.wikipedia.org/wiki/Lisp_(programming_language)",
+        "date": "2026-10-20",
+        "quote": "It quickly became a favored programming language for artificial intelligence (AI) research.",
+        "supports": "context"
+      }
     ]
   },
   {
     "id": "machine-learning-gets-its-name",
     "year": 1959,
+    "date": "1959-07",
     "category": "research",
-    "title": "“Machine learning” gets its name",
-    "summary": "Samuel coins the term for programs that improve without being explicitly told how.",
+    "title": "Samuel's studies in machine learning",
+    "summary": "Arthur Samuel writes up his checkers-playing program in the IBM Journal as a study in machine learning. IBM credits him with coining the term; it was in print by 1953.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/Machine_learning",
     "wikiTitle": "Machine learning",
@@ -781,6 +1470,71 @@
     ],
     "terms": [
       "machine-learning"
+    ],
+    "sources": [
+      {
+        "kind": "primary",
+        "publisher": "IBM Journal of Research and Development, vol. 3, no. 3 (scan, Yale University)",
+        "title": "Some Studies in Machine Learning Using the Game of Checkers (Arthur L. Samuel)",
+        "url": "https://zoo.cs.yale.edu/classes/cs458/lectures/Samuels.pdf",
+        "date": "1959-07-01",
+        "quote": "For some years the writer has devoted his spare time to the subject of machine learning and has concentrated on the development of learning procedures as applied to games.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "IBM",
+        "title": "The games that helped AI evolve",
+        "url": "https://www.ibm.com/history/early-games",
+        "date": "2025-11-10",
+        "quote": "Samuel called this process “machine learning,” a term he coined that remains central to artificial intelligence today.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Nature, vol. 175, no. 4455 (scan, Internet Archive)",
+        "title": "Automatic Digital Calculating Machines (A. C. Aitken), a review of Automatic Digital Calculators by Andrew D. Booth and Kathleen H. V. Booth (Butterworths, 1953)",
+        "url": "https://archive.org/stream/sim_nature-uk_1955-03-19_175_4455/sim_nature-uk_1955-03-19_175_4455_djvu.txt",
+        "date": "1955-03-19",
+        "quote": "Concluding sections deal with the “playing of games” by machines, and “machine learning and intelligence”.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Proceedings of the IRE, vol. 44, no. 11 (scan, Internet Archive)",
+        "title": "Review 5889: Automatic Digital Calculators, second revised edition, by A. D. Booth and K. H. V. Booth (Werner Buchholz)",
+        "url": "https://archive.org/stream/proceedings-of-the-institute-of-radio-engineers_1956-11_44_11/proceedings-of-the-institute-of-radio-engineers_1956-11_44_11_djvu.txt",
+        "date": "1956-11-01",
+        "quote": "Except for tidbits from the smorgasbord of games, machine learning, and language translation",
+        "supports": "claim"
+      },
+      {
+        "kind": "paper",
+        "publisher": "Encyclopedia of Computer Science and Technology, submitted version (copy hosted by the University of Washington)",
+        "title": "Genetic Programming (John R. Koza)",
+        "url": "https://faculty.washington.edu/seattle/GA-2008/Koza-GeneticProgramming.pdf",
+        "date": "1997-08-18",
+        "quote": "Paraphrasing Arthur Samuel (1959), the goal of automatic programming concerns, How can computers be made to do what needs to be done, without being told exactly how to do it?",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Merriam-Webster (Wayback Machine capture)",
+        "title": "machine learning",
+        "url": "https://web.archive.org/web/20261007001114/https://www.merriam-webster.com/dictionary/machine%20learning",
+        "date": "2026-10-07",
+        "quote": "The first known use of machine learning was in 1953",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Machine learning",
+        "url": "https://en.wikipedia.org/wiki/Machine_learning",
+        "date": "2026-10-20",
+        "quote": "The definition \"without being explicitly programmed\" is often attributed to Arthur Samuel, who coined the term \"machine learning\" in 1959, but the phrase is not found verbatim in this publication, and may be a paraphrase that appeared later.",
+        "supports": "context"
+      }
     ]
   },
   {
@@ -788,11 +1542,103 @@
     "year": 1961,
     "category": "adjacent",
     "title": "Unimate joins the assembly line",
-    "summary": "The first industrial robot starts work at a General Motors plant in New Jersey.",
+    "summary": "A Unimate arm, which the International Federation of Robotics calls the first industrial robot, starts work at a General Motors plant in New Jersey, taking hot metal parts from a die-casting machine.",
     "source": "Wikipedia",
     "url": "https://en.wikipedia.org/wiki/Unimate",
-    "why": "Automation of the body arrives sixty years before automation of the desk, and the labour debate rhymes.",
-    "wikiTitle": "Unimate"
+    "why": "Automation of the arm reaches the factory floor as the computer reaches the office desk, and the argument about jobs arrives with both. It rhymes with today's.",
+    "wikiTitle": "Unimate",
+    "sources": [
+      {
+        "kind": "interview",
+        "publisher": "The Trentonian, Capital Century series (capitalcentury.com)",
+        "title": "1961: A peep into the automated future (Paul Mickle, with Joseph F. Engelberger)",
+        "url": "https://www.capitalcentury.com/1961.html",
+        "date": "1999-01-01",
+        "quote": "The Unimate he installed in Ewing in 1961 took a few years to turn a profit, he added, and nobody at GM complained.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "Business Week, 25 February 1961, Readers Report (scan, Internet Archive)",
+        "title": "Robot at Work (N. I. Schafler, Consolidated Diesel Electric Corp.)",
+        "url": "https://archive.org/download/sim_business-week_1961-02-25_1643/sim_business-week_1961-02-25_1643_djvu.txt",
+        "date": "1961-02-25",
+        "quote": "the use of our robot as a general purpose factory tool for repetitive jobs",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "US Department of Labor, Bureau of Labor Statistics, Bulletin No. 1276 (copy hosted by FRASER, Federal Reserve Bank of St. Louis)",
+        "title": "Adjustments to the Introduction of Office Automation",
+        "url": "https://fraser.stlouisfed.org/files/docs/publications/bls/bls_1276_1960.pdf",
+        "date": "1960-05-01",
+        "quote": "In an attempt to find out what problems are involved and how they are being met, the Bureau of Labor Statistics undertook a study of 20 offices which had installed large-scale electronic computers for processing business data.",
+        "supports": "claim"
+      },
+      {
+        "kind": "primary",
+        "publisher": "US Patent Office (Google Patents)",
+        "title": "US 2,988,237: Programmed Article Transfer (George C. Devol Jr.)",
+        "url": "https://patents.google.com/patent/US2988237A/en",
+        "date": "1961-06-13",
+        "quote": "Universal automation, or Unimation, is a term that may well characterize the general object of the invention.",
+        "supports": "context"
+      },
+      {
+        "kind": "article",
+        "publisher": "American Machinist, 6 March 1961 (scan, Internet Archive)",
+        "title": "Robot comes to metalworking",
+        "url": "https://archive.org/stream/sim_american-machinist_1961-03-06_105_5/sim_american-machinist_1961-03-06_105_5_djvu.txt",
+        "date": "1961-03-06",
+        "quote": "The robot, called Unimate, has been designed to replace human labor in routine",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "International Federation of Robotics (ifr.org)",
+        "title": "History of industrial robots",
+        "url": "https://ifr.org/robot-history",
+        "date": "2026-10-20",
+        "quote": "Unimation installed the first industrial robot at GM",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "IEEE Spectrum, ROBOTS: Your Guide to the World of Robotics (robotsguide.com)",
+        "title": "Unimate",
+        "url": "https://robotsguide.com/robots/unimate",
+        "date": "2026-10-20",
+        "quote": "In 1961, they put the first Unimate into service at a General Motors plant in Ewing Township, N.J., where the robot extracted hot metal parts from a casting machine.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "The Henry Ford (Google Arts & Culture)",
+        "title": "Robot, First Unimate Robot Ever Installed on an Assembly Line, 1961",
+        "url": "https://artsandculture.google.com/asset/robot-first-unimate-robot-ever-installed-on-an-assembly-line-1961-devol-george-c-1912-2011/GQHHgKp0XejHeg",
+        "date": "2026-10-20",
+        "quote": "Unimate made the first successful industrial robots, and this is the first Unimate robot ever installed on an assembly line.",
+        "supports": "claim"
+      },
+      {
+        "kind": "article",
+        "publisher": "Assembly",
+        "title": "Happy 'Big 5-0' Robot! (Austin Weber)",
+        "url": "https://www.assemblymag.com/blogs/14-assembly-blog/post/89323-happy-big-5-0-robot",
+        "date": "2011-04-20",
+        "quote": "When it debuted at GM’s plant 50 years ago, the humble Unimate wasn’t the first robot to hit the market.",
+        "supports": "context"
+      },
+      {
+        "kind": "encyclopedia",
+        "publisher": "Wikipedia",
+        "title": "Unimate",
+        "url": "https://en.wikipedia.org/wiki/Unimate",
+        "date": "2026-10-20",
+        "quote": "Unimate was the first industrial robot, which worked on a General Motors assembly line at the Inland Fisher Guide Plant in Ewing Township, New Jersey, in 1961.",
+        "supports": "context"
+      }
+    ]
   },
   {
     "id": "menace-learns-from-matchboxes",

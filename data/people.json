@@ -8,7 +8,7 @@
         "Hilbert"
       ],
       "role": "Mathematician · Göttingen",
-      "bio": "Posed the twenty-three problems in 1900 that set the century's agenda and, in the 1920s, the programme — to put all of mathematics on a finite, checkable footing — that Gödel and Turing answered in the negative."
+      "bio": "Posed the twenty-three problems in 1900 that set the century's agenda and, in the 1920s, the programme — to put all of mathematics on a finite, checkable footing — that Gödel's theorems are generally taken to rule out, and whose decision problem Turing answered in the negative."
     },
     {
       "id": "kurt-godel",
@@ -18,7 +18,7 @@
         "Godel"
       ],
       "role": "Logician · Vienna, Princeton",
-      "bio": "Proved in 1931 that any consistent formal system rich enough for arithmetic contains true statements it cannot prove. The result is the fence around everything a machine can be asked to decide."
+      "bio": "Proved in 1931 that any consistent formal system rich enough for arithmetic contains true statements it cannot prove. The limit on what a machine can decide is Turing's, of 1936, which he called quite different from Gödel's results."
     },
     {
       "id": "alan-turing",
@@ -45,7 +45,7 @@
         "McCulloch"
       ],
       "role": "Neurophysiologist · Chicago, MIT",
-      "bio": "With Walter Pitts, modelled the nerve cell as a logic gate in 1943 — the first neural network on paper, and the reason the word 'neuron' survived into the deep-learning decade."
+      "bio": "With Walter Pitts, modelled the nerve cell as a logic gate in 1943 — a launch pad, the Nobel committee wrote in 2024, for later research into neural networks, biological and artificial."
     },
     {
       "id": "donald-hebb",
@@ -55,7 +55,7 @@
         "Hebbian"
       ],
       "role": "Psychologist · McGill",
-      "bio": "Proposed in 1949 that cells that fire together wire together. Every learning rule on the board, backpropagation included, is a formalisation of the idea."
+      "bio": "Proposed in 1949 that when one cell repeatedly helps to fire another, the link between them grows stronger; the slogan “cells that fire together wire together” came in 1992. Rumelhart, Hinton and McClelland wrote in 1986 that virtually all learning rules for networks like theirs, the delta rule among them, could be considered variants of his rule."
     },
     {
       "id": "john-mccarthy",
@@ -64,7 +64,7 @@
         "McCarthy"
       ],
       "role": "Computer scientist · Dartmouth, MIT, Stanford",
-      "bio": "Coined 'artificial intelligence' for the 1956 Dartmouth proposal and invented Lisp two years later. The field's name, and its first language, are his."
+      "bio": "Coined 'artificial intelligence' in the Dartmouth proposal of 1955 and invented Lisp in 1958. The field's name, and one of its first programming languages, are his."
     },
     {
       "id": "marvin-minsky",
@@ -82,7 +82,7 @@
         "Rosenblatt"
       ],
       "role": "Psychologist · Cornell",
-      "bio": "Proposed the perceptron in 1957 and showed it learning on an IBM 704 in 1958, when the Navy, which paid for it, said it expected a machine that would walk, talk and see. The promise was the first the field could not keep; the machine was the ancestor of every network since."
+      "bio": "Proposed the perceptron in 1957 and showed it learning on an IBM 704 in 1958, when the Navy, which paid for it, said it expected a machine that would walk, talk and see. The expectation ran far ahead of the machine; the machine itself was an ancestor of the feedforward networks that followed."
     },
     {
       "id": "herbert-simon",
@@ -107,7 +107,7 @@
         "Samuel"
       ],
       "role": "Engineer · IBM",
-      "bio": "Wrote a checkers program in 1952 and made it learn by 1955, partly by playing itself; in 1959 he gave the technique its name: machine learning."
+      "bio": "Wrote a checkers program in 1952 and made it learn by 1955, partly by playing itself; in 1959 he wrote it up as a study in machine learning, a name IBM credits to him that was already in print in 1953."
     },
     {
       "id": "joseph-weizenbaum",

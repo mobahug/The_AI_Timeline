@@ -7,12 +7,12 @@
   {
     "from": "the-mcculloch-pitts-neuron",
     "to": "the-perceptron",
-    "claim": "became the hardware of"
+    "claim": "was recast in probability theory by"
   },
   {
     "from": "dartmouth-names-the-field",
     "to": "the-perceptron",
-    "claim": "funded"
+    "claim": "named the field Rosenblatt kept apart from"
   },
   {
     "from": "the-perceptron",
@@ -952,12 +952,12 @@
   {
     "from": "godel-s-incompleteness-theorems",
     "to": "on-computable-numbers",
-    "claim": "set the limit Turing extended in"
+    "claim": "ruled out a quick answer to the problem settled in"
   },
   {
     "from": "switching-circuits-are-boolean-algebra",
     "to": "the-stored-program-computer",
-    "claim": "turned logic into the circuits of"
+    "claim": "gave circuit design an algebra before"
   },
   {
     "from": "the-stored-program-computer",
